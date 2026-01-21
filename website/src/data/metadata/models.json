@@ -1,0 +1,1221 @@
+{
+  "models": [
+    {
+      "id": "yolov8n",
+      "displayName": "YOLOv8-N",
+      "family": "yolov8",
+      "variant": "n",
+      "task": "detection",
+      "architecture": {
+        "type": "one-stage",
+        "backbone": "CSPDarknet",
+        "neck": "PAFPN",
+        "head": "Decoupled"
+      },
+      "specs": {
+        "paramsM": 3.2,
+        "flopsG": 8.7,
+        "inputSizeDefault": 640
+      },
+      "source": {
+        "provider": "LibreYOLO",
+        "repo": "Libre-YOLO/libreyolo",
+        "weightsUrl": "https://huggingface.co/Libre-YOLO/yolov8n",
+        "paperUrl": "https://arxiv.org/abs/2305.09972",
+        "codeUrl": "https://github.com/Libre-YOLO/libreyolo"
+      },
+      "license": "MIT",
+      "releaseDate": "2023-01-10",
+      "tags": [
+        "production-ready",
+        "real-time",
+        "edge-friendly"
+      ],
+      "notes": "Nano variant, best for edge deployment"
+    },
+    {
+      "id": "yolov8s",
+      "displayName": "YOLOv8-S",
+      "family": "yolov8",
+      "variant": "s",
+      "task": "detection",
+      "architecture": {
+        "type": "one-stage",
+        "backbone": "CSPDarknet",
+        "neck": "PAFPN",
+        "head": "Decoupled"
+      },
+      "specs": {
+        "paramsM": 11.2,
+        "flopsG": 28.6,
+        "inputSizeDefault": 640
+      },
+      "source": {
+        "provider": "LibreYOLO",
+        "repo": "Libre-YOLO/libreyolo",
+        "weightsUrl": "https://huggingface.co/Libre-YOLO/yolov8s",
+        "paperUrl": "https://arxiv.org/abs/2305.09972",
+        "codeUrl": "https://github.com/Libre-YOLO/libreyolo"
+      },
+      "license": "MIT",
+      "releaseDate": "2023-01-10",
+      "tags": [
+        "production-ready",
+        "balanced"
+      ]
+    },
+    {
+      "id": "yolov8m",
+      "displayName": "YOLOv8-M",
+      "family": "yolov8",
+      "variant": "m",
+      "task": "detection",
+      "architecture": {
+        "type": "one-stage",
+        "backbone": "CSPDarknet",
+        "neck": "PAFPN",
+        "head": "Decoupled"
+      },
+      "specs": {
+        "paramsM": 25.9,
+        "flopsG": 78.9,
+        "inputSizeDefault": 640
+      },
+      "source": {
+        "provider": "LibreYOLO",
+        "repo": "Libre-YOLO/libreyolo",
+        "weightsUrl": "https://huggingface.co/Libre-YOLO/yolov8m",
+        "paperUrl": "https://arxiv.org/abs/2305.09972",
+        "codeUrl": "https://github.com/Libre-YOLO/libreyolo"
+      },
+      "license": "MIT",
+      "releaseDate": "2023-01-10",
+      "tags": [
+        "production-ready",
+        "balanced"
+      ]
+    },
+    {
+      "id": "yolov8l",
+      "displayName": "YOLOv8-L",
+      "family": "yolov8",
+      "variant": "l",
+      "task": "detection",
+      "architecture": {
+        "type": "one-stage",
+        "backbone": "CSPDarknet",
+        "neck": "PAFPN",
+        "head": "Decoupled"
+      },
+      "specs": {
+        "paramsM": 43.7,
+        "flopsG": 165.2,
+        "inputSizeDefault": 640
+      },
+      "source": {
+        "provider": "LibreYOLO",
+        "repo": "Libre-YOLO/libreyolo",
+        "weightsUrl": "https://huggingface.co/Libre-YOLO/yolov8l",
+        "paperUrl": "https://arxiv.org/abs/2305.09972",
+        "codeUrl": "https://github.com/Libre-YOLO/libreyolo"
+      },
+      "license": "MIT",
+      "releaseDate": "2023-01-10",
+      "tags": [
+        "production-ready",
+        "high-accuracy"
+      ]
+    },
+    {
+      "id": "yolov8x",
+      "displayName": "YOLOv8-X",
+      "family": "yolov8",
+      "variant": "x",
+      "task": "detection",
+      "architecture": {
+        "type": "one-stage",
+        "backbone": "CSPDarknet",
+        "neck": "PAFPN",
+        "head": "Decoupled"
+      },
+      "specs": {
+        "paramsM": 68.2,
+        "flopsG": 257.8,
+        "inputSizeDefault": 640
+      },
+      "source": {
+        "provider": "LibreYOLO",
+        "repo": "Libre-YOLO/libreyolo",
+        "weightsUrl": "https://huggingface.co/Libre-YOLO/yolov8x",
+        "paperUrl": "https://arxiv.org/abs/2305.09972",
+        "codeUrl": "https://github.com/Libre-YOLO/libreyolo"
+      },
+      "license": "MIT",
+      "releaseDate": "2023-01-10",
+      "tags": [
+        "production-ready",
+        "highest-accuracy"
+      ],
+      "notes": "Largest YOLOv8 variant, best accuracy in the family"
+    },
+    {
+      "id": "yolov9t",
+      "displayName": "YOLOv9-T",
+      "family": "yolov9",
+      "variant": "t",
+      "task": "detection",
+      "architecture": {
+        "type": "one-stage",
+        "backbone": "GELAN",
+        "neck": "PGI",
+        "head": "Decoupled"
+      },
+      "specs": {
+        "paramsM": 2,
+        "flopsG": 7.7,
+        "inputSizeDefault": 640
+      },
+      "source": {
+        "provider": "LibreYOLO",
+        "repo": "Libre-YOLO/libreyolo",
+        "weightsUrl": "https://huggingface.co/Libre-YOLO/yolov9t",
+        "paperUrl": "https://arxiv.org/abs/2402.13616",
+        "codeUrl": "https://github.com/Libre-YOLO/libreyolo"
+      },
+      "license": "MIT",
+      "releaseDate": "2024-02-21",
+      "tags": [
+        "programmable-gradient",
+        "efficient"
+      ]
+    },
+    {
+      "id": "yolov9s",
+      "displayName": "YOLOv9-S",
+      "family": "yolov9",
+      "variant": "s",
+      "task": "detection",
+      "architecture": {
+        "type": "one-stage",
+        "backbone": "GELAN",
+        "neck": "PGI",
+        "head": "Decoupled"
+      },
+      "specs": {
+        "paramsM": 7.2,
+        "flopsG": 26.7,
+        "inputSizeDefault": 640
+      },
+      "source": {
+        "provider": "LibreYOLO",
+        "repo": "Libre-YOLO/libreyolo",
+        "weightsUrl": "https://huggingface.co/Libre-YOLO/yolov9s",
+        "paperUrl": "https://arxiv.org/abs/2402.13616",
+        "codeUrl": "https://github.com/Libre-YOLO/libreyolo"
+      },
+      "license": "MIT",
+      "releaseDate": "2024-02-21",
+      "tags": [
+        "programmable-gradient",
+        "efficient"
+      ]
+    },
+    {
+      "id": "yolov9m",
+      "displayName": "YOLOv9-M",
+      "family": "yolov9",
+      "variant": "m",
+      "task": "detection",
+      "architecture": {
+        "type": "one-stage",
+        "backbone": "GELAN",
+        "neck": "PGI",
+        "head": "Decoupled"
+      },
+      "specs": {
+        "paramsM": 20.1,
+        "flopsG": 76.8,
+        "inputSizeDefault": 640
+      },
+      "source": {
+        "provider": "LibreYOLO",
+        "repo": "Libre-YOLO/libreyolo",
+        "weightsUrl": "https://huggingface.co/Libre-YOLO/yolov9m",
+        "paperUrl": "https://arxiv.org/abs/2402.13616",
+        "codeUrl": "https://github.com/Libre-YOLO/libreyolo"
+      },
+      "license": "MIT",
+      "releaseDate": "2024-02-21",
+      "tags": [
+        "programmable-gradient",
+        "balanced"
+      ]
+    },
+    {
+      "id": "yolov9c",
+      "displayName": "YOLOv9-C",
+      "family": "yolov9",
+      "variant": "c",
+      "task": "detection",
+      "architecture": {
+        "type": "one-stage",
+        "backbone": "GELAN",
+        "neck": "PGI",
+        "head": "Decoupled"
+      },
+      "specs": {
+        "paramsM": 25.5,
+        "flopsG": 102.8,
+        "inputSizeDefault": 640
+      },
+      "source": {
+        "provider": "LibreYOLO",
+        "repo": "Libre-YOLO/libreyolo",
+        "weightsUrl": "https://huggingface.co/Libre-YOLO/yolov9c",
+        "paperUrl": "https://arxiv.org/abs/2402.13616",
+        "codeUrl": "https://github.com/Libre-YOLO/libreyolo"
+      },
+      "license": "MIT",
+      "releaseDate": "2024-02-21",
+      "tags": [
+        "programmable-gradient",
+        "high-accuracy"
+      ]
+    },
+    {
+      "id": "yolov9e",
+      "displayName": "YOLOv9-E",
+      "family": "yolov9",
+      "variant": "e",
+      "task": "detection",
+      "architecture": {
+        "type": "one-stage",
+        "backbone": "GELAN",
+        "neck": "PGI",
+        "head": "Decoupled"
+      },
+      "specs": {
+        "paramsM": 58.1,
+        "flopsG": 192.5,
+        "inputSizeDefault": 640
+      },
+      "source": {
+        "provider": "LibreYOLO",
+        "repo": "Libre-YOLO/libreyolo",
+        "weightsUrl": "https://huggingface.co/Libre-YOLO/yolov9e",
+        "paperUrl": "https://arxiv.org/abs/2402.13616",
+        "codeUrl": "https://github.com/Libre-YOLO/libreyolo"
+      },
+      "license": "MIT",
+      "releaseDate": "2024-02-21",
+      "tags": [
+        "programmable-gradient",
+        "highest-accuracy"
+      ],
+      "notes": "Highest accuracy YOLOv9 variant"
+    },
+    {
+      "id": "yolov10n",
+      "displayName": "YOLOv10-N",
+      "family": "yolov10",
+      "variant": "n",
+      "task": "detection",
+      "architecture": {
+        "type": "one-stage",
+        "backbone": "CSPDarknet",
+        "neck": "PAFPN",
+        "head": "NMS-Free"
+      },
+      "specs": {
+        "paramsM": 2.3,
+        "flopsG": 6.7,
+        "inputSizeDefault": 640
+      },
+      "source": {
+        "provider": "LibreYOLO",
+        "repo": "Libre-YOLO/libreyolo",
+        "weightsUrl": "https://huggingface.co/Libre-YOLO/yolov10n",
+        "paperUrl": "https://arxiv.org/abs/2405.14458",
+        "codeUrl": "https://github.com/Libre-YOLO/libreyolo"
+      },
+      "license": "MIT",
+      "releaseDate": "2024-05-23",
+      "tags": [
+        "nms-free",
+        "real-time",
+        "edge-friendly"
+      ],
+      "notes": "No NMS required - fastest end-to-end"
+    },
+    {
+      "id": "yolov10s",
+      "displayName": "YOLOv10-S",
+      "family": "yolov10",
+      "variant": "s",
+      "task": "detection",
+      "architecture": {
+        "type": "one-stage",
+        "backbone": "CSPDarknet",
+        "neck": "PAFPN",
+        "head": "NMS-Free"
+      },
+      "specs": {
+        "paramsM": 7.2,
+        "flopsG": 21.6,
+        "inputSizeDefault": 640
+      },
+      "source": {
+        "provider": "LibreYOLO",
+        "repo": "Libre-YOLO/libreyolo",
+        "weightsUrl": "https://huggingface.co/Libre-YOLO/yolov10s",
+        "paperUrl": "https://arxiv.org/abs/2405.14458",
+        "codeUrl": "https://github.com/Libre-YOLO/libreyolo"
+      },
+      "license": "MIT",
+      "releaseDate": "2024-05-23",
+      "tags": [
+        "nms-free",
+        "balanced"
+      ]
+    },
+    {
+      "id": "yolov10m",
+      "displayName": "YOLOv10-M",
+      "family": "yolov10",
+      "variant": "m",
+      "task": "detection",
+      "architecture": {
+        "type": "one-stage",
+        "backbone": "CSPDarknet",
+        "neck": "PAFPN",
+        "head": "NMS-Free"
+      },
+      "specs": {
+        "paramsM": 15.4,
+        "flopsG": 59.1,
+        "inputSizeDefault": 640
+      },
+      "source": {
+        "provider": "LibreYOLO",
+        "repo": "Libre-YOLO/libreyolo",
+        "weightsUrl": "https://huggingface.co/Libre-YOLO/yolov10m",
+        "paperUrl": "https://arxiv.org/abs/2405.14458",
+        "codeUrl": "https://github.com/Libre-YOLO/libreyolo"
+      },
+      "license": "MIT",
+      "releaseDate": "2024-05-23",
+      "tags": [
+        "nms-free",
+        "balanced"
+      ]
+    },
+    {
+      "id": "yolov10b",
+      "displayName": "YOLOv10-B",
+      "family": "yolov10",
+      "variant": "b",
+      "task": "detection",
+      "architecture": {
+        "type": "one-stage",
+        "backbone": "CSPDarknet",
+        "neck": "PAFPN",
+        "head": "NMS-Free"
+      },
+      "specs": {
+        "paramsM": 19.1,
+        "flopsG": 92,
+        "inputSizeDefault": 640
+      },
+      "source": {
+        "provider": "LibreYOLO",
+        "repo": "Libre-YOLO/libreyolo",
+        "weightsUrl": "https://huggingface.co/Libre-YOLO/yolov10b",
+        "paperUrl": "https://arxiv.org/abs/2405.14458",
+        "codeUrl": "https://github.com/Libre-YOLO/libreyolo"
+      },
+      "license": "MIT",
+      "releaseDate": "2024-05-23",
+      "tags": [
+        "nms-free",
+        "high-accuracy"
+      ]
+    },
+    {
+      "id": "yolov10l",
+      "displayName": "YOLOv10-L",
+      "family": "yolov10",
+      "variant": "l",
+      "task": "detection",
+      "architecture": {
+        "type": "one-stage",
+        "backbone": "CSPDarknet",
+        "neck": "PAFPN",
+        "head": "NMS-Free"
+      },
+      "specs": {
+        "paramsM": 24.4,
+        "flopsG": 120.3,
+        "inputSizeDefault": 640
+      },
+      "source": {
+        "provider": "LibreYOLO",
+        "repo": "Libre-YOLO/libreyolo",
+        "weightsUrl": "https://huggingface.co/Libre-YOLO/yolov10l",
+        "paperUrl": "https://arxiv.org/abs/2405.14458",
+        "codeUrl": "https://github.com/Libre-YOLO/libreyolo"
+      },
+      "license": "MIT",
+      "releaseDate": "2024-05-23",
+      "tags": [
+        "nms-free",
+        "high-accuracy"
+      ]
+    },
+    {
+      "id": "yolov10x",
+      "displayName": "YOLOv10-X",
+      "family": "yolov10",
+      "variant": "x",
+      "task": "detection",
+      "architecture": {
+        "type": "one-stage",
+        "backbone": "CSPDarknet",
+        "neck": "PAFPN",
+        "head": "NMS-Free"
+      },
+      "specs": {
+        "paramsM": 29.5,
+        "flopsG": 160.4,
+        "inputSizeDefault": 640
+      },
+      "source": {
+        "provider": "LibreYOLO",
+        "repo": "Libre-YOLO/libreyolo",
+        "weightsUrl": "https://huggingface.co/Libre-YOLO/yolov10x",
+        "paperUrl": "https://arxiv.org/abs/2405.14458",
+        "codeUrl": "https://github.com/Libre-YOLO/libreyolo"
+      },
+      "license": "MIT",
+      "releaseDate": "2024-05-23",
+      "tags": [
+        "nms-free",
+        "highest-accuracy"
+      ],
+      "notes": "Best accuracy-speed tradeoff due to NMS-free design"
+    },
+    {
+      "id": "yolov11n",
+      "displayName": "YOLOv11-N",
+      "family": "yolov11",
+      "variant": "n",
+      "task": "detection",
+      "architecture": {
+        "type": "one-stage",
+        "backbone": "C3K2",
+        "neck": "SPPF",
+        "head": "Decoupled"
+      },
+      "specs": {
+        "paramsM": 2.6,
+        "flopsG": 6.5,
+        "inputSizeDefault": 640
+      },
+      "source": {
+        "provider": "LibreYOLO",
+        "repo": "Libre-YOLO/libreyolo",
+        "weightsUrl": "https://huggingface.co/Libre-YOLO/yolov11n",
+        "codeUrl": "https://github.com/Libre-YOLO/libreyolo"
+      },
+      "license": "MIT",
+      "releaseDate": "2024-09-30",
+      "tags": [
+        "latest",
+        "efficient"
+      ]
+    },
+    {
+      "id": "yolov11s",
+      "displayName": "YOLOv11-S",
+      "family": "yolov11",
+      "variant": "s",
+      "task": "detection",
+      "architecture": {
+        "type": "one-stage",
+        "backbone": "C3K2",
+        "neck": "SPPF",
+        "head": "Decoupled"
+      },
+      "specs": {
+        "paramsM": 9.4,
+        "flopsG": 21.5,
+        "inputSizeDefault": 640
+      },
+      "source": {
+        "provider": "LibreYOLO",
+        "repo": "Libre-YOLO/libreyolo",
+        "weightsUrl": "https://huggingface.co/Libre-YOLO/yolov11s",
+        "codeUrl": "https://github.com/Libre-YOLO/libreyolo"
+      },
+      "license": "MIT",
+      "releaseDate": "2024-09-30",
+      "tags": [
+        "latest",
+        "balanced"
+      ]
+    },
+    {
+      "id": "yolov11m",
+      "displayName": "YOLOv11-M",
+      "family": "yolov11",
+      "variant": "m",
+      "task": "detection",
+      "architecture": {
+        "type": "one-stage",
+        "backbone": "C3K2",
+        "neck": "SPPF",
+        "head": "Decoupled"
+      },
+      "specs": {
+        "paramsM": 20.1,
+        "flopsG": 68,
+        "inputSizeDefault": 640
+      },
+      "source": {
+        "provider": "LibreYOLO",
+        "repo": "Libre-YOLO/libreyolo",
+        "weightsUrl": "https://huggingface.co/Libre-YOLO/yolov11m",
+        "codeUrl": "https://github.com/Libre-YOLO/libreyolo"
+      },
+      "license": "MIT",
+      "releaseDate": "2024-09-30",
+      "tags": [
+        "latest",
+        "balanced"
+      ]
+    },
+    {
+      "id": "yolov11l",
+      "displayName": "YOLOv11-L",
+      "family": "yolov11",
+      "variant": "l",
+      "task": "detection",
+      "architecture": {
+        "type": "one-stage",
+        "backbone": "C3K2",
+        "neck": "SPPF",
+        "head": "Decoupled"
+      },
+      "specs": {
+        "paramsM": 25.3,
+        "flopsG": 87,
+        "inputSizeDefault": 640
+      },
+      "source": {
+        "provider": "LibreYOLO",
+        "repo": "Libre-YOLO/libreyolo",
+        "weightsUrl": "https://huggingface.co/Libre-YOLO/yolov11l",
+        "codeUrl": "https://github.com/Libre-YOLO/libreyolo"
+      },
+      "license": "MIT",
+      "releaseDate": "2024-09-30",
+      "tags": [
+        "latest",
+        "high-accuracy"
+      ]
+    },
+    {
+      "id": "yolov11x",
+      "displayName": "YOLOv11-X",
+      "family": "yolov11",
+      "variant": "x",
+      "task": "detection",
+      "architecture": {
+        "type": "one-stage",
+        "backbone": "C3K2",
+        "neck": "SPPF",
+        "head": "Decoupled"
+      },
+      "specs": {
+        "paramsM": 56.9,
+        "flopsG": 195,
+        "inputSizeDefault": 640
+      },
+      "source": {
+        "provider": "LibreYOLO",
+        "repo": "Libre-YOLO/libreyolo",
+        "weightsUrl": "https://huggingface.co/Libre-YOLO/yolov11x",
+        "codeUrl": "https://github.com/Libre-YOLO/libreyolo"
+      },
+      "license": "MIT",
+      "releaseDate": "2024-09-30",
+      "tags": [
+        "latest",
+        "highest-accuracy"
+      ]
+    },
+    {
+      "id": "yolo-nas-s",
+      "displayName": "YOLO-NAS-S",
+      "family": "yolo-nas",
+      "variant": "s",
+      "task": "detection",
+      "architecture": {
+        "type": "one-stage",
+        "backbone": "NAS-Optimized",
+        "neck": "QSP",
+        "head": "Decoupled"
+      },
+      "specs": {
+        "paramsM": 12.2,
+        "flopsG": 32.8,
+        "inputSizeDefault": 640
+      },
+      "source": {
+        "provider": "LibreYOLO",
+        "repo": "Libre-YOLO/libreyolo",
+        "weightsUrl": "https://huggingface.co/Libre-YOLO/yolo-nas-s",
+        "paperUrl": "https://arxiv.org/abs/2302.06349",
+        "codeUrl": "https://github.com/Libre-YOLO/libreyolo"
+      },
+      "license": "Apache-2.0",
+      "releaseDate": "2023-05-10",
+      "tags": [
+        "nas-optimized",
+        "efficient"
+      ],
+      "notes": "Neural Architecture Search designed by Deci AI"
+    },
+    {
+      "id": "yolo-nas-m",
+      "displayName": "YOLO-NAS-M",
+      "family": "yolo-nas",
+      "variant": "m",
+      "task": "detection",
+      "architecture": {
+        "type": "one-stage",
+        "backbone": "NAS-Optimized",
+        "neck": "QSP",
+        "head": "Decoupled"
+      },
+      "specs": {
+        "paramsM": 31.9,
+        "flopsG": 87.5,
+        "inputSizeDefault": 640
+      },
+      "source": {
+        "provider": "LibreYOLO",
+        "repo": "Libre-YOLO/libreyolo",
+        "weightsUrl": "https://huggingface.co/Libre-YOLO/yolo-nas-m",
+        "paperUrl": "https://arxiv.org/abs/2302.06349",
+        "codeUrl": "https://github.com/Libre-YOLO/libreyolo"
+      },
+      "license": "Apache-2.0",
+      "releaseDate": "2023-05-10",
+      "tags": [
+        "nas-optimized",
+        "balanced"
+      ]
+    },
+    {
+      "id": "yolo-nas-l",
+      "displayName": "YOLO-NAS-L",
+      "family": "yolo-nas",
+      "variant": "l",
+      "task": "detection",
+      "architecture": {
+        "type": "one-stage",
+        "backbone": "NAS-Optimized",
+        "neck": "QSP",
+        "head": "Decoupled"
+      },
+      "specs": {
+        "paramsM": 44.5,
+        "flopsG": 121.2,
+        "inputSizeDefault": 640
+      },
+      "source": {
+        "provider": "LibreYOLO",
+        "repo": "Libre-YOLO/libreyolo",
+        "weightsUrl": "https://huggingface.co/Libre-YOLO/yolo-nas-l",
+        "paperUrl": "https://arxiv.org/abs/2302.06349",
+        "codeUrl": "https://github.com/Libre-YOLO/libreyolo"
+      },
+      "license": "Apache-2.0",
+      "releaseDate": "2023-05-10",
+      "tags": [
+        "nas-optimized",
+        "high-accuracy"
+      ]
+    },
+    {
+      "id": "rtdetr-r18",
+      "displayName": "RT-DETR-R18",
+      "family": "rtdetr",
+      "variant": "r18",
+      "task": "detection",
+      "architecture": {
+        "type": "transformer",
+        "backbone": "ResNet-18",
+        "neck": "HybridEncoder",
+        "head": "DETR"
+      },
+      "specs": {
+        "paramsM": 20,
+        "flopsG": 60,
+        "inputSizeDefault": 640
+      },
+      "source": {
+        "provider": "LibreYOLO",
+        "repo": "Libre-YOLO/libreyolo",
+        "weightsUrl": "https://huggingface.co/Libre-YOLO/rtdetr-r18",
+        "paperUrl": "https://arxiv.org/abs/2304.08069",
+        "codeUrl": "https://github.com/Libre-YOLO/libreyolo"
+      },
+      "license": "Apache-2.0",
+      "releaseDate": "2023-04-17",
+      "tags": [
+        "transformer",
+        "no-nms"
+      ],
+      "notes": "First real-time DETR, no NMS required"
+    },
+    {
+      "id": "rtdetr-r34",
+      "displayName": "RT-DETR-R34",
+      "family": "rtdetr",
+      "variant": "r34",
+      "task": "detection",
+      "architecture": {
+        "type": "transformer",
+        "backbone": "ResNet-34",
+        "neck": "HybridEncoder",
+        "head": "DETR"
+      },
+      "specs": {
+        "paramsM": 31,
+        "flopsG": 92,
+        "inputSizeDefault": 640
+      },
+      "source": {
+        "provider": "LibreYOLO",
+        "repo": "Libre-YOLO/libreyolo",
+        "weightsUrl": "https://huggingface.co/Libre-YOLO/rtdetr-r34",
+        "paperUrl": "https://arxiv.org/abs/2304.08069",
+        "codeUrl": "https://github.com/Libre-YOLO/libreyolo"
+      },
+      "license": "Apache-2.0",
+      "releaseDate": "2023-04-17",
+      "tags": [
+        "transformer",
+        "no-nms"
+      ]
+    },
+    {
+      "id": "rtdetr-r50",
+      "displayName": "RT-DETR-R50",
+      "family": "rtdetr",
+      "variant": "r50",
+      "task": "detection",
+      "architecture": {
+        "type": "transformer",
+        "backbone": "ResNet-50",
+        "neck": "HybridEncoder",
+        "head": "DETR"
+      },
+      "specs": {
+        "paramsM": 42,
+        "flopsG": 136,
+        "inputSizeDefault": 640
+      },
+      "source": {
+        "provider": "LibreYOLO",
+        "repo": "Libre-YOLO/libreyolo",
+        "weightsUrl": "https://huggingface.co/Libre-YOLO/rtdetr-r50",
+        "paperUrl": "https://arxiv.org/abs/2304.08069",
+        "codeUrl": "https://github.com/Libre-YOLO/libreyolo"
+      },
+      "license": "Apache-2.0",
+      "releaseDate": "2023-04-17",
+      "tags": [
+        "transformer",
+        "no-nms",
+        "high-accuracy"
+      ]
+    },
+    {
+      "id": "rtdetr-r101",
+      "displayName": "RT-DETR-R101",
+      "family": "rtdetr",
+      "variant": "r101",
+      "task": "detection",
+      "architecture": {
+        "type": "transformer",
+        "backbone": "ResNet-101",
+        "neck": "HybridEncoder",
+        "head": "DETR"
+      },
+      "specs": {
+        "paramsM": 76,
+        "flopsG": 259,
+        "inputSizeDefault": 640
+      },
+      "source": {
+        "provider": "LibreYOLO",
+        "repo": "Libre-YOLO/libreyolo",
+        "weightsUrl": "https://huggingface.co/Libre-YOLO/rtdetr-r101",
+        "paperUrl": "https://arxiv.org/abs/2304.08069",
+        "codeUrl": "https://github.com/Libre-YOLO/libreyolo"
+      },
+      "license": "Apache-2.0",
+      "releaseDate": "2023-04-17",
+      "tags": [
+        "transformer",
+        "no-nms",
+        "highest-accuracy"
+      ]
+    },
+    {
+      "id": "rtdetr-l",
+      "displayName": "RT-DETR-L",
+      "family": "rtdetr",
+      "variant": "l",
+      "task": "detection",
+      "architecture": {
+        "type": "transformer",
+        "backbone": "HGNetv2",
+        "neck": "HybridEncoder",
+        "head": "DETR"
+      },
+      "specs": {
+        "paramsM": 32,
+        "flopsG": 110,
+        "inputSizeDefault": 640
+      },
+      "source": {
+        "provider": "LibreYOLO",
+        "repo": "Libre-YOLO/libreyolo",
+        "weightsUrl": "https://huggingface.co/Libre-YOLO/rtdetr-l",
+        "paperUrl": "https://arxiv.org/abs/2304.08069",
+        "codeUrl": "https://github.com/Libre-YOLO/libreyolo"
+      },
+      "license": "Apache-2.0",
+      "releaseDate": "2023-04-17",
+      "tags": [
+        "transformer",
+        "no-nms",
+        "efficient"
+      ]
+    },
+    {
+      "id": "rtdetr-x",
+      "displayName": "RT-DETR-X",
+      "family": "rtdetr",
+      "variant": "x",
+      "task": "detection",
+      "architecture": {
+        "type": "transformer",
+        "backbone": "HGNetv2",
+        "neck": "HybridEncoder",
+        "head": "DETR"
+      },
+      "specs": {
+        "paramsM": 67,
+        "flopsG": 234,
+        "inputSizeDefault": 640
+      },
+      "source": {
+        "provider": "LibreYOLO",
+        "repo": "Libre-YOLO/libreyolo",
+        "weightsUrl": "https://huggingface.co/Libre-YOLO/rtdetr-x",
+        "paperUrl": "https://arxiv.org/abs/2304.08069",
+        "codeUrl": "https://github.com/Libre-YOLO/libreyolo"
+      },
+      "license": "Apache-2.0",
+      "releaseDate": "2023-04-17",
+      "tags": [
+        "transformer",
+        "no-nms",
+        "highest-accuracy"
+      ],
+      "notes": "Often achieves highest mAP among real-time detectors"
+    },
+    {
+      "id": "yolox-nano",
+      "displayName": "YOLOX-Nano",
+      "family": "yolox",
+      "variant": "nano",
+      "task": "detection",
+      "architecture": {
+        "type": "one-stage",
+        "backbone": "CSPDarknet",
+        "neck": "PAFPN",
+        "head": "Decoupled"
+      },
+      "specs": {
+        "paramsM": 0.9,
+        "flopsG": 1.1,
+        "inputSizeDefault": 640
+      },
+      "source": {
+        "provider": "LibreYOLO",
+        "repo": "Libre-YOLO/libreyolo",
+        "weightsUrl": "https://huggingface.co/Libre-YOLO/yolox-nano",
+        "paperUrl": "https://arxiv.org/abs/2107.08430",
+        "codeUrl": "https://github.com/Libre-YOLO/libreyolo"
+      },
+      "license": "Apache-2.0",
+      "releaseDate": "2021-07-18",
+      "tags": [
+        "ultra-lightweight",
+        "edge"
+      ]
+    },
+    {
+      "id": "yolox-tiny",
+      "displayName": "YOLOX-Tiny",
+      "family": "yolox",
+      "variant": "tiny",
+      "task": "detection",
+      "architecture": {
+        "type": "one-stage",
+        "backbone": "CSPDarknet",
+        "neck": "PAFPN",
+        "head": "Decoupled"
+      },
+      "specs": {
+        "paramsM": 5.1,
+        "flopsG": 6.5,
+        "inputSizeDefault": 640
+      },
+      "source": {
+        "provider": "LibreYOLO",
+        "repo": "Libre-YOLO/libreyolo",
+        "weightsUrl": "https://huggingface.co/Libre-YOLO/yolox-tiny",
+        "paperUrl": "https://arxiv.org/abs/2107.08430",
+        "codeUrl": "https://github.com/Libre-YOLO/libreyolo"
+      },
+      "license": "Apache-2.0",
+      "releaseDate": "2021-07-18",
+      "tags": [
+        "lightweight",
+        "edge"
+      ]
+    },
+    {
+      "id": "yolox-s",
+      "displayName": "YOLOX-S",
+      "family": "yolox",
+      "variant": "s",
+      "task": "detection",
+      "architecture": {
+        "type": "one-stage",
+        "backbone": "CSPDarknet",
+        "neck": "PAFPN",
+        "head": "Decoupled"
+      },
+      "specs": {
+        "paramsM": 9,
+        "flopsG": 26.8,
+        "inputSizeDefault": 640
+      },
+      "source": {
+        "provider": "LibreYOLO",
+        "repo": "Libre-YOLO/libreyolo",
+        "weightsUrl": "https://huggingface.co/Libre-YOLO/yolox-s",
+        "paperUrl": "https://arxiv.org/abs/2107.08430",
+        "codeUrl": "https://github.com/Libre-YOLO/libreyolo"
+      },
+      "license": "Apache-2.0",
+      "releaseDate": "2021-07-18",
+      "tags": [
+        "balanced",
+        "megvii"
+      ]
+    },
+    {
+      "id": "yolox-m",
+      "displayName": "YOLOX-M",
+      "family": "yolox",
+      "variant": "m",
+      "task": "detection",
+      "architecture": {
+        "type": "one-stage",
+        "backbone": "CSPDarknet",
+        "neck": "PAFPN",
+        "head": "Decoupled"
+      },
+      "specs": {
+        "paramsM": 25.3,
+        "flopsG": 73.8,
+        "inputSizeDefault": 640
+      },
+      "source": {
+        "provider": "LibreYOLO",
+        "repo": "Libre-YOLO/libreyolo",
+        "weightsUrl": "https://huggingface.co/Libre-YOLO/yolox-m",
+        "paperUrl": "https://arxiv.org/abs/2107.08430",
+        "codeUrl": "https://github.com/Libre-YOLO/libreyolo"
+      },
+      "license": "Apache-2.0",
+      "releaseDate": "2021-07-18",
+      "tags": [
+        "balanced",
+        "megvii"
+      ]
+    },
+    {
+      "id": "yolox-l",
+      "displayName": "YOLOX-L",
+      "family": "yolox",
+      "variant": "l",
+      "task": "detection",
+      "architecture": {
+        "type": "one-stage",
+        "backbone": "CSPDarknet",
+        "neck": "PAFPN",
+        "head": "Decoupled"
+      },
+      "specs": {
+        "paramsM": 54.2,
+        "flopsG": 155.6,
+        "inputSizeDefault": 640
+      },
+      "source": {
+        "provider": "LibreYOLO",
+        "repo": "Libre-YOLO/libreyolo",
+        "weightsUrl": "https://huggingface.co/Libre-YOLO/yolox-l",
+        "paperUrl": "https://arxiv.org/abs/2107.08430",
+        "codeUrl": "https://github.com/Libre-YOLO/libreyolo"
+      },
+      "license": "Apache-2.0",
+      "releaseDate": "2021-07-18",
+      "tags": [
+        "high-accuracy",
+        "megvii"
+      ]
+    },
+    {
+      "id": "yolox-x",
+      "displayName": "YOLOX-X",
+      "family": "yolox",
+      "variant": "x",
+      "task": "detection",
+      "architecture": {
+        "type": "one-stage",
+        "backbone": "CSPDarknet",
+        "neck": "PAFPN",
+        "head": "Decoupled"
+      },
+      "specs": {
+        "paramsM": 99.1,
+        "flopsG": 281.9,
+        "inputSizeDefault": 640
+      },
+      "source": {
+        "provider": "LibreYOLO",
+        "repo": "Libre-YOLO/libreyolo",
+        "weightsUrl": "https://huggingface.co/Libre-YOLO/yolox-x",
+        "paperUrl": "https://arxiv.org/abs/2107.08430",
+        "codeUrl": "https://github.com/Libre-YOLO/libreyolo"
+      },
+      "license": "Apache-2.0",
+      "releaseDate": "2021-07-18",
+      "tags": [
+        "highest-accuracy",
+        "megvii"
+      ]
+    },
+    {
+      "id": "yolov7-tiny",
+      "displayName": "YOLOv7-Tiny",
+      "family": "yolov7",
+      "variant": "tiny",
+      "task": "detection",
+      "architecture": {
+        "type": "one-stage",
+        "backbone": "E-ELAN",
+        "neck": "SPPCSPC",
+        "head": "RepConv"
+      },
+      "specs": {
+        "paramsM": 6.2,
+        "flopsG": 13.7,
+        "inputSizeDefault": 640
+      },
+      "source": {
+        "provider": "LibreYOLO",
+        "repo": "Libre-YOLO/libreyolo",
+        "weightsUrl": "https://huggingface.co/Libre-YOLO/yolov7-tiny",
+        "paperUrl": "https://arxiv.org/abs/2207.02696",
+        "codeUrl": "https://github.com/Libre-YOLO/libreyolo"
+      },
+      "license": "GPL-3.0",
+      "releaseDate": "2022-07-06",
+      "tags": [
+        "edge-friendly",
+        "efficient"
+      ]
+    },
+    {
+      "id": "yolov7",
+      "displayName": "YOLOv7",
+      "family": "yolov7",
+      "variant": "base",
+      "task": "detection",
+      "architecture": {
+        "type": "one-stage",
+        "backbone": "E-ELAN",
+        "neck": "SPPCSPC",
+        "head": "RepConv"
+      },
+      "specs": {
+        "paramsM": 36.9,
+        "flopsG": 104.7,
+        "inputSizeDefault": 640
+      },
+      "source": {
+        "provider": "LibreYOLO",
+        "repo": "Libre-YOLO/libreyolo",
+        "weightsUrl": "https://huggingface.co/Libre-YOLO/yolov7",
+        "paperUrl": "https://arxiv.org/abs/2207.02696",
+        "codeUrl": "https://github.com/Libre-YOLO/libreyolo"
+      },
+      "license": "GPL-3.0",
+      "releaseDate": "2022-07-06",
+      "tags": [
+        "balanced",
+        "widely-used"
+      ]
+    },
+    {
+      "id": "yolov7-x",
+      "displayName": "YOLOv7-X",
+      "family": "yolov7",
+      "variant": "x",
+      "task": "detection",
+      "architecture": {
+        "type": "one-stage",
+        "backbone": "E-ELAN",
+        "neck": "SPPCSPC",
+        "head": "RepConv"
+      },
+      "specs": {
+        "paramsM": 71.3,
+        "flopsG": 189.9,
+        "inputSizeDefault": 640
+      },
+      "source": {
+        "provider": "LibreYOLO",
+        "repo": "Libre-YOLO/libreyolo",
+        "weightsUrl": "https://huggingface.co/Libre-YOLO/yolov7-x",
+        "paperUrl": "https://arxiv.org/abs/2207.02696",
+        "codeUrl": "https://github.com/Libre-YOLO/libreyolo"
+      },
+      "license": "GPL-3.0",
+      "releaseDate": "2022-07-06",
+      "tags": [
+        "high-accuracy"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "datasets": [
+    {
+      "id": "coco_val2017",
+      "displayName": "COCO val2017",
+      "task": "detection",
+      "stats": {
+        "numImages": 5000,
+        "numClasses": 80,
+        "numInstances": 36781
+      },
+      "license": "CC BY 4.0"
+    }
+  ]
+}
