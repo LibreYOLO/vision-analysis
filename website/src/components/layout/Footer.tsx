@@ -14,7 +14,7 @@ export function Footer() {
               <span className="font-bold">{siteConfig.name}</span>
             </div>
             <p className="text-sm text-muted-foreground">
-              Independent, reproducible benchmarks for computer vision models.
+              Benchmarks made by LibreYOLO.
             </p>
           </div>
 
@@ -76,16 +76,6 @@ export function Footer() {
               </li>
               <li>
                 <span>Benchmarks are Apache-2.0 licensed</span>
-              </li>
-              <li>
-                <a
-                  href={siteConfig.links.twitter}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-foreground transition-colors"
-                >
-                  Twitter / X
-                </a>
               </li>
             </ul>
           </div>

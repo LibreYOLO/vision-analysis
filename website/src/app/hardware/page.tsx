@@ -63,24 +63,16 @@ export default function HardwarePage() {
                       <span className="font-mono">{hw.specs.vramGb} GB</span>
                     </div>
                   )}
-                  {hw.specs.fp16Tflops && (
+                  {hw.specs.fp32Tflops && (
                     <div className="flex justify-between">
-                      <span className="text-muted-foreground">FP16</span>
-                      <span className="font-mono">{hw.specs.fp16Tflops} TFLOPS</span>
+                      <span className="text-muted-foreground">FP32</span>
+                      <span className="font-mono">{hw.specs.fp32Tflops} TFLOPS</span>
                     </div>
                   )}
                   {hw.specs.tdpWatts && (
                     <div className="flex justify-between">
                       <span className="text-muted-foreground">TDP</span>
                       <span className="font-mono">{hw.specs.tdpWatts}W</span>
-                    </div>
-                  )}
-                  {hw.providers.length > 0 && (
-                    <div className="flex justify-between">
-                      <span className="text-muted-foreground">Starting at</span>
-                      <span className="font-mono text-green-600">
-                        ${Math.min(...hw.providers.map((p) => p.costPerHour)).toFixed(2)}/hr
-                      </span>
                     </div>
                   )}
                 </div>

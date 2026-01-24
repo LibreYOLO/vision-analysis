@@ -86,6 +86,7 @@ export interface HardwareMetadata {
     gpuName?: string;
     vramGb?: number;
     fp16Tflops?: number;
+    fp32Tflops?: number;
     int8Tops?: number;
     tdpWatts?: number;
   };
@@ -137,12 +138,8 @@ export interface FilterState {
 export type ModelFamily =
   | "yolov8"
   | "yolov9"
-  | "yolov10"
   | "yolov11"
-  | "yolo-nas"
   | "yolox"
-  | "yolov7"
-  | "rtdetr"
   | "other";
 
 // Hardware category type

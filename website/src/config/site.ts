@@ -1,12 +1,11 @@
 export const siteConfig = {
   name: "Vision Analysis",
   description:
-    "Independent, reproducible benchmarks for computer vision models. Compare YOLO, RT-DETR, and more across hardware.",
+    "Benchmarks for computer vision models. Compare YOLO models across hardware.",
   url: "https://visionanalysis.ai",
   ogImage: "https://visionanalysis.ai/og-default.png",
   links: {
-    github: "https://github.com/vision-analysis/benchmarks",
-    twitter: "https://twitter.com/visionanalysis",
+    github: "https://github.com/Libre-YOLO/libreyolo",
   },
   creator: "LibreYOLO",
 };
@@ -26,9 +25,7 @@ export const defaultFilters = {
 
 // Available hardware options
 export const hardwareOptions = [
-  { value: "a100_pytorch_fp32", label: "A100 (TensorRT FP16)" },
-  { value: "t4_tensorrt_fp16", label: "T4 (TensorRT FP16)" },
-  { value: "cpu_onnx", label: "CPU (ONNX)" },
+  { value: "a100_pytorch_fp32", label: "A100 (PyTorch FP32)" },
 ];
 
 // Available dataset options

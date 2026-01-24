@@ -4,12 +4,8 @@ import { ModelFamily } from "@/lib/types";
 export const FAMILY_COLORS: Record<ModelFamily | string, string> = {
   yolov8: "#3b82f6", // blue
   yolov9: "#22c55e", // green
-  yolov10: "#eab308", // yellow
   yolov11: "#a855f7", // purple
-  "yolo-nas": "#14b8a6", // teal
   yolox: "#f97316", // orange
-  yolov7: "#06b6d4", // cyan
-  rtdetr: "#dc2626", // red
   other: "#6b7280", // gray
 };
 

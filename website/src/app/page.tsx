@@ -37,23 +37,21 @@ export default function HomePage() {
           Object Detection Benchmarks
         </h1>
         <p className="text-lg text-muted-foreground max-w-3xl">
-          Independent, reproducible benchmarks for YOLO, RT-DETR, and other
-          computer vision models. Compare accuracy, speed, and efficiency across
-          hardware — with complete end-to-end timing.
+          Benchmarks for YOLO models. Compare accuracy and efficiency across
+          different model families and sizes.
         </p>
       </section>
 
       {/* Main Visualization */}
       <Card className="mb-8">
         <CardHeader>
-          <CardTitle>Accuracy vs Speed</CardTitle>
+          <CardTitle>Accuracy vs Size</CardTitle>
           <CardDescription>
-            mAP@50-95 on COCO val2017 vs throughput. Pareto-optimal models
-            highlighted.
+            mAP@50-95 on COCO val2017 vs model parameters.
           </CardDescription>
         </CardHeader>
         <CardContent>
-          <ScatterPlot data={filteredResults} showPareto height={450} />
+          <ScatterPlot data={filteredResults} showPareto={false} height={450} />
         </CardContent>
       </Card>
 
@@ -97,46 +95,6 @@ export default function HomePage() {
         </TabsContent>
       </Tabs>
 
-      {/* Key Insights */}
-      <section className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
-        <Card>
-          <CardHeader>
-            <CardTitle className="text-lg">Why End-to-End?</CardTitle>
-          </CardHeader>
-          <CardContent className="text-sm text-muted-foreground">
-            <p>
-              Most benchmarks only report inference time, hiding the cost of
-              preprocessing and NMS. Real-world applications pay the full price.
-            </p>
-          </CardContent>
-        </Card>
-
-        <Card>
-          <CardHeader>
-            <CardTitle className="text-lg">YOLOv10: NMS-Free</CardTitle>
-          </CardHeader>
-          <CardContent className="text-sm text-muted-foreground">
-            <p>
-              YOLOv10 eliminates Non-Maximum Suppression during inference,
-              providing consistent latency and often faster end-to-end
-              performance.
-            </p>
-          </CardContent>
-        </Card>
-
-        <Card>
-          <CardHeader>
-            <CardTitle className="text-lg">RT-DETR Accuracy</CardTitle>
-          </CardHeader>
-          <CardContent className="text-sm text-muted-foreground">
-            <p>
-              Transformer-based RT-DETR often achieves higher mAP than YOLO
-              models at similar speeds. It&apos;s worth considering for accuracy-critical
-              applications.
-            </p>
-          </CardContent>
-        </Card>
-      </section>
     </div>
   );
 }

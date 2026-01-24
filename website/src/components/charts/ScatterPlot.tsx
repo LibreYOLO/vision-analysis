@@ -10,14 +10,14 @@ interface ScatterPlotProps {
   data: BenchmarkResult[];
   showPareto?: boolean;
   height?: number;
-  xAxis?: "throughputFps" | "totalMs";
+  xAxis?: "paramsM" | "flopsG";
 }
 
 export function ScatterPlot({
   data,
   showPareto = true,
   height = 400,
-  xAxis = "throughputFps",
+  xAxis = "paramsM",
 }: ScatterPlotProps) {
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -41,9 +41,9 @@ export function ScatterPlot({
       color: getFamilyColor(d.family),
     }));
 
-    // Sort pareto points for proper line connection
+    // Sort pareto points for proper line connection (by size, smaller first)
     const sortedPareto = [...paretoPoints].sort(
-      (a, b) => b.throughputFps - a.throughputFps
+      (a, b) => a.paramsM - b.paramsM
     );
 
     // Build marks array
@@ -98,7 +98,7 @@ export function ScatterPlot({
       marginTop: 20,
 
       x: {
-        label: xAxis === "throughputFps" ? "Throughput (FPS) →" : "← Latency (ms)",
+        label: xAxis === "paramsM" ? "Parameters (M) →" : "GFLOPs →",
         grid: true,
         nice: true,
       },

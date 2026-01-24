@@ -10,61 +10,7 @@
         "fp32Tflops": 19.5,
         "tdpWatts": 250
       },
-      "providers": [
-        {
-          "name": "RunPod",
-          "costPerHour": 1.89,
-          "url": "https://runpod.io"
-        },
-        {
-          "name": "Lambda",
-          "costPerHour": 1.99,
-          "url": "https://lambdalabs.com"
-        },
-        {
-          "name": "AWS p4d",
-          "costPerHour": 3,
-          "url": "https://aws.amazon.com"
-        }
-      ]
-    },
-    {
-      "id": "t4_tensorrt_fp16",
-      "displayName": "NVIDIA T4 (TensorRT FP16)",
-      "category": "cloud_gpu",
-      "specs": {
-        "gpuName": "NVIDIA Tesla T4",
-        "vramGb": 16,
-        "fp16Tflops": 65,
-        "tdpWatts": 70
-      },
-      "providers": [
-        {
-          "name": "GCP",
-          "costPerHour": 0.35,
-          "url": "https://cloud.google.com"
-        },
-        {
-          "name": "Lambda",
-          "costPerHour": 0.5,
-          "url": "https://lambdalabs.com"
-        }
-      ]
-    },
-    {
-      "id": "cpu_onnx",
-      "displayName": "CPU (ONNX Runtime)",
-      "category": "cpu",
-      "specs": {
-        "gpuName": "Intel Xeon (8 cores)"
-      },
-      "providers": [
-        {
-          "name": "Any Cloud",
-          "costPerHour": 0.1,
-          "url": "#"
-        }
-      ]
+      "providers": []
     }
   ]
 }
