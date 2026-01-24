@@ -1,10 +1,10 @@
 {
   "model": {
-    "name": "yolov8s",
-    "family": "yolov8",
-    "variant": "s",
+    "name": "yolov9t",
+    "family": "yolov9",
+    "variant": "t",
     "source": "libreyolo",
-    "weights": "libreyolo8s.pt",
+    "weights": "libreyolo9t.pt",
     "input_size": 640
   },
   "hardware": {
@@ -22,33 +22,32 @@
     "libreyolo": "0.1.2"
   },
   "accuracy": {
-    "mAP_50": 0.48001067792310825,
-    "mAP_50_95": 0.3410395555629918,
-    "precision": 0.44500528692515856,
-    "recall": 0.5249259212185382,
+    "mAP_50": 0.4297471705996667,
+    "mAP_50_95": 0.30212588057598055,
+    "precision": 0.6151365539214104,
+    "recall": 0.3635975367204365,
     "mAP_small": 0.0,
     "mAP_medium": 0.0,
     "mAP_large": 0.0
   },
   "timing": {
-    "batch_size": 16,
+    "batch_size": 1,
     "num_images": 5000,
     "total_ms": {
-      "mean": 0.0,
-      "std": 0.0,
-      "p50": 0.0,
-      "p95": 0.0,
-      "p99": 0.0,
-      "note": "Timing not available from .val() API - see stdout for speed info"
+      "mean": 43.034,
+      "std": 4.5471,
+      "p50": 42.3231,
+      "p95": 51.0856,
+      "p99": 57.8021
     }
   },
   "throughput": {
-    "fps_mean": 0.0,
-    "fps_p50": 0.0
+    "fps_mean": 23.24,
+    "fps_p50": 23.63
   },
   "model_stats": {
-    "params_millions": 11.17,
-    "gflops": 14.41
+    "params_millions": 2.04,
+    "gflops": 3.98
   },
   "metadata": {
     "benchmark_date": "2026-01-24",

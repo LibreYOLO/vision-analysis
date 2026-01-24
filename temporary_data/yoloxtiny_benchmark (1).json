@@ -1,10 +1,10 @@
 {
   "model": {
-    "name": "yoloxnano",
+    "name": "yoloxtiny",
     "family": "yolox",
-    "variant": "nano",
+    "variant": "tiny",
     "source": "libreyolo",
-    "weights": "libreyoloXnano.pt",
+    "weights": "libreyoloXtiny.pt",
     "input_size": 640
   },
   "hardware": {
@@ -22,33 +22,32 @@
     "libreyolo": "0.1.2"
   },
   "accuracy": {
-    "mAP_50": 0.013553961738542073,
-    "mAP_50_95": 0.006100657294156153,
-    "precision": 0.050161049504843104,
-    "recall": 0.047152411504940116,
+    "mAP_50": 0.4403311346636219,
+    "mAP_50_95": 0.2825112641154157,
+    "precision": 0.4647442788287517,
+    "recall": 0.462113389945147,
     "mAP_small": 0.0,
     "mAP_medium": 0.0,
     "mAP_large": 0.0
   },
   "timing": {
-    "batch_size": 16,
+    "batch_size": 1,
     "num_images": 5000,
     "total_ms": {
-      "mean": 0.0,
-      "std": 0.0,
-      "p50": 0.0,
-      "p95": 0.0,
-      "p99": 0.0,
-      "note": "Timing not available from .val() API - see stdout for speed info"
+      "mean": 21.5235,
+      "std": 2.9755,
+      "p50": 21.2943,
+      "p95": 26.0974,
+      "p99": 27.4512
     }
   },
   "throughput": {
-    "fps_mean": 0.0,
-    "fps_p50": 0.0
+    "fps_mean": 46.46,
+    "fps_p50": 46.96
   },
   "model_stats": {
-    "params_millions": 0.91,
-    "gflops": 1.32
+    "params_millions": 5.06,
+    "gflops": 7.68
   },
   "metadata": {
     "benchmark_date": "2026-01-24",
