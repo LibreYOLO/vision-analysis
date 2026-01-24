@@ -1,0 +1,8 @@
+{
+  "name": "vision-analysis",
+  "private": true,
+  "scripts": {
+    "build": "npm run build --prefix website",
+    "vercel-build": "npm run build --prefix website"
+  }
+}
