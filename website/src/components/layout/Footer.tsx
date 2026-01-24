@@ -37,11 +37,6 @@ export function Footer() {
                   Hardware Guides
                 </Link>
               </li>
-              <li>
-                <Link href="/cost-calculator" className="hover:text-foreground transition-colors">
-                  Cost Calculator
-                </Link>
-              </li>
             </ul>
           </div>
 
@@ -49,11 +44,6 @@ export function Footer() {
           <div className="space-y-3">
             <h4 className="font-semibold">Resources</h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
-              <li>
-                <Link href="/methodology" className="hover:text-foreground transition-colors">
-                  Methodology
-                </Link>
-              </li>
               <li>
                 <a
                   href={siteConfig.links.github}

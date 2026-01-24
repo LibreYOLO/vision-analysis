@@ -15,8 +15,6 @@ export const navLinks = [
   { href: "/", label: "Leaderboard" },
   { href: "/compare", label: "Compare" },
   { href: "/hardware", label: "Hardware" },
-  { href: "/cost-calculator", label: "Cost Calculator" },
-  { href: "/methodology", label: "Methodology" },
 ];
 
 export const defaultFilters = {

@@ -25,18 +25,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly" as const,
       priority: 0.8,
     },
-    {
-      url: `${baseUrl}/cost-calculator`,
-      lastModified: new Date(),
-      changeFrequency: "monthly" as const,
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/methodology`,
-      lastModified: new Date(),
-      changeFrequency: "monthly" as const,
-      priority: 0.6,
-    },
   ];
 
   const modelPages = models.map((model) => ({
