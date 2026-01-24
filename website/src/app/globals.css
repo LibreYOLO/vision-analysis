@@ -123,3 +123,17 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* Observable Plot tooltip styling for dark mode */
+.dark [aria-label="tip"] {
+  --plot-background: oklch(0.205 0 0);
+}
+
+.dark [aria-label="tip"] g[aria-label="text"] text {
+  fill: oklch(0.985 0 0) !important;
+}
+
+.dark [aria-label="tip"] g[aria-label="path"] path {
+  fill: oklch(0.205 0 0) !important;
+  stroke: oklch(0.4 0 0) !important;
+}

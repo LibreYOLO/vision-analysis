@@ -1,14 +1,14 @@
 {
   "hardware": [
     {
-      "id": "a100_tensorrt_fp16",
-      "displayName": "NVIDIA A100 (TensorRT FP16)",
+      "id": "a100_pytorch_fp32",
+      "displayName": "NVIDIA A100 (PyTorch FP32)",
       "category": "cloud_gpu",
       "specs": {
-        "gpuName": "NVIDIA A100-SXM4-80GB",
-        "vramGb": 80,
-        "fp16Tflops": 312,
-        "tdpWatts": 400
+        "gpuName": "NVIDIA A100-PCIE-40GB",
+        "vramGb": 40,
+        "fp32Tflops": 19.5,
+        "tdpWatts": 250
       },
       "providers": [
         {

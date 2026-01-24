@@ -1,7 +1,7 @@
 import { BenchmarkResult, ModelMetadata, HardwareMetadata, DatasetMetadata } from "@/lib/types";
 
 // Import benchmark results
-import a100Results from "@/data/results/coco_val2017/detection/a100_tensorrt_fp16.json";
+import a100Results from "@/data/results/coco_val2017/detection/a100_pytorch_fp32.json";
 import t4Results from "@/data/results/coco_val2017/detection/t4_tensorrt_fp16.json";
 import cpuResults from "@/data/results/coco_val2017/detection/cpu_onnx.json";
 
@@ -12,7 +12,7 @@ import datasetsData from "@/data/metadata/datasets.json";
 
 // Type assertion for imported data
 const benchmarkData: Record<string, BenchmarkResult[]> = {
-  a100_tensorrt_fp16: a100Results as BenchmarkResult[],
+  a100_pytorch_fp32: a100Results as BenchmarkResult[],
   t4_tensorrt_fp16: t4Results as BenchmarkResult[],
   cpu_onnx: cpuResults as BenchmarkResult[],
 };
@@ -21,9 +21,9 @@ const benchmarkData: Record<string, BenchmarkResult[]> = {
  * Get benchmark results for a specific hardware configuration
  */
 export function getBenchmarkResults(
-  hardware: string = "a100_tensorrt_fp16"
+  hardware: string = "a100_pytorch_fp32"
 ): BenchmarkResult[] {
-  return benchmarkData[hardware] || benchmarkData.a100_tensorrt_fp16;
+  return benchmarkData[hardware] || benchmarkData.a100_pytorch_fp32;
 }
 
 /**

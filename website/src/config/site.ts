@@ -18,7 +18,7 @@ export const navLinks = [
 ];
 
 export const defaultFilters = {
-  hardware: "a100_tensorrt_fp16",
+  hardware: "a100_pytorch_fp32",
   dataset: "coco_val2017",
   families: [] as string[],
   exportFormat: "tensorrt_fp16",
@@ -26,7 +26,7 @@ export const defaultFilters = {
 
 // Available hardware options
 export const hardwareOptions = [
-  { value: "a100_tensorrt_fp16", label: "A100 (TensorRT FP16)" },
+  { value: "a100_pytorch_fp32", label: "A100 (TensorRT FP16)" },
   { value: "t4_tensorrt_fp16", label: "T4 (TensorRT FP16)" },
   { value: "cpu_onnx", label: "CPU (ONNX)" },
 ];

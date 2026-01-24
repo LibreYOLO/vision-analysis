@@ -8,7 +8,7 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/com
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 export default function HomePage() {
-  const [hardware, setHardware] = useState("a100_tensorrt_fp16");
+  const [hardware, setHardware] = useState("a100_pytorch_fp32");
   const [selectedFamilies, setSelectedFamilies] = useState<string[]>([]);
 
   // Get data for selected hardware

@@ -253,7 +253,7 @@ export default async function ModelPage({ params }: Props) {
         <CardContent>
           {(() => {
             const a100Result = benchmarks.find(
-              (b) => b.hardware === "a100_tensorrt_fp16"
+              (b) => b.hardware === "a100_pytorch_fp32"
             )?.result;
             if (!a100Result) return <p>No A100 benchmark available</p>;
 

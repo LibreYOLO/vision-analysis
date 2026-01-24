@@ -77,19 +77,17 @@ export function ScatterPlot({
       })
     );
 
-    // Labels for Pareto-optimal models
-    if (showPareto) {
-      marks.push(
-        Plot.text(paretoPoints, {
-          x: xAxis,
-          y: "mAP_50_95",
-          text: "model",
-          dy: -12,
-          fontSize: 10,
-          fill: "currentColor",
-        })
-      );
-    }
+    // Labels for all models
+    marks.push(
+      Plot.text(plotData, {
+        x: xAxis,
+        y: "mAP_50_95",
+        text: "model",
+        dy: -12,
+        fontSize: 10,
+        fill: "currentColor",
+      })
+    );
 
     const plot = Plot.plot({
       width,

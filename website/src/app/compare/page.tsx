@@ -59,7 +59,7 @@ function formatValue(value: number, format: string): string {
 function CompareContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const [hardware, setHardware] = useState("a100_tensorrt_fp16");
+  const [hardware, setHardware] = useState("a100_pytorch_fp32");
 
   // Get selected models from URL
   const selectedModelIds = useMemo(() => {
@@ -187,7 +187,7 @@ function CompareContent() {
                 <SelectValue />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="a100_tensorrt_fp16">A100 (TensorRT FP16)</SelectItem>
+                <SelectItem value="a100_pytorch_fp32">A100 (TensorRT FP16)</SelectItem>
                 <SelectItem value="t4_tensorrt_fp16">T4 (TensorRT FP16)</SelectItem>
                 <SelectItem value="cpu_onnx">CPU (ONNX)</SelectItem>
               </SelectContent>

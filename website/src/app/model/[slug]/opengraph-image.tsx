@@ -33,7 +33,7 @@ export default async function Image({ params }: { params: { slug: string } }) {
   }
 
   const benchmarks = getModelBenchmarks(params.slug);
-  const a100Result = benchmarks.find((b) => b.hardware === "a100_tensorrt_fp16")?.result;
+  const a100Result = benchmarks.find((b) => b.hardware === "a100_pytorch_fp32")?.result;
   const familyColor = getFamilyColor(model.family);
 
   return new ImageResponse(
