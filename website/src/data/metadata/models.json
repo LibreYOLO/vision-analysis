@@ -13,8 +13,8 @@
         "head": "Decoupled"
       },
       "specs": {
-        "paramsM": 3.2,
-        "flopsG": 8.7,
+        "paramsM": 3.16,
+        "flopsG": 4.43,
         "inputSizeDefault": 640
       },
       "source": {
@@ -46,8 +46,8 @@
         "head": "Decoupled"
       },
       "specs": {
-        "paramsM": 11.2,
-        "flopsG": 28.6,
+        "paramsM": 11.17,
+        "flopsG": 14.41,
         "inputSizeDefault": 640
       },
       "source": {
@@ -78,7 +78,7 @@
       },
       "specs": {
         "paramsM": 25.9,
-        "flopsG": 78.9,
+        "flopsG": 39.66,
         "inputSizeDefault": 640
       },
       "source": {
@@ -108,8 +108,8 @@
         "head": "Decoupled"
       },
       "specs": {
-        "paramsM": 43.7,
-        "flopsG": 165.2,
+        "paramsM": 43.69,
+        "flopsG": 82.87,
         "inputSizeDefault": 640
       },
       "source": {
@@ -139,8 +139,8 @@
         "head": "Decoupled"
       },
       "specs": {
-        "paramsM": 68.2,
-        "flopsG": 257.8,
+        "paramsM": 68.23,
+        "flopsG": 129.27,
         "inputSizeDefault": 640
       },
       "source": {
@@ -516,8 +516,8 @@
         "head": "Decoupled"
       },
       "specs": {
-        "paramsM": 2.6,
-        "flopsG": 6.5,
+        "paramsM": 2.62,
+        "flopsG": 3.31,
         "inputSizeDefault": 640
       },
       "source": {
@@ -546,8 +546,8 @@
         "head": "Decoupled"
       },
       "specs": {
-        "paramsM": 9.4,
-        "flopsG": 21.5,
+        "paramsM": 9.46,
+        "flopsG": 10.86,
         "inputSizeDefault": 640
       },
       "source": {
@@ -576,8 +576,8 @@
         "head": "Decoupled"
       },
       "specs": {
-        "paramsM": 20.1,
-        "flopsG": 68,
+        "paramsM": 20.11,
+        "flopsG": 34.26,
         "inputSizeDefault": 640
       },
       "source": {
@@ -606,8 +606,8 @@
         "head": "Decoupled"
       },
       "specs": {
-        "paramsM": 25.3,
-        "flopsG": 87,
+        "paramsM": 25.37,
+        "flopsG": 43.81,
         "inputSizeDefault": 640
       },
       "source": {
@@ -636,8 +636,8 @@
         "head": "Decoupled"
       },
       "specs": {
-        "paramsM": 56.9,
-        "flopsG": 195,
+        "paramsM": 56.97,
+        "flopsG": 97.98,
         "inputSizeDefault": 640
       },
       "source": {
@@ -952,8 +952,8 @@
         "head": "Decoupled"
       },
       "specs": {
-        "paramsM": 0.9,
-        "flopsG": 1.1,
+        "paramsM": 0.91,
+        "flopsG": 1.32,
         "inputSizeDefault": 640
       },
       "source": {
@@ -983,8 +983,8 @@
         "head": "Decoupled"
       },
       "specs": {
-        "paramsM": 5.1,
-        "flopsG": 6.5,
+        "paramsM": 5.06,
+        "flopsG": 7.68,
         "inputSizeDefault": 640
       },
       "source": {
@@ -1014,8 +1014,8 @@
         "head": "Decoupled"
       },
       "specs": {
-        "paramsM": 9,
-        "flopsG": 26.8,
+        "paramsM": 8.97,
+        "flopsG": 13.46,
         "inputSizeDefault": 640
       },
       "source": {
@@ -1045,8 +1045,8 @@
         "head": "Decoupled"
       },
       "specs": {
-        "paramsM": 25.3,
-        "flopsG": 73.8,
+        "paramsM": 25.33,
+        "flopsG": 36.99,
         "inputSizeDefault": 640
       },
       "source": {
@@ -1107,8 +1107,8 @@
         "head": "Decoupled"
       },
       "specs": {
-        "paramsM": 99.1,
-        "flopsG": 281.9,
+        "paramsM": 99.07,
+        "flopsG": 141.23,
         "inputSizeDefault": 640
       },
       "source": {

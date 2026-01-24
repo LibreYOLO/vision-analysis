@@ -1,0 +1,57 @@
+{
+  "model": {
+    "name": "yolov11n",
+    "family": "yolov8",
+    "variant": "n",
+    "source": "libreyolo",
+    "weights": "libreyolo11n.pt",
+    "input_size": 640
+  },
+  "hardware": {
+    "gpu": "NVIDIA A100-PCIE-40GB",
+    "gpu_memory_gb": 0,
+    "driver_version": "550.163.01",
+    "cuda_version": "12.8",
+    "cpu": "Intel(R) Xeon(R) Gold 6240R CPU @ 2.40GHz",
+    "cpu_cores": 96,
+    "ram_gb": 188
+  },
+  "software": {
+    "python": "3.10.6",
+    "torch": "2.8.0+cu128",
+    "libreyolo": "0.1.2"
+  },
+  "accuracy": {
+    "mAP_50": 0.45533916384671647,
+    "mAP_50_95": 0.3148756699052449,
+    "precision": 0.6554609386568766,
+    "recall": 0.3846024856144693,
+    "mAP_small": 0.0,
+    "mAP_medium": 0.0,
+    "mAP_large": 0.0
+  },
+  "timing": {
+    "batch_size": 16,
+    "num_images": 5000,
+    "total_ms": {
+      "mean": 0.0,
+      "std": 0.0,
+      "p50": 0.0,
+      "p95": 0.0,
+      "p99": 0.0,
+      "note": "Timing not available from .val() API - see stdout for speed info"
+    }
+  },
+  "throughput": {
+    "fps_mean": 0.0,
+    "fps_p50": 0.0
+  },
+  "model_stats": {
+    "params_millions": 2.62,
+    "gflops": 3.31
+  },
+  "metadata": {
+    "benchmark_date": "2026-01-24",
+    "benchmark_version": "1.0"
+  }
+}
