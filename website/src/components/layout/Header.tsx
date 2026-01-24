@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Moon, Sun, Menu, X, BarChart3 } from "lucide-react";
+import { Moon, Sun, Monitor, Menu, X, BarChart3 } from "lucide-react";
 import { useTheme } from "next-themes";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
@@ -45,15 +45,20 @@ export function Header() {
 
         <div className="flex-1" />
 
-        {/* Theme Toggle */}
+        {/* Theme Toggle - cycles: system → dark → light → system */}
         <Button
           variant="ghost"
           size="icon"
-          onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+          onClick={() => {
+            if (theme === "system") setTheme("dark");
+            else if (theme === "dark") setTheme("light");
+            else setTheme("system");
+          }}
           className="mr-2"
         >
-          <Sun className="h-5 w-5 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
-          <Moon className="absolute h-5 w-5 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
+          <Monitor className={cn("h-5 w-5 transition-all", theme === "system" ? "scale-100" : "scale-0 absolute")} />
+          <Moon className={cn("h-5 w-5 transition-all", theme === "dark" ? "scale-100" : "scale-0 absolute")} />
+          <Sun className={cn("h-5 w-5 transition-all", theme === "light" ? "scale-100" : "scale-0 absolute")} />
           <span className="sr-only">Toggle theme</span>
         </Button>
 
