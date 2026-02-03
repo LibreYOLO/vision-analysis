@@ -136,9 +136,7 @@ export interface FilterState {
 
 // Model family type
 export type ModelFamily =
-  | "yolov8"
   | "yolov9"
-  | "yolov11"
   | "yolox"
   | "other";
 

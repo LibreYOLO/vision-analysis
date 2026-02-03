@@ -34,11 +34,11 @@ export default function HomePage() {
       {/* Hero Section */}
       <section className="mb-8">
         <h1 className="text-3xl sm:text-4xl font-bold mb-3">
-          Object Detection Benchmarks
+          LibreYOLO Benchmarks
         </h1>
         <p className="text-lg text-muted-foreground max-w-3xl">
-          Benchmarks for YOLO models. Compare accuracy and efficiency across
-          different model families and sizes.
+          Comprehensive benchmarks for LibreYOLO models. Compare accuracy and efficiency across
+          YOLOv9 and YOLOX model families.
         </p>
       </section>
 
@@ -83,9 +83,8 @@ export default function HomePage() {
             <CardHeader>
               <CardTitle>End-to-End Speed Breakdown</CardTitle>
               <CardDescription>
-                Unlike other benchmarks, we measure the complete pipeline:
-                preprocessing, inference, and postprocessing (NMS). This reveals
-                YOLOv10&apos;s NMS-free advantage.
+                We measure the complete pipeline: preprocessing, inference, and
+                postprocessing (NMS) for accurate real-world performance comparison.
               </CardDescription>
             </CardHeader>
             <CardContent>

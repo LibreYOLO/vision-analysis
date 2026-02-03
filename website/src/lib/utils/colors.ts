@@ -2,9 +2,7 @@ import { ModelFamily } from "@/lib/types";
 
 // Color palette for model families
 export const FAMILY_COLORS: Record<ModelFamily | string, string> = {
-  yolov8: "#3b82f6", // blue
   yolov9: "#22c55e", // green
-  yolov11: "#a855f7", // purple
   yolox: "#f97316", // orange
   other: "#6b7280", // gray
 };

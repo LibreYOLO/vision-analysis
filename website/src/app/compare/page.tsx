@@ -257,7 +257,7 @@ function CompareContent() {
           <CardContent className="py-12 text-center text-muted-foreground">
             <p className="mb-4">Select models to compare their performance</p>
             <p className="text-sm">
-              Tip: Try comparing YOLOv8, YOLOv10, and RT-DETR models
+              Tip: Try comparing YOLOX and YOLOv9 models across different sizes
             </p>
           </CardContent>
         </Card>
@@ -274,26 +274,26 @@ function CompareContent() {
               <Button
                 variant="outline"
                 onClick={() =>
-                  updateSelectedModels(["yolov8x", "yolov10x", "rtdetr-x"])
+                  updateSelectedModels(["yolox-x", "yolov9c", "yolox-l"])
                 }
               >
-                YOLOv8 vs YOLOv10 vs RT-DETR (X variants)
+                YOLOX vs YOLOv9 (Large variants)
               </Button>
               <Button
                 variant="outline"
                 onClick={() =>
-                  updateSelectedModels(["yolov8n", "yolov10n", "yolov11n", "yolox-nano"])
+                  updateSelectedModels(["yolox-nano", "yolox-tiny", "yolov9t", "yolov9s"])
                 }
               >
-                Nano/Tiny Models
+                Lightweight Models
               </Button>
               <Button
                 variant="outline"
                 onClick={() =>
-                  updateSelectedModels(["yolo-nas-l", "yolov9e", "rtdetr-r101"])
+                  updateSelectedModels(["yolox-s", "yolox-m", "yolov9s", "yolov9m"])
                 }
               >
-                High Accuracy Models
+                Balanced Models
               </Button>
             </div>
           </CardContent>

@@ -28,8 +28,8 @@ export function SpeedBreakdown({ data, limit = 15 }: SpeedBreakdownProps) {
         const postPercent = (model.postprocessMs / model.totalMs) * 100;
         const widthPercent = (model.totalMs / maxTime) * 100;
 
-        // Check if this is a YOLOv10 model (NMS-free)
-        const isNmsFree = model.family === "yolov10" || model.postprocessMs < 0.5;
+        // Check if this model has minimal postprocessing (NMS-free or optimized)
+        const isNmsFree = model.postprocessMs < 0.5;
 
         return (
           <div key={model.model} className="space-y-1">
@@ -134,9 +134,8 @@ export function SpeedBreakdown({ data, limit = 15 }: SpeedBreakdownProps) {
       </div>
 
       <p className="text-xs text-muted-foreground mt-2">
-        YOLOv10 models use NMS-free detection, resulting in significantly faster
-        end-to-end latency. This is often hidden in benchmarks that only report
-        inference time.
+        Some models use NMS-free detection or optimized postprocessing, resulting
+        in faster end-to-end latency. Green bars indicate minimal postprocess time.
       </p>
     </div>
   );

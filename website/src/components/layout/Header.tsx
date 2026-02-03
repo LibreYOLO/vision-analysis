@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Moon, Sun, Monitor, Menu, X, BarChart3 } from "lucide-react";
 import { useTheme } from "next-themes";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { navLinks, siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
@@ -13,6 +13,11 @@ export function Header() {
   const pathname = usePathname();
   const { theme, setTheme } = useTheme();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -56,9 +61,15 @@ export function Header() {
           }}
           className="mr-2"
         >
-          <Monitor className={cn("h-5 w-5 transition-all", theme === "system" ? "scale-100" : "scale-0 absolute")} />
-          <Moon className={cn("h-5 w-5 transition-all", theme === "dark" ? "scale-100" : "scale-0 absolute")} />
-          <Sun className={cn("h-5 w-5 transition-all", theme === "light" ? "scale-100" : "scale-0 absolute")} />
+          {mounted ? (
+            <>
+              <Monitor className={cn("h-5 w-5 transition-all", theme === "system" ? "scale-100" : "scale-0 absolute")} />
+              <Moon className={cn("h-5 w-5 transition-all", theme === "dark" ? "scale-100" : "scale-0 absolute")} />
+              <Sun className={cn("h-5 w-5 transition-all", theme === "light" ? "scale-100" : "scale-0 absolute")} />
+            </>
+          ) : (
+            <Monitor className="h-5 w-5" />
+          )}
           <span className="sr-only">Toggle theme</span>
         </Button>
 
