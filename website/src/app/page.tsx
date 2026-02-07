@@ -1,20 +1,21 @@
 "use client";
 
 import { useState, useMemo } from "react";
-import { getBenchmarkResults, filterByFamilies } from "@/lib/data";
+import { getBenchmarkResults, filterByFamilies, getRuntimesForHardware } from "@/lib/data";
 import { LeaderboardTable, FilterBar } from "@/components/leaderboard";
 import { ScatterPlot, SpeedBreakdown } from "@/components/charts";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 export default function HomePage() {
-  const [hardware, setHardware] = useState("a100_pytorch_fp32");
+  const [hardware, setHardware] = useState("a100");
+  const [runtime, setRuntime] = useState("pytorch_fp32");
   const [selectedFamilies, setSelectedFamilies] = useState<string[]>([]);
 
-  // Get data for selected hardware
+  // Get data for selected hardware + runtime
   const allResults = useMemo(() => {
-    return getBenchmarkResults(hardware);
-  }, [hardware]);
+    return getBenchmarkResults(hardware, runtime);
+  }, [hardware, runtime]);
 
   // Filter by selected families
   const filteredResults = useMemo(() => {
@@ -27,6 +28,15 @@ export default function HomePage() {
         ? prev.filter((f) => f !== family)
         : [...prev, family]
     );
+  };
+
+  const handleHardwareChange = (newHardware: string) => {
+    setHardware(newHardware);
+    // Reset runtime to first available for the new hardware
+    const availableRuntimes = getRuntimesForHardware(newHardware);
+    if (availableRuntimes.length > 0 && !availableRuntimes.some((r) => r.id === runtime)) {
+      setRuntime(availableRuntimes[0].id);
+    }
   };
 
   return (
@@ -58,7 +68,9 @@ export default function HomePage() {
       {/* Filters */}
       <FilterBar
         hardware={hardware}
-        onHardwareChange={setHardware}
+        onHardwareChange={handleHardwareChange}
+        runtime={runtime}
+        onRuntimeChange={setRuntime}
         selectedFamilies={selectedFamilies}
         onFamilyToggle={handleFamilyToggle}
         resultCount={filteredResults.length}

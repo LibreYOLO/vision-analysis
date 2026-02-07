@@ -17,16 +17,11 @@ export const navLinks = [
 ];
 
 export const defaultFilters = {
-  hardware: "a100_pytorch_fp32",
+  hardware: "a100",
   dataset: "coco_val2017",
   families: [] as string[],
-  exportFormat: "tensorrt_fp16",
+  runtime: "pytorch_fp32",
 };
-
-// Available hardware options
-export const hardwareOptions = [
-  { value: "a100_pytorch_fp32", label: "A100 (PyTorch FP32)" },
-];
 
 // Available dataset options
 export const datasetOptions = [

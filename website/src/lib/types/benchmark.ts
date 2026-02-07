@@ -1,3 +1,19 @@
+// Runtime information from benchmark runner
+export interface RuntimeInfo {
+  format: string;
+  precision: string;
+  device: string;
+}
+
+// Runtime metadata for selectors and display
+export interface RuntimeMetadata {
+  id: string;
+  displayName: string;
+  format: string;
+  precision: string;
+  device: string;
+}
+
 // Core benchmark result interface
 export interface BenchmarkResult {
   // Identifiers
@@ -5,8 +21,8 @@ export interface BenchmarkResult {
   family: string;
   variant: string;
   dataset: string;
-  hardware: string;
-  exportFormat: string;
+  hardware: string;  // Pure hardware ID (e.g., "a100", "rpi5")
+  runtime: string;   // Runtime ID (e.g., "pytorch_fp32")
   batchSize: number;
   inputSize: number;
 
@@ -84,7 +100,9 @@ export interface HardwareMetadata {
 
   specs: {
     gpuName?: string;
+    cpuName?: string;
     vramGb?: number;
+    ramGb?: number;
     fp16Tflops?: number;
     fp32Tflops?: number;
     int8Tops?: number;
@@ -131,7 +149,7 @@ export interface FilterState {
   hardware: string;
   dataset: string;
   families: string[];
-  exportFormat: string;
+  runtime: string;
 }
 
 // Model family type

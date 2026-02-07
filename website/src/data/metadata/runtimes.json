@@ -1,0 +1,11 @@
+{
+  "runtimes": [
+    {
+      "id": "pytorch_fp32",
+      "displayName": "PyTorch FP32",
+      "format": "pytorch",
+      "precision": "fp32",
+      "device": "cpu"
+    }
+  ]
+}

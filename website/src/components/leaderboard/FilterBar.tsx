@@ -9,12 +9,14 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { getFamilyColor, getAllFamilies } from "@/lib/utils/colors";
-import { getHardwareOptions } from "@/lib/data";
+import { getHardwareOptions, getRuntimeOptions } from "@/lib/data";
 import { cn } from "@/lib/utils";
 
 interface FilterBarProps {
   hardware: string;
   onHardwareChange: (value: string) => void;
+  runtime: string;
+  onRuntimeChange: (value: string) => void;
   selectedFamilies: string[];
   onFamilyToggle: (family: string) => void;
   resultCount: number;
@@ -23,11 +25,14 @@ interface FilterBarProps {
 export function FilterBar({
   hardware,
   onHardwareChange,
+  runtime,
+  onRuntimeChange,
   selectedFamilies,
   onFamilyToggle,
   resultCount,
 }: FilterBarProps) {
   const hardwareOptions = getHardwareOptions();
+  const runtimeOptions = getRuntimeOptions(hardware);
   const families = getAllFamilies();
 
   return (
@@ -42,6 +47,23 @@ export function FilterBar({
             </SelectTrigger>
             <SelectContent>
               {hardwareOptions.map((option) => (
+                <SelectItem key={option.value} value={option.value}>
+                  {option.label}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
+        </div>
+
+        {/* Runtime Selector */}
+        <div className="flex items-center gap-2">
+          <span className="text-sm font-medium text-muted-foreground">Runtime:</span>
+          <Select value={runtime} onValueChange={onRuntimeChange}>
+            <SelectTrigger className="w-[180px]">
+              <SelectValue placeholder="Select runtime" />
+            </SelectTrigger>
+            <SelectContent>
+              {runtimeOptions.map((option) => (
                 <SelectItem key={option.value} value={option.value}>
                   {option.label}
                 </SelectItem>

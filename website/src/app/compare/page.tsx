@@ -4,7 +4,7 @@ import { Suspense, useState, useMemo } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import Link from "next/link";
 import { X, Plus } from "lucide-react";
-import { getBenchmarkResults, getModels } from "@/lib/data";
+import { getBenchmarkResults, getModels, getHardwareOptions, getRuntimeOptions, getRuntimesForHardware } from "@/lib/data";
 import { getFamilyColor } from "@/lib/utils/colors";
 import { formatNumber, formatPercent, formatMs } from "@/lib/utils/format";
 import { BenchmarkResult } from "@/lib/types";
@@ -59,7 +59,8 @@ function formatValue(value: number, format: string): string {
 function CompareContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const [hardware, setHardware] = useState("a100_pytorch_fp32");
+  const [hardware, setHardware] = useState("a100");
+  const [runtime, setRuntime] = useState("pytorch_fp32");
 
   // Get selected models from URL
   const selectedModelIds = useMemo(() => {
@@ -69,7 +70,7 @@ function CompareContent() {
   }, [searchParams]);
 
   // Get all benchmark data
-  const allResults = useMemo(() => getBenchmarkResults(hardware), [hardware]);
+  const allResults = useMemo(() => getBenchmarkResults(hardware, runtime), [hardware, runtime]);
   const allModels = useMemo(() => getModels(), []);
 
   // Get data for selected models
@@ -83,6 +84,10 @@ function CompareContent() {
   const availableModels = useMemo(() => {
     return allModels.filter((m) => !selectedModelIds.includes(m.id));
   }, [allModels, selectedModelIds]);
+
+  // Dynamic options
+  const hardwareOptions = getHardwareOptions();
+  const runtimeOptions = getRuntimeOptions(hardware);
 
   // Update URL with selected models
   const updateSelectedModels = (models: string[]) => {
@@ -103,6 +108,14 @@ function CompareContent() {
 
   const removeModel = (modelId: string) => {
     updateSelectedModels(selectedModelIds.filter((id) => id !== modelId));
+  };
+
+  const handleHardwareChange = (newHardware: string) => {
+    setHardware(newHardware);
+    const availableRuntimes = getRuntimesForHardware(newHardware);
+    if (availableRuntimes.length > 0 && !availableRuntimes.some((r) => r.id === runtime)) {
+      setRuntime(availableRuntimes[0].id);
+    }
   };
 
   // Find best value for each metric
@@ -179,19 +192,38 @@ function CompareContent() {
             )}
           </div>
 
-          {/* Hardware selector */}
-          <div className="mt-4 flex items-center gap-2">
-            <span className="text-sm text-muted-foreground">Hardware:</span>
-            <Select value={hardware} onValueChange={setHardware}>
-              <SelectTrigger className="w-[200px]">
-                <SelectValue />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="a100_pytorch_fp32">A100 (TensorRT FP16)</SelectItem>
-                <SelectItem value="t4_tensorrt_fp16">T4 (TensorRT FP16)</SelectItem>
-                <SelectItem value="cpu_onnx">CPU (ONNX)</SelectItem>
-              </SelectContent>
-            </Select>
+          {/* Hardware + Runtime selectors */}
+          <div className="mt-4 flex flex-wrap items-center gap-4">
+            <div className="flex items-center gap-2">
+              <span className="text-sm text-muted-foreground">Hardware:</span>
+              <Select value={hardware} onValueChange={handleHardwareChange}>
+                <SelectTrigger className="w-[200px]">
+                  <SelectValue />
+                </SelectTrigger>
+                <SelectContent>
+                  {hardwareOptions.map((option) => (
+                    <SelectItem key={option.value} value={option.value}>
+                      {option.label}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="text-sm text-muted-foreground">Runtime:</span>
+              <Select value={runtime} onValueChange={setRuntime}>
+                <SelectTrigger className="w-[180px]">
+                  <SelectValue />
+                </SelectTrigger>
+                <SelectContent>
+                  {runtimeOptions.map((option) => (
+                    <SelectItem key={option.value} value={option.value}>
+                      {option.label}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </div>
           </div>
         </CardContent>
       </Card>

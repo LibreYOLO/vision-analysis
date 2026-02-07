@@ -33,7 +33,7 @@ export default async function Image({ params }: { params: { slug: string } }) {
   }
 
   const benchmarks = getModelBenchmarks(params.slug);
-  const a100Result = benchmarks.find((b) => b.hardware === "a100_pytorch_fp32")?.result;
+  const a100Result = benchmarks.find((b) => b.hardware === "a100")?.result;
   const familyColor = getFamilyColor(model.family);
 
   return new ImageResponse(
@@ -99,7 +99,7 @@ export default async function Image({ params }: { params: { slug: string } }) {
               mAP@50-95
             </span>
             <span style={{ fontSize: 64, fontWeight: "bold", color: "#22c55e" }}>
-              {a100Result ? (a100Result.mAP_50_95 * 100).toFixed(1) : "N/A"}%
+              {a100Result ? a100Result.mAP_50_95.toFixed(1) : "N/A"}%
             </span>
           </div>
 

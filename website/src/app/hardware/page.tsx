@@ -96,7 +96,6 @@ export default function HardwarePage() {
               "Jetson AGX Orin",
               "Jetson Orin NX",
               "Hailo-8",
-              "Raspberry Pi 5",
               "Apple M3",
               "WebGPU (Browser)",
             ].map((hw) => (

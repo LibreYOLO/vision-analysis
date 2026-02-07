@@ -1,45 +1,59 @@
-import { BenchmarkResult, ModelMetadata, HardwareMetadata, DatasetMetadata } from "@/lib/types";
+import { BenchmarkResult, ModelMetadata, HardwareMetadata, DatasetMetadata, RuntimeMetadata } from "@/lib/types";
 
-// Import benchmark results
-import a100Results from "@/data/results/coco_val2017/detection/a100_pytorch_fp32.json";
+// Import benchmark results (new directory structure: {hardware}/{runtime}.json)
+import a100PytorchFp32 from "@/data/results/coco_val2017/detection/a100/pytorch_fp32.json";
+import rpi5PytorchFp32 from "@/data/results/coco_val2017/detection/rpi5/pytorch_fp32.json";
 
 // Import metadata
 import modelsData from "@/data/metadata/models.json";
 import hardwareData from "@/data/metadata/hardware.json";
 import datasetsData from "@/data/metadata/datasets.json";
+import runtimesData from "@/data/metadata/runtimes.json";
 
-// Type assertion for imported data
+// Benchmark data keyed by composite key: "hardware__runtime"
 const benchmarkData: Record<string, BenchmarkResult[]> = {
-  a100_pytorch_fp32: a100Results as BenchmarkResult[],
+  a100__pytorch_fp32: a100PytorchFp32 as BenchmarkResult[],
+  rpi5__pytorch_fp32: rpi5PytorchFp32 as BenchmarkResult[],
 };
 
-/**
- * Get benchmark results for a specific hardware configuration
- */
-export function getBenchmarkResults(
-  hardware: string = "a100_pytorch_fp32"
-): BenchmarkResult[] {
-  return benchmarkData[hardware] || benchmarkData.a100_pytorch_fp32;
+function compositeKey(hardware: string, runtime: string): string {
+  return `${hardware}__${runtime}`;
 }
 
 /**
- * Get all benchmark results across all hardware
+ * Get benchmark results for a specific hardware + runtime combination
+ */
+export function getBenchmarkResults(
+  hardware: string = "a100",
+  runtime: string = "pytorch_fp32"
+): BenchmarkResult[] {
+  const key = compositeKey(hardware, runtime);
+  return benchmarkData[key] || [];
+}
+
+/**
+ * Get all benchmark results across all hardware/runtime combinations
  */
 export function getAllBenchmarkResults(): Record<string, BenchmarkResult[]> {
   return benchmarkData;
 }
 
 /**
- * Get benchmark results for a specific model across all hardware
+ * Get benchmark results for a specific model across all hardware/runtime combos
  */
 export function getModelBenchmarks(modelId: string): Array<{
   hardware: string;
+  runtime: string;
   result: BenchmarkResult | undefined;
 }> {
-  return Object.entries(benchmarkData).map(([hardware, results]) => ({
-    hardware,
-    result: results.find((r) => r.model === modelId),
-  }));
+  return Object.entries(benchmarkData).map(([key, results]) => {
+    const [hardware, runtime] = key.split("__");
+    return {
+      hardware,
+      runtime,
+      result: results.find((r) => r.model === modelId),
+    };
+  });
 }
 
 /**
@@ -85,22 +99,66 @@ export function getDatasets(): DatasetMetadata[] {
 }
 
 /**
+ * Get all runtime metadata
+ */
+export function getRuntimes(): RuntimeMetadata[] {
+  return runtimesData.runtimes as RuntimeMetadata[];
+}
+
+/**
+ * Get a single runtime by ID
+ */
+export function getRuntimeById(runtimeId: string): RuntimeMetadata | undefined {
+  return getRuntimes().find((r) => r.id === runtimeId);
+}
+
+/**
+ * Get available runtimes for a specific hardware (only those with data)
+ */
+export function getRuntimesForHardware(hardware: string): RuntimeMetadata[] {
+  const availableRuntimeIds = Object.keys(benchmarkData)
+    .filter((key) => key.startsWith(`${hardware}__`))
+    .map((key) => key.split("__")[1]);
+
+  return getRuntimes().filter((r) => availableRuntimeIds.includes(r.id));
+}
+
+/**
+ * Get runtime options for selectors (optionally filtered by hardware)
+ */
+export function getRuntimeOptions(hardware?: string): Array<{ value: string; label: string }> {
+  const runtimes = hardware ? getRuntimesForHardware(hardware) : getRuntimes();
+  return runtimes.map((r) => ({
+    value: r.id,
+    label: r.displayName,
+  }));
+}
+
+/**
  * Get unique model families from benchmark data
  */
 export function getFamilies(): string[] {
   const families = new Set<string>();
-  getBenchmarkResults().forEach((r) => families.add(r.family));
+  // Collect families across all hardware/runtime combos
+  Object.values(benchmarkData).forEach((results) => {
+    results.forEach((r) => families.add(r.family));
+  });
   return Array.from(families).sort();
 }
 
 /**
- * Get hardware options for selectors
+ * Get hardware options for selectors (only hardware with benchmark data)
  */
 export function getHardwareOptions(): Array<{ value: string; label: string }> {
-  return getHardware().map((h) => ({
-    value: h.id,
-    label: h.displayName,
-  }));
+  const hardwareWithData = new Set(
+    Object.keys(benchmarkData).map((key) => key.split("__")[0])
+  );
+  return getHardware()
+    .filter((h) => hardwareWithData.has(h.id))
+    .map((h) => ({
+      value: h.id,
+      label: h.displayName,
+    }));
 }
 
 /**

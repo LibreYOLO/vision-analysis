@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef, useEffect, useMemo } from "react";
+import { useRouter } from "next/navigation";
 import * as Plot from "@observablehq/plot";
 import { BenchmarkResult } from "@/lib/types";
 import { getFamilyColor } from "@/lib/utils/colors";
@@ -20,6 +21,7 @@ export function ScatterPlot({
   xAxis = "paramsM",
 }: ScatterPlotProps) {
   const containerRef = useRef<HTMLDivElement>(null);
+  const router = useRouter();
 
   const paretoPoints = useMemo(() => {
     if (!showPareto) return [];
@@ -74,6 +76,7 @@ export function ScatterPlot({
         tip: true,
         title: (d: BenchmarkResult & { color: string }) =>
           `${d.model}\nmAP: ${d.mAP_50_95.toFixed(1)}%\nFPS: ${d.throughputFps.toFixed(1)}\nLatency: ${d.totalMs.toFixed(1)}ms\nParams: ${d.paramsM.toFixed(1)}M`,
+        href: (d: BenchmarkResult & { color: string }) => `/model/${d.model}`,
       })
     );
 
@@ -86,6 +89,7 @@ export function ScatterPlot({
         dy: -12,
         fontSize: 10,
         fill: "currentColor",
+        href: (d: BenchmarkResult & { color: string }) => `/model/${d.model}`,
       })
     );
 
@@ -117,11 +121,23 @@ export function ScatterPlot({
 
     containerRef.current.appendChild(plot);
 
+    // Make dots clickable with client-side navigation
+    const links = plot.querySelectorAll("a[href^='/model/']");
+    links.forEach((link) => {
+      const el = link as HTMLElement;
+      el.style.cursor = "pointer";
+      el.addEventListener("click", (e) => {
+        e.preventDefault();
+        const href = link.getAttribute("href");
+        if (href) router.push(href);
+      });
+    });
+
     // Cleanup
     return () => {
       plot.remove();
     };
-  }, [data, paretoPoints, showPareto, height, xAxis]);
+  }, [data, paretoPoints, showPareto, height, xAxis, router]);
 
   return (
     <div className="w-full">

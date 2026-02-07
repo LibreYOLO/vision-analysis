@@ -8,6 +8,7 @@ import {
   getModelBenchmarks,
   getModelsByFamily,
   getHardwareById,
+  getRuntimeById,
 } from "@/lib/data";
 import { getFamilyColor } from "@/lib/utils/colors";
 import { formatNumber, formatPercent, formatMs } from "@/lib/utils/format";
@@ -66,6 +67,11 @@ export default async function ModelPage({ params }: Props) {
   const benchmarks = getModelBenchmarks(slug);
   const relatedModels = getModelsByFamily(model.family).filter(
     (m) => m.id !== model.id
+  );
+
+  // Find a benchmark with timing data for speed breakdown
+  const benchmarkWithTiming = benchmarks.find(
+    (b) => b.result && b.result.preprocessMs > 0
   );
 
   return (
@@ -201,6 +207,7 @@ export default async function ModelPage({ params }: Props) {
             <TableHeader>
               <TableRow>
                 <TableHead>Hardware</TableHead>
+                <TableHead>Runtime</TableHead>
                 <TableHead className="text-right">mAP@50-95</TableHead>
                 <TableHead className="text-right">FPS</TableHead>
                 <TableHead className="text-right">Latency</TableHead>
@@ -208,11 +215,12 @@ export default async function ModelPage({ params }: Props) {
               </TableRow>
             </TableHeader>
             <TableBody>
-              {benchmarks.map(({ hardware, result }) => {
+              {benchmarks.map(({ hardware, runtime, result }) => {
                 if (!result) return null;
                 const hwMeta = getHardwareById(hardware);
+                const rtMeta = getRuntimeById(runtime);
                 return (
-                  <TableRow key={hardware}>
+                  <TableRow key={`${hardware}__${runtime}`}>
                     <TableCell className="font-medium">
                       <Link
                         href={`/hardware/${hardware}`}
@@ -220,6 +228,9 @@ export default async function ModelPage({ params }: Props) {
                       >
                         {hwMeta?.displayName || hardware}
                       </Link>
+                    </TableCell>
+                    <TableCell>
+                      {rtMeta?.displayName || runtime}
                     </TableCell>
                     <TableCell className="text-right font-mono">
                       {formatPercent(result.mAP_50_95)}
@@ -231,7 +242,9 @@ export default async function ModelPage({ params }: Props) {
                       {formatMs(result.totalMs)}
                     </TableCell>
                     <TableCell className="text-right font-mono">
-                      {formatNumber(result.peakVramMb, 0)} MB
+                      {result.peakVramMb > 0
+                        ? `${formatNumber(result.peakVramMb, 0)} MB`
+                        : "—"}
                     </TableCell>
                   </TableRow>
                 );
@@ -244,7 +257,14 @@ export default async function ModelPage({ params }: Props) {
       {/* Speed Breakdown */}
       <Card className="mb-8">
         <CardHeader>
-          <CardTitle>Speed Breakdown (A100 TensorRT)</CardTitle>
+          <CardTitle>
+            Speed Breakdown
+            {benchmarkWithTiming && (
+              <span className="text-base font-normal text-muted-foreground ml-2">
+                ({getHardwareById(benchmarkWithTiming.hardware)?.displayName || benchmarkWithTiming.hardware})
+              </span>
+            )}
+          </CardTitle>
           <CardDescription>
             End-to-end latency breakdown showing preprocessing, inference, and
             postprocessing times
@@ -252,15 +272,15 @@ export default async function ModelPage({ params }: Props) {
         </CardHeader>
         <CardContent>
           {(() => {
-            const a100Result = benchmarks.find(
-              (b) => b.hardware === "a100_pytorch_fp32"
-            )?.result;
-            if (!a100Result) return <p>No A100 benchmark available</p>;
+            if (!benchmarkWithTiming?.result) {
+              return <p className="text-muted-foreground">No detailed timing data available</p>;
+            }
 
-            const total = a100Result.totalMs;
-            const preWidth = (a100Result.preprocessMs / total) * 100;
-            const infWidth = (a100Result.inferenceMs / total) * 100;
-            const postWidth = (a100Result.postprocessMs / total) * 100;
+            const result = benchmarkWithTiming.result;
+            const total = result.totalMs;
+            const preWidth = (result.preprocessMs / total) * 100;
+            const infWidth = (result.inferenceMs / total) * 100;
+            const postWidth = (result.postprocessMs / total) * 100;
 
             return (
               <div className="space-y-4">
@@ -269,19 +289,19 @@ export default async function ModelPage({ params }: Props) {
                     className="bg-blue-500 flex items-center justify-center text-white text-xs"
                     style={{ width: `${preWidth}%` }}
                   >
-                    {a100Result.preprocessMs.toFixed(1)}ms
+                    {result.preprocessMs.toFixed(1)}ms
                   </div>
                   <div
                     className="bg-green-500 flex items-center justify-center text-white text-xs"
                     style={{ width: `${infWidth}%` }}
                   >
-                    {a100Result.inferenceMs.toFixed(1)}ms
+                    {result.inferenceMs.toFixed(1)}ms
                   </div>
                   <div
                     className="bg-orange-500 flex items-center justify-center text-white text-xs"
                     style={{ width: `${postWidth}%` }}
                   >
-                    {a100Result.postprocessMs.toFixed(1)}ms
+                    {result.postprocessMs.toFixed(1)}ms
                   </div>
                 </div>
                 <div className="flex gap-4 text-sm">
@@ -311,17 +331,19 @@ export default async function ModelPage({ params }: Props) {
         </CardHeader>
         <CardContent>
           <pre className="bg-muted p-4 rounded-lg overflow-x-auto text-sm">
-            <code>{`from libreyolo import YOLO
+            <code>{`from libreyolo import LIBREYOLO
 
-# Load model
-model = YOLO.from_pretrained("${model.source.weightsUrl}")
+# Load model (auto-downloads from HuggingFace if not found locally)
+model = LIBREYOLO("${model.family === "yolox" ? `libreyoloX${model.variant}.pt` : model.family === "yolov9" ? `libreyolo9${model.variant}.pt` : `libre${model.family}${model.variant}.pth`}")
 
 # Run inference
-results = model.predict("image.jpg")
+result = model("image.jpg", conf=0.25, iou=0.45)
 
 # Process results
-for box in results.boxes:
-    print(f"Class: {box.cls}, Confidence: {box.conf:.2f}")`}</code>
+print(f"Found {len(result)} objects")
+print(result.boxes.xyxy)   # bounding boxes (N, 4)
+print(result.boxes.conf)   # confidence scores (N,)
+print(result.boxes.cls)    # class IDs (N,)`}</code>
           </pre>
         </CardContent>
       </Card>

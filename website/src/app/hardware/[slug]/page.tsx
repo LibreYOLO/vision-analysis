@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, ExternalLink } from "lucide-react";
-import { getHardware, getHardwareById, getBenchmarkResults } from "@/lib/data";
+import { getHardware, getHardwareById, getBenchmarkResults, getRuntimesForHardware, getRuntimeById } from "@/lib/data";
 import { getFamilyColor } from "@/lib/utils/colors";
 import { formatNumber, formatPercent, formatMs } from "@/lib/utils/format";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
@@ -50,7 +50,12 @@ export default async function HardwarePage({ params }: Props) {
     notFound();
   }
 
-  const results = getBenchmarkResults(slug);
+  // Get available runtimes for this hardware, default to first
+  const availableRuntimes = getRuntimesForHardware(slug);
+  const defaultRuntime = availableRuntimes[0]?.id || "pytorch_fp32";
+  const runtimeMeta = getRuntimeById(defaultRuntime);
+
+  const results = getBenchmarkResults(slug, defaultRuntime);
   const sortedByMaP = [...results].sort((a, b) => b.mAP_50_95 - a.mAP_50_95);
   const sortedByFps = [...results].sort((a, b) => b.throughputFps - a.throughputFps);
 
@@ -71,6 +76,14 @@ export default async function HardwarePage({ params }: Props) {
         {hw.specs.gpuName && (
           <p className="text-muted-foreground">{hw.specs.gpuName}</p>
         )}
+        {hw.specs.cpuName && (
+          <p className="text-muted-foreground">{hw.specs.cpuName}</p>
+        )}
+        {runtimeMeta && (
+          <Badge variant="secondary" className="mt-2">
+            {runtimeMeta.displayName}
+          </Badge>
+        )}
       </div>
 
       {/* Specs Grid */}
@@ -85,6 +98,16 @@ export default async function HardwarePage({ params }: Props) {
             </CardContent>
           </Card>
         )}
+        {hw.specs.ramGb && (
+          <Card>
+            <CardHeader className="pb-2">
+              <CardDescription>RAM</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <p className="text-2xl font-bold">{hw.specs.ramGb} GB</p>
+            </CardContent>
+          </Card>
+        )}
         {hw.specs.fp16Tflops && (
           <Card>
             <CardHeader className="pb-2">
@@ -92,6 +115,16 @@ export default async function HardwarePage({ params }: Props) {
             </CardHeader>
             <CardContent>
               <p className="text-2xl font-bold">{hw.specs.fp16Tflops} TFLOPS</p>
+            </CardContent>
+          </Card>
+        )}
+        {hw.specs.fp32Tflops && (
+          <Card>
+            <CardHeader className="pb-2">
+              <CardDescription>FP32 Performance</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <p className="text-2xl font-bold">{hw.specs.fp32Tflops} TFLOPS</p>
             </CardContent>
           </Card>
         )}
