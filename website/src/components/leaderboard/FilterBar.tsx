@@ -8,8 +8,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { getFamilyColor, getAllFamilies } from "@/lib/utils/colors";
-import { getHardwareOptions, getRuntimeOptions } from "@/lib/data";
+import { getFamilyColor } from "@/lib/utils/colors";
 import { cn } from "@/lib/utils";
 
 interface FilterBarProps {
@@ -20,6 +19,9 @@ interface FilterBarProps {
   selectedFamilies: string[];
   onFamilyToggle: (family: string) => void;
   resultCount: number;
+  hardwareOptions: Array<{ value: string; label: string }>;
+  runtimeOptions: Array<{ value: string; label: string }>;
+  families: string[];
 }
 
 export function FilterBar({
@@ -30,11 +32,10 @@ export function FilterBar({
   selectedFamilies,
   onFamilyToggle,
   resultCount,
+  hardwareOptions,
+  runtimeOptions,
+  families,
 }: FilterBarProps) {
-  const hardwareOptions = getHardwareOptions();
-  const runtimeOptions = getRuntimeOptions(hardware);
-  const families = getAllFamilies();
-
   return (
     <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center justify-between pb-4 border-b">
       <div className="flex flex-wrap items-center gap-3">

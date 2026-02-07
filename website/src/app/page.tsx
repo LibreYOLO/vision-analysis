@@ -1,43 +1,10 @@
-"use client";
-
-import { useState, useMemo } from "react";
-import { getBenchmarkResults, filterByFamilies, getRuntimesForHardware } from "@/lib/data";
-import { LeaderboardTable, FilterBar } from "@/components/leaderboard";
-import { ScatterPlot, SpeedBreakdown } from "@/components/charts";
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { getAllBenchmarkResults, getHardwareOptions, getFamilies } from "@/lib/data";
+import { LeaderboardDashboard } from "@/components/leaderboard";
 
 export default function HomePage() {
-  const [hardware, setHardware] = useState("a100");
-  const [runtime, setRuntime] = useState("pytorch_fp32");
-  const [selectedFamilies, setSelectedFamilies] = useState<string[]>([]);
-
-  // Get data for selected hardware + runtime
-  const allResults = useMemo(() => {
-    return getBenchmarkResults(hardware, runtime);
-  }, [hardware, runtime]);
-
-  // Filter by selected families
-  const filteredResults = useMemo(() => {
-    return filterByFamilies(allResults, selectedFamilies);
-  }, [allResults, selectedFamilies]);
-
-  const handleFamilyToggle = (family: string) => {
-    setSelectedFamilies((prev) =>
-      prev.includes(family)
-        ? prev.filter((f) => f !== family)
-        : [...prev, family]
-    );
-  };
-
-  const handleHardwareChange = (newHardware: string) => {
-    setHardware(newHardware);
-    // Reset runtime to first available for the new hardware
-    const availableRuntimes = getRuntimesForHardware(newHardware);
-    if (availableRuntimes.length > 0 && !availableRuntimes.some((r) => r.id === runtime)) {
-      setRuntime(availableRuntimes[0].id);
-    }
-  };
+  const benchmarkData = getAllBenchmarkResults();
+  const hardwareOptions = getHardwareOptions();
+  const families = getFamilies();
 
   return (
     <div className="container mx-auto px-4 py-8">
@@ -52,60 +19,11 @@ export default function HomePage() {
         </p>
       </section>
 
-      {/* Main Visualization */}
-      <Card className="mb-8">
-        <CardHeader>
-          <CardTitle>Accuracy vs Size</CardTitle>
-          <CardDescription>
-            mAP@50-95 on COCO val2017 vs model parameters.
-          </CardDescription>
-        </CardHeader>
-        <CardContent>
-          <ScatterPlot data={filteredResults} showPareto={false} height={450} />
-        </CardContent>
-      </Card>
-
-      {/* Filters */}
-      <FilterBar
-        hardware={hardware}
-        onHardwareChange={handleHardwareChange}
-        runtime={runtime}
-        onRuntimeChange={setRuntime}
-        selectedFamilies={selectedFamilies}
-        onFamilyToggle={handleFamilyToggle}
-        resultCount={filteredResults.length}
+      <LeaderboardDashboard
+        benchmarkData={benchmarkData}
+        hardwareOptions={hardwareOptions}
+        families={families}
       />
-
-      {/* Tabs for Table/Speed Breakdown */}
-      <Tabs defaultValue="leaderboard" className="mt-6">
-        <TabsList>
-          <TabsTrigger value="leaderboard">Leaderboard</TabsTrigger>
-          <TabsTrigger value="speed">Speed Breakdown</TabsTrigger>
-        </TabsList>
-
-        <TabsContent value="leaderboard" className="mt-4">
-          <LeaderboardTable
-            data={filteredResults}
-            familyFilter={selectedFamilies}
-          />
-        </TabsContent>
-
-        <TabsContent value="speed" className="mt-4">
-          <Card>
-            <CardHeader>
-              <CardTitle>End-to-End Speed Breakdown</CardTitle>
-              <CardDescription>
-                We measure the complete pipeline: preprocessing, inference, and
-                postprocessing (NMS) for accurate real-world performance comparison.
-              </CardDescription>
-            </CardHeader>
-            <CardContent>
-              <SpeedBreakdown data={filteredResults} limit={20} />
-            </CardContent>
-          </Card>
-        </TabsContent>
-      </Tabs>
-
     </div>
   );
 }

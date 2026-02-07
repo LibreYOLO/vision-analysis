@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import * as Plot from "@observablehq/plot";
 import { BenchmarkResult } from "@/lib/types";
 import { getFamilyColor } from "@/lib/utils/colors";
-import { computeParetoFrontier } from "@/lib/data";
+import { computeParetoFrontier } from "@/lib/data/utils";
 
 interface ScatterPlotProps {
   data: BenchmarkResult[];

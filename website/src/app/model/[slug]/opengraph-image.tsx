@@ -2,7 +2,7 @@ import { ImageResponse } from "next/og";
 import { getModelById, getModelBenchmarks } from "@/lib/data";
 import { getFamilyColor } from "@/lib/utils/colors";
 
-export const runtime = "edge";
+export const runtime = "nodejs";
 export const alt = "Model Benchmark Results";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
