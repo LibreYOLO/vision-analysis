@@ -1,7 +1,7 @@
 {
   "model": {
     "name": "yoloxs",
-    "family": "yolov8",
+    "family": "yolox",
     "variant": "s",
     "source": "libreyolo",
     "weights": "libreyoloXs.pt",

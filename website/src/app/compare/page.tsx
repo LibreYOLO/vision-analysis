@@ -1,6 +1,5 @@
 import { Suspense } from "react";
 import { getAllBenchmarkResults, getModels, getHardwareOptions, getRuntimeOptions } from "@/lib/data";
-import { Card, CardContent } from "@/components/ui/card";
 import { CompareContent } from "./CompareContent";
 
 export default function ComparePage() {
@@ -16,15 +15,7 @@ export default function ComparePage() {
         Select up to 4 models to compare side-by-side
       </p>
 
-      <Suspense
-        fallback={
-          <Card className="mb-8">
-            <CardContent className="py-12 text-center text-muted-foreground">
-              Loading comparison tool...
-            </CardContent>
-          </Card>
-        }
-      >
+      <Suspense>
         <CompareContent
           benchmarkData={benchmarkData}
           allModels={allModels}
