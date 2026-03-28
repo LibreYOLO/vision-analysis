@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YOLOv9-T vs YOLOX-S Benchmark Comparison on NVIDIA A100 | Vision Analysis</title>
+    <meta name="description" content="Interactive benchmark comparison of YOLOv9-T and YOLOX-S on NVIDIA A100 GPU with mAP, FPS, latency, and efficiency metrics.">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "YOLOv9-T vs YOLOX-S: Benchmark Comparison on NVIDIA A100",
+        "author": { "@type": "Organization", "name": "Vision Analysis" },
+        "datePublished": "2026-03-22"
+    }
+    </script>
+    <style>
+        /* V4: Dashboard-first. Data-dense, visual, less prose. */
+        :root {
+            --bg: #09090b;
+            --surface: #111114;
+            --surface-2: #18181c;
+            --border: #27272a;
+            --text: #fafafa;
+            --text-muted: #71717a;
+            --green: #22c55e;
+            --green-dim: rgba(34,197,94,0.1);
+            --red: #ef4444;
+            --red-dim: rgba(239,68,68,0.1);
+            --blue: #3b82f6;
+            --blue-dim: rgba(59,130,246,0.1);
+            --amber: #eab308;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Inter', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        nav {
+            position: sticky; top: 0; z-index: 100;
+            background: rgba(9,9,11,0.92); backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            padding: 0.7rem 1.5rem;
+            display: flex; align-items: center; justify-content: space-between;
+        }
+        .nav-brand { font-weight: 700; color: var(--text); text-decoration: none; font-size: 0.95rem; }
+        .nav-brand span { color: var(--green); }
+        .nav-links { display: flex; gap: 1.25rem; }
+        .nav-links a { color: var(--text-muted); text-decoration: none; font-size: 0.82rem; }
+
+        .container { max-width: 1100px; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
+
+        .breadcrumb { font-size: 0.75rem; color: var(--text-muted); margin-bottom: 1.5rem; }
+        .breadcrumb a { color: var(--green); text-decoration: none; }
+
+        /* V4: Compact header */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border);
+        }
+        .header h1 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+        .header .meta {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            text-align: right;
+        }
+
+        /* V4: Winner banner */
+        .winner-banner {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 1rem 1.25rem;
+            margin-bottom: 1.5rem;
+        }
+        .winner-badge {
+            background: var(--green-dim);
+            color: var(--green);
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            padding: 0.3rem 0.7rem;
+            border-radius: 5px;
+            white-space: nowrap;
+        }
+        .winner-text {
+            font-size: 0.88rem;
+            color: var(--text);
+        }
+        .winner-text strong { color: var(--green); }
+
+        /* V4: Dashboard grid */
+        .dashboard {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0.6rem;
+            margin-bottom: 1.5rem;
+        }
+        .metric-tile {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 0.9rem 1rem;
+        }
+        .metric-tile .label {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--text-muted);
+            margin-bottom: 0.6rem;
+        }
+        .metric-tile .row {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 0.2rem;
+        }
+        .metric-tile .model-name {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+        }
+        .metric-tile .val {
+            font-size: 1.15rem;
+            font-weight: 700;
+            font-variant-numeric: tabular-nums;
+        }
+        .val.win { color: var(--green); }
+        .val.lose { color: var(--text-muted); }
+
+        /* V4: Comparison bars */
+        .bars-section {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 1.25rem;
+            margin-bottom: 1.5rem;
+        }
+        .bars-title {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+        }
+        .bar-row {
+            display: grid;
+            grid-template-columns: 90px 1fr 90px 1fr;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.75rem;
+            font-size: 0.82rem;
+        }
+        .bar-row .metric-name {
+            color: var(--text-muted);
+            font-size: 0.75rem;
+            grid-column: 1 / -1;
+            margin-bottom: -0.25rem;
+        }
+        .bar-row .val-label { text-align: right; font-variant-numeric: tabular-nums; font-weight: 500; }
+        .bar-row .val-label.a { color: var(--green); }
+        .bar-row .val-label.b { color: var(--blue); }
+        .bar-track {
+            height: 6px;
+            background: var(--surface-2);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+        .bar-fill {
+            height: 100%;
+            border-radius: 3px;
+        }
+        .bar-fill.a { background: var(--green); }
+        .bar-fill.b { background: var(--blue); }
+
+        /* V4: Side-by-side columns */
+        .side-by-side {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.6rem;
+            margin-bottom: 1.5rem;
+        }
+        .side-panel {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 1.25rem;
+        }
+        .side-panel h3 {
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .side-panel h3 .dot {
+            width: 8px; height: 8px; border-radius: 50%;
+        }
+        .side-panel h3 .dot.a { background: var(--green); }
+        .side-panel h3 .dot.b { background: var(--blue); }
+        .side-panel .spec-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.35rem 0;
+            border-bottom: 1px solid var(--border);
+            font-size: 0.82rem;
+        }
+        .side-panel .spec-row:last-child { border-bottom: none; }
+        .side-panel .spec-row .spec-label { color: var(--text-muted); }
+        .side-panel .spec-row .spec-val { font-weight: 600; font-variant-numeric: tabular-nums; }
+
+        /* V4: Full table for SEO (collapsible feel) */
+        .full-table-section {
+            margin-bottom: 1.5rem;
+        }
+        .section-label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--text-muted);
+            margin-bottom: 0.6rem;
+        }
+        .table-wrap {
+            overflow-x: auto;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+        }
+        table { width: 100%; border-collapse: collapse; font-size: 0.82rem; }
+        thead { background: var(--surface-2); }
+        th {
+            padding: 0.55rem 0.75rem; text-align: left; font-weight: 600;
+            font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.04em;
+            color: var(--text-muted); border-bottom: 1px solid var(--border);
+        }
+        td { padding: 0.5rem 0.75rem; border-bottom: 1px solid var(--border); }
+        tr:last-child td { border-bottom: none; }
+        .tw { color: var(--green); font-weight: 600; }
+
+        /* Code & CTA */
+        .code-section {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 1.25rem;
+            margin-bottom: 0.6rem;
+        }
+        .code-section .code-label {
+            font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.06em;
+            color: var(--text-muted); margin-bottom: 0.6rem;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .libre-badge {
+            font-size: 0.65rem; background: var(--green-dim); color: var(--green);
+            padding: 0.15rem 0.5rem; border-radius: 12px; font-weight: 600;
+        }
+        pre {
+            font-family: 'SF Mono', 'Fira Code', monospace;
+            font-size: 0.82rem; line-height: 1.55; overflow-x: auto;
+        }
+        .c { color: #52525b; } .k { color: #a78bfa; } .s { color: #22c55e; } .f { color: #3b82f6; }
+
+        .cta-strip {
+            background: linear-gradient(135deg, var(--green-dim), var(--blue-dim));
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 1rem 1.25rem;
+            margin: 1.5rem 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .cta-strip p { font-size: 0.88rem; margin: 0; }
+        .cta-strip a {
+            background: var(--green); color: var(--bg); font-weight: 700;
+            font-size: 0.82rem; padding: 0.5rem 1.2rem; border-radius: 6px;
+            text-decoration: none; white-space: nowrap;
+        }
+
+        .methodology {
+            font-size: 0.75rem; color: var(--text-muted); line-height: 1.65;
+            margin-top: 2rem; padding-top: 1.25rem; border-top: 1px solid var(--border);
+        }
+        .methodology a { color: var(--green); text-decoration: none; }
+
+        footer {
+            max-width: 1100px; margin: 0 auto; padding: 1.5rem;
+            font-size: 0.75rem; color: var(--text-muted);
+            display: flex; justify-content: space-between;
+        }
+        footer a { color: var(--green); text-decoration: none; }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="/" class="nav-brand"><span>Vision</span>Analysis</a>
+        <div class="nav-links">
+            <a href="/compare">Compare</a>
+            <a href="/articles">Articles</a>
+            <a href="https://libreyolo.org">LibreYOLO</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="breadcrumb">
+            <a href="/">Home</a> / <a href="/articles">Articles</a> / YOLOv9-T vs YOLOX-S
+        </div>
+
+        <div class="header">
+            <h1>YOLOv9-T vs YOLOX-S</h1>
+            <div class="meta">
+                NVIDIA A100 &middot; COCO val2017<br>
+                PyTorch FP32 &middot; March 2026
+            </div>
+        </div>
+
+        <div class="winner-banner">
+            <span class="winner-badge">Overall Winner</span>
+            <span class="winner-text"><strong>YOLOX-S</strong> &mdash; 14.5% higher mAP, 1.9x faster. YOLOv9-T wins on efficiency (3.8x more mAP/param).</span>
+        </div>
+
+        <!-- Dashboard tiles -->
+        <div class="dashboard">
+            <div class="metric-tile">
+                <div class="label">mAP@50-95</div>
+                <div class="row"><span class="model-name">v9-T</span><span class="val lose">30.2</span></div>
+                <div class="row"><span class="model-name">X-S</span><span class="val win">34.6</span></div>
+            </div>
+            <div class="metric-tile">
+                <div class="label">FPS</div>
+                <div class="row"><span class="model-name">v9-T</span><span class="val lose">23.2</span></div>
+                <div class="row"><span class="model-name">X-S</span><span class="val win">44.0</span></div>
+            </div>
+            <div class="metric-tile">
+                <div class="label">Params</div>
+                <div class="row"><span class="model-name">v9-T</span><span class="val win">2.04M</span></div>
+                <div class="row"><span class="model-name">X-S</span><span class="val lose">8.97M</span></div>
+            </div>
+            <div class="metric-tile">
+                <div class="label">Latency p50</div>
+                <div class="row"><span class="model-name">v9-T</span><span class="val lose">42.3ms</span></div>
+                <div class="row"><span class="model-name">X-S</span><span class="val win">22.8ms</span></div>
+            </div>
+        </div>
+
+        <!-- Visual bars -->
+        <div class="bars-section">
+            <div class="bars-title">Visual Comparison</div>
+
+            <div class="bar-row">
+                <div class="metric-name">mAP@50-95 (higher = better)</div>
+                <div class="val-label a">30.2</div>
+                <div class="bar-track"><div class="bar-fill a" style="width:87.3%"></div></div>
+                <div class="val-label b">34.6</div>
+                <div class="bar-track"><div class="bar-fill b" style="width:100%"></div></div>
+            </div>
+            <div class="bar-row">
+                <div class="metric-name">Throughput FPS (higher = better)</div>
+                <div class="val-label a">23.2</div>
+                <div class="bar-track"><div class="bar-fill a" style="width:52.7%"></div></div>
+                <div class="val-label b">44.0</div>
+                <div class="bar-track"><div class="bar-fill b" style="width:100%"></div></div>
+            </div>
+            <div class="bar-row">
+                <div class="metric-name">mAP per M params (higher = better)</div>
+                <div class="val-label a">14.8</div>
+                <div class="bar-track"><div class="bar-fill a" style="width:100%"></div></div>
+                <div class="val-label b">3.9</div>
+                <div class="bar-track"><div class="bar-fill b" style="width:26.4%"></div></div>
+            </div>
+            <div class="bar-row">
+                <div class="metric-name">Model size (lower = better)</div>
+                <div class="val-label a">2.04M</div>
+                <div class="bar-track"><div class="bar-fill a" style="width:22.7%"></div></div>
+                <div class="val-label b">8.97M</div>
+                <div class="bar-track"><div class="bar-fill b" style="width:100%"></div></div>
+            </div>
+        </div>
+
+        <!-- Side by side specs -->
+        <div class="side-by-side">
+            <div class="side-panel">
+                <h3><span class="dot a"></span> YOLOv9-T</h3>
+                <div class="spec-row"><span class="spec-label">mAP@50-95</span><span class="spec-val">30.2</span></div>
+                <div class="spec-row"><span class="spec-label">mAP@50</span><span class="spec-val">43.0</span></div>
+                <div class="spec-row"><span class="spec-label">Precision</span><span class="spec-val">61.5%</span></div>
+                <div class="spec-row"><span class="spec-label">Recall</span><span class="spec-val">36.4%</span></div>
+                <div class="spec-row"><span class="spec-label">FPS</span><span class="spec-val">23.2</span></div>
+                <div class="spec-row"><span class="spec-label">Latency p50</span><span class="spec-val">42.3 ms</span></div>
+                <div class="spec-row"><span class="spec-label">Latency p95</span><span class="spec-val">51.1 ms</span></div>
+                <div class="spec-row"><span class="spec-label">Params</span><span class="spec-val">2.04M</span></div>
+                <div class="spec-row"><span class="spec-label">GFLOPs</span><span class="spec-val">3.98</span></div>
+            </div>
+            <div class="side-panel">
+                <h3><span class="dot b"></span> YOLOX-S</h3>
+                <div class="spec-row"><span class="spec-label">mAP@50-95</span><span class="spec-val">34.6</span></div>
+                <div class="spec-row"><span class="spec-label">mAP@50</span><span class="spec-val">51.8</span></div>
+                <div class="spec-row"><span class="spec-label">Precision</span><span class="spec-val">42.7%</span></div>
+                <div class="spec-row"><span class="spec-label">Recall</span><span class="spec-val">57.0%</span></div>
+                <div class="spec-row"><span class="spec-label">FPS</span><span class="spec-val">44.0</span></div>
+                <div class="spec-row"><span class="spec-label">Latency p50</span><span class="spec-val">22.8 ms</span></div>
+                <div class="spec-row"><span class="spec-label">Latency p95</span><span class="spec-val">28.7 ms</span></div>
+                <div class="spec-row"><span class="spec-label">Params</span><span class="spec-val">8.97M</span></div>
+                <div class="spec-row"><span class="spec-label">GFLOPs</span><span class="spec-val">13.46</span></div>
+            </div>
+        </div>
+
+        <!-- Full table for SEO -->
+        <div class="full-table-section">
+            <div class="section-label">Complete Benchmark Data</div>
+            <div class="table-wrap">
+                <table>
+                    <thead><tr><th>Metric</th><th>YOLOv9-T</th><th>YOLOX-S</th><th>Winner</th></tr></thead>
+                    <tbody>
+                        <tr><td>mAP@50-95</td><td>30.2</td><td class="tw">34.6</td><td>YOLOX-S</td></tr>
+                        <tr><td>mAP@50</td><td>43.0</td><td class="tw">51.8</td><td>YOLOX-S</td></tr>
+                        <tr><td>Precision</td><td class="tw">61.5%</td><td>42.7%</td><td>YOLOv9-T</td></tr>
+                        <tr><td>Recall</td><td>36.4%</td><td class="tw">57.0%</td><td>YOLOX-S</td></tr>
+                        <tr><td>FPS</td><td>23.2</td><td class="tw">44.0</td><td>YOLOX-S</td></tr>
+                        <tr><td>Latency p50</td><td>42.3 ms</td><td class="tw">22.8 ms</td><td>YOLOX-S</td></tr>
+                        <tr><td>Latency p95</td><td>51.1 ms</td><td class="tw">28.7 ms</td><td>YOLOX-S</td></tr>
+                        <tr><td>Latency p99</td><td>57.8 ms</td><td class="tw">29.2 ms</td><td>YOLOX-S</td></tr>
+                        <tr><td>Parameters</td><td class="tw">2.04M</td><td>8.97M</td><td>YOLOv9-T</td></tr>
+                        <tr><td>GFLOPs</td><td class="tw">3.98</td><td>13.46</td><td>YOLOv9-T</td></tr>
+                        <tr><td>mAP/M params</td><td class="tw">14.8</td><td>3.9</td><td>YOLOv9-T</td></tr>
+                        <tr><td>mAP/GFLOP</td><td class="tw">7.59</td><td>2.57</td><td>YOLOv9-T</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Code -->
+        <div class="side-by-side">
+            <div class="code-section">
+                <div class="code-label"><span>Try YOLOv9-T</span><span class="libre-badge">LibreYOLO</span></div>
+<pre><span class="k">from</span> libreyolo <span class="k">import</span> <span class="f">LibreYOLO</span>
+
+model = <span class="f">LibreYOLO</span>(<span class="s">"yolov9-t"</span>)
+results = model(<span class="s">"image.jpg"</span>)</pre>
+            </div>
+            <div class="code-section">
+                <div class="code-label"><span>Try YOLOX-S</span><span class="libre-badge">LibreYOLO</span></div>
+<pre><span class="k">from</span> libreyolo <span class="k">import</span> <span class="f">LibreYOLO</span>
+
+model = <span class="f">LibreYOLO</span>(<span class="s">"yolox-s"</span>)
+results = model(<span class="s">"image.jpg"</span>)</pre>
+            </div>
+        </div>
+
+        <div class="code-section">
+            <div class="code-label"><span>Reproduce these results</span><span class="libre-badge">Reproducible</span></div>
+<pre><span class="c"># pip install libreyolo</span>
+<span class="k">from</span> libreyolo <span class="k">import</span> <span class="f">LibreYOLO</span>
+
+<span class="k">for</span> name <span class="k">in</span> [<span class="s">"yolov9-t"</span>, <span class="s">"yolox-s"</span>]:
+    model = <span class="f">LibreYOLO</span>(name)
+    metrics = model.<span class="f">val</span>(data=<span class="s">"coco.yaml"</span>)
+    <span class="f">print</span>(<span class="k">f</span><span class="s">"{name}: {metrics}"</span>)</pre>
+        </div>
+
+        <div class="cta-strip">
+            <p>LibreYOLO is MIT-licensed. Run any model, reproduce any benchmark.</p>
+            <a href="https://libreyolo.org">Get LibreYOLO</a>
+        </div>
+
+        <div class="methodology">
+            <strong>Methodology.</strong> Benchmarks run with <a href="https://libreyolo.org">LibreYOLO</a> v0.1.2 on NVIDIA A100-PCIE-40GB, CUDA 12.8, PyTorch 2.8.0, Python 3.10.6. Dataset: COCO val2017 (5,000 images). Input: 640&times;640, batch 1.
+            &middot; Source: <a href="https://visionanalysis.org">visionanalysis.org</a>
+        </div>
+    </div>
+
+    <footer>
+        <span>&copy; 2026 Vision Analysis</span>
+        <a href="https://libreyolo.org">Powered by LibreYOLO</a>
+    </footer>
+</body>
+</html>

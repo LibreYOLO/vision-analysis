@@ -144,7 +144,7 @@ export default async function HardwarePage({ params }: Props) {
               <CardDescription>Starting Price</CardDescription>
             </CardHeader>
             <CardContent>
-              <p className="text-2xl font-bold text-green-600">
+              <p className="text-2xl font-bold text-green-600 dark:text-green-400">
                 ${Math.min(...hw.providers.map((p) => p.costPerHour)).toFixed(2)}/hr
               </p>
             </CardContent>
@@ -169,7 +169,7 @@ export default async function HardwarePage({ params }: Props) {
                   className="flex items-center gap-2 px-4 py-2 rounded-lg border hover:bg-accent transition-colors"
                 >
                   <span className="font-medium">{provider.name}</span>
-                  <span className="text-green-600 font-mono">
+                  <span className="text-green-600 dark:text-green-400 font-mono">
                     ${provider.costPerHour.toFixed(2)}/hr
                   </span>
                   <ExternalLink className="h-3 w-3 text-muted-foreground" />
@@ -204,7 +204,7 @@ export default async function HardwarePage({ params }: Props) {
                       {model.model}
                     </Link>
                   </div>
-                  <span className="font-mono text-green-600">
+                  <span className="font-mono text-green-600 dark:text-green-400">
                     {formatPercent(model.mAP_50_95)}
                   </span>
                 </div>

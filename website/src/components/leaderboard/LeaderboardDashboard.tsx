@@ -6,8 +6,6 @@ import { filterByFamilies } from "@/lib/data/utils";
 import { LeaderboardTable } from "./LeaderboardTable";
 import { FilterBar } from "./FilterBar";
 import { ScatterPlot, SpeedBreakdown } from "@/components/charts";
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 interface LeaderboardDashboardProps {
   benchmarkData: Record<string, BenchmarkResult[]>;
@@ -55,7 +53,6 @@ export function LeaderboardDashboard({
 
   const handleHardwareChange = (newHardware: string) => {
     setHardware(newHardware);
-    // Reset runtime to first available for the new hardware
     const availableRuntimes = Object.keys(benchmarkData)
       .filter((key) => key.startsWith(`${newHardware}__`))
       .map((key) => key.split("__")[1]);
@@ -65,63 +62,111 @@ export function LeaderboardDashboard({
   };
 
   return (
-    <>
-      {/* Main Visualization */}
-      <Card className="mb-8">
-        <CardHeader>
-          <CardTitle>Accuracy vs Size</CardTitle>
-          <CardDescription>
-            mAP@50-95 on COCO val2017 vs model parameters.
-          </CardDescription>
-        </CardHeader>
-        <CardContent>
-          <ScatterPlot data={filteredResults} showPareto={false} height={450} />
-        </CardContent>
-      </Card>
+    <div className="space-y-6">
+      {/* Section: Accuracy */}
+      <div className="section-group">
+        <div className="section-group-header">
+          <h2>Accuracy</h2>
+          <p className="text-base text-foreground">
+            mAP@50-95 scores on COCO val2017 - the standard benchmark for object detection accuracy.
+          </p>
+        </div>
+        <div className="section-group-content">
+          {/* Filters inside this section */}
+          <FilterBar
+            hardware={hardware}
+            onHardwareChange={handleHardwareChange}
+            runtime={runtime}
+            onRuntimeChange={setRuntime}
+            selectedFamilies={selectedFamilies}
+            onFamilyToggle={handleFamilyToggle}
+            resultCount={filteredResults.length}
+            hardwareOptions={hardwareOptions}
+            runtimeOptions={runtimeOptions}
+            families={families}
+          />
 
-      {/* Filters */}
-      <FilterBar
-        hardware={hardware}
-        onHardwareChange={handleHardwareChange}
-        runtime={runtime}
-        onRuntimeChange={setRuntime}
-        selectedFamilies={selectedFamilies}
-        onFamilyToggle={handleFamilyToggle}
-        resultCount={filteredResults.length}
-        hardwareOptions={hardwareOptions}
-        runtimeOptions={runtimeOptions}
-        families={families}
-      />
+          {/* Scatter Chart Card */}
+          <div className="chart-card mt-4">
+            <div className="chart-card-header">
+              <h3>Accuracy vs Model Size</h3>
+              <p className="chart-card-subtitle">
+                mAP@50-95 on COCO val2017 plotted against parameter count. Higher and left is better.
+              </p>
+            </div>
+            <div className="p-4">
+              <ScatterPlot data={filteredResults} showPareto={false} height={420} />
+            </div>
+          </div>
+        </div>
+      </div>
 
-      {/* Tabs for Table/Speed Breakdown */}
-      <Tabs defaultValue="leaderboard" className="mt-6">
-        <TabsList>
-          <TabsTrigger value="leaderboard">Leaderboard</TabsTrigger>
-          <TabsTrigger value="speed">Speed Breakdown</TabsTrigger>
-        </TabsList>
+      {/* Section: Speed & Latency */}
+      <div className="section-group">
+        <div className="section-group-header">
+          <h2>Speed &amp; Latency</h2>
+          <p className="text-base text-foreground">
+            End-to-end inference speed including preprocessing, model inference, and postprocessing (NMS).
+          </p>
+        </div>
+        <div className="section-group-content">
+          <div className="chart-card">
+            <div className="chart-card-header">
+              <h3>End-to-End Speed Breakdown</h3>
+              <p className="chart-card-subtitle">
+                Complete pipeline timing: preprocessing, inference, and postprocessing per image.
+              </p>
+            </div>
+            <div className="p-4">
+              <SpeedBreakdown data={filteredResults} limit={20} />
+            </div>
+          </div>
+        </div>
+      </div>
 
-        <TabsContent value="leaderboard" className="mt-4">
+      {/* Section: Efficiency */}
+      <div className="section-group">
+        <div className="section-group-header">
+          <h2>Efficiency</h2>
+          <p className="text-base text-foreground">
+            Accuracy per unit of compute - how much mAP you get per GFLOP. Critical for edge deployment.
+          </p>
+        </div>
+        <div className="section-group-content">
+          <div className="chart-card">
+            <div className="chart-card-header">
+              <h3>Accuracy vs Speed</h3>
+              <p className="chart-card-subtitle">
+                mAP@50-95 plotted against throughput (FPS). Upper-right is the ideal sweet spot.
+              </p>
+            </div>
+            <div className="p-4">
+              <ScatterPlot
+                data={filteredResults}
+                showPareto={false}
+                height={420}
+                xAxis="flopsG"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Section: Full Leaderboard */}
+      <div className="section-group">
+        <div className="section-group-header">
+          <h2>Leaderboard</h2>
+          <p className="text-base text-foreground">
+            Full ranking of all benchmarked models. Click column headers to sort.
+          </p>
+        </div>
+        <div className="section-group-content">
           <LeaderboardTable
             data={filteredResults}
             familyFilter={selectedFamilies}
           />
-        </TabsContent>
-
-        <TabsContent value="speed" className="mt-4">
-          <Card>
-            <CardHeader>
-              <CardTitle>End-to-End Speed Breakdown</CardTitle>
-              <CardDescription>
-                We measure the complete pipeline: preprocessing, inference, and
-                postprocessing (NMS) for accurate real-world performance comparison.
-              </CardDescription>
-            </CardHeader>
-            <CardContent>
-              <SpeedBreakdown data={filteredResults} limit={20} />
-            </CardContent>
-          </Card>
-        </TabsContent>
-      </Tabs>
-    </>
+        </div>
+      </div>
+    </div>
   );
 }

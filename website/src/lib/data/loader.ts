@@ -43,7 +43,7 @@ export function loadAllBenchmarks(): Record<string, BenchmarkResult[]> {
         continue;
       }
 
-      // Raw benchmark format — transform it
+      // Raw benchmark format - transform it
       if (isRawBenchmark(parsed)) {
         const result = transformRawBenchmark(parsed, modelSpecs);
         if (result) {

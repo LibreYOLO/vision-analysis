@@ -72,24 +72,44 @@ export interface ModelMetadata {
     head: string;
   };
 
+  detectionApproach: "anchor-free" | "anchor-based" | "detr";
+  postprocessing: "nms" | "nms-free";
+
   specs: {
     paramsM: number;
     flopsG: number;
     inputSizeDefault: number;
+    numClasses: number;       // number of classes the pretrained weights detect
   };
 
+  paperReportedMap?: number;  // mAP@50-95 claimed by the paper (COCO val2017)
+
   source: {
-    provider: string;
-    repo: string;
-    weightsUrl: string;
-    paperUrl?: string;
-    codeUrl: string;
+    originalWeightsUrl?: string;
+    libreyoloWeightsUrl?: string;
   };
 
   license: string;
   releaseDate: string;
-  tags: string[];
+  inLibreYOLO: boolean;
   notes?: string;
+}
+
+// Family metadata - per-family info (paper, authors, org, repo)
+export interface FamilyMetadata {
+  id: string;
+  displayName: string;
+  organization: string;
+
+  paper: {
+    title: string;
+    authors: string[];
+    venue: string;
+    url: string;
+  };
+
+  originalRepo: string;
+  trainingDataset: string;
 }
 
 // Hardware metadata for hardware pages

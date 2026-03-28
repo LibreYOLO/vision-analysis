@@ -1,7 +1,7 @@
 import { BenchmarkResult } from "@/lib/types";
 
 /**
- * Raw benchmark JSON schema — produced by the LibreYOLO benchmark runner.
+ * Raw benchmark JSON schema - produced by the LibreYOLO benchmark runner.
  */
 export interface RawBenchmark {
   model: {

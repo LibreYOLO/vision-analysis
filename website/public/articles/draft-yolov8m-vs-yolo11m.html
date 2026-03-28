@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YOLOv8-M vs YOLO11-M Benchmark on NVIDIA A100 | Vision Analysis</title>
+    <meta name="description" content="YOLOv8-M vs YOLO11-M benchmark on NVIDIA A100. Benchmark data pending. COCO val2017 results with LibreYOLO.">
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+2:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "YOLOv8-M vs YOLO11-M: Benchmark Comparison on NVIDIA A100",
+        "author": {"@type": "Organization", "name": "Vision Analysis", "url": "https://visionanalysis.ai"},
+        "datePublished": "2026-03-28"
+    }
+    </script>
+    <style>
+        :root{--bg:#fafafa;--s:#ffffff;--s2:#f1f5f9;--b:#e2e8f0;--t:#04090b;--tm:#64748b;--g:#4f46e5;--gd:rgba(79,70,229,0.08);--bl:#22c55e;--bld:rgba(34,197,94,0.08)}
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:'M PLUS 2',Inter,-apple-system,sans-serif;background:var(--bg);color:var(--t);line-height:1.75}
+        nav{position:sticky;top:0;z-index:100;background:#000;padding:.7rem 2rem;display:flex;align-items:center;justify-content:space-between}
+        .brand{font-weight:700;color:#fff;text-decoration:none}.brand span{color:#818cf8}
+        .links{display:flex;gap:1.5rem}.links a{color:rgba(255,255,255,0.6);text-decoration:none;font-size:.85rem}
+        article{max-width:800px;margin:0 auto;padding:3rem 1.5rem 5rem}
+        .bc{font-size:.78rem;color:var(--tm);margin-bottom:2rem}.bc a{color:var(--g);text-decoration:none}
+        h1{font-size:2rem;font-weight:800;line-height:1.2;margin-bottom:.5rem;letter-spacing:-.02em}
+        .meta{color:var(--tm);font-size:.85rem;margin-bottom:2rem}
+        .meta a{color:var(--g);text-decoration:none}
+        .summary{font-size:1rem;line-height:1.85;margin-bottom:2rem;padding-bottom:2rem;border-bottom:1px solid var(--b)}
+        .summary strong{color:var(--g)}
+        .provenance{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;margin-bottom:2rem}
+        .prov-card{background:var(--s);border:1px solid var(--b);border-radius:10px;padding:1rem 1.25rem}
+        .prov-card .model-name{font-size:1.1rem;font-weight:700;margin-bottom:.5rem}
+        .prov-card .model-name.a{color:var(--g)}.prov-card .model-name.b{color:var(--bl)}
+        .prov-card .detail{font-size:.8rem;color:var(--tm);line-height:1.6}
+        .prov-card .detail a{color:var(--g);text-decoration:none}
+        .prov-card .detail .label{color:var(--tm);font-weight:600}
+        .kf{background:var(--s);border:1px solid var(--b);border-radius:10px;padding:1.25rem 1.5rem;margin-bottom:2rem}
+        .kf .kf-title{font-size:.68rem;text-transform:uppercase;letter-spacing:.08em;color:var(--tm);margin-bottom:.75rem}
+        .kf dl{display:grid;grid-template-columns:auto 1fr;gap:.3rem 1rem;font-size:.9rem}
+        .kf dt{color:var(--tm)}.kf dd{font-weight:600}
+        .kf dd .w{color:var(--g)}
+        h2{font-size:1.3rem;font-weight:700;margin:2.5rem 0 1rem;color:var(--g)}
+        p{margin-bottom:1rem;font-size:.95rem}
+        .tw{overflow-x:auto;margin:1.25rem 0;border-radius:8px;border:1px solid var(--b)}
+        table{width:100%;border-collapse:collapse;font-size:.88rem}
+        thead{background:var(--s2)}
+        th{padding:.6rem .85rem;text-align:left;font-weight:600;font-size:.72rem;text-transform:uppercase;letter-spacing:.04em;color:var(--tm);border-bottom:1px solid var(--b)}
+        td{padding:.55rem .85rem;border-bottom:1px solid var(--b)}tr:last-child td{border-bottom:none}
+        .wg{color:var(--g);font-weight:600}
+        .no-data{background:var(--s2);border:1px solid var(--b);border-radius:10px;padding:2rem;text-align:center;color:var(--tm);margin:1.25rem 0}
+        .insight{background:var(--gd);border-left:3px solid var(--g);padding:.75rem 1.25rem;margin:1.25rem 0;font-size:.92rem}
+        .insight strong{color:var(--g)}
+        .code{background:#111827;border-radius:10px;padding:1.25rem 1.5rem;margin:1.25rem 0;color:#e4e4f0}
+        .code-h{display:flex;justify-content:space-between;align-items:center;margin-bottom:.75rem}
+        .code-t{font-size:.72rem;font-weight:600;color:#94a3b8;text-transform:uppercase;letter-spacing:.05em}
+        .badge{font-size:.65rem;background:var(--gd);color:var(--g);padding:.15rem .5rem;border-radius:12px;font-weight:600}
+        pre{font-family:'JetBrains Mono','SF Mono',monospace;font-size:.83rem;line-height:1.6;overflow-x:auto;color:#e2e8f0}
+        .c{color:#94a3b8}.k{color:#a78bfa}.s{color:#4ade80}.f{color:#60a5fa}
+        .cta{background:linear-gradient(135deg,var(--gd),var(--bld));border:1px solid #c7d2fe;border-radius:12px;padding:2rem;margin:2.5rem 0;text-align:center}
+        .cta h3{font-size:1.15rem;margin-bottom:.4rem}.cta p{color:var(--tm);font-size:.88rem;margin-bottom:1rem}
+        .btn{display:inline-block;background:var(--g);color:#fff;font-weight:700;font-size:.88rem;padding:.6rem 1.4rem;border-radius:7px;text-decoration:none}
+        .meth{font-size:.78rem;color:var(--tm);line-height:1.65;margin-top:2.5rem;padding-top:1.25rem;border-top:1px solid var(--b)}
+        .meth a{color:var(--g);text-decoration:none}
+        footer{max-width:800px;margin:0 auto;padding:2rem 1.5rem;font-size:.78rem;color:var(--tm);display:flex;justify-content:space-between}
+        footer a{color:var(--g);text-decoration:none}
+        /* DRAFT BANNER */
+        .draft-banner{background:#fef3c7;border:1px solid #f59e0b;border-radius:8px;padding:.75rem 1.25rem;margin-bottom:2rem;font-size:.85rem;color:#92400e}
+        .draft-banner strong{color:#d97706}
+    </style>
+</head>
+<body>
+<nav><a href="/" class="brand"><span>Vision</span>Analysis</a><div class="links"><a href="/compare">Compare</a><a href="/articles">Articles</a><a href="https://libreyolo.org">LibreYOLO</a></div></nav>
+<article>
+    <div class="bc"><a href="/">Home</a> / <a href="/articles">Articles</a> / YOLOv8-M vs YOLO11-M</div>
+
+    <div class="draft-banner">
+        <strong>DRAFT — Step 1 (Data Only)</strong><br>
+        This article was auto-generated from benchmark data. Narrative prose, analysis, and FAQs will be added in Step 2 (LLM enrichment).
+    </div>
+
+    <h1>YOLOv8-M vs YOLO11-M: Benchmark on NVIDIA A100</h1>
+    <p class="meta">COCO val2017 · 80 classes · PyTorch FP32 · 2026-03-28 · Benchmarked with <a href="https://libreyolo.org">LibreYOLO</a></p>
+
+    <p class="summary">
+        Benchmark data not yet available for both models on NVIDIA A100. Specs: YOLOv8-M has 25.9M params, YOLO11-M has 20.1M params.
+    </p>
+
+    <!-- Provenance cards -->
+    <div class="provenance">
+        <div class="prov-card">
+            <div class="model-name a">YOLOv8-M</div>
+            <div class="detail">
+                <span class="label">Paper:</span> <a href="https://docs.ultralytics.com/models/yolov8/">YOLOv8 by Ultralytics</a><br>
+                <span class="label">Authors:</span> Glenn Jocher, Ayush Chaurasia, Jing Qiu<br>
+                <span class="label">Venue:</span> Ultralytics 2023<br>
+                <span class="label">Organization:</span> Ultralytics<br>
+                <span class="label">Repo:</span> <a href="https://github.com/ultralytics/ultralytics">ultralytics/ultralytics</a><br>
+                <span class="label">Approach:</span> anchor-free · nms<br>
+                <span class="label">License:</span> AGPL-3.0
+                <br><span class="label">Paper mAP:</span> 50.2%
+            </div>
+        </div>
+        <div class="prov-card">
+            <div class="model-name b">YOLO11-M</div>
+            <div class="detail">
+                <span class="label">Paper:</span> <a href="https://docs.ultralytics.com/models/yolo11/">YOLO11 by Ultralytics</a><br>
+                <span class="label">Authors:</span> Glenn Jocher, Jing Qiu<br>
+                <span class="label">Venue:</span> Ultralytics 2024<br>
+                <span class="label">Organization:</span> Ultralytics<br>
+                <span class="label">Repo:</span> <a href="https://github.com/ultralytics/ultralytics">ultralytics/ultralytics</a><br>
+                <span class="label">Approach:</span> anchor-free · nms<br>
+                <span class="label">License:</span> AGPL-3.0
+                <br><span class="label">Paper mAP:</span> 51.5%
+            </div>
+        </div>
+    </div>
+
+    <div class="no-data">
+        <strong>Benchmark data not available</strong><br>
+        One or both models have not been benchmarked on NVIDIA A100 yet. Run benchmarks with LibreYOLO to generate data.
+    </div>
+
+    <!-- Specs comparison (always available from metadata) -->
+    <h2>Model Specs</h2>
+    <div class="tw"><table><thead><tr><th>Spec</th><th>YOLOv8-M</th><th>YOLO11-M</th></tr></thead><tbody>
+        <tr><td>Parameters</td><td>25.9M</td><td>20.1M</td></tr>
+        <tr><td>GFLOPs</td><td>78.9</td><td>68.0</td></tr>
+        <tr><td>Input size</td><td>640px</td><td>640px</td></tr>
+        <tr><td>Detection</td><td>anchor-free</td><td>anchor-free</td></tr>
+        <tr><td>Post-processing</td><td>nms</td><td>nms</td></tr>
+        <tr><td>License</td><td>AGPL-3.0</td><td>AGPL-3.0</td></tr>
+        <tr><td>Paper mAP@50-95</td><td>50.2%</td><td>51.5%</td></tr>
+    </tbody></table></div>
+
+    <h2>Frequently Asked Questions</h2>
+    <p class="no-data" style="text-align:left;background:var(--gd)"><!-- LLM: Generate 4-5 FAQs in Step 2 based on the data above --><strong>FAQ placeholder</strong> — To be generated by LLM in Step 2.</p>
+
+    <h2>Try Both Models</h2>
+    <div class="code">
+        <div class="code-h"><span class="code-t">Quick start</span><span class="badge">LibreYOLO</span></div>
+<pre><span class="k">from</span> libreyolo <span class="k">import</span> <span class="f">LibreYOLO</span>
+
+<span class="c"># YOLOv8-M — CSPDarknet, 25.9M params</span>
+model = <span class="f">LibreYOLO</span>(<span class="s">"yolov8m"</span>)
+results = model(<span class="s">"image.jpg"</span>)
+
+<span class="c"># YOLO11-M — CSPDarknet, 20.1M params</span>
+model = <span class="f">LibreYOLO</span>(<span class="s">"yolo11m"</span>)
+results = model(<span class="s">"image.jpg"</span>)</pre>
+    </div>
+
+    <div class="cta"><h3>Run your own benchmarks</h3><p>LibreYOLO is open-source. Reproduce any result on this page.</p><a href="https://libreyolo.org" class="btn">Get started with LibreYOLO</a></div>
+
+    <div class="meth">
+        <strong>Methodology.</strong> Benchmarked with <a href="https://libreyolo.org">LibreYOLO</a> on NVIDIA A100. Evaluation: COCO val2017 (5,000 images), 640×640 input, batch size 1, PyTorch FP32.
+        <br>Source: <a href="https://visionanalysis.ai">visionanalysis.ai</a>
+    </div>
+</article>
+<footer><span>&copy; 2026 Vision Analysis</span><a href="https://libreyolo.org">Powered by LibreYOLO</a></footer>
+</body></html>

@@ -1,0 +1,95 @@
+{
+  "families": [
+    {
+      "id": "yolox",
+      "displayName": "YOLOX",
+      "organization": "Megvii",
+      "paper": {
+        "title": "YOLOX: Exceeding YOLO Series in 2021",
+        "authors": ["Zheng Ge", "Songtao Liu", "Feng Wang", "Zeming Li", "Jian Sun"],
+        "venue": "arXiv 2021",
+        "url": "https://arxiv.org/abs/2107.08430"
+      },
+      "originalRepo": "https://github.com/Megvii-BaseDetection/YOLOX",
+      "trainingDataset": "COCO train2017"
+    },
+    {
+      "id": "yolov9",
+      "displayName": "YOLOv9",
+      "organization": "Academia Sinica",
+      "paper": {
+        "title": "YOLOv9: Learning What You Want to Learn Using Programmable Gradient Information",
+        "authors": ["Chien-Yao Wang", "I-Hau Yeh", "Hong-Yuan Mark Liao"],
+        "venue": "ECCV 2024",
+        "url": "https://arxiv.org/abs/2402.13616"
+      },
+      "originalRepo": "https://github.com/WongKinYiu/yolov9",
+      "trainingDataset": "COCO train2017"
+    },
+    {
+      "id": "yolov8",
+      "displayName": "YOLOv8",
+      "organization": "Ultralytics",
+      "paper": {
+        "title": "YOLOv8 by Ultralytics",
+        "authors": ["Glenn Jocher", "Ayush Chaurasia", "Jing Qiu"],
+        "venue": "Ultralytics 2023",
+        "url": "https://docs.ultralytics.com/models/yolov8/"
+      },
+      "originalRepo": "https://github.com/ultralytics/ultralytics",
+      "trainingDataset": "COCO train2017"
+    },
+    {
+      "id": "yolov10",
+      "displayName": "YOLOv10",
+      "organization": "Tsinghua University",
+      "paper": {
+        "title": "YOLOv10: Real-Time End-to-End Object Detection",
+        "authors": ["Ao Wang", "Hui Chen", "Lihao Liu", "et al."],
+        "venue": "NeurIPS 2024",
+        "url": "https://arxiv.org/abs/2405.14458"
+      },
+      "originalRepo": "https://github.com/THU-MIG/yolov10",
+      "trainingDataset": "COCO train2017"
+    },
+    {
+      "id": "yolo11",
+      "displayName": "YOLO11",
+      "organization": "Ultralytics",
+      "paper": {
+        "title": "YOLO11 by Ultralytics",
+        "authors": ["Glenn Jocher", "Jing Qiu"],
+        "venue": "Ultralytics 2024",
+        "url": "https://docs.ultralytics.com/models/yolo11/"
+      },
+      "originalRepo": "https://github.com/ultralytics/ultralytics",
+      "trainingDataset": "COCO train2017"
+    },
+    {
+      "id": "rtdetr",
+      "displayName": "RT-DETR",
+      "organization": "Baidu",
+      "paper": {
+        "title": "DETRs Beat YOLOs on Real-time Object Detection",
+        "authors": ["Yian Zhao", "Wenyu Lv", "Shangliang Xu", "Jinman Wei", "et al."],
+        "venue": "CVPR 2024",
+        "url": "https://arxiv.org/abs/2304.08069"
+      },
+      "originalRepo": "https://github.com/lyuwenyu/RT-DETR",
+      "trainingDataset": "COCO train2017"
+    },
+    {
+      "id": "rfdetr",
+      "displayName": "RF-DETR",
+      "organization": "Roboflow",
+      "paper": {
+        "title": "RF-DETR: Real-Time Detection Transformer",
+        "authors": ["Peter Robicheaux", "Matvei Popov", "Joseph Nelson"],
+        "venue": "Roboflow 2025",
+        "url": "https://blog.roboflow.com/rf-detr"
+      },
+      "originalRepo": "https://github.com/roboflow/rf-detr",
+      "trainingDataset": "COCO train2017"
+    }
+  ]
+}

@@ -1,9 +1,10 @@
 import "server-only";
-import { BenchmarkResult, ModelMetadata, HardwareMetadata, DatasetMetadata, RuntimeMetadata } from "@/lib/types";
+import { BenchmarkResult, ModelMetadata, FamilyMetadata, HardwareMetadata, DatasetMetadata, RuntimeMetadata } from "@/lib/types";
 import { loadAllBenchmarks } from "./loader";
 
 // Import metadata (manually maintained)
 import modelsData from "@/data/metadata/models.json";
+import familiesData from "@/data/metadata/families.json";
 import hardwareData from "@/data/metadata/hardware.json";
 import datasetsData from "@/data/metadata/datasets.json";
 import runtimesData from "@/data/metadata/runtimes.json";
@@ -72,6 +73,20 @@ export function getModelById(modelId: string): ModelMetadata | undefined {
  */
 export function getModelsByFamily(family: string): ModelMetadata[] {
   return getModels().filter((m) => m.family === family);
+}
+
+/**
+ * Get all family metadata
+ */
+export function getAllFamilies(): FamilyMetadata[] {
+  return familiesData.families as FamilyMetadata[];
+}
+
+/**
+ * Get a single family by ID
+ */
+export function getFamilyById(familyId: string): FamilyMetadata | undefined {
+  return getAllFamilies().find((f) => f.id === familyId);
 }
 
 /**

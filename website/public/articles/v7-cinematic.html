@@ -1,0 +1,1184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YOLOv9-T vs YOLOX-S Benchmark Comparison on NVIDIA A100 | Vision Analysis</title>
+    <meta name="description" content="YOLOv9-T vs YOLOX-S benchmark: YOLOX-S achieves 34.6 mAP at 44 FPS, YOLOv9-T achieves 30.2 mAP at 23 FPS on A100. Full COCO val2017 results with LibreYOLO.">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "YOLOv9-T vs YOLOX-S: Benchmark Comparison on NVIDIA A100",
+        "description": "YOLOX-S achieves 34.6 mAP@50-95 at 44 FPS vs YOLOv9-T's 30.2 mAP at 23 FPS on NVIDIA A100. YOLOv9-T is 3.8x more parameter-efficient.",
+        "author": { "@type": "Organization", "name": "Vision Analysis", "url": "https://visionanalysis.org" },
+        "publisher": { "@type": "Organization", "name": "Vision Analysis" },
+        "datePublished": "2026-03-22",
+        "about": [
+            { "@type": "Thing", "name": "YOLOv9" },
+            { "@type": "Thing", "name": "YOLOX" },
+            { "@type": "Thing", "name": "Object Detection Benchmark" },
+            { "@type": "Thing", "name": "NVIDIA A100" },
+            { "@type": "Thing", "name": "COCO" }
+        ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Dataset",
+        "name": "YOLOv9-T vs YOLOX-S Benchmark Results",
+        "description": "Object detection benchmark comparing YOLOv9-T and YOLOX-S on COCO val2017 using NVIDIA A100",
+        "creator": { "@type": "Organization", "name": "Vision Analysis" },
+        "license": "https://opensource.org/licenses/MIT",
+        "measurementTechnique": "LibreYOLO v0.1.2 benchmark suite",
+        "variableMeasured": [
+            { "@type": "PropertyValue", "name": "mAP@50-95", "unitText": "percentage" },
+            { "@type": "PropertyValue", "name": "FPS", "unitText": "frames per second" },
+            { "@type": "PropertyValue", "name": "Latency", "unitText": "milliseconds" }
+        ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Which is better, YOLOv9-T or YOLOX-S?",
+                "acceptedAnswer": { "@type": "Answer", "text": "YOLOX-S is the better all-round model with 34.6 mAP@50-95 at 44 FPS on A100. YOLOv9-T is better for edge deployment due to its 2.04M parameter count and 3.8x higher parameter efficiency. Both are available in LibreYOLO." }
+            },
+            {
+                "@type": "Question",
+                "name": "How fast is YOLOv9-T vs YOLOX-S on A100?",
+                "acceptedAnswer": { "@type": "Answer", "text": "YOLOX-S runs at 44.0 FPS (22.8ms p50 latency) on NVIDIA A100. YOLOv9-T runs at 23.2 FPS (42.3ms p50 latency). YOLOX-S is 1.9x faster." }
+            },
+            {
+                "@type": "Question",
+                "name": "What is the mAP of YOLOv9-T and YOLOX-S on COCO?",
+                "acceptedAnswer": { "@type": "Answer", "text": "On COCO val2017, YOLOX-S achieves 34.6 mAP@50-95 (51.8 mAP@50). YOLOv9-T achieves 30.2 mAP@50-95 (43.0 mAP@50). Benchmarked with LibreYOLO on NVIDIA A100." }
+            },
+            {
+                "@type": "Question",
+                "name": "How can I reproduce these benchmark results?",
+                "acceptedAnswer": { "@type": "Answer", "text": "Install LibreYOLO (pip install libreyolo), then run LibreYOLO('yolov9-t').val(data='coco.yaml') or LibreYOLO('yolox-s').val(data='coco.yaml')." }
+            },
+            {
+                "@type": "Question",
+                "name": "Which model is better for edge deployment?",
+                "acceptedAnswer": { "@type": "Answer", "text": "YOLOv9-T is better for edge deployment with only 2.04M parameters and 3.98 GFLOPs, delivering 3.8x more mAP per million parameters than YOLOX-S." }
+            }
+        ]
+    }
+    </script>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+        :root {
+            --bg: #06060a;
+            --surface: rgba(255,255,255,0.03);
+            --surface-solid: #0d0d14;
+            --surface-2: rgba(255,255,255,0.06);
+            --border: rgba(255,255,255,0.08);
+            --border-glow: rgba(255,255,255,0.12);
+            --text: #ededf4;
+            --text-muted: #6b6b80;
+            --text-dim: #44445a;
+            --emerald: #34d399;
+            --emerald-bright: #6ee7b7;
+            --emerald-dim: rgba(52,211,153,0.08);
+            --emerald-glow: rgba(52,211,153,0.15);
+            --cyan: #22d3ee;
+            --cyan-dim: rgba(34,211,238,0.08);
+            --violet: #a78bfa;
+            --violet-dim: rgba(167,139,250,0.08);
+            --blue: #60a5fa;
+            --blue-dim: rgba(96,165,250,0.08);
+            --amber: #fbbf24;
+            --rose: #fb7185;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* Ambient background glow */
+        body::before {
+            content: '';
+            position: fixed;
+            top: -40%;
+            left: -20%;
+            width: 80%;
+            height: 80%;
+            background: radial-gradient(ellipse, rgba(52,211,153,0.04) 0%, transparent 60%);
+            pointer-events: none;
+            z-index: 0;
+        }
+        body::after {
+            content: '';
+            position: fixed;
+            bottom: -30%;
+            right: -20%;
+            width: 70%;
+            height: 70%;
+            background: radial-gradient(ellipse, rgba(96,165,250,0.03) 0%, transparent 60%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* Nav */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(6,6,10,0.8);
+            backdrop-filter: blur(20px) saturate(1.4);
+            -webkit-backdrop-filter: blur(20px) saturate(1.4);
+            border-bottom: 1px solid var(--border);
+            padding: 0.75rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .nav-brand {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text);
+            text-decoration: none;
+            letter-spacing: -0.02em;
+        }
+        .nav-brand span {
+            background: linear-gradient(135deg, var(--emerald), var(--cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .nav-links { display: flex; gap: 1.5rem; }
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 450;
+            transition: color 0.25s;
+        }
+        .nav-links a:hover { color: var(--text); }
+
+        /* Content wrapper */
+        .content {
+            position: relative;
+            z-index: 1;
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 3rem 1.5rem 5rem;
+        }
+
+        /* Breadcrumb */
+        .breadcrumb {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            margin-bottom: 2.5rem;
+            font-weight: 450;
+        }
+        .breadcrumb a {
+            color: var(--emerald);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .breadcrumb a:hover { color: var(--emerald-bright); }
+
+        /* Hero */
+        .hero {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.72rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--emerald);
+            background: var(--emerald-dim);
+            border: 1px solid rgba(52,211,153,0.15);
+            padding: 0.35rem 1rem;
+            border-radius: 100px;
+            margin-bottom: 1.5rem;
+        }
+        .hero-badge::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            background: var(--emerald);
+            border-radius: 50%;
+            box-shadow: 0 0 8px var(--emerald);
+        }
+        h1 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            line-height: 1.1;
+            letter-spacing: -0.04em;
+            margin-bottom: 1rem;
+            background: linear-gradient(180deg, #ffffff 0%, #a0a0b8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .hero-sub {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            font-weight: 400;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        /* The big face-off section */
+        .faceoff {
+            display: grid;
+            grid-template-columns: 1fr 60px 1fr;
+            gap: 0;
+            align-items: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+        .faceoff-model {
+            padding: 2.5rem 2rem;
+            border-radius: 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .faceoff-model::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 20px;
+            border: 1px solid var(--border);
+            pointer-events: none;
+        }
+        .faceoff-model.model-a {
+            background: linear-gradient(160deg, rgba(52,211,153,0.06) 0%, rgba(6,6,10,0.8) 50%);
+        }
+        .faceoff-model.model-b {
+            background: linear-gradient(200deg, rgba(96,165,250,0.06) 0%, rgba(6,6,10,0.8) 50%);
+        }
+        .faceoff-model .model-tag {
+            font-size: 0.65rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            margin-bottom: 1rem;
+        }
+        .model-a .model-tag { color: var(--emerald); }
+        .model-b .model-tag { color: var(--blue); }
+        .faceoff-model .big-num {
+            font-size: 4.5rem;
+            font-weight: 900;
+            line-height: 1;
+            letter-spacing: -0.04em;
+            margin-bottom: 0.25rem;
+        }
+        .model-a .big-num {
+            background: linear-gradient(135deg, var(--emerald), #a7f3d0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .model-b .big-num {
+            background: linear-gradient(135deg, var(--blue), #c7d2fe);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .faceoff-model .big-label {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+        .faceoff-vs {
+            text-align: center;
+            font-size: 0.8rem;
+            font-weight: 800;
+            color: var(--text-dim);
+            letter-spacing: 0.05em;
+            z-index: 2;
+        }
+        .faceoff-vs span {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--bg);
+            border: 1px solid var(--border);
+        }
+
+        /* Summary paragraph for AI agents */
+        .summary-block {
+            font-size: 1rem;
+            line-height: 1.9;
+            color: var(--text);
+            margin-bottom: 3rem;
+            padding: 2rem;
+            border-radius: 16px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            position: relative;
+        }
+        .summary-block::before {
+            content: '';
+            position: absolute;
+            top: -1px;
+            left: 2rem;
+            right: 2rem;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--emerald-glow), transparent);
+        }
+        .summary-block strong { color: var(--emerald); }
+
+        /* Key facts grid */
+        .key-facts {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 1px;
+            background: var(--border);
+            border-radius: 16px;
+            overflow: hidden;
+            margin-bottom: 3rem;
+        }
+        .fact-cell {
+            background: var(--surface-solid);
+            padding: 1.5rem;
+            text-align: center;
+            transition: background 0.3s;
+        }
+        .fact-cell:hover {
+            background: var(--surface-2);
+        }
+        .fact-cell .fact-label {
+            font-size: 0.65rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-muted);
+            margin-bottom: 0.75rem;
+        }
+        .fact-cell .fact-value {
+            font-size: 1.8rem;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            line-height: 1.1;
+            margin-bottom: 0.25rem;
+        }
+        .fact-cell .fact-model {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+        .fact-value.emerald { color: var(--emerald); }
+        .fact-value.blue { color: var(--blue); }
+        .fact-value.amber { color: var(--amber); }
+
+        /* Section headings */
+        h2 {
+            font-size: 1.5rem;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            margin: 3.5rem 0 1.25rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        h2 .section-line {
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(90deg, var(--border), transparent);
+        }
+        p {
+            color: var(--text);
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+            font-weight: 400;
+        }
+        p.muted { color: var(--text-muted); }
+
+        /* Radial progress indicators */
+        .radial-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.25rem;
+            margin: 2rem 0;
+        }
+        .radial-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 1.5rem 1rem;
+            text-align: center;
+            transition: border-color 0.3s, transform 0.3s;
+        }
+        .radial-card:hover {
+            border-color: var(--border-glow);
+            transform: translateY(-2px);
+        }
+        .radial-card .radial-label {
+            font-size: 0.68rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+        }
+        .radial-ring {
+            position: relative;
+            width: 90px;
+            height: 90px;
+            margin: 0 auto 0.75rem;
+        }
+        .radial-ring svg {
+            width: 90px;
+            height: 90px;
+            transform: rotate(-90deg);
+        }
+        .radial-ring circle {
+            fill: none;
+            stroke-width: 5;
+            stroke-linecap: round;
+        }
+        .radial-ring .track {
+            stroke: rgba(255,255,255,0.05);
+        }
+        .radial-ring .fill-a {
+            stroke: var(--emerald);
+            filter: drop-shadow(0 0 6px rgba(52,211,153,0.3));
+            transition: stroke-dasharray 0.8s ease;
+        }
+        .radial-ring .fill-b {
+            stroke: var(--blue);
+            filter: drop-shadow(0 0 6px rgba(96,165,250,0.3));
+            transition: stroke-dasharray 0.8s ease;
+        }
+        .radial-ring .center-val {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .radial-ring .center-val .num {
+            font-size: 1.1rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+        }
+        .radial-ring .center-val .unit {
+            font-size: 0.6rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+        .radial-card .model-vals {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+        .radial-card .model-vals .a { color: var(--emerald); }
+        .radial-card .model-vals .b { color: var(--blue); }
+
+        /* Gradient comparison bars */
+        .bar-section {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+        .bar-section-title {
+            font-size: 0.68rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+        }
+        .bar-group {
+            margin-bottom: 1.5rem;
+        }
+        .bar-group:last-child { margin-bottom: 0; }
+        .bar-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 0.5rem;
+        }
+        .bar-metric-name {
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: var(--text);
+        }
+        .bar-winner {
+            font-size: 0.7rem;
+            font-weight: 600;
+            padding: 0.15rem 0.5rem;
+            border-radius: 100px;
+        }
+        .bar-winner.emerald {
+            color: var(--emerald);
+            background: var(--emerald-dim);
+        }
+        .bar-winner.blue {
+            color: var(--blue);
+            background: var(--blue-dim);
+        }
+        .bar-row-pair {
+            display: flex;
+            flex-direction: column;
+            gap: 0.35rem;
+        }
+        .bar-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .bar-item .bar-model {
+            font-size: 0.7rem;
+            font-weight: 600;
+            width: 55px;
+            text-align: right;
+            flex-shrink: 0;
+        }
+        .bar-item .bar-model.a { color: var(--emerald); }
+        .bar-item .bar-model.b { color: var(--blue); }
+        .bar-track {
+            flex: 1;
+            height: 10px;
+            background: rgba(255,255,255,0.04);
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        .bar-fill {
+            height: 100%;
+            border-radius: 5px;
+            transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .bar-fill.gradient-a {
+            background: linear-gradient(90deg, var(--emerald), var(--cyan));
+            box-shadow: 0 0 12px rgba(52,211,153,0.2);
+        }
+        .bar-fill.gradient-b {
+            background: linear-gradient(90deg, var(--blue), var(--violet));
+            box-shadow: 0 0 12px rgba(96,165,250,0.2);
+        }
+        .bar-item .bar-val {
+            font-size: 0.8rem;
+            font-weight: 700;
+            font-variant-numeric: tabular-nums;
+            width: 65px;
+            flex-shrink: 0;
+            color: var(--text);
+        }
+
+        /* Glass table */
+        .table-wrapper {
+            overflow-x: auto;
+            margin: 1.75rem 0;
+            border-radius: 16px;
+            border: 1px solid var(--border);
+            background: var(--surface);
+            backdrop-filter: blur(8px);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.88rem;
+        }
+        thead {
+            background: rgba(255,255,255,0.03);
+        }
+        th {
+            padding: 0.85rem 1.25rem;
+            text-align: left;
+            font-weight: 600;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--text-muted);
+            border-bottom: 1px solid var(--border);
+        }
+        td {
+            padding: 0.75rem 1.25rem;
+            border-bottom: 1px solid rgba(255,255,255,0.04);
+            transition: background 0.2s;
+        }
+        tr:hover td { background: rgba(255,255,255,0.02); }
+        tr:last-child td { border-bottom: none; }
+        .tw { color: var(--emerald); font-weight: 600; }
+        .td-muted { color: var(--text-muted); }
+
+        /* Code blocks */
+        .code-block {
+            background: var(--surface-solid);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 1.5rem 1.75rem;
+            margin: 1.5rem 0;
+            overflow-x: auto;
+            position: relative;
+        }
+        .code-block::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 1.75rem;
+            right: 1.75rem;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--border-glow), transparent);
+        }
+        .code-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        .code-title {
+            font-size: 0.72rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+        }
+        .code-badge {
+            font-size: 0.65rem;
+            background: linear-gradient(135deg, var(--emerald-dim), var(--cyan-dim));
+            color: var(--emerald);
+            padding: 0.25rem 0.75rem;
+            border-radius: 100px;
+            font-weight: 700;
+            border: 1px solid rgba(52,211,153,0.15);
+        }
+        pre {
+            font-family: 'SF Mono', 'Fira Code', 'JetBrains Mono', monospace;
+            font-size: 0.83rem;
+            line-height: 1.7;
+            color: var(--text);
+        }
+        .c { color: #4a4a60; }
+        .k { color: var(--violet); }
+        .s { color: var(--emerald); }
+        .f { color: var(--blue); }
+
+        /* CTA card */
+        .cta-card {
+            position: relative;
+            border-radius: 20px;
+            padding: 3rem 2rem;
+            margin: 3rem 0;
+            text-align: center;
+            overflow: hidden;
+            border: 1px solid var(--border);
+        }
+        .cta-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(52,211,153,0.08) 0%, rgba(96,165,250,0.06) 50%, rgba(167,139,250,0.04) 100%);
+            z-index: 0;
+        }
+        .cta-card::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(ellipse at 30% 50%, rgba(52,211,153,0.06) 0%, transparent 50%);
+            z-index: 0;
+        }
+        .cta-card > * { position: relative; z-index: 1; }
+        .cta-card h3 {
+            font-size: 1.4rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.5rem;
+        }
+        .cta-card p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 1.25rem;
+        }
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: linear-gradient(135deg, var(--emerald), #059669);
+            color: #000;
+            font-weight: 700;
+            font-size: 0.9rem;
+            padding: 0.75rem 1.75rem;
+            border-radius: 12px;
+            text-decoration: none;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 20px rgba(52,211,153,0.2);
+        }
+        .cta-button:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 6px 24px rgba(52,211,153,0.3);
+        }
+
+        /* FAQ */
+        .faq { margin: 2rem 0; }
+        .faq details {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            margin-bottom: 0.5rem;
+            transition: border-color 0.3s;
+        }
+        .faq details:hover { border-color: var(--border-glow); }
+        .faq details[open] {
+            border-color: rgba(52,211,153,0.2);
+        }
+        .faq summary {
+            padding: 1rem 1.5rem;
+            font-weight: 600;
+            font-size: 0.92rem;
+            cursor: pointer;
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            transition: color 0.2s;
+        }
+        .faq summary::-webkit-details-marker { display: none; }
+        .faq summary::before {
+            content: '+';
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 22px;
+            height: 22px;
+            border-radius: 6px;
+            background: var(--emerald-dim);
+            color: var(--emerald);
+            font-weight: 700;
+            font-size: 0.85rem;
+            flex-shrink: 0;
+            transition: transform 0.2s;
+        }
+        .faq details[open] summary::before {
+            content: '\2212';
+            transform: scale(1.1);
+        }
+        .faq .faq-answer {
+            padding: 0 1.5rem 1.25rem 3.25rem;
+            font-size: 0.9rem;
+            color: var(--text);
+            line-height: 1.75;
+        }
+
+        /* Methodology */
+        .methodology {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem 1.75rem;
+            margin: 2.5rem 0;
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            line-height: 1.75;
+        }
+        .methodology strong { color: var(--text); }
+        .methodology a { color: var(--emerald); text-decoration: none; }
+        .methodology a:hover { text-decoration: underline; }
+
+        /* Footer */
+        footer {
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+            border-top: 1px solid var(--border);
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            display: flex;
+            justify-content: space-between;
+        }
+        footer a { color: var(--emerald); text-decoration: none; }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 { font-size: 2rem; }
+            .faceoff { grid-template-columns: 1fr; gap: 1rem; }
+            .faceoff-vs { transform: none; }
+            .faceoff-model .big-num { font-size: 3rem; }
+            .radial-grid { grid-template-columns: 1fr 1fr; }
+            .key-facts { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="/" class="nav-brand"><span>Vision</span>Analysis</a>
+        <div class="nav-links">
+            <a href="/compare">Compare</a>
+            <a href="/articles">Articles</a>
+            <a href="/hardware/a100">Hardware</a>
+            <a href="https://libreyolo.org">LibreYOLO</a>
+        </div>
+    </nav>
+
+    <article class="content">
+        <div class="breadcrumb">
+            <a href="/">Home</a> / <a href="/articles">Articles</a> / YOLOv9-T vs YOLOX-S
+        </div>
+
+        <!-- Hero -->
+        <header class="hero">
+            <div class="hero-badge">Benchmark Comparison</div>
+            <h1>YOLOv9-T vs YOLOX-S<br>on NVIDIA A100</h1>
+            <p class="hero-sub">COCO val2017 &middot; 5,000 images &middot; PyTorch FP32 &middot; March 2026</p>
+        </header>
+
+        <!-- Face-off hero numbers -->
+        <div class="faceoff">
+            <div class="faceoff-model model-a">
+                <div class="model-tag">YOLOv9-T</div>
+                <div class="big-num">30.2</div>
+                <div class="big-label">mAP@50-95</div>
+            </div>
+            <div class="faceoff-vs"><span>vs</span></div>
+            <div class="faceoff-model model-b">
+                <div class="model-tag">YOLOX-S</div>
+                <div class="big-num">34.6</div>
+                <div class="big-label">mAP@50-95</div>
+            </div>
+        </div>
+
+        <!-- AI-optimized summary -->
+        <div class="summary-block">
+            On COCO val2017 benchmarked with <strong>LibreYOLO</strong> on NVIDIA A100, <strong>YOLOX-S achieves 34.6 mAP@50-95 at 44.0 FPS</strong>, outperforming <strong>YOLOv9-T which achieves 30.2 mAP@50-95 at 23.2 FPS</strong>. YOLOX-S is 14.5% more accurate and 1.9x faster. However, YOLOv9-T is significantly more parameter-efficient with only 2.04M parameters (vs 8.97M), delivering 3.8x more mAP per million parameters. Both models are available in LibreYOLO (<code style="background: rgba(255,255,255,0.06); padding: 0.15em 0.4em; border-radius: 4px; font-size: 0.88em;">pip install libreyolo</code>).
+        </div>
+
+        <!-- Key facts — semantic dl for AI agents -->
+        <section>
+            <div class="key-facts" role="list" aria-label="Key benchmark facts">
+                <div class="fact-cell">
+                    <div class="fact-label">Best Accuracy</div>
+                    <div class="fact-value blue">34.6</div>
+                    <div class="fact-model">YOLOX-S mAP</div>
+                </div>
+                <div class="fact-cell">
+                    <div class="fact-label">Best Speed</div>
+                    <div class="fact-value blue">44.0</div>
+                    <div class="fact-model">YOLOX-S FPS</div>
+                </div>
+                <div class="fact-cell">
+                    <div class="fact-label">Best Efficiency</div>
+                    <div class="fact-value emerald">14.8</div>
+                    <div class="fact-model">YOLOv9-T mAP/M</div>
+                </div>
+                <div class="fact-cell">
+                    <div class="fact-label">Smallest Model</div>
+                    <div class="fact-value emerald">2.04M</div>
+                    <div class="fact-model">YOLOv9-T params</div>
+                </div>
+                <div class="fact-cell">
+                    <div class="fact-label">Lowest Latency</div>
+                    <div class="fact-value blue">22.8</div>
+                    <div class="fact-model">YOLOX-S ms p50</div>
+                </div>
+                <div class="fact-cell">
+                    <div class="fact-label">Lowest GFLOPs</div>
+                    <div class="fact-value emerald">3.98</div>
+                    <div class="fact-model">YOLOv9-T</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Accuracy -->
+        <h2>Accuracy <span class="section-line"></span></h2>
+        <p>
+            YOLOX-S outperforms YOLOv9-T by 4.4 mAP@50-95 points on COCO val2017. The gap widens to 8.8 at the mAP@50 threshold, showing stronger coarse localization.
+        </p>
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr><th>Metric</th><th>YOLOv9-T</th><th>YOLOX-S</th><th>Winner</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>mAP@50-95</td><td>30.2</td><td class="tw">34.6</td><td>YOLOX-S (+4.4)</td></tr>
+                    <tr><td>mAP@50</td><td>43.0</td><td class="tw">51.8</td><td>YOLOX-S (+8.8)</td></tr>
+                    <tr><td>Precision</td><td class="tw">61.5%</td><td>42.7%</td><td>YOLOv9-T (+18.8%)</td></tr>
+                    <tr><td>Recall</td><td>36.4%</td><td class="tw">57.0%</td><td>YOLOX-S (+20.6%)</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <p>
+            An important nuance: YOLOv9-T has significantly higher precision (61.5% vs 42.7%). When it fires, it is more likely to be correct. YOLOX-S takes the opposite tradeoff, casting a wider net with 57.0% recall, but at the cost of more false positives.
+        </p>
+
+        <!-- Visual bars for speed -->
+        <h2>Speed &amp; Latency <span class="section-line"></span></h2>
+        <p>
+            Despite having 4.4x more parameters, YOLOX-S runs 1.9x faster on the A100. Its GPU-friendly architecture of straightforward convolutions maps better to GPU hardware than YOLOv9-T's more complex gradient information pathways.
+        </p>
+
+        <div class="bar-section">
+            <div class="bar-section-title">Throughput &amp; Latency Comparison</div>
+
+            <div class="bar-group">
+                <div class="bar-meta">
+                    <span class="bar-metric-name">FPS (higher is better)</span>
+                    <span class="bar-winner blue">YOLOX-S wins</span>
+                </div>
+                <div class="bar-row-pair">
+                    <div class="bar-item">
+                        <span class="bar-model a">v9-T</span>
+                        <div class="bar-track"><div class="bar-fill gradient-a" style="width: 52.7%"></div></div>
+                        <span class="bar-val">23.2 FPS</span>
+                    </div>
+                    <div class="bar-item">
+                        <span class="bar-model b">X-S</span>
+                        <div class="bar-track"><div class="bar-fill gradient-b" style="width: 100%"></div></div>
+                        <span class="bar-val">44.0 FPS</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bar-group">
+                <div class="bar-meta">
+                    <span class="bar-metric-name">Latency p50 (lower is better)</span>
+                    <span class="bar-winner blue">YOLOX-S wins</span>
+                </div>
+                <div class="bar-row-pair">
+                    <div class="bar-item">
+                        <span class="bar-model a">v9-T</span>
+                        <div class="bar-track"><div class="bar-fill gradient-a" style="width: 73.2%"></div></div>
+                        <span class="bar-val">42.3 ms</span>
+                    </div>
+                    <div class="bar-item">
+                        <span class="bar-model b">X-S</span>
+                        <div class="bar-track"><div class="bar-fill gradient-b" style="width: 39.4%"></div></div>
+                        <span class="bar-val">22.8 ms</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bar-group">
+                <div class="bar-meta">
+                    <span class="bar-metric-name">Latency p99 (lower is better)</span>
+                    <span class="bar-winner blue">YOLOX-S wins</span>
+                </div>
+                <div class="bar-row-pair">
+                    <div class="bar-item">
+                        <span class="bar-model a">v9-T</span>
+                        <div class="bar-track"><div class="bar-fill gradient-a" style="width: 100%"></div></div>
+                        <span class="bar-val">57.8 ms</span>
+                    </div>
+                    <div class="bar-item">
+                        <span class="bar-model b">X-S</span>
+                        <div class="bar-track"><div class="bar-fill gradient-b" style="width: 50.5%"></div></div>
+                        <span class="bar-val">29.2 ms</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr><th>Metric</th><th>YOLOv9-T</th><th>YOLOX-S</th><th>Winner</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>FPS (mean)</td><td>23.2</td><td class="tw">44.0</td><td>YOLOX-S (1.9x)</td></tr>
+                    <tr><td>Latency p50</td><td>42.3 ms</td><td class="tw">22.8 ms</td><td>YOLOX-S</td></tr>
+                    <tr><td>Latency p95</td><td>51.1 ms</td><td class="tw">28.7 ms</td><td>YOLOX-S</td></tr>
+                    <tr><td>Latency p99</td><td>57.8 ms</td><td class="tw">29.2 ms</td><td>YOLOX-S</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Efficiency -->
+        <h2>Efficiency <span class="section-line"></span></h2>
+        <p>
+            While YOLOX-S dominates raw performance, YOLOv9-T is an extraordinary efficient architecture. It extracts 3.8x more accuracy per million parameters and 3.0x more per GFLOP.
+        </p>
+
+        <div class="bar-section">
+            <div class="bar-section-title">Efficiency Metrics</div>
+
+            <div class="bar-group">
+                <div class="bar-meta">
+                    <span class="bar-metric-name">mAP per M parameters (higher is better)</span>
+                    <span class="bar-winner emerald">YOLOv9-T wins</span>
+                </div>
+                <div class="bar-row-pair">
+                    <div class="bar-item">
+                        <span class="bar-model a">v9-T</span>
+                        <div class="bar-track"><div class="bar-fill gradient-a" style="width: 100%"></div></div>
+                        <span class="bar-val">14.8</span>
+                    </div>
+                    <div class="bar-item">
+                        <span class="bar-model b">X-S</span>
+                        <div class="bar-track"><div class="bar-fill gradient-b" style="width: 26.4%"></div></div>
+                        <span class="bar-val">3.9</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bar-group">
+                <div class="bar-meta">
+                    <span class="bar-metric-name">Model Size (lower is better)</span>
+                    <span class="bar-winner emerald">YOLOv9-T wins</span>
+                </div>
+                <div class="bar-row-pair">
+                    <div class="bar-item">
+                        <span class="bar-model a">v9-T</span>
+                        <div class="bar-track"><div class="bar-fill gradient-a" style="width: 22.7%"></div></div>
+                        <span class="bar-val">2.04M</span>
+                    </div>
+                    <div class="bar-item">
+                        <span class="bar-model b">X-S</span>
+                        <div class="bar-track"><div class="bar-fill gradient-b" style="width: 100%"></div></div>
+                        <span class="bar-val">8.97M</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr><th>Metric</th><th>YOLOv9-T</th><th>YOLOX-S</th><th>Winner</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Parameters</td><td class="tw">2.04M</td><td>8.97M</td><td>YOLOv9-T (4.4x fewer)</td></tr>
+                    <tr><td>GFLOPs</td><td class="tw">3.98</td><td>13.46</td><td>YOLOv9-T (3.4x fewer)</td></tr>
+                    <tr><td>mAP / M params</td><td class="tw">14.8</td><td>3.9</td><td>YOLOv9-T (3.8x better)</td></tr>
+                    <tr><td>mAP / GFLOP</td><td class="tw">7.59</td><td>2.57</td><td>YOLOv9-T (3.0x better)</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <p>
+            For edge deployments on Raspberry Pi, Jetson, or mobile devices where model size and compute budget are the binding constraints, YOLOv9-T represents a compelling choice. For cloud inference where raw accuracy and throughput matter, YOLOX-S is the clear winner.
+        </p>
+
+        <!-- Try the models -->
+        <h2>Try Both Models with LibreYOLO <span class="section-line"></span></h2>
+        <p>Both YOLOv9-T and YOLOX-S are available in <a href="https://libreyolo.org" style="color: var(--emerald); text-decoration: none;">LibreYOLO</a>, the MIT-licensed object detection library. Install and run inference in three lines:</p>
+
+        <div class="code-block">
+            <div class="code-header">
+                <span class="code-title">Try YOLOv9-T</span>
+                <span class="code-badge">LibreYOLO</span>
+            </div>
+<pre><span class="k">from</span> libreyolo <span class="k">import</span> <span class="f">LibreYOLO</span>
+
+model = <span class="f">LibreYOLO</span>(<span class="s">"yolov9-t"</span>)  <span class="c"># 2.04M params, edge-optimized</span>
+results = model(<span class="s">"image.jpg"</span>)</pre>
+        </div>
+
+        <div class="code-block">
+            <div class="code-header">
+                <span class="code-title">Try YOLOX-S</span>
+                <span class="code-badge">LibreYOLO</span>
+            </div>
+<pre><span class="k">from</span> libreyolo <span class="k">import</span> <span class="f">LibreYOLO</span>
+
+model = <span class="f">LibreYOLO</span>(<span class="s">"yolox-s"</span>)  <span class="c"># 34.6 mAP, speed-optimized</span>
+results = model(<span class="s">"image.jpg"</span>)</pre>
+        </div>
+
+        <!-- Reproduce -->
+        <h2>Reproduce These Results <span class="section-line"></span></h2>
+        <p>Every number in this article can be independently verified. Run the exact same benchmark on your own hardware:</p>
+
+        <div class="code-block">
+            <div class="code-header">
+                <span class="code-title">Reproduce the benchmark</span>
+                <span class="code-badge">Reproducible</span>
+            </div>
+<pre><span class="c"># Install LibreYOLO</span>
+pip install libreyolo
+
+<span class="c"># Validate both models on COCO</span>
+<span class="k">from</span> libreyolo <span class="k">import</span> <span class="f">LibreYOLO</span>
+
+<span class="k">for</span> name <span class="k">in</span> [<span class="s">"yolov9-t"</span>, <span class="s">"yolox-s"</span>]:
+    model = <span class="f">LibreYOLO</span>(name)
+    metrics = model.<span class="f">val</span>(data=<span class="s">"coco.yaml"</span>)
+    <span class="f">print</span>(<span class="k">f</span><span class="s">"{name}: {metrics}"</span>)</pre>
+        </div>
+
+        <!-- CTA -->
+        <div class="cta-card">
+            <h3>Run your own benchmarks</h3>
+            <p>LibreYOLO is MIT-licensed. No restrictions on commercial use, research, or redistribution.</p>
+            <a href="https://libreyolo.org" class="cta-button">Get started with LibreYOLO</a>
+        </div>
+
+        <!-- FAQ -->
+        <h2>Frequently Asked Questions <span class="section-line"></span></h2>
+        <div class="faq">
+            <details open>
+                <summary>Which is better, YOLOv9-T or YOLOX-S?</summary>
+                <div class="faq-answer">
+                    YOLOX-S is the better all-round model with 34.6 mAP@50-95 at 44 FPS on A100. YOLOv9-T is better for edge deployment due to its 2.04M parameter count and 3.8x higher parameter efficiency. Both are available in LibreYOLO.
+                </div>
+            </details>
+            <details>
+                <summary>How fast is YOLOv9-T vs YOLOX-S on A100?</summary>
+                <div class="faq-answer">
+                    YOLOX-S runs at 44.0 FPS (22.8ms p50 latency) on NVIDIA A100. YOLOv9-T runs at 23.2 FPS (42.3ms p50 latency). YOLOX-S is 1.9x faster despite having 4.4x more parameters.
+                </div>
+            </details>
+            <details>
+                <summary>What is the mAP of YOLOv9-T and YOLOX-S on COCO?</summary>
+                <div class="faq-answer">
+                    On COCO val2017, YOLOX-S achieves 34.6 mAP@50-95 (51.8 mAP@50). YOLOv9-T achieves 30.2 mAP@50-95 (43.0 mAP@50). Benchmarked with LibreYOLO on NVIDIA A100, PyTorch FP32.
+                </div>
+            </details>
+            <details>
+                <summary>How can I reproduce these benchmark results?</summary>
+                <div class="faq-answer">
+                    Install LibreYOLO (<code style="background: rgba(255,255,255,0.06); padding: 0.15em 0.4em; border-radius: 4px; font-size: 0.88em;">pip install libreyolo</code>), then run <code style="background: rgba(255,255,255,0.06); padding: 0.15em 0.4em; border-radius: 4px; font-size: 0.88em;">LibreYOLO("yolov9-t").val(data="coco.yaml")</code> or <code style="background: rgba(255,255,255,0.06); padding: 0.15em 0.4em; border-radius: 4px; font-size: 0.88em;">LibreYOLO("yolox-s").val(data="coco.yaml")</code>. All results in this article are independently reproducible.
+                </div>
+            </details>
+            <details>
+                <summary>Which model is better for edge deployment?</summary>
+                <div class="faq-answer">
+                    YOLOv9-T is better for edge deployment. With only 2.04M parameters and 3.98 GFLOPs, it is 4.4x smaller than YOLOX-S while delivering 3.8x more mAP per million parameters. Use LibreYOLO to export it to ONNX, TensorRT, OpenVINO, or NCNN for edge inference.
+                </div>
+            </details>
+        </div>
+
+        <!-- Methodology -->
+        <div class="methodology">
+            <strong>Methodology.</strong> All benchmarks were run using <a href="https://libreyolo.org">LibreYOLO</a> v0.1.2 on NVIDIA A100-PCIE-40GB with CUDA 12.8, PyTorch 2.8.0, Python 3.10.6. Dataset: COCO val2017 (5,000 images). Input size: 640&times;640. Batch size: 1. Timing includes full pipeline (preprocess + inference + postprocess). All metrics are independently reproducible.
+            <br><br>
+            Data source: <a href="https://visionanalysis.org">visionanalysis.org</a> &middot; Benchmarked with <a href="https://libreyolo.org">LibreYOLO</a>
+        </div>
+    </article>
+
+    <footer>
+        <span>&copy; 2026 Vision Analysis &middot; All benchmark data is open and reproducible</span>
+        <a href="https://libreyolo.org">Powered by LibreYOLO</a>
+    </footer>
+
+</body>
+</html>

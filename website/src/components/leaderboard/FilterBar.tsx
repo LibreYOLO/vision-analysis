@@ -1,6 +1,5 @@
 "use client";
 
-import { Badge } from "@/components/ui/badge";
 import {
   Select,
   SelectContent,
@@ -8,7 +7,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { getFamilyColor } from "@/lib/utils/colors";
 import { cn } from "@/lib/utils";
 
 interface FilterBarProps {
@@ -37,14 +35,13 @@ export function FilterBar({
   families,
 }: FilterBarProps) {
   return (
-    <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center justify-between pb-4 border-b">
-      <div className="flex flex-wrap items-center gap-3">
-        {/* Hardware Selector */}
-        <div className="flex items-center gap-2">
-          <span className="text-sm font-medium text-muted-foreground">Hardware:</span>
+    <div className="bg-card rounded-md p-3 border-b border-border">
+      <div className="flex flex-col sm:flex-row gap-3 items-start sm:items-center justify-between">
+        <div className="flex flex-wrap items-center gap-3">
+          {/* Hardware Selector */}
           <Select value={hardware} onValueChange={onHardwareChange}>
-            <SelectTrigger className="w-[200px]">
-              <SelectValue placeholder="Select hardware" />
+            <SelectTrigger className="w-[180px] h-9 text-sm border-border bg-card">
+              <SelectValue placeholder="Hardware" />
             </SelectTrigger>
             <SelectContent>
               {hardwareOptions.map((option) => (
@@ -54,14 +51,11 @@ export function FilterBar({
               ))}
             </SelectContent>
           </Select>
-        </div>
 
-        {/* Runtime Selector */}
-        <div className="flex items-center gap-2">
-          <span className="text-sm font-medium text-muted-foreground">Runtime:</span>
+          {/* Runtime Selector */}
           <Select value={runtime} onValueChange={onRuntimeChange}>
-            <SelectTrigger className="w-[180px]">
-              <SelectValue placeholder="Select runtime" />
+            <SelectTrigger className="w-[160px] h-9 text-sm border-border bg-card">
+              <SelectValue placeholder="Runtime" />
             </SelectTrigger>
             <SelectContent>
               {runtimeOptions.map((option) => (
@@ -71,47 +65,42 @@ export function FilterBar({
               ))}
             </SelectContent>
           </Select>
-        </div>
 
-        {/* Family Filter */}
-        <div className="flex flex-wrap items-center gap-2">
-          <span className="text-sm font-medium text-muted-foreground">Families:</span>
-          {families.map((family) => {
-            const isSelected = selectedFamilies.includes(family);
-            const color = getFamilyColor(family);
-            return (
-              <Badge
-                key={family}
-                variant={isSelected ? "default" : "outline"}
-                className={cn(
-                  "cursor-pointer transition-all hover:scale-105",
-                  isSelected && "ring-2 ring-offset-2"
-                )}
-                style={{
-                  backgroundColor: isSelected ? color : "transparent",
-                  borderColor: color,
-                  color: isSelected ? "white" : color,
-                }}
-                onClick={() => onFamilyToggle(family)}
+          {/* Separator */}
+          <div className="w-px h-6 bg-border hidden sm:block" />
+
+          {/* Family Filter Chips */}
+          <div className="flex flex-wrap items-center gap-1.5">
+            {families.map((family) => {
+              const isSelected = selectedFamilies.includes(family);
+              return (
+                <button
+                  key={family}
+                  onClick={() => onFamilyToggle(family)}
+                  className={cn(
+                    "filter-chip",
+                    isSelected ? "filter-chip-active" : "text-foreground"
+                  )}
+                >
+                  {family}
+                </button>
+              );
+            })}
+            {selectedFamilies.length > 0 && (
+              <button
+                onClick={() => selectedFamilies.forEach(onFamilyToggle)}
+                className="text-xs text-muted-foreground hover:text-foreground ml-1"
               >
-                {family}
-              </Badge>
-            );
-          })}
-          {selectedFamilies.length > 0 && (
-            <button
-              onClick={() => selectedFamilies.forEach(onFamilyToggle)}
-              className="text-xs text-muted-foreground hover:text-foreground underline ml-2"
-            >
-              Clear
-            </button>
-          )}
+                Clear
+              </button>
+            )}
+          </div>
         </div>
-      </div>
 
-      {/* Result Count */}
-      <div className="text-sm text-muted-foreground">
-        {resultCount} model{resultCount !== 1 ? "s" : ""}
+        {/* Result Count */}
+        <div className="text-sm text-muted-foreground whitespace-nowrap">
+          {resultCount} model{resultCount !== 1 ? "s" : ""}
+        </div>
       </div>
     </div>
   );

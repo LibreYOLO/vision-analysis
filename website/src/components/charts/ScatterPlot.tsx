@@ -2,10 +2,16 @@
 
 import { useRef, useEffect, useMemo } from "react";
 import { useRouter } from "next/navigation";
+import { useTheme } from "next-themes";
 import * as Plot from "@observablehq/plot";
 import { BenchmarkResult } from "@/lib/types";
 import { getFamilyColor } from "@/lib/utils/colors";
 import { computeParetoFrontier } from "@/lib/data/utils";
+
+/** Read a CSS variable from :root / .dark context */
+function getCssVar(name: string): string {
+  return getComputedStyle(document.documentElement).getPropertyValue(name).trim();
+}
 
 interface ScatterPlotProps {
   data: BenchmarkResult[];
@@ -22,6 +28,7 @@ export function ScatterPlot({
 }: ScatterPlotProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const router = useRouter();
+  const { resolvedTheme } = useTheme();
 
   const paretoPoints = useMemo(() => {
     if (!showPareto) return [];
@@ -31,24 +38,20 @@ export function ScatterPlot({
   useEffect(() => {
     if (!containerRef.current || data.length === 0) return;
 
-    // Clear previous plot
     containerRef.current.innerHTML = "";
-
-    // Get container width
     const width = containerRef.current.clientWidth;
+    const fgColor = getCssVar("--foreground") || "#04090b";
+    const gridColor = getCssVar("--border") || "#e2e8f0";
 
-    // Prepare data for plotting
     const plotData = data.map((d) => ({
       ...d,
       color: getFamilyColor(d.family),
     }));
 
-    // Sort pareto points for proper line connection (by size, smaller first)
     const sortedPareto = [...paretoPoints].sort(
       (a, b) => a.paramsM - b.paramsM
     );
 
-    // Build marks array
     const marks: Plot.Markish[] = [];
 
     // Pareto frontier line
@@ -71,7 +74,7 @@ export function ScatterPlot({
         x: xAxis,
         y: "mAP_50_95",
         fill: "color",
-        r: 6,
+        r: 7,
         opacity: 0.85,
         tip: true,
         title: (d: BenchmarkResult & { color: string }) =>
@@ -80,15 +83,16 @@ export function ScatterPlot({
       })
     );
 
-    // Labels for all models
+    // Labels
     marks.push(
       Plot.text(plotData, {
         x: xAxis,
         y: "mAP_50_95",
         text: "model",
-        dy: -12,
-        fontSize: 10,
-        fill: "currentColor",
+        dy: -14,
+        fontSize: 11,
+        fill: fgColor,
+        fontWeight: 500,
         href: (d: BenchmarkResult & { color: string }) => `/model/${d.model}`,
       })
     );
@@ -100,28 +104,35 @@ export function ScatterPlot({
       marginRight: 20,
       marginBottom: 50,
       marginTop: 20,
+      style: {
+        background: "transparent",
+        color: fgColor,
+        fontFamily: "var(--font-sans)",
+      },
+
+      marks: [
+        Plot.gridX({ stroke: gridColor, strokeOpacity: 0.7 }),
+        Plot.gridY({ stroke: gridColor, strokeOpacity: 0.7 }),
+        ...marks,
+      ],
 
       x: {
         label: xAxis === "paramsM" ? "Parameters (M) →" : "GFLOPs →",
-        grid: true,
         nice: true,
       },
       y: {
-        label: "↑ mAP@50-95 (%)",
-        grid: true,
+        label: "mAP@50-95 (%)",
         nice: true,
         domain: [
           Math.floor(Math.min(...data.map((d) => d.mAP_50_95)) - 5),
           Math.ceil(Math.max(...data.map((d) => d.mAP_50_95)) + 2),
         ],
       },
-
-      marks,
     });
 
     containerRef.current.appendChild(plot);
 
-    // Make dots clickable with client-side navigation
+    // Client-side navigation on clicks
     const links = plot.querySelectorAll("a[href^='/model/']");
     links.forEach((link) => {
       const el = link as HTMLElement;
@@ -133,11 +144,10 @@ export function ScatterPlot({
       });
     });
 
-    // Cleanup
     return () => {
       plot.remove();
     };
-  }, [data, paretoPoints, showPareto, height, xAxis, router]);
+  }, [data, paretoPoints, showPareto, height, xAxis, router, resolvedTheme]);
 
   return (
     <div className="w-full">
@@ -153,15 +163,13 @@ export function ScatterPlot({
                 className="w-3 h-3 rounded-full"
                 style={{ backgroundColor: getFamilyColor(family) }}
               />
-              <span>{family}</span>
+              <span className="text-muted-foreground">{family}</span>
             </div>
           ))}
         {showPareto && (
-          <div className="flex items-center gap-2 ml-4 pl-4 border-l">
+          <div className="flex items-center gap-2 ml-4 pl-4 border-l border-border">
             <div className="w-6 h-0 border-t-2 border-dashed border-green-500" />
-            <span className="text-green-600 dark:text-green-400">
-              Pareto Frontier
-            </span>
+            <span className="text-green-600">Pareto Frontier</span>
           </div>
         )}
       </div>

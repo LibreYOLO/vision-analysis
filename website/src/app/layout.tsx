@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
-import { Inter, JetBrains_Mono } from "next/font/google";
+import { M_PLUS_2, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { Header, Footer, ThemeProvider } from "@/components/layout";
 import { siteConfig } from "@/config/site";
 import { TooltipProvider } from "@/components/ui/tooltip";
 
-const inter = Inter({
+const mplus2 = M_PLUS_2({
   variable: "--font-sans",
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
 });
 
 const jetbrainsMono = JetBrains_Mono({
@@ -31,6 +32,8 @@ export const metadata: Metadata = {
     "LibreYOLO",
     "YOLOv9",
     "YOLOX",
+    "YOLOv8",
+    "Ultralytics",
     "machine learning",
   ],
   authors: [{ name: siteConfig.creator }],
@@ -71,11 +74,11 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${inter.variable} ${jetbrainsMono.variable} font-sans antialiased min-h-screen flex flex-col`}
+        className={`${mplus2.variable} ${jetbrainsMono.variable} font-sans antialiased min-h-screen flex flex-col`}
       >
         <ThemeProvider
           attribute="class"
-          defaultTheme="system"
+          defaultTheme="light"
           enableSystem
           disableTransitionOnChange
         >

@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YOLOv9-T vs YOLOX-S Benchmark Comparison on NVIDIA A100 | Vision Analysis</title>
+    <meta name="description" content="Detailed benchmark comparison of YOLOv9-T and YOLOX-S on NVIDIA A100 GPU. mAP, FPS, latency, and efficiency on COCO val2017.">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "YOLOv9-T vs YOLOX-S: Benchmark Comparison on NVIDIA A100",
+        "author": { "@type": "Organization", "name": "Vision Analysis" },
+        "datePublished": "2026-03-22"
+    }
+    </script>
+    <style>
+        /* V3: Ultra-minimal, paper-like. Maximum readability, zero noise. */
+        :root {
+            --bg: #fafaf9;
+            --surface: #ffffff;
+            --border: #e5e5e0;
+            --text: #1a1a1a;
+            --text-muted: #737373;
+            --accent: #16a34a;
+            --accent-bg: #f0fdf4;
+            --blue: #2563eb;
+            --blue-bg: #eff6ff;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Charter', 'Georgia', 'Times New Roman', serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.8;
+            font-size: 17px;
+        }
+
+        /* Thin top bar */
+        .top-bar {
+            background: var(--surface);
+            border-bottom: 1px solid var(--border);
+            padding: 0.6rem 2rem;
+            display: flex; align-items: center; justify-content: space-between;
+            font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+            font-size: 0.85rem;
+        }
+        .top-bar a { color: var(--text); text-decoration: none; font-weight: 600; }
+        .top-bar a span { color: var(--accent); }
+        .top-bar-links { display: flex; gap: 1.5rem; }
+        .top-bar-links a { color: var(--text-muted); font-weight: 400; }
+
+        article { max-width: 680px; margin: 0 auto; padding: 3.5rem 1.5rem 5rem; }
+
+        .breadcrumb {
+            font-family: -apple-system, sans-serif;
+            font-size: 0.78rem; color: var(--text-muted); margin-bottom: 2.5rem;
+        }
+        .breadcrumb a { color: var(--accent); text-decoration: none; }
+
+        h1 {
+            font-size: 2.1rem;
+            font-weight: 700;
+            line-height: 1.25;
+            margin-bottom: 0.5rem;
+        }
+        .date {
+            font-family: -apple-system, sans-serif;
+            font-size: 0.82rem; color: var(--text-muted);
+            margin-bottom: 2.5rem;
+        }
+
+        h2 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin: 2.5rem 0 0.75rem;
+        }
+
+        p { margin-bottom: 1.1rem; }
+
+        /* V3: Clean, minimal table */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-family: -apple-system, sans-serif;
+            font-size: 0.9rem;
+            margin: 1.25rem 0;
+        }
+        thead th {
+            text-align: left;
+            padding: 0.6rem 0.75rem;
+            border-bottom: 2px solid var(--text);
+            font-weight: 600;
+            font-size: 0.8rem;
+        }
+        td {
+            padding: 0.55rem 0.75rem;
+            border-bottom: 1px solid var(--border);
+        }
+        tr:last-child td { border-bottom: none; }
+        .win { color: var(--accent); font-weight: 600; }
+
+        /* V3: Pull quote style for verdict */
+        .verdict {
+            border-left: 3px solid var(--accent);
+            padding: 0.75rem 0 0.75rem 1.25rem;
+            margin: 1.5rem 0;
+            font-style: italic;
+            font-size: 1.05rem;
+            color: var(--text);
+        }
+        .verdict strong { font-style: normal; color: var(--accent); }
+
+        /* V3: Inline code, not a card */
+        code {
+            font-family: 'SF Mono', 'Fira Code', monospace;
+            font-size: 0.88em;
+            background: #f3f3f0;
+            padding: 0.15em 0.35em;
+            border-radius: 3px;
+        }
+        pre {
+            background: #1e1e2e;
+            color: #cdd6f4;
+            font-family: 'SF Mono', 'Fira Code', monospace;
+            font-size: 0.85rem;
+            line-height: 1.6;
+            padding: 1.25rem 1.5rem;
+            border-radius: 8px;
+            margin: 1.25rem 0;
+            overflow-x: auto;
+        }
+        pre .c { color: #6c7086; }
+        pre .k { color: #cba6f7; }
+        pre .s { color: #a6e3a1; }
+        pre .f { color: #89b4fa; }
+
+        /* V3: Simple libreyolo aside */
+        .libre-aside {
+            background: var(--accent-bg);
+            border: 1px solid #bbf7d0;
+            border-radius: 8px;
+            padding: 1rem 1.25rem;
+            margin: 1.5rem 0;
+            font-family: -apple-system, sans-serif;
+            font-size: 0.88rem;
+            line-height: 1.6;
+        }
+        .libre-aside a { color: var(--accent); text-decoration: none; font-weight: 600; }
+
+        .methodology {
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border);
+            font-family: -apple-system, sans-serif;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            line-height: 1.7;
+        }
+        .methodology a { color: var(--accent); text-decoration: none; }
+
+        footer {
+            max-width: 680px; margin: 0 auto; padding: 2rem 1.5rem;
+            font-family: -apple-system, sans-serif;
+            font-size: 0.78rem; color: var(--text-muted);
+            display: flex; justify-content: space-between;
+        }
+        footer a { color: var(--accent); text-decoration: none; }
+    </style>
+</head>
+<body>
+    <div class="top-bar">
+        <a href="/"><span>Vision</span>Analysis</a>
+        <div class="top-bar-links">
+            <a href="/compare">Compare</a>
+            <a href="/articles">Articles</a>
+            <a href="https://libreyolo.org">LibreYOLO</a>
+        </div>
+    </div>
+
+    <article>
+        <div class="breadcrumb">
+            <a href="/">Home</a> / <a href="/articles">Articles</a> / YOLOv9-T vs YOLOX-S
+        </div>
+
+        <h1>YOLOv9-T vs YOLOX-S: Benchmark Comparison on NVIDIA A100</h1>
+        <div class="date">March 22, 2026 &middot; COCO val2017 &middot; PyTorch FP32</div>
+
+        <p>
+            Two popular lightweight YOLO models, two different design philosophies. YOLOv9-T is an ultra-compact architecture with just 2 million parameters. YOLOX-S takes a more generous approach at nearly 9 million. We benchmarked both on the same A100 GPU to find out what those extra parameters buy you.
+        </p>
+
+        <div class="verdict">
+            <strong>YOLOX-S wins on accuracy and speed.</strong> It delivers 34.6 mAP@50-95 at 44 FPS, versus 30.2 mAP at 23 FPS for YOLOv9-T. But YOLOv9-T is 3.8x more efficient per parameter &mdash; a significant advantage on constrained hardware.
+        </div>
+
+        <h2>Accuracy</h2>
+
+        <table>
+            <thead><tr><th>Metric</th><th>YOLOv9-T</th><th>YOLOX-S</th></tr></thead>
+            <tbody>
+                <tr><td>mAP@50-95</td><td>30.2</td><td class="win">34.6</td></tr>
+                <tr><td>mAP@50</td><td>43.0</td><td class="win">51.8</td></tr>
+                <tr><td>Precision</td><td class="win">61.5%</td><td>42.7%</td></tr>
+                <tr><td>Recall</td><td>36.4%</td><td class="win">57.0%</td></tr>
+            </tbody>
+        </table>
+
+        <p>
+            The mAP gap of 4.4 points is substantial. But there's a nuance: YOLOv9-T is significantly more precise. When it detects something, it's right 61.5% of the time. YOLOX-S casts a wider net &mdash; finding more objects (57% recall) but with more false positives.
+        </p>
+
+        <h2>Speed</h2>
+
+        <table>
+            <thead><tr><th>Metric</th><th>YOLOv9-T</th><th>YOLOX-S</th></tr></thead>
+            <tbody>
+                <tr><td>FPS (mean)</td><td>23.2</td><td class="win">44.0</td></tr>
+                <tr><td>Latency p50</td><td>42.3 ms</td><td class="win">22.8 ms</td></tr>
+                <tr><td>Latency p95</td><td>51.1 ms</td><td class="win">28.7 ms</td></tr>
+                <tr><td>Latency p99</td><td>57.8 ms</td><td class="win">29.2 ms</td></tr>
+            </tbody>
+        </table>
+
+        <p>
+            YOLOX-S runs nearly twice as fast despite having 4.4x more parameters. This likely reflects YOLOX's more GPU-friendly architecture &mdash; wider layers with simpler operations rather than YOLOv9's more complex but parameter-efficient design.
+        </p>
+
+        <h2>Efficiency</h2>
+
+        <table>
+            <thead><tr><th>Metric</th><th>YOLOv9-T</th><th>YOLOX-S</th></tr></thead>
+            <tbody>
+                <tr><td>Parameters</td><td class="win">2.04M</td><td>8.97M</td></tr>
+                <tr><td>GFLOPs</td><td class="win">3.98</td><td>13.46</td></tr>
+                <tr><td>mAP / M params</td><td class="win">14.8</td><td>3.9</td></tr>
+                <tr><td>mAP / GFLOP</td><td class="win">7.59</td><td>2.57</td></tr>
+            </tbody>
+        </table>
+
+        <p>
+            This is where YOLOv9-T shines. It extracts nearly 4x more accuracy per million parameters. For edge deployment on a Raspberry Pi or Jetson Nano, this efficiency translates directly into feasibility.
+        </p>
+
+        <h2>Try the Models</h2>
+
+        <p>Both YOLOv9-T and YOLOX-S are available in LibreYOLO. Three lines to run either one:</p>
+
+<pre><span class="k">from</span> libreyolo <span class="k">import</span> <span class="f">LibreYOLO</span>
+
+<span class="c"># YOLOv9-T — 2.04M params, edge-efficient</span>
+model = <span class="f">LibreYOLO</span>(<span class="s">"yolov9-t"</span>)
+results = model(<span class="s">"image.jpg"</span>)
+
+<span class="c"># YOLOX-S — 34.6 mAP, speed-optimized</span>
+model = <span class="f">LibreYOLO</span>(<span class="s">"yolox-s"</span>)
+results = model(<span class="s">"image.jpg"</span>)</pre>
+
+        <h2>Reproduce These Results</h2>
+
+        <p>Every number in this article is independently verifiable:</p>
+
+<pre><span class="c"># pip install libreyolo</span>
+<span class="k">from</span> libreyolo <span class="k">import</span> <span class="f">LibreYOLO</span>
+
+model = <span class="f">LibreYOLO</span>(<span class="s">"yolov9-t"</span>)
+metrics = model.<span class="f">val</span>(data=<span class="s">"coco.yaml"</span>)
+<span class="f">print</span>(metrics)  <span class="c"># mAP@50-95: 30.2</span></pre>
+
+        <div class="libre-aside">
+            <a href="https://libreyolo.org">LibreYOLO</a> is MIT-licensed &mdash; free for commercial use, research, and redistribution. All benchmarks on this site were run with LibreYOLO and are fully reproducible.
+        </div>
+
+        <div class="methodology">
+            <strong>Methodology.</strong> Benchmarks run with <a href="https://libreyolo.org">LibreYOLO</a> v0.1.2 on NVIDIA A100-PCIE-40GB, CUDA 12.8, PyTorch 2.8.0, Python 3.10.6. Dataset: COCO val2017 (5,000 images). Input: 640&times;640, batch 1.
+            <br>Source: <a href="https://visionanalysis.org">visionanalysis.org</a>
+        </div>
+    </article>
+
+    <footer>
+        <span>&copy; 2026 Vision Analysis</span>
+        <a href="https://libreyolo.org">Powered by LibreYOLO</a>
+    </footer>
+</body>
+</html>

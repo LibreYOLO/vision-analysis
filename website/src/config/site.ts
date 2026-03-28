@@ -1,11 +1,12 @@
 export const siteConfig = {
   name: "Vision Analysis",
   description:
-    "Benchmarks for computer vision models. Compare YOLO models across hardware.",
+    "Credible and deep analysis of computer vision models. Compare accuracy, speed, and efficiency across YOLO families and hardware.",
   url: "https://visionanalysis.ai",
   ogImage: "https://visionanalysis.ai/og-default.png",
   links: {
     github: "https://github.com/Libre-YOLO/libreyolo",
+    twitter: "https://x.com/visionanalysis",
   },
   creator: "LibreYOLO",
 };
@@ -14,6 +15,8 @@ export const navLinks = [
   { href: "/", label: "Leaderboard" },
   { href: "/compare", label: "Compare" },
   { href: "/hardware", label: "Hardware" },
+  { href: "/articles", label: "Articles" },
+  { href: "/about", label: "About" },
 ];
 
 export const defaultFilters = {
@@ -31,9 +34,11 @@ export const datasetOptions = [
 // Leaderboard column definitions
 export const leaderboardColumns = [
   { key: "model", label: "Model", sortable: true },
-  { key: "mAP_50_95", label: "mAP", sortable: true, format: "percent" },
+  { key: "mAP_50_95", label: "mAP@50-95", sortable: true, format: "percent" },
+  { key: "mAP_50", label: "mAP@50", sortable: true, format: "percent" },
   { key: "throughputFps", label: "FPS", sortable: true, format: "number" },
   { key: "totalMs", label: "Latency", sortable: true, format: "ms" },
-  { key: "paramsM", label: "Params", sortable: true, format: "millions" },
+  { key: "paramsM", label: "Params (M)", sortable: true, format: "millions" },
+  { key: "flopsG", label: "GFLOPs", sortable: true, format: "number" },
   { key: "mAPPerGflop", label: "mAP/GFLOP", sortable: true, format: "number" },
 ] as const;

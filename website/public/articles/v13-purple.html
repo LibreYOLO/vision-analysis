@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YOLOv9-T vs YOLOX-S Benchmark | Vision Analysis</title>
+    <style>
+        :root{--bg:#0a0810;--s:#120f1a;--s2:#1a1626;--b:#2a2440;--t:#e4dff0;--tm:#8078a0;--violet:#8b5cf6;--orange:#fb923c;--vd:rgba(139,92,246,0.1);--od:rgba(251,146,60,0.1)}
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:Inter,-apple-system,sans-serif;background:var(--bg);color:var(--t);line-height:1.7}
+        nav{position:sticky;top:0;z-index:100;background:rgba(10,8,16,0.9);backdrop-filter:blur(12px);border-bottom:1px solid var(--b);padding:.7rem 2rem;display:flex;justify-content:space-between;align-items:center}
+        .brand{font-weight:700;color:var(--t);text-decoration:none}.brand span{color:var(--violet)}
+        .links{display:flex;gap:1.5rem}.links a{color:var(--tm);text-decoration:none;font-size:.85rem}
+        article{max-width:800px;margin:0 auto;padding:3rem 1.5rem 5rem}
+        .bc{font-size:.78rem;color:var(--tm);margin-bottom:2rem}.bc a{color:var(--violet);text-decoration:none}
+        h1{font-size:2.1rem;font-weight:800;margin-bottom:.5rem}
+        .meta{color:var(--tm);font-size:.85rem;margin-bottom:2rem}
+        .face-off{display:flex;align-items:stretch;gap:0;margin-bottom:2rem;border-radius:16px;overflow:hidden;border:1px solid var(--b)}
+        .fo-side{flex:1;padding:1.75rem;text-align:center}
+        .fo-side.a{background:linear-gradient(135deg,var(--vd),transparent)}
+        .fo-side.b{background:linear-gradient(135deg,transparent,var(--od))}
+        .fo-side .name{font-size:.75rem;text-transform:uppercase;letter-spacing:.08em;color:var(--tm);margin-bottom:.4rem}
+        .fo-side .num{font-size:3.2rem;font-weight:800;line-height:1}
+        .fo-side .sub{font-size:.72rem;color:var(--tm);margin-top:.25rem}
+        .fo-side.a .num{color:var(--violet)}.fo-side.b .num{color:var(--orange)}
+        .fo-mid{width:1px;background:var(--b);position:relative}
+        .fo-mid::after{content:"VS";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:var(--s);color:var(--tm);font-size:.7rem;font-weight:800;padding:.3rem .5rem;border-radius:4px;border:1px solid var(--b)}
+        .pill{display:inline-block;background:var(--vd);color:var(--violet);font-size:.75rem;font-weight:600;padding:.3rem .8rem;border-radius:20px;margin-bottom:1.5rem}
+        h2{font-size:1.3rem;font-weight:700;margin:2.5rem 0 1rem}
+        p{margin-bottom:1rem;font-size:.95rem}
+        .tw{overflow-x:auto;margin:1.25rem 0;border-radius:8px;border:1px solid var(--b)}
+        table{width:100%;border-collapse:collapse;font-size:.88rem}
+        thead{background:var(--s2)}
+        th{padding:.6rem .85rem;text-align:left;font-weight:600;font-size:.72rem;text-transform:uppercase;letter-spacing:.04em;color:var(--tm);border-bottom:1px solid var(--b)}
+        td{padding:.55rem .85rem;border-bottom:1px solid var(--b)}tr:last-child td{border-bottom:none}
+        .wv{color:var(--violet);font-weight:600}.wo{color:var(--orange);font-weight:600}
+        pre{background:var(--s);border:1px solid var(--b);border-radius:10px;padding:1.25rem 1.5rem;margin:1.25rem 0;font-family:'SF Mono',monospace;font-size:.83rem;line-height:1.6;overflow-x:auto}
+        .c{color:#5a5272}.k{color:var(--violet)}.s{color:var(--orange)}.f{color:#38bdf8}
+        .cta{background:linear-gradient(135deg,var(--vd),var(--od));border:1px solid var(--b);border-radius:12px;padding:2rem;margin:2rem 0;text-align:center}
+        .cta h3{font-size:1.15rem;margin-bottom:.4rem}.cta p{color:var(--tm);font-size:.88rem;margin-bottom:1rem}
+        .btn{display:inline-block;background:var(--violet);color:#fff;font-weight:700;font-size:.88rem;padding:.6rem 1.4rem;border-radius:7px;text-decoration:none}
+        .meth{font-size:.78rem;color:var(--tm);margin-top:2rem;padding-top:1.25rem;border-top:1px solid var(--b)}.meth a{color:var(--violet);text-decoration:none}
+        footer{max-width:800px;margin:0 auto;padding:2rem 1.5rem;font-size:.78rem;color:var(--tm);display:flex;justify-content:space-between}footer a{color:var(--violet);text-decoration:none}
+    </style>
+</head>
+<body>
+<nav><a href="/" class="brand"><span>Vision</span>Analysis</a><div class="links"><a href="/compare">Compare</a><a href="/articles">Articles</a><a href="https://libreyolo.org">LibreYOLO</a></div></nav>
+<article>
+<div class="bc"><a href="/">Home</a> / <a href="/articles">Articles</a> / YOLOv9-T vs YOLOX-S</div>
+<h1>YOLOv9-T vs YOLOX-S on NVIDIA A100</h1>
+<div class="meta">COCO val2017 · PyTorch FP32 · March 2026</div>
+
+<div class="face-off">
+    <div class="fo-side a"><div class="name">YOLOv9-T</div><div class="num">30.2</div><div class="sub">mAP · 23.2 FPS · 2.04M</div></div>
+    <div class="fo-mid"></div>
+    <div class="fo-side b"><div class="name">YOLOX-S</div><div class="num">34.6</div><div class="sub">mAP · 44.0 FPS · 8.97M</div></div>
+</div>
+
+<span class="pill">YOLOX-S wins overall · YOLOv9-T wins efficiency</span>
+<p>YOLOX-S is <strong style="color:var(--orange)">14.5% more accurate</strong> and <strong style="color:var(--orange)">1.9x faster</strong>. YOLOv9-T delivers <strong style="color:var(--violet)">3.8x more mAP per parameter</strong>. Both available in LibreYOLO.</p>
+
+<h2>Accuracy</h2>
+<div class="tw"><table><thead><tr><th>Metric</th><th>YOLOv9-T</th><th>YOLOX-S</th></tr></thead><tbody>
+<tr><td>mAP@50-95</td><td>30.2</td><td class="wo">34.6</td></tr>
+<tr><td>mAP@50</td><td>43.0</td><td class="wo">51.8</td></tr>
+<tr><td>Precision</td><td class="wv">61.5%</td><td>42.7%</td></tr>
+<tr><td>Recall</td><td>36.4%</td><td class="wo">57.0%</td></tr>
+</tbody></table></div>
+
+<h2>Speed & Latency</h2>
+<div class="tw"><table><thead><tr><th>Metric</th><th>YOLOv9-T</th><th>YOLOX-S</th></tr></thead><tbody>
+<tr><td>FPS</td><td>23.2</td><td class="wo">44.0</td></tr>
+<tr><td>Latency p50</td><td>42.3ms</td><td class="wo">22.8ms</td></tr>
+<tr><td>Latency p95</td><td>51.1ms</td><td class="wo">28.7ms</td></tr>
+<tr><td>Latency p99</td><td>57.8ms</td><td class="wo">29.2ms</td></tr>
+</tbody></table></div>
+
+<h2>Efficiency</h2>
+<div class="tw"><table><thead><tr><th>Metric</th><th>YOLOv9-T</th><th>YOLOX-S</th></tr></thead><tbody>
+<tr><td>Parameters</td><td class="wv">2.04M</td><td>8.97M</td></tr>
+<tr><td>GFLOPs</td><td class="wv">3.98</td><td>13.46</td></tr>
+<tr><td>mAP/M params</td><td class="wv">14.8</td><td>3.9</td></tr>
+<tr><td>mAP/GFLOP</td><td class="wv">7.59</td><td>2.57</td></tr>
+</tbody></table></div>
+
+<h2>Try with LibreYOLO</h2>
+<pre><span class="k">from</span> libreyolo <span class="k">import</span> <span class="f">LibreYOLO</span>
+
+model = <span class="f">LibreYOLO</span>(<span class="s">"yolov9-t"</span>)  <span class="c"># or "yolox-s"</span>
+results = model(<span class="s">"image.jpg"</span>)</pre>
+
+<h2>Reproduce These Results</h2>
+<pre><span class="k">from</span> libreyolo <span class="k">import</span> <span class="f">LibreYOLO</span>
+model = <span class="f">LibreYOLO</span>(<span class="s">"yolov9-t"</span>)
+metrics = model.<span class="f">val</span>(data=<span class="s">"coco.yaml"</span>)
+<span class="f">print</span>(metrics)  <span class="c"># mAP@50-95: 30.2</span></pre>
+
+<div class="cta"><h3>Run your own benchmarks</h3><p>MIT-licensed. No restrictions.</p><a href="https://libreyolo.org" class="btn">Get LibreYOLO</a></div>
+<div class="meth"><strong>Methodology.</strong> <a href="https://libreyolo.org">LibreYOLO</a> v0.1.2, A100-PCIE-40GB, CUDA 12.8, PyTorch 2.8.0. COCO val2017, 640×640, batch 1. · <a href="https://visionanalysis.org">visionanalysis.org</a></div>
+</article>
+<footer><span>© 2026 Vision Analysis</span><a href="https://libreyolo.org">Powered by LibreYOLO</a></footer>
+</body></html>

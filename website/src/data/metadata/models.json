@@ -15,21 +15,19 @@
       "specs": {
         "paramsM": 0.91,
         "flopsG": 1.32,
-        "inputSizeDefault": 640
+        "inputSizeDefault": 640,
+        "numClasses": 80
       },
       "source": {
-        "provider": "LibreYOLO",
-        "repo": "Libre-YOLO/libreyolo",
-        "weightsUrl": "https://huggingface.co/Libre-YOLO/yolox-nano",
-        "paperUrl": "https://arxiv.org/abs/2107.08430",
-        "codeUrl": "https://github.com/Libre-YOLO/libreyolo"
+        "originalWeightsUrl": "https://github.com/Megvii-BaseDetection/YOLOX/releases",
+        "libreyoloWeightsUrl": "https://huggingface.co/Libre-YOLO/yolox-nano"
       },
       "license": "Apache-2.0",
       "releaseDate": "2021-07-18",
-      "tags": [
-        "ultra-lightweight",
-        "edge"
-      ]
+      "inLibreYOLO": true,
+      "detectionApproach": "anchor-free",
+      "postprocessing": "nms",
+      "paperReportedMap": 25.8
     },
     {
       "id": "yolox-tiny",
@@ -46,21 +44,19 @@
       "specs": {
         "paramsM": 5.06,
         "flopsG": 7.68,
-        "inputSizeDefault": 640
+        "inputSizeDefault": 640,
+        "numClasses": 80
       },
       "source": {
-        "provider": "LibreYOLO",
-        "repo": "Libre-YOLO/libreyolo",
-        "weightsUrl": "https://huggingface.co/Libre-YOLO/yolox-tiny",
-        "paperUrl": "https://arxiv.org/abs/2107.08430",
-        "codeUrl": "https://github.com/Libre-YOLO/libreyolo"
+        "originalWeightsUrl": "https://github.com/Megvii-BaseDetection/YOLOX/releases",
+        "libreyoloWeightsUrl": "https://huggingface.co/Libre-YOLO/yolox-tiny"
       },
       "license": "Apache-2.0",
       "releaseDate": "2021-07-18",
-      "tags": [
-        "lightweight",
-        "edge"
-      ]
+      "inLibreYOLO": true,
+      "detectionApproach": "anchor-free",
+      "postprocessing": "nms",
+      "paperReportedMap": 32.8
     },
     {
       "id": "yolox-s",
@@ -77,21 +73,19 @@
       "specs": {
         "paramsM": 8.97,
         "flopsG": 13.46,
-        "inputSizeDefault": 640
+        "inputSizeDefault": 640,
+        "numClasses": 80
       },
       "source": {
-        "provider": "LibreYOLO",
-        "repo": "Libre-YOLO/libreyolo",
-        "weightsUrl": "https://huggingface.co/Libre-YOLO/yolox-s",
-        "paperUrl": "https://arxiv.org/abs/2107.08430",
-        "codeUrl": "https://github.com/Libre-YOLO/libreyolo"
+        "originalWeightsUrl": "https://github.com/Megvii-BaseDetection/YOLOX/releases",
+        "libreyoloWeightsUrl": "https://huggingface.co/Libre-YOLO/yolox-s"
       },
       "license": "Apache-2.0",
       "releaseDate": "2021-07-18",
-      "tags": [
-        "balanced",
-        "megvii"
-      ]
+      "inLibreYOLO": true,
+      "detectionApproach": "anchor-free",
+      "postprocessing": "nms",
+      "paperReportedMap": 40.5
     },
     {
       "id": "yolox-m",
@@ -108,21 +102,19 @@
       "specs": {
         "paramsM": 25.33,
         "flopsG": 36.99,
-        "inputSizeDefault": 640
+        "inputSizeDefault": 640,
+        "numClasses": 80
       },
       "source": {
-        "provider": "LibreYOLO",
-        "repo": "Libre-YOLO/libreyolo",
-        "weightsUrl": "https://huggingface.co/Libre-YOLO/yolox-m",
-        "paperUrl": "https://arxiv.org/abs/2107.08430",
-        "codeUrl": "https://github.com/Libre-YOLO/libreyolo"
+        "originalWeightsUrl": "https://github.com/Megvii-BaseDetection/YOLOX/releases",
+        "libreyoloWeightsUrl": "https://huggingface.co/Libre-YOLO/yolox-m"
       },
       "license": "Apache-2.0",
       "releaseDate": "2021-07-18",
-      "tags": [
-        "balanced",
-        "megvii"
-      ]
+      "inLibreYOLO": true,
+      "detectionApproach": "anchor-free",
+      "postprocessing": "nms",
+      "paperReportedMap": 46.9
     },
     {
       "id": "yolox-l",
@@ -139,21 +131,19 @@
       "specs": {
         "paramsM": 54.21,
         "flopsG": 78.01,
-        "inputSizeDefault": 640
+        "inputSizeDefault": 640,
+        "numClasses": 80
       },
       "source": {
-        "provider": "LibreYOLO",
-        "repo": "Libre-YOLO/libreyolo",
-        "weightsUrl": "https://huggingface.co/Libre-YOLO/yolox-l",
-        "paperUrl": "https://arxiv.org/abs/2107.08430",
-        "codeUrl": "https://github.com/Libre-YOLO/libreyolo"
+        "originalWeightsUrl": "https://github.com/Megvii-BaseDetection/YOLOX/releases",
+        "libreyoloWeightsUrl": "https://huggingface.co/Libre-YOLO/yolox-l"
       },
       "license": "Apache-2.0",
       "releaseDate": "2021-07-18",
-      "tags": [
-        "high-accuracy",
-        "megvii"
-      ]
+      "inLibreYOLO": true,
+      "detectionApproach": "anchor-free",
+      "postprocessing": "nms",
+      "paperReportedMap": 49.7
     },
     {
       "id": "yolox-x",
@@ -170,21 +160,19 @@
       "specs": {
         "paramsM": 99.07,
         "flopsG": 141.23,
-        "inputSizeDefault": 640
+        "inputSizeDefault": 640,
+        "numClasses": 80
       },
       "source": {
-        "provider": "LibreYOLO",
-        "repo": "Libre-YOLO/libreyolo",
-        "weightsUrl": "https://huggingface.co/Libre-YOLO/yolox-x",
-        "paperUrl": "https://arxiv.org/abs/2107.08430",
-        "codeUrl": "https://github.com/Libre-YOLO/libreyolo"
+        "originalWeightsUrl": "https://github.com/Megvii-BaseDetection/YOLOX/releases",
+        "libreyoloWeightsUrl": "https://huggingface.co/Libre-YOLO/yolox-x"
       },
       "license": "Apache-2.0",
       "releaseDate": "2021-07-18",
-      "tags": [
-        "highest-accuracy",
-        "megvii"
-      ]
+      "inLibreYOLO": true,
+      "detectionApproach": "anchor-free",
+      "postprocessing": "nms",
+      "paperReportedMap": 51.1
     },
     {
       "id": "yolov9t",
@@ -201,21 +189,19 @@
       "specs": {
         "paramsM": 2.04,
         "flopsG": 3.98,
-        "inputSizeDefault": 640
+        "inputSizeDefault": 640,
+        "numClasses": 80
       },
       "source": {
-        "provider": "LibreYOLO",
-        "repo": "Libre-YOLO/libreyolo",
-        "weightsUrl": "https://huggingface.co/Libre-YOLO/yolov9t",
-        "paperUrl": "https://arxiv.org/abs/2402.13616",
-        "codeUrl": "https://github.com/Libre-YOLO/libreyolo"
+        "originalWeightsUrl": "https://github.com/WongKinYiu/yolov9/releases",
+        "libreyoloWeightsUrl": "https://huggingface.co/Libre-YOLO/yolov9t"
       },
       "license": "MIT",
       "releaseDate": "2024-02-21",
-      "tags": [
-        "efficient",
-        "lightweight"
-      ]
+      "inLibreYOLO": true,
+      "detectionApproach": "anchor-free",
+      "postprocessing": "nms",
+      "paperReportedMap": 38.3
     },
     {
       "id": "yolov9s",
@@ -232,20 +218,19 @@
       "specs": {
         "paramsM": 7.23,
         "flopsG": 13.52,
-        "inputSizeDefault": 640
+        "inputSizeDefault": 640,
+        "numClasses": 80
       },
       "source": {
-        "provider": "LibreYOLO",
-        "repo": "Libre-YOLO/libreyolo",
-        "weightsUrl": "https://huggingface.co/Libre-YOLO/yolov9s",
-        "paperUrl": "https://arxiv.org/abs/2402.13616",
-        "codeUrl": "https://github.com/Libre-YOLO/libreyolo"
+        "originalWeightsUrl": "https://github.com/WongKinYiu/yolov9/releases",
+        "libreyoloWeightsUrl": "https://huggingface.co/Libre-YOLO/yolov9s"
       },
       "license": "MIT",
       "releaseDate": "2024-02-21",
-      "tags": [
-        "balanced"
-      ]
+      "inLibreYOLO": true,
+      "detectionApproach": "anchor-free",
+      "postprocessing": "nms",
+      "paperReportedMap": 46.8
     },
     {
       "id": "yolov9m",
@@ -262,20 +247,19 @@
       "specs": {
         "paramsM": 20.12,
         "flopsG": 38.68,
-        "inputSizeDefault": 640
+        "inputSizeDefault": 640,
+        "numClasses": 80
       },
       "source": {
-        "provider": "LibreYOLO",
-        "repo": "Libre-YOLO/libreyolo",
-        "weightsUrl": "https://huggingface.co/Libre-YOLO/yolov9m",
-        "paperUrl": "https://arxiv.org/abs/2402.13616",
-        "codeUrl": "https://github.com/Libre-YOLO/libreyolo"
+        "originalWeightsUrl": "https://github.com/WongKinYiu/yolov9/releases",
+        "libreyoloWeightsUrl": "https://huggingface.co/Libre-YOLO/yolov9m"
       },
       "license": "MIT",
       "releaseDate": "2024-02-21",
-      "tags": [
-        "balanced"
-      ]
+      "inLibreYOLO": true,
+      "detectionApproach": "anchor-free",
+      "postprocessing": "nms",
+      "paperReportedMap": 51.4
     },
     {
       "id": "yolov9c",
@@ -292,20 +276,599 @@
       "specs": {
         "paramsM": 25.5,
         "flopsG": 51.75,
-        "inputSizeDefault": 640
+        "inputSizeDefault": 640,
+        "numClasses": 80
       },
       "source": {
-        "provider": "LibreYOLO",
-        "repo": "Libre-YOLO/libreyolo",
-        "weightsUrl": "https://huggingface.co/Libre-YOLO/yolov9c",
-        "paperUrl": "https://arxiv.org/abs/2402.13616",
-        "codeUrl": "https://github.com/Libre-YOLO/libreyolo"
+        "originalWeightsUrl": "https://github.com/WongKinYiu/yolov9/releases",
+        "libreyoloWeightsUrl": "https://huggingface.co/Libre-YOLO/yolov9c"
       },
       "license": "MIT",
       "releaseDate": "2024-02-21",
-      "tags": [
-        "high-accuracy"
-      ]
+      "inLibreYOLO": true,
+      "detectionApproach": "anchor-free",
+      "postprocessing": "nms",
+      "paperReportedMap": 53
+    },
+    {
+      "id": "yolov8n",
+      "displayName": "YOLOv8-N",
+      "family": "yolov8",
+      "variant": "n",
+      "task": "detection",
+      "architecture": {
+        "type": "one-stage",
+        "backbone": "CSPDarknet",
+        "neck": "C2f-PAFPN",
+        "head": "Decoupled"
+      },
+      "specs": {
+        "paramsM": 3.2,
+        "flopsG": 8.7,
+        "inputSizeDefault": 640,
+        "numClasses": 80
+      },
+      "source": {
+        "originalWeightsUrl": "https://github.com/ultralytics/assets/releases",
+        "libreyoloWeightsUrl": null
+      },
+      "license": "AGPL-3.0",
+      "releaseDate": "2023-01-10",
+      "inLibreYOLO": false,
+      "detectionApproach": "anchor-free",
+      "postprocessing": "nms",
+      "paperReportedMap": 37.3
+    },
+    {
+      "id": "yolov8s",
+      "displayName": "YOLOv8-S",
+      "family": "yolov8",
+      "variant": "s",
+      "task": "detection",
+      "architecture": {
+        "type": "one-stage",
+        "backbone": "CSPDarknet",
+        "neck": "C2f-PAFPN",
+        "head": "Decoupled"
+      },
+      "specs": {
+        "paramsM": 11.2,
+        "flopsG": 28.6,
+        "inputSizeDefault": 640,
+        "numClasses": 80
+      },
+      "source": {
+        "originalWeightsUrl": "https://github.com/ultralytics/assets/releases",
+        "libreyoloWeightsUrl": null
+      },
+      "license": "AGPL-3.0",
+      "releaseDate": "2023-01-10",
+      "inLibreYOLO": false,
+      "detectionApproach": "anchor-free",
+      "postprocessing": "nms",
+      "paperReportedMap": 44.9
+    },
+    {
+      "id": "yolov8m",
+      "displayName": "YOLOv8-M",
+      "family": "yolov8",
+      "variant": "m",
+      "task": "detection",
+      "architecture": {
+        "type": "one-stage",
+        "backbone": "CSPDarknet",
+        "neck": "C2f-PAFPN",
+        "head": "Decoupled"
+      },
+      "specs": {
+        "paramsM": 25.9,
+        "flopsG": 78.9,
+        "inputSizeDefault": 640,
+        "numClasses": 80
+      },
+      "source": {
+        "originalWeightsUrl": "https://github.com/ultralytics/assets/releases",
+        "libreyoloWeightsUrl": null
+      },
+      "license": "AGPL-3.0",
+      "releaseDate": "2023-01-10",
+      "inLibreYOLO": false,
+      "detectionApproach": "anchor-free",
+      "postprocessing": "nms",
+      "paperReportedMap": 50.2
+    },
+    {
+      "id": "yolov8l",
+      "displayName": "YOLOv8-L",
+      "family": "yolov8",
+      "variant": "l",
+      "task": "detection",
+      "architecture": {
+        "type": "one-stage",
+        "backbone": "CSPDarknet",
+        "neck": "C2f-PAFPN",
+        "head": "Decoupled"
+      },
+      "specs": {
+        "paramsM": 43.7,
+        "flopsG": 165.2,
+        "inputSizeDefault": 640,
+        "numClasses": 80
+      },
+      "source": {
+        "originalWeightsUrl": "https://github.com/ultralytics/assets/releases",
+        "libreyoloWeightsUrl": null
+      },
+      "license": "AGPL-3.0",
+      "releaseDate": "2023-01-10",
+      "inLibreYOLO": false,
+      "detectionApproach": "anchor-free",
+      "postprocessing": "nms",
+      "paperReportedMap": 52.9
+    },
+    {
+      "id": "yolov8x",
+      "displayName": "YOLOv8-X",
+      "family": "yolov8",
+      "variant": "x",
+      "task": "detection",
+      "architecture": {
+        "type": "one-stage",
+        "backbone": "CSPDarknet",
+        "neck": "C2f-PAFPN",
+        "head": "Decoupled"
+      },
+      "specs": {
+        "paramsM": 68.2,
+        "flopsG": 257.8,
+        "inputSizeDefault": 640,
+        "numClasses": 80
+      },
+      "source": {
+        "originalWeightsUrl": "https://github.com/ultralytics/assets/releases",
+        "libreyoloWeightsUrl": null
+      },
+      "license": "AGPL-3.0",
+      "releaseDate": "2023-01-10",
+      "inLibreYOLO": false,
+      "detectionApproach": "anchor-free",
+      "postprocessing": "nms",
+      "paperReportedMap": 53.9
+    },
+    {
+      "id": "yolov10n",
+      "displayName": "YOLOv10-N",
+      "family": "yolov10",
+      "variant": "n",
+      "task": "detection",
+      "architecture": {
+        "type": "one-stage",
+        "backbone": "CSPDarknet",
+        "neck": "PAFPN",
+        "head": "NMS-Free Dual Head"
+      },
+      "specs": {
+        "paramsM": 2.3,
+        "flopsG": 6.7,
+        "inputSizeDefault": 640,
+        "numClasses": 80
+      },
+      "source": {
+        "originalWeightsUrl": "https://github.com/THU-MIG/yolov10/releases",
+        "libreyoloWeightsUrl": null
+      },
+      "license": "AGPL-3.0",
+      "releaseDate": "2024-05-23",
+      "inLibreYOLO": false,
+      "detectionApproach": "anchor-free",
+      "postprocessing": "nms-free",
+      "paperReportedMap": 38.5
+    },
+    {
+      "id": "yolov10s",
+      "displayName": "YOLOv10-S",
+      "family": "yolov10",
+      "variant": "s",
+      "task": "detection",
+      "architecture": {
+        "type": "one-stage",
+        "backbone": "CSPDarknet",
+        "neck": "PAFPN",
+        "head": "NMS-Free Dual Head"
+      },
+      "specs": {
+        "paramsM": 7.2,
+        "flopsG": 21.6,
+        "inputSizeDefault": 640,
+        "numClasses": 80
+      },
+      "source": {
+        "originalWeightsUrl": "https://github.com/THU-MIG/yolov10/releases",
+        "libreyoloWeightsUrl": null
+      },
+      "license": "AGPL-3.0",
+      "releaseDate": "2024-05-23",
+      "inLibreYOLO": false,
+      "detectionApproach": "anchor-free",
+      "postprocessing": "nms-free",
+      "paperReportedMap": 46.3
+    },
+    {
+      "id": "yolov10m",
+      "displayName": "YOLOv10-M",
+      "family": "yolov10",
+      "variant": "m",
+      "task": "detection",
+      "architecture": {
+        "type": "one-stage",
+        "backbone": "CSPDarknet",
+        "neck": "PAFPN",
+        "head": "NMS-Free Dual Head"
+      },
+      "specs": {
+        "paramsM": 15.4,
+        "flopsG": 59.1,
+        "inputSizeDefault": 640,
+        "numClasses": 80
+      },
+      "source": {
+        "originalWeightsUrl": "https://github.com/THU-MIG/yolov10/releases",
+        "libreyoloWeightsUrl": null
+      },
+      "license": "AGPL-3.0",
+      "releaseDate": "2024-05-23",
+      "inLibreYOLO": false,
+      "detectionApproach": "anchor-free",
+      "postprocessing": "nms-free",
+      "paperReportedMap": 51.1
+    },
+    {
+      "id": "yolov10l",
+      "displayName": "YOLOv10-L",
+      "family": "yolov10",
+      "variant": "l",
+      "task": "detection",
+      "architecture": {
+        "type": "one-stage",
+        "backbone": "CSPDarknet",
+        "neck": "PAFPN",
+        "head": "NMS-Free Dual Head"
+      },
+      "specs": {
+        "paramsM": 24.4,
+        "flopsG": 120.3,
+        "inputSizeDefault": 640,
+        "numClasses": 80
+      },
+      "source": {
+        "originalWeightsUrl": "https://github.com/THU-MIG/yolov10/releases",
+        "libreyoloWeightsUrl": null
+      },
+      "license": "AGPL-3.0",
+      "releaseDate": "2024-05-23",
+      "inLibreYOLO": false,
+      "detectionApproach": "anchor-free",
+      "postprocessing": "nms-free",
+      "paperReportedMap": 53.2
+    },
+    {
+      "id": "yolov10x",
+      "displayName": "YOLOv10-X",
+      "family": "yolov10",
+      "variant": "x",
+      "task": "detection",
+      "architecture": {
+        "type": "one-stage",
+        "backbone": "CSPDarknet",
+        "neck": "PAFPN",
+        "head": "NMS-Free Dual Head"
+      },
+      "specs": {
+        "paramsM": 29.5,
+        "flopsG": 160.4,
+        "inputSizeDefault": 640,
+        "numClasses": 80
+      },
+      "source": {
+        "originalWeightsUrl": "https://github.com/THU-MIG/yolov10/releases",
+        "libreyoloWeightsUrl": null
+      },
+      "license": "AGPL-3.0",
+      "releaseDate": "2024-05-23",
+      "inLibreYOLO": false,
+      "detectionApproach": "anchor-free",
+      "postprocessing": "nms-free",
+      "paperReportedMap": 54.4
+    },
+    {
+      "id": "yolo11n",
+      "displayName": "YOLO11-N",
+      "family": "yolo11",
+      "variant": "n",
+      "task": "detection",
+      "architecture": {
+        "type": "one-stage",
+        "backbone": "CSPDarknet",
+        "neck": "C3k2-PAFPN",
+        "head": "Decoupled"
+      },
+      "specs": {
+        "paramsM": 2.6,
+        "flopsG": 6.5,
+        "inputSizeDefault": 640,
+        "numClasses": 80
+      },
+      "source": {
+        "originalWeightsUrl": "https://github.com/ultralytics/assets/releases",
+        "libreyoloWeightsUrl": null
+      },
+      "license": "AGPL-3.0",
+      "releaseDate": "2024-09-30",
+      "inLibreYOLO": false,
+      "detectionApproach": "anchor-free",
+      "postprocessing": "nms",
+      "paperReportedMap": 39.5
+    },
+    {
+      "id": "yolo11s",
+      "displayName": "YOLO11-S",
+      "family": "yolo11",
+      "variant": "s",
+      "task": "detection",
+      "architecture": {
+        "type": "one-stage",
+        "backbone": "CSPDarknet",
+        "neck": "C3k2-PAFPN",
+        "head": "Decoupled"
+      },
+      "specs": {
+        "paramsM": 9.4,
+        "flopsG": 21.5,
+        "inputSizeDefault": 640,
+        "numClasses": 80
+      },
+      "source": {
+        "originalWeightsUrl": "https://github.com/ultralytics/assets/releases",
+        "libreyoloWeightsUrl": null
+      },
+      "license": "AGPL-3.0",
+      "releaseDate": "2024-09-30",
+      "inLibreYOLO": false,
+      "detectionApproach": "anchor-free",
+      "postprocessing": "nms",
+      "paperReportedMap": 47
+    },
+    {
+      "id": "yolo11m",
+      "displayName": "YOLO11-M",
+      "family": "yolo11",
+      "variant": "m",
+      "task": "detection",
+      "architecture": {
+        "type": "one-stage",
+        "backbone": "CSPDarknet",
+        "neck": "C3k2-PAFPN",
+        "head": "Decoupled"
+      },
+      "specs": {
+        "paramsM": 20.1,
+        "flopsG": 68,
+        "inputSizeDefault": 640,
+        "numClasses": 80
+      },
+      "source": {
+        "originalWeightsUrl": "https://github.com/ultralytics/assets/releases",
+        "libreyoloWeightsUrl": null
+      },
+      "license": "AGPL-3.0",
+      "releaseDate": "2024-09-30",
+      "inLibreYOLO": false,
+      "detectionApproach": "anchor-free",
+      "postprocessing": "nms",
+      "paperReportedMap": 51.5
+    },
+    {
+      "id": "yolo11l",
+      "displayName": "YOLO11-L",
+      "family": "yolo11",
+      "variant": "l",
+      "task": "detection",
+      "architecture": {
+        "type": "one-stage",
+        "backbone": "CSPDarknet",
+        "neck": "C3k2-PAFPN",
+        "head": "Decoupled"
+      },
+      "specs": {
+        "paramsM": 25.3,
+        "flopsG": 86.9,
+        "inputSizeDefault": 640,
+        "numClasses": 80
+      },
+      "source": {
+        "originalWeightsUrl": "https://github.com/ultralytics/assets/releases",
+        "libreyoloWeightsUrl": null
+      },
+      "license": "AGPL-3.0",
+      "releaseDate": "2024-09-30",
+      "inLibreYOLO": false,
+      "detectionApproach": "anchor-free",
+      "postprocessing": "nms",
+      "paperReportedMap": 53.4
+    },
+    {
+      "id": "yolo11x",
+      "displayName": "YOLO11-X",
+      "family": "yolo11",
+      "variant": "x",
+      "task": "detection",
+      "architecture": {
+        "type": "one-stage",
+        "backbone": "CSPDarknet",
+        "neck": "C3k2-PAFPN",
+        "head": "Decoupled"
+      },
+      "specs": {
+        "paramsM": 56.9,
+        "flopsG": 194.9,
+        "inputSizeDefault": 640,
+        "numClasses": 80
+      },
+      "source": {
+        "originalWeightsUrl": "https://github.com/ultralytics/assets/releases",
+        "libreyoloWeightsUrl": null
+      },
+      "license": "AGPL-3.0",
+      "releaseDate": "2024-09-30",
+      "inLibreYOLO": false,
+      "detectionApproach": "anchor-free",
+      "postprocessing": "nms",
+      "paperReportedMap": 54.7
+    },
+    {
+      "id": "rtdetr-r18",
+      "displayName": "RT-DETR-R18",
+      "family": "rtdetr",
+      "variant": "r18",
+      "task": "detection",
+      "architecture": {
+        "type": "transformer",
+        "backbone": "ResNet-18",
+        "neck": "HybridEncoder",
+        "head": "DETR"
+      },
+      "detectionApproach": "detr",
+      "postprocessing": "nms-free",
+      "specs": {
+        "paramsM": 20.0,
+        "flopsG": 60.0,
+        "inputSizeDefault": 640,
+        "numClasses": 80
+      },
+      "paperReportedMap": 46.5,
+      "source": {
+        "originalWeightsUrl": "https://github.com/lyuwenyu/RT-DETR/releases",
+        "libreyoloWeightsUrl": null
+      },
+      "license": "Apache-2.0",
+      "releaseDate": "2023-04-17",
+      "inLibreYOLO": false
+    },
+    {
+      "id": "rtdetr-r50",
+      "displayName": "RT-DETR-R50",
+      "family": "rtdetr",
+      "variant": "r50",
+      "task": "detection",
+      "architecture": {
+        "type": "transformer",
+        "backbone": "ResNet-50",
+        "neck": "HybridEncoder",
+        "head": "DETR"
+      },
+      "detectionApproach": "detr",
+      "postprocessing": "nms-free",
+      "specs": {
+        "paramsM": 42.0,
+        "flopsG": 136.0,
+        "inputSizeDefault": 640,
+        "numClasses": 80
+      },
+      "paperReportedMap": 53.1,
+      "source": {
+        "originalWeightsUrl": "https://github.com/lyuwenyu/RT-DETR/releases",
+        "libreyoloWeightsUrl": null
+      },
+      "license": "Apache-2.0",
+      "releaseDate": "2023-04-17",
+      "inLibreYOLO": false
+    },
+    {
+      "id": "rtdetr-r101",
+      "displayName": "RT-DETR-R101",
+      "family": "rtdetr",
+      "variant": "r101",
+      "task": "detection",
+      "architecture": {
+        "type": "transformer",
+        "backbone": "ResNet-101",
+        "neck": "HybridEncoder",
+        "head": "DETR"
+      },
+      "detectionApproach": "detr",
+      "postprocessing": "nms-free",
+      "specs": {
+        "paramsM": 76.0,
+        "flopsG": 259.0,
+        "inputSizeDefault": 640,
+        "numClasses": 80
+      },
+      "paperReportedMap": 54.3,
+      "source": {
+        "originalWeightsUrl": "https://github.com/lyuwenyu/RT-DETR/releases",
+        "libreyoloWeightsUrl": null
+      },
+      "license": "Apache-2.0",
+      "releaseDate": "2023-04-17",
+      "inLibreYOLO": false
+    },
+    {
+      "id": "rfdetr-b",
+      "displayName": "RF-DETR-B",
+      "family": "rfdetr",
+      "variant": "b",
+      "task": "detection",
+      "architecture": {
+        "type": "transformer",
+        "backbone": "DINOv2",
+        "neck": "Agg2Former",
+        "head": "DETR"
+      },
+      "detectionApproach": "detr",
+      "postprocessing": "nms-free",
+      "specs": {
+        "paramsM": 29.0,
+        "flopsG": 120.0,
+        "inputSizeDefault": 560,
+        "numClasses": 80
+      },
+      "paperReportedMap": 53.2,
+      "source": {
+        "originalWeightsUrl": "https://github.com/roboflow/rf-detr/releases",
+        "libreyoloWeightsUrl": null
+      },
+      "license": "Apache-2.0",
+      "releaseDate": "2025-02-24",
+      "inLibreYOLO": false
+    },
+    {
+      "id": "rfdetr-l",
+      "displayName": "RF-DETR-L",
+      "family": "rfdetr",
+      "variant": "l",
+      "task": "detection",
+      "architecture": {
+        "type": "transformer",
+        "backbone": "DINOv2",
+        "neck": "Agg2Former",
+        "head": "DETR"
+      },
+      "detectionApproach": "detr",
+      "postprocessing": "nms-free",
+      "specs": {
+        "paramsM": 128.0,
+        "flopsG": 340.0,
+        "inputSizeDefault": 560,
+        "numClasses": 80
+      },
+      "paperReportedMap": 55.5,
+      "source": {
+        "originalWeightsUrl": "https://github.com/roboflow/rf-detr/releases",
+        "libreyoloWeightsUrl": null
+      },
+      "license": "Apache-2.0",
+      "releaseDate": "2025-02-24",
+      "inLibreYOLO": false
     }
   ]
 }

@@ -56,7 +56,7 @@ export default async function Image() {
               lineHeight: 1.4,
             }}
           >
-            Independent, reproducible benchmarks for computer vision models.
+            Credible and deep analysis of computer vision models.
             Compare YOLO, RT-DETR, and more across hardware.
           </span>
         </div>

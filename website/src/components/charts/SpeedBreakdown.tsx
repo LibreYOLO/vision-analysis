@@ -11,7 +11,6 @@ interface SpeedBreakdownProps {
 }
 
 export function SpeedBreakdown({ data, limit = 15 }: SpeedBreakdownProps) {
-  // Sort by total time (fastest first), take top N
   const topModels = useMemo(() => {
     return [...data].sort((a, b) => a.totalMs - b.totalMs).slice(0, limit);
   }, [data, limit]);
@@ -27,14 +26,12 @@ export function SpeedBreakdown({ data, limit = 15 }: SpeedBreakdownProps) {
         const infPercent = (model.inferenceMs / model.totalMs) * 100;
         const postPercent = (model.postprocessMs / model.totalMs) * 100;
         const widthPercent = (model.totalMs / maxTime) * 100;
-
-        // Check if this model has minimal postprocessing (NMS-free or optimized)
         const isNmsFree = model.postprocessMs < 0.5;
 
         return (
           <div key={model.model} className="space-y-1">
             <div className="flex justify-between text-sm">
-              <span className="font-medium truncate mr-2">{model.model}</span>
+              <span className="font-semibold truncate mr-2 text-foreground">{model.model}</span>
               <span className="text-muted-foreground font-mono whitespace-nowrap">
                 {model.totalMs.toFixed(1)}ms
                 <span className="text-xs ml-1">
@@ -46,7 +43,7 @@ export function SpeedBreakdown({ data, limit = 15 }: SpeedBreakdownProps) {
             <Tooltip>
               <TooltipTrigger asChild>
                 <div
-                  className="h-6 flex rounded overflow-hidden cursor-help"
+                  className="h-7 flex rounded-sm overflow-hidden cursor-help"
                   style={{ width: `${widthPercent}%`, minWidth: "60px" }}
                 >
                   <div
@@ -67,9 +64,7 @@ export function SpeedBreakdown({ data, limit = 15 }: SpeedBreakdownProps) {
                     className="transition-all"
                     style={{
                       width: `${postPercent}%`,
-                      backgroundColor: isNmsFree
-                        ? "#22c55e" // Green for NMS-free
-                        : CHART_COLORS.postprocess,
+                      backgroundColor: isNmsFree ? "#22c55e" : CHART_COLORS.postprocess,
                     }}
                   />
                 </div>
@@ -88,9 +83,7 @@ export function SpeedBreakdown({ data, limit = 15 }: SpeedBreakdownProps) {
                     <span>Postprocess:</span>
                     <span>
                       {model.postprocessMs.toFixed(1)}ms
-                      {isNmsFree && (
-                        <span className="text-green-500 ml-1">(NMS-free)</span>
-                      )}
+                      {isNmsFree && <span className="text-green-500 ml-1">(NMS-free)</span>}
                     </span>
                   </div>
                   <div className="flex justify-between gap-4 border-t pt-1 mt-1">
@@ -105,38 +98,24 @@ export function SpeedBreakdown({ data, limit = 15 }: SpeedBreakdownProps) {
       })}
 
       {/* Legend */}
-      <div className="flex flex-wrap gap-4 text-sm pt-4 border-t mt-4">
+      <div className="flex flex-wrap gap-4 text-sm pt-4 border-t border-border mt-4">
         <div className="flex items-center gap-2">
-          <div
-            className="w-4 h-4 rounded"
-            style={{ backgroundColor: CHART_COLORS.preprocess }}
-          />
-          <span>Preprocess</span>
+          <div className="w-4 h-4 rounded-sm" style={{ backgroundColor: CHART_COLORS.preprocess }} />
+          <span className="text-muted-foreground">Preprocess</span>
         </div>
         <div className="flex items-center gap-2">
-          <div
-            className="w-4 h-4 rounded"
-            style={{ backgroundColor: CHART_COLORS.inference }}
-          />
-          <span>Inference</span>
+          <div className="w-4 h-4 rounded-sm" style={{ backgroundColor: CHART_COLORS.inference }} />
+          <span className="text-muted-foreground">Inference</span>
         </div>
         <div className="flex items-center gap-2">
-          <div
-            className="w-4 h-4 rounded"
-            style={{ backgroundColor: CHART_COLORS.postprocess }}
-          />
-          <span>Postprocess (NMS)</span>
+          <div className="w-4 h-4 rounded-sm" style={{ backgroundColor: CHART_COLORS.postprocess }} />
+          <span className="text-muted-foreground">Postprocess (NMS)</span>
         </div>
         <div className="flex items-center gap-2">
-          <div className="w-4 h-4 rounded bg-green-500" />
-          <span className="text-green-600 dark:text-green-400">NMS-free</span>
+          <div className="w-4 h-4 rounded-sm bg-green-500" />
+          <span className="text-green-600">NMS-free</span>
         </div>
       </div>
-
-      <p className="text-xs text-muted-foreground mt-2">
-        Some models use NMS-free detection or optimized postprocessing, resulting
-        in faster end-to-end latency. Green bars indicate minimal postprocess time.
-      </p>
     </div>
   );
 }
