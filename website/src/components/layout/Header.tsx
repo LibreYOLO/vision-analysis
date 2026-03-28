@@ -81,14 +81,6 @@ export function Header() {
           </svg>
         </a>
 
-        {/* Login button placeholder */}
-        <Link
-          href="/login"
-          className="hidden md:flex items-center h-9 px-4 ml-2 rounded bg-brand text-white text-sm font-medium hover:bg-cyan-800 transition-colors"
-        >
-          Log in
-        </Link>
-
         {/* Mobile Menu Button */}
         <button
           className="md:hidden flex items-center justify-center h-9 w-9 ml-2 text-white"
