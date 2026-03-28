@@ -6,7 +6,6 @@ export const siteConfig = {
   ogImage: "https://visionanalysis.ai/og-default.png",
   links: {
     github: "https://github.com/Libre-YOLO/libreyolo",
-    twitter: "https://x.com/visionanalysis",
   },
   creator: "LibreYOLO",
 };

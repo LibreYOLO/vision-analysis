@@ -12,20 +12,21 @@ interface SpeedBreakdownProps {
 
 export function SpeedBreakdown({ data, limit = 15 }: SpeedBreakdownProps) {
   const topModels = useMemo(() => {
-    return [...data].sort((a, b) => a.totalMs - b.totalMs).slice(0, limit);
+    return [...data].sort((a, b) => b.throughputFps - a.throughputFps).slice(0, limit);
   }, [data, limit]);
 
-  const maxTime = useMemo(() => {
-    return Math.max(...topModels.map((d) => d.totalMs));
+  const maxFps = useMemo(() => {
+    return Math.max(...topModels.map((d) => d.throughputFps));
   }, [topModels]);
 
   return (
     <div className="space-y-3">
       {topModels.map((model) => {
-        const prePercent = (model.preprocessMs / model.totalMs) * 100;
-        const infPercent = (model.inferenceMs / model.totalMs) * 100;
-        const postPercent = (model.postprocessMs / model.totalMs) * 100;
-        const widthPercent = (model.totalMs / maxTime) * 100;
+        const hasBreakdown = model.preprocessMs > 0 || model.inferenceMs > 0 || model.postprocessMs > 0;
+        const prePercent = hasBreakdown ? (model.preprocessMs / model.totalMs) * 100 : 0;
+        const infPercent = hasBreakdown ? (model.inferenceMs / model.totalMs) * 100 : 100;
+        const postPercent = hasBreakdown ? (model.postprocessMs / model.totalMs) * 100 : 0;
+        const widthPercent = (model.throughputFps / maxFps) * 100;
         const isNmsFree = model.postprocessMs < 0.5;
 
         return (
@@ -46,27 +47,36 @@ export function SpeedBreakdown({ data, limit = 15 }: SpeedBreakdownProps) {
                   className="h-7 flex rounded-sm overflow-hidden cursor-help"
                   style={{ width: `${widthPercent}%`, minWidth: "60px" }}
                 >
-                  <div
-                    className="transition-all"
-                    style={{
-                      width: `${prePercent}%`,
-                      backgroundColor: CHART_COLORS.preprocess,
-                    }}
-                  />
-                  <div
-                    className="transition-all"
-                    style={{
-                      width: `${infPercent}%`,
-                      backgroundColor: CHART_COLORS.inference,
-                    }}
-                  />
-                  <div
-                    className="transition-all"
-                    style={{
-                      width: `${postPercent}%`,
-                      backgroundColor: isNmsFree ? "#22c55e" : CHART_COLORS.postprocess,
-                    }}
-                  />
+                  {hasBreakdown ? (
+                    <>
+                      <div
+                        className="transition-all"
+                        style={{
+                          width: `${prePercent}%`,
+                          backgroundColor: CHART_COLORS.preprocess,
+                        }}
+                      />
+                      <div
+                        className="transition-all"
+                        style={{
+                          width: `${infPercent}%`,
+                          backgroundColor: CHART_COLORS.inference,
+                        }}
+                      />
+                      <div
+                        className="transition-all"
+                        style={{
+                          width: `${postPercent}%`,
+                          backgroundColor: isNmsFree ? "#22c55e" : CHART_COLORS.postprocess,
+                        }}
+                      />
+                    </>
+                  ) : (
+                    <div
+                      className="w-full"
+                      style={{ backgroundColor: CHART_COLORS.inference }}
+                    />
+                  )}
                 </div>
               </TooltipTrigger>
               <TooltipContent side="top" className="font-mono text-xs">

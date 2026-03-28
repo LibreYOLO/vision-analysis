@@ -159,7 +159,7 @@
 .section-group h2 {
   font-size: 24px;
   font-weight: 700;
-  color: var(--brand);
+  color: var(--foreground);
   display: flex;
   align-items: center;
   gap: 12px;
