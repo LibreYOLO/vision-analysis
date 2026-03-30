@@ -813,6 +813,93 @@
       "inLibreYOLO": false
     },
     {
+      "id": "rfdetr-n",
+      "displayName": "RF-DETR-N",
+      "family": "rfdetr",
+      "variant": "n",
+      "task": "detection",
+      "architecture": {
+        "type": "transformer",
+        "backbone": "DINOv2",
+        "neck": "Agg2Former",
+        "head": "DETR"
+      },
+      "detectionApproach": "detr",
+      "postprocessing": "nms-free",
+      "specs": {
+        "paramsM": 0,
+        "flopsG": 0,
+        "inputSizeDefault": 560,
+        "numClasses": 80
+      },
+      "paperReportedMap": null,
+      "source": {
+        "originalWeightsUrl": "https://github.com/roboflow/rf-detr/releases",
+        "libreyoloWeightsUrl": null
+      },
+      "license": "Apache-2.0",
+      "releaseDate": "2025-02-24",
+      "inLibreYOLO": false
+    },
+    {
+      "id": "rfdetr-s",
+      "displayName": "RF-DETR-S",
+      "family": "rfdetr",
+      "variant": "s",
+      "task": "detection",
+      "architecture": {
+        "type": "transformer",
+        "backbone": "DINOv2",
+        "neck": "Agg2Former",
+        "head": "DETR"
+      },
+      "detectionApproach": "detr",
+      "postprocessing": "nms-free",
+      "specs": {
+        "paramsM": 0,
+        "flopsG": 0,
+        "inputSizeDefault": 560,
+        "numClasses": 80
+      },
+      "paperReportedMap": null,
+      "source": {
+        "originalWeightsUrl": "https://github.com/roboflow/rf-detr/releases",
+        "libreyoloWeightsUrl": null
+      },
+      "license": "Apache-2.0",
+      "releaseDate": "2025-02-24",
+      "inLibreYOLO": false
+    },
+    {
+      "id": "rfdetr-m",
+      "displayName": "RF-DETR-M",
+      "family": "rfdetr",
+      "variant": "m",
+      "task": "detection",
+      "architecture": {
+        "type": "transformer",
+        "backbone": "DINOv2",
+        "neck": "Agg2Former",
+        "head": "DETR"
+      },
+      "detectionApproach": "detr",
+      "postprocessing": "nms-free",
+      "specs": {
+        "paramsM": 0,
+        "flopsG": 0,
+        "inputSizeDefault": 560,
+        "numClasses": 80
+      },
+      "paperReportedMap": null,
+      "source": {
+        "originalWeightsUrl": "https://github.com/roboflow/rf-detr/releases",
+        "libreyoloWeightsUrl": null
+      },
+      "license": "Apache-2.0",
+      "releaseDate": "2025-02-24",
+      "inLibreYOLO": false
+    },
+    {
       "id": "rfdetr-b",
       "displayName": "RF-DETR-B",
       "family": "rfdetr",

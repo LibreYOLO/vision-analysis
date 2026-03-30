@@ -13,6 +13,18 @@
       "providers": []
     },
     {
+      "id": "rtx5080",
+      "displayName": "NVIDIA RTX 5080",
+      "category": "cloud_gpu",
+      "specs": {
+        "gpuName": "NVIDIA GeForce RTX 5080",
+        "vramGb": 16,
+        "fp32Tflops": 62.5,
+        "tdpWatts": 360
+      },
+      "providers": []
+    },
+    {
       "id": "rpi5",
       "displayName": "Raspberry Pi 5",
       "category": "edge",

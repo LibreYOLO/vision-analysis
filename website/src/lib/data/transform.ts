@@ -34,11 +34,16 @@ export interface RawBenchmark {
   accuracy: {
     mAP_50: number;
     mAP_50_95: number;
+    mAP_75?: number;
     precision?: number;
     recall?: number;
     mAP_small?: number;
     mAP_medium?: number;
     mAP_large?: number;
+  };
+  memory?: {
+    peak_vram_mb?: number;
+    peak_ram_mb?: number;
   };
   timing: {
     batch_size: number;
@@ -81,6 +86,7 @@ const HARDWARE_MAP: Array<{ pattern: string; id: string }> = [
   { pattern: "t4", id: "t4" },
   { pattern: "rtx 3090", id: "rtx3090" },
   { pattern: "rtx 4090", id: "rtx4090" },
+  { pattern: "5080", id: "rtx5080" },
   { pattern: "jetson", id: "jetson" },
 ];
 
@@ -131,6 +137,16 @@ const MODEL_NAME_MAP: Record<string, string> = {
   "yolox-l": "yolox-l",
   "yoloxx": "yolox-x",
   "yolox-x": "yolox-x",
+  "rfdetr-n": "rfdetr-n",
+  "rf-detr-n": "rfdetr-n",
+  "rfdetr-s": "rfdetr-s",
+  "rf-detr-s": "rfdetr-s",
+  "rfdetr-m": "rfdetr-m",
+  "rf-detr-m": "rfdetr-m",
+  "rfdetr-b": "rfdetr-b",
+  "rf-detr-b": "rfdetr-b",
+  "rfdetr-l": "rfdetr-l",
+  "rf-detr-l": "rfdetr-l",
 };
 
 function normalizeModelName(raw: RawBenchmark): string {
@@ -232,14 +248,14 @@ export function transformRawBenchmark(
       inputSize: raw.model.input_size,
       mAP_50_95: mAP,
       mAP_50: toPercentage(raw.accuracy.mAP_50),
-      mAP_75: 0,
+      mAP_75: toPercentage(raw.accuracy.mAP_75 ?? 0),
       mAP_small: toPercentage(raw.accuracy.mAP_small ?? 0),
       mAP_medium: toPercentage(raw.accuracy.mAP_medium ?? 0),
       mAP_large: toPercentage(raw.accuracy.mAP_large ?? 0),
       ...timing,
       throughputFps: Math.round(fps * 100) / 100,
-      peakVramMb: 0,
-      peakRamMb: 0,
+      peakVramMb: raw.memory?.peak_vram_mb ?? 0,
+      peakRamMb: raw.memory?.peak_ram_mb ?? 0,
       mAPPerGflop: flopsG > 0 ? Math.round((mAP / flopsG) * 1000) / 1000 : 0,
       mAPPerMParams: paramsM > 0 ? Math.round((mAP / paramsM) * 1000) / 1000 : 0,
       paramsM,
