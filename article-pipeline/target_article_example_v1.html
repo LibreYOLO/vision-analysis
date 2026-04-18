@@ -1,0 +1,454 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>YOLOv9-S vs YOLOX-S</title>
+<style>
+  :root {
+    --bg: #0a0d14;
+    --panel: #141925;
+    --panel-2: #1a2030;
+    --text: #e8eaf0;
+    --muted: #8a94a8;
+    --rule: #252c3c;
+    --accent: #7fc3ff;
+    --accent-2: #ffc07a;
+    --good: #7ddb9a;
+    --warn: #ffb86b;
+    --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  }
+  * { box-sizing: border-box; }
+  html, body { background: var(--bg); color: var(--text); margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.55;
+    font-size: 16px;
+  }
+  .wrap { max-width: 880px; margin: 0 auto; padding: 48px 24px 96px; }
+  header.hero {
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 24px;
+    margin-bottom: 28px;
+  }
+  .eyebrow {
+    color: var(--muted);
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  h1 {
+    font-size: 32px;
+    line-height: 1.2;
+    margin: 10px 0 12px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+  .lede { color: var(--muted); font-size: 15.5px; margin: 8px 0 16px; }
+  .tag {
+    display: inline-block;
+    background: var(--panel);
+    border: 1px solid var(--rule);
+    color: var(--muted);
+    font-size: 12px;
+    padding: 3px 10px;
+    border-radius: 999px;
+    margin-right: 6px;
+    margin-top: 6px;
+    font-family: var(--mono);
+  }
+  h2 {
+    font-size: 20px;
+    margin: 44px 0 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--rule);
+    font-weight: 650;
+  }
+  h3 {
+    font-size: 15px;
+    margin: 22px 0 8px;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  p { margin: 10px 0; }
+  code {
+    font-family: var(--mono);
+    font-size: 13px;
+    background: var(--panel-2);
+    padding: 1px 6px;
+    border-radius: 4px;
+    border: 1px solid var(--rule);
+  }
+  pre {
+    background: #070a10;
+    border: 1px solid var(--rule);
+    border-radius: 8px;
+    padding: 16px 18px;
+    margin: 12px 0 18px;
+    font-family: var(--mono);
+    font-size: 13px;
+    line-height: 1.6;
+    color: #d8dde8;
+    overflow-x: auto;
+  }
+  pre .c { color: #6c7086; }
+  pre .k { color: #c792ea; }
+  pre .s { color: #a6e3a1; }
+  pre .f { color: #7fc3ff; }
+  .setup {
+    background: var(--panel);
+    border: 1px solid var(--rule);
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin: 12px 0 24px;
+  }
+  .setup dl {
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    gap: 6px 20px;
+    margin: 0;
+    font-size: 13.5px;
+  }
+  .setup dt { color: var(--muted); font-weight: 600; }
+  .setup dd { margin: 0; font-family: var(--mono); font-size: 13px; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 12px 0 16px;
+    font-size: 14px;
+  }
+  th, td {
+    padding: 8px 10px;
+    text-align: left;
+    border-bottom: 1px solid var(--rule);
+    vertical-align: top;
+  }
+  th {
+    color: var(--muted);
+    font-weight: 600;
+    font-size: 11.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    background: var(--panel-2);
+  }
+  td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; font-family: var(--mono); }
+  .win { color: var(--good); font-weight: 600; }
+  .tie { color: var(--muted); }
+  .callout {
+    border-left: 3px solid var(--accent);
+    background: var(--panel);
+    padding: 12px 16px;
+    margin: 16px 0;
+    border-radius: 0 6px 6px 0;
+    font-size: 14px;
+    color: var(--text);
+  }
+  .callout.warn { border-left-color: var(--warn); }
+  .callout b { color: var(--text); }
+  .verdict {
+    background: var(--panel);
+    border: 1px solid var(--rule);
+    border-left: 3px solid var(--good);
+    padding: 16px 20px;
+    margin: 20px 0 8px;
+    border-radius: 0 8px 8px 0;
+    font-size: 15.5px;
+  }
+  .verdict b { color: var(--good); }
+  ul { padding-left: 20px; margin: 8px 0 14px; }
+  li { margin: 4px 0; }
+  .footnote {
+    color: var(--muted);
+    font-size: 12.5px;
+    margin-top: 36px;
+    padding-top: 16px;
+    border-top: 1px dashed var(--rule);
+    line-height: 1.6;
+  }
+  .kv-row { display: flex; gap: 24px; flex-wrap: wrap; font-size: 13.5px; }
+  .kv-row > div { flex: 1; min-width: 240px; background: var(--panel); border: 1px solid var(--rule); border-radius: 8px; padding: 12px 16px; }
+  .kv-row h4 { margin: 0 0 6px 0; font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; }
+  .kv-row .mono { font-family: var(--mono); font-size: 13px; color: var(--text); }
+  @media (max-width: 680px) {
+    h1 { font-size: 24px; }
+    .setup dl { grid-template-columns: 1fr; }
+    .setup dt { margin-top: 6px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="hero">
+  <div class="eyebrow">Model comparison, LibreYOLO benchmark set</div>
+  <h1>YOLOv9-S vs YOLOX-S</h1>
+  <p class="lede">
+    Two small detectors at nearly identical compute (13.52 vs 13.46 GFLOPs). YOLOv9-S is more accurate.
+    YOLOX-S is faster. This article shows by how much, where the gap comes from in the pipeline, and
+    whether the ranking survives different runtimes and hardware.
+  </p>
+  <div>
+    <span class="tag">COCO val2017</span>
+    <span class="tag">5000 images</span>
+    <span class="tag">input 640</span>
+    <span class="tag">batch 1</span>
+    <span class="tag">PyTorch FP32</span>
+    <span class="tag">RTX 5080 primary</span>
+  </div>
+</header>
+
+<div class="verdict">
+  <b>Headline.</b> At batch 1 PyTorch FP32 on an RTX 5080: YOLOv9-S scores 46.8 mAP@50-95 vs 40.5 for
+  YOLOX-S (+6.3 points, +15.56% relative). YOLOX-S returns 188.18 fps_mean vs 167.09 (+12.63% relative,
+  0.67 ms per frame saved) and uses 191 MB less peak VRAM. The ranking holds on A100, DGX Spark, RPi5,
+  and under ONNX FP32 and TensorRT FP16.
+</div>
+
+<h2>Setup</h2>
+<div class="setup">
+  <dl>
+    <dt>Dataset</dt><dd>COCO val2017, 5000 images</dd>
+    <dt>Input</dt><dd>640, batch size 1</dd>
+    <dt>Primary hardware</dt><dd>NVIDIA RTX 5080 16 GB, driver 570.86.16, CUDA 12.8, AMD Ryzen 9 7950X 32c, 64 GB RAM</dd>
+    <dt>Primary runtime</dt><dd>PyTorch 2.8.0+cu128, FP32, device=gpu</dd>
+    <dt>Framework</dt><dd>LibreYOLO 0.2.0, Python 3.11.9</dd>
+    <dt>Weights</dt><dd>LibreYOLO retrained (both models)</dd>
+    <dt>Benchmark date</dt><dd>2026-03-28, harness v2.0</dd>
+  </dl>
+</div>
+
+<div class="callout warn">
+  <b>Metric note.</b> mAP values in this article are shown in the percentage form (46.8 = 0.468 in the
+  source JSON). The <code>precision</code> and <code>recall</code> fields in the JSONs are single-point
+  measurements at a confidence threshold that is not recorded by the harness. They are not comparable to
+  mAP and are not used to rank the models. They appear once in the full table below, flagged, and are
+  not discussed further.
+</div>
+
+<h2>Results, side by side</h2>
+<p class="lede">On RTX 5080, PyTorch FP32, batch 1, COCO val2017. Cross-hardware and cross-runtime tables come later.</p>
+<table>
+  <thead>
+    <tr>
+      <th>Metric</th>
+      <th class="num">YOLOv9-S</th>
+      <th class="num">YOLOX-S</th>
+      <th class="num">Delta</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>Parameters (M)</td><td class="num win">7.23</td><td class="num">8.97</td><td class="num">YOLOv9-S 19.4% fewer</td></tr>
+    <tr><td>GFLOPs (at 640)</td><td class="num">13.52</td><td class="num">13.46</td><td class="num tie">tie (+0.45%)</td></tr>
+    <tr><td>mAP@50-95</td><td class="num win">46.8</td><td class="num">40.5</td><td class="num">+6.3 for YOLOv9-S (+15.56%)</td></tr>
+    <tr><td>mAP@50</td><td class="num win">63.7</td><td class="num">59.8</td><td class="num">+3.9 for YOLOv9-S</td></tr>
+    <tr><td>mAP@75</td><td class="num win">50.5</td><td class="num">43.2</td><td class="num">+7.3 for YOLOv9-S</td></tr>
+    <tr><td>mAP small</td><td class="num win">21.65</td><td class="num">17.80</td><td class="num">+3.85 for YOLOv9-S</td></tr>
+    <tr><td>mAP medium</td><td class="num win">54.34</td><td class="num">47.75</td><td class="num">+6.59 for YOLOv9-S</td></tr>
+    <tr><td>mAP large</td><td class="num win">64.03</td><td class="num">54.17</td><td class="num">+9.86 for YOLOv9-S</td></tr>
+    <tr><td>ms / image (total)</td><td class="num">5.9848</td><td class="num win">5.3139</td><td class="num">YOLOX-S 0.67 ms faster</td></tr>
+    <tr><td>preprocess ms</td><td class="num">0.7369</td><td class="num win">0.6562</td><td class="num">YOLOX-S 0.08 ms faster</td></tr>
+    <tr><td>inference ms</td><td class="num">4.7912</td><td class="num win">4.1343</td><td class="num">YOLOX-S 0.66 ms faster</td></tr>
+    <tr><td>postprocess ms</td><td class="num win">0.4567</td><td class="num">0.5234</td><td class="num">YOLOv9-S 0.07 ms faster</td></tr>
+    <tr><td>fps_mean</td><td class="num">167.09</td><td class="num win">188.18</td><td class="num">YOLOX-S +12.63%</td></tr>
+    <tr><td>fps_p50</td><td class="num">165.49</td><td class="num win">187.33</td><td class="num">YOLOX-S +13.2%</td></tr>
+    <tr><td>peak VRAM (MB)</td><td class="num">1313</td><td class="num win">1122</td><td class="num">YOLOX-S 191 MB lower</td></tr>
+    <tr><td>peak host RAM (MB)</td><td class="num">2546</td><td class="num">2526</td><td class="num tie">near equal</td></tr>
+    <tr><td>precision (single threshold, not comparable)</td><td class="num">0.6423</td><td class="num">0.6534</td><td class="num tie">flagged, not ranked</td></tr>
+    <tr><td>recall (single threshold, not comparable)</td><td class="num">0.5662</td><td class="num">0.5665</td><td class="num tie">flagged, not ranked</td></tr>
+    <tr><td>mAP@50-95 per GFLOP</td><td class="num win">0.03462</td><td class="num">0.03009</td><td class="num">YOLOv9-S +15.06% at matched FLOPs</td></tr>
+  </tbody>
+</table>
+
+<h2>Accuracy</h2>
+<p>
+  YOLOv9-S is higher on every mAP axis reported by the harness. The gap widens at a tighter IoU
+  threshold (+3.9 at mAP@50 vs +7.3 at mAP@75), which reflects better localization. The gap is
+  largest in absolute terms on large objects (+9.86), and largest in relative terms on small objects
+  (+21.6% relative, from 17.80 to 21.65).
+</p>
+<p>
+  These numbers come from LibreYOLO's retrained checkpoints (provider: libreyolo 0.2.0,
+  weightsOrigin: retrained). Other weight sources (original author releases, independent retrains)
+  can yield different values. Anyone comparing to numbers from a different release should re-evaluate
+  against the same harness.
+</p>
+
+<h2>Latency and throughput</h2>
+<p>
+  YOLOX-S is 12.63% faster end to end (188.18 vs 167.09 fps_mean on the RTX 5080). The breakdown
+  per frame:
+</p>
+<ul>
+  <li><b>Inference dominates the gap.</b> 4.1343 vs 4.7912 ms is 0.66 ms of the 0.67 ms total gap.
+    Preprocess and postprocess roughly cancel: YOLOX-S is 0.08 ms faster at preprocess and 0.07 ms
+    slower at postprocess (NMS).</li>
+  <li><b>Both models show low jitter.</b> fps_mean and fps_p50 agree to within 1% on both: YOLOv9-S
+    167.09 mean vs 165.49 p50, YOLOX-S 188.18 mean vs 187.33 p50. The JSONs do not report p95 or
+    standard deviation, so tail behavior needs its own measurement.</li>
+  <li><b>GFLOPs are effectively identical</b> (13.52 vs 13.46) yet the throughput gap is 12.63%.
+    Theoretical compute does not predict wall clock here. Measure, don't estimate.</li>
+</ul>
+
+<h2>Memory</h2>
+<p>
+  YOLOv9-S has fewer parameters (7.23M vs 8.97M) but uses more peak VRAM at inference (1313 vs 1122
+  MB). Parameter count is weight storage; peak VRAM includes activations, workspace buffers, and
+  postprocessing state. For this pair, YOLOv9-S costs 191 MB more on GPU despite being the smaller
+  model on disk. Peak host RAM is near equal (2546 vs 2526 MB).
+</p>
+<p>
+  Both models fit comfortably on a 16 GB RTX 5080 at batch 1. If you co-locate several models on a
+  single GPU, or plan larger batches, the 17% VRAM gap matters. At batch 1 on this card it does not.
+</p>
+
+<h2>Does the ranking survive other runtimes and hardware?</h2>
+<p>
+  Yes. Same evaluation, same input size, same dataset. The columns below come from the matching
+  benchmark JSONs in the set.
+</p>
+
+<h3>Same GPU, different runtime</h3>
+<table>
+  <thead>
+    <tr>
+      <th>Runtime on RTX 5080</th>
+      <th class="num">YOLOv9-S fps_mean</th>
+      <th class="num">YOLOX-S fps_mean</th>
+      <th class="num">YOLOX-S faster by</th>
+      <th class="num">YOLOv9-S mAP@50-95</th>
+      <th class="num">YOLOX-S mAP@50-95</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>PyTorch FP32</td><td class="num">167.09</td><td class="num">188.18</td><td class="num">+12.6%</td><td class="num">46.8</td><td class="num">40.5</td></tr>
+    <tr><td>ONNX FP32</td><td class="num">252.10</td><td class="num">295.65</td><td class="num">+17.3%</td><td class="num">46.8</td><td class="num">40.5</td></tr>
+    <tr><td>TensorRT FP16</td><td class="num">463.28</td><td class="num">535.69</td><td class="num">+15.6%</td><td class="num">46.6</td><td class="num">40.3</td></tr>
+  </tbody>
+</table>
+<p>
+  Accuracy is stable: ONNX FP32 produces the same mAP as PyTorch FP32; TensorRT FP16 drops mAP@50-95
+  by 0.2 points on both models. The throughput ranking is preserved; on RTX 5080 the YOLOX-S lead
+  actually widens slightly under ONNX and TensorRT (12.6% to 15-17%), meaning the YOLOv9-S graph is
+  marginally less friendly to those runtimes' kernel fusion paths. TensorRT FP16 peak VRAM is 684 MB
+  for YOLOv9-S and 626 MB for YOLOX-S, roughly half the PyTorch FP32 footprint.
+</p>
+
+<div class="callout">
+  <b>TensorRT FP16 is a 2.8x throughput multiplier for both models.</b> 463.28 vs 167.09 for YOLOv9-S,
+  535.69 vs 188.18 for YOLOX-S. If you deploy on an RTX 5080 and do not convert, the PyTorch-vs-TensorRT
+  decision matters more than the model choice. The model ranking is the same either way.
+</div>
+
+<h3>Same runtime, different hardware</h3>
+<table>
+  <thead>
+    <tr>
+      <th>Hardware (PyTorch FP32)</th>
+      <th class="num">YOLOv9-S fps_mean</th>
+      <th class="num">YOLOX-S fps_mean</th>
+      <th class="num">YOLOX-S faster by</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>NVIDIA RTX 5080 16 GB</td><td class="num">167.09</td><td class="num">188.18</td><td class="num">+12.6%</td></tr>
+    <tr><td>NVIDIA A100-PCIE 40 GB</td><td class="num">189.62</td><td class="num">219.53</td><td class="num">+15.8%</td></tr>
+    <tr><td>NVIDIA DGX Spark GB10</td><td class="num">229.94</td><td class="num">277.73</td><td class="num">+20.8%</td></tr>
+    <tr><td>Raspberry Pi 5 (CPU)</td><td class="num">6.38</td><td class="num">7.45</td><td class="num">+16.8%</td></tr>
+  </tbody>
+</table>
+<p>
+  mAP@50-95 is identical across all four platforms: 46.8 for YOLOv9-S, 40.5 for YOLOX-S. The throughput
+  ranking is invariant. YOLOX-S is between 12.6% and 20.8% faster depending on the platform. A TensorRT
+  export for a given target device remains the biggest single lever.
+</p>
+
+<h2>License and provenance</h2>
+<div class="kv-row">
+  <div>
+    <h4>YOLOv9-S</h4>
+    <div class="mono">License: MIT</div>
+    <div class="mono">Release: 2024-02-21</div>
+    <div class="mono">Original: github.com/WongKinYiu/yolov9</div>
+    <div class="mono">LibreYOLO: huggingface.co/Libre-YOLO/yolov9s</div>
+  </div>
+  <div>
+    <h4>YOLOX-S</h4>
+    <div class="mono">License: Apache-2.0</div>
+    <div class="mono">Release: 2021-07-18</div>
+    <div class="mono">Original: github.com/Megvii-BaseDetection/YOLOX</div>
+    <div class="mono">LibreYOLO: huggingface.co/Libre-YOLO/yolox-s</div>
+  </div>
+</div>
+<p>
+  MIT and Apache-2.0 are both commercial-safe. Apache adds an explicit patent grant. Neither license
+  is a blocker for typical commercial deployment. All numbers in this article are from LibreYOLO's
+  retrained checkpoints; different weight sources may produce different results.
+</p>
+
+<h2>When to pick which</h2>
+<ul>
+  <li><b>Pick YOLOv9-S</b> when accuracy is the product KPI and 5-6 ms per frame fits your latency
+    budget. +6.3 mAP@50-95 points is a substantial gap at this model size, and it holds across all
+    hardware and runtime combinations measured here. MIT licensing also matters to some teams.</li>
+  <li><b>Pick YOLOX-S</b> when throughput is binding, or when VRAM budget is tight (multiple models
+    on one GPU, large batches, co-resident workloads). 12-20% more throughput and ~17% less peak VRAM
+    across the board.</li>
+  <li><b>If you will deploy on an NVIDIA GPU</b>: convert to TensorRT FP16 first. 2.8x throughput with
+    a 0.2 mAP drop is a larger lever than the model choice itself.</li>
+</ul>
+
+<h2>What this data does not tell you</h2>
+<ul>
+  <li><b>Batched throughput.</b> All timings are batch 1. Batching changes the GPU utilization picture,
+    and the ranking can compress or invert at higher batch sizes. Re-measure at your target batch.</li>
+  <li><b>Tail latency.</b> Only fps_mean and fps_p50 are reported. p95 and p99 are not, and mean/median
+    agreement within 1% does not guarantee a tight tail.</li>
+  <li><b>INT8.</b> No INT8 numbers in this set. If PTQ or QAT is in your plan, benchmark both models in
+    your target runtime before deciding.</li>
+  <li><b>NMS and confidence thresholds.</b> The benchmark harness does not record the confidence
+    threshold used for the single-point precision and recall fields, or the NMS IoU. Use mAP for
+    ranking; generate your own PR curves for shipping operating points.</li>
+  <li><b>Energy and sustained load.</b> 5000 images warms the card but does not exercise a thermal
+    ceiling. No wall-power data is recorded.</li>
+  <li><b>Your data.</b> These are COCO numbers. On domain data (aerial, medical, industrial,
+    crowded retail), the gap may shrink, grow, or reverse. Fine-tune and re-evaluate before you pick.</li>
+</ul>
+
+<h2>Try it with LibreYOLO</h2>
+<p>
+  Both models ship in LibreYOLO. Install once, then point at the weights file for either family.
+  LibreYOLO auto-detects which architecture to load from the filename prefix
+  (<code>LibreYOLO9</code> for YOLOv9, <code>LibreYOLOX</code> for YOLOX).
+</p>
+
+<pre><span class="c"># pip install libreyolo</span>
+<span class="k">from</span> libreyolo <span class="k">import</span> <span class="f">LibreYOLO</span>
+
+<span class="c"># YOLOv9-S: 7.23M params, 46.8 mAP@50-95, MIT</span>
+model = <span class="f">LibreYOLO</span>(<span class="s">"LibreYOLO9s.pt"</span>)
+results = model(<span class="s">"image.jpg"</span>)
+
+<span class="c"># YOLOX-S: 8.97M params, 40.5 mAP@50-95, Apache-2.0</span>
+model = <span class="f">LibreYOLO</span>(<span class="s">"LibreYOLOXs.pt"</span>)
+results = model(<span class="s">"image.jpg"</span>)</pre>
+
+<p>
+  To reproduce the exact benchmark numbers in this article, run the validation harness against COCO
+  val2017 with input 640, batch 1, PyTorch FP32. The <code>LibreYOLO9</code> and <code>LibreYOLOX</code>
+  classes work the same way if you prefer explicit construction. Full docs at
+  <code>libreyolo.com/docs</code>.
+</p>
+
+<p class="footnote">
+  Source files, all in <code>vision-analysis/website/benchmarks/</code>:
+  <code>yolov9s_rtx5080.json</code>, <code>yoloxs_rtx5080.json</code>,
+  <code>*_rtx5080_onnx.json</code>, <code>*_rtx5080_tensorrt.json</code>,
+  <code>*_a100.json</code>, <code>*_dgx_spark.json</code>, <code>*_rpi5.json</code>.
+  Metadata from <code>website/src/data/metadata/{models,families}.json</code>. Every number above
+  appears in one of those files. Benchmark date 2026-03-28, harness v2.0, LibreYOLO 0.2.0.
+</p>
+
+</div>
+</body>
+</html>
