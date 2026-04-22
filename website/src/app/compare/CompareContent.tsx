@@ -42,12 +42,13 @@ const COMPARISON_METRICS = [
   { key: "mAPPerGflop", label: "mAP/GFLOP", format: "number", higherBetter: true },
 ] as const;
 
-function formatValue(value: number, format: string): string {
+function formatValue(value: number | undefined | null, format: string): string {
+  if (value == null || !Number.isFinite(value)) return "—";
   switch (format) {
     case "percent":
       return formatPercent(value);
     case "ms":
-      return formatMs(value);
+      return value === 0 ? "—" : formatMs(value);
     case "millions":
       return `${formatNumber(value, 1)}M`;
     default:
@@ -104,10 +105,16 @@ export function CompareContent({
       .filter((r): r is BenchmarkResult => r !== undefined);
   }, [selectedModelIds, allResults]);
 
-  // Available models (not already selected)
+  // Models that have benchmark data for current hardware+runtime
+  const modelsWithData = useMemo(() => {
+    const resultIds = new Set(allResults.map((r) => r.model));
+    return allModels.filter((m) => resultIds.has(m.id));
+  }, [allModels, allResults]);
+
+  // Available models (have data and not already selected)
   const availableModels = useMemo(() => {
-    return allModels.filter((m) => !selectedModelIds.includes(m.id));
-  }, [allModels, selectedModelIds]);
+    return modelsWithData.filter((m) => !selectedModelIds.includes(m.id));
+  }, [modelsWithData, selectedModelIds]);
 
   // Update URL with selected models
   const updateSelectedModels = (models: string[]) => {
@@ -140,6 +147,20 @@ export function CompareContent({
     }
   };
 
+  // Build suggested comparisons from available data
+  const suggestions = useMemo(() => {
+    const available = new Set(allResults.map((r) => r.model));
+    const candidates = [
+      { label: "YOLOX vs YOLOv9 (Large)", models: ["yolox-x", "yolov9c", "yolox-l"] },
+      { label: "Lightweight Models", models: ["yolox-nano", "yolox-tiny", "yolov9t", "yolov9s"] },
+      { label: "Balanced Models", models: ["yolox-s", "yolox-m", "yolov9s", "yolov9m"] },
+      { label: "RF-DETR Family", models: ["rfdetr-n", "rfdetr-s", "rfdetr-m", "rfdetr-l"] },
+    ];
+    return candidates
+      .map((c) => ({ ...c, models: c.models.filter((m) => available.has(m)) }))
+      .filter((c) => c.models.length >= 2);
+  }, [allResults]);
+
   // Find best value for each metric
   const getBestValue = (key: string, higherBetter: boolean) => {
     if (selectedModels.length === 0) return null;
@@ -161,22 +182,30 @@ export function CompareContent({
           <div className="flex flex-wrap gap-4 items-center">
             {selectedModelIds.map((modelId) => {
               const model = allResults.find((r) => r.model === modelId);
-              if (!model) return null;
+              const meta = allModels.find((m) => m.id === modelId);
+              const hasData = !!model;
               return (
                 <div
                   key={modelId}
-                  className="flex items-center gap-2 px-3 py-2 rounded-lg border bg-background"
+                  className={`flex items-center gap-2 px-3 py-2 rounded-lg border ${
+                    hasData ? "bg-background" : "bg-muted/50 border-dashed"
+                  }`}
                 >
                   <div
-                    className="w-2.5 h-2.5 rounded-full"
-                    style={{ backgroundColor: getFamilyColor(model.family) }}
+                    className={`w-2.5 h-2.5 rounded-full ${!hasData ? "opacity-40" : ""}`}
+                    style={{ backgroundColor: getFamilyColor(model?.family ?? meta?.family ?? "") }}
                   />
                   <Link
                     href={`/model/${modelId}`}
-                    className="font-medium hover:underline"
+                    className={`font-medium hover:underline ${!hasData ? "text-muted-foreground" : ""}`}
                   >
                     {modelId}
                   </Link>
+                  {!hasData && (
+                    <Badge variant="secondary" className="text-xs">
+                      No data
+                    </Badge>
+                  )}
                   <button
                     onClick={() => removeModel(modelId)}
                     className="ml-1 text-muted-foreground hover:text-foreground"
@@ -316,37 +345,22 @@ export function CompareContent({
       )}
 
       {/* Quick Compare Suggestions */}
-      {selectedModels.length === 0 && (
+      {selectedModels.length === 0 && suggestions.length > 0 && (
         <Card className="mt-8">
           <CardHeader>
             <CardTitle>Suggested Comparisons</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="flex flex-wrap gap-4">
-              <Button
-                variant="outline"
-                onClick={() =>
-                  updateSelectedModels(["yolox-x", "yolov9c", "yolox-l"])
-                }
-              >
-                YOLOX vs YOLOv9 (Large variants)
-              </Button>
-              <Button
-                variant="outline"
-                onClick={() =>
-                  updateSelectedModels(["yolox-nano", "yolox-tiny", "yolov9t", "yolov9s"])
-                }
-              >
-                Lightweight Models
-              </Button>
-              <Button
-                variant="outline"
-                onClick={() =>
-                  updateSelectedModels(["yolox-s", "yolox-m", "yolov9s", "yolov9m"])
-                }
-              >
-                Balanced Models
-              </Button>
+              {suggestions.map((suggestion) => (
+                <Button
+                  key={suggestion.label}
+                  variant="outline"
+                  onClick={() => updateSelectedModels(suggestion.models)}
+                >
+                  {suggestion.label}
+                </Button>
+              ))}
             </div>
           </CardContent>
         </Card>

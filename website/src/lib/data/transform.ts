@@ -87,6 +87,8 @@ const HARDWARE_MAP: Array<{ pattern: string; id: string }> = [
   { pattern: "rtx 3090", id: "rtx3090" },
   { pattern: "rtx 4090", id: "rtx4090" },
   { pattern: "5080", id: "rtx5080" },
+  { pattern: "dgx spark", id: "dgx_spark" },
+  { pattern: "gb10", id: "dgx_spark" },
   { pattern: "jetson", id: "jetson" },
 ];
 

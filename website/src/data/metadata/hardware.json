@@ -25,6 +25,18 @@
       "providers": []
     },
     {
+      "id": "dgx_spark",
+      "displayName": "NVIDIA DGX Spark",
+      "category": "cloud_gpu",
+      "specs": {
+        "gpuName": "NVIDIA GB10 Grace Blackwell",
+        "vramGb": 128,
+        "fp32Tflops": 45,
+        "tdpWatts": 300
+      },
+      "providers": []
+    },
+    {
       "id": "rpi5",
       "displayName": "Raspberry Pi 5",
       "category": "edge",
