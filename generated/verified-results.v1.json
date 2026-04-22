@@ -1,5 +1,1106 @@
 {
   "schema_version": "va.verified-results.v1",
-  "generated_at": null,
-  "results": []
+  "generated_at": "2026-04-22T21:42:25.175023Z",
+  "results": [
+    {
+      "schema_version": "va.submission.v1",
+      "submission_id": "yolox-nano-pytorch-cuda-a100-20260422T210738Z",
+      "created_at": "2026-04-22T21:07:38.517662Z",
+      "benchmark": {
+        "harness": "vision-analysis-benchmark",
+        "harness_version": "2.0.0",
+        "libreyolo_version": "1.0.0",
+        "libreyolo_commit": "1c70efb05a78d1a6e82f29478283883fc9bf38f9"
+      },
+      "model": {
+        "id": "yolox-nano",
+        "name": "yolox-nano",
+        "family": "yolox",
+        "variant": "nano",
+        "source": "libreyolo",
+        "weights": "LibreYOLOXn.pt",
+        "input_size": 416
+      },
+      "dataset": {
+        "id": "coco2017",
+        "split": "val2017",
+        "num_images": 5000
+      },
+      "config": {
+        "batch_size": 1,
+        "input_size": 416,
+        "conf": 0.001,
+        "iou": 0.6,
+        "max_det": 300
+      },
+      "hardware": {
+        "gpu": "NVIDIA A100-PCIE-40GB",
+        "gpu_memory_gb": 0.0,
+        "driver_version": "550.163.01",
+        "cuda_version": "12.4",
+        "cpu": "Intel(R) Xeon(R) Gold 6240R CPU @ 2.40GHz",
+        "cpu_cores": 96,
+        "ram_gb": 188,
+        "id": "a100"
+      },
+      "software": {
+        "python": "3.10.6",
+        "torch": "2.6.0+cu124",
+        "libreyolo": "1.0.0",
+        "libreyolo_commit": "1c70efb05a78d1a6e82f29478283883fc9bf38f9",
+        "onnxruntime": "not-installed"
+      },
+      "accuracy": {
+        "mAP_50_95": 0.2574805892726459,
+        "mAP_50": 0.415875309795095,
+        "mAP_75": 0.2662451205938682,
+        "mAP_small": 0.08173449280207264,
+        "mAP_medium": 0.27442892173107414,
+        "mAP_large": 0.4092795498441304,
+        "AR1": 0.24246398741713826,
+        "AR10": 0.3816697816751288,
+        "AR100": 0.4117864867795895,
+        "AR_small": 0.14928296700689794,
+        "AR_medium": 0.46027990245643635,
+        "AR_large": 0.6280177006805165
+      },
+      "timing": {
+        "batch_size": 1,
+        "num_images": 5000,
+        "total_ms": {
+          "mean": 24.235,
+          "std": 62.711,
+          "p50": 22.528,
+          "p95": 30.585,
+          "p99": 36.645,
+          "preprocess_ms": 5.273,
+          "inference_ms": 10.918,
+          "postprocess_ms": 8.044
+        }
+      },
+      "throughput": {
+        "fps_mean": 41.26,
+        "fps_p50": 44.39
+      },
+      "model_stats": {
+        "params_millions": 0.91,
+        "gflops": 1.32
+      },
+      "memory": {
+        "peak_vram_mb": 16.7,
+        "peak_ram_mb": 779.6
+      },
+      "metadata": {
+        "benchmark_date": "2026-04-22T21:07:38.517662Z",
+        "benchmark_version": "2.0.0"
+      },
+      "eval": {
+        "dataset": "coco",
+        "split": "val2017",
+        "numImages": 5000
+      },
+      "implementation": {
+        "provider": "libreyolo",
+        "version": "1.0.0"
+      },
+      "runtime": {
+        "format": "pytorch",
+        "precision": "fp32",
+        "provider": "cuda",
+        "device": "gpu"
+      },
+      "source_file": "yolox-nano__pytorch__cuda__a100__20260422T210738517662Z.json",
+      "verified_at": "2026-04-22T21:42:25.175023Z"
+    },
+    {
+      "schema_version": "va.submission.v1",
+      "submission_id": "yolox-tiny-pytorch-cuda-a100-20260422T211048Z",
+      "created_at": "2026-04-22T21:10:48.259826Z",
+      "benchmark": {
+        "harness": "vision-analysis-benchmark",
+        "harness_version": "2.0.0",
+        "libreyolo_version": "1.0.0",
+        "libreyolo_commit": "1c70efb05a78d1a6e82f29478283883fc9bf38f9"
+      },
+      "model": {
+        "id": "yolox-tiny",
+        "name": "yolox-tiny",
+        "family": "yolox",
+        "variant": "tiny",
+        "source": "libreyolo",
+        "weights": "LibreYOLOXt.pt",
+        "input_size": 416
+      },
+      "dataset": {
+        "id": "coco2017",
+        "split": "val2017",
+        "num_images": 5000
+      },
+      "config": {
+        "batch_size": 1,
+        "input_size": 416,
+        "conf": 0.001,
+        "iou": 0.6,
+        "max_det": 300
+      },
+      "hardware": {
+        "gpu": "NVIDIA A100-PCIE-40GB",
+        "gpu_memory_gb": 0.0,
+        "driver_version": "550.163.01",
+        "cuda_version": "12.4",
+        "cpu": "Intel(R) Xeon(R) Gold 6240R CPU @ 2.40GHz",
+        "cpu_cores": 96,
+        "ram_gb": 188,
+        "id": "a100"
+      },
+      "software": {
+        "python": "3.10.6",
+        "torch": "2.6.0+cu124",
+        "libreyolo": "1.0.0",
+        "libreyolo_commit": "1c70efb05a78d1a6e82f29478283883fc9bf38f9",
+        "onnxruntime": "not-installed"
+      },
+      "accuracy": {
+        "mAP_50_95": 0.32024665949031694,
+        "mAP_50": 0.4972009847886142,
+        "mAP_75": 0.3369142042997231,
+        "mAP_small": 0.1315109655618968,
+        "mAP_medium": 0.3491268930223973,
+        "mAP_large": 0.4871375342127452,
+        "AR1": 0.28023143772172326,
+        "AR10": 0.4447064844094264,
+        "AR100": 0.47588373094779585,
+        "AR_small": 0.22076075630623657,
+        "AR_medium": 0.537610272943953,
+        "AR_large": 0.6824080597252776
+      },
+      "timing": {
+        "batch_size": 1,
+        "num_images": 5000,
+        "total_ms": {
+          "mean": 21.708,
+          "std": 5.73,
+          "p50": 21.225,
+          "p95": 28.461,
+          "p99": 31.739,
+          "preprocess_ms": 5.192,
+          "inference_ms": 9.048,
+          "postprocess_ms": 7.468
+        }
+      },
+      "throughput": {
+        "fps_mean": 46.07,
+        "fps_p50": 47.11
+      },
+      "model_stats": {
+        "params_millions": 5.06,
+        "gflops": 7.68
+      },
+      "memory": {
+        "peak_vram_mb": 37.1,
+        "peak_ram_mb": 214.5
+      },
+      "metadata": {
+        "benchmark_date": "2026-04-22T21:10:48.259826Z",
+        "benchmark_version": "2.0.0"
+      },
+      "eval": {
+        "dataset": "coco",
+        "split": "val2017",
+        "numImages": 5000
+      },
+      "implementation": {
+        "provider": "libreyolo",
+        "version": "1.0.0"
+      },
+      "runtime": {
+        "format": "pytorch",
+        "precision": "fp32",
+        "provider": "cuda",
+        "device": "gpu"
+      },
+      "source_file": "yolox-tiny__pytorch__cuda__a100__20260422T211048259826Z.json",
+      "verified_at": "2026-04-22T21:42:25.175023Z"
+    },
+    {
+      "schema_version": "va.submission.v1",
+      "submission_id": "yolox-s-pytorch-cuda-a100-20260422T211415Z",
+      "created_at": "2026-04-22T21:14:15.726273Z",
+      "benchmark": {
+        "harness": "vision-analysis-benchmark",
+        "harness_version": "2.0.0",
+        "libreyolo_version": "1.0.0",
+        "libreyolo_commit": "1c70efb05a78d1a6e82f29478283883fc9bf38f9"
+      },
+      "model": {
+        "id": "yolox-s",
+        "name": "yolox-s",
+        "family": "yolox",
+        "variant": "s",
+        "source": "libreyolo",
+        "weights": "LibreYOLOXs.pt",
+        "input_size": 640
+      },
+      "dataset": {
+        "id": "coco2017",
+        "split": "val2017",
+        "num_images": 5000
+      },
+      "config": {
+        "batch_size": 1,
+        "input_size": 640,
+        "conf": 0.001,
+        "iou": 0.6,
+        "max_det": 300
+      },
+      "hardware": {
+        "gpu": "NVIDIA A100-PCIE-40GB",
+        "gpu_memory_gb": 0.0,
+        "driver_version": "550.163.01",
+        "cuda_version": "12.4",
+        "cpu": "Intel(R) Xeon(R) Gold 6240R CPU @ 2.40GHz",
+        "cpu_cores": 96,
+        "ram_gb": 188,
+        "id": "a100"
+      },
+      "software": {
+        "python": "3.10.6",
+        "torch": "2.6.0+cu124",
+        "libreyolo": "1.0.0",
+        "libreyolo_commit": "1c70efb05a78d1a6e82f29478283883fc9bf38f9",
+        "onnxruntime": "not-installed"
+      },
+      "accuracy": {
+        "mAP_50_95": 0.38964403591176655,
+        "mAP_50": 0.5792098613528556,
+        "mAP_75": 0.42202689169264546,
+        "mAP_small": 0.2221460769319099,
+        "mAP_medium": 0.43251794384952763,
+        "mAP_large": 0.5222001793608215,
+        "AR1": 0.3185927888705507,
+        "AR10": 0.5195367784798915,
+        "AR100": 0.5601932634829343,
+        "AR_small": 0.3610694801225761,
+        "AR_medium": 0.6197230846355853,
+        "AR_large": 0.7089478434617598
+      },
+      "timing": {
+        "batch_size": 1,
+        "num_images": 5000,
+        "total_ms": {
+          "mean": 23.48,
+          "std": 9.218,
+          "p50": 22.799,
+          "p95": 30.26,
+          "p99": 34.29,
+          "preprocess_ms": 5.924,
+          "inference_ms": 8.892,
+          "postprocess_ms": 8.664
+        }
+      },
+      "throughput": {
+        "fps_mean": 42.59,
+        "fps_p50": 43.86
+      },
+      "model_stats": {
+        "params_millions": 8.97,
+        "gflops": 13.46
+      },
+      "memory": {
+        "peak_vram_mb": 86.5,
+        "peak_ram_mb": 256.5
+      },
+      "metadata": {
+        "benchmark_date": "2026-04-22T21:14:15.726273Z",
+        "benchmark_version": "2.0.0"
+      },
+      "eval": {
+        "dataset": "coco",
+        "split": "val2017",
+        "numImages": 5000
+      },
+      "implementation": {
+        "provider": "libreyolo",
+        "version": "1.0.0"
+      },
+      "runtime": {
+        "format": "pytorch",
+        "precision": "fp32",
+        "provider": "cuda",
+        "device": "gpu"
+      },
+      "source_file": "yolox-s__pytorch__cuda__a100__20260422T211415726273Z.json",
+      "verified_at": "2026-04-22T21:42:25.175023Z"
+    },
+    {
+      "schema_version": "va.submission.v1",
+      "submission_id": "yolox-m-pytorch-cuda-a100-20260422T211755Z",
+      "created_at": "2026-04-22T21:17:55.804986Z",
+      "benchmark": {
+        "harness": "vision-analysis-benchmark",
+        "harness_version": "2.0.0",
+        "libreyolo_version": "1.0.0",
+        "libreyolo_commit": "1c70efb05a78d1a6e82f29478283883fc9bf38f9"
+      },
+      "model": {
+        "id": "yolox-m",
+        "name": "yolox-m",
+        "family": "yolox",
+        "variant": "m",
+        "source": "libreyolo",
+        "weights": "LibreYOLOXm.pt",
+        "input_size": 640
+      },
+      "dataset": {
+        "id": "coco2017",
+        "split": "val2017",
+        "num_images": 5000
+      },
+      "config": {
+        "batch_size": 1,
+        "input_size": 640,
+        "conf": 0.001,
+        "iou": 0.6,
+        "max_det": 300
+      },
+      "hardware": {
+        "gpu": "NVIDIA A100-PCIE-40GB",
+        "gpu_memory_gb": 0.0,
+        "driver_version": "550.163.01",
+        "cuda_version": "12.4",
+        "cpu": "Intel(R) Xeon(R) Gold 6240R CPU @ 2.40GHz",
+        "cpu_cores": 96,
+        "ram_gb": 188,
+        "id": "a100"
+      },
+      "software": {
+        "python": "3.10.6",
+        "torch": "2.6.0+cu124",
+        "libreyolo": "1.0.0",
+        "libreyolo_commit": "1c70efb05a78d1a6e82f29478283883fc9bf38f9",
+        "onnxruntime": "not-installed"
+      },
+      "accuracy": {
+        "mAP_50_95": 0.45765137777350406,
+        "mAP_50": 0.6452362966237966,
+        "mAP_75": 0.4971450332673093,
+        "mAP_small": 0.27990703711045695,
+        "mAP_medium": 0.5138902486853731,
+        "mAP_large": 0.6054450254555184,
+        "AR1": 0.36016897714407764,
+        "AR10": 0.580184164591889,
+        "AR100": 0.6205858941201245,
+        "AR_small": 0.4341108936900299,
+        "AR_medium": 0.6793310773714762,
+        "AR_large": 0.7709587814337826
+      },
+      "timing": {
+        "batch_size": 1,
+        "num_images": 5000,
+        "total_ms": {
+          "mean": 24.603,
+          "std": 4.201,
+          "p50": 24.005,
+          "p95": 32.545,
+          "p99": 36.803,
+          "preprocess_ms": 6.141,
+          "inference_ms": 11.508,
+          "postprocess_ms": 6.954
+        }
+      },
+      "throughput": {
+        "fps_mean": 40.65,
+        "fps_p50": 41.66
+      },
+      "model_stats": {
+        "params_millions": 25.33,
+        "gflops": 36.99
+      },
+      "memory": {
+        "peak_vram_mb": 171.5,
+        "peak_ram_mb": 84.8
+      },
+      "metadata": {
+        "benchmark_date": "2026-04-22T21:17:55.804986Z",
+        "benchmark_version": "2.0.0"
+      },
+      "eval": {
+        "dataset": "coco",
+        "split": "val2017",
+        "numImages": 5000
+      },
+      "implementation": {
+        "provider": "libreyolo",
+        "version": "1.0.0"
+      },
+      "runtime": {
+        "format": "pytorch",
+        "precision": "fp32",
+        "provider": "cuda",
+        "device": "gpu"
+      },
+      "source_file": "yolox-m__pytorch__cuda__a100__20260422T211755804986Z.json",
+      "verified_at": "2026-04-22T21:42:25.175023Z"
+    },
+    {
+      "schema_version": "va.submission.v1",
+      "submission_id": "yolox-l-pytorch-cuda-a100-20260422T212137Z",
+      "created_at": "2026-04-22T21:21:37.557221Z",
+      "benchmark": {
+        "harness": "vision-analysis-benchmark",
+        "harness_version": "2.0.0",
+        "libreyolo_version": "1.0.0",
+        "libreyolo_commit": "1c70efb05a78d1a6e82f29478283883fc9bf38f9"
+      },
+      "model": {
+        "id": "yolox-l",
+        "name": "yolox-l",
+        "family": "yolox",
+        "variant": "l",
+        "source": "libreyolo",
+        "weights": "LibreYOLOXl.pt",
+        "input_size": 640
+      },
+      "dataset": {
+        "id": "coco2017",
+        "split": "val2017",
+        "num_images": 5000
+      },
+      "config": {
+        "batch_size": 1,
+        "input_size": 640,
+        "conf": 0.001,
+        "iou": 0.6,
+        "max_det": 300
+      },
+      "hardware": {
+        "gpu": "NVIDIA A100-PCIE-40GB",
+        "gpu_memory_gb": 0.0,
+        "driver_version": "550.163.01",
+        "cuda_version": "12.4",
+        "cpu": "Intel(R) Xeon(R) Gold 6240R CPU @ 2.40GHz",
+        "cpu_cores": 96,
+        "ram_gb": 188,
+        "id": "a100"
+      },
+      "software": {
+        "python": "3.10.6",
+        "torch": "2.6.0+cu124",
+        "libreyolo": "1.0.0",
+        "libreyolo_commit": "1c70efb05a78d1a6e82f29478283883fc9bf38f9",
+        "onnxruntime": "not-installed"
+      },
+      "accuracy": {
+        "mAP_50_95": 0.48299402393724045,
+        "mAP_50": 0.6662720512710155,
+        "mAP_75": 0.5231973725423485,
+        "mAP_small": 0.3119706093498183,
+        "mAP_medium": 0.5418121278427328,
+        "mAP_large": 0.6354191232865665,
+        "AR1": 0.3740846512286028,
+        "AR10": 0.605249062076556,
+        "AR100": 0.6449620711452255,
+        "AR_small": 0.46206720049017946,
+        "AR_medium": 0.6999356680551617,
+        "AR_large": 0.798958352245347
+      },
+      "timing": {
+        "batch_size": 1,
+        "num_images": 5000,
+        "total_ms": {
+          "mean": 26.985,
+          "std": 3.973,
+          "p50": 26.505,
+          "p95": 34.214,
+          "p99": 38.412,
+          "preprocess_ms": 5.988,
+          "inference_ms": 14.252,
+          "postprocess_ms": 6.744
+        }
+      },
+      "throughput": {
+        "fps_mean": 37.06,
+        "fps_p50": 37.73
+      },
+      "model_stats": {
+        "params_millions": 54.21,
+        "gflops": 78.01
+      },
+      "memory": {
+        "peak_vram_mb": 306.5,
+        "peak_ram_mb": 67.5
+      },
+      "metadata": {
+        "benchmark_date": "2026-04-22T21:21:37.557221Z",
+        "benchmark_version": "2.0.0"
+      },
+      "eval": {
+        "dataset": "coco",
+        "split": "val2017",
+        "numImages": 5000
+      },
+      "implementation": {
+        "provider": "libreyolo",
+        "version": "1.0.0"
+      },
+      "runtime": {
+        "format": "pytorch",
+        "precision": "fp32",
+        "provider": "cuda",
+        "device": "gpu"
+      },
+      "source_file": "yolox-l__pytorch__cuda__a100__20260422T212137557221Z.json",
+      "verified_at": "2026-04-22T21:42:25.175023Z"
+    },
+    {
+      "schema_version": "va.submission.v1",
+      "submission_id": "yolox-x-pytorch-cuda-a100-20260422T212545Z",
+      "created_at": "2026-04-22T21:25:45.950868Z",
+      "benchmark": {
+        "harness": "vision-analysis-benchmark",
+        "harness_version": "2.0.0",
+        "libreyolo_version": "1.0.0",
+        "libreyolo_commit": "1c70efb05a78d1a6e82f29478283883fc9bf38f9"
+      },
+      "model": {
+        "id": "yolox-x",
+        "name": "yolox-x",
+        "family": "yolox",
+        "variant": "x",
+        "source": "libreyolo",
+        "weights": "LibreYOLOXx.pt",
+        "input_size": 640
+      },
+      "dataset": {
+        "id": "coco2017",
+        "split": "val2017",
+        "num_images": 5000
+      },
+      "config": {
+        "batch_size": 1,
+        "input_size": 640,
+        "conf": 0.001,
+        "iou": 0.6,
+        "max_det": 300
+      },
+      "hardware": {
+        "gpu": "NVIDIA A100-PCIE-40GB",
+        "gpu_memory_gb": 0.0,
+        "driver_version": "550.163.01",
+        "cuda_version": "12.4",
+        "cpu": "Intel(R) Xeon(R) Gold 6240R CPU @ 2.40GHz",
+        "cpu_cores": 96,
+        "ram_gb": 188,
+        "id": "a100"
+      },
+      "software": {
+        "python": "3.10.6",
+        "torch": "2.6.0+cu124",
+        "libreyolo": "1.0.0",
+        "libreyolo_commit": "1c70efb05a78d1a6e82f29478283883fc9bf38f9",
+        "onnxruntime": "not-installed"
+      },
+      "accuracy": {
+        "mAP_50_95": 0.4980949233289482,
+        "mAP_50": 0.6796245431967907,
+        "mAP_75": 0.5380156683594518,
+        "mAP_small": 0.3398970435960109,
+        "mAP_medium": 0.556163810329854,
+        "mAP_large": 0.6545780746226634,
+        "AR1": 0.3779864948936142,
+        "AR10": 0.6184660948017161,
+        "AR100": 0.6571424692180483,
+        "AR_small": 0.48950891482957837,
+        "AR_medium": 0.7091342676903161,
+        "AR_large": 0.8172357301149785
+      },
+      "timing": {
+        "batch_size": 1,
+        "num_images": 5000,
+        "total_ms": {
+          "mean": 29.558,
+          "std": 4.443,
+          "p50": 28.92,
+          "p95": 37.745,
+          "p99": 43.232,
+          "preprocess_ms": 6.11,
+          "inference_ms": 17.336,
+          "postprocess_ms": 6.113
+        }
+      },
+      "throughput": {
+        "fps_mean": 33.83,
+        "fps_p50": 34.58
+      },
+      "model_stats": {
+        "params_millions": 99.07,
+        "gflops": 141.23
+      },
+      "memory": {
+        "peak_vram_mb": 542.9,
+        "peak_ram_mb": 39.8
+      },
+      "metadata": {
+        "benchmark_date": "2026-04-22T21:25:45.950868Z",
+        "benchmark_version": "2.0.0"
+      },
+      "eval": {
+        "dataset": "coco",
+        "split": "val2017",
+        "numImages": 5000
+      },
+      "implementation": {
+        "provider": "libreyolo",
+        "version": "1.0.0"
+      },
+      "runtime": {
+        "format": "pytorch",
+        "precision": "fp32",
+        "provider": "cuda",
+        "device": "gpu"
+      },
+      "source_file": "yolox-x__pytorch__cuda__a100__20260422T212545950868Z.json",
+      "verified_at": "2026-04-22T21:42:25.175023Z"
+    },
+    {
+      "schema_version": "va.submission.v1",
+      "submission_id": "yolov9t-pytorch-cuda-a100-20260422T213021Z",
+      "created_at": "2026-04-22T21:30:21.533387Z",
+      "benchmark": {
+        "harness": "vision-analysis-benchmark",
+        "harness_version": "2.0.0",
+        "libreyolo_version": "1.0.0",
+        "libreyolo_commit": "1c70efb05a78d1a6e82f29478283883fc9bf38f9"
+      },
+      "model": {
+        "id": "yolov9t",
+        "name": "yolov9-t",
+        "family": "yolov9",
+        "variant": "t",
+        "source": "libreyolo",
+        "weights": "LibreYOLO9t.pt",
+        "input_size": 640
+      },
+      "dataset": {
+        "id": "coco2017",
+        "split": "val2017",
+        "num_images": 5000
+      },
+      "config": {
+        "batch_size": 1,
+        "input_size": 640,
+        "conf": 0.001,
+        "iou": 0.6,
+        "max_det": 300
+      },
+      "hardware": {
+        "gpu": "NVIDIA A100-PCIE-40GB",
+        "gpu_memory_gb": 0.0,
+        "driver_version": "550.163.01",
+        "cuda_version": "12.4",
+        "cpu": "Intel(R) Xeon(R) Gold 6240R CPU @ 2.40GHz",
+        "cpu_cores": 96,
+        "ram_gb": 188,
+        "id": "a100"
+      },
+      "software": {
+        "python": "3.10.6",
+        "torch": "2.6.0+cu124",
+        "libreyolo": "1.0.0",
+        "libreyolo_commit": "1c70efb05a78d1a6e82f29478283883fc9bf38f9",
+        "onnxruntime": "not-installed"
+      },
+      "accuracy": {
+        "mAP_50_95": 0.3569113034088663,
+        "mAP_50": 0.50283531472142,
+        "mAP_75": 0.3809976994417481,
+        "mAP_small": 0.1741279203759973,
+        "mAP_medium": 0.39281531991855273,
+        "mAP_large": 0.4893729991579476,
+        "AR1": 0.30607298443262243,
+        "AR10": 0.5028183448767729,
+        "AR100": 0.545435645342572,
+        "AR_small": 0.3310543216798327,
+        "AR_medium": 0.597934495157849,
+        "AR_large": 0.7005066611452428
+      },
+      "timing": {
+        "batch_size": 1,
+        "num_images": 5000,
+        "total_ms": {
+          "mean": 38.565,
+          "std": 8.219,
+          "p50": 37.962,
+          "p95": 47.25,
+          "p99": 51.302,
+          "preprocess_ms": 6.148,
+          "inference_ms": 25.502,
+          "postprocess_ms": 6.915
+        }
+      },
+      "throughput": {
+        "fps_mean": 25.93,
+        "fps_p50": 26.34
+      },
+      "model_stats": {
+        "params_millions": 2.04,
+        "gflops": 3.98
+      },
+      "memory": {
+        "peak_vram_mb": 46.5,
+        "peak_ram_mb": 139.5
+      },
+      "metadata": {
+        "benchmark_date": "2026-04-22T21:30:21.533387Z",
+        "benchmark_version": "2.0.0"
+      },
+      "eval": {
+        "dataset": "coco",
+        "split": "val2017",
+        "numImages": 5000
+      },
+      "implementation": {
+        "provider": "libreyolo",
+        "version": "1.0.0"
+      },
+      "runtime": {
+        "format": "pytorch",
+        "precision": "fp32",
+        "provider": "cuda",
+        "device": "gpu"
+      },
+      "source_file": "yolov9t__pytorch__cuda__a100__20260422T213021533387Z.json",
+      "verified_at": "2026-04-22T21:42:25.175023Z"
+    },
+    {
+      "schema_version": "va.submission.v1",
+      "submission_id": "yolov9s-pytorch-cuda-a100-20260422T213440Z",
+      "created_at": "2026-04-22T21:34:40.148659Z",
+      "benchmark": {
+        "harness": "vision-analysis-benchmark",
+        "harness_version": "2.0.0",
+        "libreyolo_version": "1.0.0",
+        "libreyolo_commit": "1c70efb05a78d1a6e82f29478283883fc9bf38f9"
+      },
+      "model": {
+        "id": "yolov9s",
+        "name": "yolov9-s",
+        "family": "yolov9",
+        "variant": "s",
+        "source": "libreyolo",
+        "weights": "LibreYOLO9s.pt",
+        "input_size": 640
+      },
+      "dataset": {
+        "id": "coco2017",
+        "split": "val2017",
+        "num_images": 5000
+      },
+      "config": {
+        "batch_size": 1,
+        "input_size": 640,
+        "conf": 0.001,
+        "iou": 0.6,
+        "max_det": 300
+      },
+      "hardware": {
+        "gpu": "NVIDIA A100-PCIE-40GB",
+        "gpu_memory_gb": 0.0,
+        "driver_version": "550.163.01",
+        "cuda_version": "12.4",
+        "cpu": "Intel(R) Xeon(R) Gold 6240R CPU @ 2.40GHz",
+        "cpu_cores": 96,
+        "ram_gb": 188,
+        "id": "a100"
+      },
+      "software": {
+        "python": "3.10.6",
+        "torch": "2.6.0+cu124",
+        "libreyolo": "1.0.0",
+        "libreyolo_commit": "1c70efb05a78d1a6e82f29478283883fc9bf38f9",
+        "onnxruntime": "not-installed"
+      },
+      "accuracy": {
+        "mAP_50_95": 0.4386735482122829,
+        "mAP_50": 0.5970154936188136,
+        "mAP_75": 0.4746758651018833,
+        "mAP_small": 0.2378320388264711,
+        "mAP_medium": 0.47978522817159835,
+        "mAP_large": 0.5917472804220901,
+        "AR1": 0.3454447133839753,
+        "AR10": 0.5630762263989793,
+        "AR100": 0.6042880204383853,
+        "AR_small": 0.4077785212180964,
+        "AR_medium": 0.6516231615918386,
+        "AR_large": 0.7509022981612337
+      },
+      "timing": {
+        "batch_size": 1,
+        "num_images": 5000,
+        "total_ms": {
+          "mean": 36.394,
+          "std": 7.985,
+          "p50": 35.529,
+          "p95": 43.041,
+          "p99": 47.939,
+          "preprocess_ms": 6.054,
+          "inference_ms": 24.772,
+          "postprocess_ms": 5.568
+        }
+      },
+      "throughput": {
+        "fps_mean": 27.48,
+        "fps_p50": 28.15
+      },
+      "model_stats": {
+        "params_millions": 7.23,
+        "gflops": 13.52
+      },
+      "memory": {
+        "peak_vram_mb": 91.0,
+        "peak_ram_mb": 67.5
+      },
+      "metadata": {
+        "benchmark_date": "2026-04-22T21:34:40.148659Z",
+        "benchmark_version": "2.0.0"
+      },
+      "eval": {
+        "dataset": "coco",
+        "split": "val2017",
+        "numImages": 5000
+      },
+      "implementation": {
+        "provider": "libreyolo",
+        "version": "1.0.0"
+      },
+      "runtime": {
+        "format": "pytorch",
+        "precision": "fp32",
+        "provider": "cuda",
+        "device": "gpu"
+      },
+      "source_file": "yolov9s__pytorch__cuda__a100__20260422T213440148659Z.json",
+      "verified_at": "2026-04-22T21:42:25.175023Z"
+    },
+    {
+      "schema_version": "va.submission.v1",
+      "submission_id": "yolov9m-pytorch-cuda-a100-20260422T213842Z",
+      "created_at": "2026-04-22T21:38:42.693352Z",
+      "benchmark": {
+        "harness": "vision-analysis-benchmark",
+        "harness_version": "2.0.0",
+        "libreyolo_version": "1.0.0",
+        "libreyolo_commit": "1c70efb05a78d1a6e82f29478283883fc9bf38f9"
+      },
+      "model": {
+        "id": "yolov9m",
+        "name": "yolov9-m",
+        "family": "yolov9",
+        "variant": "m",
+        "source": "libreyolo",
+        "weights": "LibreYOLO9m.pt",
+        "input_size": 640
+      },
+      "dataset": {
+        "id": "coco2017",
+        "split": "val2017",
+        "num_images": 5000
+      },
+      "config": {
+        "batch_size": 1,
+        "input_size": 640,
+        "conf": 0.001,
+        "iou": 0.6,
+        "max_det": 300
+      },
+      "hardware": {
+        "gpu": "NVIDIA A100-PCIE-40GB",
+        "gpu_memory_gb": 0.0,
+        "driver_version": "550.163.01",
+        "cuda_version": "12.4",
+        "cpu": "Intel(R) Xeon(R) Gold 6240R CPU @ 2.40GHz",
+        "cpu_cores": 96,
+        "ram_gb": 188,
+        "id": "a100"
+      },
+      "software": {
+        "python": "3.10.6",
+        "torch": "2.6.0+cu124",
+        "libreyolo": "1.0.0",
+        "libreyolo_commit": "1c70efb05a78d1a6e82f29478283883fc9bf38f9",
+        "onnxruntime": "not-installed"
+      },
+      "accuracy": {
+        "mAP_50_95": 0.4804455845142081,
+        "mAP_50": 0.6451359205830833,
+        "mAP_75": 0.519734206516907,
+        "mAP_small": 0.302668059622238,
+        "mAP_medium": 0.5272267978009827,
+        "mAP_large": 0.6374771121659988,
+        "AR1": 0.3686668292479145,
+        "AR10": 0.6005924925502608,
+        "AR100": 0.644643885308992,
+        "AR_small": 0.4757522337097962,
+        "AR_medium": 0.6876428409291856,
+        "AR_large": 0.7815017561144398
+      },
+      "timing": {
+        "batch_size": 1,
+        "num_images": 5000,
+        "total_ms": {
+          "mean": 31.996,
+          "std": 7.782,
+          "p50": 31.544,
+          "p95": 38.155,
+          "p99": 41.822,
+          "preprocess_ms": 6.224,
+          "inference_ms": 20.268,
+          "postprocess_ms": 5.504
+        }
+      },
+      "throughput": {
+        "fps_mean": 31.25,
+        "fps_p50": 31.7
+      },
+      "model_stats": {
+        "params_millions": 20.12,
+        "gflops": 38.68
+      },
+      "memory": {
+        "peak_vram_mb": 183.5,
+        "peak_ram_mb": 50.2
+      },
+      "metadata": {
+        "benchmark_date": "2026-04-22T21:38:42.693352Z",
+        "benchmark_version": "2.0.0"
+      },
+      "eval": {
+        "dataset": "coco",
+        "split": "val2017",
+        "numImages": 5000
+      },
+      "implementation": {
+        "provider": "libreyolo",
+        "version": "1.0.0"
+      },
+      "runtime": {
+        "format": "pytorch",
+        "precision": "fp32",
+        "provider": "cuda",
+        "device": "gpu"
+      },
+      "source_file": "yolov9m__pytorch__cuda__a100__20260422T213842693352Z.json",
+      "verified_at": "2026-04-22T21:42:25.175023Z"
+    },
+    {
+      "schema_version": "va.submission.v1",
+      "submission_id": "yolov9c-pytorch-cuda-a100-20260422T214225Z",
+      "created_at": "2026-04-22T21:42:25.175023Z",
+      "benchmark": {
+        "harness": "vision-analysis-benchmark",
+        "harness_version": "2.0.0",
+        "libreyolo_version": "1.0.0",
+        "libreyolo_commit": "1c70efb05a78d1a6e82f29478283883fc9bf38f9"
+      },
+      "model": {
+        "id": "yolov9c",
+        "name": "yolov9-c",
+        "family": "yolov9",
+        "variant": "c",
+        "source": "libreyolo",
+        "weights": "LibreYOLO9c.pt",
+        "input_size": 640
+      },
+      "dataset": {
+        "id": "coco2017",
+        "split": "val2017",
+        "num_images": 5000
+      },
+      "config": {
+        "batch_size": 1,
+        "input_size": 640,
+        "conf": 0.001,
+        "iou": 0.6,
+        "max_det": 300
+      },
+      "hardware": {
+        "gpu": "NVIDIA A100-PCIE-40GB",
+        "gpu_memory_gb": 0.0,
+        "driver_version": "550.163.01",
+        "cuda_version": "12.4",
+        "cpu": "Intel(R) Xeon(R) Gold 6240R CPU @ 2.40GHz",
+        "cpu_cores": 96,
+        "ram_gb": 188,
+        "id": "a100"
+      },
+      "software": {
+        "python": "3.10.6",
+        "torch": "2.6.0+cu124",
+        "libreyolo": "1.0.0",
+        "libreyolo_commit": "1c70efb05a78d1a6e82f29478283883fc9bf38f9",
+        "onnxruntime": "not-installed"
+      },
+      "accuracy": {
+        "mAP_50_95": 0.4948871271746855,
+        "mAP_50": 0.6630514953285672,
+        "mAP_75": 0.5365489239632012,
+        "mAP_small": 0.3192108042373091,
+        "mAP_medium": 0.5417002627523191,
+        "mAP_large": 0.646551734456053,
+        "AR1": 0.3752575682054056,
+        "AR10": 0.6059029787600209,
+        "AR100": 0.6488779826723584,
+        "AR_small": 0.47644506874437925,
+        "AR_medium": 0.6925810459025449,
+        "AR_large": 0.7905327873490586
+      },
+      "timing": {
+        "batch_size": 1,
+        "num_images": 5000,
+        "total_ms": {
+          "mean": 29.735,
+          "std": 3.609,
+          "p50": 29.238,
+          "p95": 36.336,
+          "p99": 40.234,
+          "preprocess_ms": 6.159,
+          "inference_ms": 18.966,
+          "postprocess_ms": 4.61
+        }
+      },
+      "throughput": {
+        "fps_mean": 33.63,
+        "fps_p50": 34.2
+      },
+      "model_stats": {
+        "params_millions": 25.5,
+        "gflops": 51.75
+      },
+      "memory": {
+        "peak_vram_mb": 239.2,
+        "peak_ram_mb": 38.2
+      },
+      "metadata": {
+        "benchmark_date": "2026-04-22T21:42:25.175023Z",
+        "benchmark_version": "2.0.0"
+      },
+      "eval": {
+        "dataset": "coco",
+        "split": "val2017",
+        "numImages": 5000
+      },
+      "implementation": {
+        "provider": "libreyolo",
+        "version": "1.0.0"
+      },
+      "runtime": {
+        "format": "pytorch",
+        "precision": "fp32",
+        "provider": "cuda",
+        "device": "gpu"
+      },
+      "source_file": "yolov9c__pytorch__cuda__a100__20260422T214225175023Z.json",
+      "verified_at": "2026-04-22T21:42:25.175023Z"
+    }
+  ]
 }
