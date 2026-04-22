@@ -1,0 +1,41 @@
+name: Benchmark Submissions
+
+on:
+  pull_request:
+    paths:
+      - "submissions/**"
+      - "schemas/**"
+      - "support-matrix.json"
+      - "scripts/**"
+      - "generated/verified-results.v1.json"
+  push:
+    branches:
+      - main
+    paths:
+      - "submissions/**"
+      - "schemas/**"
+      - "support-matrix.json"
+      - "scripts/**"
+      - "generated/verified-results.v1.json"
+
+jobs:
+  validate-and-build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Validate submissions
+        run: python3 scripts/validate_submission.py
+
+      - name: Rebuild canonical benchmark data
+        run: python3 scripts/build_verified_results.py
+
+      - name: Ensure generated results are committed
+        run: git diff --exit-code generated/verified-results.v1.json

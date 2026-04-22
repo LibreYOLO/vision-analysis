@@ -22,88 +22,37 @@ cd website
 npx vercel --prod
 ```
 
+## Data Model
+
+Three levels of metadata:
+
+1. **`families.json`** — per-family: paper, authors, organization, originalRepo, detection approach, postprocessing, innovations, training dataset.
+2. **`models.json`** — per-variant: architecture, specs (params/flops), weights URLs, license, release date, `inLibreYOLO`.
+3. **Submission JSONs** — per-run: accuracy, speed, hardware, software versions, benchmark config, and provenance.
+
+`source` in models.json points to **original author's weights** and **LibreYOLO's weights** separately. Family-level info (paper URL, code repo, authors) lives in `families.json`, not `models.json`.
+
 ## Adding New Benchmarks
 
-Drop the raw JSON file from the LibreYOLO benchmark runner into `website/benchmarks/`. The build-time loader (`website/src/lib/data/loader.ts`) auto-discovers all JSON files in that directory, transforms them, and groups by `{hardware}__{runtime}`.
+Add the raw JSON file from the benchmark runner under `submissions/`, then rebuild `generated/verified-results.v1.json` with the root scripts. The website reads only the generated canonical dataset.
 
-No manual script needed — just drop the file and rebuild.
+See README.md for full schema and step-by-step instructions.
 
-### Naming Convention
+### Key Fields in Benchmark JSONs
 
-Files in `website/benchmarks/` follow: `{model}_benchmark.json` or `{model}_{hardware}.json` for non-default hardware. Examples:
-- `yolov9s_benchmark.json` — A100 benchmark
-- `yolov9t_rpi5.json` — Raspberry Pi 5 benchmark
+- `model.name` must match `id` in `models.json` (check `MODEL_NAME_MAP` in `transform.ts`)
+- `eval` block: `{ dataset, split, numImages }`
+- `implementation` block: `{ provider, version, repo, weightsOrigin }` — weightsOrigin is `"original"`, `"converted"`, or `"retrained"`
+- `runtime` block: `{ format, precision, device }`
+- Do NOT include `mAP_small/medium/large` as zeros — omit if not measured
 
-### Expected JSON Structure
+## Metadata Files
 
-```json
-{
-  "model": {
-    "name": "yolov9-s",
-    "family": "yolov9",
-    "variant": "s",
-    "source": "libreyolo",
-    "weights": "libreyolo9s.pt",
-    "input_size": 640
-  },
-  "runtime": {
-    "format": "pytorch",
-    "precision": "fp32",
-    "device": "cpu"
-  },
-  "hardware": {
-    "gpu": "Raspberry Pi 5 Model B Rev 1.1",
-    "gpu_memory_gb": 0,
-    "driver_version": "N/A",
-    "cuda_version": "N/A",
-    "cpu": "Unknown",
-    "cpu_cores": 0,
-    "ram_gb": 7
-  },
-  "software": {
-    "python": "3.13.5",
-    "torch": "2.10.0+cpu",
-    "libreyolo": "0.1.4"
-  },
-  "accuracy": {
-    "mAP_50": 0.6216,
-    "mAP_50_95": 0.4537,
-    "precision": 0.6713,
-    "recall": 0.5814,
-    "mAP_small": 0.0,
-    "mAP_medium": 0.0,
-    "mAP_large": 0.0
-  },
-  "timing": {
-    "batch_size": 1,
-    "num_images": 5000,
-    "ms_per_image": 744.79,
-    "preprocess_ms": 2.90,
-    "inference_ms": 734.87,
-    "postprocess_ms": 3.99
-  },
-  "throughput": {
-    "fps": 1.34
-  },
-  "model_stats": {
-    "params_millions": 7.23,
-    "gflops": 0.0
-  },
-  "metadata": {
-    "benchmark_date": "2026-02-07",
-    "benchmark_version": "1.0"
-  }
-}
-```
-
-Hardware is auto-detected from `hardware.gpu` (e.g. "NVIDIA A100" → `a100`, "Raspberry Pi 5" → `rpi5`). Runtime is built from `runtime.format` + `runtime.precision` (e.g. `pytorch_fp32`). mAP values in decimal form (0–1) are converted to percentages automatically. If `model_stats.gflops` or `params_millions` is 0, the loader falls back to values from `website/src/data/metadata/models.json`.
-
-## Hardware & Runtime Metadata
-
-To add a new hardware platform or runtime, update the corresponding metadata file:
-- `website/src/data/metadata/hardware.json`
-- `website/src/data/metadata/runtimes.json`
-- `website/src/data/metadata/models.json`
+- `website/src/data/metadata/families.json` — family-level metadata
+- `website/src/data/metadata/models.json` — variant-level metadata
+- `website/src/data/metadata/hardware.json` — hardware platforms
+- `website/src/data/metadata/runtimes.json` — runtime definitions
+- `website/src/data/metadata/datasets.json` — dataset definitions
 
 ## Git Policy
 

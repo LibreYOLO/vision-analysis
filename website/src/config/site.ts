@@ -14,7 +14,6 @@ export const navLinks = [
   { href: "/", label: "Leaderboard" },
   { href: "/compare", label: "Compare" },
   { href: "/hardware", label: "Hardware" },
-  { href: "/articles", label: "Articles" },
   { href: "/about", label: "About" },
 ];
 

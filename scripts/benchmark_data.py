@@ -4,7 +4,7 @@
 from __future__ import annotations
 
 import json
-from datetime import datetime, timezone
+from datetime import datetime
 from pathlib import Path
 from typing import Any
 
@@ -185,7 +185,9 @@ def load_and_validate_submissions() -> tuple[list[dict[str, Any]], list[str]]:
 
 
 def verified_payload(items: list[dict[str, Any]]) -> dict[str, Any]:
-    generated_at = datetime.now(timezone.utc).isoformat().replace("+00:00", "Z")
+    generated_at = None
+    if items:
+        generated_at = max(item["submission"]["created_at"] for item in items)
     results = []
     for item in sorted(items, key=lambda x: (x["submission"]["created_at"], x["path"].name)):
         submission = dict(item["submission"])

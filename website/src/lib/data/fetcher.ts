@@ -9,7 +9,7 @@ import hardwareData from "@/data/metadata/hardware.json";
 import datasetsData from "@/data/metadata/datasets.json";
 import runtimesData from "@/data/metadata/runtimes.json";
 
-// Benchmark data loaded dynamically from benchmarks/ folder
+// Benchmark data loaded from the canonical verified-results snapshot.
 function getBenchmarkData(): Record<string, BenchmarkResult[]> {
   return loadAllBenchmarks();
 }
@@ -172,4 +172,3 @@ export function getHardwareOptions(): Array<{ value: string; label: string }> {
       label: h.displayName,
     }));
 }
-
