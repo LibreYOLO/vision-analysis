@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://visionanalysis.org/schemas/submission.v1.json",
+  "title": "Vision Analysis Submission v1",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "submission_id",
+    "created_at",
+    "benchmark",
+    "model",
+    "config",
+    "hardware",
+    "runtime",
+    "accuracy",
+    "timing",
+    "throughput",
+    "model_stats",
+    "metadata"
+  ],
+  "properties": {
+    "schema_version": { "const": "va.submission.v1" },
+    "submission_id": { "type": "string", "minLength": 1 },
+    "created_at": { "type": "string", "minLength": 1 },
+    "benchmark": { "type": "object" },
+    "model": {
+      "type": "object",
+      "required": ["id", "family", "variant", "input_size"],
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "family": { "type": "string", "minLength": 1 },
+        "variant": { "type": "string", "minLength": 1 },
+        "input_size": { "type": "number" }
+      }
+    },
+    "config": {
+      "type": "object",
+      "required": ["batch_size", "input_size", "conf", "iou", "max_det"]
+    },
+    "hardware": {
+      "type": "object",
+      "required": ["id", "gpu", "cpu", "ram_gb"]
+    },
+    "runtime": {
+      "type": "object",
+      "required": ["format", "precision", "provider", "device"]
+    },
+    "accuracy": { "type": "object" },
+    "timing": { "type": "object" },
+    "throughput": { "type": "object" },
+    "model_stats": { "type": "object" },
+    "metadata": { "type": "object" }
+  }
+}

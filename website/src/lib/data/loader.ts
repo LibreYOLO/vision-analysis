@@ -4,7 +4,10 @@ import { BenchmarkResult } from "@/lib/types";
 import { transformRawBenchmark, isRawBenchmark } from "./transform";
 import modelsData from "@/data/metadata/models.json";
 
-const BENCHMARKS_DIR = path.join(process.cwd(), "benchmarks");
+const APP_ROOT = process.cwd();
+const REPO_ROOT = path.basename(APP_ROOT) === "website" ? path.resolve(APP_ROOT, "..") : APP_ROOT;
+const BENCHMARKS_DIR = path.join(APP_ROOT, "benchmarks");
+const GENERATED_RESULTS_PATH = path.join(REPO_ROOT, "generated", "verified-results.v1.json");
 
 // Module-level cache: computed once per build/process
 let _cache: Record<string, BenchmarkResult[]> | null = null;
@@ -18,6 +21,12 @@ let _cache: Record<string, BenchmarkResult[]> | null = null;
  */
 export function loadAllBenchmarks(): Record<string, BenchmarkResult[]> {
   if (_cache) return _cache;
+
+  const generated = loadGeneratedBenchmarks();
+  if (generated) {
+    _cache = generated;
+    return generated;
+  }
 
   const grouped: Record<string, BenchmarkResult[]> = {};
 
@@ -66,7 +75,50 @@ export function loadAllBenchmarks(): Record<string, BenchmarkResult[]> {
     }
   }
 
-  // Deduplicate: keep the most recent benchmark per model within each group
+  dedupeGrouped(grouped);
+
+  _cache = grouped;
+  return grouped;
+}
+
+function loadGeneratedBenchmarks(): Record<string, BenchmarkResult[]> | null {
+  if (!fs.existsSync(GENERATED_RESULTS_PATH)) {
+    return null;
+  }
+
+  try {
+    const parsed = JSON.parse(fs.readFileSync(GENERATED_RESULTS_PATH, "utf-8"));
+    const results = Array.isArray(parsed?.results) ? parsed.results : [];
+    if (results.length === 0) {
+      return null;
+    }
+
+    const grouped: Record<string, BenchmarkResult[]> = {};
+    const modelSpecs = (modelsData.models as Array<{ id: string; specs: { flopsG: number; paramsM: number } }>);
+
+    for (const entry of results) {
+      if (isRawBenchmark(entry)) {
+        const result = transformRawBenchmark(entry, modelSpecs);
+        if (result) {
+          addResult(grouped, result);
+        }
+        continue;
+      }
+
+      if (typeof entry === "object" && entry !== null && typeof entry.model === "string") {
+        addResult(grouped, entry as BenchmarkResult);
+      }
+    }
+
+    dedupeGrouped(grouped);
+    return grouped;
+  } catch (err) {
+    console.error(`[loader] Error processing generated results ${GENERATED_RESULTS_PATH}:`, err);
+    return null;
+  }
+}
+
+function dedupeGrouped(grouped: Record<string, BenchmarkResult[]>): void {
   for (const key of Object.keys(grouped)) {
     const byModel = new Map<string, BenchmarkResult>();
     for (const result of grouped[key]) {
@@ -79,9 +131,6 @@ export function loadAllBenchmarks(): Record<string, BenchmarkResult[]> {
       a.model.localeCompare(b.model)
     );
   }
-
-  _cache = grouped;
-  return grouped;
 }
 
 function addResult(

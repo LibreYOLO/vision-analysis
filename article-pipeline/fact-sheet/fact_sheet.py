@@ -11,11 +11,13 @@ Usage:
 """
 import json
 import sys
+from functools import lru_cache
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 METADATA = ROOT / "website" / "src" / "data" / "metadata"
 BENCH = ROOT / "website" / "benchmarks"
+GENERATED = ROOT / "generated" / "verified-results.v1.json"
 
 RUNTIMES = {
     "pytorch_fp32": {"suffix": "", "format": "pytorch", "precision": "fp32", "device": "gpu", "display": "PyTorch FP32"},
@@ -38,7 +40,56 @@ def _bench_path(model_id, hardware, runtime_id):
     return BENCH / f"{_slug(model_id)}_{hardware}{RUNTIMES[runtime_id]['suffix']}.json"
 
 
+def _runtime_id_from_bench(bench):
+    runtime = bench.get("runtime") or {}
+    return f"{runtime.get('format', 'unknown')}_{runtime.get('precision', 'unknown')}"
+
+
+def _model_id_from_bench(bench):
+    model = bench.get("model") or {}
+    if model.get("id"):
+        return model["id"]
+
+    name = str(model.get("name", "")).lower()
+    family = str(model.get("family", "")).lower()
+    variant = str(model.get("variant", "")).lower()
+    if family.startswith("yolov9"):
+        return f"yolov9{variant}"
+    if family.startswith("yolox"):
+        return f"yolox-{variant}"
+    if family in {"rfdetr", "rtdetr"}:
+        return f"{family}-{variant}"
+    return name or None
+
+
+@lru_cache(maxsize=1)
+def _generated_index():
+    if not GENERATED.exists():
+        return {}
+
+    parsed = _load(GENERATED)
+    index = {}
+    for bench in parsed.get("results", []):
+        if not isinstance(bench, dict):
+            continue
+        model_id = _model_id_from_bench(bench)
+        hardware_id = (bench.get("hardware") or {}).get("id")
+        runtime_id = _runtime_id_from_bench(bench)
+        if not model_id or not hardware_id or runtime_id not in RUNTIMES:
+            continue
+        created_at = bench.get("created_at") or bench.get("metadata", {}).get("benchmark_date") or ""
+        key = (model_id, hardware_id, runtime_id)
+        existing = index.get(key)
+        existing_created_at = existing.get("created_at") if isinstance(existing, dict) else ""
+        if existing is None or created_at > existing_created_at:
+            index[key] = bench
+    return index
+
+
 def _try_load_bench(model_id, hardware, runtime_id):
+    generated_bench = _generated_index().get((model_id, hardware, runtime_id))
+    if generated_bench is not None:
+        return generated_bench
     p = _bench_path(model_id, hardware, runtime_id)
     return _load(p) if p.exists() else None
 
@@ -82,6 +133,20 @@ def _full_slice(bench):
     }
 
 
+def _timing_metric(bench, key):
+    timing = bench.get("timing") or {}
+    if key in timing:
+        return timing[key]
+
+    total_ms = timing.get("total_ms")
+    if isinstance(total_ms, dict):
+        if key == "ms_per_image":
+            return total_ms.get("mean")
+        return total_ms.get(key)
+
+    return None
+
+
 def _params_m(bench, meta):
     """Prefer benchmark-measured params; fall back to metadata if missing or zero."""
     stats = bench.get("model_stats") or {}
@@ -103,8 +168,8 @@ def _core_metrics(bench):
     return {
         "fps_mean": bench["throughput"]["fps_mean"],
         "fps_p50": bench["throughput"]["fps_p50"],
-        "ms_per_image": bench["timing"]["ms_per_image"],
-        "inference_ms": bench["timing"]["inference_ms"],
+        "ms_per_image": _timing_metric(bench, "ms_per_image"),
+        "inference_ms": _timing_metric(bench, "inference_ms"),
         "mAP_50_95": bench["accuracy"]["mAP_50_95"],
         "mAP_50": bench["accuracy"]["mAP_50"],
         "peak_vram_mb": bench["memory"].get("peak_vram_mb"),
@@ -174,7 +239,7 @@ def build(a_id, b_id, primary_hw="rtx5080", primary_rt="pytorch_fp32"):
             "mAP_50_95": _pct(a_map, b_map),
             "mAP_50": _pct(a_bench["accuracy"]["mAP_50"], b_bench["accuracy"]["mAP_50"]),
             "fps": _pct(a_fps, b_fps),
-            "total_ms": _pct(a_bench["timing"]["ms_per_image"], b_bench["timing"]["ms_per_image"]),
+            "total_ms": _pct(_timing_metric(a_bench, "ms_per_image"), _timing_metric(b_bench, "ms_per_image")),
             "params": _pct(a_params, b_params),
             "flops": _pct(a_flops, b_flops),
             "peak_vram": _pct(a_bench["memory"]["peak_vram_mb"], b_bench["memory"]["peak_vram_mb"]),
@@ -184,7 +249,7 @@ def build(a_id, b_id, primary_hw="rtx5080", primary_rt="pytorch_fp32"):
             "mAP_50": _winner(a_id, b_id, a_bench["accuracy"]["mAP_50"], b_bench["accuracy"]["mAP_50"]),
             "mAP_small": _winner(a_id, b_id, a_bench["accuracy"]["mAP_small"], b_bench["accuracy"]["mAP_small"]),
             "fps": _winner(a_id, b_id, a_fps, b_fps),
-            "inference_ms": _winner(a_id, b_id, a_bench["timing"]["inference_ms"], b_bench["timing"]["inference_ms"], higher_is_better=False),
+            "inference_ms": _winner(a_id, b_id, _timing_metric(a_bench, "inference_ms"), _timing_metric(b_bench, "inference_ms"), higher_is_better=False),
             "peak_vram": _winner(a_id, b_id, a_bench["memory"]["peak_vram_mb"], b_bench["memory"]["peak_vram_mb"], higher_is_better=False),
             "params_smaller": _winner(a_id, b_id, a_params, b_params, higher_is_better=False),
             "flops_smaller": _winner(a_id, b_id, a_flops, b_flops, higher_is_better=False),

@@ -1,0 +1,32 @@
+{
+  "schema_version": "va.support-matrix.v1",
+  "supported_libreyolo_identifier": "1c70efb05a78d1a6e82f29478283883fc9bf38f9",
+  "models": [
+    "yolox-nano",
+    "yolox-tiny",
+    "yolox-s",
+    "yolox-m",
+    "yolox-l",
+    "yolox-x",
+    "yolov9t",
+    "yolov9s",
+    "yolov9m",
+    "yolov9c",
+    "rfdetr-n",
+    "rfdetr-s",
+    "rfdetr-m",
+    "rfdetr-l"
+  ],
+  "runtimes": [
+    {
+      "backend": "pytorch",
+      "providers": ["cpu", "cuda", "mps"],
+      "precisions": ["fp32"]
+    },
+    {
+      "backend": "onnx",
+      "providers": ["cpu", "cuda"],
+      "precisions": ["fp32"]
+    }
+  ]
+}
