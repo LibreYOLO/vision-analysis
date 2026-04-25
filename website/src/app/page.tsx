@@ -1,7 +1,6 @@
 import { LeaderboardDashboard } from "@/components/leaderboard";
 import { AccuracyTimeline, VAScoreChart } from "@/components/charts";
-import { Logo } from "@/components/layout/Logo";
-import { getAllBenchmarkResults, getAllFamilies, getFamilies, getHardwareOptions, getModels } from "@/lib/data";
+import { getAllBenchmarkResults, getFamilies, getHardwareOptions } from "@/lib/data";
 
 const previewFamilies = ["YOLO11", "RF-DETR", "YOLOv10", "RT-DETR", "YOLOv9"];
 
@@ -67,10 +66,6 @@ export default function HomePage() {
   const benchmarkData = getAllBenchmarkResults();
   const hardwareOptions = getHardwareOptions();
   const families = getFamilies();
-  const models = getModels();
-  const allFamilies = getAllFamilies();
-  const familyCount = allFamilies.length;
-  const totalModelsTracked = models.length;
   const benchmarkCount = Object.values(benchmarkData).reduce((sum, results) => sum + results.length, 0);
   const hasVerifiedBenchmarks = benchmarkCount > 0;
 
@@ -82,74 +77,12 @@ export default function HomePage() {
             Object Detection Leaderboard
           </h1>
           <p className="max-w-2xl text-base text-white/60">
-            Credible and deep analysis of computer vision models. Compare accuracy, speed,
-            and efficiency across {familyCount} model families and {totalModelsTracked} tracked variants.
+            Understand the computer vision landscape to select the best model and hardware for your use case.
           </p>
         </div>
       </section>
 
       <div className="hero-content-overlap mx-auto max-w-[1280px] px-4 pb-8">
-        <div className="section-group mb-6">
-          <div className="section-group-header">
-            <h2>VA v1 Score</h2>
-            <p className="text-base text-foreground">
-              The composite ranking is coming back, but it will stay unpublished until the reviewed submission set is broad enough to make the ranking credible.
-            </p>
-          </div>
-          <div className="section-group-content">
-            <PreviewFilters />
-            <div className="relative mt-4 overflow-hidden rounded-[2px] [&_.chart-card]:mb-0">
-              <div className="pointer-events-none opacity-55 blur-[1px] saturate-[0.95]">
-                <VAScoreChart />
-              </div>
-              <ComingSoonOverlay
-                title="Composite ranking in progress"
-              />
-            </div>
-          </div>
-        </div>
-
-        <div className="section-group mb-6">
-          <div className="section-group-header">
-            <h2>VA v1 Score Over Time</h2>
-            <p className="text-base text-foreground">
-              The historical timeline is returning as part of the same composite score rollout. The chart stays visible as a preview, but the live series is not published yet.
-            </p>
-          </div>
-          <div className="section-group-content">
-            <div className="relative overflow-hidden rounded-[2px]">
-              <div className="pointer-events-none opacity-75">
-                <AccuracyTimeline />
-              </div>
-              <ComingSoonOverlay
-                title="Historical score view in progress"
-                veilClassName="bg-background/10 backdrop-blur-[1px]"
-                panelClassName="bg-background/72"
-              />
-            </div>
-          </div>
-        </div>
-
-        <div className="cta-banner mb-6">
-          <div className="flex items-center gap-4">
-            <Logo size={36} className="rounded-[2px]" />
-            <div>
-              <p className="text-sm font-semibold text-foreground">
-                Vision Analysis — Artificial Analysis for Computer Vision
-              </p>
-              <p className="text-sm text-muted-foreground">
-                Public benchmark records for object detection models, with the composite VA score returning once it is backed by real reviewed submissions.
-              </p>
-            </div>
-          </div>
-          <a
-            href="/about"
-            className="flex h-9 flex-shrink-0 items-center rounded bg-foreground px-4 text-sm font-medium text-background transition-opacity hover:opacity-80"
-          >
-            Learn More
-          </a>
-        </div>
-
         {hasVerifiedBenchmarks ? (
           <LeaderboardDashboard
             benchmarkData={benchmarkData}
@@ -182,6 +115,47 @@ export default function HomePage() {
             </div>
           </div>
         )}
+
+        <div className="section-group mt-6 mb-6">
+          <div className="section-group-header">
+            <h2>VA v1 Score</h2>
+            <p className="text-base text-foreground">
+              The composite ranking is coming back, but it will stay unpublished until the reviewed submission set is broad enough to make the ranking credible.
+            </p>
+          </div>
+          <div className="section-group-content">
+            <PreviewFilters />
+            <div className="relative mt-4 overflow-hidden rounded-[2px] [&_.chart-card]:mb-0">
+              <div className="pointer-events-none opacity-75">
+                <VAScoreChart />
+              </div>
+              <ComingSoonOverlay
+                title="Composite ranking in progress"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div className="section-group mb-6">
+          <div className="section-group-header">
+            <h2>VA v1 Score Over Time</h2>
+            <p className="text-base text-foreground">
+              The historical timeline is returning as part of the same composite score rollout. The chart stays visible as a preview, but the live series is not published yet.
+            </p>
+          </div>
+          <div className="section-group-content">
+            <div className="relative overflow-hidden rounded-[2px]">
+              <div className="pointer-events-none opacity-75">
+                <AccuracyTimeline />
+              </div>
+              <ComingSoonOverlay
+                title="Historical score view in progress"
+                veilClassName="bg-background/10 backdrop-blur-[1px]"
+                panelClassName="bg-background/72"
+              />
+            </div>
+          </div>
+        </div>
       </div>
     </>
   );

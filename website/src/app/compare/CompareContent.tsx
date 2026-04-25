@@ -27,6 +27,7 @@ import {
 } from "@/components/ui/table";
 
 const MAX_MODELS = 4;
+const DEFAULT_MODELS = ["dfine-m", "rtdetr-r50"];
 
 const COMPARISON_METRICS = [
   { key: "mAP_50_95", label: "mAP@50-95", format: "percent", higherBetter: true },
@@ -74,12 +75,16 @@ export function CompareContent({
   const [hardware, setHardware] = useState("a100");
   const [runtime, setRuntime] = useState("pytorch_fp32");
 
-  // Get selected models from URL
+  // Get selected models from URL, falling back to defaults until the user changes them
   const selectedModelIds = useMemo(() => {
     const modelsParam = searchParams.get("models");
-    if (!modelsParam) return [];
+    if (modelsParam === null) {
+      const available = new Set(allModels.map((m) => m.id));
+      return DEFAULT_MODELS.filter((id) => available.has(id)).slice(0, MAX_MODELS);
+    }
+    if (modelsParam === "") return [];
     return modelsParam.split(",").slice(0, MAX_MODELS);
-  }, [searchParams]);
+  }, [searchParams, allModels]);
 
   // Get all benchmark data for current hardware+runtime
   const allResults = useMemo(() => {
@@ -116,14 +121,11 @@ export function CompareContent({
     return modelsWithData.filter((m) => !selectedModelIds.includes(m.id));
   }, [modelsWithData, selectedModelIds]);
 
-  // Update URL with selected models
+  // Update URL with selected models. Empty string keeps the param around so we
+  // don't fall back to the preselected defaults after the user clears everything.
   const updateSelectedModels = (models: string[]) => {
     const params = new URLSearchParams(searchParams);
-    if (models.length > 0) {
-      params.set("models", models.join(","));
-    } else {
-      params.delete("models");
-    }
+    params.set("models", models.join(","));
     router.push(`/compare?${params.toString()}`);
   };
 
