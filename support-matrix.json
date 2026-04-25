@@ -15,18 +15,34 @@
     "rfdetr-n",
     "rfdetr-s",
     "rfdetr-m",
-    "rfdetr-l"
+    "rfdetr-l",
+    "rtdetr-r18",
+    "rtdetr-r34",
+    "rtdetr-r50",
+    "rtdetr-r50m",
+    "rtdetr-r101"
   ],
   "runtimes": [
     {
       "backend": "pytorch",
-      "providers": ["cpu", "cuda", "mps"],
-      "precisions": ["fp32"]
+      "providers": [
+        "cpu",
+        "cuda",
+        "mps"
+      ],
+      "precisions": [
+        "fp32"
+      ]
     },
     {
       "backend": "onnx",
-      "providers": ["cpu", "cuda"],
-      "precisions": ["fp32"]
+      "providers": [
+        "cpu",
+        "cuda"
+      ],
+      "precisions": [
+        "fp32"
+      ]
     }
   ]
 }
