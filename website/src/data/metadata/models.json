@@ -1159,6 +1159,96 @@
       "license": "Apache-2.0",
       "releaseDate": "2024-10-18",
       "inLibreYOLO": true
+    },
+    {
+      "id": "yolonas-s",
+      "displayName": "YOLO-NAS-S",
+      "family": "yolonas",
+      "variant": "s",
+      "task": "detection",
+      "architecture": {
+        "type": "one-stage",
+        "backbone": "Neural-Architecture-Search (AutoNAC)",
+        "neck": "PANet",
+        "head": "Decoupled (anchor-free, distribution focal loss)"
+      },
+      "detectionApproach": "anchor-free",
+      "postprocessing": "nms",
+      "specs": {
+        "paramsM": 19.02,
+        "flopsG": 32.8,
+        "inputSizeDefault": 640,
+        "numClasses": 80
+      },
+      "paperReportedMap": 47.5,
+      "source": {
+        "originalWeightsUrl": "https://sg-hub-nv.s3.amazonaws.com/yolo_nas",
+        "libreyoloWeightsUrl": null
+      },
+      "license": "Apache-2.0",
+      "releaseDate": "2023-05-08",
+      "inLibreYOLO": true,
+      "notes": "Weights are auto-downloaded from Deci's CloudFront CDN (d2gjn4b69gu75n.cloudfront.net) inside LibreYOLO. License is Apache-2.0 with a non-commercial attribution clause for the pretrained weights \u2014 see the upstream super_gradients repo."
+    },
+    {
+      "id": "yolonas-m",
+      "displayName": "YOLO-NAS-M",
+      "family": "yolonas",
+      "variant": "m",
+      "task": "detection",
+      "architecture": {
+        "type": "one-stage",
+        "backbone": "Neural-Architecture-Search (AutoNAC)",
+        "neck": "PANet",
+        "head": "Decoupled (anchor-free, distribution focal loss)"
+      },
+      "detectionApproach": "anchor-free",
+      "postprocessing": "nms",
+      "specs": {
+        "paramsM": 51.1,
+        "flopsG": 88.9,
+        "inputSizeDefault": 640,
+        "numClasses": 80
+      },
+      "paperReportedMap": 51.55,
+      "source": {
+        "originalWeightsUrl": "https://sg-hub-nv.s3.amazonaws.com/yolo_nas",
+        "libreyoloWeightsUrl": null
+      },
+      "license": "Apache-2.0",
+      "releaseDate": "2023-05-08",
+      "inLibreYOLO": true,
+      "notes": "Weights are auto-downloaded from Deci's CloudFront CDN (d2gjn4b69gu75n.cloudfront.net) inside LibreYOLO. License is Apache-2.0 with a non-commercial attribution clause for the pretrained weights \u2014 see the upstream super_gradients repo."
+    },
+    {
+      "id": "yolonas-l",
+      "displayName": "YOLO-NAS-L",
+      "family": "yolonas",
+      "variant": "l",
+      "task": "detection",
+      "architecture": {
+        "type": "one-stage",
+        "backbone": "Neural-Architecture-Search (AutoNAC)",
+        "neck": "PANet",
+        "head": "Decoupled (anchor-free, distribution focal loss)"
+      },
+      "detectionApproach": "anchor-free",
+      "postprocessing": "nms",
+      "specs": {
+        "paramsM": 66.97,
+        "flopsG": 116.6,
+        "inputSizeDefault": 640,
+        "numClasses": 80
+      },
+      "paperReportedMap": 52.22,
+      "source": {
+        "originalWeightsUrl": "https://sg-hub-nv.s3.amazonaws.com/yolo_nas",
+        "libreyoloWeightsUrl": null
+      },
+      "license": "Apache-2.0",
+      "releaseDate": "2023-05-08",
+      "inLibreYOLO": true,
+      "notes": "Weights are auto-downloaded from Deci's CloudFront CDN (d2gjn4b69gu75n.cloudfront.net) inside LibreYOLO. License is Apache-2.0 with a non-commercial attribution clause for the pretrained weights \u2014 see the upstream super_gradients repo."
     }
   ]
 }

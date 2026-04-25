@@ -142,6 +142,24 @@
       },
       "originalRepo": "https://github.com/Peterande/D-FINE",
       "trainingDataset": "COCO train2017"
+    },
+    {
+      "id": "yolonas",
+      "displayName": "YOLO-NAS",
+      "organization": "Deci AI (acquired by NVIDIA)",
+      "paper": {
+        "title": "YOLO-NAS by Deci",
+        "authors": [
+          "Eugene Khvedchenya",
+          "Shay Aharon",
+          "Eran Bezalel",
+          "Lotem Fridman"
+        ],
+        "venue": "Deci AI technical report 2023",
+        "url": "https://github.com/Deci-AI/super-gradients/blob/master/YOLONAS.md"
+      },
+      "originalRepo": "https://github.com/Deci-AI/super-gradients",
+      "trainingDataset": "Objects365 + COCO + Roboflow-100"
     }
   ]
 }
