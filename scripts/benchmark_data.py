@@ -136,16 +136,22 @@ def validate_submission(submission: dict[str, Any], support: dict[str, Any], sou
         errors.append(f"{source}: hardware.id must be non-empty")
 
     if benchmark:
-        supported_identifier = support.get("supported_libreyolo_identifier")
+        supported_raw = support.get("supported_libreyolo_identifier")
+        if isinstance(supported_raw, str):
+            supported_identifiers: list[str] = [supported_raw]
+        elif isinstance(supported_raw, list):
+            supported_identifiers = [s for s in supported_raw if isinstance(s, str)]
+        else:
+            supported_identifiers = []
         submission_identifier = benchmark.get("libreyolo_commit")
         if (
-            supported_identifier
+            supported_identifiers
             and submission_identifier
             and submission_identifier != "unknown"
-            and submission_identifier != supported_identifier
+            and submission_identifier not in supported_identifiers
         ):
             errors.append(
-                f"{source}: libreyolo_commit {submission_identifier} does not match support matrix"
+                f"{source}: libreyolo_commit {submission_identifier} not in support matrix"
             )
 
     if submission_id and not submission_id.strip():
