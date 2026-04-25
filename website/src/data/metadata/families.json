@@ -6,7 +6,13 @@
       "organization": "Megvii",
       "paper": {
         "title": "YOLOX: Exceeding YOLO Series in 2021",
-        "authors": ["Zheng Ge", "Songtao Liu", "Feng Wang", "Zeming Li", "Jian Sun"],
+        "authors": [
+          "Zheng Ge",
+          "Songtao Liu",
+          "Feng Wang",
+          "Zeming Li",
+          "Jian Sun"
+        ],
         "venue": "arXiv 2021",
         "url": "https://arxiv.org/abs/2107.08430"
       },
@@ -19,7 +25,11 @@
       "organization": "Academia Sinica",
       "paper": {
         "title": "YOLOv9: Learning What You Want to Learn Using Programmable Gradient Information",
-        "authors": ["Chien-Yao Wang", "I-Hau Yeh", "Hong-Yuan Mark Liao"],
+        "authors": [
+          "Chien-Yao Wang",
+          "I-Hau Yeh",
+          "Hong-Yuan Mark Liao"
+        ],
         "venue": "ECCV 2024",
         "url": "https://arxiv.org/abs/2402.13616"
       },
@@ -32,7 +42,11 @@
       "organization": "Ultralytics",
       "paper": {
         "title": "YOLOv8 by Ultralytics",
-        "authors": ["Glenn Jocher", "Ayush Chaurasia", "Jing Qiu"],
+        "authors": [
+          "Glenn Jocher",
+          "Ayush Chaurasia",
+          "Jing Qiu"
+        ],
         "venue": "Ultralytics 2023",
         "url": "https://docs.ultralytics.com/models/yolov8/"
       },
@@ -45,7 +59,12 @@
       "organization": "Tsinghua University",
       "paper": {
         "title": "YOLOv10: Real-Time End-to-End Object Detection",
-        "authors": ["Ao Wang", "Hui Chen", "Lihao Liu", "et al."],
+        "authors": [
+          "Ao Wang",
+          "Hui Chen",
+          "Lihao Liu",
+          "et al."
+        ],
         "venue": "NeurIPS 2024",
         "url": "https://arxiv.org/abs/2405.14458"
       },
@@ -58,7 +77,10 @@
       "organization": "Ultralytics",
       "paper": {
         "title": "YOLO11 by Ultralytics",
-        "authors": ["Glenn Jocher", "Jing Qiu"],
+        "authors": [
+          "Glenn Jocher",
+          "Jing Qiu"
+        ],
         "venue": "Ultralytics 2024",
         "url": "https://docs.ultralytics.com/models/yolo11/"
       },
@@ -71,7 +93,13 @@
       "organization": "Baidu",
       "paper": {
         "title": "DETRs Beat YOLOs on Real-time Object Detection",
-        "authors": ["Yian Zhao", "Wenyu Lv", "Shangliang Xu", "Jinman Wei", "et al."],
+        "authors": [
+          "Yian Zhao",
+          "Wenyu Lv",
+          "Shangliang Xu",
+          "Jinman Wei",
+          "et al."
+        ],
         "venue": "CVPR 2024",
         "url": "https://arxiv.org/abs/2304.08069"
       },
@@ -84,11 +112,35 @@
       "organization": "Roboflow",
       "paper": {
         "title": "RF-DETR: Real-Time Detection Transformer",
-        "authors": ["Peter Robicheaux", "Matvei Popov", "Joseph Nelson"],
+        "authors": [
+          "Peter Robicheaux",
+          "Matvei Popov",
+          "Joseph Nelson"
+        ],
         "venue": "Roboflow 2025",
         "url": "https://blog.roboflow.com/rf-detr"
       },
       "originalRepo": "https://github.com/roboflow/rf-detr",
+      "trainingDataset": "COCO train2017"
+    },
+    {
+      "id": "dfine",
+      "displayName": "D-FINE",
+      "organization": "USTC",
+      "paper": {
+        "title": "D-FINE: Redefine Regression Task in DETRs as Fine-grained Distribution Refinement",
+        "authors": [
+          "Yansong Peng",
+          "Hebei Li",
+          "Peixi Wu",
+          "Yueyi Zhang",
+          "Xiaoyan Sun",
+          "Feng Wu"
+        ],
+        "venue": "ICLR 2025",
+        "url": "https://arxiv.org/abs/2410.13842"
+      },
+      "originalRepo": "https://github.com/Peterande/D-FINE",
       "trainingDataset": "COCO train2017"
     }
   ]

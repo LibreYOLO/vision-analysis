@@ -1014,6 +1014,151 @@
       "license": "Apache-2.0",
       "releaseDate": "2025-02-24",
       "inLibreYOLO": false
+    },
+    {
+      "id": "dfine-n",
+      "displayName": "D-FINE-N",
+      "family": "dfine",
+      "variant": "n",
+      "task": "detection",
+      "architecture": {
+        "type": "transformer",
+        "backbone": "HGNetv2",
+        "neck": "HybridEncoder",
+        "head": "FDR (Fine-grained Distribution Refinement)"
+      },
+      "detectionApproach": "detr",
+      "postprocessing": "nms-free",
+      "specs": {
+        "paramsM": 4.0,
+        "flopsG": 7.0,
+        "inputSizeDefault": 640,
+        "numClasses": 80
+      },
+      "paperReportedMap": 42.8,
+      "source": {
+        "originalWeightsUrl": "https://github.com/Peterande/D-FINE/releases",
+        "libreyoloWeightsUrl": "https://huggingface.co/LibreYOLO/LibreDFINEn"
+      },
+      "license": "Apache-2.0",
+      "releaseDate": "2024-10-18",
+      "inLibreYOLO": true
+    },
+    {
+      "id": "dfine-s",
+      "displayName": "D-FINE-S",
+      "family": "dfine",
+      "variant": "s",
+      "task": "detection",
+      "architecture": {
+        "type": "transformer",
+        "backbone": "HGNetv2",
+        "neck": "HybridEncoder",
+        "head": "FDR (Fine-grained Distribution Refinement)"
+      },
+      "detectionApproach": "detr",
+      "postprocessing": "nms-free",
+      "specs": {
+        "paramsM": 10.0,
+        "flopsG": 25.0,
+        "inputSizeDefault": 640,
+        "numClasses": 80
+      },
+      "paperReportedMap": 48.7,
+      "source": {
+        "originalWeightsUrl": "https://github.com/Peterande/D-FINE/releases",
+        "libreyoloWeightsUrl": "https://huggingface.co/LibreYOLO/LibreDFINEs"
+      },
+      "license": "Apache-2.0",
+      "releaseDate": "2024-10-18",
+      "inLibreYOLO": true
+    },
+    {
+      "id": "dfine-m",
+      "displayName": "D-FINE-M",
+      "family": "dfine",
+      "variant": "m",
+      "task": "detection",
+      "architecture": {
+        "type": "transformer",
+        "backbone": "HGNetv2",
+        "neck": "HybridEncoder",
+        "head": "FDR (Fine-grained Distribution Refinement)"
+      },
+      "detectionApproach": "detr",
+      "postprocessing": "nms-free",
+      "specs": {
+        "paramsM": 19.0,
+        "flopsG": 57.0,
+        "inputSizeDefault": 640,
+        "numClasses": 80
+      },
+      "paperReportedMap": 52.3,
+      "source": {
+        "originalWeightsUrl": "https://github.com/Peterande/D-FINE/releases",
+        "libreyoloWeightsUrl": "https://huggingface.co/LibreYOLO/LibreDFINEm"
+      },
+      "license": "Apache-2.0",
+      "releaseDate": "2024-10-18",
+      "inLibreYOLO": true
+    },
+    {
+      "id": "dfine-l",
+      "displayName": "D-FINE-L",
+      "family": "dfine",
+      "variant": "l",
+      "task": "detection",
+      "architecture": {
+        "type": "transformer",
+        "backbone": "HGNetv2",
+        "neck": "HybridEncoder",
+        "head": "FDR (Fine-grained Distribution Refinement)"
+      },
+      "detectionApproach": "detr",
+      "postprocessing": "nms-free",
+      "specs": {
+        "paramsM": 31.0,
+        "flopsG": 91.0,
+        "inputSizeDefault": 640,
+        "numClasses": 80
+      },
+      "paperReportedMap": 54.0,
+      "source": {
+        "originalWeightsUrl": "https://github.com/Peterande/D-FINE/releases",
+        "libreyoloWeightsUrl": "https://huggingface.co/LibreYOLO/LibreDFINEl"
+      },
+      "license": "Apache-2.0",
+      "releaseDate": "2024-10-18",
+      "inLibreYOLO": true
+    },
+    {
+      "id": "dfine-x",
+      "displayName": "D-FINE-X",
+      "family": "dfine",
+      "variant": "x",
+      "task": "detection",
+      "architecture": {
+        "type": "transformer",
+        "backbone": "HGNetv2",
+        "neck": "HybridEncoder",
+        "head": "FDR (Fine-grained Distribution Refinement)"
+      },
+      "detectionApproach": "detr",
+      "postprocessing": "nms-free",
+      "specs": {
+        "paramsM": 62.0,
+        "flopsG": 202.0,
+        "inputSizeDefault": 640,
+        "numClasses": 80
+      },
+      "paperReportedMap": 55.8,
+      "source": {
+        "originalWeightsUrl": "https://github.com/Peterande/D-FINE/releases",
+        "libreyoloWeightsUrl": "https://huggingface.co/LibreYOLO/LibreDFINEx"
+      },
+      "license": "Apache-2.0",
+      "releaseDate": "2024-10-18",
+      "inLibreYOLO": true
     }
   ]
 }
