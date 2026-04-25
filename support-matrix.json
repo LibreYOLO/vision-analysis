@@ -28,7 +28,10 @@
     "dfine-s",
     "dfine-m",
     "dfine-l",
-    "dfine-x"
+    "dfine-x",
+    "yolonas-s",
+    "yolonas-m",
+    "yolonas-l"
   ],
   "runtimes": [
     {
