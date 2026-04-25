@@ -755,6 +755,35 @@
       "inLibreYOLO": false
     },
     {
+      "id": "rtdetr-r34",
+      "displayName": "RT-DETR-R34",
+      "family": "rtdetr",
+      "variant": "r34",
+      "task": "detection",
+      "architecture": {
+        "type": "transformer",
+        "backbone": "ResNet-34",
+        "neck": "HybridEncoder",
+        "head": "DETR"
+      },
+      "detectionApproach": "detr",
+      "postprocessing": "nms-free",
+      "specs": {
+        "paramsM": 31.0,
+        "flopsG": 91.0,
+        "inputSizeDefault": 640,
+        "numClasses": 80
+      },
+      "paperReportedMap": 48.5,
+      "source": {
+        "originalWeightsUrl": "https://github.com/lyuwenyu/RT-DETR/releases",
+        "libreyoloWeightsUrl": null
+      },
+      "license": "Apache-2.0",
+      "releaseDate": "2023-04-17",
+      "inLibreYOLO": false
+    },
+    {
       "id": "rtdetr-r50",
       "displayName": "RT-DETR-R50",
       "family": "rtdetr",
@@ -782,6 +811,35 @@
       "license": "Apache-2.0",
       "releaseDate": "2023-04-17",
       "inLibreYOLO": false
+    },
+    {
+      "id": "rtdetr-r50m",
+      "displayName": "RT-DETR-R50m",
+      "family": "rtdetr",
+      "variant": "r50m",
+      "task": "detection",
+      "architecture": {
+        "type": "transformer",
+        "backbone": "ResNet-50",
+        "neck": "HybridEncoder (0.5 expansion)",
+        "head": "DETR (eval at decoder layer 3 of 6)"
+      },
+      "detectionApproach": "detr",
+      "postprocessing": "nms-free",
+      "specs": {
+        "paramsM": 36.6,
+        "flopsG": 0.0,
+        "inputSizeDefault": 640,
+        "numClasses": 80
+      },
+      "source": {
+        "originalWeightsUrl": null,
+        "libreyoloWeightsUrl": "https://huggingface.co/LibreYOLO/LibreRTDETRr50m"
+      },
+      "license": "Apache-2.0",
+      "releaseDate": "2026-04-22",
+      "inLibreYOLO": true,
+      "notes": "LibreYOLO-specific RT-DETR variant: half-width hybrid encoder and early decoder exit (layer 3 of 6) for a faster speed/accuracy tradeoff. Not in the original RT-DETR paper."
     },
     {
       "id": "rtdetr-r101",
