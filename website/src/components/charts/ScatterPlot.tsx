@@ -18,6 +18,7 @@ interface ScatterPlotProps {
   showPareto?: boolean;
   height?: number;
   xAxis?: "paramsM" | "flopsG";
+  connectFamilies?: boolean;
 }
 
 export function ScatterPlot({
@@ -25,6 +26,7 @@ export function ScatterPlot({
   showPareto = true,
   height = 400,
   xAxis = "paramsM",
+  connectFamilies = false,
 }: ScatterPlotProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const router = useRouter();
@@ -54,6 +56,31 @@ export function ScatterPlot({
 
     const marks: Plot.Markish[] = [];
 
+    // Per-family connecting lines
+    if (connectFamilies) {
+      const byFamily = new Map<string, typeof plotData>();
+      for (const d of plotData) {
+        if (!byFamily.has(d.family)) byFamily.set(d.family, []);
+        byFamily.get(d.family)!.push(d);
+      }
+      for (const [family, points] of byFamily) {
+        if (points.length < 2) continue;
+        const sorted = [...points].sort(
+          (a, b) => (a[xAxis] as number) - (b[xAxis] as number)
+        );
+        marks.push(
+          Plot.line(sorted, {
+            x: xAxis,
+            y: "mAP_50_95",
+            stroke: getFamilyColor(family),
+            strokeWidth: 2,
+            strokeOpacity: 0.6,
+            curve: "linear",
+          })
+        );
+      }
+    }
+
     // Pareto frontier line
     if (showPareto && sortedPareto.length > 1) {
       marks.push(
@@ -79,20 +106,6 @@ export function ScatterPlot({
         tip: true,
         title: (d: BenchmarkResult & { color: string }) =>
           `${d.model}\nmAP: ${d.mAP_50_95.toFixed(1)}%\nFPS: ${d.throughputFps.toFixed(1)}\nLatency: ${d.totalMs.toFixed(1)}ms\nParams: ${d.paramsM.toFixed(1)}M`,
-        href: (d: BenchmarkResult & { color: string }) => `/model/${d.model}`,
-      })
-    );
-
-    // Labels
-    marks.push(
-      Plot.text(plotData, {
-        x: xAxis,
-        y: "mAP_50_95",
-        text: "model",
-        dy: -14,
-        fontSize: 11,
-        fill: fgColor,
-        fontWeight: 500,
         href: (d: BenchmarkResult & { color: string }) => `/model/${d.model}`,
       })
     );
@@ -147,7 +160,16 @@ export function ScatterPlot({
     return () => {
       plot.remove();
     };
-  }, [data, paretoPoints, showPareto, height, xAxis, router, resolvedTheme]);
+  }, [
+    data,
+    paretoPoints,
+    showPareto,
+    height,
+    xAxis,
+    router,
+    resolvedTheme,
+    connectFamilies,
+  ]);
 
   return (
     <div className="w-full">

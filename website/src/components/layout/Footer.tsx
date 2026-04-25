@@ -22,11 +22,6 @@ export function Footer() {
                     Compare Models
                   </Link>
                 </li>
-                <li>
-                  <Link href="/hardware" className="hover:text-white transition-colors">
-                    Hardware
-                  </Link>
-                </li>
               </ul>
             </div>
 
@@ -45,13 +40,18 @@ export function Footer() {
                 </li>
                 <li>
                   <Link href="/about" className="hover:text-white transition-colors">
-                    Methodology
+                    About
                   </Link>
                 </li>
                 <li>
-                  <Link href="/about" className="hover:text-white transition-colors">
-                    API
-                  </Link>
+                  <a
+                    href="https://github.com/LibreYOLO/vision-analysis/tree/main/submissions"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-white transition-colors"
+                  >
+                    Submit a Benchmark
+                  </a>
                 </li>
               </ul>
             </div>
@@ -91,8 +91,7 @@ export function Footer() {
               <span className="font-bold text-lg text-white">{siteConfig.name}</span>
             </div>
             <p className="text-sm text-slate-400 xl:text-right max-w-xs">
-              Credible and deep analysis of computer vision models.
-              Benchmarks powered by LibreYOLO.
+              Credible benchmarks for object detection models.
             </p>
             {/* Social links */}
             <div className="flex items-center space-x-3">

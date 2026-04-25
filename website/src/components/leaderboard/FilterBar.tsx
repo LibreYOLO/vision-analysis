@@ -20,6 +20,8 @@ interface FilterBarProps {
   hardwareOptions: Array<{ value: string; label: string }>;
   runtimeOptions: Array<{ value: string; label: string }>;
   families: string[];
+  paretoLine?: boolean;
+  onParetoLineChange?: (value: boolean) => void;
 }
 
 export function FilterBar({
@@ -33,7 +35,10 @@ export function FilterBar({
   hardwareOptions,
   runtimeOptions,
   families,
+  paretoLine,
+  onParetoLineChange,
 }: FilterBarProps) {
+  const noFamilyFilter = selectedFamilies.length === 0;
   return (
     <div className="bg-card rounded-md p-3 border-b border-border">
       <div className="flex flex-col sm:flex-row gap-3 items-start sm:items-center justify-between">
@@ -66,6 +71,19 @@ export function FilterBar({
             </SelectContent>
           </Select>
 
+          {/* Pareto line toggle */}
+          {onParetoLineChange && (
+            <label className="flex items-center gap-2 text-sm text-muted-foreground cursor-pointer select-none h-9 px-2">
+              <input
+                type="checkbox"
+                checked={!!paretoLine}
+                onChange={(e) => onParetoLineChange(e.target.checked)}
+                className="h-4 w-4 rounded border-border accent-foreground cursor-pointer"
+              />
+              Pareto line
+            </label>
+          )}
+
           {/* Separator */}
           <div className="w-px h-6 bg-border hidden sm:block" />
 
@@ -73,13 +91,14 @@ export function FilterBar({
           <div className="flex flex-wrap items-center gap-1.5">
             {families.map((family) => {
               const isSelected = selectedFamilies.includes(family);
+              const looksActive = noFamilyFilter || isSelected;
               return (
                 <button
                   key={family}
                   onClick={() => onFamilyToggle(family)}
                   className={cn(
                     "filter-chip",
-                    isSelected ? "filter-chip-active" : "text-foreground"
+                    looksActive ? "filter-chip-active" : "text-foreground"
                   )}
                 >
                   {family}

@@ -5,7 +5,7 @@ import { BenchmarkResult } from "@/lib/types";
 import { filterByFamilies } from "@/lib/data/utils";
 import { LeaderboardTable } from "./LeaderboardTable";
 import { FilterBar } from "./FilterBar";
-import { ScatterPlot, SpeedBreakdown } from "@/components/charts";
+import { ScatterPlot } from "@/components/charts";
 
 interface LeaderboardDashboardProps {
   benchmarkData: Record<string, BenchmarkResult[]>;
@@ -21,6 +21,7 @@ export function LeaderboardDashboard({
   const [hardware, setHardware] = useState("a100");
   const [runtime, setRuntime] = useState("pytorch_fp32");
   const [selectedFamilies, setSelectedFamilies] = useState<string[]>([]);
+  const [paretoLine, setParetoLine] = useState(true);
 
   // Get available runtimes for the selected hardware
   const runtimeOptions = useMemo(() => {
@@ -31,6 +32,15 @@ export function LeaderboardDashboard({
         return { value: rt, label: rt.replace("_", " ").toUpperCase() };
       });
   }, [benchmarkData, hardware]);
+
+  const hardwareLabel = useMemo(
+    () => hardwareOptions.find((o) => o.value === hardware)?.label ?? hardware,
+    [hardwareOptions, hardware]
+  );
+  const runtimeLabel = useMemo(
+    () => runtimeOptions.find((o) => o.value === runtime)?.label ?? runtime,
+    [runtimeOptions, runtime]
+  );
 
   // Get data for selected hardware + runtime
   const allResults = useMemo(() => {
@@ -84,6 +94,8 @@ export function LeaderboardDashboard({
             hardwareOptions={hardwareOptions}
             runtimeOptions={runtimeOptions}
             families={families}
+            paretoLine={paretoLine}
+            onParetoLineChange={setParetoLine}
           />
 
           {/* Scatter Chart Card */}
@@ -95,57 +107,11 @@ export function LeaderboardDashboard({
               </p>
             </div>
             <div className="p-4">
-              <ScatterPlot data={filteredResults} showPareto={false} height={420} />
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Section: Speed & Latency */}
-      <div className="section-group">
-        <div className="section-group-header">
-          <h2>Speed &amp; Latency</h2>
-          <p className="text-base text-foreground">
-            End-to-end inference speed including preprocessing, model inference, and postprocessing (NMS).
-          </p>
-        </div>
-        <div className="section-group-content">
-          <div className="chart-card">
-            <div className="chart-card-header">
-              <h3>End-to-End Speed Breakdown</h3>
-              <p className="chart-card-subtitle">
-                Complete pipeline timing: preprocessing, inference, and postprocessing per image.
-              </p>
-            </div>
-            <div className="p-4">
-              <SpeedBreakdown data={filteredResults} limit={20} />
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Section: Efficiency */}
-      <div className="section-group">
-        <div className="section-group-header">
-          <h2>Efficiency</h2>
-          <p className="text-base text-foreground">
-            Accuracy per unit of compute - how much mAP you get per GFLOP. Critical for edge deployment.
-          </p>
-        </div>
-        <div className="section-group-content">
-          <div className="chart-card">
-            <div className="chart-card-header">
-              <h3>Accuracy vs Speed</h3>
-              <p className="chart-card-subtitle">
-                mAP@50-95 plotted against throughput (FPS). Upper-right is the ideal sweet spot.
-              </p>
-            </div>
-            <div className="p-4">
               <ScatterPlot
                 data={filteredResults}
                 showPareto={false}
                 height={420}
-                xAxis="flopsG"
+                connectFamilies={paretoLine}
               />
             </div>
           </div>
@@ -157,7 +123,9 @@ export function LeaderboardDashboard({
         <div className="section-group-header">
           <h2>Leaderboard</h2>
           <p className="text-base text-foreground">
-            Full ranking of all benchmarked models. Click column headers to sort.
+            Full ranking of all benchmarked models on{" "}
+            <span className="font-medium text-foreground">{hardwareLabel}</span>{" "}
+            ({runtimeLabel}). Speed numbers reflect this hardware — switch hardware in the filter above to compare. Click column headers to sort.
           </p>
         </div>
         <div className="section-group-content">

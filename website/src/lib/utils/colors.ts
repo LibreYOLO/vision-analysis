@@ -9,6 +9,7 @@ export const FAMILY_COLORS: Record<ModelFamily | string, string> = {
   yolo11: "#0B23A9",   // Ultralytics navy
   rtdetr: "#de2910",   // Baidu red
   rfdetr: "#22c55e",   // Roboflow green
+  yolonas: "#16a34a",  // Deci green
   other: "#6b7280",    // gray
 };
 

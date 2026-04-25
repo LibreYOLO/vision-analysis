@@ -30,38 +30,8 @@ export default function AboutPage() {
           </div>
           <div className="section-group-content prose max-w-none">
             <p className="text-base text-foreground leading-relaxed">
-              Vision Analysis provides credible, reproducible benchmarks for object detection models.
-              We publish raw measurements first: mAP, latency, throughput, memory, runtime, hardware, and provenance.
+              Vision Analysis provides credible benchmarks for object detection models.
               All benchmarks are run using <a href={benchmarkRepoUrl} className="text-brand hover:underline" target="_blank" rel="noopener noreferrer">vision-analysis-benchmark</a> on top of <a href={siteConfig.links.github} className="text-brand hover:underline" target="_blank" rel="noopener noreferrer">LibreYOLO</a>.
-            </p>
-          </div>
-        </div>
-
-        <div className="section-group">
-          <div className="section-group-header">
-            <h2>What We Publish</h2>
-          </div>
-          <div className="section-group-content">
-            <p className="text-base text-foreground leading-relaxed mb-4">
-              Vision Analysis does not currently publish a composite score. The site shows atomic metrics only, so every row is traceable back to one benchmark run.
-            </p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-              {[
-                { metric: "Accuracy", desc: "COCO mAP metrics from the benchmark output." },
-                { metric: "Latency", desc: "Measured end-to-end milliseconds per image." },
-                { metric: "Throughput", desc: "Images per second from the same run." },
-                { metric: "Memory", desc: "RAM and VRAM where the runtime can measure them." },
-                { metric: "Runtime", desc: "Backend, provider, precision, and actual input size used." },
-                { metric: "Provenance", desc: "Harness version, LibreYOLO commit, hardware, and config." },
-              ].map((item) => (
-                <div key={item.metric} className="bg-surface-muted rounded p-4">
-                  <p className="font-semibold text-sm text-brand mb-1">{item.metric}</p>
-                  <p className="text-sm text-muted-foreground">{item.desc}</p>
-                </div>
-              ))}
-            </div>
-            <p className="text-sm text-muted-foreground mt-4">
-              If Vision Analysis introduces a score later, it should be computed downstream from stored benchmark records, not inside the harness.
             </p>
           </div>
         </div>
