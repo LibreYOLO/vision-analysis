@@ -1,6 +1,9 @@
 {
   "schema_version": "va.support-matrix.v1",
-  "supported_libreyolo_identifier": "1c70efb05a78d1a6e82f29478283883fc9bf38f9",
+  "supported_libreyolo_identifier": [
+    "1c70efb05a78d1a6e82f29478283883fc9bf38f9",
+    "3383a8f142a5decc735f362258f6851d3f026fa3"
+  ],
   "models": [
     "yolox-nano",
     "yolox-tiny",
@@ -20,7 +23,12 @@
     "rtdetr-r34",
     "rtdetr-r50",
     "rtdetr-r50m",
-    "rtdetr-r101"
+    "rtdetr-r101",
+    "dfine-n",
+    "dfine-s",
+    "dfine-m",
+    "dfine-l",
+    "dfine-x"
   ],
   "runtimes": [
     {
