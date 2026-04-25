@@ -1,7 +1,7 @@
 {
   "schema_version": "va.submission.v1",
-  "submission_id": "yolonas-m-pytorch-cuda-a100-20260425T125432Z",
-  "created_at": "2026-04-25T12:54:32.622272Z",
+  "submission_id": "yolonas-s-pytorch-cuda-a100-20260425T134742Z",
+  "created_at": "2026-04-25T13:47:42.420405Z",
   "benchmark": {
     "harness": "vision-analysis-benchmark",
     "harness_version": "2.0.0",
@@ -9,12 +9,12 @@
     "libreyolo_commit": "unknown"
   },
   "model": {
-    "id": "yolonas-m",
-    "name": "yolo-nas-m",
+    "id": "yolonas-s",
+    "name": "yolo-nas-s",
     "family": "yolonas",
-    "variant": "m",
+    "variant": "s",
     "source": "libreyolo",
-    "weights": "LibreYOLONASm.pt",
+    "weights": "LibreYOLONASs.pt",
     "input_size": 640
   },
   "dataset": {
@@ -26,7 +26,7 @@
     "batch_size": 1,
     "input_size": 640,
     "conf": 0.001,
-    "iou": 0.6,
+    "iou": 0.7,
     "max_det": 300
   },
   "hardware": {
@@ -47,47 +47,47 @@
     "onnxruntime": "not-installed"
   },
   "accuracy": {
-    "mAP_50_95": 0.5053201009790595,
-    "mAP_50": 0.680631835509829,
-    "mAP_75": 0.5481069347240959,
-    "mAP_small": 0.33341324057751653,
-    "mAP_medium": 0.5609877817843523,
-    "mAP_large": 0.66780249864481,
-    "AR1": 0.3796781183403016,
-    "AR10": 0.6093526447279121,
-    "AR100": 0.6531268343504432,
-    "AR_small": 0.46148355958035026,
-    "AR_medium": 0.7111089195691962,
-    "AR_large": 0.8183129469284762
+    "mAP_50_95": 0.4710812396453661,
+    "mAP_50": 0.6391128381554464,
+    "mAP_75": 0.5156815134984472,
+    "mAP_small": 0.27930062561933633,
+    "mAP_medium": 0.5276397915158181,
+    "mAP_large": 0.6378335029120608,
+    "AR1": 0.3590976537422601,
+    "AR10": 0.5829254624040469,
+    "AR100": 0.6312699416025487,
+    "AR_small": 0.4118734735270816,
+    "AR_medium": 0.7005551541546743,
+    "AR_large": 0.8066536406366882
   },
   "timing": {
     "batch_size": 1,
     "num_images": 5000,
     "total_ms": {
-      "mean": 58.919,
-      "std": 11.085,
-      "p50": 58.852,
-      "p95": 66.654,
-      "p99": 70.503,
-      "preprocess_ms": 4.523,
-      "inference_ms": 20.288,
-      "postprocess_ms": 34.108
+      "mean": 62.382,
+      "std": 9.687,
+      "p50": 62.545,
+      "p95": 68.666,
+      "p99": 71.456,
+      "preprocess_ms": 7.14,
+      "inference_ms": 19.105,
+      "postprocess_ms": 36.137
     }
   },
   "throughput": {
-    "fps_mean": 16.97,
-    "fps_p50": 16.99
+    "fps_mean": 16.03,
+    "fps_p50": 15.99
   },
   "model_stats": {
-    "params_millions": 51.18,
-    "gflops": 88.9
+    "params_millions": 19.05,
+    "gflops": 32.8
   },
   "memory": {
-    "peak_vram_mb": 362.8,
-    "peak_ram_mb": 765.2
+    "peak_vram_mb": 173.7,
+    "peak_ram_mb": 859.6
   },
   "metadata": {
-    "benchmark_date": "2026-04-25T12:54:32.622272Z",
+    "benchmark_date": "2026-04-25T13:47:42.420405Z",
     "benchmark_version": "2.0.0"
   },
   "eval": {

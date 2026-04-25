@@ -1,6 +1,6 @@
 {
   "schema_version": "va.verified-results.v1",
-  "generated_at": "2026-04-25T13:01:20.704653Z",
+  "generated_at": "2026-04-25T14:01:44.939716Z",
   "results": [
     {
       "schema_version": "va.submission.v1",
@@ -110,7 +110,7 @@
         "device": "gpu"
       },
       "source_file": "yolox-nano__pytorch__cuda__a100__20260422T210738517662Z.json",
-      "verified_at": "2026-04-25T13:01:20.704653Z"
+      "verified_at": "2026-04-25T14:01:44.939716Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -220,7 +220,7 @@
         "device": "gpu"
       },
       "source_file": "yolox-tiny__pytorch__cuda__a100__20260422T211048259826Z.json",
-      "verified_at": "2026-04-25T13:01:20.704653Z"
+      "verified_at": "2026-04-25T14:01:44.939716Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -330,7 +330,7 @@
         "device": "gpu"
       },
       "source_file": "yolox-s__pytorch__cuda__a100__20260422T211415726273Z.json",
-      "verified_at": "2026-04-25T13:01:20.704653Z"
+      "verified_at": "2026-04-25T14:01:44.939716Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -440,7 +440,7 @@
         "device": "gpu"
       },
       "source_file": "yolox-m__pytorch__cuda__a100__20260422T211755804986Z.json",
-      "verified_at": "2026-04-25T13:01:20.704653Z"
+      "verified_at": "2026-04-25T14:01:44.939716Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -550,7 +550,7 @@
         "device": "gpu"
       },
       "source_file": "yolox-l__pytorch__cuda__a100__20260422T212137557221Z.json",
-      "verified_at": "2026-04-25T13:01:20.704653Z"
+      "verified_at": "2026-04-25T14:01:44.939716Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -660,7 +660,7 @@
         "device": "gpu"
       },
       "source_file": "yolox-x__pytorch__cuda__a100__20260422T212545950868Z.json",
-      "verified_at": "2026-04-25T13:01:20.704653Z"
+      "verified_at": "2026-04-25T14:01:44.939716Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -770,7 +770,7 @@
         "device": "gpu"
       },
       "source_file": "yolov9t__pytorch__cuda__a100__20260422T213021533387Z.json",
-      "verified_at": "2026-04-25T13:01:20.704653Z"
+      "verified_at": "2026-04-25T14:01:44.939716Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -880,7 +880,7 @@
         "device": "gpu"
       },
       "source_file": "yolov9s__pytorch__cuda__a100__20260422T213440148659Z.json",
-      "verified_at": "2026-04-25T13:01:20.704653Z"
+      "verified_at": "2026-04-25T14:01:44.939716Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -990,7 +990,7 @@
         "device": "gpu"
       },
       "source_file": "yolov9m__pytorch__cuda__a100__20260422T213842693352Z.json",
-      "verified_at": "2026-04-25T13:01:20.704653Z"
+      "verified_at": "2026-04-25T14:01:44.939716Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -1100,7 +1100,7 @@
         "device": "gpu"
       },
       "source_file": "yolov9c__pytorch__cuda__a100__20260422T214225175023Z.json",
-      "verified_at": "2026-04-25T13:01:20.704653Z"
+      "verified_at": "2026-04-25T14:01:44.939716Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -1210,7 +1210,7 @@
         "device": "gpu"
       },
       "source_file": "rtdetr-r18__pytorch__cuda__a100__20260425T102126737426Z.json",
-      "verified_at": "2026-04-25T13:01:20.704653Z"
+      "verified_at": "2026-04-25T14:01:44.939716Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -1320,7 +1320,7 @@
         "device": "gpu"
       },
       "source_file": "rtdetr-r34__pytorch__cuda__a100__20260425T102653752131Z.json",
-      "verified_at": "2026-04-25T13:01:20.704653Z"
+      "verified_at": "2026-04-25T14:01:44.939716Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -1430,7 +1430,7 @@
         "device": "gpu"
       },
       "source_file": "rtdetr-r50__pytorch__cuda__a100__20260425T103244508474Z.json",
-      "verified_at": "2026-04-25T13:01:20.704653Z"
+      "verified_at": "2026-04-25T14:01:44.939716Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -1540,7 +1540,7 @@
         "device": "gpu"
       },
       "source_file": "rtdetr-r50m__pytorch__cuda__a100__20260425T103803976286Z.json",
-      "verified_at": "2026-04-25T13:01:20.704653Z"
+      "verified_at": "2026-04-25T14:01:44.939716Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -1650,7 +1650,7 @@
         "device": "gpu"
       },
       "source_file": "rtdetr-r101__pytorch__cuda__a100__20260425T104504900279Z.json",
-      "verified_at": "2026-04-25T13:01:20.704653Z"
+      "verified_at": "2026-04-25T14:01:44.939716Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -1760,7 +1760,7 @@
         "device": "gpu"
       },
       "source_file": "dfine-n__pytorch__cuda__a100__20260425T110230888980Z.json",
-      "verified_at": "2026-04-25T13:01:20.704653Z"
+      "verified_at": "2026-04-25T14:01:44.939716Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -1870,7 +1870,7 @@
         "device": "gpu"
       },
       "source_file": "dfine-s__pytorch__cuda__a100__20260425T110816561439Z.json",
-      "verified_at": "2026-04-25T13:01:20.704653Z"
+      "verified_at": "2026-04-25T14:01:44.939716Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -1980,7 +1980,7 @@
         "device": "gpu"
       },
       "source_file": "dfine-m__pytorch__cuda__a100__20260425T111412510494Z.json",
-      "verified_at": "2026-04-25T13:01:20.704653Z"
+      "verified_at": "2026-04-25T14:01:44.939716Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -2090,7 +2090,7 @@
         "device": "gpu"
       },
       "source_file": "dfine-l__pytorch__cuda__a100__20260425T112118848941Z.json",
-      "verified_at": "2026-04-25T13:01:20.704653Z"
+      "verified_at": "2026-04-25T14:01:44.939716Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -2200,12 +2200,12 @@
         "device": "gpu"
       },
       "source_file": "dfine-x__pytorch__cuda__a100__20260425T112905304607Z.json",
-      "verified_at": "2026-04-25T13:01:20.704653Z"
+      "verified_at": "2026-04-25T14:01:44.939716Z"
     },
     {
       "schema_version": "va.submission.v1",
-      "submission_id": "yolonas-s-pytorch-cuda-a100-20260425T124733Z",
-      "created_at": "2026-04-25T12:47:33.090752Z",
+      "submission_id": "yolonas-s-pytorch-cuda-a100-20260425T134742Z",
+      "created_at": "2026-04-25T13:47:42.420405Z",
       "benchmark": {
         "harness": "vision-analysis-benchmark",
         "harness_version": "2.0.0",
@@ -2230,7 +2230,7 @@
         "batch_size": 1,
         "input_size": 640,
         "conf": 0.001,
-        "iou": 0.6,
+        "iou": 0.7,
         "max_det": 300
       },
       "hardware": {
@@ -2251,47 +2251,47 @@
         "onnxruntime": "not-installed"
       },
       "accuracy": {
-        "mAP_50_95": 0.4645304547401187,
-        "mAP_50": 0.642008179059548,
-        "mAP_75": 0.5008371740883274,
-        "mAP_small": 0.27570486453310866,
-        "mAP_medium": 0.5189450810664605,
-        "mAP_large": 0.6268924669881927,
-        "AR1": 0.35814680053861303,
-        "AR10": 0.572094540726922,
-        "AR100": 0.6124886464322183,
-        "AR_small": 0.40104974162181756,
-        "AR_medium": 0.6784688448552201,
-        "AR_large": 0.7894890181876775
+        "mAP_50_95": 0.4710812396453661,
+        "mAP_50": 0.6391128381554464,
+        "mAP_75": 0.5156815134984472,
+        "mAP_small": 0.27930062561933633,
+        "mAP_medium": 0.5276397915158181,
+        "mAP_large": 0.6378335029120608,
+        "AR1": 0.3590976537422601,
+        "AR10": 0.5829254624040469,
+        "AR100": 0.6312699416025487,
+        "AR_small": 0.4118734735270816,
+        "AR_medium": 0.7005551541546743,
+        "AR_large": 0.8066536406366882
       },
       "timing": {
         "batch_size": 1,
         "num_images": 5000,
         "total_ms": {
-          "mean": 60.06,
-          "std": 12.719,
-          "p50": 59.968,
-          "p95": 66.258,
-          "p99": 69.25,
-          "preprocess_ms": 4.559,
-          "inference_ms": 19.195,
-          "postprocess_ms": 36.306
+          "mean": 62.382,
+          "std": 9.687,
+          "p50": 62.545,
+          "p95": 68.666,
+          "p99": 71.456,
+          "preprocess_ms": 7.14,
+          "inference_ms": 19.105,
+          "postprocess_ms": 36.137
         }
       },
       "throughput": {
-        "fps_mean": 16.65,
-        "fps_p50": 16.68
+        "fps_mean": 16.03,
+        "fps_p50": 15.99
       },
       "model_stats": {
         "params_millions": 19.05,
         "gflops": 32.8
       },
       "memory": {
-        "peak_vram_mb": 173.8,
-        "peak_ram_mb": 753.9
+        "peak_vram_mb": 173.7,
+        "peak_ram_mb": 859.6
       },
       "metadata": {
-        "benchmark_date": "2026-04-25T12:47:33.090752Z",
+        "benchmark_date": "2026-04-25T13:47:42.420405Z",
         "benchmark_version": "2.0.0"
       },
       "eval": {
@@ -2309,13 +2309,13 @@
         "provider": "cuda",
         "device": "gpu"
       },
-      "source_file": "yolonas-s__pytorch__cuda__a100__20260425T124733090752Z.json",
-      "verified_at": "2026-04-25T13:01:20.704653Z"
+      "source_file": "yolonas-s__pytorch__cuda__a100__20260425T134742420405Z.json",
+      "verified_at": "2026-04-25T14:01:44.939716Z"
     },
     {
       "schema_version": "va.submission.v1",
-      "submission_id": "yolonas-m-pytorch-cuda-a100-20260425T125432Z",
-      "created_at": "2026-04-25T12:54:32.622272Z",
+      "submission_id": "yolonas-m-pytorch-cuda-a100-20260425T135440Z",
+      "created_at": "2026-04-25T13:54:40.064380Z",
       "benchmark": {
         "harness": "vision-analysis-benchmark",
         "harness_version": "2.0.0",
@@ -2340,7 +2340,7 @@
         "batch_size": 1,
         "input_size": 640,
         "conf": 0.001,
-        "iou": 0.6,
+        "iou": 0.7,
         "max_det": 300
       },
       "hardware": {
@@ -2361,47 +2361,47 @@
         "onnxruntime": "not-installed"
       },
       "accuracy": {
-        "mAP_50_95": 0.5053201009790595,
-        "mAP_50": 0.680631835509829,
-        "mAP_75": 0.5481069347240959,
-        "mAP_small": 0.33341324057751653,
-        "mAP_medium": 0.5609877817843523,
-        "mAP_large": 0.66780249864481,
-        "AR1": 0.3796781183403016,
-        "AR10": 0.6093526447279121,
-        "AR100": 0.6531268343504432,
-        "AR_small": 0.46148355958035026,
-        "AR_medium": 0.7111089195691962,
-        "AR_large": 0.8183129469284762
+        "mAP_50_95": 0.5111477561374744,
+        "mAP_50": 0.6756246794771014,
+        "mAP_75": 0.5588749555436526,
+        "mAP_small": 0.3342802978953099,
+        "mAP_medium": 0.5695824353534967,
+        "mAP_large": 0.6824289497114954,
+        "AR1": 0.3825407766730738,
+        "AR10": 0.6162657404122516,
+        "AR100": 0.6656188165575663,
+        "AR_small": 0.4721134732099824,
+        "AR_medium": 0.7303760494203189,
+        "AR_large": 0.8388326599316067
       },
       "timing": {
         "batch_size": 1,
         "num_images": 5000,
         "total_ms": {
-          "mean": 58.919,
-          "std": 11.085,
-          "p50": 58.852,
-          "p95": 66.654,
-          "p99": 70.503,
-          "preprocess_ms": 4.523,
-          "inference_ms": 20.288,
-          "postprocess_ms": 34.108
+          "mean": 62.571,
+          "std": 4.627,
+          "p50": 62.801,
+          "p95": 69.266,
+          "p99": 71.896,
+          "preprocess_ms": 7.304,
+          "inference_ms": 20.665,
+          "postprocess_ms": 34.603
         }
       },
       "throughput": {
-        "fps_mean": 16.97,
-        "fps_p50": 16.99
+        "fps_mean": 15.98,
+        "fps_p50": 15.92
       },
       "model_stats": {
         "params_millions": 51.18,
         "gflops": 88.9
       },
       "memory": {
-        "peak_vram_mb": 362.8,
-        "peak_ram_mb": 765.2
+        "peak_vram_mb": 364.1,
+        "peak_ram_mb": 288.2
       },
       "metadata": {
-        "benchmark_date": "2026-04-25T12:54:32.622272Z",
+        "benchmark_date": "2026-04-25T13:54:40.064380Z",
         "benchmark_version": "2.0.0"
       },
       "eval": {
@@ -2419,13 +2419,13 @@
         "provider": "cuda",
         "device": "gpu"
       },
-      "source_file": "yolonas-m__pytorch__cuda__a100__20260425T125432622272Z.json",
-      "verified_at": "2026-04-25T13:01:20.704653Z"
+      "source_file": "yolonas-m__pytorch__cuda__a100__20260425T135440064380Z.json",
+      "verified_at": "2026-04-25T14:01:44.939716Z"
     },
     {
       "schema_version": "va.submission.v1",
-      "submission_id": "yolonas-l-pytorch-cuda-a100-20260425T130120Z",
-      "created_at": "2026-04-25T13:01:20.704653Z",
+      "submission_id": "yolonas-l-pytorch-cuda-a100-20260425T140144Z",
+      "created_at": "2026-04-25T14:01:44.939716Z",
       "benchmark": {
         "harness": "vision-analysis-benchmark",
         "harness_version": "2.0.0",
@@ -2450,7 +2450,7 @@
         "batch_size": 1,
         "input_size": 640,
         "conf": 0.001,
-        "iou": 0.6,
+        "iou": 0.7,
         "max_det": 300
       },
       "hardware": {
@@ -2471,47 +2471,47 @@
         "onnxruntime": "not-installed"
       },
       "accuracy": {
-        "mAP_50_95": 0.511904853506801,
-        "mAP_50": 0.6863878214075365,
-        "mAP_75": 0.5560380536920484,
-        "mAP_small": 0.3304497103212915,
-        "mAP_medium": 0.5651719295465955,
-        "mAP_large": 0.6750978071349164,
-        "AR1": 0.3810695537106214,
-        "AR10": 0.6178930708184677,
-        "AR100": 0.6601012717014813,
-        "AR_small": 0.46589825562591036,
-        "AR_medium": 0.7203184015219034,
-        "AR_large": 0.8292781654676347
+        "mAP_50_95": 0.5183627039959596,
+        "mAP_50": 0.6843681540004143,
+        "mAP_75": 0.5678845308993015,
+        "mAP_small": 0.3427270236123534,
+        "mAP_medium": 0.5746068684872389,
+        "mAP_large": 0.6853439766099423,
+        "AR1": 0.38260577208613855,
+        "AR10": 0.6246685450210552,
+        "AR100": 0.6760114220665849,
+        "AR_small": 0.47910074223639904,
+        "AR_medium": 0.7365982648380551,
+        "AR_large": 0.8482369315896043
       },
       "timing": {
         "batch_size": 1,
         "num_images": 5000,
         "total_ms": {
-          "mean": 60.415,
-          "std": 9.653,
-          "p50": 60.344,
-          "p95": 68.169,
-          "p99": 71.406,
-          "preprocess_ms": 4.524,
-          "inference_ms": 22.633,
-          "postprocess_ms": 33.258
+          "mean": 63.678,
+          "std": 4.897,
+          "p50": 63.998,
+          "p95": 70.976,
+          "p99": 73.864,
+          "preprocess_ms": 7.374,
+          "inference_ms": 22.138,
+          "postprocess_ms": 34.166
         }
       },
       "throughput": {
-        "fps_mean": 16.55,
-        "fps_p50": 16.57
+        "fps_mean": 15.7,
+        "fps_p50": 15.63
       },
       "model_stats": {
         "params_millions": 66.98,
         "gflops": 116.6
       },
       "memory": {
-        "peak_vram_mb": 470.3,
-        "peak_ram_mb": 261.1
+        "peak_vram_mb": 471.2,
+        "peak_ram_mb": 241.8
       },
       "metadata": {
-        "benchmark_date": "2026-04-25T13:01:20.704653Z",
+        "benchmark_date": "2026-04-25T14:01:44.939716Z",
         "benchmark_version": "2.0.0"
       },
       "eval": {
@@ -2529,8 +2529,8 @@
         "provider": "cuda",
         "device": "gpu"
       },
-      "source_file": "yolonas-l__pytorch__cuda__a100__20260425T130120704653Z.json",
-      "verified_at": "2026-04-25T13:01:20.704653Z"
+      "source_file": "yolonas-l__pytorch__cuda__a100__20260425T140144939716Z.json",
+      "verified_at": "2026-04-25T14:01:44.939716Z"
     }
   ]
 }
