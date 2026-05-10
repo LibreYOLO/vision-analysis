@@ -6,6 +6,27 @@
       "format": "pytorch",
       "precision": "fp32",
       "device": "cpu"
+    },
+    {
+      "id": "onnx_fp32",
+      "displayName": "ONNX FP32",
+      "format": "onnx",
+      "precision": "fp32",
+      "device": "cpu"
+    },
+    {
+      "id": "onnx_fp16",
+      "displayName": "ONNX FP16",
+      "format": "onnx",
+      "precision": "fp16",
+      "device": "cpu"
+    },
+    {
+      "id": "onnx_int8",
+      "displayName": "ONNX INT8",
+      "format": "onnx",
+      "precision": "int8",
+      "device": "cpu"
     }
   ]
 }
