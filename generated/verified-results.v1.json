@@ -1,6 +1,6 @@
 {
   "schema_version": "va.verified-results.v1",
-  "generated_at": "2026-04-25T13:01:20.704653Z",
+  "generated_at": "2026-05-10T15:05:14.858866Z",
   "results": [
     {
       "schema_version": "va.submission.v1",
@@ -110,7 +110,7 @@
         "device": "gpu"
       },
       "source_file": "yolox-nano__pytorch__cuda__a100__20260422T210738517662Z.json",
-      "verified_at": "2026-04-25T13:01:20.704653Z"
+      "verified_at": "2026-05-10T15:05:14.858866Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -220,7 +220,7 @@
         "device": "gpu"
       },
       "source_file": "yolox-tiny__pytorch__cuda__a100__20260422T211048259826Z.json",
-      "verified_at": "2026-04-25T13:01:20.704653Z"
+      "verified_at": "2026-05-10T15:05:14.858866Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -330,7 +330,7 @@
         "device": "gpu"
       },
       "source_file": "yolox-s__pytorch__cuda__a100__20260422T211415726273Z.json",
-      "verified_at": "2026-04-25T13:01:20.704653Z"
+      "verified_at": "2026-05-10T15:05:14.858866Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -440,7 +440,7 @@
         "device": "gpu"
       },
       "source_file": "yolox-m__pytorch__cuda__a100__20260422T211755804986Z.json",
-      "verified_at": "2026-04-25T13:01:20.704653Z"
+      "verified_at": "2026-05-10T15:05:14.858866Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -550,7 +550,7 @@
         "device": "gpu"
       },
       "source_file": "yolox-l__pytorch__cuda__a100__20260422T212137557221Z.json",
-      "verified_at": "2026-04-25T13:01:20.704653Z"
+      "verified_at": "2026-05-10T15:05:14.858866Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -660,7 +660,7 @@
         "device": "gpu"
       },
       "source_file": "yolox-x__pytorch__cuda__a100__20260422T212545950868Z.json",
-      "verified_at": "2026-04-25T13:01:20.704653Z"
+      "verified_at": "2026-05-10T15:05:14.858866Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -770,7 +770,7 @@
         "device": "gpu"
       },
       "source_file": "yolov9t__pytorch__cuda__a100__20260422T213021533387Z.json",
-      "verified_at": "2026-04-25T13:01:20.704653Z"
+      "verified_at": "2026-05-10T15:05:14.858866Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -880,7 +880,7 @@
         "device": "gpu"
       },
       "source_file": "yolov9s__pytorch__cuda__a100__20260422T213440148659Z.json",
-      "verified_at": "2026-04-25T13:01:20.704653Z"
+      "verified_at": "2026-05-10T15:05:14.858866Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -990,7 +990,7 @@
         "device": "gpu"
       },
       "source_file": "yolov9m__pytorch__cuda__a100__20260422T213842693352Z.json",
-      "verified_at": "2026-04-25T13:01:20.704653Z"
+      "verified_at": "2026-05-10T15:05:14.858866Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -1100,7 +1100,7 @@
         "device": "gpu"
       },
       "source_file": "yolov9c__pytorch__cuda__a100__20260422T214225175023Z.json",
-      "verified_at": "2026-04-25T13:01:20.704653Z"
+      "verified_at": "2026-05-10T15:05:14.858866Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -1210,7 +1210,7 @@
         "device": "gpu"
       },
       "source_file": "rtdetr-r18__pytorch__cuda__a100__20260425T102126737426Z.json",
-      "verified_at": "2026-04-25T13:01:20.704653Z"
+      "verified_at": "2026-05-10T15:05:14.858866Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -1320,7 +1320,7 @@
         "device": "gpu"
       },
       "source_file": "rtdetr-r34__pytorch__cuda__a100__20260425T102653752131Z.json",
-      "verified_at": "2026-04-25T13:01:20.704653Z"
+      "verified_at": "2026-05-10T15:05:14.858866Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -1430,7 +1430,7 @@
         "device": "gpu"
       },
       "source_file": "rtdetr-r50__pytorch__cuda__a100__20260425T103244508474Z.json",
-      "verified_at": "2026-04-25T13:01:20.704653Z"
+      "verified_at": "2026-05-10T15:05:14.858866Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -1540,7 +1540,7 @@
         "device": "gpu"
       },
       "source_file": "rtdetr-r50m__pytorch__cuda__a100__20260425T103803976286Z.json",
-      "verified_at": "2026-04-25T13:01:20.704653Z"
+      "verified_at": "2026-05-10T15:05:14.858866Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -1650,7 +1650,7 @@
         "device": "gpu"
       },
       "source_file": "rtdetr-r101__pytorch__cuda__a100__20260425T104504900279Z.json",
-      "verified_at": "2026-04-25T13:01:20.704653Z"
+      "verified_at": "2026-05-10T15:05:14.858866Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -1760,7 +1760,7 @@
         "device": "gpu"
       },
       "source_file": "dfine-n__pytorch__cuda__a100__20260425T110230888980Z.json",
-      "verified_at": "2026-04-25T13:01:20.704653Z"
+      "verified_at": "2026-05-10T15:05:14.858866Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -1870,7 +1870,7 @@
         "device": "gpu"
       },
       "source_file": "dfine-s__pytorch__cuda__a100__20260425T110816561439Z.json",
-      "verified_at": "2026-04-25T13:01:20.704653Z"
+      "verified_at": "2026-05-10T15:05:14.858866Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -1980,7 +1980,7 @@
         "device": "gpu"
       },
       "source_file": "dfine-m__pytorch__cuda__a100__20260425T111412510494Z.json",
-      "verified_at": "2026-04-25T13:01:20.704653Z"
+      "verified_at": "2026-05-10T15:05:14.858866Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -2090,7 +2090,7 @@
         "device": "gpu"
       },
       "source_file": "dfine-l__pytorch__cuda__a100__20260425T112118848941Z.json",
-      "verified_at": "2026-04-25T13:01:20.704653Z"
+      "verified_at": "2026-05-10T15:05:14.858866Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -2200,7 +2200,7 @@
         "device": "gpu"
       },
       "source_file": "dfine-x__pytorch__cuda__a100__20260425T112905304607Z.json",
-      "verified_at": "2026-04-25T13:01:20.704653Z"
+      "verified_at": "2026-05-10T15:05:14.858866Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -2310,7 +2310,7 @@
         "device": "gpu"
       },
       "source_file": "yolonas-s__pytorch__cuda__a100__20260425T124733090752Z.json",
-      "verified_at": "2026-04-25T13:01:20.704653Z"
+      "verified_at": "2026-05-10T15:05:14.858866Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -2420,7 +2420,7 @@
         "device": "gpu"
       },
       "source_file": "yolonas-m__pytorch__cuda__a100__20260425T125432622272Z.json",
-      "verified_at": "2026-04-25T13:01:20.704653Z"
+      "verified_at": "2026-05-10T15:05:14.858866Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -2530,7 +2530,1547 @@
         "device": "gpu"
       },
       "source_file": "yolonas-l__pytorch__cuda__a100__20260425T130120704653Z.json",
-      "verified_at": "2026-04-25T13:01:20.704653Z"
+      "verified_at": "2026-05-10T15:05:14.858866Z"
+    },
+    {
+      "schema_version": "va.submission.v1",
+      "submission_id": "rfdetr-l-pytorch-cuda-rtx3090-20260510T143650Z",
+      "created_at": "2026-05-10T14:36:50.513322Z",
+      "benchmark": {
+        "harness": "vision-analysis-benchmark",
+        "harness_version": "2.0.0",
+        "libreyolo_version": "1.1.1",
+        "libreyolo_commit": "7abd8d43bf817d46cae700470d815cb66be2d39d"
+      },
+      "model": {
+        "id": "rfdetr-l",
+        "name": "rf-detr-l",
+        "family": "rfdetr",
+        "variant": "l",
+        "source": "libreyolo",
+        "weights": "LibreRFDETRl.pt",
+        "input_size": 704
+      },
+      "dataset": {
+        "id": "coco2017",
+        "split": "val2017",
+        "num_images": 5000
+      },
+      "config": {
+        "batch_size": 1,
+        "input_size": 704,
+        "conf": 0.001,
+        "iou": 0.6,
+        "max_det": 300
+      },
+      "hardware": {
+        "gpu": "NVIDIA GeForce RTX 3090",
+        "gpu_memory_gb": 24.0,
+        "driver_version": "580.126.09",
+        "cuda_version": "12.4",
+        "cpu": "AMD Ryzen 9 5950X 16-Core Processor",
+        "cpu_cores": 32,
+        "ram_gb": 62,
+        "id": "rtx3090"
+      },
+      "software": {
+        "python": "3.12.3",
+        "torch": "2.6.0+cu124",
+        "libreyolo": "1.1.1",
+        "libreyolo_commit": "7abd8d43bf817d46cae700470d815cb66be2d39d",
+        "onnxruntime": "not-installed"
+      },
+      "accuracy": {
+        "mAP_50_95": 0.5654325849872309,
+        "mAP_50": 0.7519430476108983,
+        "mAP_75": 0.6125426554365846,
+        "mAP_small": 0.38877815010864586,
+        "mAP_medium": 0.6110286133472622,
+        "mAP_large": 0.7401612373454165,
+        "AR1": 0.4094367831659032,
+        "AR10": 0.6806718562404028,
+        "AR100": 0.7424374850580618,
+        "AR_small": 0.5718708910028346,
+        "AR_medium": 0.7949837079594275,
+        "AR_large": 0.9116441319254203
+      },
+      "timing": {
+        "batch_size": 1,
+        "num_images": 5000,
+        "total_ms": {
+          "mean": 20.655,
+          "std": 11.089,
+          "p50": 20.264,
+          "p95": 20.884,
+          "p99": 21.562,
+          "preprocess_ms": 3.477,
+          "inference_ms": 16.261,
+          "postprocess_ms": 0.917
+        }
+      },
+      "throughput": {
+        "fps_mean": 48.41,
+        "fps_p50": 49.35
+      },
+      "model_stats": {
+        "params_millions": 33.93,
+        "gflops": 340.0
+      },
+      "memory": {
+        "peak_vram_mb": 222.2,
+        "peak_ram_mb": 731.8
+      },
+      "metadata": {
+        "benchmark_date": "2026-05-10T14:36:50.513322Z",
+        "benchmark_version": "2.0.0"
+      },
+      "eval": {
+        "dataset": "coco",
+        "split": "val2017",
+        "numImages": 5000
+      },
+      "implementation": {
+        "provider": "libreyolo",
+        "version": "1.1.1"
+      },
+      "runtime": {
+        "format": "pytorch",
+        "precision": "fp32",
+        "provider": "cuda",
+        "device": "gpu"
+      },
+      "source_file": "rfdetr-l__pytorch__cuda__rtx3090__20260510T143650513322Z.json",
+      "verified_at": "2026-05-10T15:05:14.858866Z"
+    },
+    {
+      "schema_version": "va.submission.v1",
+      "submission_id": "rfdetr-m-pytorch-cuda-rtx3090-20260510T143905Z",
+      "created_at": "2026-05-10T14:39:05.209698Z",
+      "benchmark": {
+        "harness": "vision-analysis-benchmark",
+        "harness_version": "2.0.0",
+        "libreyolo_version": "1.1.1",
+        "libreyolo_commit": "7abd8d43bf817d46cae700470d815cb66be2d39d"
+      },
+      "model": {
+        "id": "rfdetr-m",
+        "name": "rf-detr-m",
+        "family": "rfdetr",
+        "variant": "m",
+        "source": "libreyolo",
+        "weights": "LibreRFDETRm.pt",
+        "input_size": 576
+      },
+      "dataset": {
+        "id": "coco2017",
+        "split": "val2017",
+        "num_images": 5000
+      },
+      "config": {
+        "batch_size": 1,
+        "input_size": 576,
+        "conf": 0.001,
+        "iou": 0.6,
+        "max_det": 300
+      },
+      "hardware": {
+        "gpu": "NVIDIA GeForce RTX 3090",
+        "gpu_memory_gb": 24.0,
+        "driver_version": "580.126.09",
+        "cuda_version": "12.4",
+        "cpu": "AMD Ryzen 9 5950X 16-Core Processor",
+        "cpu_cores": 32,
+        "ram_gb": 62,
+        "id": "rtx3090"
+      },
+      "software": {
+        "python": "3.12.3",
+        "torch": "2.6.0+cu124",
+        "libreyolo": "1.1.1",
+        "libreyolo_commit": "7abd8d43bf817d46cae700470d815cb66be2d39d",
+        "onnxruntime": "not-installed"
+      },
+      "accuracy": {
+        "mAP_50_95": 0.5472147889604324,
+        "mAP_50": 0.7358140270756838,
+        "mAP_75": 0.59187655281425,
+        "mAP_small": 0.35960066578461836,
+        "mAP_medium": 0.5976453142939265,
+        "mAP_large": 0.7370661723668804,
+        "AR1": 0.3990697672079318,
+        "AR10": 0.6647390428190679,
+        "AR100": 0.7236446615985426,
+        "AR_small": 0.5322968531757167,
+        "AR_medium": 0.788483749474011,
+        "AR_large": 0.9085777887913804
+      },
+      "timing": {
+        "batch_size": 1,
+        "num_images": 5000,
+        "total_ms": {
+          "mean": 14.145,
+          "std": 10.06,
+          "p50": 13.811,
+          "p95": 14.607,
+          "p99": 15.373,
+          "preprocess_ms": 1.519,
+          "inference_ms": 11.735,
+          "postprocess_ms": 0.891
+        }
+      },
+      "throughput": {
+        "fps_mean": 70.7,
+        "fps_p50": 72.41
+      },
+      "model_stats": {
+        "params_millions": 33.69,
+        "gflops": 0.0
+      },
+      "memory": {
+        "peak_vram_mb": 197.2,
+        "peak_ram_mb": 75.1
+      },
+      "metadata": {
+        "benchmark_date": "2026-05-10T14:39:05.209698Z",
+        "benchmark_version": "2.0.0"
+      },
+      "eval": {
+        "dataset": "coco",
+        "split": "val2017",
+        "numImages": 5000
+      },
+      "implementation": {
+        "provider": "libreyolo",
+        "version": "1.1.1"
+      },
+      "runtime": {
+        "format": "pytorch",
+        "precision": "fp32",
+        "provider": "cuda",
+        "device": "gpu"
+      },
+      "source_file": "rfdetr-m__pytorch__cuda__rtx3090__20260510T143905209698Z.json",
+      "verified_at": "2026-05-10T15:05:14.858866Z"
+    },
+    {
+      "schema_version": "va.submission.v1",
+      "submission_id": "rfdetr-n-pytorch-cuda-rtx3090-20260510T144105Z",
+      "created_at": "2026-05-10T14:41:05.116295Z",
+      "benchmark": {
+        "harness": "vision-analysis-benchmark",
+        "harness_version": "2.0.0",
+        "libreyolo_version": "1.1.1",
+        "libreyolo_commit": "7abd8d43bf817d46cae700470d815cb66be2d39d"
+      },
+      "model": {
+        "id": "rfdetr-n",
+        "name": "rf-detr-n",
+        "family": "rfdetr",
+        "variant": "n",
+        "source": "libreyolo",
+        "weights": "LibreRFDETRn.pt",
+        "input_size": 384
+      },
+      "dataset": {
+        "id": "coco2017",
+        "split": "val2017",
+        "num_images": 5000
+      },
+      "config": {
+        "batch_size": 1,
+        "input_size": 384,
+        "conf": 0.001,
+        "iou": 0.6,
+        "max_det": 300
+      },
+      "hardware": {
+        "gpu": "NVIDIA GeForce RTX 3090",
+        "gpu_memory_gb": 24.0,
+        "driver_version": "580.126.09",
+        "cuda_version": "12.4",
+        "cpu": "AMD Ryzen 9 5950X 16-Core Processor",
+        "cpu_cores": 32,
+        "ram_gb": 62,
+        "id": "rtx3090"
+      },
+      "software": {
+        "python": "3.12.3",
+        "torch": "2.6.0+cu124",
+        "libreyolo": "1.1.1",
+        "libreyolo_commit": "7abd8d43bf817d46cae700470d815cb66be2d39d",
+        "onnxruntime": "not-installed"
+      },
+      "accuracy": {
+        "mAP_50_95": 0.48405635013633264,
+        "mAP_50": 0.6753667630329339,
+        "mAP_75": 0.517747960799059,
+        "mAP_small": 0.25263094130175695,
+        "mAP_medium": 0.5364038461887264,
+        "mAP_large": 0.7123640900777523,
+        "AR1": 0.37098875874430604,
+        "AR10": 0.5995499595699179,
+        "AR100": 0.6533105634981488,
+        "AR_small": 0.40517151195928475,
+        "AR_medium": 0.7308633411379694,
+        "AR_large": 0.891517357082856
+      },
+      "timing": {
+        "batch_size": 1,
+        "num_images": 5000,
+        "total_ms": {
+          "mean": 11.318,
+          "std": 9.558,
+          "p50": 11.001,
+          "p95": 11.974,
+          "p99": 12.99,
+          "preprocess_ms": 1.231,
+          "inference_ms": 9.196,
+          "postprocess_ms": 0.891
+        }
+      },
+      "throughput": {
+        "fps_mean": 88.35,
+        "fps_p50": 90.9
+      },
+      "model_stats": {
+        "params_millions": 30.47,
+        "gflops": 0.0
+      },
+      "memory": {
+        "peak_vram_mb": 152.1,
+        "peak_ram_mb": 0.0
+      },
+      "metadata": {
+        "benchmark_date": "2026-05-10T14:41:05.116295Z",
+        "benchmark_version": "2.0.0"
+      },
+      "eval": {
+        "dataset": "coco",
+        "split": "val2017",
+        "numImages": 5000
+      },
+      "implementation": {
+        "provider": "libreyolo",
+        "version": "1.1.1"
+      },
+      "runtime": {
+        "format": "pytorch",
+        "precision": "fp32",
+        "provider": "cuda",
+        "device": "gpu"
+      },
+      "source_file": "rfdetr-n__pytorch__cuda__rtx3090__20260510T144105116295Z.json",
+      "verified_at": "2026-05-10T15:05:14.858866Z"
+    },
+    {
+      "schema_version": "va.submission.v1",
+      "submission_id": "rfdetr-s-pytorch-cuda-rtx3090-20260510T144311Z",
+      "created_at": "2026-05-10T14:43:11.468812Z",
+      "benchmark": {
+        "harness": "vision-analysis-benchmark",
+        "harness_version": "2.0.0",
+        "libreyolo_version": "1.1.1",
+        "libreyolo_commit": "7abd8d43bf817d46cae700470d815cb66be2d39d"
+      },
+      "model": {
+        "id": "rfdetr-s",
+        "name": "rf-detr-s",
+        "family": "rfdetr",
+        "variant": "s",
+        "source": "libreyolo",
+        "weights": "LibreRFDETRs.pt",
+        "input_size": 512
+      },
+      "dataset": {
+        "id": "coco2017",
+        "split": "val2017",
+        "num_images": 5000
+      },
+      "config": {
+        "batch_size": 1,
+        "input_size": 512,
+        "conf": 0.001,
+        "iou": 0.6,
+        "max_det": 300
+      },
+      "hardware": {
+        "gpu": "NVIDIA GeForce RTX 3090",
+        "gpu_memory_gb": 24.0,
+        "driver_version": "580.126.09",
+        "cuda_version": "12.4",
+        "cpu": "AMD Ryzen 9 5950X 16-Core Processor",
+        "cpu_cores": 32,
+        "ram_gb": 62,
+        "id": "rtx3090"
+      },
+      "software": {
+        "python": "3.12.3",
+        "torch": "2.6.0+cu124",
+        "libreyolo": "1.1.1",
+        "libreyolo_commit": "7abd8d43bf817d46cae700470d815cb66be2d39d",
+        "onnxruntime": "not-installed"
+      },
+      "accuracy": {
+        "mAP_50_95": 0.5297556603409146,
+        "mAP_50": 0.7210458661969906,
+        "mAP_75": 0.5721068961204332,
+        "mAP_small": 0.3179843796460967,
+        "mAP_medium": 0.5842854513192921,
+        "mAP_large": 0.7303144169878908,
+        "AR1": 0.3916663893671698,
+        "AR10": 0.6465077749101391,
+        "AR100": 0.7034623718908836,
+        "AR_small": 0.4969163868433414,
+        "AR_medium": 0.7742957679950753,
+        "AR_large": 0.9032305813502959
+      },
+      "timing": {
+        "batch_size": 1,
+        "num_images": 5000,
+        "total_ms": {
+          "mean": 12.629,
+          "std": 12.446,
+          "p50": 12.187,
+          "p95": 13.22,
+          "p99": 14.319,
+          "preprocess_ms": 1.416,
+          "inference_ms": 10.318,
+          "postprocess_ms": 0.895
+        }
+      },
+      "throughput": {
+        "fps_mean": 79.18,
+        "fps_p50": 82.05
+      },
+      "model_stats": {
+        "params_millions": 32.11,
+        "gflops": 0.0
+      },
+      "memory": {
+        "peak_vram_mb": 177.1,
+        "peak_ram_mb": 0.0
+      },
+      "metadata": {
+        "benchmark_date": "2026-05-10T14:43:11.468812Z",
+        "benchmark_version": "2.0.0"
+      },
+      "eval": {
+        "dataset": "coco",
+        "split": "val2017",
+        "numImages": 5000
+      },
+      "implementation": {
+        "provider": "libreyolo",
+        "version": "1.1.1"
+      },
+      "runtime": {
+        "format": "pytorch",
+        "precision": "fp32",
+        "provider": "cuda",
+        "device": "gpu"
+      },
+      "source_file": "rfdetr-s__pytorch__cuda__rtx3090__20260510T144311468812Z.json",
+      "verified_at": "2026-05-10T15:05:14.858866Z"
+    },
+    {
+      "schema_version": "va.submission.v1",
+      "submission_id": "yolov9c-pytorch-cuda-rtx3090-20260510T144517Z",
+      "created_at": "2026-05-10T14:45:17.455479Z",
+      "benchmark": {
+        "harness": "vision-analysis-benchmark",
+        "harness_version": "2.0.0",
+        "libreyolo_version": "1.1.1",
+        "libreyolo_commit": "7abd8d43bf817d46cae700470d815cb66be2d39d"
+      },
+      "model": {
+        "id": "yolov9c",
+        "name": "yolov9-c",
+        "family": "yolov9",
+        "variant": "c",
+        "source": "libreyolo",
+        "weights": "LibreYOLO9c.pt",
+        "input_size": 640
+      },
+      "dataset": {
+        "id": "coco2017",
+        "split": "val2017",
+        "num_images": 5000
+      },
+      "config": {
+        "batch_size": 1,
+        "input_size": 640,
+        "conf": 0.001,
+        "iou": 0.6,
+        "max_det": 300
+      },
+      "hardware": {
+        "gpu": "NVIDIA GeForce RTX 3090",
+        "gpu_memory_gb": 24.0,
+        "driver_version": "580.126.09",
+        "cuda_version": "12.4",
+        "cpu": "AMD Ryzen 9 5950X 16-Core Processor",
+        "cpu_cores": 32,
+        "ram_gb": 62,
+        "id": "rtx3090"
+      },
+      "software": {
+        "python": "3.12.3",
+        "torch": "2.6.0+cu124",
+        "libreyolo": "1.1.1",
+        "libreyolo_commit": "7abd8d43bf817d46cae700470d815cb66be2d39d",
+        "onnxruntime": "not-installed"
+      },
+      "accuracy": {
+        "mAP_50_95": 0.4948853134525724,
+        "mAP_50": 0.6630619170497069,
+        "mAP_75": 0.5365963317907022,
+        "mAP_small": 0.3191893379894135,
+        "mAP_medium": 0.5417570987206646,
+        "mAP_large": 0.6465417666717485,
+        "AR1": 0.3752753733037042,
+        "AR10": 0.6058158546095507,
+        "AR100": 0.6488344075724953,
+        "AR_small": 0.4763514649323591,
+        "AR_medium": 0.6926822854156023,
+        "AR_large": 0.7904995676459754
+      },
+      "timing": {
+        "batch_size": 1,
+        "num_images": 5000,
+        "total_ms": {
+          "mean": 18.473,
+          "std": 6.415,
+          "p50": 18.135,
+          "p95": 20.915,
+          "p99": 22.23,
+          "preprocess_ms": 3.261,
+          "inference_ms": 12.278,
+          "postprocess_ms": 2.933
+        }
+      },
+      "throughput": {
+        "fps_mean": 54.13,
+        "fps_p50": 55.14
+      },
+      "model_stats": {
+        "params_millions": 25.5,
+        "gflops": 51.75
+      },
+      "memory": {
+        "peak_vram_mb": 247.3,
+        "peak_ram_mb": 0.0
+      },
+      "metadata": {
+        "benchmark_date": "2026-05-10T14:45:17.455479Z",
+        "benchmark_version": "2.0.0"
+      },
+      "eval": {
+        "dataset": "coco",
+        "split": "val2017",
+        "numImages": 5000
+      },
+      "implementation": {
+        "provider": "libreyolo",
+        "version": "1.1.1"
+      },
+      "runtime": {
+        "format": "pytorch",
+        "precision": "fp32",
+        "provider": "cuda",
+        "device": "gpu"
+      },
+      "source_file": "yolov9c__pytorch__cuda__rtx3090__20260510T144517455479Z.json",
+      "verified_at": "2026-05-10T15:05:14.858866Z"
+    },
+    {
+      "schema_version": "va.submission.v1",
+      "submission_id": "yolov9m-pytorch-cuda-rtx3090-20260510T144724Z",
+      "created_at": "2026-05-10T14:47:24.614191Z",
+      "benchmark": {
+        "harness": "vision-analysis-benchmark",
+        "harness_version": "2.0.0",
+        "libreyolo_version": "1.1.1",
+        "libreyolo_commit": "7abd8d43bf817d46cae700470d815cb66be2d39d"
+      },
+      "model": {
+        "id": "yolov9m",
+        "name": "yolov9-m",
+        "family": "yolov9",
+        "variant": "m",
+        "source": "libreyolo",
+        "weights": "LibreYOLO9m.pt",
+        "input_size": 640
+      },
+      "dataset": {
+        "id": "coco2017",
+        "split": "val2017",
+        "num_images": 5000
+      },
+      "config": {
+        "batch_size": 1,
+        "input_size": 640,
+        "conf": 0.001,
+        "iou": 0.6,
+        "max_det": 300
+      },
+      "hardware": {
+        "gpu": "NVIDIA GeForce RTX 3090",
+        "gpu_memory_gb": 24.0,
+        "driver_version": "580.126.09",
+        "cuda_version": "12.4",
+        "cpu": "AMD Ryzen 9 5950X 16-Core Processor",
+        "cpu_cores": 32,
+        "ram_gb": 62,
+        "id": "rtx3090"
+      },
+      "software": {
+        "python": "3.12.3",
+        "torch": "2.6.0+cu124",
+        "libreyolo": "1.1.1",
+        "libreyolo_commit": "7abd8d43bf817d46cae700470d815cb66be2d39d",
+        "onnxruntime": "not-installed"
+      },
+      "accuracy": {
+        "mAP_50_95": 0.48044644057860925,
+        "mAP_50": 0.6451445408990176,
+        "mAP_75": 0.5197393097233795,
+        "mAP_small": 0.30316539953879146,
+        "mAP_medium": 0.5272989296179686,
+        "mAP_large": 0.6374337239536891,
+        "AR1": 0.3687264098754999,
+        "AR10": 0.6007435359865169,
+        "AR100": 0.6447517438821102,
+        "AR_small": 0.47595040253369136,
+        "AR_medium": 0.6879897130702779,
+        "AR_large": 0.7814259581377442
+      },
+      "timing": {
+        "batch_size": 1,
+        "num_images": 5000,
+        "total_ms": {
+          "mean": 18.261,
+          "std": 1.496,
+          "p50": 18.054,
+          "p95": 21.034,
+          "p99": 22.337,
+          "preprocess_ms": 3.257,
+          "inference_ms": 11.927,
+          "postprocess_ms": 3.076
+        }
+      },
+      "throughput": {
+        "fps_mean": 54.76,
+        "fps_p50": 55.39
+      },
+      "model_stats": {
+        "params_millions": 20.12,
+        "gflops": 38.68
+      },
+      "memory": {
+        "peak_vram_mb": 192.1,
+        "peak_ram_mb": 0.0
+      },
+      "metadata": {
+        "benchmark_date": "2026-05-10T14:47:24.614191Z",
+        "benchmark_version": "2.0.0"
+      },
+      "eval": {
+        "dataset": "coco",
+        "split": "val2017",
+        "numImages": 5000
+      },
+      "implementation": {
+        "provider": "libreyolo",
+        "version": "1.1.1"
+      },
+      "runtime": {
+        "format": "pytorch",
+        "precision": "fp32",
+        "provider": "cuda",
+        "device": "gpu"
+      },
+      "source_file": "yolov9m__pytorch__cuda__rtx3090__20260510T144724614191Z.json",
+      "verified_at": "2026-05-10T15:05:14.858866Z"
+    },
+    {
+      "schema_version": "va.submission.v1",
+      "submission_id": "yolov9s-pytorch-cuda-rtx3090-20260510T145000Z",
+      "created_at": "2026-05-10T14:50:00.730426Z",
+      "benchmark": {
+        "harness": "vision-analysis-benchmark",
+        "harness_version": "2.0.0",
+        "libreyolo_version": "1.1.1",
+        "libreyolo_commit": "7abd8d43bf817d46cae700470d815cb66be2d39d"
+      },
+      "model": {
+        "id": "yolov9s",
+        "name": "yolov9-s",
+        "family": "yolov9",
+        "variant": "s",
+        "source": "libreyolo",
+        "weights": "LibreYOLO9s.pt",
+        "input_size": 640
+      },
+      "dataset": {
+        "id": "coco2017",
+        "split": "val2017",
+        "num_images": 5000
+      },
+      "config": {
+        "batch_size": 1,
+        "input_size": 640,
+        "conf": 0.001,
+        "iou": 0.6,
+        "max_det": 300
+      },
+      "hardware": {
+        "gpu": "NVIDIA GeForce RTX 3090",
+        "gpu_memory_gb": 24.0,
+        "driver_version": "580.126.09",
+        "cuda_version": "12.4",
+        "cpu": "AMD Ryzen 9 5950X 16-Core Processor",
+        "cpu_cores": 32,
+        "ram_gb": 62,
+        "id": "rtx3090"
+      },
+      "software": {
+        "python": "3.12.3",
+        "torch": "2.6.0+cu124",
+        "libreyolo": "1.1.1",
+        "libreyolo_commit": "7abd8d43bf817d46cae700470d815cb66be2d39d",
+        "onnxruntime": "not-installed"
+      },
+      "accuracy": {
+        "mAP_50_95": 0.4386850329741476,
+        "mAP_50": 0.5970502754886053,
+        "mAP_75": 0.47471443289779425,
+        "mAP_small": 0.2377475891763733,
+        "mAP_medium": 0.47975074584500904,
+        "mAP_large": 0.5917822285791612,
+        "AR1": 0.345492699731291,
+        "AR10": 0.5631963214832837,
+        "AR100": 0.6042718881281486,
+        "AR_small": 0.4077337452951227,
+        "AR_medium": 0.6514009884956147,
+        "AR_large": 0.7510838847671012
+      },
+      "timing": {
+        "batch_size": 1,
+        "num_images": 5000,
+        "total_ms": {
+          "mean": 23.445,
+          "std": 6.525,
+          "p50": 23.087,
+          "p95": 26.591,
+          "p99": 28.192,
+          "preprocess_ms": 3.284,
+          "inference_ms": 16.371,
+          "postprocess_ms": 3.79
+        }
+      },
+      "throughput": {
+        "fps_mean": 42.65,
+        "fps_p50": 43.31
+      },
+      "model_stats": {
+        "params_millions": 7.23,
+        "gflops": 13.52
+      },
+      "memory": {
+        "peak_vram_mb": 98.6,
+        "peak_ram_mb": 0.0
+      },
+      "metadata": {
+        "benchmark_date": "2026-05-10T14:50:00.730426Z",
+        "benchmark_version": "2.0.0"
+      },
+      "eval": {
+        "dataset": "coco",
+        "split": "val2017",
+        "numImages": 5000
+      },
+      "implementation": {
+        "provider": "libreyolo",
+        "version": "1.1.1"
+      },
+      "runtime": {
+        "format": "pytorch",
+        "precision": "fp32",
+        "provider": "cuda",
+        "device": "gpu"
+      },
+      "source_file": "yolov9s__pytorch__cuda__rtx3090__20260510T145000730426Z.json",
+      "verified_at": "2026-05-10T15:05:14.858866Z"
+    },
+    {
+      "schema_version": "va.submission.v1",
+      "submission_id": "yolov9t-pytorch-cuda-rtx3090-20260510T145237Z",
+      "created_at": "2026-05-10T14:52:37.997063Z",
+      "benchmark": {
+        "harness": "vision-analysis-benchmark",
+        "harness_version": "2.0.0",
+        "libreyolo_version": "1.1.1",
+        "libreyolo_commit": "7abd8d43bf817d46cae700470d815cb66be2d39d"
+      },
+      "model": {
+        "id": "yolov9t",
+        "name": "yolov9-t",
+        "family": "yolov9",
+        "variant": "t",
+        "source": "libreyolo",
+        "weights": "LibreYOLO9t.pt",
+        "input_size": 640
+      },
+      "dataset": {
+        "id": "coco2017",
+        "split": "val2017",
+        "num_images": 5000
+      },
+      "config": {
+        "batch_size": 1,
+        "input_size": 640,
+        "conf": 0.001,
+        "iou": 0.6,
+        "max_det": 300
+      },
+      "hardware": {
+        "gpu": "NVIDIA GeForce RTX 3090",
+        "gpu_memory_gb": 24.0,
+        "driver_version": "580.126.09",
+        "cuda_version": "12.4",
+        "cpu": "AMD Ryzen 9 5950X 16-Core Processor",
+        "cpu_cores": 32,
+        "ram_gb": 62,
+        "id": "rtx3090"
+      },
+      "software": {
+        "python": "3.12.3",
+        "torch": "2.6.0+cu124",
+        "libreyolo": "1.1.1",
+        "libreyolo_commit": "7abd8d43bf817d46cae700470d815cb66be2d39d",
+        "onnxruntime": "not-installed"
+      },
+      "accuracy": {
+        "mAP_50_95": 0.356886725488695,
+        "mAP_50": 0.5027722826899594,
+        "mAP_75": 0.38096825018027275,
+        "mAP_small": 0.17417865864155938,
+        "mAP_medium": 0.39282474805494855,
+        "mAP_large": 0.4891489637506213,
+        "AR1": 0.305975594628704,
+        "AR10": 0.5027798246611694,
+        "AR100": 0.5454124949884845,
+        "AR_small": 0.3307800952865797,
+        "AR_medium": 0.5980201538907233,
+        "AR_large": 0.7004965260168654
+      },
+      "timing": {
+        "batch_size": 1,
+        "num_images": 5000,
+        "total_ms": {
+          "mean": 23.097,
+          "std": 8.712,
+          "p50": 22.688,
+          "p95": 26.533,
+          "p99": 28.136,
+          "preprocess_ms": 3.274,
+          "inference_ms": 15.432,
+          "postprocess_ms": 4.391
+        }
+      },
+      "throughput": {
+        "fps_mean": 43.3,
+        "fps_p50": 44.08
+      },
+      "model_stats": {
+        "params_millions": 2.04,
+        "gflops": 3.98
+      },
+      "memory": {
+        "peak_vram_mb": 54.9,
+        "peak_ram_mb": 0.0
+      },
+      "metadata": {
+        "benchmark_date": "2026-05-10T14:52:37.997063Z",
+        "benchmark_version": "2.0.0"
+      },
+      "eval": {
+        "dataset": "coco",
+        "split": "val2017",
+        "numImages": 5000
+      },
+      "implementation": {
+        "provider": "libreyolo",
+        "version": "1.1.1"
+      },
+      "runtime": {
+        "format": "pytorch",
+        "precision": "fp32",
+        "provider": "cuda",
+        "device": "gpu"
+      },
+      "source_file": "yolov9t__pytorch__cuda__rtx3090__20260510T145237997063Z.json",
+      "verified_at": "2026-05-10T15:05:14.858866Z"
+    },
+    {
+      "schema_version": "va.submission.v1",
+      "submission_id": "yolox-l-pytorch-cuda-rtx3090-20260510T145450Z",
+      "created_at": "2026-05-10T14:54:50.842715Z",
+      "benchmark": {
+        "harness": "vision-analysis-benchmark",
+        "harness_version": "2.0.0",
+        "libreyolo_version": "1.1.1",
+        "libreyolo_commit": "7abd8d43bf817d46cae700470d815cb66be2d39d"
+      },
+      "model": {
+        "id": "yolox-l",
+        "name": "yolox-l",
+        "family": "yolox",
+        "variant": "l",
+        "source": "libreyolo",
+        "weights": "LibreYOLOXl.pt",
+        "input_size": 640
+      },
+      "dataset": {
+        "id": "coco2017",
+        "split": "val2017",
+        "num_images": 5000
+      },
+      "config": {
+        "batch_size": 1,
+        "input_size": 640,
+        "conf": 0.001,
+        "iou": 0.6,
+        "max_det": 300
+      },
+      "hardware": {
+        "gpu": "NVIDIA GeForce RTX 3090",
+        "gpu_memory_gb": 24.0,
+        "driver_version": "580.126.09",
+        "cuda_version": "12.4",
+        "cpu": "AMD Ryzen 9 5950X 16-Core Processor",
+        "cpu_cores": 32,
+        "ram_gb": 62,
+        "id": "rtx3090"
+      },
+      "software": {
+        "python": "3.12.3",
+        "torch": "2.6.0+cu124",
+        "libreyolo": "1.1.1",
+        "libreyolo_commit": "7abd8d43bf817d46cae700470d815cb66be2d39d",
+        "onnxruntime": "not-installed"
+      },
+      "accuracy": {
+        "mAP_50_95": 0.48296722193951835,
+        "mAP_50": 0.6662231739959189,
+        "mAP_75": 0.5231621628322369,
+        "mAP_small": 0.3119353789902253,
+        "mAP_medium": 0.5418250038839945,
+        "mAP_large": 0.6353573623219237,
+        "AR1": 0.3741373850955176,
+        "AR10": 0.6052065737129837,
+        "AR100": 0.6449683255036951,
+        "AR_small": 0.462493818521519,
+        "AR_medium": 0.6999070454371875,
+        "AR_large": 0.798969442989359
+      },
+      "timing": {
+        "batch_size": 1,
+        "num_images": 5000,
+        "total_ms": {
+          "mean": 18.83,
+          "std": 4.009,
+          "p50": 18.538,
+          "p95": 22.328,
+          "p99": 23.966,
+          "preprocess_ms": 3.285,
+          "inference_ms": 11.23,
+          "postprocess_ms": 4.315
+        }
+      },
+      "throughput": {
+        "fps_mean": 53.11,
+        "fps_p50": 53.94
+      },
+      "model_stats": {
+        "params_millions": 54.21,
+        "gflops": 78.01
+      },
+      "memory": {
+        "peak_vram_mb": 314.8,
+        "peak_ram_mb": 0.0
+      },
+      "metadata": {
+        "benchmark_date": "2026-05-10T14:54:50.842715Z",
+        "benchmark_version": "2.0.0"
+      },
+      "eval": {
+        "dataset": "coco",
+        "split": "val2017",
+        "numImages": 5000
+      },
+      "implementation": {
+        "provider": "libreyolo",
+        "version": "1.1.1"
+      },
+      "runtime": {
+        "format": "pytorch",
+        "precision": "fp32",
+        "provider": "cuda",
+        "device": "gpu"
+      },
+      "source_file": "yolox-l__pytorch__cuda__rtx3090__20260510T145450842715Z.json",
+      "verified_at": "2026-05-10T15:05:14.858866Z"
+    },
+    {
+      "schema_version": "va.submission.v1",
+      "submission_id": "yolox-m-pytorch-cuda-rtx3090-20260510T145648Z",
+      "created_at": "2026-05-10T14:56:48.121767Z",
+      "benchmark": {
+        "harness": "vision-analysis-benchmark",
+        "harness_version": "2.0.0",
+        "libreyolo_version": "1.1.1",
+        "libreyolo_commit": "7abd8d43bf817d46cae700470d815cb66be2d39d"
+      },
+      "model": {
+        "id": "yolox-m",
+        "name": "yolox-m",
+        "family": "yolox",
+        "variant": "m",
+        "source": "libreyolo",
+        "weights": "LibreYOLOXm.pt",
+        "input_size": 640
+      },
+      "dataset": {
+        "id": "coco2017",
+        "split": "val2017",
+        "num_images": 5000
+      },
+      "config": {
+        "batch_size": 1,
+        "input_size": 640,
+        "conf": 0.001,
+        "iou": 0.6,
+        "max_det": 300
+      },
+      "hardware": {
+        "gpu": "NVIDIA GeForce RTX 3090",
+        "gpu_memory_gb": 24.0,
+        "driver_version": "580.126.09",
+        "cuda_version": "12.4",
+        "cpu": "AMD Ryzen 9 5950X 16-Core Processor",
+        "cpu_cores": 32,
+        "ram_gb": 62,
+        "id": "rtx3090"
+      },
+      "software": {
+        "python": "3.12.3",
+        "torch": "2.6.0+cu124",
+        "libreyolo": "1.1.1",
+        "libreyolo_commit": "7abd8d43bf817d46cae700470d815cb66be2d39d",
+        "onnxruntime": "not-installed"
+      },
+      "accuracy": {
+        "mAP_50_95": 0.4576047407824028,
+        "mAP_50": 0.6452219535090483,
+        "mAP_75": 0.4971380558026304,
+        "mAP_small": 0.27993762854130894,
+        "mAP_medium": 0.5138475941449012,
+        "mAP_large": 0.6053681522182955,
+        "AR1": 0.36018939070833206,
+        "AR10": 0.5801438435857442,
+        "AR100": 0.6205768419128893,
+        "AR_small": 0.43428556475125846,
+        "AR_medium": 0.6791474158435666,
+        "AR_large": 0.770990356831926
+      },
+      "timing": {
+        "batch_size": 1,
+        "num_images": 5000,
+        "total_ms": {
+          "mean": 15.137,
+          "std": 7.994,
+          "p50": 14.701,
+          "p95": 18.803,
+          "p99": 20.715,
+          "preprocess_ms": 3.29,
+          "inference_ms": 7.296,
+          "postprocess_ms": 4.55
+        }
+      },
+      "throughput": {
+        "fps_mean": 66.06,
+        "fps_p50": 68.02
+      },
+      "model_stats": {
+        "params_millions": 25.33,
+        "gflops": 36.99
+      },
+      "memory": {
+        "peak_vram_mb": 181.4,
+        "peak_ram_mb": 0.0
+      },
+      "metadata": {
+        "benchmark_date": "2026-05-10T14:56:48.121767Z",
+        "benchmark_version": "2.0.0"
+      },
+      "eval": {
+        "dataset": "coco",
+        "split": "val2017",
+        "numImages": 5000
+      },
+      "implementation": {
+        "provider": "libreyolo",
+        "version": "1.1.1"
+      },
+      "runtime": {
+        "format": "pytorch",
+        "precision": "fp32",
+        "provider": "cuda",
+        "device": "gpu"
+      },
+      "source_file": "yolox-m__pytorch__cuda__rtx3090__20260510T145648121767Z.json",
+      "verified_at": "2026-05-10T15:05:14.858866Z"
+    },
+    {
+      "schema_version": "va.submission.v1",
+      "submission_id": "yolox-nano-pytorch-cuda-rtx3090-20260510T145841Z",
+      "created_at": "2026-05-10T14:58:41.393082Z",
+      "benchmark": {
+        "harness": "vision-analysis-benchmark",
+        "harness_version": "2.0.0",
+        "libreyolo_version": "1.1.1",
+        "libreyolo_commit": "7abd8d43bf817d46cae700470d815cb66be2d39d"
+      },
+      "model": {
+        "id": "yolox-nano",
+        "name": "yolox-nano",
+        "family": "yolox",
+        "variant": "nano",
+        "source": "libreyolo",
+        "weights": "LibreYOLOXn.pt",
+        "input_size": 416
+      },
+      "dataset": {
+        "id": "coco2017",
+        "split": "val2017",
+        "num_images": 5000
+      },
+      "config": {
+        "batch_size": 1,
+        "input_size": 416,
+        "conf": 0.001,
+        "iou": 0.6,
+        "max_det": 300
+      },
+      "hardware": {
+        "gpu": "NVIDIA GeForce RTX 3090",
+        "gpu_memory_gb": 24.0,
+        "driver_version": "580.126.09",
+        "cuda_version": "12.4",
+        "cpu": "AMD Ryzen 9 5950X 16-Core Processor",
+        "cpu_cores": 32,
+        "ram_gb": 62,
+        "id": "rtx3090"
+      },
+      "software": {
+        "python": "3.12.3",
+        "torch": "2.6.0+cu124",
+        "libreyolo": "1.1.1",
+        "libreyolo_commit": "7abd8d43bf817d46cae700470d815cb66be2d39d",
+        "onnxruntime": "not-installed"
+      },
+      "accuracy": {
+        "mAP_50_95": 0.2575039142608211,
+        "mAP_50": 0.41604185039954167,
+        "mAP_75": 0.2662256915170142,
+        "mAP_small": 0.08155948283980638,
+        "mAP_medium": 0.2745242610094871,
+        "mAP_large": 0.40906997022196406,
+        "AR1": 0.24235335363245547,
+        "AR10": 0.3814414209628288,
+        "AR100": 0.41162061721488546,
+        "AR_small": 0.14889751745477636,
+        "AR_medium": 0.4603551985759565,
+        "AR_large": 0.6274501169200407
+      },
+      "timing": {
+        "batch_size": 1,
+        "num_images": 5000,
+        "total_ms": {
+          "mean": 14.465,
+          "std": 8.625,
+          "p50": 14.112,
+          "p95": 17.575,
+          "p99": 18.946,
+          "preprocess_ms": 3.034,
+          "inference_ms": 6.983,
+          "postprocess_ms": 4.448
+        }
+      },
+      "throughput": {
+        "fps_mean": 69.13,
+        "fps_p50": 70.86
+      },
+      "model_stats": {
+        "params_millions": 0.91,
+        "gflops": 1.32
+      },
+      "memory": {
+        "peak_vram_mb": 25.1,
+        "peak_ram_mb": 0.0
+      },
+      "metadata": {
+        "benchmark_date": "2026-05-10T14:58:41.393082Z",
+        "benchmark_version": "2.0.0"
+      },
+      "eval": {
+        "dataset": "coco",
+        "split": "val2017",
+        "numImages": 5000
+      },
+      "implementation": {
+        "provider": "libreyolo",
+        "version": "1.1.1"
+      },
+      "runtime": {
+        "format": "pytorch",
+        "precision": "fp32",
+        "provider": "cuda",
+        "device": "gpu"
+      },
+      "source_file": "yolox-nano__pytorch__cuda__rtx3090__20260510T145841393082Z.json",
+      "verified_at": "2026-05-10T15:05:14.858866Z"
+    },
+    {
+      "schema_version": "va.submission.v1",
+      "submission_id": "yolox-s-pytorch-cuda-rtx3090-20260510T150040Z",
+      "created_at": "2026-05-10T15:00:40.025538Z",
+      "benchmark": {
+        "harness": "vision-analysis-benchmark",
+        "harness_version": "2.0.0",
+        "libreyolo_version": "1.1.1",
+        "libreyolo_commit": "7abd8d43bf817d46cae700470d815cb66be2d39d"
+      },
+      "model": {
+        "id": "yolox-s",
+        "name": "yolox-s",
+        "family": "yolox",
+        "variant": "s",
+        "source": "libreyolo",
+        "weights": "LibreYOLOXs.pt",
+        "input_size": 640
+      },
+      "dataset": {
+        "id": "coco2017",
+        "split": "val2017",
+        "num_images": 5000
+      },
+      "config": {
+        "batch_size": 1,
+        "input_size": 640,
+        "conf": 0.001,
+        "iou": 0.6,
+        "max_det": 300
+      },
+      "hardware": {
+        "gpu": "NVIDIA GeForce RTX 3090",
+        "gpu_memory_gb": 24.0,
+        "driver_version": "580.126.09",
+        "cuda_version": "12.4",
+        "cpu": "AMD Ryzen 9 5950X 16-Core Processor",
+        "cpu_cores": 32,
+        "ram_gb": 62,
+        "id": "rtx3090"
+      },
+      "software": {
+        "python": "3.12.3",
+        "torch": "2.6.0+cu124",
+        "libreyolo": "1.1.1",
+        "libreyolo_commit": "7abd8d43bf817d46cae700470d815cb66be2d39d",
+        "onnxruntime": "not-installed"
+      },
+      "accuracy": {
+        "mAP_50_95": 0.3896648051632809,
+        "mAP_50": 0.5792848952345107,
+        "mAP_75": 0.42196140577250923,
+        "mAP_small": 0.22232854058493917,
+        "mAP_medium": 0.43256614584026376,
+        "mAP_large": 0.5223610156880836,
+        "AR1": 0.3186258153450844,
+        "AR10": 0.520081163583091,
+        "AR100": 0.5607498079122843,
+        "AR_small": 0.3613163545514203,
+        "AR_medium": 0.6213701781519626,
+        "AR_large": 0.7087370632492829
+      },
+      "timing": {
+        "batch_size": 1,
+        "num_images": 5000,
+        "total_ms": {
+          "mean": 14.567,
+          "std": 10.349,
+          "p50": 14.103,
+          "p95": 18.515,
+          "p99": 20.522,
+          "preprocess_ms": 3.271,
+          "inference_ms": 5.664,
+          "postprocess_ms": 5.632
+        }
+      },
+      "throughput": {
+        "fps_mean": 68.65,
+        "fps_p50": 70.91
+      },
+      "model_stats": {
+        "params_millions": 8.97,
+        "gflops": 13.46
+      },
+      "memory": {
+        "peak_vram_mb": 94.4,
+        "peak_ram_mb": 0.0
+      },
+      "metadata": {
+        "benchmark_date": "2026-05-10T15:00:40.025538Z",
+        "benchmark_version": "2.0.0"
+      },
+      "eval": {
+        "dataset": "coco",
+        "split": "val2017",
+        "numImages": 5000
+      },
+      "implementation": {
+        "provider": "libreyolo",
+        "version": "1.1.1"
+      },
+      "runtime": {
+        "format": "pytorch",
+        "precision": "fp32",
+        "provider": "cuda",
+        "device": "gpu"
+      },
+      "source_file": "yolox-s__pytorch__cuda__rtx3090__20260510T150040025538Z.json",
+      "verified_at": "2026-05-10T15:05:14.858866Z"
+    },
+    {
+      "schema_version": "va.submission.v1",
+      "submission_id": "yolox-tiny-pytorch-cuda-rtx3090-20260510T150230Z",
+      "created_at": "2026-05-10T15:02:30.637234Z",
+      "benchmark": {
+        "harness": "vision-analysis-benchmark",
+        "harness_version": "2.0.0",
+        "libreyolo_version": "1.1.1",
+        "libreyolo_commit": "7abd8d43bf817d46cae700470d815cb66be2d39d"
+      },
+      "model": {
+        "id": "yolox-tiny",
+        "name": "yolox-tiny",
+        "family": "yolox",
+        "variant": "tiny",
+        "source": "libreyolo",
+        "weights": "LibreYOLOXt.pt",
+        "input_size": 416
+      },
+      "dataset": {
+        "id": "coco2017",
+        "split": "val2017",
+        "num_images": 5000
+      },
+      "config": {
+        "batch_size": 1,
+        "input_size": 416,
+        "conf": 0.001,
+        "iou": 0.6,
+        "max_det": 300
+      },
+      "hardware": {
+        "gpu": "NVIDIA GeForce RTX 3090",
+        "gpu_memory_gb": 24.0,
+        "driver_version": "580.126.09",
+        "cuda_version": "12.4",
+        "cpu": "AMD Ryzen 9 5950X 16-Core Processor",
+        "cpu_cores": 32,
+        "ram_gb": 62,
+        "id": "rtx3090"
+      },
+      "software": {
+        "python": "3.12.3",
+        "torch": "2.6.0+cu124",
+        "libreyolo": "1.1.1",
+        "libreyolo_commit": "7abd8d43bf817d46cae700470d815cb66be2d39d",
+        "onnxruntime": "not-installed"
+      },
+      "accuracy": {
+        "mAP_50_95": 0.32021470098690785,
+        "mAP_50": 0.497001830584805,
+        "mAP_75": 0.3369180265725319,
+        "mAP_small": 0.13170031900549686,
+        "mAP_medium": 0.349103764652236,
+        "mAP_large": 0.48716271255487675,
+        "AR1": 0.28023355236690256,
+        "AR10": 0.44474431564571487,
+        "AR100": 0.4759104419295748,
+        "AR_small": 0.22092929140057335,
+        "AR_medium": 0.5375986887180915,
+        "AR_large": 0.6826834476492786
+      },
+      "timing": {
+        "batch_size": 1,
+        "num_images": 5000,
+        "total_ms": {
+          "mean": 13.591,
+          "std": 9.031,
+          "p50": 13.163,
+          "p95": 16.811,
+          "p99": 18.326,
+          "preprocess_ms": 3.041,
+          "inference_ms": 5.724,
+          "postprocess_ms": 4.826
+        }
+      },
+      "throughput": {
+        "fps_mean": 73.58,
+        "fps_p50": 75.97
+      },
+      "model_stats": {
+        "params_millions": 5.06,
+        "gflops": 7.68
+      },
+      "memory": {
+        "peak_vram_mb": 45.4,
+        "peak_ram_mb": 0.0
+      },
+      "metadata": {
+        "benchmark_date": "2026-05-10T15:02:30.637234Z",
+        "benchmark_version": "2.0.0"
+      },
+      "eval": {
+        "dataset": "coco",
+        "split": "val2017",
+        "numImages": 5000
+      },
+      "implementation": {
+        "provider": "libreyolo",
+        "version": "1.1.1"
+      },
+      "runtime": {
+        "format": "pytorch",
+        "precision": "fp32",
+        "provider": "cuda",
+        "device": "gpu"
+      },
+      "source_file": "yolox-tiny__pytorch__cuda__rtx3090__20260510T150230637234Z.json",
+      "verified_at": "2026-05-10T15:05:14.858866Z"
+    },
+    {
+      "schema_version": "va.submission.v1",
+      "submission_id": "yolox-x-pytorch-cuda-rtx3090-20260510T150514Z",
+      "created_at": "2026-05-10T15:05:14.858866Z",
+      "benchmark": {
+        "harness": "vision-analysis-benchmark",
+        "harness_version": "2.0.0",
+        "libreyolo_version": "1.1.1",
+        "libreyolo_commit": "7abd8d43bf817d46cae700470d815cb66be2d39d"
+      },
+      "model": {
+        "id": "yolox-x",
+        "name": "yolox-x",
+        "family": "yolox",
+        "variant": "x",
+        "source": "libreyolo",
+        "weights": "LibreYOLOXx.pt",
+        "input_size": 640
+      },
+      "dataset": {
+        "id": "coco2017",
+        "split": "val2017",
+        "num_images": 5000
+      },
+      "config": {
+        "batch_size": 1,
+        "input_size": 640,
+        "conf": 0.001,
+        "iou": 0.6,
+        "max_det": 300
+      },
+      "hardware": {
+        "gpu": "NVIDIA GeForce RTX 3090",
+        "gpu_memory_gb": 24.0,
+        "driver_version": "580.126.09",
+        "cuda_version": "12.4",
+        "cpu": "AMD Ryzen 9 5950X 16-Core Processor",
+        "cpu_cores": 32,
+        "ram_gb": 62,
+        "id": "rtx3090"
+      },
+      "software": {
+        "python": "3.12.3",
+        "torch": "2.6.0+cu124",
+        "libreyolo": "1.1.1",
+        "libreyolo_commit": "7abd8d43bf817d46cae700470d815cb66be2d39d",
+        "onnxruntime": "not-installed"
+      },
+      "accuracy": {
+        "mAP_50_95": 0.49806675017779145,
+        "mAP_50": 0.6796332781405134,
+        "mAP_75": 0.5379569217158748,
+        "mAP_small": 0.33987051307961824,
+        "mAP_medium": 0.5561158702119418,
+        "mAP_large": 0.6546233795321651,
+        "AR1": 0.3779822805823512,
+        "AR10": 0.6184405528812423,
+        "AR100": 0.6570439045894629,
+        "AR_small": 0.48942766178773317,
+        "AR_medium": 0.7089250441231121,
+        "AR_large": 0.8176041155780334
+      },
+      "timing": {
+        "batch_size": 1,
+        "num_images": 5000,
+        "total_ms": {
+          "mean": 25.538,
+          "std": 5.264,
+          "p50": 25.205,
+          "p95": 29.02,
+          "p99": 30.978,
+          "preprocess_ms": 3.3,
+          "inference_ms": 18.392,
+          "postprocess_ms": 3.847
+        }
+      },
+      "throughput": {
+        "fps_mean": 39.16,
+        "fps_p50": 39.67
+      },
+      "model_stats": {
+        "params_millions": 99.07,
+        "gflops": 141.23
+      },
+      "memory": {
+        "peak_vram_mb": 511.6,
+        "peak_ram_mb": 0.0
+      },
+      "metadata": {
+        "benchmark_date": "2026-05-10T15:05:14.858866Z",
+        "benchmark_version": "2.0.0"
+      },
+      "eval": {
+        "dataset": "coco",
+        "split": "val2017",
+        "numImages": 5000
+      },
+      "implementation": {
+        "provider": "libreyolo",
+        "version": "1.1.1"
+      },
+      "runtime": {
+        "format": "pytorch",
+        "precision": "fp32",
+        "provider": "cuda",
+        "device": "gpu"
+      },
+      "source_file": "yolox-x__pytorch__cuda__rtx3090__20260510T150514858866Z.json",
+      "verified_at": "2026-05-10T15:05:14.858866Z"
     }
   ]
 }
