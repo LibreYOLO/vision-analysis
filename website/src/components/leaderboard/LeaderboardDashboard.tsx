@@ -10,16 +10,105 @@ import { ScatterPlot } from "@/components/charts";
 interface LeaderboardDashboardProps {
   benchmarkData: Record<string, BenchmarkResult[]>;
   hardwareOptions: Array<{ value: string; label: string }>;
-  families: string[];
+}
+
+function getDefaultSelection(
+  benchmarkData: Record<string, BenchmarkResult[]>,
+  hardwareOptions: Array<{ value: string; label: string }>
+): { hardware: string; runtime: string } {
+  const fallbackHardware = hardwareOptions[0]?.value ?? "a100";
+  const fallbackRuntime =
+    Object.keys(benchmarkData)
+      .find((key) => key.startsWith(`${fallbackHardware}__`))
+      ?.split("__")[1] ?? "pytorch_fp32";
+
+  const hardwareOrder = new Map(
+    hardwareOptions.map((option, index) => [option.value, index])
+  );
+  const byHardware = new Map<
+    string,
+    {
+      models: Set<string>;
+      resultCount: number;
+      runtimes: Map<string, { models: Set<string>; resultCount: number }>;
+    }
+  >();
+
+  for (const [key, results] of Object.entries(benchmarkData)) {
+    const [hardware, runtime] = key.split("__");
+    if (!hardware || !runtime) continue;
+
+    const hardwareStats =
+      byHardware.get(hardware) ??
+      { models: new Set<string>(), resultCount: 0, runtimes: new Map() };
+    const runtimeStats =
+      hardwareStats.runtimes.get(runtime) ??
+      { models: new Set<string>(), resultCount: 0 };
+
+    for (const result of results) {
+      hardwareStats.models.add(result.model);
+      runtimeStats.models.add(result.model);
+    }
+    hardwareStats.resultCount += results.length;
+    runtimeStats.resultCount += results.length;
+
+    hardwareStats.runtimes.set(runtime, runtimeStats);
+    byHardware.set(hardware, hardwareStats);
+  }
+
+  let bestHardware = fallbackHardware;
+  let bestModelCount = -1;
+  let bestResultCount = -1;
+  let bestOrder = Number.MAX_SAFE_INTEGER;
+
+  for (const [hardware, stats] of byHardware) {
+    const order = hardwareOrder.get(hardware) ?? Number.MAX_SAFE_INTEGER;
+    const modelCount = stats.models.size;
+    if (
+      modelCount > bestModelCount ||
+      (modelCount === bestModelCount && stats.resultCount > bestResultCount) ||
+      (modelCount === bestModelCount &&
+        stats.resultCount === bestResultCount &&
+        order < bestOrder)
+    ) {
+      bestHardware = hardware;
+      bestModelCount = modelCount;
+      bestResultCount = stats.resultCount;
+      bestOrder = order;
+    }
+  }
+
+  const runtimes = byHardware.get(bestHardware)?.runtimes;
+  if (!runtimes) {
+    return { hardware: fallbackHardware, runtime: fallbackRuntime };
+  }
+
+  let bestRuntime = fallbackRuntime;
+  let bestRuntimeModelCount = -1;
+  let bestRuntimeResultCount = -1;
+  for (const [runtime, stats] of runtimes) {
+    const modelCount = stats.models.size;
+    if (
+      modelCount > bestRuntimeModelCount ||
+      (modelCount === bestRuntimeModelCount &&
+        stats.resultCount > bestRuntimeResultCount)
+    ) {
+      bestRuntime = runtime;
+      bestRuntimeModelCount = modelCount;
+      bestRuntimeResultCount = stats.resultCount;
+    }
+  }
+
+  return { hardware: bestHardware, runtime: bestRuntime };
 }
 
 export function LeaderboardDashboard({
   benchmarkData,
   hardwareOptions,
-  families,
 }: LeaderboardDashboardProps) {
-  const [hardware, setHardware] = useState("a100");
-  const [runtime, setRuntime] = useState("pytorch_fp32");
+  const defaultSelection = getDefaultSelection(benchmarkData, hardwareOptions);
+  const [hardware, setHardware] = useState(defaultSelection.hardware);
+  const [runtime, setRuntime] = useState(defaultSelection.runtime);
   const [selectedFamilies, setSelectedFamilies] = useState<string[]>([]);
   const [paretoLine, setParetoLine] = useState(true);
 
@@ -48,10 +137,21 @@ export function LeaderboardDashboard({
     return benchmarkData[key] || [];
   }, [benchmarkData, hardware, runtime]);
 
+  const availableFamilies = useMemo(() => {
+    return Array.from(new Set(allResults.map((result) => result.family))).sort();
+  }, [allResults]);
+
+  const visibleSelectedFamilies = useMemo(() => {
+    const available = new Set(availableFamilies);
+    return selectedFamilies.filter((family) => available.has(family));
+  }, [availableFamilies, selectedFamilies]);
+
+  const hasHiddenFamilySelections = selectedFamilies.length !== visibleSelectedFamilies.length;
+
   // Filter by selected families
   const filteredResults = useMemo(() => {
-    return filterByFamilies(allResults, selectedFamilies);
-  }, [allResults, selectedFamilies]);
+    return filterByFamilies(allResults, visibleSelectedFamilies);
+  }, [allResults, visibleSelectedFamilies]);
 
   const handleFamilyToggle = (family: string) => {
     setSelectedFamilies((prev) =>
@@ -88,12 +188,12 @@ export function LeaderboardDashboard({
             onHardwareChange={handleHardwareChange}
             runtime={runtime}
             onRuntimeChange={setRuntime}
-            selectedFamilies={selectedFamilies}
+            selectedFamilies={visibleSelectedFamilies}
             onFamilyToggle={handleFamilyToggle}
             resultCount={filteredResults.length}
             hardwareOptions={hardwareOptions}
             runtimeOptions={runtimeOptions}
-            families={families}
+            families={availableFamilies}
             paretoLine={paretoLine}
             onParetoLineChange={setParetoLine}
           />
@@ -131,7 +231,7 @@ export function LeaderboardDashboard({
         <div className="section-group-content">
           <LeaderboardTable
             data={filteredResults}
-            familyFilter={selectedFamilies}
+            familyFilter={hasHiddenFamilySelections ? visibleSelectedFamilies : selectedFamilies}
           />
         </div>
       </div>

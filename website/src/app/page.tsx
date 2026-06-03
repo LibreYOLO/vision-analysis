@@ -1,6 +1,6 @@
 import { LeaderboardDashboard } from "@/components/leaderboard";
 import { AccuracyTimeline, VAScoreChart } from "@/components/charts";
-import { getAllBenchmarkResults, getFamilies, getHardwareOptions } from "@/lib/data";
+import { getAllBenchmarkResults, getHardwareOptions } from "@/lib/data";
 
 const previewFamilies = ["YOLO11", "RF-DETR", "YOLOv10", "RT-DETR", "YOLOv9"];
 
@@ -65,7 +65,6 @@ function ComingSoonOverlay({
 export default function HomePage() {
   const benchmarkData = getAllBenchmarkResults();
   const hardwareOptions = getHardwareOptions();
-  const families = getFamilies();
   const benchmarkCount = Object.values(benchmarkData).reduce((sum, results) => sum + results.length, 0);
   const hasVerifiedBenchmarks = benchmarkCount > 0;
 
@@ -87,7 +86,6 @@ export default function HomePage() {
           <LeaderboardDashboard
             benchmarkData={benchmarkData}
             hardwareOptions={hardwareOptions}
-            families={families}
           />
         ) : (
           <div className="section-group mb-6">

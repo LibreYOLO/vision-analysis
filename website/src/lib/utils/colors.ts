@@ -8,8 +8,15 @@ export const FAMILY_COLORS: Record<ModelFamily | string, string> = {
   yolov10: "#7c3aed",  // Tsinghua violet
   yolo11: "#0B23A9",   // Ultralytics navy
   rtdetr: "#de2910",   // Baidu red
+  rtdetrv2: "#dc2626", // Baidu red variant
+  rtdetrv4: "#991b1b", // RT-DETRv4 deep red
   rfdetr: "#22c55e",   // Roboflow green
   yolonas: "#16a34a",  // Deci green
+  dfine: "#64748b",    // slate
+  deim: "#2563eb",     // blue
+  deimv2: "#4f46e5",   // indigo
+  ec: "#0d9488",       // teal
+  damoyolo: "#db2777", // magenta
   other: "#6b7280",    // gray
 };
 
