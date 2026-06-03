@@ -25,6 +25,18 @@
       "providers": []
     },
     {
+      "id": "nvidia_geforce_rtx_5070_ti",
+      "displayName": "NVIDIA RTX 5070 Ti",
+      "category": "cloud_gpu",
+      "specs": {
+        "gpuName": "NVIDIA GeForce RTX 5070 Ti",
+        "vramGb": 16,
+        "fp32Tflops": 44.0,
+        "tdpWatts": 300
+      },
+      "providers": []
+    },
+    {
       "id": "dgx_spark",
       "displayName": "NVIDIA DGX Spark",
       "category": "cloud_gpu",
