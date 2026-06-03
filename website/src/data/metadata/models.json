@@ -1249,6 +1249,760 @@
       "releaseDate": "2023-05-08",
       "inLibreYOLO": true,
       "notes": "Weights are auto-downloaded from Deci's CloudFront CDN (d2gjn4b69gu75n.cloudfront.net) inside LibreYOLO. License is Apache-2.0 with a non-commercial attribution clause for the pretrained weights \u2014 see the upstream super_gradients repo."
+    },
+    {
+      "id": "deim-n",
+      "displayName": "DEIM-N",
+      "family": "deim",
+      "variant": "n",
+      "task": "detection",
+      "architecture": {
+        "type": "transformer",
+        "backbone": "HGNetv2",
+        "neck": "HybridEncoder",
+        "head": "DEIM (Dense O2O + MAL)"
+      },
+      "detectionApproach": "detr",
+      "postprocessing": "nms-free",
+      "specs": {
+        "paramsM": 4.0,
+        "flopsG": 7.0,
+        "inputSizeDefault": 640,
+        "numClasses": 80
+      },
+      "paperReportedMap": 43.0,
+      "source": {
+        "originalWeightsUrl": "https://github.com/Intellindust-AI-Lab/DEIM",
+        "libreyoloWeightsUrl": "https://huggingface.co/LibreYOLO/LibreDEIMn"
+      },
+      "license": "Apache-2.0",
+      "releaseDate": "2024-12-05",
+      "inLibreYOLO": true
+    },
+    {
+      "id": "deim-s",
+      "displayName": "DEIM-S",
+      "family": "deim",
+      "variant": "s",
+      "task": "detection",
+      "architecture": {
+        "type": "transformer",
+        "backbone": "HGNetv2",
+        "neck": "HybridEncoder",
+        "head": "DEIM (Dense O2O + MAL)"
+      },
+      "detectionApproach": "detr",
+      "postprocessing": "nms-free",
+      "specs": {
+        "paramsM": 10.0,
+        "flopsG": 25.0,
+        "inputSizeDefault": 640,
+        "numClasses": 80
+      },
+      "paperReportedMap": 49.0,
+      "source": {
+        "originalWeightsUrl": "https://github.com/Intellindust-AI-Lab/DEIM",
+        "libreyoloWeightsUrl": "https://huggingface.co/LibreYOLO/LibreDEIMs"
+      },
+      "license": "Apache-2.0",
+      "releaseDate": "2024-12-05",
+      "inLibreYOLO": true
+    },
+    {
+      "id": "deim-m",
+      "displayName": "DEIM-M",
+      "family": "deim",
+      "variant": "m",
+      "task": "detection",
+      "architecture": {
+        "type": "transformer",
+        "backbone": "HGNetv2",
+        "neck": "HybridEncoder",
+        "head": "DEIM (Dense O2O + MAL)"
+      },
+      "detectionApproach": "detr",
+      "postprocessing": "nms-free",
+      "specs": {
+        "paramsM": 19.0,
+        "flopsG": 57.0,
+        "inputSizeDefault": 640,
+        "numClasses": 80
+      },
+      "paperReportedMap": 52.7,
+      "source": {
+        "originalWeightsUrl": "https://github.com/Intellindust-AI-Lab/DEIM",
+        "libreyoloWeightsUrl": "https://huggingface.co/LibreYOLO/LibreDEIMm"
+      },
+      "license": "Apache-2.0",
+      "releaseDate": "2024-12-05",
+      "inLibreYOLO": true
+    },
+    {
+      "id": "deim-l",
+      "displayName": "DEIM-L",
+      "family": "deim",
+      "variant": "l",
+      "task": "detection",
+      "architecture": {
+        "type": "transformer",
+        "backbone": "HGNetv2",
+        "neck": "HybridEncoder",
+        "head": "DEIM (Dense O2O + MAL)"
+      },
+      "detectionApproach": "detr",
+      "postprocessing": "nms-free",
+      "specs": {
+        "paramsM": 31.0,
+        "flopsG": 91.0,
+        "inputSizeDefault": 640,
+        "numClasses": 80
+      },
+      "paperReportedMap": 54.7,
+      "source": {
+        "originalWeightsUrl": "https://github.com/Intellindust-AI-Lab/DEIM",
+        "libreyoloWeightsUrl": "https://huggingface.co/LibreYOLO/LibreDEIMl"
+      },
+      "license": "Apache-2.0",
+      "releaseDate": "2024-12-05",
+      "inLibreYOLO": true
+    },
+    {
+      "id": "deim-x",
+      "displayName": "DEIM-X",
+      "family": "deim",
+      "variant": "x",
+      "task": "detection",
+      "architecture": {
+        "type": "transformer",
+        "backbone": "HGNetv2",
+        "neck": "HybridEncoder",
+        "head": "DEIM (Dense O2O + MAL)"
+      },
+      "detectionApproach": "detr",
+      "postprocessing": "nms-free",
+      "specs": {
+        "paramsM": 62.0,
+        "flopsG": 202.0,
+        "inputSizeDefault": 640,
+        "numClasses": 80
+      },
+      "paperReportedMap": 56.5,
+      "source": {
+        "originalWeightsUrl": "https://github.com/Intellindust-AI-Lab/DEIM",
+        "libreyoloWeightsUrl": "https://huggingface.co/LibreYOLO/LibreDEIMx"
+      },
+      "license": "Apache-2.0",
+      "releaseDate": "2024-12-05",
+      "inLibreYOLO": true
+    },
+    {
+      "id": "deimv2-atto",
+      "displayName": "DEIMv2-Atto",
+      "family": "deimv2",
+      "variant": "atto",
+      "task": "detection",
+      "architecture": {
+        "type": "transformer",
+        "backbone": "DINOv3-distilled ViT",
+        "neck": "HybridEncoder",
+        "head": "DEIM"
+      },
+      "detectionApproach": "detr",
+      "postprocessing": "nms-free",
+      "specs": {
+        "paramsM": 0.49,
+        "flopsG": 0.76,
+        "inputSizeDefault": 320,
+        "numClasses": 80
+      },
+      "paperReportedMap": 23.8,
+      "source": {
+        "originalWeightsUrl": "https://github.com/Intellindust-AI-Lab/DEIMv2",
+        "libreyoloWeightsUrl": "https://huggingface.co/LibreYOLO/LibreDEIMv2atto"
+      },
+      "license": "Apache-2.0",
+      "releaseDate": "2025-09-25",
+      "inLibreYOLO": true
+    },
+    {
+      "id": "deimv2-femto",
+      "displayName": "DEIMv2-Femto",
+      "family": "deimv2",
+      "variant": "femto",
+      "task": "detection",
+      "architecture": {
+        "type": "transformer",
+        "backbone": "DINOv3-distilled ViT",
+        "neck": "HybridEncoder",
+        "head": "DEIM"
+      },
+      "detectionApproach": "detr",
+      "postprocessing": "nms-free",
+      "specs": {
+        "paramsM": 0.96,
+        "flopsG": 1.67,
+        "inputSizeDefault": 416,
+        "numClasses": 80
+      },
+      "paperReportedMap": 31.0,
+      "source": {
+        "originalWeightsUrl": "https://github.com/Intellindust-AI-Lab/DEIMv2",
+        "libreyoloWeightsUrl": "https://huggingface.co/LibreYOLO/LibreDEIMv2femto"
+      },
+      "license": "Apache-2.0",
+      "releaseDate": "2025-09-25",
+      "inLibreYOLO": true
+    },
+    {
+      "id": "deimv2-pico",
+      "displayName": "DEIMv2-Pico",
+      "family": "deimv2",
+      "variant": "pico",
+      "task": "detection",
+      "architecture": {
+        "type": "transformer",
+        "backbone": "DINOv3-distilled ViT",
+        "neck": "HybridEncoder",
+        "head": "DEIM"
+      },
+      "detectionApproach": "detr",
+      "postprocessing": "nms-free",
+      "specs": {
+        "paramsM": 1.51,
+        "flopsG": 5.15,
+        "inputSizeDefault": 640,
+        "numClasses": 80
+      },
+      "paperReportedMap": 38.5,
+      "source": {
+        "originalWeightsUrl": "https://github.com/Intellindust-AI-Lab/DEIMv2",
+        "libreyoloWeightsUrl": "https://huggingface.co/LibreYOLO/LibreDEIMv2pico"
+      },
+      "license": "Apache-2.0",
+      "releaseDate": "2025-09-25",
+      "inLibreYOLO": true
+    },
+    {
+      "id": "deimv2-n",
+      "displayName": "DEIMv2-N",
+      "family": "deimv2",
+      "variant": "n",
+      "task": "detection",
+      "architecture": {
+        "type": "transformer",
+        "backbone": "DINOv3-distilled ViT",
+        "neck": "HybridEncoder",
+        "head": "DEIM"
+      },
+      "detectionApproach": "detr",
+      "postprocessing": "nms-free",
+      "specs": {
+        "paramsM": 3.57,
+        "flopsG": 6.86,
+        "inputSizeDefault": 640,
+        "numClasses": 80
+      },
+      "paperReportedMap": 43.0,
+      "source": {
+        "originalWeightsUrl": "https://github.com/Intellindust-AI-Lab/DEIMv2",
+        "libreyoloWeightsUrl": "https://huggingface.co/LibreYOLO/LibreDEIMv2n"
+      },
+      "license": "Apache-2.0",
+      "releaseDate": "2025-09-25",
+      "inLibreYOLO": true
+    },
+    {
+      "id": "deimv2-s",
+      "displayName": "DEIMv2-S",
+      "family": "deimv2",
+      "variant": "s",
+      "task": "detection",
+      "architecture": {
+        "type": "transformer",
+        "backbone": "DINOv3-distilled ViT",
+        "neck": "HybridEncoder",
+        "head": "DEIM"
+      },
+      "detectionApproach": "detr",
+      "postprocessing": "nms-free",
+      "specs": {
+        "paramsM": 9.71,
+        "flopsG": 25.62,
+        "inputSizeDefault": 640,
+        "numClasses": 80
+      },
+      "paperReportedMap": 50.9,
+      "source": {
+        "originalWeightsUrl": "https://github.com/Intellindust-AI-Lab/DEIMv2",
+        "libreyoloWeightsUrl": "https://huggingface.co/LibreYOLO/LibreDEIMv2s"
+      },
+      "license": "Apache-2.0",
+      "releaseDate": "2025-09-25",
+      "inLibreYOLO": true
+    },
+    {
+      "id": "deimv2-m",
+      "displayName": "DEIMv2-M",
+      "family": "deimv2",
+      "variant": "m",
+      "task": "detection",
+      "architecture": {
+        "type": "transformer",
+        "backbone": "DINOv3-distilled ViT",
+        "neck": "HybridEncoder",
+        "head": "DEIM"
+      },
+      "detectionApproach": "detr",
+      "postprocessing": "nms-free",
+      "specs": {
+        "paramsM": 18.11,
+        "flopsG": 52.2,
+        "inputSizeDefault": 640,
+        "numClasses": 80
+      },
+      "paperReportedMap": 53.0,
+      "source": {
+        "originalWeightsUrl": "https://github.com/Intellindust-AI-Lab/DEIMv2",
+        "libreyoloWeightsUrl": "https://huggingface.co/LibreYOLO/LibreDEIMv2m"
+      },
+      "license": "Apache-2.0",
+      "releaseDate": "2025-09-25",
+      "inLibreYOLO": true
+    },
+    {
+      "id": "deimv2-l",
+      "displayName": "DEIMv2-L",
+      "family": "deimv2",
+      "variant": "l",
+      "task": "detection",
+      "architecture": {
+        "type": "transformer",
+        "backbone": "DINOv3-distilled ViT",
+        "neck": "HybridEncoder",
+        "head": "DEIM"
+      },
+      "detectionApproach": "detr",
+      "postprocessing": "nms-free",
+      "specs": {
+        "paramsM": 32.18,
+        "flopsG": 96.32,
+        "inputSizeDefault": 640,
+        "numClasses": 80
+      },
+      "paperReportedMap": 56.0,
+      "source": {
+        "originalWeightsUrl": "https://github.com/Intellindust-AI-Lab/DEIMv2",
+        "libreyoloWeightsUrl": "https://huggingface.co/LibreYOLO/LibreDEIMv2l"
+      },
+      "license": "Apache-2.0",
+      "releaseDate": "2025-09-25",
+      "inLibreYOLO": true
+    },
+    {
+      "id": "deimv2-x",
+      "displayName": "DEIMv2-X",
+      "family": "deimv2",
+      "variant": "x",
+      "task": "detection",
+      "architecture": {
+        "type": "transformer",
+        "backbone": "DINOv3-distilled ViT",
+        "neck": "HybridEncoder",
+        "head": "DEIM"
+      },
+      "detectionApproach": "detr",
+      "postprocessing": "nms-free",
+      "specs": {
+        "paramsM": 50.26,
+        "flopsG": 151.6,
+        "inputSizeDefault": 640,
+        "numClasses": 80
+      },
+      "paperReportedMap": 57.8,
+      "source": {
+        "originalWeightsUrl": "https://github.com/Intellindust-AI-Lab/DEIMv2",
+        "libreyoloWeightsUrl": "https://huggingface.co/LibreYOLO/LibreDEIMv2x"
+      },
+      "license": "Apache-2.0",
+      "releaseDate": "2025-09-25",
+      "inLibreYOLO": true
+    },
+    {
+      "id": "ec-s",
+      "displayName": "ECDet-S",
+      "family": "ec",
+      "variant": "s",
+      "task": "detection",
+      "architecture": {
+        "type": "transformer",
+        "backbone": "ECViT (compact ViT)",
+        "neck": "HybridEncoder",
+        "head": "DETR"
+      },
+      "detectionApproach": "detr",
+      "postprocessing": "nms-free",
+      "specs": {
+        "paramsM": 9.94,
+        "flopsG": 26.0,
+        "inputSizeDefault": 640,
+        "numClasses": 80
+      },
+      "paperReportedMap": 51.7,
+      "source": {
+        "originalWeightsUrl": "https://github.com/Intellindust-AI-Lab/EdgeCrafter",
+        "libreyoloWeightsUrl": "https://huggingface.co/LibreYOLO/LibreECs"
+      },
+      "license": "Apache-2.0",
+      "releaseDate": "2026-03-19",
+      "inLibreYOLO": true
+    },
+    {
+      "id": "ec-m",
+      "displayName": "ECDet-M",
+      "family": "ec",
+      "variant": "m",
+      "task": "detection",
+      "architecture": {
+        "type": "transformer",
+        "backbone": "ECViT (compact ViT)",
+        "neck": "HybridEncoder",
+        "head": "DETR"
+      },
+      "detectionApproach": "detr",
+      "postprocessing": "nms-free",
+      "specs": {
+        "paramsM": 18.0,
+        "flopsG": 53.0,
+        "inputSizeDefault": 640,
+        "numClasses": 80
+      },
+      "paperReportedMap": 54.3,
+      "source": {
+        "originalWeightsUrl": "https://github.com/Intellindust-AI-Lab/EdgeCrafter",
+        "libreyoloWeightsUrl": "https://huggingface.co/LibreYOLO/LibreECm"
+      },
+      "license": "Apache-2.0",
+      "releaseDate": "2026-03-19",
+      "inLibreYOLO": true
+    },
+    {
+      "id": "ec-l",
+      "displayName": "ECDet-L",
+      "family": "ec",
+      "variant": "l",
+      "task": "detection",
+      "architecture": {
+        "type": "transformer",
+        "backbone": "ECViT (compact ViT)",
+        "neck": "HybridEncoder",
+        "head": "DETR"
+      },
+      "detectionApproach": "detr",
+      "postprocessing": "nms-free",
+      "specs": {
+        "paramsM": 31.0,
+        "flopsG": 101.0,
+        "inputSizeDefault": 640,
+        "numClasses": 80
+      },
+      "paperReportedMap": 57.0,
+      "source": {
+        "originalWeightsUrl": "https://github.com/Intellindust-AI-Lab/EdgeCrafter",
+        "libreyoloWeightsUrl": "https://huggingface.co/LibreYOLO/LibreECl"
+      },
+      "license": "Apache-2.0",
+      "releaseDate": "2026-03-19",
+      "inLibreYOLO": true
+    },
+    {
+      "id": "ec-x",
+      "displayName": "ECDet-X",
+      "family": "ec",
+      "variant": "x",
+      "task": "detection",
+      "architecture": {
+        "type": "transformer",
+        "backbone": "ECViT (compact ViT)",
+        "neck": "HybridEncoder",
+        "head": "DETR"
+      },
+      "detectionApproach": "detr",
+      "postprocessing": "nms-free",
+      "specs": {
+        "paramsM": 49.0,
+        "flopsG": 151.0,
+        "inputSizeDefault": 640,
+        "numClasses": 80
+      },
+      "paperReportedMap": 57.9,
+      "source": {
+        "originalWeightsUrl": "https://github.com/Intellindust-AI-Lab/EdgeCrafter",
+        "libreyoloWeightsUrl": "https://huggingface.co/LibreYOLO/LibreECx"
+      },
+      "license": "Apache-2.0",
+      "releaseDate": "2026-03-19",
+      "inLibreYOLO": true
+    },
+    {
+      "id": "picodet-s",
+      "displayName": "PicoDet-S",
+      "family": "picodet",
+      "variant": "s",
+      "task": "detection",
+      "architecture": {
+        "type": "one-stage",
+        "backbone": "ESNet",
+        "neck": "CSP-PAN",
+        "head": "PicoHead (GFL)"
+      },
+      "detectionApproach": "anchor-free",
+      "postprocessing": "nms",
+      "specs": {
+        "paramsM": 0.99,
+        "flopsG": 0.73,
+        "inputSizeDefault": 320,
+        "numClasses": 80
+      },
+      "paperReportedMap": 27.1,
+      "source": {
+        "originalWeightsUrl": "https://github.com/PaddlePaddle/PaddleDetection",
+        "libreyoloWeightsUrl": "https://huggingface.co/LibreYOLO/LibrePICODETs"
+      },
+      "license": "Apache-2.0",
+      "releaseDate": "2021-11-01",
+      "inLibreYOLO": true
+    },
+    {
+      "id": "picodet-m",
+      "displayName": "PicoDet-M",
+      "family": "picodet",
+      "variant": "m",
+      "task": "detection",
+      "architecture": {
+        "type": "one-stage",
+        "backbone": "ESNet",
+        "neck": "CSP-PAN",
+        "head": "PicoHead (GFL)"
+      },
+      "detectionApproach": "anchor-free",
+      "postprocessing": "nms",
+      "specs": {
+        "paramsM": 2.15,
+        "flopsG": 2.5,
+        "inputSizeDefault": 416,
+        "numClasses": 80
+      },
+      "paperReportedMap": 34.3,
+      "source": {
+        "originalWeightsUrl": "https://github.com/PaddlePaddle/PaddleDetection",
+        "libreyoloWeightsUrl": "https://huggingface.co/LibreYOLO/LibrePICODETm"
+      },
+      "license": "Apache-2.0",
+      "releaseDate": "2021-11-01",
+      "inLibreYOLO": true
+    },
+    {
+      "id": "picodet-l",
+      "displayName": "PicoDet-L",
+      "family": "picodet",
+      "variant": "l",
+      "task": "detection",
+      "architecture": {
+        "type": "one-stage",
+        "backbone": "ESNet",
+        "neck": "CSP-PAN",
+        "head": "PicoHead (GFL)"
+      },
+      "detectionApproach": "anchor-free",
+      "postprocessing": "nms",
+      "specs": {
+        "paramsM": 3.3,
+        "flopsG": 8.91,
+        "inputSizeDefault": 640,
+        "numClasses": 80
+      },
+      "paperReportedMap": 40.9,
+      "source": {
+        "originalWeightsUrl": "https://github.com/PaddlePaddle/PaddleDetection",
+        "libreyoloWeightsUrl": "https://huggingface.co/LibreYOLO/LibrePICODETl"
+      },
+      "license": "Apache-2.0",
+      "releaseDate": "2021-11-01",
+      "inLibreYOLO": true
+    },
+    {
+      "id": "rtdetr-l",
+      "displayName": "RT-DETR-L",
+      "family": "rtdetr",
+      "variant": "l",
+      "task": "detection",
+      "architecture": {
+        "type": "transformer",
+        "backbone": "HGNetv2-L",
+        "neck": "HybridEncoder",
+        "head": "DETR"
+      },
+      "detectionApproach": "detr",
+      "postprocessing": "nms-free",
+      "specs": {
+        "paramsM": 32.0,
+        "flopsG": 110.0,
+        "inputSizeDefault": 640,
+        "numClasses": 80
+      },
+      "paperReportedMap": 53.0,
+      "source": {
+        "originalWeightsUrl": "https://github.com/lyuwenyu/RT-DETR/releases",
+        "libreyoloWeightsUrl": "https://huggingface.co/LibreYOLO/LibreRTDETRl"
+      },
+      "license": "Apache-2.0",
+      "releaseDate": "2023-04-17",
+      "inLibreYOLO": true
+    },
+    {
+      "id": "rtdetr-x",
+      "displayName": "RT-DETR-X",
+      "family": "rtdetr",
+      "variant": "x",
+      "task": "detection",
+      "architecture": {
+        "type": "transformer",
+        "backbone": "HGNetv2-X",
+        "neck": "HybridEncoder",
+        "head": "DETR"
+      },
+      "detectionApproach": "detr",
+      "postprocessing": "nms-free",
+      "specs": {
+        "paramsM": 67.0,
+        "flopsG": 234.0,
+        "inputSizeDefault": 640,
+        "numClasses": 80
+      },
+      "paperReportedMap": 54.8,
+      "source": {
+        "originalWeightsUrl": "https://github.com/lyuwenyu/RT-DETR/releases",
+        "libreyoloWeightsUrl": "https://huggingface.co/LibreYOLO/LibreRTDETRx"
+      },
+      "license": "Apache-2.0",
+      "releaseDate": "2023-04-17",
+      "inLibreYOLO": true
+    },
+    {
+      "id": "yolov9e2e-t",
+      "displayName": "YOLOv9-E2E-T",
+      "family": "yolov9-e2e",
+      "variant": "t",
+      "task": "detection",
+      "architecture": {
+        "type": "one-stage",
+        "backbone": "GELAN",
+        "neck": "PGI",
+        "head": "E2E (NMS-free)"
+      },
+      "detectionApproach": "anchor-free",
+      "postprocessing": "nms-free",
+      "specs": {
+        "paramsM": 2.0,
+        "flopsG": 7.7,
+        "inputSizeDefault": 640,
+        "numClasses": 80
+      },
+      "paperReportedMap": null,
+      "source": {
+        "originalWeightsUrl": "https://github.com/WongKinYiu/yolov9/releases",
+        "libreyoloWeightsUrl": "https://huggingface.co/LibreYOLO/LibreYOLO9E2Et"
+      },
+      "license": "GPL-3.0",
+      "releaseDate": "2024-02-21",
+      "inLibreYOLO": true
+    },
+    {
+      "id": "yolov9e2e-s",
+      "displayName": "YOLOv9-E2E-S",
+      "family": "yolov9-e2e",
+      "variant": "s",
+      "task": "detection",
+      "architecture": {
+        "type": "one-stage",
+        "backbone": "GELAN",
+        "neck": "PGI",
+        "head": "E2E (NMS-free)"
+      },
+      "detectionApproach": "anchor-free",
+      "postprocessing": "nms-free",
+      "specs": {
+        "paramsM": 7.1,
+        "flopsG": 26.4,
+        "inputSizeDefault": 640,
+        "numClasses": 80
+      },
+      "paperReportedMap": null,
+      "source": {
+        "originalWeightsUrl": "https://github.com/WongKinYiu/yolov9/releases",
+        "libreyoloWeightsUrl": "https://huggingface.co/LibreYOLO/LibreYOLO9E2Es"
+      },
+      "license": "GPL-3.0",
+      "releaseDate": "2024-02-21",
+      "inLibreYOLO": true
+    },
+    {
+      "id": "yolov9e2e-m",
+      "displayName": "YOLOv9-E2E-M",
+      "family": "yolov9-e2e",
+      "variant": "m",
+      "task": "detection",
+      "architecture": {
+        "type": "one-stage",
+        "backbone": "GELAN",
+        "neck": "PGI",
+        "head": "E2E (NMS-free)"
+      },
+      "detectionApproach": "anchor-free",
+      "postprocessing": "nms-free",
+      "specs": {
+        "paramsM": 20.0,
+        "flopsG": 76.3,
+        "inputSizeDefault": 640,
+        "numClasses": 80
+      },
+      "paperReportedMap": null,
+      "source": {
+        "originalWeightsUrl": "https://github.com/WongKinYiu/yolov9/releases",
+        "libreyoloWeightsUrl": "https://huggingface.co/LibreYOLO/LibreYOLO9E2Em"
+      },
+      "license": "GPL-3.0",
+      "releaseDate": "2024-02-21",
+      "inLibreYOLO": true
+    },
+    {
+      "id": "yolov9e2e-c",
+      "displayName": "YOLOv9-E2E-C",
+      "family": "yolov9-e2e",
+      "variant": "c",
+      "task": "detection",
+      "architecture": {
+        "type": "one-stage",
+        "backbone": "GELAN",
+        "neck": "PGI",
+        "head": "E2E (NMS-free)"
+      },
+      "detectionApproach": "anchor-free",
+      "postprocessing": "nms-free",
+      "specs": {
+        "paramsM": 25.3,
+        "flopsG": 102.1,
+        "inputSizeDefault": 640,
+        "numClasses": 80
+      },
+      "paperReportedMap": null,
+      "source": {
+        "originalWeightsUrl": "https://github.com/WongKinYiu/yolov9/releases",
+        "libreyoloWeightsUrl": "https://huggingface.co/LibreYOLO/LibreYOLO9E2Ec"
+      },
+      "license": "GPL-3.0",
+      "releaseDate": "2024-02-21",
+      "inLibreYOLO": true
     }
   ]
 }
