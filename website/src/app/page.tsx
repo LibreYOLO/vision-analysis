@@ -2,7 +2,7 @@ import { LeaderboardDashboard } from "@/components/leaderboard";
 import { AccuracyTimeline, VAScoreChart } from "@/components/charts";
 import { getAllBenchmarkResults, getHardwareOptions } from "@/lib/data";
 
-const previewFamilies = ["YOLO11", "RF-DETR", "YOLOv10", "RT-DETR", "YOLOv9"];
+const previewFamilies = ["D-FINE", "RF-DETR", "RT-DETR", "DEIM", "YOLOX"];
 
 function PreviewFilters() {
   return (
