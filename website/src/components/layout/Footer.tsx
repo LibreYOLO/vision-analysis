@@ -22,6 +22,11 @@ export function Footer() {
                     Compare Models
                   </Link>
                 </li>
+                <li>
+                  <Link href="/parity" className="hover:text-white transition-colors">
+                    Port Fidelity
+                  </Link>
+                </li>
               </ul>
             </div>
 

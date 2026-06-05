@@ -1,0 +1,665 @@
+{
+  "schema": "va.parity.v1",
+  "checkedDate": "2026-06-05",
+  "hardware": "NVIDIA RTX 5070 Ti",
+  "dataset": "COCO val2017 (5000 images)",
+  "harness": "vision-analysis-benchmark",
+  "methodology": "LibreYOLO PyTorch, fp32, per-image inference at each model's native input size. NMS IoU per family (YOLOX 0.65, YOLOv9 0.7, others 0.6; DETR families are NMS-free). Reference = each model's original paper / repo README / model zoo / HF card claimed COCO box mAP@50-95 (source linked per value).",
+  "variantCount": 54,
+  "families": [
+    {
+      "family": "yolox",
+      "displayName": "YOLOX",
+      "variants": [
+        {
+          "id": "yolox-nano",
+          "measured": 25.76,
+          "claimed": 25.8,
+          "delta": -0.04,
+          "dataset": "val2017",
+          "source": "https://github.com/Megvii-BaseDetection/YOLOX",
+          "sourceLabel": "Megvii-BaseDetection/YOLOX",
+          "confidence": "high",
+          "note": "Released-checkpoint mAP (val2017,416). Paper Table4=25.3; repo=25.8 (LibreYOLO ports the released weights)."
+        },
+        {
+          "id": "yolox-tiny",
+          "measured": 32.66,
+          "claimed": 32.8,
+          "delta": -0.14,
+          "dataset": "val2017",
+          "source": "https://github.com/Megvii-BaseDetection/YOLOX",
+          "sourceLabel": "Megvii-BaseDetection/YOLOX",
+          "confidence": "high",
+          "note": "val2017,416px."
+        },
+        {
+          "id": "yolox-s",
+          "measured": 40.45,
+          "claimed": 40.5,
+          "delta": -0.05,
+          "dataset": "val2017",
+          "source": "https://github.com/Megvii-BaseDetection/YOLOX",
+          "sourceLabel": "Megvii-BaseDetection/YOLOX",
+          "confidence": "high",
+          "note": "Released-checkpoint 40.5 (paper 39.6). val2017,640."
+        },
+        {
+          "id": "yolox-m",
+          "measured": 46.92,
+          "claimed": 46.9,
+          "delta": 0.02,
+          "dataset": "val2017",
+          "source": "https://github.com/Megvii-BaseDetection/YOLOX",
+          "sourceLabel": "Megvii-BaseDetection/YOLOX",
+          "confidence": "high",
+          "note": "Released-checkpoint 46.9 (paper 46.4)."
+        },
+        {
+          "id": "yolox-l",
+          "measured": 49.75,
+          "claimed": 49.7,
+          "delta": 0.05,
+          "dataset": "val2017",
+          "source": "https://github.com/Megvii-BaseDetection/YOLOX",
+          "sourceLabel": "Megvii-BaseDetection/YOLOX",
+          "confidence": "high",
+          "note": "Released-checkpoint 49.7 (paper 50.0)."
+        },
+        {
+          "id": "yolox-x",
+          "measured": 51.12,
+          "claimed": 51.1,
+          "delta": 0.02,
+          "dataset": "val2017",
+          "source": "https://github.com/Megvii-BaseDetection/YOLOX",
+          "sourceLabel": "Megvii-BaseDetection/YOLOX",
+          "confidence": "high",
+          "note": "Released-checkpoint 51.1 (paper 51.2)."
+        }
+      ]
+    },
+    {
+      "family": "rfdetr",
+      "displayName": "RF-DETR",
+      "variants": [
+        {
+          "id": "rfdetr-n",
+          "measured": 48.4,
+          "claimed": 48.4,
+          "delta": 0.0,
+          "dataset": "val2017",
+          "source": "https://arxiv.org/abs/2511.09554",
+          "sourceLabel": "arXiv:2511.09554",
+          "confidence": "high",
+          "note": "RF-DETR Nano (NAS family), 384px, val2017. README 48.4 / paper 48.0."
+        },
+        {
+          "id": "rfdetr-s",
+          "measured": 52.95,
+          "claimed": 53.0,
+          "delta": -0.05,
+          "dataset": "val2017",
+          "source": "https://arxiv.org/abs/2511.09554",
+          "sourceLabel": "arXiv:2511.09554",
+          "confidence": "high",
+          "note": "RF-DETR Small, 512px, val2017."
+        },
+        {
+          "id": "rfdetr-m",
+          "measured": 54.73,
+          "claimed": 54.7,
+          "delta": 0.03,
+          "dataset": "val2017",
+          "source": "https://arxiv.org/abs/2511.09554",
+          "sourceLabel": "arXiv:2511.09554",
+          "confidence": "high",
+          "note": "RF-DETR Medium, 576px, val2017."
+        },
+        {
+          "id": "rfdetr-l",
+          "measured": 56.55,
+          "claimed": 56.5,
+          "delta": 0.05,
+          "dataset": "val2017",
+          "source": "https://arxiv.org/abs/2511.09554",
+          "sourceLabel": "arXiv:2511.09554",
+          "confidence": "high",
+          "note": "RF-DETR Large (NAS family, 704px). Input sizes (384/512/576/704) match LibreYOLO exactly, confirming NAS family not legacy Base."
+        }
+      ]
+    },
+    {
+      "family": "rtdetr",
+      "displayName": "RT-DETR",
+      "variants": [
+        {
+          "id": "rtdetr-r18",
+          "measured": 46.41,
+          "claimed": 46.5,
+          "delta": -0.09,
+          "dataset": "val2017",
+          "source": "https://github.com/lyuwenyu/RT-DETR",
+          "sourceLabel": "lyuwenyu/RT-DETR",
+          "confidence": "high",
+          "note": "ResNet-18vd, val2017,640."
+        },
+        {
+          "id": "rtdetr-r34",
+          "measured": 48.86,
+          "claimed": 48.9,
+          "delta": -0.04,
+          "dataset": "val2017",
+          "source": "https://github.com/lyuwenyu/RT-DETR",
+          "sourceLabel": "lyuwenyu/RT-DETR",
+          "confidence": "high",
+          "note": "ResNet-34vd, val2017,640."
+        },
+        {
+          "id": "rtdetr-r50m",
+          "measured": 51.29,
+          "claimed": 51.3,
+          "delta": -0.01,
+          "dataset": "val2017",
+          "source": "https://github.com/lyuwenyu/RT-DETR",
+          "sourceLabel": "lyuwenyu/RT-DETR",
+          "confidence": "high",
+          "note": "Lighter R50 config (R50vd-m / RT-DETRv2-M)."
+        },
+        {
+          "id": "rtdetr-l",
+          "measured": 52.85,
+          "claimed": 53.0,
+          "delta": -0.15,
+          "dataset": "val2017",
+          "source": "https://github.com/lyuwenyu/RT-DETR",
+          "sourceLabel": "lyuwenyu/RT-DETR",
+          "confidence": "high",
+          "note": "HGNetv2-L (Baidu RT-DETR, Apache-2.0; Ultralytics merely rehosts it)."
+        },
+        {
+          "id": "rtdetr-r50",
+          "measured": 53.09,
+          "claimed": 53.1,
+          "delta": -0.01,
+          "dataset": "val2017",
+          "source": "https://github.com/lyuwenyu/RT-DETR",
+          "sourceLabel": "lyuwenyu/RT-DETR",
+          "confidence": "high",
+          "note": "ResNet-50vd, paper abstract confirms 53.1."
+        },
+        {
+          "id": "rtdetr-r101",
+          "measured": 54.35,
+          "claimed": 54.3,
+          "delta": 0.05,
+          "dataset": "val2017",
+          "source": "https://github.com/lyuwenyu/RT-DETR",
+          "sourceLabel": "lyuwenyu/RT-DETR",
+          "confidence": "high",
+          "note": "ResNet-101vd, paper abstract confirms 54.3."
+        },
+        {
+          "id": "rtdetr-x",
+          "measured": 54.7,
+          "claimed": 54.8,
+          "delta": -0.1,
+          "dataset": "val2017",
+          "source": "https://github.com/lyuwenyu/RT-DETR",
+          "sourceLabel": "lyuwenyu/RT-DETR",
+          "confidence": "high",
+          "note": "HGNetv2-X (Baidu RT-DETR, Apache-2.0; Ultralytics merely rehosts it)."
+        }
+      ]
+    },
+    {
+      "family": "rtdetrv2",
+      "displayName": "RT-DETRv2",
+      "variants": [
+        {
+          "id": "rtdetrv2-r18",
+          "measured": 48.08,
+          "claimed": 48.1,
+          "delta": -0.02,
+          "dataset": "val2017",
+          "source": "https://github.com/lyuwenyu/RT-DETR/blob/main/rtdetrv2_pytorch/README.md",
+          "sourceLabel": "lyuwenyu/RT-DETR",
+          "confidence": "high",
+          "note": "RT-DETRv2-S (ResNet-18vd)."
+        },
+        {
+          "id": "rtdetrv2-r34",
+          "measured": 49.92,
+          "claimed": 49.9,
+          "delta": 0.02,
+          "dataset": "val2017",
+          "source": "https://github.com/lyuwenyu/RT-DETR/blob/main/rtdetrv2_pytorch/README.md",
+          "sourceLabel": "lyuwenyu/RT-DETR",
+          "confidence": "high",
+          "note": "RT-DETRv2-M* (ResNet-34vd)."
+        },
+        {
+          "id": "rtdetrv2-r50m",
+          "measured": 51.91,
+          "claimed": 51.9,
+          "delta": 0.01,
+          "dataset": "val2017",
+          "source": "https://github.com/lyuwenyu/RT-DETR/blob/main/rtdetrv2_pytorch/README.md",
+          "sourceLabel": "lyuwenyu/RT-DETR",
+          "confidence": "high",
+          "note": "RT-DETRv2-M (lighter R50vd-m). Maps to r50m, not r50."
+        },
+        {
+          "id": "rtdetrv2-r50",
+          "measured": 53.39,
+          "claimed": 53.4,
+          "delta": -0.01,
+          "dataset": "val2017",
+          "source": "https://github.com/lyuwenyu/RT-DETR/blob/main/rtdetrv2_pytorch/README.md",
+          "sourceLabel": "lyuwenyu/RT-DETR",
+          "confidence": "high",
+          "note": "RT-DETRv2-L (full R50vd)."
+        },
+        {
+          "id": "rtdetrv2-r101",
+          "measured": 54.35,
+          "claimed": 54.3,
+          "delta": 0.05,
+          "dataset": "val2017",
+          "source": "https://github.com/lyuwenyu/RT-DETR/blob/main/rtdetrv2_pytorch/README.md",
+          "sourceLabel": "lyuwenyu/RT-DETR",
+          "confidence": "high",
+          "note": "RT-DETRv2-X (ResNet-101vd)."
+        }
+      ]
+    },
+    {
+      "family": "rtdetrv4",
+      "displayName": "RT-DETRv4",
+      "variants": [
+        {
+          "id": "rtdetrv4-s",
+          "measured": 49.82,
+          "claimed": 49.7,
+          "delta": 0.12,
+          "dataset": "val2017",
+          "source": "https://arxiv.org/abs/2510.25257",
+          "sourceLabel": "arXiv:2510.25257",
+          "confidence": "med",
+          "note": "RT-DETRv4-S (HGNetv2 + DINOv3 distill). Paper 49.7 / repo 49.8."
+        },
+        {
+          "id": "rtdetrv4-m",
+          "measured": 53.64,
+          "claimed": 53.5,
+          "delta": 0.14,
+          "dataset": "val2017",
+          "source": "https://arxiv.org/abs/2510.25257",
+          "sourceLabel": "arXiv:2510.25257",
+          "confidence": "med",
+          "note": "RT-DETRv4-M. Paper 53.5 / repo 53.7."
+        },
+        {
+          "id": "rtdetrv4-l",
+          "measured": 55.42,
+          "claimed": 55.4,
+          "delta": 0.02,
+          "dataset": "val2017",
+          "source": "https://arxiv.org/abs/2510.25257",
+          "sourceLabel": "arXiv:2510.25257",
+          "confidence": "high",
+          "note": "RT-DETRv4-L. Paper and repo agree (55.4)."
+        },
+        {
+          "id": "rtdetrv4-x",
+          "measured": 57.0,
+          "claimed": 57.0,
+          "delta": 0.0,
+          "dataset": "val2017",
+          "source": "https://arxiv.org/abs/2510.25257",
+          "sourceLabel": "arXiv:2510.25257",
+          "confidence": "high",
+          "note": "RT-DETRv4-X. Paper and repo agree (57.0)."
+        }
+      ]
+    },
+    {
+      "family": "deim",
+      "displayName": "DEIM",
+      "variants": [
+        {
+          "id": "deim-n",
+          "measured": 43.05,
+          "claimed": 43.0,
+          "delta": 0.05,
+          "dataset": "val2017",
+          "source": "https://github.com/Intellindust-AI-Lab/DEIM",
+          "sourceLabel": "Intellindust-AI-Lab/DEIM",
+          "confidence": "high",
+          "note": "DEIM-D-FINE-N, val2017,640."
+        },
+        {
+          "id": "deim-s",
+          "measured": 48.96,
+          "claimed": 49.0,
+          "delta": -0.04,
+          "dataset": "val2017",
+          "source": "https://github.com/Intellindust-AI-Lab/DEIM",
+          "sourceLabel": "Intellindust-AI-Lab/DEIM",
+          "confidence": "high",
+          "note": "DEIM-D-FINE-S."
+        },
+        {
+          "id": "deim-m",
+          "measured": 52.7,
+          "claimed": 52.7,
+          "delta": 0.0,
+          "dataset": "val2017",
+          "source": "https://github.com/Intellindust-AI-Lab/DEIM",
+          "sourceLabel": "Intellindust-AI-Lab/DEIM",
+          "confidence": "high",
+          "note": "DEIM-D-FINE-M."
+        },
+        {
+          "id": "deim-l",
+          "measured": 54.74,
+          "claimed": 54.7,
+          "delta": 0.04,
+          "dataset": "val2017",
+          "source": "https://github.com/Intellindust-AI-Lab/DEIM",
+          "sourceLabel": "Intellindust-AI-Lab/DEIM",
+          "confidence": "high",
+          "note": "DEIM-D-FINE-L, arXiv Table 1."
+        },
+        {
+          "id": "deim-x",
+          "measured": 56.47,
+          "claimed": 56.5,
+          "delta": -0.03,
+          "dataset": "val2017",
+          "source": "https://github.com/Intellindust-AI-Lab/DEIM",
+          "sourceLabel": "Intellindust-AI-Lab/DEIM",
+          "confidence": "high",
+          "note": "DEIM-D-FINE-X, arXiv Table 1."
+        }
+      ]
+    },
+    {
+      "family": "deimv2",
+      "displayName": "DEIMv2",
+      "variants": [
+        {
+          "id": "deimv2-atto",
+          "measured": 23.76,
+          "claimed": 23.8,
+          "delta": -0.04,
+          "dataset": "val2017",
+          "source": "https://arxiv.org/abs/2509.20787",
+          "sourceLabel": "arXiv:2509.20787",
+          "confidence": "high",
+          "note": "DEIMv2 Atto, 320px, val2017."
+        },
+        {
+          "id": "deimv2-femto",
+          "measured": 30.99,
+          "claimed": 31.0,
+          "delta": -0.01,
+          "dataset": "val2017",
+          "source": "https://arxiv.org/abs/2509.20787",
+          "sourceLabel": "arXiv:2509.20787",
+          "confidence": "high",
+          "note": "DEIMv2 Femto, 416px."
+        },
+        {
+          "id": "deimv2-pico",
+          "measured": 38.46,
+          "claimed": 38.5,
+          "delta": -0.04,
+          "dataset": "val2017",
+          "source": "https://arxiv.org/abs/2509.20787",
+          "sourceLabel": "arXiv:2509.20787",
+          "confidence": "high",
+          "note": "DEIMv2 Pico, 640px."
+        },
+        {
+          "id": "deimv2-n",
+          "measured": 42.98,
+          "claimed": 43.0,
+          "delta": -0.02,
+          "dataset": "val2017",
+          "source": "https://arxiv.org/abs/2509.20787",
+          "sourceLabel": "arXiv:2509.20787",
+          "confidence": "high",
+          "note": "DEIMv2 Nano, 640px."
+        },
+        {
+          "id": "deimv2-s",
+          "measured": 50.86,
+          "claimed": 50.9,
+          "delta": -0.04,
+          "dataset": "val2017",
+          "source": "https://arxiv.org/abs/2509.20787",
+          "sourceLabel": "arXiv:2509.20787",
+          "confidence": "high",
+          "note": "DEIMv2 Small."
+        },
+        {
+          "id": "deimv2-m",
+          "measured": 52.97,
+          "claimed": 53.0,
+          "delta": -0.03,
+          "dataset": "val2017",
+          "source": "https://arxiv.org/abs/2509.20787",
+          "sourceLabel": "arXiv:2509.20787",
+          "confidence": "high",
+          "note": "DEIMv2 Medium."
+        },
+        {
+          "id": "deimv2-l",
+          "measured": 55.99,
+          "claimed": 56.0,
+          "delta": -0.01,
+          "dataset": "val2017",
+          "source": "https://arxiv.org/abs/2509.20787",
+          "sourceLabel": "arXiv:2509.20787",
+          "confidence": "high",
+          "note": "DEIMv2 Large."
+        },
+        {
+          "id": "deimv2-x",
+          "measured": 57.81,
+          "claimed": 57.8,
+          "delta": 0.01,
+          "dataset": "val2017",
+          "source": "https://arxiv.org/abs/2509.20787",
+          "sourceLabel": "arXiv:2509.20787",
+          "confidence": "high",
+          "note": "DEIMv2 X-Large."
+        }
+      ]
+    },
+    {
+      "family": "dfine",
+      "displayName": "D-FINE",
+      "variants": [
+        {
+          "id": "dfine-n",
+          "measured": 42.79,
+          "claimed": 42.8,
+          "delta": -0.01,
+          "dataset": "val2017",
+          "source": "https://github.com/Peterande/D-FINE",
+          "sourceLabel": "Peterande/D-FINE",
+          "confidence": "high",
+          "note": "Plain COCO val2017 (no O365). Repo-only variant."
+        },
+        {
+          "id": "dfine-s",
+          "measured": 50.71,
+          "claimed": 50.7,
+          "delta": 0.01,
+          "dataset": "val2017",
+          "source": "https://github.com/Peterande/D-FINE",
+          "sourceLabel": "Peterande/D-FINE",
+          "confidence": "high",
+          "note": "Obj365->COCO checkpoint (dfine_s_obj2coco.pth) = what LibreYOLO ported. Plain-COCO is 48.5."
+        },
+        {
+          "id": "dfine-m",
+          "measured": 55.09,
+          "claimed": 55.1,
+          "delta": -0.01,
+          "dataset": "val2017",
+          "source": "https://github.com/Peterande/D-FINE",
+          "sourceLabel": "Peterande/D-FINE",
+          "confidence": "high",
+          "note": "Obj365->COCO checkpoint (dfine_m_obj2coco.pth). Plain-COCO is 52.3."
+        },
+        {
+          "id": "dfine-l",
+          "measured": 57.25,
+          "claimed": 57.3,
+          "delta": -0.05,
+          "dataset": "val2017",
+          "source": "https://github.com/Peterande/D-FINE",
+          "sourceLabel": "Peterande/D-FINE",
+          "confidence": "high",
+          "note": "Obj365->COCO E25 checkpoint (dfine_l_obj2coco_e25.pth). Plain-COCO is 54.0."
+        },
+        {
+          "id": "dfine-x",
+          "measured": 59.31,
+          "claimed": 59.3,
+          "delta": 0.01,
+          "dataset": "val2017",
+          "source": "https://github.com/Peterande/D-FINE",
+          "sourceLabel": "Peterande/D-FINE",
+          "confidence": "high",
+          "note": "Obj365->COCO checkpoint (dfine_x_obj2coco.pth). Plain-COCO is 55.8."
+        }
+      ]
+    },
+    {
+      "family": "ec",
+      "displayName": "EC (EdgeCrafter)",
+      "variants": [
+        {
+          "id": "ec-s",
+          "measured": 51.71,
+          "claimed": 51.7,
+          "delta": 0.01,
+          "dataset": "val2017",
+          "source": "https://arxiv.org/abs/2603.18739",
+          "sourceLabel": "arXiv:2603.18739",
+          "confidence": "high",
+          "note": "ECDet-S (EdgeCrafter, Intellindust). val2017,640."
+        },
+        {
+          "id": "ec-m",
+          "measured": 54.22,
+          "claimed": 54.3,
+          "delta": -0.08,
+          "dataset": "val2017",
+          "source": "https://arxiv.org/abs/2603.18739",
+          "sourceLabel": "arXiv:2603.18739",
+          "confidence": "high",
+          "note": "ECDet-M."
+        },
+        {
+          "id": "ec-l",
+          "measured": 56.99,
+          "claimed": 57.0,
+          "delta": -0.01,
+          "dataset": "val2017",
+          "source": "https://arxiv.org/abs/2603.18739",
+          "sourceLabel": "arXiv:2603.18739",
+          "confidence": "high",
+          "note": "ECDet-L (HF card)."
+        },
+        {
+          "id": "ec-x",
+          "measured": 57.88,
+          "claimed": 57.9,
+          "delta": -0.02,
+          "dataset": "val2017",
+          "source": "https://arxiv.org/abs/2603.18739",
+          "sourceLabel": "arXiv:2603.18739",
+          "confidence": "high",
+          "note": "ECDet-X."
+        }
+      ]
+    },
+    {
+      "family": "damoyolo",
+      "displayName": "DAMO-YOLO",
+      "variants": [
+        {
+          "id": "damoyolo-ns",
+          "measured": 32.22,
+          "claimed": 32.3,
+          "delta": -0.08,
+          "dataset": "val2017",
+          "source": "https://github.com/tinyvision/DAMO-YOLO",
+          "sourceLabel": "tinyvision/DAMO-YOLO",
+          "confidence": "high",
+          "note": "Base ckpt damoyolo_nano_small.pth, 416px. Measured 32.22."
+        },
+        {
+          "id": "damoyolo-nm",
+          "measured": 38.08,
+          "claimed": 38.2,
+          "delta": -0.12,
+          "dataset": "val2017",
+          "source": "https://github.com/tinyvision/DAMO-YOLO",
+          "sourceLabel": "tinyvision/DAMO-YOLO",
+          "confidence": "high",
+          "note": "Base ckpt damoyolo_nano_middle.pth, 416px. Measured 38.08."
+        },
+        {
+          "id": "damoyolo-nl",
+          "measured": 40.46,
+          "claimed": 40.5,
+          "delta": -0.04,
+          "dataset": "val2017",
+          "source": "https://github.com/tinyvision/DAMO-YOLO",
+          "sourceLabel": "tinyvision/DAMO-YOLO",
+          "confidence": "high",
+          "note": "Base ckpt damoyolo_nano_large.pth, 416px. Measured 40.46."
+        },
+        {
+          "id": "damoyolo-t",
+          "measured": 41.87,
+          "claimed": 42.0,
+          "delta": -0.13,
+          "dataset": "val2017",
+          "source": "https://github.com/tinyvision/DAMO-YOLO",
+          "sourceLabel": "tinyvision/DAMO-YOLO",
+          "confidence": "high",
+          "note": "Base T (42.0). Distill T*=43.6."
+        },
+        {
+          "id": "damoyolo-s",
+          "measured": 45.93,
+          "claimed": 46.0,
+          "delta": -0.07,
+          "dataset": "val2017",
+          "source": "https://github.com/tinyvision/DAMO-YOLO",
+          "sourceLabel": "tinyvision/DAMO-YOLO",
+          "confidence": "high",
+          "note": "Base S (46.0). Distill S*=47.7. Measured 45.93."
+        },
+        {
+          "id": "damoyolo-m",
+          "measured": 49.99,
+          "claimed": 50.2,
+          "delta": -0.21,
+          "dataset": "val2017",
+          "source": "https://github.com/tinyvision/DAMO-YOLO",
+          "sourceLabel": "tinyvision/DAMO-YOLO",
+          "confidence": "high",
+          "note": "Distilled M* (50.2). LibreYOLO nn.py:1495 confirms the post-distill release weights (T 42.0, S 46.0, M 50.2) were ported. Measured 49.99 = -0.21."
+        }
+      ]
+    }
+  ]
+}
