@@ -5,7 +5,7 @@
   "dataset": "COCO val2017 (5000 images)",
   "harness": "vision-analysis-benchmark",
   "methodology": "LibreYOLO PyTorch, fp32, per-image inference at each model's native input size. NMS IoU per family (YOLOX 0.65, YOLOv9 0.7, others 0.6; DETR families are NMS-free). Reference = each model's original paper / repo README / model zoo / HF card claimed COCO box mAP@50-95 (source linked per value).",
-  "variantCount": 54,
+  "variantCount": 61,
   "families": [
     {
       "family": "yolox",
@@ -76,6 +76,56 @@
           "sourceLabel": "Megvii-BaseDetection/YOLOX",
           "confidence": "high",
           "note": "Released-checkpoint 51.1 (paper 51.2)."
+        }
+      ]
+    },
+    {
+      "family": "yolov9",
+      "displayName": "YOLOv9",
+      "variants": [
+        {
+          "id": "yolov9t",
+          "measured": 38.21,
+          "claimed": 38.3,
+          "delta": -0.09,
+          "dataset": "val2017",
+          "source": "https://arxiv.org/abs/2402.13616",
+          "sourceLabel": "arXiv:2402.13616",
+          "confidence": "high",
+          "note": "val2017,640. Repo README perf table."
+        },
+        {
+          "id": "yolov9s",
+          "measured": 46.58,
+          "claimed": 46.8,
+          "delta": -0.22,
+          "dataset": "val2017",
+          "source": "https://arxiv.org/abs/2402.13616",
+          "sourceLabel": "arXiv:2402.13616",
+          "confidence": "high",
+          "note": "arXiv Table 1 (val2017), matches repo."
+        },
+        {
+          "id": "yolov9m",
+          "measured": 51.16,
+          "claimed": 51.4,
+          "delta": -0.24,
+          "dataset": "val2017",
+          "source": "https://arxiv.org/abs/2402.13616",
+          "sourceLabel": "arXiv:2402.13616",
+          "confidence": "high",
+          "note": "arXiv Table 1 (val2017)."
+        },
+        {
+          "id": "yolov9c",
+          "measured": 52.61,
+          "claimed": 53.0,
+          "delta": -0.39,
+          "dataset": "val2017",
+          "source": "https://arxiv.org/abs/2402.13616",
+          "sourceLabel": "arXiv:2402.13616",
+          "confidence": "high",
+          "note": "arXiv Table 1 (val2017)."
         }
       ]
     },
@@ -175,7 +225,7 @@
           "source": "https://github.com/lyuwenyu/RT-DETR",
           "sourceLabel": "lyuwenyu/RT-DETR",
           "confidence": "high",
-          "note": "HGNetv2-L (Baidu RT-DETR, Apache-2.0; Ultralytics merely rehosts it)."
+          "note": "HGNetv2-L (Baidu RT-DETR, Apache-2.0)."
         },
         {
           "id": "rtdetr-r50",
@@ -208,7 +258,7 @@
           "source": "https://github.com/lyuwenyu/RT-DETR",
           "sourceLabel": "lyuwenyu/RT-DETR",
           "confidence": "high",
-          "note": "HGNetv2-X (Baidu RT-DETR, Apache-2.0; Ultralytics merely rehosts it)."
+          "note": "HGNetv2-X (Baidu RT-DETR, Apache-2.0)."
         }
       ]
     },
@@ -536,6 +586,45 @@
           "sourceLabel": "Peterande/D-FINE",
           "confidence": "high",
           "note": "Obj365->COCO checkpoint (dfine_x_obj2coco.pth). Plain-COCO is 55.8."
+        }
+      ]
+    },
+    {
+      "family": "picodet",
+      "displayName": "PicoDet",
+      "variants": [
+        {
+          "id": "picodet-s",
+          "measured": 26.97,
+          "claimed": 27.1,
+          "delta": -0.13,
+          "dataset": "val2017",
+          "source": "https://arxiv.org/abs/2111.00902",
+          "sourceLabel": "arXiv:2111.00902",
+          "confidence": "high",
+          "note": "PP-PicoDet paper S@320. Enhanced 2.6+ retrain=29.1."
+        },
+        {
+          "id": "picodet-m",
+          "measured": 34.37,
+          "claimed": 34.3,
+          "delta": 0.07,
+          "dataset": "val2017",
+          "source": "https://arxiv.org/abs/2111.00902",
+          "sourceLabel": "arXiv:2111.00902",
+          "confidence": "high",
+          "note": "PP-PicoDet paper M@416. Enhanced=37.5."
+        },
+        {
+          "id": "picodet-l",
+          "measured": 40.56,
+          "claimed": 40.9,
+          "delta": -0.34,
+          "dataset": "val2017",
+          "source": "https://arxiv.org/abs/2111.00902",
+          "sourceLabel": "arXiv:2111.00902",
+          "confidence": "high",
+          "note": "PP-PicoDet paper L@640. Enhanced=42.6."
         }
       ]
     },

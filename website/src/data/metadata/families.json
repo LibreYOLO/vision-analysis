@@ -33,24 +33,21 @@
         "venue": "ECCV 2024",
         "url": "https://arxiv.org/abs/2402.13616"
       },
-      "originalRepo": "https://github.com/WongKinYiu/yolov9",
+      "originalRepo": "https://github.com/MultimediaTechLab/YOLO",
       "trainingDataset": "COCO train2017"
     },
     {
       "id": "yolov8",
       "displayName": "YOLOv8",
-      "organization": "Ultralytics",
+      "organization": "External baseline",
       "paper": {
-        "title": "YOLOv8 by Ultralytics",
+        "title": "YOLOv8",
         "authors": [
-          "Glenn Jocher",
-          "Ayush Chaurasia",
-          "Jing Qiu"
         ],
-        "venue": "Ultralytics 2023",
-        "url": "https://docs.ultralytics.com/models/yolov8/"
+        "venue": "2023",
+        "url": ""
       },
-      "originalRepo": "https://github.com/ultralytics/ultralytics",
+      "originalRepo": "",
       "trainingDataset": "COCO train2017"
     },
     {
@@ -74,17 +71,15 @@
     {
       "id": "yolo11",
       "displayName": "YOLO11",
-      "organization": "Ultralytics",
+      "organization": "External baseline",
       "paper": {
-        "title": "YOLO11 by Ultralytics",
+        "title": "YOLO11",
         "authors": [
-          "Glenn Jocher",
-          "Jing Qiu"
         ],
-        "venue": "Ultralytics 2024",
-        "url": "https://docs.ultralytics.com/models/yolo11/"
+        "venue": "2024",
+        "url": ""
       },
-      "originalRepo": "https://github.com/ultralytics/ultralytics",
+      "originalRepo": "",
       "trainingDataset": "COCO train2017"
     },
     {
@@ -121,6 +116,31 @@
         "url": "https://blog.roboflow.com/rf-detr"
       },
       "originalRepo": "https://github.com/roboflow/rf-detr",
+      "trainingDataset": "COCO train2017"
+    },
+    {
+      "id": "picodet",
+      "displayName": "PicoDet",
+      "organization": "Baidu PaddlePaddle",
+      "paper": {
+        "title": "PP-PicoDet: A Better Real-Time Object Detector on Mobile Devices",
+        "authors": [
+          "Xiang Long",
+          "Kaipeng Deng",
+          "Guanzhong Wang",
+          "Yang Zhang",
+          "Qingqing Dang",
+          "Yuan Gao",
+          "Hui Shen",
+          "Jianguo Ren",
+          "Shumin Han",
+          "Errui Ding",
+          "Shilei Wen"
+        ],
+        "venue": "arXiv 2021",
+        "url": "https://arxiv.org/abs/2111.00902"
+      },
+      "originalRepo": "https://github.com/PaddlePaddle/PaddleDetection",
       "trainingDataset": "COCO train2017"
     },
     {

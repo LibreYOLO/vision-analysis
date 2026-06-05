@@ -193,7 +193,7 @@
         "numClasses": 80
       },
       "source": {
-        "originalWeightsUrl": "https://github.com/WongKinYiu/yolov9/releases",
+        "originalWeightsUrl": "https://github.com/MultimediaTechLab/YOLO",
         "libreyoloWeightsUrl": "https://huggingface.co/Libre-YOLO/yolov9t"
       },
       "license": "MIT",
@@ -222,7 +222,7 @@
         "numClasses": 80
       },
       "source": {
-        "originalWeightsUrl": "https://github.com/WongKinYiu/yolov9/releases",
+        "originalWeightsUrl": "https://github.com/MultimediaTechLab/YOLO",
         "libreyoloWeightsUrl": "https://huggingface.co/Libre-YOLO/yolov9s"
       },
       "license": "MIT",
@@ -251,7 +251,7 @@
         "numClasses": 80
       },
       "source": {
-        "originalWeightsUrl": "https://github.com/WongKinYiu/yolov9/releases",
+        "originalWeightsUrl": "https://github.com/MultimediaTechLab/YOLO",
         "libreyoloWeightsUrl": "https://huggingface.co/Libre-YOLO/yolov9m"
       },
       "license": "MIT",
@@ -280,7 +280,7 @@
         "numClasses": 80
       },
       "source": {
-        "originalWeightsUrl": "https://github.com/WongKinYiu/yolov9/releases",
+        "originalWeightsUrl": "https://github.com/MultimediaTechLab/YOLO",
         "libreyoloWeightsUrl": "https://huggingface.co/Libre-YOLO/yolov9c"
       },
       "license": "MIT",
@@ -289,6 +289,93 @@
       "detectionApproach": "anchor-free",
       "postprocessing": "nms",
       "paperReportedMap": 53
+    },
+    {
+      "id": "picodet-s",
+      "displayName": "PicoDet-S",
+      "family": "picodet",
+      "variant": "s",
+      "task": "detection",
+      "architecture": {
+        "type": "one-stage",
+        "backbone": "ESNet",
+        "neck": "CSP-PAN",
+        "head": "GFL"
+      },
+      "specs": {
+        "paramsM": 0.99,
+        "flopsG": 0.73,
+        "inputSizeDefault": 320,
+        "numClasses": 80
+      },
+      "source": {
+        "originalWeightsUrl": "https://github.com/PaddlePaddle/PaddleDetection",
+        "libreyoloWeightsUrl": "https://huggingface.co/LibreYOLO/LibrePICODETs"
+      },
+      "license": "Apache-2.0",
+      "releaseDate": "2021-11-01",
+      "inLibreYOLO": true,
+      "detectionApproach": "anchor-free",
+      "postprocessing": "nms",
+      "paperReportedMap": 27.1
+    },
+    {
+      "id": "picodet-m",
+      "displayName": "PicoDet-M",
+      "family": "picodet",
+      "variant": "m",
+      "task": "detection",
+      "architecture": {
+        "type": "one-stage",
+        "backbone": "ESNet",
+        "neck": "CSP-PAN",
+        "head": "GFL"
+      },
+      "specs": {
+        "paramsM": 2.15,
+        "flopsG": 2.5,
+        "inputSizeDefault": 416,
+        "numClasses": 80
+      },
+      "source": {
+        "originalWeightsUrl": "https://github.com/PaddlePaddle/PaddleDetection",
+        "libreyoloWeightsUrl": "https://huggingface.co/LibreYOLO/LibrePICODETm"
+      },
+      "license": "Apache-2.0",
+      "releaseDate": "2021-11-01",
+      "inLibreYOLO": true,
+      "detectionApproach": "anchor-free",
+      "postprocessing": "nms",
+      "paperReportedMap": 34.3
+    },
+    {
+      "id": "picodet-l",
+      "displayName": "PicoDet-L",
+      "family": "picodet",
+      "variant": "l",
+      "task": "detection",
+      "architecture": {
+        "type": "one-stage",
+        "backbone": "ESNet",
+        "neck": "CSP-PAN",
+        "head": "GFL"
+      },
+      "specs": {
+        "paramsM": 3.3,
+        "flopsG": 8.91,
+        "inputSizeDefault": 640,
+        "numClasses": 80
+      },
+      "source": {
+        "originalWeightsUrl": "https://github.com/PaddlePaddle/PaddleDetection",
+        "libreyoloWeightsUrl": "https://huggingface.co/LibreYOLO/LibrePICODETl"
+      },
+      "license": "Apache-2.0",
+      "releaseDate": "2021-11-01",
+      "inLibreYOLO": true,
+      "detectionApproach": "anchor-free",
+      "postprocessing": "nms",
+      "paperReportedMap": 40.9
     },
     {
       "id": "yolov8n",
@@ -309,10 +396,10 @@
         "numClasses": 80
       },
       "source": {
-        "originalWeightsUrl": "https://github.com/ultralytics/assets/releases",
+        "originalWeightsUrl": null,
         "libreyoloWeightsUrl": null
       },
-      "license": "AGPL-3.0",
+      "license": "non-permissive",
       "releaseDate": "2023-01-10",
       "inLibreYOLO": false,
       "detectionApproach": "anchor-free",
@@ -338,10 +425,10 @@
         "numClasses": 80
       },
       "source": {
-        "originalWeightsUrl": "https://github.com/ultralytics/assets/releases",
+        "originalWeightsUrl": null,
         "libreyoloWeightsUrl": null
       },
-      "license": "AGPL-3.0",
+      "license": "non-permissive",
       "releaseDate": "2023-01-10",
       "inLibreYOLO": false,
       "detectionApproach": "anchor-free",
@@ -367,10 +454,10 @@
         "numClasses": 80
       },
       "source": {
-        "originalWeightsUrl": "https://github.com/ultralytics/assets/releases",
+        "originalWeightsUrl": null,
         "libreyoloWeightsUrl": null
       },
-      "license": "AGPL-3.0",
+      "license": "non-permissive",
       "releaseDate": "2023-01-10",
       "inLibreYOLO": false,
       "detectionApproach": "anchor-free",
@@ -396,10 +483,10 @@
         "numClasses": 80
       },
       "source": {
-        "originalWeightsUrl": "https://github.com/ultralytics/assets/releases",
+        "originalWeightsUrl": null,
         "libreyoloWeightsUrl": null
       },
-      "license": "AGPL-3.0",
+      "license": "non-permissive",
       "releaseDate": "2023-01-10",
       "inLibreYOLO": false,
       "detectionApproach": "anchor-free",
@@ -425,10 +512,10 @@
         "numClasses": 80
       },
       "source": {
-        "originalWeightsUrl": "https://github.com/ultralytics/assets/releases",
+        "originalWeightsUrl": null,
         "libreyoloWeightsUrl": null
       },
-      "license": "AGPL-3.0",
+      "license": "non-permissive",
       "releaseDate": "2023-01-10",
       "inLibreYOLO": false,
       "detectionApproach": "anchor-free",
@@ -457,7 +544,7 @@
         "originalWeightsUrl": "https://github.com/THU-MIG/yolov10/releases",
         "libreyoloWeightsUrl": null
       },
-      "license": "AGPL-3.0",
+      "license": "non-permissive",
       "releaseDate": "2024-05-23",
       "inLibreYOLO": false,
       "detectionApproach": "anchor-free",
@@ -486,7 +573,7 @@
         "originalWeightsUrl": "https://github.com/THU-MIG/yolov10/releases",
         "libreyoloWeightsUrl": null
       },
-      "license": "AGPL-3.0",
+      "license": "non-permissive",
       "releaseDate": "2024-05-23",
       "inLibreYOLO": false,
       "detectionApproach": "anchor-free",
@@ -515,7 +602,7 @@
         "originalWeightsUrl": "https://github.com/THU-MIG/yolov10/releases",
         "libreyoloWeightsUrl": null
       },
-      "license": "AGPL-3.0",
+      "license": "non-permissive",
       "releaseDate": "2024-05-23",
       "inLibreYOLO": false,
       "detectionApproach": "anchor-free",
@@ -544,7 +631,7 @@
         "originalWeightsUrl": "https://github.com/THU-MIG/yolov10/releases",
         "libreyoloWeightsUrl": null
       },
-      "license": "AGPL-3.0",
+      "license": "non-permissive",
       "releaseDate": "2024-05-23",
       "inLibreYOLO": false,
       "detectionApproach": "anchor-free",
@@ -573,7 +660,7 @@
         "originalWeightsUrl": "https://github.com/THU-MIG/yolov10/releases",
         "libreyoloWeightsUrl": null
       },
-      "license": "AGPL-3.0",
+      "license": "non-permissive",
       "releaseDate": "2024-05-23",
       "inLibreYOLO": false,
       "detectionApproach": "anchor-free",
@@ -599,10 +686,10 @@
         "numClasses": 80
       },
       "source": {
-        "originalWeightsUrl": "https://github.com/ultralytics/assets/releases",
+        "originalWeightsUrl": null,
         "libreyoloWeightsUrl": null
       },
-      "license": "AGPL-3.0",
+      "license": "non-permissive",
       "releaseDate": "2024-09-30",
       "inLibreYOLO": false,
       "detectionApproach": "anchor-free",
@@ -628,10 +715,10 @@
         "numClasses": 80
       },
       "source": {
-        "originalWeightsUrl": "https://github.com/ultralytics/assets/releases",
+        "originalWeightsUrl": null,
         "libreyoloWeightsUrl": null
       },
-      "license": "AGPL-3.0",
+      "license": "non-permissive",
       "releaseDate": "2024-09-30",
       "inLibreYOLO": false,
       "detectionApproach": "anchor-free",
@@ -657,10 +744,10 @@
         "numClasses": 80
       },
       "source": {
-        "originalWeightsUrl": "https://github.com/ultralytics/assets/releases",
+        "originalWeightsUrl": null,
         "libreyoloWeightsUrl": null
       },
-      "license": "AGPL-3.0",
+      "license": "non-permissive",
       "releaseDate": "2024-09-30",
       "inLibreYOLO": false,
       "detectionApproach": "anchor-free",
@@ -686,10 +773,10 @@
         "numClasses": 80
       },
       "source": {
-        "originalWeightsUrl": "https://github.com/ultralytics/assets/releases",
+        "originalWeightsUrl": null,
         "libreyoloWeightsUrl": null
       },
-      "license": "AGPL-3.0",
+      "license": "non-permissive",
       "releaseDate": "2024-09-30",
       "inLibreYOLO": false,
       "detectionApproach": "anchor-free",
@@ -715,10 +802,10 @@
         "numClasses": 80
       },
       "source": {
-        "originalWeightsUrl": "https://github.com/ultralytics/assets/releases",
+        "originalWeightsUrl": null,
         "libreyoloWeightsUrl": null
       },
-      "license": "AGPL-3.0",
+      "license": "non-permissive",
       "releaseDate": "2024-09-30",
       "inLibreYOLO": false,
       "detectionApproach": "anchor-free",
@@ -1188,7 +1275,7 @@
       "license": "Apache-2.0",
       "releaseDate": "2023-05-08",
       "inLibreYOLO": true,
-      "notes": "Weights are auto-downloaded from Deci's CloudFront CDN (d2gjn4b69gu75n.cloudfront.net) inside LibreYOLO. License is Apache-2.0 with a non-commercial attribution clause for the pretrained weights — see the upstream super_gradients repo."
+      "notes": "Weights are auto-downloaded from Deci's CloudFront CDN (d2gjn4b69gu75n.cloudfront.net) inside LibreYOLO. License is Apache-2.0 with a non-commercial attribution clause for the pretrained weights Ã¢â‚¬â€ see the upstream super_gradients repo."
     },
     {
       "id": "yolonas-m",
@@ -1218,7 +1305,7 @@
       "license": "Apache-2.0",
       "releaseDate": "2023-05-08",
       "inLibreYOLO": true,
-      "notes": "Weights are auto-downloaded from Deci's CloudFront CDN (d2gjn4b69gu75n.cloudfront.net) inside LibreYOLO. License is Apache-2.0 with a non-commercial attribution clause for the pretrained weights — see the upstream super_gradients repo."
+      "notes": "Weights are auto-downloaded from Deci's CloudFront CDN (d2gjn4b69gu75n.cloudfront.net) inside LibreYOLO. License is Apache-2.0 with a non-commercial attribution clause for the pretrained weights Ã¢â‚¬â€ see the upstream super_gradients repo."
     },
     {
       "id": "yolonas-l",
@@ -1248,7 +1335,7 @@
       "license": "Apache-2.0",
       "releaseDate": "2023-05-08",
       "inLibreYOLO": true,
-      "notes": "Weights are auto-downloaded from Deci's CloudFront CDN (d2gjn4b69gu75n.cloudfront.net) inside LibreYOLO. License is Apache-2.0 with a non-commercial attribution clause for the pretrained weights — see the upstream super_gradients repo."
+      "notes": "Weights are auto-downloaded from Deci's CloudFront CDN (d2gjn4b69gu75n.cloudfront.net) inside LibreYOLO. License is Apache-2.0 with a non-commercial attribution clause for the pretrained weights Ã¢â‚¬â€ see the upstream super_gradients repo."
     },
     {
       "id": "deim-n",
