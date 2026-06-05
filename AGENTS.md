@@ -1,9 +1,9 @@
 # Agent Instructions
 
 ## Style
-- Never use em dashes (`—`) anywhere: code, comments, docstrings, JSON, docs,
-  commit messages, or generated prose. Use a plain ASCII hyphen (`-`), a colon,
-  or rephrase the sentence.
+- Never use em dashes (Unicode U+2014, the long dash) anywhere: code, comments,
+  docstrings, JSON, docs, commit messages, or generated prose. Use a plain ASCII
+  hyphen (`-`), a colon, or rephrase the sentence.
 
 ## Licensing
 - Cite and derive only from permissively licensed sources (MIT / Apache-2.0).
