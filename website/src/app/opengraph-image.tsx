@@ -96,7 +96,7 @@ export default async function Image() {
           }}
         >
           <span style={{ fontSize: 20, color: "#666666" }}>
-            visionanalysis.ai
+            visionanalysis.org
           </span>
         </div>
       </div>

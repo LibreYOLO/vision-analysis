@@ -188,7 +188,7 @@ function generateDraft(
         "@context": "https://schema.org",
         "@type": "Article",
         "headline": "${modelA.displayName} vs ${modelB.displayName}: Benchmark Comparison on ${hwName}",
-        "author": {"@type": "Organization", "name": "Vision Analysis", "url": "https://visionanalysis.ai"},
+        "author": {"@type": "Organization", "name": "Vision Analysis", "url": "https://www.visionanalysis.org"},
         "datePublished": "${date}"
     }
     </script>
@@ -373,7 +373,7 @@ results = model(<span class="s">"image.jpg"</span>)</pre>
 
     <div class="meth">
         <strong>Methodology.</strong> Benchmarked with <a href="https://libreyolo.org">LibreYOLO</a> on ${hwName}. Evaluation: COCO val2017 (5,000 images), ${modelA.specs.inputSizeDefault}×${modelA.specs.inputSizeDefault} input, batch size 1, PyTorch FP32.
-        <br>Source: <a href="https://visionanalysis.ai">visionanalysis.ai</a>
+        <br>Source: <a href="https://www.visionanalysis.org">visionanalysis.org</a>
     </div>
 </article>
 <footer><span>&copy; ${new Date().getFullYear()} Vision Analysis</span><a href="https://libreyolo.org">Powered by LibreYOLO</a></footer>

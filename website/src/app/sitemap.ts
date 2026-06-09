@@ -1,8 +1,9 @@
 import { MetadataRoute } from "next";
 import { getModels, getHardware } from "@/lib/data";
+import { siteConfig } from "@/config/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://visionanalysis.ai";
+  const baseUrl = siteConfig.url;
   const models = getModels();
   const hardware = getHardware();
 
@@ -24,6 +25,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(),
       changeFrequency: "weekly" as const,
       priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/parity`,
+      lastModified: new Date(),
+      changeFrequency: "weekly" as const,
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/about`,
+      lastModified: new Date(),
+      changeFrequency: "monthly" as const,
+      priority: 0.5,
     },
   ];
 

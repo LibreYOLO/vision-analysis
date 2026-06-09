@@ -2,8 +2,7 @@ export const siteConfig = {
   name: "Vision Analysis",
   description:
     "Credible and deep analysis of computer vision models. Compare accuracy, speed, and efficiency across YOLO families and hardware.",
-  url: "https://visionanalysis.ai",
-  ogImage: "https://visionanalysis.ai/og-default.png",
+  url: "https://www.visionanalysis.org",
   links: {
     github: "https://github.com/Libre-YOLO/libreyolo",
   },

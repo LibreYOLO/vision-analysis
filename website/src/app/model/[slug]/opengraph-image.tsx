@@ -1,5 +1,5 @@
 import { ImageResponse } from "next/og";
-import { getModelById, getModelBenchmarks } from "@/lib/data";
+import { getModelById, getModelBenchmarks, getHardwareById } from "@/lib/data";
 import { getFamilyColor } from "@/lib/utils/colors";
 
 export const runtime = "nodejs";
@@ -7,8 +7,9 @@ export const alt = "Model Benchmark Results";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
-export default async function Image({ params }: { params: { slug: string } }) {
-  const model = getModelById(params.slug);
+export default async function Image({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const model = getModelById(slug);
 
   if (!model) {
     return new ImageResponse(
@@ -32,8 +33,16 @@ export default async function Image({ params }: { params: { slug: string } }) {
     );
   }
 
-  const benchmarks = getModelBenchmarks(params.slug);
-  const a100Result = benchmarks.find((b) => b.hardware === "a100")?.result;
+  const benchmarks = getModelBenchmarks(slug);
+  // Prefer an A100 combo that actually has a result for this model,
+  // then fall back to any combo with data
+  const best =
+    benchmarks.find((b) => b.hardware === "a100" && b.result) ??
+    benchmarks.find((b) => b.result);
+  const a100Result = best?.result;
+  const hardwareLabel = best
+    ? getHardwareById(best.hardware)?.displayName ?? best.hardware.toUpperCase()
+    : "A100";
   const familyColor = getFamilyColor(model.family);
 
   return new ImageResponse(
@@ -115,7 +124,7 @@ export default async function Image({ params }: { params: { slug: string } }) {
             }}
           >
             <span style={{ fontSize: 20, color: "#888888", marginBottom: 8 }}>
-              Throughput (A100)
+              Throughput ({hardwareLabel})
             </span>
             <span style={{ fontSize: 64, fontWeight: "bold", color: "#3b82f6" }}>
               {a100Result ? Math.round(a100Result.throughputFps) : "N/A"} FPS
@@ -155,7 +164,7 @@ export default async function Image({ params }: { params: { slug: string } }) {
             Vision Analysis
           </span>
           <span style={{ fontSize: 20, color: "#888888" }}>
-            visionanalysis.ai
+            visionanalysis.org
           </span>
         </div>
       </div>
