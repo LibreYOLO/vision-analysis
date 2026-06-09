@@ -6,3 +6,4 @@ __pycache__/
 # Article pipeline scratch drafts (keep folder, ignore contents)
 article-pipeline/output/*
 !article-pipeline/output/.gitkeep
+.vercel
