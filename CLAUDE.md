@@ -17,8 +17,9 @@ npm run lint    # eslint
 
 ## Deploying to Production
 
+Run from the **repo root** (the Vercel project `xubanceccons-projects/website` has its root directory set to `website`, so deploying from inside `website/` fails):
+
 ```bash
-cd website
 npx vercel --prod
 ```
 
