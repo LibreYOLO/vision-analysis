@@ -314,6 +314,7 @@ export function LeaderboardDashboard({
                 showPareto={false}
                 height={420}
                 connectFamilies={paretoLine}
+                exportCaption={`${hardwareLabel} | ${runtimeLabel} | COCO val2017 | mAP@50-95 vs Params`}
               />
             </div>
           </div>

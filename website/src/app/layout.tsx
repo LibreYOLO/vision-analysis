@@ -80,6 +80,7 @@ function buildSearchItems(): SearchItem[] {
     { label: "Compare Models", href: "/compare", group: "Pages" },
     { label: "Hardware", href: "/hardware", group: "Pages" },
     { label: "Port Fidelity (Parity)", href: "/parity", group: "Pages" },
+    { label: "Methodology", href: "/methodology", group: "Pages" },
     { label: "About", href: "/about", group: "Pages" },
   ];
   return [...modelItems, ...hardwareItems, ...pageItems];

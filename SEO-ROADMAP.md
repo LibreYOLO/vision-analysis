@@ -28,7 +28,7 @@ that added this file.
      title like "Object Detection Benchmarks: YOLO, RT-DETR, D-FINE Leaderboard".
    - `/compare` (currently has **no metadata export at all**): canonical stays
      `/compare` regardless of `?models=`/`?hw=` params. Canonical-strip is the
-     correct pattern for filter params — do NOT noindex.
+     correct pattern for filter params - do NOT noindex.
    - `model/[slug]`: `canonical: /model/${slug}`; change OG `type` from "article"
      to "website".
    - Hardware pages, `/parity`, `/about`: same pattern.
@@ -37,9 +37,9 @@ that added this file.
    - `/` and `/about`: **`Dataset`** schema describing the verified benchmark dataset
      (distribution → GitHub `generated/verified-results.v1.json`,
      `measurementTechnique: "COCO val2017 mAP@50-95, end-to-end latency"`).
-     Gets the site into Google Dataset Search — a citation channel for researchers.
+     Gets the site into Google Dataset Search - a citation channel for researchers.
    - `model/[slug]`: `BreadcrumbList` (Home → family → model).
-   - FAQ and HowTo rich results are dead (deprecated by Google) — skip the markup,
+   - FAQ and HowTo rich results are dead (deprecated by Google) - skip the markup,
      but answer-first FAQ *content* still helps AI answer extraction.
 3. **Sitemap `lastModified`.** Currently `new Date()` on every build, which tells
    Google everything changed daily and erodes trust. Use the dataset generation
@@ -49,16 +49,16 @@ that added this file.
    numbers in the description (numbers lift CTR and AI citation).
 5. **`llms.txt` route** listing the leaderboard, parity, model pages, and the raw
    JSON dataset on GitHub. Cheap; mostly read by coding agents, not AI search
-   crawlers — don't build strategy on it.
+   crawlers - don't build strategy on it.
 
 ## 2. Programmatic page strategy (the gold mine)
 
-- **`/vs/[pair]` static comparison routes** — `yolov9c-vs-yolox-l` style, model ids
+- **`/vs/[pair]` static comparison routes** - `yolov9c-vs-yolox-l` style, model ids
   ordered alphabetically (301-redirect the flipped order). Query-param `/compare`
   can never rank for "yolov9 vs yolox"; static pages can.
 - **Don't generate all pairs.** Only pairs where both models have verified data AND
   the pair is meaningful: cross-family within ~2.5× params, same-family adjacent
-  variants, flagship-vs-flagship. Likely 100–400 genuinely differentiated pages —
+  variants, flagship-vs-flagship. Likely 100–400 genuinely differentiated pages  - 
   the kind that survives Google's pSEO crackdowns (thin variable-substitution pages
   get wiped; pages backed by proprietary data are durable).
 - **Page anatomy:** H1 "{A} vs {B}"; answer-first verdict in the first viewport
@@ -81,18 +81,18 @@ that added this file.
 ## 3. Article pipeline integration
 
 Pipeline output (`article-pipeline/output/`, `public/articles/draft-*.html`) is
-currently **orphaned** — no route serves it, it's not in the sitemap or link graph.
+currently **orphaned** - no route serves it, it's not in the sitemap or link graph.
 Recommended: merge article prose INTO `/vs/[pair]` pages (store validated prose as
 JSON/MDX keyed by pair; the vs page renders data tables always, prose when
 available). One URL accumulates all authority per pair. If standalone articles are
 kept, serve via a real `/articles/[slug]` route (never raw HTML in `public/`), with
 canonical to the /vs/ page when content overlaps. Re-run the pipeline when new
-benchmark data lands — that's the freshness engine.
+benchmark data lands - that's the freshness engine.
 
 ## 4. Measurement
 
 - **Google Search Console:** add a *Domain property* for `visionanalysis.org`,
-  submit the (now-fixed) sitemap. **Bing Webmaster Tools** too — Bing feeds ChatGPT
+  submit the (now-fixed) sitemap. **Bing Webmaster Tools** too - Bing feeds ChatGPT
   search.
 - **Query buckets to track:** "X vs Y"; "{model} fps/latency/benchmark/tensorrt";
   hardware ("raspberry pi", "a100"); license queries; head terms ("fastest object

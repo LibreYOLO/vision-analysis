@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import Link from "next/link";
 import { siteConfig } from "@/config/site";
 
 export const metadata: Metadata = {
@@ -79,6 +80,14 @@ export default function AboutPage() {
               <p>
                 Every published result should include the benchmark config, actual input size, hardware identity,
                 runtime/provider, and the supporting LibreYOLO commit so the number is reproducible.
+              </p>
+              <p>
+                The full protocol (warmup, timing, evaluation settings, environment capture, and
+                known limitations) is documented on the{" "}
+                <Link href="/methodology" className="text-brand hover:underline">
+                  Methodology
+                </Link>{" "}
+                page.
               </p>
             </div>
           </div>

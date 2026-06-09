@@ -1,8 +1,9 @@
 "use client";
 
-import { useRef, useEffect, useMemo } from "react";
+import { useRef, useEffect, useMemo, useCallback } from "react";
 import { useRouter } from "next/navigation";
 import { useTheme } from "next-themes";
+import { Download } from "lucide-react";
 import * as Plot from "@observablehq/plot";
 import { BenchmarkResult } from "@/lib/types";
 import { getFamilyColor } from "@/lib/utils/colors";
@@ -19,6 +20,8 @@ interface ScatterPlotProps {
   height?: number;
   xAxis?: "paramsM" | "flopsG";
   connectFamilies?: boolean;
+  /** Caption baked into PNG exports (e.g. "NVIDIA A100 · PyTorch FP32 · COCO val2017") */
+  exportCaption?: string;
 }
 
 export function ScatterPlot({
@@ -27,10 +30,91 @@ export function ScatterPlot({
   height = 400,
   xAxis = "paramsM",
   connectFamilies = false,
+  exportCaption,
 }: ScatterPlotProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const router = useRouter();
   const { resolvedTheme } = useTheme();
+
+  const families = useMemo(
+    () => Array.from(new Set(data.map((d) => d.family))).sort(),
+    [data]
+  );
+
+  // Render the current chart + legend + caption + watermark to a PNG download
+  const downloadPng = useCallback(() => {
+    const svg = containerRef.current?.querySelector("svg");
+    if (!svg) return;
+
+    const isDark = resolvedTheme === "dark";
+    const bg = isDark ? "#0a0a0f" : "#ffffff";
+    const fg = isDark ? "#e4e4f0" : "#04090b";
+    const muted = isDark ? "#7a7a92" : "#64748b";
+
+    const svgWidth = svg.clientWidth || svg.viewBox.baseVal.width;
+    const svgHeight = svg.clientHeight || svg.viewBox.baseVal.height;
+
+    const clone = svg.cloneNode(true) as SVGSVGElement;
+    clone.setAttribute("width", String(svgWidth));
+    clone.setAttribute("height", String(svgHeight));
+    // CSS variables don't resolve outside the document
+    clone.style.fontFamily = "system-ui, sans-serif";
+
+    const scale = 2;
+    const footerH = 56; // legend row + caption row
+    const canvas = document.createElement("canvas");
+    canvas.width = svgWidth * scale;
+    canvas.height = (svgHeight + footerH) * scale;
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+
+    const blob = new Blob([new XMLSerializer().serializeToString(clone)], {
+      type: "image/svg+xml;charset=utf-8",
+    });
+    const url = URL.createObjectURL(blob);
+    const img = new Image();
+    img.onload = () => {
+      ctx.scale(scale, scale);
+      ctx.fillStyle = bg;
+      ctx.fillRect(0, 0, svgWidth, svgHeight + footerH);
+      ctx.drawImage(img, 0, 0, svgWidth, svgHeight);
+      URL.revokeObjectURL(url);
+
+      // Legend row
+      ctx.font = "12px system-ui, sans-serif";
+      ctx.textBaseline = "middle";
+      let x = 16;
+      const legendY = svgHeight + 16;
+      for (const family of families) {
+        ctx.fillStyle = getFamilyColor(family);
+        ctx.beginPath();
+        ctx.arc(x + 5, legendY, 5, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.fillStyle = fg;
+        ctx.fillText(family, x + 15, legendY);
+        x += 15 + ctx.measureText(family).width + 18;
+      }
+
+      // Caption (left) + watermark (right)
+      const captionY = svgHeight + 40;
+      ctx.fillStyle = muted;
+      if (exportCaption) ctx.fillText(exportCaption, 16, captionY);
+      ctx.font = "bold 12px system-ui, sans-serif";
+      ctx.fillStyle = fg;
+      const mark = "visionanalysis.org";
+      ctx.fillText(mark, svgWidth - ctx.measureText(mark).width - 16, captionY);
+
+      canvas.toBlob((png) => {
+        if (!png) return;
+        const a = document.createElement("a");
+        a.href = URL.createObjectURL(png);
+        a.download = `vision-analysis-${xAxis === "paramsM" ? "map-vs-params" : "map-vs-gflops"}.png`;
+        a.click();
+        URL.revokeObjectURL(a.href);
+      });
+    };
+    img.src = url;
+  }, [families, resolvedTheme, exportCaption, xAxis]);
 
   const paretoPoints = useMemo(() => {
     if (!showPareto) return [];
@@ -173,13 +257,21 @@ export function ScatterPlot({
 
   return (
     <div className="w-full">
+      <div className="flex justify-end">
+        <button
+          onClick={downloadPng}
+          className="inline-flex items-center gap-1.5 rounded border border-border px-2 py-1 text-xs text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
+          aria-label="Download chart as PNG"
+        >
+          <Download className="h-3 w-3" />
+          PNG
+        </button>
+      </div>
       <div ref={containerRef} className="w-full" style={{ minHeight: height }} />
 
       {/* Legend */}
       <div className="flex flex-wrap gap-4 justify-center mt-4 text-sm">
-        {Array.from(new Set(data.map((d) => d.family)))
-          .sort()
-          .map((family) => (
+        {families.map((family) => (
             <div key={family} className="flex items-center gap-2">
               <div
                 className="w-3 h-3 rounded-full"

@@ -49,6 +49,11 @@ export function Footer() {
                   </Link>
                 </li>
                 <li>
+                  <Link href="/methodology" className="hover:text-white transition-colors">
+                    Methodology
+                  </Link>
+                </li>
+                <li>
                   <a
                     href="https://github.com/LibreYOLO/vision-analysis/tree/main/submissions"
                     target="_blank"

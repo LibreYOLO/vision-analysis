@@ -18,7 +18,7 @@ export function Header({ searchItems = [] }: HeaderProps) {
   const pathname = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { theme, setTheme } = useTheme();
-  // True after hydration only — keeps the server-rendered icon stable
+  // True after hydration only, keeps the server-rendered icon stable
   const mounted = useSyncExternalStore(
     () => () => {},
     () => true,
