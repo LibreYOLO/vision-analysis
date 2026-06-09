@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import { LeaderboardDashboard } from "@/components/leaderboard";
 import { AccuracyTimeline, VAScoreChart } from "@/components/charts";
 import { getAllBenchmarkResults, getHardwareOptions } from "@/lib/data";
@@ -83,10 +84,12 @@ export default function HomePage() {
 
       <div className="hero-content-overlap mx-auto max-w-[1280px] px-4 pb-8">
         {hasVerifiedBenchmarks ? (
-          <LeaderboardDashboard
-            benchmarkData={benchmarkData}
-            hardwareOptions={hardwareOptions}
-          />
+          <Suspense>
+            <LeaderboardDashboard
+              benchmarkData={benchmarkData}
+              hardwareOptions={hardwareOptions}
+            />
+          </Suspense>
         ) : (
           <div className="section-group mb-6">
             <div className="section-group-header">

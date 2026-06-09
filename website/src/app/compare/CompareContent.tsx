@@ -72,8 +72,30 @@ export function CompareContent({
 }: CompareContentProps) {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const [hardware, setHardware] = useState("a100");
-  const [runtime, setRuntime] = useState("pytorch_fp32");
+
+  // Initialize hardware/runtime from the URL so compare links are fully shareable
+  const hwParam = searchParams.get("hw");
+  const initialHardware =
+    hwParam && hardwareOptions.some((o) => o.value === hwParam) ? hwParam : "a100";
+  const rtParam = searchParams.get("rt");
+  const initialRuntime =
+    rtParam && benchmarkData[`${initialHardware}__${rtParam}`]
+      ? rtParam
+      : "pytorch_fp32";
+
+  const [hardware, setHardware] = useState(initialHardware);
+  const [runtime, setRuntime] = useState(initialRuntime);
+
+  // Mirror hardware/runtime into the URL without triggering navigation
+  const syncUrl = (newHardware: string, newRuntime: string) => {
+    const params = new URLSearchParams(window.location.search);
+    if (newHardware === "a100") params.delete("hw");
+    else params.set("hw", newHardware);
+    if (newRuntime === "pytorch_fp32") params.delete("rt");
+    else params.set("rt", newRuntime);
+    const qs = params.toString();
+    window.history.replaceState(null, "", qs ? `?${qs}` : window.location.pathname);
+  };
 
   // Get selected models from URL, falling back to defaults until the user changes them
   const selectedModelIds = useMemo(() => {
@@ -144,9 +166,17 @@ export function CompareContent({
     const availableRuntimes = Object.keys(benchmarkData)
       .filter((key) => key.startsWith(`${newHardware}__`))
       .map((key) => key.split("__")[1]);
+    let newRuntime = runtime;
     if (availableRuntimes.length > 0 && !availableRuntimes.includes(runtime)) {
-      setRuntime(availableRuntimes[0]);
+      newRuntime = availableRuntimes[0];
+      setRuntime(newRuntime);
     }
+    syncUrl(newHardware, newRuntime);
+  };
+
+  const handleRuntimeChange = (newRuntime: string) => {
+    setRuntime(newRuntime);
+    syncUrl(hardware, newRuntime);
   };
 
   // Build suggested comparisons from available data
@@ -262,7 +292,7 @@ export function CompareContent({
             </div>
             <div className="flex items-center gap-2">
               <span className="text-sm text-muted-foreground">Runtime:</span>
-              <Select value={runtime} onValueChange={setRuntime}>
+              <Select value={runtime} onValueChange={handleRuntimeChange}>
                 <SelectTrigger className="w-[180px]">
                   <SelectValue />
                 </SelectTrigger>

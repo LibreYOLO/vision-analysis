@@ -1,7 +1,8 @@
 "use client";
 
 import { useState, useMemo } from "react";
-import { BenchmarkResult } from "@/lib/types";
+import { useSearchParams } from "next/navigation";
+import { BenchmarkResult, SortKey, SortOrder } from "@/lib/types";
 import { filterByFamilies } from "@/lib/data/utils";
 import { LeaderboardTable } from "./LeaderboardTable";
 import { FilterBar } from "./FilterBar";
@@ -102,15 +103,97 @@ function getDefaultSelection(
   return { hardware: bestHardware, runtime: bestRuntime };
 }
 
+const DEFAULT_SORT_KEY: SortKey | "model" = "mAP_50_95";
+const VALID_SORT_KEYS = new Set<string>([
+  "model",
+  "mAP_50_95",
+  "mAP_50",
+  "throughputFps",
+  "totalMs",
+  "paramsM",
+  "flopsG",
+  "mAPPerGflop",
+  "mAPPerMParams",
+]);
+
 export function LeaderboardDashboard({
   benchmarkData,
   hardwareOptions,
 }: LeaderboardDashboardProps) {
+  const searchParams = useSearchParams();
   const defaultSelection = getDefaultSelection(benchmarkData, hardwareOptions);
-  const [hardware, setHardware] = useState(defaultSelection.hardware);
-  const [runtime, setRuntime] = useState(defaultSelection.runtime);
-  const [selectedFamilies, setSelectedFamilies] = useState<string[]>([]);
-  const [paretoLine, setParetoLine] = useState(true);
+
+  // Initial state comes from the URL so filtered views are shareable
+  const hwParam = searchParams.get("hw");
+  const initialHardware =
+    hwParam && hardwareOptions.some((o) => o.value === hwParam)
+      ? hwParam
+      : defaultSelection.hardware;
+  const rtParam = searchParams.get("rt");
+  const initialRuntime =
+    rtParam && benchmarkData[`${initialHardware}__${rtParam}`]
+      ? rtParam
+      : benchmarkData[`${initialHardware}__${defaultSelection.runtime}`]
+        ? defaultSelection.runtime
+        : Object.keys(benchmarkData)
+            .find((key) => key.startsWith(`${initialHardware}__`))
+            ?.split("__")[1] ?? defaultSelection.runtime;
+  const sortParam = searchParams.get("sort");
+  const initialSortKey = (
+    sortParam && VALID_SORT_KEYS.has(sortParam) ? sortParam : DEFAULT_SORT_KEY
+  ) as SortKey | "model";
+  const initialSortOrder: SortOrder =
+    searchParams.get("order") === "asc" ? "asc" : "desc";
+
+  const [hardware, setHardware] = useState(initialHardware);
+  const [runtime, setRuntime] = useState(initialRuntime);
+  const [selectedFamilies, setSelectedFamilies] = useState<string[]>(
+    () => searchParams.get("families")?.split(",").filter(Boolean) ?? []
+  );
+  const [paretoLine, setParetoLine] = useState(searchParams.get("pareto") !== "0");
+  const [sortKey, setSortKey] = useState<SortKey | "model">(initialSortKey);
+  const [sortOrder, setSortOrder] = useState<SortOrder>(initialSortOrder);
+
+  // Mirror filter state into the URL (shallow, no navigation) so the
+  // current view can be shared. Default values are omitted to keep URLs clean.
+  const syncUrl = (next: {
+    hardware?: string;
+    runtime?: string;
+    families?: string[];
+    pareto?: boolean;
+    sort?: SortKey | "model";
+    order?: SortOrder;
+  }) => {
+    const state = {
+      hardware,
+      runtime,
+      families: selectedFamilies,
+      pareto: paretoLine,
+      sort: sortKey,
+      order: sortOrder,
+      ...next,
+    };
+    const params = new URLSearchParams();
+    if (state.hardware !== defaultSelection.hardware) {
+      params.set("hw", state.hardware);
+    }
+    if (
+      state.hardware !== defaultSelection.hardware ||
+      state.runtime !== defaultSelection.runtime
+    ) {
+      params.set("rt", state.runtime);
+    }
+    if (state.families.length > 0) params.set("families", state.families.join(","));
+    if (!state.pareto) params.set("pareto", "0");
+    if (state.sort !== DEFAULT_SORT_KEY) {
+      params.set("sort", state.sort);
+      params.set("order", state.order);
+    } else if (state.order !== "desc") {
+      params.set("order", state.order);
+    }
+    const qs = params.toString();
+    window.history.replaceState(null, "", qs ? `?${qs}` : window.location.pathname);
+  };
 
   // Get available runtimes for the selected hardware
   const runtimeOptions = useMemo(() => {
@@ -154,11 +237,11 @@ export function LeaderboardDashboard({
   }, [allResults, visibleSelectedFamilies]);
 
   const handleFamilyToggle = (family: string) => {
-    setSelectedFamilies((prev) =>
-      prev.includes(family)
-        ? prev.filter((f) => f !== family)
-        : [...prev, family]
-    );
+    const next = selectedFamilies.includes(family)
+      ? selectedFamilies.filter((f) => f !== family)
+      : [...selectedFamilies, family];
+    setSelectedFamilies(next);
+    syncUrl({ families: next });
   };
 
   const handleHardwareChange = (newHardware: string) => {
@@ -166,9 +249,28 @@ export function LeaderboardDashboard({
     const availableRuntimes = Object.keys(benchmarkData)
       .filter((key) => key.startsWith(`${newHardware}__`))
       .map((key) => key.split("__")[1]);
+    let newRuntime = runtime;
     if (availableRuntimes.length > 0 && !availableRuntimes.includes(runtime)) {
-      setRuntime(availableRuntimes[0]);
+      newRuntime = availableRuntimes[0];
+      setRuntime(newRuntime);
     }
+    syncUrl({ hardware: newHardware, runtime: newRuntime });
+  };
+
+  const handleRuntimeChange = (newRuntime: string) => {
+    setRuntime(newRuntime);
+    syncUrl({ runtime: newRuntime });
+  };
+
+  const handleParetoChange = (value: boolean) => {
+    setParetoLine(value);
+    syncUrl({ pareto: value });
+  };
+
+  const handleSortChange = (key: SortKey | "model", order: SortOrder) => {
+    setSortKey(key);
+    setSortOrder(order);
+    syncUrl({ sort: key, order });
   };
 
   return (
@@ -187,7 +289,7 @@ export function LeaderboardDashboard({
             hardware={hardware}
             onHardwareChange={handleHardwareChange}
             runtime={runtime}
-            onRuntimeChange={setRuntime}
+            onRuntimeChange={handleRuntimeChange}
             selectedFamilies={visibleSelectedFamilies}
             onFamilyToggle={handleFamilyToggle}
             resultCount={filteredResults.length}
@@ -195,7 +297,7 @@ export function LeaderboardDashboard({
             runtimeOptions={runtimeOptions}
             families={availableFamilies}
             paretoLine={paretoLine}
-            onParetoLineChange={setParetoLine}
+            onParetoLineChange={handleParetoChange}
           />
 
           {/* Scatter Chart Card */}
@@ -232,6 +334,9 @@ export function LeaderboardDashboard({
           <LeaderboardTable
             data={filteredResults}
             familyFilter={hasHiddenFamilySelections ? visibleSelectedFamilies : selectedFamilies}
+            initialSortKey={sortKey}
+            initialSortOrder={sortOrder}
+            onSortChange={handleSortChange}
           />
         </div>
       </div>

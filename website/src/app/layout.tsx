@@ -2,8 +2,10 @@ import type { Metadata } from "next";
 import { M_PLUS_2, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { Header, Footer, ThemeProvider } from "@/components/layout";
+import type { SearchItem } from "@/components/layout/SearchDialog";
 import { siteConfig } from "@/config/site";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import { getModels, getHardware } from "@/lib/data";
 
 const mplus2 = M_PLUS_2({
   variable: "--font-sans",
@@ -38,6 +40,8 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: siteConfig.creator }],
   creator: siteConfig.creator,
+  // OG/Twitter images intentionally omitted: the file-based opengraph-image.tsx
+  // generators provide them (public/og-default.png does not exist).
   openGraph: {
     type: "website",
     locale: "en_US",
@@ -45,20 +49,11 @@ export const metadata: Metadata = {
     title: siteConfig.name,
     description: siteConfig.description,
     siteName: siteConfig.name,
-    images: [
-      {
-        url: siteConfig.ogImage,
-        width: 1200,
-        height: 630,
-        alt: siteConfig.name,
-      },
-    ],
   },
   twitter: {
     card: "summary_large_image",
     title: siteConfig.name,
     description: siteConfig.description,
-    images: [siteConfig.ogImage],
   },
   robots: {
     index: true,
@@ -66,11 +61,36 @@ export const metadata: Metadata = {
   },
 };
 
+function buildSearchItems(): SearchItem[] {
+  const modelItems: SearchItem[] = getModels().map((model) => ({
+    label: model.displayName,
+    sublabel: model.family,
+    href: `/model/${model.id}`,
+    group: "Models",
+    family: model.family,
+  }));
+  const hardwareItems: SearchItem[] = getHardware().map((hw) => ({
+    label: hw.displayName,
+    sublabel: hw.specs.gpuName ?? hw.specs.cpuName,
+    href: `/hardware/${hw.id}`,
+    group: "Hardware",
+  }));
+  const pageItems: SearchItem[] = [
+    { label: "Leaderboard", href: "/", group: "Pages" },
+    { label: "Compare Models", href: "/compare", group: "Pages" },
+    { label: "Hardware", href: "/hardware", group: "Pages" },
+    { label: "Port Fidelity (Parity)", href: "/parity", group: "Pages" },
+    { label: "About", href: "/about", group: "Pages" },
+  ];
+  return [...modelItems, ...hardwareItems, ...pageItems];
+}
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const searchItems = buildSearchItems();
   return (
     <html lang="en" suppressHydrationWarning>
       <body
@@ -83,7 +103,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <TooltipProvider>
-            <Header />
+            <Header searchItems={searchItems} />
             <main className="flex-1">{children}</main>
             <Footer />
           </TooltipProvider>

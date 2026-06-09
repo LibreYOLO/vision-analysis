@@ -2,21 +2,9 @@ import { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, ExternalLink } from "lucide-react";
-import { getHardware, getHardwareById, getBenchmarkResults, getRuntimesForHardware, getRuntimeById } from "@/lib/data";
-import { getFamilyColor } from "@/lib/utils/colors";
-import { formatNumber, formatPercent, formatMs } from "@/lib/utils/format";
+import { getHardware, getHardwareById, getBenchmarkResults, getRuntimesForHardware } from "@/lib/data";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "@/components/ui/table";
-import { siteConfig } from "@/config/site";
+import { HardwareResults } from "./HardwareResults";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -50,14 +38,15 @@ export default async function HardwarePage({ params }: Props) {
     notFound();
   }
 
-  // Get available runtimes for this hardware, default to first
+  // All runtimes with data for this hardware; the client component lets the user switch
   const availableRuntimes = getRuntimesForHardware(slug);
-  const defaultRuntime = availableRuntimes[0]?.id || "pytorch_fp32";
-  const runtimeMeta = getRuntimeById(defaultRuntime);
-
-  const results = getBenchmarkResults(slug, defaultRuntime);
-  const sortedByMaP = [...results].sort((a, b) => b.mAP_50_95 - a.mAP_50_95);
-  const sortedByFps = [...results].sort((a, b) => b.throughputFps - a.throughputFps);
+  const runtimeOptions = availableRuntimes.map((r) => ({
+    value: r.id,
+    label: r.displayName,
+  }));
+  const resultsByRuntime = Object.fromEntries(
+    availableRuntimes.map((r) => [r.id, getBenchmarkResults(slug, r.id)])
+  );
 
   return (
     <div className="container mx-auto px-4 py-8">
@@ -78,11 +67,6 @@ export default async function HardwarePage({ params }: Props) {
         )}
         {hw.specs.cpuName && (
           <p className="text-muted-foreground">{hw.specs.cpuName}</p>
-        )}
-        {runtimeMeta && (
-          <Badge variant="secondary" className="mt-2">
-            {runtimeMeta.displayName}
-          </Badge>
         )}
       </div>
 
@@ -180,125 +164,12 @@ export default async function HardwarePage({ params }: Props) {
         </Card>
       )}
 
-      {/* Top Models */}
-      <div className="grid md:grid-cols-2 gap-8 mb-8">
-        <Card>
-          <CardHeader>
-            <CardTitle>Highest Accuracy</CardTitle>
-            <CardDescription>Top 5 models by mAP@50-95</CardDescription>
-          </CardHeader>
-          <CardContent>
-            <div className="space-y-3">
-              {sortedByMaP.slice(0, 5).map((model, i) => (
-                <div key={model.model} className="flex items-center justify-between">
-                  <div className="flex items-center gap-2">
-                    <span className="text-muted-foreground w-4">{i + 1}.</span>
-                    <div
-                      className="w-2 h-2 rounded-full"
-                      style={{ backgroundColor: getFamilyColor(model.family) }}
-                    />
-                    <Link
-                      href={`/model/${model.model}`}
-                      className="font-medium hover:underline"
-                    >
-                      {model.model}
-                    </Link>
-                  </div>
-                  <span className="font-mono text-green-600 dark:text-green-400">
-                    {formatPercent(model.mAP_50_95)}
-                  </span>
-                </div>
-              ))}
-            </div>
-          </CardContent>
-        </Card>
-
-        <Card>
-          <CardHeader>
-            <CardTitle>Fastest</CardTitle>
-            <CardDescription>Top 5 models by throughput</CardDescription>
-          </CardHeader>
-          <CardContent>
-            <div className="space-y-3">
-              {sortedByFps.slice(0, 5).map((model, i) => (
-                <div key={model.model} className="flex items-center justify-between">
-                  <div className="flex items-center gap-2">
-                    <span className="text-muted-foreground w-4">{i + 1}.</span>
-                    <div
-                      className="w-2 h-2 rounded-full"
-                      style={{ backgroundColor: getFamilyColor(model.family) }}
-                    />
-                    <Link
-                      href={`/model/${model.model}`}
-                      className="font-medium hover:underline"
-                    >
-                      {model.model}
-                    </Link>
-                  </div>
-                  <span className="font-mono">
-                    {formatNumber(model.throughputFps, 0)} FPS
-                  </span>
-                </div>
-              ))}
-            </div>
-          </CardContent>
-        </Card>
-      </div>
-
-      {/* Full Leaderboard */}
-      <Card>
-        <CardHeader>
-          <CardTitle>All Models</CardTitle>
-          <CardDescription>
-            {results.length} models benchmarked on {hw.displayName}
-          </CardDescription>
-        </CardHeader>
-        <CardContent>
-          <Table>
-            <TableHeader>
-              <TableRow>
-                <TableHead>#</TableHead>
-                <TableHead>Model</TableHead>
-                <TableHead className="text-right">mAP</TableHead>
-                <TableHead className="text-right">FPS</TableHead>
-                <TableHead className="text-right">Latency</TableHead>
-                <TableHead className="text-right">Params</TableHead>
-              </TableRow>
-            </TableHeader>
-            <TableBody>
-              {sortedByMaP.map((model, i) => (
-                <TableRow key={model.model}>
-                  <TableCell className="text-muted-foreground">{i + 1}</TableCell>
-                  <TableCell>
-                    <Link
-                      href={`/model/${model.model}`}
-                      className="flex items-center gap-2 hover:underline"
-                    >
-                      <div
-                        className="w-2 h-2 rounded-full"
-                        style={{ backgroundColor: getFamilyColor(model.family) }}
-                      />
-                      {model.model}
-                    </Link>
-                  </TableCell>
-                  <TableCell className="text-right font-mono">
-                    {formatPercent(model.mAP_50_95)}
-                  </TableCell>
-                  <TableCell className="text-right font-mono">
-                    {formatNumber(model.throughputFps, 1)}
-                  </TableCell>
-                  <TableCell className="text-right font-mono">
-                    {formatMs(model.totalMs)}
-                  </TableCell>
-                  <TableCell className="text-right font-mono">
-                    {formatNumber(model.paramsM, 1)}M
-                  </TableCell>
-                </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-        </CardContent>
-      </Card>
+      {/* Runtime switcher, top models, full leaderboard */}
+      <HardwareResults
+        hardwareName={hw.displayName}
+        resultsByRuntime={resultsByRuntime}
+        runtimeOptions={runtimeOptions}
+      />
     </div>
   );
 }

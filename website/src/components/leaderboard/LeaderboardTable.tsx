@@ -11,8 +11,9 @@ import { cn } from "@/lib/utils";
 interface LeaderboardTableProps {
   data: BenchmarkResult[];
   familyFilter?: string[];
-  initialSortKey?: SortKey;
+  initialSortKey?: SortKey | "model";
   initialSortOrder?: SortOrder;
+  onSortChange?: (key: SortKey | "model", order: SortOrder) => void;
 }
 
 const COLUMNS: Array<{
@@ -60,12 +61,13 @@ export function LeaderboardTable({
   familyFilter = [],
   initialSortKey = "mAP_50_95",
   initialSortOrder = "desc",
+  onSortChange,
 }: LeaderboardTableProps) {
   const [sortKey, setSortKey] = useState<SortKey | "model">(initialSortKey);
   const [sortOrder, setSortOrder] = useState<SortOrder>(initialSortOrder);
 
   const sortedData = useMemo(() => {
-    let filtered = familyFilter.length > 0
+    const filtered = familyFilter.length > 0
       ? data.filter((d) => familyFilter.includes(d.family))
       : data;
 
@@ -86,10 +88,14 @@ export function LeaderboardTable({
 
   const handleSort = (key: SortKey | "model") => {
     if (sortKey === key) {
-      setSortOrder((prev) => (prev === "asc" ? "desc" : "asc"));
+      const nextOrder = sortOrder === "asc" ? "desc" : "asc";
+      setSortOrder(nextOrder);
+      onSortChange?.(key, nextOrder);
     } else {
+      const nextOrder = key === "totalMs" ? "asc" : "desc";
       setSortKey(key);
-      setSortOrder(key === "totalMs" ? "asc" : "desc");
+      setSortOrder(nextOrder);
+      onSortChange?.(key, nextOrder);
     }
   };
 
