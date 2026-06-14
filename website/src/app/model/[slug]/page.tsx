@@ -14,6 +14,7 @@ import {
 import { getFamilyColor } from "@/lib/utils/colors";
 import { formatNumber, formatPercent, formatMs } from "@/lib/utils/format";
 import { siteConfig } from "@/config/site";
+import { ModelStructuredData } from "@/components/seo/ModelStructuredData";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -36,6 +37,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: `${model.displayName} Benchmark Results`,
     description: `${model.displayName} - ${model.specs.paramsM}M parameters, ${model.specs.flopsG} GFLOPs. See detailed benchmarks across hardware.`,
+    // Advertise the LLM-ingestible markdown twin (invisible to humans).
+    alternates: {
+      types: {
+        "text/markdown": `/model/${slug}/markdown`,
+      },
+    },
     openGraph: {
       title: `${model.displayName} | ${siteConfig.name}`,
       description: `Benchmark results for ${model.displayName} on COCO val2017`,
@@ -71,6 +78,7 @@ export default async function ModelPage({ params }: Props) {
 
   return (
     <>
+      <ModelStructuredData model={model} family={family} benchmarks={benchmarks} />
       {/* Black Hero */}
       <section className="bg-black pb-32">
         <div className="mx-auto max-w-[1280px] px-4 pt-4">
