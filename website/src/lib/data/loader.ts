@@ -2,6 +2,7 @@ import fs from "fs";
 import path from "path";
 import { BenchmarkResult } from "@/lib/types";
 import { transformRawBenchmark, isRawBenchmark } from "./transform";
+import { benchmarkCoordinateKey, compareBenchmarkCoordinates } from "./utils";
 import modelsData from "@/data/metadata/models.json";
 
 const APP_ROOT = process.cwd();
@@ -10,6 +11,15 @@ const GENERATED_RESULTS_PATH = path.join(REPO_ROOT, "generated", "verified-resul
 
 // Module-level cache: computed once per build/process
 let _cache: Record<string, BenchmarkResult[]> | null = null;
+
+type ModelSpec = {
+  id: string;
+  specs: {
+    flopsG: number;
+    paramsM: number;
+    inputSizeDefault?: number;
+  };
+};
 
 /**
  * Loads the canonical verified benchmark dataset generated from reviewed submissions.
@@ -31,7 +41,7 @@ function loadGeneratedBenchmarks(): Record<string, BenchmarkResult[]> {
   try {
     const parsed = JSON.parse(fs.readFileSync(GENERATED_RESULTS_PATH, "utf-8"));
     const results = Array.isArray(parsed?.results) ? parsed.results : [];
-    const modelSpecs = (modelsData.models as Array<{ id: string; specs: { flopsG: number; paramsM: number } }>);
+    const modelSpecs = modelsData.models as ModelSpec[];
 
     for (const entry of results) {
       if (isRawBenchmark(entry)) {
@@ -43,7 +53,7 @@ function loadGeneratedBenchmarks(): Record<string, BenchmarkResult[]> {
       }
 
       if (typeof entry === "object" && entry !== null && typeof entry.model === "string") {
-        addResult(grouped, entry as BenchmarkResult);
+        addResult(grouped, completeBenchmarkResult(entry as Partial<BenchmarkResult>, modelSpecs));
       }
     }
 
@@ -57,16 +67,15 @@ function loadGeneratedBenchmarks(): Record<string, BenchmarkResult[]> {
 
 function dedupeGrouped(grouped: Record<string, BenchmarkResult[]>): void {
   for (const key of Object.keys(grouped)) {
-    const byModel = new Map<string, BenchmarkResult>();
+    const byCoordinate = new Map<string, BenchmarkResult>();
     for (const result of grouped[key]) {
-      const existing = byModel.get(result.model);
+      const coordinateKey = benchmarkCoordinateKey(result);
+      const existing = byCoordinate.get(coordinateKey);
       if (!existing || result.timestamp > existing.timestamp) {
-        byModel.set(result.model, result);
+        byCoordinate.set(coordinateKey, result);
       }
     }
-    grouped[key] = Array.from(byModel.values()).sort((a, b) =>
-      a.model.localeCompare(b.model)
-    );
+    grouped[key] = Array.from(byCoordinate.values()).sort(compareBenchmarkCoordinates);
   }
 }
 
@@ -77,4 +86,38 @@ function addResult(
   const key = `${result.hardware}__${result.runtime}`;
   if (!grouped[key]) grouped[key] = [];
   grouped[key].push(result);
+}
+
+function precisionFromRuntime(runtime: string | undefined): string {
+  const parts = runtime?.split("_") ?? [];
+  return parts[parts.length - 1] || "fp32";
+}
+
+const COCO_VAL2017_FULL_IMAGES = 5000;
+const FULL_VAL_IMAGE_TOLERANCE = 5;
+
+function datasetVariantFromCount(numImages: number): string {
+  if (Math.abs(numImages - COCO_VAL2017_FULL_IMAGES) <= FULL_VAL_IMAGE_TOLERANCE) {
+    return "full";
+  }
+  if (numImages === 500) return "mini500";
+  return numImages > 0 ? `subset${numImages}` : "unknown";
+}
+
+function completeBenchmarkResult(
+  entry: Partial<BenchmarkResult>,
+  modelSpecs: ModelSpec[]
+): BenchmarkResult {
+  const modelSpec = modelSpecs.find((m) => m.id === entry.model);
+  const numImages = entry.numImages ?? 5000;
+
+  return {
+    ...entry,
+    dataset: entry.dataset ?? "coco_val2017",
+    datasetVariant: entry.datasetVariant ?? datasetVariantFromCount(numImages),
+    numImages,
+    precision: entry.precision ?? precisionFromRuntime(entry.runtime),
+    batchSize: entry.batchSize ?? 1,
+    inputSize: entry.inputSize ?? modelSpec?.specs.inputSizeDefault ?? 0,
+  } as BenchmarkResult;
 }

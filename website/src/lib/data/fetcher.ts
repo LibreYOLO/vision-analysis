@@ -1,6 +1,7 @@
 import "server-only";
 import { BenchmarkResult, ModelMetadata, FamilyMetadata, HardwareMetadata, DatasetMetadata, RuntimeMetadata } from "@/lib/types";
 import { loadAllBenchmarks } from "./loader";
+import { benchmarkCoordinateKey, compareBenchmarkCoordinates } from "./utils";
 
 // Import metadata (manually maintained)
 import modelsData from "@/data/metadata/models.json";
@@ -16,6 +17,13 @@ function getBenchmarkData(): Record<string, BenchmarkResult[]> {
 
 function compositeKey(hardware: string, runtime: string): string {
   return `${hardware}__${runtime}`;
+}
+
+export interface ModelBenchmarkEntry {
+  hardware: string;
+  runtime: string;
+  coordinateKey: string;
+  result: BenchmarkResult;
 }
 
 /**
@@ -39,19 +47,18 @@ export function getAllBenchmarkResults(): Record<string, BenchmarkResult[]> {
 /**
  * Get benchmark results for a specific model across all hardware/runtime combos
  */
-export function getModelBenchmarks(modelId: string): Array<{
-  hardware: string;
-  runtime: string;
-  result: BenchmarkResult | undefined;
-}> {
-  return Object.entries(getBenchmarkData()).map(([key, results]) => {
+export function getModelBenchmarks(modelId: string): ModelBenchmarkEntry[] {
+  return Object.entries(getBenchmarkData()).flatMap(([key, results]) => {
     const [hardware, runtime] = key.split("__");
-    return {
-      hardware,
-      runtime,
-      result: results.find((r) => r.model === modelId),
-    };
-  });
+    return results
+      .filter((result) => result.model === modelId)
+      .map((result) => ({
+        hardware,
+        runtime,
+        coordinateKey: benchmarkCoordinateKey(result),
+        result,
+      }));
+  }).sort((a, b) => compareBenchmarkCoordinates(a.result, b.result));
 }
 
 /**

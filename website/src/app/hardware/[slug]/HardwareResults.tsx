@@ -4,6 +4,7 @@ import { useState, useMemo } from "react";
 import Link from "next/link";
 import { getFamilyColor } from "@/lib/utils/colors";
 import { formatNumber, formatPercent, formatMs } from "@/lib/utils/format";
+import { benchmarkCoordinateKey } from "@/lib/data/utils";
 import { BenchmarkResult } from "@/lib/types";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
@@ -73,7 +74,7 @@ export function HardwareResults({
           <CardContent>
             <div className="space-y-3">
               {sortedByMaP.slice(0, 5).map((model, i) => (
-                <div key={model.model} className="flex items-center justify-between">
+                <div key={benchmarkCoordinateKey(model)} className="flex items-center justify-between">
                   <div className="flex items-center gap-2">
                     <span className="text-muted-foreground w-4">{i + 1}.</span>
                     <div
@@ -104,7 +105,7 @@ export function HardwareResults({
           <CardContent>
             <div className="space-y-3">
               {sortedByFps.slice(0, 5).map((model, i) => (
-                <div key={model.model} className="flex items-center justify-between">
+                <div key={benchmarkCoordinateKey(model)} className="flex items-center justify-between">
                   <div className="flex items-center gap-2">
                     <span className="text-muted-foreground w-4">{i + 1}.</span>
                     <div
@@ -152,7 +153,7 @@ export function HardwareResults({
             </TableHeader>
             <TableBody>
               {sortedByMaP.map((model, i) => (
-                <TableRow key={model.model}>
+                <TableRow key={benchmarkCoordinateKey(model)}>
                   <TableCell className="text-muted-foreground">{i + 1}</TableCell>
                   <TableCell>
                     <Link

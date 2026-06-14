@@ -5,6 +5,7 @@ import { BenchmarkResult } from "@/lib/types";
  */
 export interface RawBenchmark {
   model: {
+    id?: string;
     name: string;
     family: string;
     variant: string;
@@ -15,9 +16,11 @@ export interface RawBenchmark {
   runtime?: {
     format: string;
     precision: string;
+    provider?: string;
     device: string;
   };
   hardware: {
+    id?: string;
     gpu: string;
     gpu_memory_gb: number;
     driver_version?: string;
@@ -25,6 +28,18 @@ export interface RawBenchmark {
     cpu?: string;
     cpu_cores?: number;
     ram_gb?: number;
+  };
+  dataset?: {
+    id?: string;
+    split?: string;
+    num_images?: number;
+  };
+  config?: {
+    batch_size?: number;
+    input_size?: number;
+    conf?: number;
+    iou?: number;
+    max_det?: number;
   };
   software: {
     python: string;
@@ -46,8 +61,8 @@ export interface RawBenchmark {
     peak_ram_mb?: number;
   };
   timing: {
-    batch_size: number;
-    num_images: number;
+    batch_size?: number;
+    num_images?: number;
     ms_per_image?: number;
     preprocess_ms?: number;
     inference_ms?: number;
@@ -76,6 +91,11 @@ export interface RawBenchmark {
     benchmark_date: string;
     benchmark_version: string;
   };
+  eval?: {
+    dataset?: string;
+    split?: string;
+    numImages?: number;
+  };
 }
 
 // --- Hardware ID mapping ---
@@ -89,10 +109,26 @@ const HARDWARE_MAP: Array<{ pattern: string; id: string }> = [
   { pattern: "5080", id: "rtx5080" },
   { pattern: "dgx spark", id: "dgx_spark" },
   { pattern: "gb10", id: "dgx_spark" },
-  { pattern: "jetson", id: "jetson" },
+  { pattern: "jetson", id: "jetson_orin" },
+  { pattern: "orin", id: "jetson_orin" },
 ];
 
+const HARDWARE_ID_ALIASES: Record<string, string> = {
+  jetson: "jetson_orin",
+  orin: "jetson_orin",
+};
+
+function slugify(value: string): string {
+  return value.toLowerCase().replace(/[^a-z0-9]+/g, "_").replace(/^_|_$/g, "");
+}
+
 function detectHardwareId(raw: RawBenchmark): string {
+  const explicitId = raw.hardware.id?.trim();
+  if (explicitId) {
+    const normalizedId = slugify(explicitId);
+    return HARDWARE_ID_ALIASES[normalizedId] ?? normalizedId;
+  }
+
   const gpuLower = raw.hardware.gpu.toLowerCase();
   for (const { pattern, id } of HARDWARE_MAP) {
     if (gpuLower.includes(pattern)) return id;
@@ -102,7 +138,7 @@ function detectHardwareId(raw: RawBenchmark): string {
     if (cpuLower.includes(pattern)) return id;
   }
   // Fallback: slugify gpu name
-  return gpuLower.replace(/[^a-z0-9]+/g, "_").replace(/^_|_$/g, "");
+  return slugify(gpuLower);
 }
 
 // --- Runtime ID ---
@@ -152,6 +188,9 @@ const MODEL_NAME_MAP: Record<string, string> = {
 };
 
 function normalizeModelName(raw: RawBenchmark): string {
+  const explicitId = raw.model.id?.trim();
+  if (explicitId) return explicitId;
+
   const name = raw.model.name.toLowerCase();
   if (MODEL_NAME_MAP[name]) return MODEL_NAME_MAP[name];
 
@@ -204,6 +243,46 @@ function round3(v: number): number {
   return Math.round(v * 1000) / 1000;
 }
 
+// --- Dataset coordinate extraction ---
+
+const COCO_VAL2017_FULL_IMAGES = 5000;
+const FULL_VAL_IMAGE_TOLERANCE = 5;
+
+function normalizeDatasetId(raw: RawBenchmark): string {
+  const datasetId = raw.dataset?.id?.toLowerCase();
+  const evalDataset = raw.eval?.dataset?.toLowerCase();
+  const split = (raw.dataset?.split ?? raw.eval?.split ?? "").toLowerCase();
+
+  if (
+    ((datasetId === "coco2017" || datasetId === "coco_val2017") && split === "val2017") ||
+    (evalDataset === "coco" && split === "val2017")
+  ) {
+    return "coco_val2017";
+  }
+
+  if (datasetId && split) return slugify(`${datasetId}_${split}`);
+  if (datasetId) return slugify(datasetId);
+  if (evalDataset && split) return slugify(`${evalDataset}_${split}`);
+  return "coco_val2017";
+}
+
+function extractNumImages(raw: RawBenchmark): number {
+  return raw.eval?.numImages ?? raw.dataset?.num_images ?? raw.timing.num_images ?? 0;
+}
+
+function datasetVariantFromCount(numImages: number): string {
+  if (Math.abs(numImages - COCO_VAL2017_FULL_IMAGES) <= FULL_VAL_IMAGE_TOLERANCE) {
+    return "full";
+  }
+  if (numImages === 500) return "mini500";
+  return numImages > 0 ? `subset${numImages}` : "unknown";
+}
+
+function precisionFromRuntime(runtimeId: string): string {
+  const parts = runtimeId.split("_");
+  return parts[parts.length - 1] || "fp32";
+}
+
 // --- Main transform ---
 
 interface ModelSpec {
@@ -226,6 +305,11 @@ export function transformRawBenchmark(
     const timing = extractTiming(raw.timing);
     const fps = raw.throughput.fps ?? raw.throughput.fps_mean ?? 0;
     const mAP = toPercentage(raw.accuracy.mAP_50_95);
+    const dataset = normalizeDatasetId(raw);
+    const numImages = extractNumImages(raw);
+    const batchSize = raw.config?.batch_size ?? raw.timing.batch_size ?? 1;
+    const inputSize = raw.config?.input_size ?? raw.model.input_size;
+    const precision = raw.runtime?.precision ?? precisionFromRuntime(runtimeId);
 
     let paramsM = raw.model_stats.params_millions;
     let flopsG = raw.model_stats.gflops;
@@ -243,11 +327,14 @@ export function transformRawBenchmark(
       model: modelId,
       family: raw.model.family,
       variant: raw.model.variant,
-      dataset: "coco_val2017",
+      dataset,
+      datasetVariant: datasetVariantFromCount(numImages),
+      numImages,
       hardware: hardwareId,
       runtime: runtimeId,
-      batchSize: raw.timing.batch_size,
-      inputSize: raw.model.input_size,
+      precision,
+      batchSize,
+      inputSize,
       mAP_50_95: mAP,
       mAP_50: toPercentage(raw.accuracy.mAP_50),
       mAP_75: toPercentage(raw.accuracy.mAP_75 ?? 0),

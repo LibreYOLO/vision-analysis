@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft, ExternalLink, Github, FileText } from "lucide-react";
+import { ArrowLeft, Github, FileText } from "lucide-react";
 import {
   getModels,
   getModelById,
@@ -187,7 +187,7 @@ export default async function ModelPage({ params }: Props) {
             </p>
           </div>
           <div className="section-group-content">
-            {benchmarks.filter(b => b.result).length > 0 ? (
+            {benchmarks.length > 0 ? (
               <div className="overflow-x-auto">
                 <table className="w-full text-sm">
                   <thead>
@@ -201,12 +201,11 @@ export default async function ModelPage({ params }: Props) {
                     </tr>
                   </thead>
                   <tbody>
-                    {benchmarks.map(({ hardware, runtime, result }) => {
-                      if (!result) return null;
+                    {benchmarks.map(({ hardware, runtime, coordinateKey, result }) => {
                       const hwMeta = getHardwareById(hardware);
                       const rtMeta = getRuntimeById(runtime);
                       return (
-                        <tr key={`${hardware}__${runtime}`} className="border-b border-border hover:bg-muted">
+                        <tr key={coordinateKey} className="border-b border-border hover:bg-muted">
                           <td className="px-3 py-3 font-medium">{hwMeta?.displayName || hardware}</td>
                           <td className="px-3 py-3">{rtMeta?.displayName || runtime}</td>
                           <td className="px-3 py-3 text-right font-mono">{formatPercent(result.mAP_50_95)}</td>

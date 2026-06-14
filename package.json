@@ -3,6 +3,7 @@
   "private": true,
   "scripts": {
     "build": "npm run build --prefix website",
+    "test": "python scripts/test_verified_results_compat.py",
     "vercel-build": "npm run build --prefix website"
   }
 }

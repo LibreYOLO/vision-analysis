@@ -10,6 +10,17 @@
         "numInstances": 36781
       },
       "license": "CC BY 4.0"
+    },
+    {
+      "id": "coco_val2017_mini500",
+      "displayName": "COCO val2017 mini500",
+      "task": "detection",
+      "stats": {
+        "numImages": 500,
+        "numClasses": 80,
+        "numInstances": 0
+      },
+      "license": "CC BY 4.0"
     }
   ]
 }

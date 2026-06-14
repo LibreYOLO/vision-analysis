@@ -21,8 +21,11 @@ export interface BenchmarkResult {
   family: string;
   variant: string;
   dataset: string;
+  datasetVariant: string;
+  numImages: number;
   hardware: string;  // Pure hardware ID (e.g., "a100", "rpi5")
   runtime: string;   // Runtime ID (e.g., "pytorch_fp32")
+  precision: string;
   batchSize: number;
   inputSize: number;
 

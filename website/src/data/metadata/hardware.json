@@ -58,6 +58,18 @@
         "tdpWatts": 12
       },
       "providers": []
+    },
+    {
+      "id": "jetson_orin",
+      "displayName": "NVIDIA Jetson Orin Nano Super 8GB",
+      "category": "edge",
+      "specs": {
+        "gpuName": "NVIDIA Ampere GPU (Jetson Orin)",
+        "vramGb": 8,
+        "ramGb": 8,
+        "tdpWatts": 15
+      },
+      "providers": []
     }
   ]
 }

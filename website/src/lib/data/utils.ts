@@ -17,6 +17,43 @@ export function filterByFamilies(
 }
 
 /**
+ * Full coordinate for one measured result. This is the dedupe identity for
+ * re-runs: identical coordinates collapse to the latest timestamp, while batch
+ * sweeps, input-size sweeps, and subset/full-val runs remain distinct.
+ */
+export function benchmarkCoordinateKey(result: BenchmarkResult): string {
+  return [
+    result.model,
+    result.hardware,
+    result.runtime,
+    result.precision,
+    result.dataset,
+    result.datasetVariant,
+    result.numImages,
+    result.inputSize,
+    result.batchSize,
+  ].join("|");
+}
+
+export function compareBenchmarkCoordinates(
+  a: BenchmarkResult,
+  b: BenchmarkResult
+): number {
+  return (
+    a.model.localeCompare(b.model) ||
+    a.hardware.localeCompare(b.hardware) ||
+    a.runtime.localeCompare(b.runtime) ||
+    a.precision.localeCompare(b.precision) ||
+    a.dataset.localeCompare(b.dataset) ||
+    a.datasetVariant.localeCompare(b.datasetVariant) ||
+    a.numImages - b.numImages ||
+    a.inputSize - b.inputSize ||
+    a.batchSize - b.batchSize ||
+    a.timestamp.localeCompare(b.timestamp)
+  );
+}
+
+/**
  * Sort benchmark results by a key
  */
 export function sortResults(

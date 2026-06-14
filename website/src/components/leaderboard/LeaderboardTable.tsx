@@ -6,6 +6,7 @@ import { ArrowUpDown, ArrowUp, ArrowDown } from "lucide-react";
 import { BenchmarkResult, SortKey, SortOrder } from "@/lib/types";
 import { getFamilyColor } from "@/lib/utils/colors";
 import { formatNumber, formatPercent, formatMs } from "@/lib/utils/format";
+import { benchmarkCoordinateKey } from "@/lib/data/utils";
 import { cn } from "@/lib/utils";
 
 interface LeaderboardTableProps {
@@ -143,7 +144,7 @@ export function LeaderboardTable({
         <tbody>
           {sortedData.map((row, index) => (
             <tr
-              key={row.model}
+              key={benchmarkCoordinateKey(row)}
               className="h-[53px] border-b border-border hover:bg-muted transition-colors"
             >
               {/* Rank */}

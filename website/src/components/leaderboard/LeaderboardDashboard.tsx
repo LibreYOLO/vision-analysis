@@ -116,6 +116,43 @@ const VALID_SORT_KEYS = new Set<string>([
   "mAPPerMParams",
 ]);
 
+function leaderboardCandidateScore(result: BenchmarkResult): number[] {
+  const isFullVal = result.datasetVariant === "full";
+  const isBatchOne = result.batchSize === 1;
+  return [
+    isFullVal && isBatchOne ? 0 : 1,
+    isFullVal ? 0 : 1,
+    isBatchOne ? 0 : 1,
+    result.numImages > 0 ? -result.numImages : 0,
+    result.inputSize,
+    Number.isFinite(Date.parse(result.timestamp)) ? -Date.parse(result.timestamp) : 0,
+  ];
+}
+
+function compareLeaderboardCandidates(
+  a: BenchmarkResult,
+  b: BenchmarkResult
+): number {
+  const aScore = leaderboardCandidateScore(a);
+  const bScore = leaderboardCandidateScore(b);
+  for (let i = 0; i < aScore.length; i += 1) {
+    const diff = aScore[i] - bScore[i];
+    if (diff !== 0) return diff;
+  }
+  return a.model.localeCompare(b.model);
+}
+
+function selectLeaderboardCoordinates(results: BenchmarkResult[]): BenchmarkResult[] {
+  const byModel = new Map<string, BenchmarkResult>();
+  for (const result of results) {
+    const existing = byModel.get(result.model);
+    if (!existing || compareLeaderboardCandidates(result, existing) < 0) {
+      byModel.set(result.model, result);
+    }
+  }
+  return Array.from(byModel.values());
+}
+
 export function LeaderboardDashboard({
   benchmarkData,
   hardwareOptions,
@@ -220,9 +257,16 @@ export function LeaderboardDashboard({
     return benchmarkData[key] || [];
   }, [benchmarkData, hardware, runtime]);
 
-  const availableFamilies = useMemo(() => {
-    return Array.from(new Set(allResults.map((result) => result.family))).sort();
+  const leaderboardResults = useMemo(() => {
+    // Step 1 can load multiple performance coordinates per model. Until Step 3
+    // adds explicit batch/subset/input controls, keep this view one row per
+    // model and prefer the canonical full-val batch=1 coordinate when present.
+    return selectLeaderboardCoordinates(allResults);
   }, [allResults]);
+
+  const availableFamilies = useMemo(() => {
+    return Array.from(new Set(leaderboardResults.map((result) => result.family))).sort();
+  }, [leaderboardResults]);
 
   const visibleSelectedFamilies = useMemo(() => {
     const available = new Set(availableFamilies);
@@ -233,8 +277,8 @@ export function LeaderboardDashboard({
 
   // Filter by selected families
   const filteredResults = useMemo(() => {
-    return filterByFamilies(allResults, visibleSelectedFamilies);
-  }, [allResults, visibleSelectedFamilies]);
+    return filterByFamilies(leaderboardResults, visibleSelectedFamilies);
+  }, [leaderboardResults, visibleSelectedFamilies]);
 
   const handleFamilyToggle = (family: string) => {
     const next = selectedFamilies.includes(family)

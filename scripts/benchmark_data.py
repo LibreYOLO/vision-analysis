@@ -12,14 +12,24 @@ ROOT = Path(__file__).resolve().parents[1]
 SUPPORT_MATRIX_PATH = ROOT / "support-matrix.json"
 SUBMISSIONS_DIR = ROOT / "submissions"
 GENERATED_RESULTS_PATH = ROOT / "generated" / "verified-results.v1.json"
+MODELS_METADATA_PATH = ROOT / "website" / "src" / "data" / "metadata" / "models.json"
 
 
 def load_json(path: Path) -> Any:
-    return json.loads(path.read_text())
+    return json.loads(path.read_text(encoding="utf-8"))
 
 
 def load_support_matrix() -> dict[str, Any]:
     return load_json(SUPPORT_MATRIX_PATH)
+
+
+def load_model_metadata_ids() -> set[str]:
+    metadata = load_json(MODELS_METADATA_PATH)
+    return {
+        item["id"]
+        for item in metadata.get("models", [])
+        if isinstance(item, dict) and isinstance(item.get("id"), str)
+    }
 
 
 def iter_submission_paths() -> list[Path]:
@@ -41,7 +51,12 @@ def required_path(data: dict[str, Any], *path: str) -> Any:
     return current
 
 
-def validate_submission(submission: dict[str, Any], support: dict[str, Any], source: str) -> list[str]:
+def validate_submission(
+    submission: dict[str, Any],
+    support: dict[str, Any],
+    source: str,
+    model_metadata_ids: set[str] | None = None,
+) -> list[str]:
     errors: list[str] = []
 
     def expect(path: tuple[str, ...], expected_type: type | tuple[type, ...] | None = None) -> Any | None:
@@ -94,6 +109,8 @@ def validate_submission(submission: dict[str, Any], support: dict[str, Any], sou
             errors.append(f"{source}: model.id must be non-empty")
         elif model_id not in set(support.get("models", [])):
             errors.append(f"{source}: unsupported model.id {model_id}")
+        elif model_metadata_ids is not None and model_id not in model_metadata_ids:
+            errors.append(f"{source}: model.id {model_id} missing from models.json")
 
     supported_runtimes = {item["backend"]: item for item in support.get("runtimes", [])}
     if runtime:
@@ -162,6 +179,7 @@ def validate_submission(submission: dict[str, Any], support: dict[str, Any], sou
 
 def load_and_validate_submissions() -> tuple[list[dict[str, Any]], list[str]]:
     support = load_support_matrix()
+    model_metadata_ids = load_model_metadata_ids()
     results: list[dict[str, Any]] = []
     errors: list[str] = []
     seen_submission_ids: set[str] = set()
@@ -173,7 +191,7 @@ def load_and_validate_submissions() -> tuple[list[dict[str, Any]], list[str]]:
             errors.append(f"{path.name}: invalid JSON ({exc})")
             continue
 
-        submission_errors = validate_submission(submission, support, path.name)
+        submission_errors = validate_submission(submission, support, path.name, model_metadata_ids)
         submission_id = submission.get("submission_id")
         if isinstance(submission_id, str):
             if submission_id in seen_submission_ids:
