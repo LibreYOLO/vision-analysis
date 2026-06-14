@@ -2,6 +2,7 @@ import { Suspense } from "react";
 import { LeaderboardDashboard } from "@/components/leaderboard";
 import { AccuracyTimeline, VAScoreChart } from "@/components/charts";
 import { getAllBenchmarkResults, getHardwareOptions } from "@/lib/data";
+import { StructuredData } from "@/components/seo/StructuredData";
 
 const previewFamilies = ["D-FINE", "RF-DETR", "RT-DETR", "DEIM", "YOLOX"];
 
@@ -66,11 +67,17 @@ function ComingSoonOverlay({
 export default function HomePage() {
   const benchmarkData = getAllBenchmarkResults();
   const hardwareOptions = getHardwareOptions();
-  const benchmarkCount = Object.values(benchmarkData).reduce((sum, results) => sum + results.length, 0);
+  const allRows = Object.values(benchmarkData).flat();
+  const benchmarkCount = allRows.length;
   const hasVerifiedBenchmarks = benchmarkCount > 0;
+  const distinctModels = new Set(allRows.map((r) => r.model)).size;
+  const distinctFamilies = new Set(allRows.map((r) => r.family)).size;
 
   return (
     <>
+      {hasVerifiedBenchmarks && (
+        <StructuredData modelCount={distinctModels} familyCount={distinctFamilies} />
+      )}
       <section className="hero-section">
         <div className="mx-auto max-w-[1280px] px-4 pt-4">
           <h1 className="mb-2 text-2xl font-semibold text-white">

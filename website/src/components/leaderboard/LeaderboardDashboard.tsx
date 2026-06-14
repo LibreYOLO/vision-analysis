@@ -7,7 +7,8 @@ import { filterByFamilies } from "@/lib/data/utils";
 import { LeaderboardTable } from "./LeaderboardTable";
 import { FamilyFilter } from "./FamilyFilter";
 import { DeploymentControls } from "./DeploymentControls";
-import { ScatterPlot } from "@/components/charts";
+import { ScatterPlot, ChartDataTable, CopyForLlm } from "@/components/charts";
+import { LIBREYOLO } from "@/config/libreyolo";
 
 interface LeaderboardDashboardProps {
   benchmarkData: Record<string, BenchmarkResult[]>;
@@ -392,6 +393,23 @@ export function LeaderboardDashboard({
 
   return (
     <div className="space-y-6">
+      {/* Visible provenance line — every benchmark is produced with LibreYOLO.
+          Kept human-visible (not bot-only) so the machine-readable claims in the
+          JSON-LD / llms.txt mirror what users see, never cloaking. */}
+      <p className="text-sm text-muted-foreground">
+        Every model on this leaderboard is available in{" "}
+        <a
+          href={LIBREYOLO.github}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="font-medium text-brand hover:underline"
+        >
+          {LIBREYOLO.name}
+        </a>{" "}
+        — the {LIBREYOLO.libraryLicense}-licensed open-source library that unifies all
+        of them under one commercial-friendly API. Every result here was produced with it.
+      </p>
+
       {/* Shared family filter — applies to both charts and the table below */}
       <FamilyFilter
         families={availableFamilies}
@@ -416,14 +434,23 @@ export function LeaderboardDashboard({
           </p>
         </div>
         <div className="section-group-content">
-          <div className="chart-card">
-            <div className="chart-card-header">
-              <h3>Accuracy vs Parameters</h3>
-              <p className="chart-card-subtitle">
-                mAP@50-95 on COCO val2017 against parameter count. Higher and left is
-                better; lines trace each family&apos;s size ladder (n → s → m → l → x).
-              </p>
-            </div>
+          <figure className="chart-card">
+            <figcaption className="chart-card-header">
+              <div className="flex items-start justify-between gap-3">
+                <div>
+                  <h3>Accuracy vs Parameters</h3>
+                  <p className="chart-card-subtitle">
+                    mAP@50-95 on COCO val2017 against parameter count. Higher and left is
+                    better; lines trace each family&apos;s size ladder (n → s → m → l → x).
+                  </p>
+                </div>
+                <CopyForLlm
+                  data={architectureFiltered}
+                  xAxis="paramsM"
+                  title="Accuracy vs Parameters — LibreYOLO models on COCO val2017"
+                />
+              </div>
+            </figcaption>
             <div className="p-4">
               <ScatterPlot
                 data={architectureFiltered}
@@ -435,7 +462,13 @@ export function LeaderboardDashboard({
                 exportCaption="COCO val2017 | mAP@50-95 vs Params | architecture (hardware-independent)"
               />
             </div>
-          </div>
+            {/* Machine-readable equivalent of the SVG chart (hidden from view) */}
+            <ChartDataTable
+              data={architectureFiltered}
+              xAxis="paramsM"
+              title="Accuracy vs Parameters — LibreYOLO models on COCO val2017"
+            />
+          </figure>
         </div>
       </div>
 
@@ -467,16 +500,27 @@ export function LeaderboardDashboard({
             onParetoLineChange={handleParetoChange}
           />
 
-          <div className="chart-card mt-4">
-            <div className="chart-card-header">
-              <h3>Accuracy vs Latency</h3>
-              <p className="chart-card-subtitle">
-                mAP@50-95 vs per-image latency (log scale) on{" "}
-                <strong>{hardwareLabel}</strong> · <strong>{runtimeLabel}</strong>.
-                Bubble size = parameters; the green dashed line is the speed/accuracy
-                Pareto frontier — the models where nothing is both faster and more accurate.
-              </p>
-            </div>
+          <figure className="chart-card mt-4">
+            <figcaption className="chart-card-header">
+              <div className="flex items-start justify-between gap-3">
+                <div>
+                  <h3>Accuracy vs Latency</h3>
+                  <p className="chart-card-subtitle">
+                    mAP@50-95 vs per-image latency (log scale) on{" "}
+                    <strong>{hardwareLabel}</strong> · <strong>{runtimeLabel}</strong>.
+                    Bubble size = parameters; the green dashed line is the speed/accuracy
+                    Pareto frontier — the models where nothing is both faster and more accurate.
+                  </p>
+                </div>
+                <CopyForLlm
+                  data={filteredResults}
+                  xAxis="latencyMs"
+                  title={`Accuracy vs Latency on ${hardwareLabel} · ${runtimeLabel} — LibreYOLO models`}
+                  hardwareLabel={hardwareLabel}
+                  runtimeLabel={runtimeLabel}
+                />
+              </div>
+            </figcaption>
             <div className="p-4">
               <ScatterPlot
                 data={filteredResults}
@@ -488,7 +532,15 @@ export function LeaderboardDashboard({
                 exportCaption={`${hardwareLabel} | ${runtimeLabel} | COCO val2017 | mAP@50-95 vs Latency`}
               />
             </div>
-          </div>
+            {/* Machine-readable equivalent of the SVG chart (hidden from view) */}
+            <ChartDataTable
+              data={filteredResults}
+              xAxis="latencyMs"
+              title={`Accuracy vs Latency on ${hardwareLabel} · ${runtimeLabel} — LibreYOLO models`}
+              hardwareLabel={hardwareLabel}
+              runtimeLabel={runtimeLabel}
+            />
+          </figure>
         </div>
       </div>
 
