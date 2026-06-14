@@ -1,0 +1,108 @@
+{
+  "schema_version": "va.submission.v1",
+  "submission_id": "rtdetrv2-r18-onnx-cuda-jetson_orin-20260614T190836Z",
+  "created_at": "2026-06-14T19:08:36.463980Z",
+  "benchmark": {
+    "harness": "vision-analysis-benchmark",
+    "harness_version": "2.0.0",
+    "libreyolo_version": "1.2.0.dev0",
+    "libreyolo_commit": "c41461e622def50d0f91e5f4d11fc43d2746ba93"
+  },
+  "model": {
+    "id": "rtdetrv2-r18",
+    "name": "rt-detrv2-r18",
+    "family": "rtdetrv2",
+    "variant": "r18",
+    "source": "libreyolo",
+    "weights": "LibreRTDETRv2r18.pt",
+    "input_size": 640
+  },
+  "dataset": {
+    "id": "coco2017",
+    "split": "val2017",
+    "num_images": 500
+  },
+  "config": {
+    "batch_size": 1,
+    "input_size": 640,
+    "conf": 0.001,
+    "iou": 0.6,
+    "max_det": 300
+  },
+  "hardware": {
+    "gpu": "Orin (nvgpu)",
+    "gpu_memory_gb": 0.0,
+    "driver_version": "595.78",
+    "cuda_version": "13.0",
+    "cpu": "Unknown",
+    "cpu_cores": 6,
+    "ram_gb": 7,
+    "id": "jetson_orin"
+  },
+  "software": {
+    "python": "3.12.3",
+    "torch": "2.12.0+cu130",
+    "libreyolo": "1.2.0.dev0",
+    "libreyolo_commit": "c41461e622def50d0f91e5f4d11fc43d2746ba93",
+    "onnxruntime": "1.24.0"
+  },
+  "accuracy": {
+    "mAP_50_95": 0.5075191575128088,
+    "mAP_50": 0.6738555639521545,
+    "mAP_75": 0.5494714581854775,
+    "mAP_small": 0.33494550560322617,
+    "mAP_medium": 0.5391190077481491,
+    "mAP_large": 0.6638229080293523,
+    "AR1": 0.3949345357955365,
+    "AR10": 0.6747862733028845,
+    "AR100": 0.7276838638117968,
+    "AR_small": 0.5574363478918812,
+    "AR_medium": 0.7555702822064697,
+    "AR_large": 0.8582688832789559
+  },
+  "timing": {
+    "batch_size": 1,
+    "num_images": 500,
+    "total_ms": {
+      "mean": 103.534,
+      "std": 0.305,
+      "p50": 103.53,
+      "p95": 103.981,
+      "p99": 104.387,
+      "preprocess_ms": null,
+      "inference_ms": null,
+      "postprocess_ms": null
+    }
+  },
+  "throughput": {
+    "fps_mean": 9.66,
+    "fps_p50": 9.66
+  },
+  "model_stats": {
+    "params_millions": 20.25,
+    "gflops": 0.0
+  },
+  "memory": {
+    "peak_vram_mb": null,
+    "peak_ram_mb": 73.3
+  },
+  "metadata": {
+    "benchmark_date": "2026-06-14T19:08:36.463980Z",
+    "benchmark_version": "2.0.0"
+  },
+  "eval": {
+    "dataset": "coco",
+    "split": "val2017",
+    "numImages": 500
+  },
+  "implementation": {
+    "provider": "libreyolo",
+    "version": "1.2.0.dev0"
+  },
+  "runtime": {
+    "format": "onnx",
+    "precision": "fp32",
+    "provider": "cuda",
+    "device": "gpu"
+  }
+}
