@@ -6,6 +6,13 @@
       "format": "pytorch",
       "precision": "fp32",
       "device": "cpu"
+    },
+    {
+      "id": "onnx_fp32",
+      "displayName": "ONNX Runtime FP32",
+      "format": "onnx",
+      "precision": "fp32",
+      "device": "gpu"
     }
   ]
 }
