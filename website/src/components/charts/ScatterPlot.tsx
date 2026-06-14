@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useEffect, useMemo, useCallback } from "react";
+import { useRef, useEffect, useMemo, useCallback, useState } from "react";
 import { useRouter } from "next/navigation";
 import { useTheme } from "next-themes";
 import { Download } from "lucide-react";
@@ -14,11 +14,26 @@ function getCssVar(name: string): string {
   return getComputedStyle(document.documentElement).getPropertyValue(name).trim();
 }
 
+type XMode = "paramsM" | "flopsG" | "latencyMs";
+
+/** Data field backing each x mode */
+const X_FIELD: Record<XMode, "paramsM" | "flopsG" | "totalMs"> = {
+  paramsM: "paramsM",
+  flopsG: "flopsG",
+  latencyMs: "totalMs",
+};
+
+const X_LABEL: Record<XMode, string> = {
+  paramsM: "Parameters (M) →",
+  flopsG: "GFLOPs →",
+  latencyMs: "Latency (ms, log) →",
+};
+
 interface ScatterPlotProps {
   data: BenchmarkResult[];
   showPareto?: boolean;
   height?: number;
-  xAxis?: "paramsM" | "flopsG";
+  xAxis?: XMode;
   connectFamilies?: boolean;
   /** Caption baked into PNG exports (e.g. "NVIDIA A100 · PyTorch FP32 · COCO val2017") */
   exportCaption?: string;
@@ -26,7 +41,7 @@ interface ScatterPlotProps {
 
 export function ScatterPlot({
   data,
-  showPareto = true,
+  showPareto = false,
   height = 400,
   xAxis = "paramsM",
   connectFamilies = false,
@@ -35,6 +50,13 @@ export function ScatterPlot({
   const containerRef = useRef<HTMLDivElement>(null);
   const router = useRouter();
   const { resolvedTheme } = useTheme();
+
+  const [xMode, setXMode] = useState<XMode>(xAxis);
+  const xKey = X_FIELD[xMode];
+  const isLatency = xMode === "latencyMs";
+  // The Pareto frontier is speed/accuracy based — most meaningful on the latency view,
+  // so surface it automatically there even if the caller didn't ask for it.
+  const showFrontier = showPareto || isLatency;
 
   const families = useMemo(
     () => Array.from(new Set(data.map((d) => d.family))).sort(),
@@ -108,18 +130,17 @@ export function ScatterPlot({
         if (!png) return;
         const a = document.createElement("a");
         a.href = URL.createObjectURL(png);
-        a.download = `vision-analysis-${xAxis === "paramsM" ? "map-vs-params" : "map-vs-gflops"}.png`;
+        a.download = `vision-analysis-map-vs-${
+          xMode === "paramsM" ? "params" : xMode === "flopsG" ? "gflops" : "latency"
+        }.png`;
         a.click();
         URL.revokeObjectURL(a.href);
       });
     };
     img.src = url;
-  }, [families, resolvedTheme, exportCaption, xAxis]);
+  }, [families, resolvedTheme, exportCaption, xMode]);
 
-  const paretoPoints = useMemo(() => {
-    if (!showPareto) return [];
-    return computeParetoFrontier(data);
-  }, [data, showPareto]);
+  const paretoPoints = useMemo(() => computeParetoFrontier(data), [data]);
 
   useEffect(() => {
     if (!containerRef.current || data.length === 0) return;
@@ -129,14 +150,14 @@ export function ScatterPlot({
     const fgColor = getCssVar("--foreground") || "#04090b";
     const gridColor = getCssVar("--border") || "#e2e8f0";
 
-    const plotData = data.map((d) => ({
-      ...d,
-      color: getFamilyColor(d.family),
-    }));
+    // In log (latency) mode, drop any non-positive x so the scale stays valid.
+    const plotData = data
+      .filter((d) => !isLatency || (d[xKey] as number) > 0)
+      .map((d) => ({ ...d, color: getFamilyColor(d.family) }));
 
-    const sortedPareto = [...paretoPoints].sort(
-      (a, b) => a.paramsM - b.paramsM
-    );
+    const sortedPareto = [...paretoPoints]
+      .filter((d) => !isLatency || (d[xKey] as number) > 0)
+      .sort((a, b) => (a[xKey] as number) - (b[xKey] as number));
 
     const marks: Plot.Markish[] = [];
 
@@ -150,11 +171,11 @@ export function ScatterPlot({
       for (const [family, points] of byFamily) {
         if (points.length < 2) continue;
         const sorted = [...points].sort(
-          (a, b) => (a[xAxis] as number) - (b[xAxis] as number)
+          (a, b) => (a[xKey] as number) - (b[xKey] as number)
         );
         marks.push(
           Plot.line(sorted, {
-            x: xAxis,
+            x: xKey,
             y: "mAP_50_95",
             stroke: getFamilyColor(family),
             strokeWidth: 2,
@@ -165,11 +186,11 @@ export function ScatterPlot({
       }
     }
 
-    // Pareto frontier line
-    if (showPareto && sortedPareto.length > 1) {
+    // Pareto frontier line (speed/accuracy)
+    if (showFrontier && sortedPareto.length > 1) {
       marks.push(
         Plot.line(sortedPareto, {
-          x: xAxis,
+          x: xKey,
           y: "mAP_50_95",
           stroke: "#22c55e",
           strokeWidth: 2,
@@ -182,7 +203,7 @@ export function ScatterPlot({
     // Data points
     marks.push(
       Plot.dot(plotData, {
-        x: xAxis,
+        x: xKey,
         y: "mAP_50_95",
         fill: "color",
         r: 7,
@@ -214,8 +235,9 @@ export function ScatterPlot({
       ],
 
       x: {
-        label: xAxis === "paramsM" ? "Parameters (M) →" : "GFLOPs →",
+        label: X_LABEL[xMode],
         nice: true,
+        ...(isLatency ? { type: "log" as const } : {}),
       },
       y: {
         label: "mAP@50-95 (%)",
@@ -247,9 +269,11 @@ export function ScatterPlot({
   }, [
     data,
     paretoPoints,
-    showPareto,
+    showFrontier,
     height,
-    xAxis,
+    xKey,
+    xMode,
+    isLatency,
     router,
     resolvedTheme,
     connectFamilies,
@@ -257,7 +281,24 @@ export function ScatterPlot({
 
   return (
     <div className="w-full">
-      <div className="flex justify-end">
+      <div className="flex items-center justify-between gap-2">
+        {/* X-axis toggle: Model size ↔ Latency */}
+        <div className="inline-flex rounded border border-border overflow-hidden text-xs">
+          {(["paramsM", "latencyMs"] as XMode[]).map((mode) => (
+            <button
+              key={mode}
+              onClick={() => setXMode(mode)}
+              className={`px-2.5 py-1 transition-colors ${
+                xMode === mode
+                  ? "bg-muted text-foreground font-medium"
+                  : "text-muted-foreground hover:text-foreground"
+              }`}
+              aria-pressed={xMode === mode}
+            >
+              {mode === "paramsM" ? "Model size" : "Latency"}
+            </button>
+          ))}
+        </div>
         <button
           onClick={downloadPng}
           className="inline-flex items-center gap-1.5 rounded border border-border px-2 py-1 text-xs text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
@@ -280,7 +321,7 @@ export function ScatterPlot({
               <span className="text-muted-foreground">{family}</span>
             </div>
           ))}
-        {showPareto && (
+        {showFrontier && (
           <div className="flex items-center gap-2 ml-4 pl-4 border-l border-border">
             <div className="w-6 h-0 border-t-2 border-dashed border-green-500" />
             <span className="text-green-600">Pareto Frontier</span>

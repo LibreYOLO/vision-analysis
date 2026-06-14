@@ -347,9 +347,9 @@ export function LeaderboardDashboard({
           {/* Scatter Chart Card */}
           <div className="chart-card mt-4">
             <div className="chart-card-header">
-              <h3>Accuracy vs Model Size</h3>
+              <h3>Accuracy Tradeoffs</h3>
               <p className="chart-card-subtitle">
-                mAP@50-95 on COCO val2017 plotted against parameter count. Higher and left is better.
+                mAP@50-95 on COCO val2017 vs <strong>model size</strong> or <strong>latency</strong> — toggle the x-axis. Higher and left is better; the Pareto frontier marks the best speed/accuracy tradeoffs.
               </p>
             </div>
             <div className="p-4">
