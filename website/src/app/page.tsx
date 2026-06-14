@@ -1,7 +1,7 @@
 import { Suspense } from "react";
 import { LeaderboardDashboard } from "@/components/leaderboard";
-import { AccuracyTimeline, VAScoreChart } from "@/components/charts";
-import { getAllBenchmarkResults, getHardwareOptions } from "@/lib/data";
+import { AccuracyTimeline, VAScoreChart, ChartDataTable } from "@/components/charts";
+import { getAllBenchmarkResults, getHardwareOptions, getRuntimeOptions } from "@/lib/data";
 import { StructuredData } from "@/components/seo/StructuredData";
 
 const previewFamilies = ["D-FINE", "RF-DETR", "RT-DETR", "DEIM", "YOLOX"];
@@ -73,6 +73,20 @@ export default function HomePage() {
   const distinctModels = new Set(allRows.map((r) => r.model)).size;
   const distinctFamilies = new Set(allRows.map((r) => r.family)).size;
 
+  // Labels for the server-rendered (sr-only) data tables below.
+  const hwLabel = new Map(hardwareOptions.map((o) => [o.value, o.label]));
+  const rtLabel = new Map(getRuntimeOptions().map((o) => [o.value, o.label]));
+
+  // One canonical row per model (PyTorch FP32 preferred) for the
+  // hardware-independent accuracy-vs-size table.
+  const paramsByModel = new Map<string, (typeof allRows)[number]>();
+  for (const [key, rows] of Object.entries(benchmarkData)) {
+    if (!key.endsWith("__pytorch_fp32")) continue;
+    for (const r of rows) if (!paramsByModel.has(r.model)) paramsByModel.set(r.model, r);
+  }
+  for (const r of allRows) if (!paramsByModel.has(r.model)) paramsByModel.set(r.model, r);
+  const paramsRows = Array.from(paramsByModel.values());
+
   return (
     <>
       {hasVerifiedBenchmarks && (
@@ -91,12 +105,40 @@ export default function HomePage() {
 
       <div className="hero-content-overlap mx-auto max-w-[1280px] px-4 pb-8">
         {hasVerifiedBenchmarks ? (
-          <Suspense>
-            <LeaderboardDashboard
-              benchmarkData={benchmarkData}
-              hardwareOptions={hardwareOptions}
-            />
-          </Suspense>
+          <>
+            <Suspense>
+              <LeaderboardDashboard
+                benchmarkData={benchmarkData}
+                hardwareOptions={hardwareOptions}
+              />
+            </Suspense>
+            {/* Machine-readable data tables (sr-only). The interactive dashboard
+                above is client-rendered, so these put the same benchmark numbers
+                into the static HTML for no-JS crawlers and LLMs. */}
+            <section className="sr-only">
+              <h2>Benchmark data tables</h2>
+              <ChartDataTable
+                data={paramsRows}
+                xAxis="paramsM"
+                title="Accuracy vs Parameters — LibreYOLO models on COCO val2017"
+              />
+              {Object.entries(benchmarkData).map(([key, rows]) => {
+                const [hw, rt] = key.split("__");
+                const hardwareLabel = hwLabel.get(hw) ?? hw;
+                const runtimeLabel = rtLabel.get(rt) ?? rt;
+                return (
+                  <ChartDataTable
+                    key={key}
+                    data={rows}
+                    xAxis="latencyMs"
+                    title={`Accuracy vs Latency — ${hardwareLabel} · ${runtimeLabel}`}
+                    hardwareLabel={hardwareLabel}
+                    runtimeLabel={runtimeLabel}
+                  />
+                );
+              })}
+            </section>
+          </>
         ) : (
           <div className="section-group mb-6">
             <div className="section-group-header">
