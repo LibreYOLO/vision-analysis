@@ -13,6 +13,13 @@
       "format": "onnx",
       "precision": "fp32",
       "device": "gpu"
+    },
+    {
+      "id": "tensorrt_fp32",
+      "displayName": "TensorRT FP32",
+      "format": "tensorrt",
+      "precision": "fp32",
+      "device": "gpu"
     }
   ]
 }
