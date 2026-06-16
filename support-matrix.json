@@ -7,7 +7,9 @@
     "c41461e622def50d0f91e5f4d11fc43d2746ba93",
     "5f12ee96d5f3099eaede265187a5df70a5f70c08",
     "fa4c1b05b813100c638bfde18e805b32d652a1c3",
-    "436fff0f3a8c0f2cebdf82506a74b22ef18b423b"
+    "436fff0f3a8c0f2cebdf82506a74b22ef18b423b",
+    "8a7a0beff4ac5c104dd44936d55d9d58baf2b72b",
+    "75235c5fc55239166c14e2017efc0eaa3bad0dea"
   ],
   "models": [
     "yolox-nano",
