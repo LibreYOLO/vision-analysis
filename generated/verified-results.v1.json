@@ -1,6 +1,6 @@
 {
   "schema_version": "va.verified-results.v1",
-  "generated_at": "2026-06-16T15:10:39.983640Z",
+  "generated_at": "2026-06-16T18:29:03.986112Z",
   "results": [
     {
       "schema_version": "va.submission.v1",
@@ -110,7 +110,7 @@
         "device": "gpu"
       },
       "source_file": "rtdetr-r18__pytorch__cuda__a100__20260425T102126737426Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -220,7 +220,7 @@
         "device": "gpu"
       },
       "source_file": "rtdetr-r34__pytorch__cuda__a100__20260425T102653752131Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -330,7 +330,7 @@
         "device": "gpu"
       },
       "source_file": "rtdetr-r50__pytorch__cuda__a100__20260425T103244508474Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -440,7 +440,7 @@
         "device": "gpu"
       },
       "source_file": "rtdetr-r50m__pytorch__cuda__a100__20260425T103803976286Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -550,7 +550,7 @@
         "device": "gpu"
       },
       "source_file": "rtdetr-r101__pytorch__cuda__a100__20260425T104504900279Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -660,7 +660,7 @@
         "device": "gpu"
       },
       "source_file": "dfine-n__pytorch__cuda__a100__20260425T110230888980Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -770,7 +770,7 @@
         "device": "gpu"
       },
       "source_file": "dfine-s__pytorch__cuda__a100__20260425T110816561439Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -880,7 +880,7 @@
         "device": "gpu"
       },
       "source_file": "dfine-m__pytorch__cuda__a100__20260425T111412510494Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -990,7 +990,7 @@
         "device": "gpu"
       },
       "source_file": "dfine-l__pytorch__cuda__a100__20260425T112118848941Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -1100,7 +1100,7 @@
         "device": "gpu"
       },
       "source_file": "dfine-x__pytorch__cuda__a100__20260425T112905304607Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -1210,7 +1210,7 @@
         "device": "gpu"
       },
       "source_file": "yolonas-s__pytorch__cuda__a100__20260425T124733090752Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -1320,7 +1320,7 @@
         "device": "gpu"
       },
       "source_file": "yolonas-m__pytorch__cuda__a100__20260425T125432622272Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -1430,7 +1430,7 @@
         "device": "gpu"
       },
       "source_file": "yolonas-l__pytorch__cuda__a100__20260425T130120704653Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -1540,7 +1540,7 @@
         "device": "gpu"
       },
       "source_file": "deim-l__pytorch__cuda__nvidia_geforce_rtx_5070_ti__20260603T172905206617Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -1650,7 +1650,7 @@
         "device": "gpu"
       },
       "source_file": "deim-m__pytorch__cuda__nvidia_geforce_rtx_5070_ti__20260603T173226827615Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -1760,7 +1760,7 @@
         "device": "gpu"
       },
       "source_file": "deim-n__pytorch__cuda__nvidia_geforce_rtx_5070_ti__20260603T173505856271Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -1870,7 +1870,7 @@
         "device": "gpu"
       },
       "source_file": "deim-s__pytorch__cuda__nvidia_geforce_rtx_5070_ti__20260603T173757107911Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -1980,7 +1980,7 @@
         "device": "gpu"
       },
       "source_file": "deim-x__pytorch__cuda__nvidia_geforce_rtx_5070_ti__20260603T174251452830Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -2090,7 +2090,7 @@
         "device": "gpu"
       },
       "source_file": "deimv2-atto__pytorch__cuda__nvidia_geforce_rtx_5070_ti__20260603T174514277613Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -2200,7 +2200,7 @@
         "device": "gpu"
       },
       "source_file": "deimv2-femto__pytorch__cuda__nvidia_geforce_rtx_5070_ti__20260603T174741825615Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -2310,7 +2310,7 @@
         "device": "gpu"
       },
       "source_file": "deimv2-l__pytorch__cuda__nvidia_geforce_rtx_5070_ti__20260603T175230740443Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -2420,7 +2420,7 @@
         "device": "gpu"
       },
       "source_file": "deimv2-m__pytorch__cuda__nvidia_geforce_rtx_5070_ti__20260603T175706191160Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -2530,7 +2530,7 @@
         "device": "gpu"
       },
       "source_file": "deimv2-n__pytorch__cuda__nvidia_geforce_rtx_5070_ti__20260603T180016236641Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -2640,7 +2640,7 @@
         "device": "gpu"
       },
       "source_file": "deimv2-pico__pytorch__cuda__nvidia_geforce_rtx_5070_ti__20260603T180251390466Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -2750,7 +2750,7 @@
         "device": "gpu"
       },
       "source_file": "deimv2-s__pytorch__cuda__nvidia_geforce_rtx_5070_ti__20260603T180700791725Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -2860,7 +2860,7 @@
         "device": "gpu"
       },
       "source_file": "deimv2-x__pytorch__cuda__nvidia_geforce_rtx_5070_ti__20260603T181230585404Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -2970,7 +2970,7 @@
         "device": "gpu"
       },
       "source_file": "dfine-l__pytorch__cuda__nvidia_geforce_rtx_5070_ti__20260603T181651426571Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -3080,7 +3080,7 @@
         "device": "gpu"
       },
       "source_file": "dfine-m__pytorch__cuda__nvidia_geforce_rtx_5070_ti__20260603T182029228630Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -3190,7 +3190,7 @@
         "device": "gpu"
       },
       "source_file": "dfine-n__pytorch__cuda__nvidia_geforce_rtx_5070_ti__20260603T182341075058Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -3300,7 +3300,7 @@
         "device": "gpu"
       },
       "source_file": "dfine-s__pytorch__cuda__nvidia_geforce_rtx_5070_ti__20260603T182719797358Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -3410,7 +3410,7 @@
         "device": "gpu"
       },
       "source_file": "dfine-x__pytorch__cuda__nvidia_geforce_rtx_5070_ti__20260603T183251726147Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -3520,7 +3520,7 @@
         "device": "gpu"
       },
       "source_file": "ec-l__pytorch__cuda__nvidia_geforce_rtx_5070_ti__20260603T183659400553Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -3630,7 +3630,7 @@
         "device": "gpu"
       },
       "source_file": "ec-m__pytorch__cuda__nvidia_geforce_rtx_5070_ti__20260603T184041253682Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -3740,7 +3740,7 @@
         "device": "gpu"
       },
       "source_file": "ec-s__pytorch__cuda__nvidia_geforce_rtx_5070_ti__20260603T184419216950Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -3850,7 +3850,7 @@
         "device": "gpu"
       },
       "source_file": "ec-x__pytorch__cuda__nvidia_geforce_rtx_5070_ti__20260603T184832744538Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -3960,7 +3960,7 @@
         "device": "gpu"
       },
       "source_file": "rfdetr-l__pytorch__cuda__nvidia_geforce_rtx_5070_ti__20260603T190029716914Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -4070,7 +4070,7 @@
         "device": "gpu"
       },
       "source_file": "rfdetr-m__pytorch__cuda__nvidia_geforce_rtx_5070_ti__20260603T190336488114Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -4180,7 +4180,7 @@
         "device": "gpu"
       },
       "source_file": "rfdetr-n__pytorch__cuda__nvidia_geforce_rtx_5070_ti__20260603T190604971891Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -4290,7 +4290,7 @@
         "device": "gpu"
       },
       "source_file": "rfdetr-s__pytorch__cuda__nvidia_geforce_rtx_5070_ti__20260603T190852606642Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -4400,7 +4400,7 @@
         "device": "gpu"
       },
       "source_file": "rtdetr-l__pytorch__cuda__nvidia_geforce_rtx_5070_ti__20260603T191250071123Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -4510,7 +4510,7 @@
         "device": "gpu"
       },
       "source_file": "rtdetr-r101__pytorch__cuda__nvidia_geforce_rtx_5070_ti__20260603T191717016880Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -4620,7 +4620,7 @@
         "device": "gpu"
       },
       "source_file": "rtdetr-r18__pytorch__cuda__nvidia_geforce_rtx_5070_ti__20260603T191957211296Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -4730,7 +4730,7 @@
         "device": "gpu"
       },
       "source_file": "rtdetr-r34__pytorch__cuda__nvidia_geforce_rtx_5070_ti__20260603T192253958412Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -4840,7 +4840,7 @@
         "device": "gpu"
       },
       "source_file": "rtdetr-r50__pytorch__cuda__nvidia_geforce_rtx_5070_ti__20260603T192633149743Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -4950,7 +4950,7 @@
         "device": "gpu"
       },
       "source_file": "rtdetr-r50m__pytorch__cuda__nvidia_geforce_rtx_5070_ti__20260603T192951943937Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -5060,7 +5060,7 @@
         "device": "gpu"
       },
       "source_file": "rtdetr-x__pytorch__cuda__nvidia_geforce_rtx_5070_ti__20260603T193451296262Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -5170,7 +5170,7 @@
         "device": "gpu"
       },
       "source_file": "damoyolo-m__pytorch__cuda__nvidia_geforce_rtx_5070_ti__20260603T205558910604Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -5280,7 +5280,7 @@
         "device": "gpu"
       },
       "source_file": "damoyolo-nl__pytorch__cuda__nvidia_geforce_rtx_5070_ti__20260603T210123519756Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -5390,7 +5390,7 @@
         "device": "gpu"
       },
       "source_file": "damoyolo-nm__pytorch__cuda__nvidia_geforce_rtx_5070_ti__20260603T210813724730Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -5500,7 +5500,7 @@
         "device": "gpu"
       },
       "source_file": "damoyolo-ns__pytorch__cuda__nvidia_geforce_rtx_5070_ti__20260603T211355304586Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -5610,7 +5610,7 @@
         "device": "gpu"
       },
       "source_file": "damoyolo-s__pytorch__cuda__nvidia_geforce_rtx_5070_ti__20260603T212452270106Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -5720,7 +5720,7 @@
         "device": "gpu"
       },
       "source_file": "damoyolo-t__pytorch__cuda__nvidia_geforce_rtx_5070_ti__20260603T213917020922Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -5830,7 +5830,7 @@
         "device": "gpu"
       },
       "source_file": "rtdetrv2-r101__pytorch__cuda__nvidia_geforce_rtx_5070_ti__20260603T214444583766Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -5940,7 +5940,7 @@
         "device": "gpu"
       },
       "source_file": "rtdetrv2-r18__pytorch__cuda__nvidia_geforce_rtx_5070_ti__20260603T214709167573Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -6050,7 +6050,7 @@
         "device": "gpu"
       },
       "source_file": "rtdetrv2-r34__pytorch__cuda__nvidia_geforce_rtx_5070_ti__20260603T214959970178Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -6160,7 +6160,7 @@
         "device": "gpu"
       },
       "source_file": "rtdetrv2-r50__pytorch__cuda__nvidia_geforce_rtx_5070_ti__20260603T215422149339Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -6270,7 +6270,7 @@
         "device": "gpu"
       },
       "source_file": "rtdetrv2-r50m__pytorch__cuda__nvidia_geforce_rtx_5070_ti__20260603T215816324042Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -6380,7 +6380,7 @@
         "device": "gpu"
       },
       "source_file": "rtdetrv4-l__pytorch__cuda__nvidia_geforce_rtx_5070_ti__20260603T220240657961Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -6490,7 +6490,7 @@
         "device": "gpu"
       },
       "source_file": "rtdetrv4-m__pytorch__cuda__nvidia_geforce_rtx_5070_ti__20260603T220608144783Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -6600,7 +6600,7 @@
         "device": "gpu"
       },
       "source_file": "rtdetrv4-s__pytorch__cuda__nvidia_geforce_rtx_5070_ti__20260603T220856882323Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -6710,7 +6710,7 @@
         "device": "gpu"
       },
       "source_file": "rtdetrv4-x__pytorch__cuda__nvidia_geforce_rtx_5070_ti__20260603T221356965355Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -6820,7 +6820,7 @@
         "device": "gpu"
       },
       "source_file": "yolov9t__pytorch__cuda__nvidia_geforce_rtx_5070_ti__20260605T010657098935Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -6930,7 +6930,7 @@
         "device": "gpu"
       },
       "source_file": "yolov9s__pytorch__cuda__nvidia_geforce_rtx_5070_ti__20260605T011040621282Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -7040,7 +7040,7 @@
         "device": "gpu"
       },
       "source_file": "yolov9m__pytorch__cuda__nvidia_geforce_rtx_5070_ti__20260605T011356945145Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -7150,7 +7150,7 @@
         "device": "gpu"
       },
       "source_file": "yolov9c__pytorch__cuda__nvidia_geforce_rtx_5070_ti__20260605T011650607137Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -7260,7 +7260,7 @@
         "device": "gpu"
       },
       "source_file": "yolox-nano__pytorch__cuda__nvidia_geforce_rtx_5070_ti__20260605T011904925652Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -7370,7 +7370,7 @@
         "device": "gpu"
       },
       "source_file": "yolox-tiny__pytorch__cuda__nvidia_geforce_rtx_5070_ti__20260605T012053460397Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -7480,7 +7480,7 @@
         "device": "gpu"
       },
       "source_file": "yolox-s__pytorch__cuda__nvidia_geforce_rtx_5070_ti__20260605T012314007988Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -7590,7 +7590,7 @@
         "device": "gpu"
       },
       "source_file": "yolox-m__pytorch__cuda__nvidia_geforce_rtx_5070_ti__20260605T012601112060Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -7700,7 +7700,7 @@
         "device": "gpu"
       },
       "source_file": "yolox-l__pytorch__cuda__nvidia_geforce_rtx_5070_ti__20260605T012856398990Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -7810,7 +7810,7 @@
         "device": "gpu"
       },
       "source_file": "yolox-x__pytorch__cuda__nvidia_geforce_rtx_5070_ti__20260605T013154508515Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -7920,7 +7920,7 @@
         "device": "gpu"
       },
       "source_file": "picodet-s__pytorch__cuda__nvidia_geforce_rtx_5070_ti__20260605T013449820368Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -8030,7 +8030,7 @@
         "device": "gpu"
       },
       "source_file": "picodet-m__pytorch__cuda__nvidia_geforce_rtx_5070_ti__20260605T013727270518Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -8140,7 +8140,7 @@
         "device": "gpu"
       },
       "source_file": "picodet-l__pytorch__cuda__nvidia_geforce_rtx_5070_ti__20260605T014039953360Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -8250,7 +8250,7 @@
         "device": "gpu"
       },
       "source_file": "damoyolo-m__pytorch__cuda__jetson_orin__20260614T085359405433Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -8360,7 +8360,7 @@
         "device": "gpu"
       },
       "source_file": "damoyolo-nl__pytorch__cuda__jetson_orin__20260614T085615963321Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -8470,7 +8470,7 @@
         "device": "gpu"
       },
       "source_file": "damoyolo-nm__pytorch__cuda__jetson_orin__20260614T085836147717Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -8580,7 +8580,7 @@
         "device": "gpu"
       },
       "source_file": "damoyolo-ns__pytorch__cuda__jetson_orin__20260614T090103687303Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -8690,7 +8690,7 @@
         "device": "gpu"
       },
       "source_file": "damoyolo-s__pytorch__cuda__jetson_orin__20260614T090907205767Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -8800,7 +8800,7 @@
         "device": "gpu"
       },
       "source_file": "damoyolo-t__pytorch__cuda__jetson_orin__20260614T091730334189Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -8910,7 +8910,7 @@
         "device": "gpu"
       },
       "source_file": "deim-n__pytorch__cuda__jetson_orin__20260614T091849316725Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -9020,7 +9020,7 @@
         "device": "gpu"
       },
       "source_file": "deim-s__pytorch__cuda__jetson_orin__20260614T092018706819Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -9130,7 +9130,7 @@
         "device": "gpu"
       },
       "source_file": "deim-m__pytorch__cuda__jetson_orin__20260614T092216354357Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -9240,7 +9240,7 @@
         "device": "gpu"
       },
       "source_file": "deim-l__pytorch__cuda__jetson_orin__20260614T092449397503Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -9350,7 +9350,7 @@
         "device": "gpu"
       },
       "source_file": "deim-x__pytorch__cuda__jetson_orin__20260614T092850050016Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -9460,7 +9460,7 @@
         "device": "gpu"
       },
       "source_file": "deimv2-atto__pytorch__cuda__jetson_orin__20260614T092956141190Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -9570,7 +9570,7 @@
         "device": "gpu"
       },
       "source_file": "deimv2-femto__pytorch__cuda__jetson_orin__20260614T093104786787Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -9680,7 +9680,7 @@
         "device": "gpu"
       },
       "source_file": "deimv2-pico__pytorch__cuda__jetson_orin__20260614T093214994371Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -9790,7 +9790,7 @@
         "device": "gpu"
       },
       "source_file": "deimv2-n__pytorch__cuda__jetson_orin__20260614T093335420880Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -9900,7 +9900,7 @@
         "device": "gpu"
       },
       "source_file": "deimv2-s__pytorch__cuda__jetson_orin__20260614T093543583876Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -10010,7 +10010,7 @@
         "device": "gpu"
       },
       "source_file": "deimv2-m__pytorch__cuda__jetson_orin__20260614T093815543430Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -10120,7 +10120,7 @@
         "device": "gpu"
       },
       "source_file": "deimv2-l__pytorch__cuda__jetson_orin__20260614T094137815326Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -10230,7 +10230,7 @@
         "device": "gpu"
       },
       "source_file": "deimv2-x__pytorch__cuda__jetson_orin__20260614T094525967372Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -10340,7 +10340,7 @@
         "device": "gpu"
       },
       "source_file": "dfine-n__pytorch__cuda__jetson_orin__20260614T094643303986Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -10450,7 +10450,7 @@
         "device": "gpu"
       },
       "source_file": "dfine-s__pytorch__cuda__jetson_orin__20260614T094812745826Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -10560,7 +10560,7 @@
         "device": "gpu"
       },
       "source_file": "dfine-m__pytorch__cuda__jetson_orin__20260614T095002839894Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -10670,7 +10670,7 @@
         "device": "gpu"
       },
       "source_file": "dfine-l__pytorch__cuda__jetson_orin__20260614T095236108561Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -10780,7 +10780,7 @@
         "device": "gpu"
       },
       "source_file": "dfine-x__pytorch__cuda__jetson_orin__20260614T095627768798Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -10890,7 +10890,7 @@
         "device": "gpu"
       },
       "source_file": "ec-s__pytorch__cuda__jetson_orin__20260614T095833481910Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -11000,7 +11000,7 @@
         "device": "gpu"
       },
       "source_file": "ec-m__pytorch__cuda__jetson_orin__20260614T100054673364Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -11110,7 +11110,7 @@
         "device": "gpu"
       },
       "source_file": "ec-l__pytorch__cuda__jetson_orin__20260614T100404022612Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -11220,7 +11220,7 @@
         "device": "gpu"
       },
       "source_file": "ec-x__pytorch__cuda__jetson_orin__20260614T100751120258Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -11330,7 +11330,7 @@
         "device": "gpu"
       },
       "source_file": "picodet-s__pytorch__cuda__jetson_orin__20260614T100900964222Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -11440,7 +11440,7 @@
         "device": "gpu"
       },
       "source_file": "picodet-m__pytorch__cuda__jetson_orin__20260614T101015533992Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -11550,7 +11550,7 @@
         "device": "gpu"
       },
       "source_file": "picodet-l__pytorch__cuda__jetson_orin__20260614T101135847442Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -11660,7 +11660,7 @@
         "device": "gpu"
       },
       "source_file": "rtdetr-r18__pytorch__cuda__jetson_orin__20260614T101333522931Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -11770,7 +11770,7 @@
         "device": "gpu"
       },
       "source_file": "rtdetr-r34__pytorch__cuda__jetson_orin__20260614T101520613034Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -11880,7 +11880,7 @@
         "device": "gpu"
       },
       "source_file": "rtdetr-r50__pytorch__cuda__jetson_orin__20260614T101813203381Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -11990,7 +11990,7 @@
         "device": "gpu"
       },
       "source_file": "rtdetr-r50m__pytorch__cuda__jetson_orin__20260614T102039658620Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -12100,7 +12100,7 @@
         "device": "gpu"
       },
       "source_file": "rtdetr-r101__pytorch__cuda__jetson_orin__20260614T102450798479Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -12210,7 +12210,7 @@
         "device": "gpu"
       },
       "source_file": "rtdetr-l__pytorch__cuda__jetson_orin__20260614T102719674306Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -12320,7 +12320,7 @@
         "device": "gpu"
       },
       "source_file": "rtdetr-x__pytorch__cuda__jetson_orin__20260614T103104985064Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -12430,7 +12430,7 @@
         "device": "gpu"
       },
       "source_file": "rtdetrv2-r18__pytorch__cuda__jetson_orin__20260614T103229893025Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -12540,7 +12540,7 @@
         "device": "gpu"
       },
       "source_file": "rtdetrv2-r34__pytorch__cuda__jetson_orin__20260614T103419014463Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -12650,7 +12650,7 @@
         "device": "gpu"
       },
       "source_file": "rtdetrv2-r50__pytorch__cuda__jetson_orin__20260614T103709983913Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -12760,7 +12760,7 @@
         "device": "gpu"
       },
       "source_file": "rtdetrv2-r50m__pytorch__cuda__jetson_orin__20260614T103939968314Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -12870,7 +12870,7 @@
         "device": "gpu"
       },
       "source_file": "rtdetrv2-r101__pytorch__cuda__jetson_orin__20260614T104351203340Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -12980,7 +12980,7 @@
         "device": "gpu"
       },
       "source_file": "rtdetrv4-s__pytorch__cuda__jetson_orin__20260614T104516573604Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -13090,7 +13090,7 @@
         "device": "gpu"
       },
       "source_file": "rtdetrv4-m__pytorch__cuda__jetson_orin__20260614T104705836901Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -13200,7 +13200,7 @@
         "device": "gpu"
       },
       "source_file": "rtdetrv4-l__pytorch__cuda__jetson_orin__20260614T104930141728Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -13310,7 +13310,7 @@
         "device": "gpu"
       },
       "source_file": "rtdetrv4-x__pytorch__cuda__jetson_orin__20260614T105308132221Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -13420,7 +13420,7 @@
         "device": "gpu"
       },
       "source_file": "yolov9t__pytorch__cuda__jetson_orin__20260614T105426897759Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -13530,7 +13530,7 @@
         "device": "gpu"
       },
       "source_file": "yolov9s__pytorch__cuda__jetson_orin__20260614T105545355170Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -13640,7 +13640,7 @@
         "device": "gpu"
       },
       "source_file": "yolov9m__pytorch__cuda__jetson_orin__20260614T105715846960Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -13750,7 +13750,7 @@
         "device": "gpu"
       },
       "source_file": "yolov9c__pytorch__cuda__jetson_orin__20260614T105901924493Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -13860,7 +13860,7 @@
         "device": "gpu"
       },
       "source_file": "yolox-nano__pytorch__cuda__jetson_orin__20260614T105954680033Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -13970,7 +13970,7 @@
         "device": "gpu"
       },
       "source_file": "yolox-tiny__pytorch__cuda__jetson_orin__20260614T110043805354Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -14080,7 +14080,7 @@
         "device": "gpu"
       },
       "source_file": "yolox-s__pytorch__cuda__jetson_orin__20260614T110138559484Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -14190,7 +14190,7 @@
         "device": "gpu"
       },
       "source_file": "yolox-m__pytorch__cuda__jetson_orin__20260614T110314411235Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -14300,7 +14300,7 @@
         "device": "gpu"
       },
       "source_file": "yolox-l__pytorch__cuda__jetson_orin__20260614T110512351926Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -14410,7 +14410,7 @@
         "device": "gpu"
       },
       "source_file": "yolox-x__pytorch__cuda__jetson_orin__20260614T110816467475Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -14520,7 +14520,7 @@
         "device": "gpu"
       },
       "source_file": "rfdetr-n__pytorch__cuda__jetson_orin__20260614T111318696798Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -14630,7 +14630,7 @@
         "device": "gpu"
       },
       "source_file": "rfdetr-s__pytorch__cuda__jetson_orin__20260614T111508695304Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -14740,7 +14740,7 @@
         "device": "gpu"
       },
       "source_file": "rfdetr-m__pytorch__cuda__jetson_orin__20260614T111713930092Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -14850,7 +14850,7 @@
         "device": "gpu"
       },
       "source_file": "rfdetr-l__pytorch__cuda__jetson_orin__20260614T111956820425Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -14960,7 +14960,7 @@
         "device": "gpu"
       },
       "source_file": "yolov9t__onnx__cuda__jetson_orin__20260614T144017848307Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -15070,7 +15070,7 @@
         "device": "gpu"
       },
       "source_file": "yolov9s__onnx__cuda__jetson_orin__20260614T144123661609Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -15180,7 +15180,7 @@
         "device": "gpu"
       },
       "source_file": "yolov9m__onnx__cuda__jetson_orin__20260614T144253182744Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -15290,7 +15290,7 @@
         "device": "gpu"
       },
       "source_file": "yolov9c__onnx__cuda__jetson_orin__20260614T144436264417Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -15400,7 +15400,7 @@
         "device": "gpu"
       },
       "source_file": "rfdetr-n__onnx__cuda__jetson_orin__20260614T144558227712Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -15510,7 +15510,7 @@
         "device": "gpu"
       },
       "source_file": "rfdetr-s__onnx__cuda__jetson_orin__20260614T144754385956Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -15620,7 +15620,7 @@
         "device": "gpu"
       },
       "source_file": "rfdetr-m__onnx__cuda__jetson_orin__20260614T145012520046Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -15730,7 +15730,7 @@
         "device": "gpu"
       },
       "source_file": "rfdetr-l__onnx__cuda__jetson_orin__20260614T145317070595Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -15840,7 +15840,7 @@
         "device": "gpu"
       },
       "source_file": "deim-n__onnx__cuda__jetson_orin__20260614T175447166819Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -15950,7 +15950,7 @@
         "device": "gpu"
       },
       "source_file": "deim-s__onnx__cuda__jetson_orin__20260614T175609275524Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -16060,7 +16060,7 @@
         "device": "gpu"
       },
       "source_file": "deim-m__onnx__cuda__jetson_orin__20260614T175756353222Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -16170,7 +16170,7 @@
         "device": "gpu"
       },
       "source_file": "deim-l__onnx__cuda__jetson_orin__20260614T180012074537Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -16280,7 +16280,7 @@
         "device": "gpu"
       },
       "source_file": "deim-x__onnx__cuda__jetson_orin__20260614T180334457025Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -16390,7 +16390,7 @@
         "device": "gpu"
       },
       "source_file": "deimv2-atto__onnx__cuda__jetson_orin__20260614T180418026715Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -16500,7 +16500,7 @@
         "device": "gpu"
       },
       "source_file": "deimv2-femto__onnx__cuda__jetson_orin__20260614T180504324576Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -16610,7 +16610,7 @@
         "device": "gpu"
       },
       "source_file": "deimv2-pico__onnx__cuda__jetson_orin__20260614T180600964039Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -16720,7 +16720,7 @@
         "device": "gpu"
       },
       "source_file": "deimv2-n__onnx__cuda__jetson_orin__20260614T180702584991Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -16830,7 +16830,7 @@
         "device": "gpu"
       },
       "source_file": "deimv2-s__onnx__cuda__jetson_orin__20260614T180915322400Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -16940,7 +16940,7 @@
         "device": "gpu"
       },
       "source_file": "deimv2-m__onnx__cuda__jetson_orin__20260614T181201919740Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -17050,7 +17050,7 @@
         "device": "gpu"
       },
       "source_file": "deimv2-l__onnx__cuda__jetson_orin__20260614T181545915041Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -17160,7 +17160,7 @@
         "device": "gpu"
       },
       "source_file": "deimv2-x__onnx__cuda__jetson_orin__20260614T182008815767Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -17270,7 +17270,7 @@
         "device": "gpu"
       },
       "source_file": "dfine-n__onnx__cuda__jetson_orin__20260614T182110316553Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -17380,7 +17380,7 @@
         "device": "gpu"
       },
       "source_file": "dfine-s__onnx__cuda__jetson_orin__20260614T182232036482Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -17490,7 +17490,7 @@
         "device": "gpu"
       },
       "source_file": "dfine-m__onnx__cuda__jetson_orin__20260614T182418843471Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -17600,7 +17600,7 @@
         "device": "gpu"
       },
       "source_file": "dfine-l__onnx__cuda__jetson_orin__20260614T182634539112Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -17710,7 +17710,7 @@
         "device": "gpu"
       },
       "source_file": "dfine-x__onnx__cuda__jetson_orin__20260614T182956938469Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -17820,7 +17820,7 @@
         "device": "gpu"
       },
       "source_file": "ec-s__onnx__cuda__jetson_orin__20260614T183209185149Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -17930,7 +17930,7 @@
         "device": "gpu"
       },
       "source_file": "ec-m__onnx__cuda__jetson_orin__20260614T183452920442Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -18040,7 +18040,7 @@
         "device": "gpu"
       },
       "source_file": "ec-l__onnx__cuda__jetson_orin__20260614T183834646298Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -18150,7 +18150,7 @@
         "device": "gpu"
       },
       "source_file": "ec-x__onnx__cuda__jetson_orin__20260614T184244760395Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -18260,7 +18260,7 @@
         "device": "gpu"
       },
       "source_file": "rtdetr-r18__onnx__cuda__jetson_orin__20260614T185140718146Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -18370,7 +18370,7 @@
         "device": "gpu"
       },
       "source_file": "rtdetr-r34__onnx__cuda__jetson_orin__20260614T185320913636Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -18480,7 +18480,7 @@
         "device": "gpu"
       },
       "source_file": "rtdetr-r50__onnx__cuda__jetson_orin__20260614T185551001179Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -18590,7 +18590,7 @@
         "device": "gpu"
       },
       "source_file": "rtdetr-r50m__onnx__cuda__jetson_orin__20260614T185758655279Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -18700,7 +18700,7 @@
         "device": "gpu"
       },
       "source_file": "rtdetr-r101__onnx__cuda__jetson_orin__20260614T190128720089Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -18810,7 +18810,7 @@
         "device": "gpu"
       },
       "source_file": "rtdetr-l__onnx__cuda__jetson_orin__20260614T190347766029Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -18920,7 +18920,7 @@
         "device": "gpu"
       },
       "source_file": "rtdetr-x__onnx__cuda__jetson_orin__20260614T190711081182Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -19030,7 +19030,7 @@
         "device": "gpu"
       },
       "source_file": "rtdetrv2-r18__onnx__cuda__jetson_orin__20260614T190836463980Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -19140,7 +19140,7 @@
         "device": "gpu"
       },
       "source_file": "rtdetrv2-r34__onnx__cuda__jetson_orin__20260614T191016411776Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -19250,7 +19250,7 @@
         "device": "gpu"
       },
       "source_file": "rtdetrv2-r50__onnx__cuda__jetson_orin__20260614T191245891441Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -19360,7 +19360,7 @@
         "device": "gpu"
       },
       "source_file": "rtdetrv2-r50m__onnx__cuda__jetson_orin__20260614T191453250937Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -19470,7 +19470,7 @@
         "device": "gpu"
       },
       "source_file": "rtdetrv2-r101__onnx__cuda__jetson_orin__20260614T191822906051Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -19580,7 +19580,7 @@
         "device": "gpu"
       },
       "source_file": "rtdetrv4-s__onnx__cuda__jetson_orin__20260614T191945835527Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -19690,7 +19690,7 @@
         "device": "gpu"
       },
       "source_file": "rtdetrv4-m__onnx__cuda__jetson_orin__20260614T192135370614Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -19800,7 +19800,7 @@
         "device": "gpu"
       },
       "source_file": "rtdetrv4-l__onnx__cuda__jetson_orin__20260614T192354699738Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -19910,7 +19910,7 @@
         "device": "gpu"
       },
       "source_file": "rtdetrv4-x__onnx__cuda__jetson_orin__20260614T192724862294Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -20020,7 +20020,7 @@
         "device": "gpu"
       },
       "source_file": "deim-s__tensorrt__cuda__jetson_orin__20260615T202229448817Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -20130,7 +20130,7 @@
         "device": "gpu"
       },
       "source_file": "deim-m__tensorrt__cuda__jetson_orin__20260615T202840704678Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -20240,7 +20240,7 @@
         "device": "gpu"
       },
       "source_file": "deim-l__tensorrt__cuda__jetson_orin__20260615T203643880605Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -20350,7 +20350,7 @@
         "device": "gpu"
       },
       "source_file": "deim-x__tensorrt__cuda__jetson_orin__20260615T204737945966Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -20460,7 +20460,7 @@
         "device": "gpu"
       },
       "source_file": "deimv2-s__tensorrt__cuda__jetson_orin__20260615T205239915996Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -20570,7 +20570,7 @@
         "device": "gpu"
       },
       "source_file": "deimv2-m__tensorrt__cuda__jetson_orin__20260615T205815406123Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -20680,7 +20680,7 @@
         "device": "gpu"
       },
       "source_file": "deimv2-l__tensorrt__cuda__jetson_orin__20260615T210443077057Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -20790,7 +20790,7 @@
         "device": "gpu"
       },
       "source_file": "yolov9t__onnx__cuda__nvidia_geforce_rtx_5070_ti__20260615T211202634937Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -20900,7 +20900,7 @@
         "device": "gpu"
       },
       "source_file": "yolov9s__onnx__cuda__nvidia_geforce_rtx_5070_ti__20260615T211216487285Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -21010,7 +21010,7 @@
         "device": "gpu"
       },
       "source_file": "yolov9m__onnx__cuda__nvidia_geforce_rtx_5070_ti__20260615T211228520098Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -21120,7 +21120,7 @@
         "device": "gpu"
       },
       "source_file": "yolov9c__onnx__cuda__nvidia_geforce_rtx_5070_ti__20260615T211240384707Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -21230,7 +21230,7 @@
         "device": "gpu"
       },
       "source_file": "deimv2-x__tensorrt__cuda__jetson_orin__20260615T211314019161Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -21340,7 +21340,7 @@
         "device": "gpu"
       },
       "source_file": "rfdetr-n__onnx__cuda__nvidia_geforce_rtx_5070_ti__20260615T211409838305Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -21450,7 +21450,7 @@
         "device": "gpu"
       },
       "source_file": "rfdetr-s__onnx__cuda__nvidia_geforce_rtx_5070_ti__20260615T211423872531Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -21560,7 +21560,7 @@
         "device": "gpu"
       },
       "source_file": "rfdetr-m__onnx__cuda__nvidia_geforce_rtx_5070_ti__20260615T211439095057Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -21670,7 +21670,7 @@
         "device": "gpu"
       },
       "source_file": "rfdetr-l__onnx__cuda__nvidia_geforce_rtx_5070_ti__20260615T211457227544Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -21780,7 +21780,7 @@
         "device": "gpu"
       },
       "source_file": "rtdetr-r18__onnx__cuda__nvidia_geforce_rtx_5070_ti__20260615T211509034108Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -21890,7 +21890,7 @@
         "device": "gpu"
       },
       "source_file": "rtdetr-r34__onnx__cuda__nvidia_geforce_rtx_5070_ti__20260615T211522308852Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -22000,7 +22000,7 @@
         "device": "gpu"
       },
       "source_file": "rtdetr-r50__onnx__cuda__nvidia_geforce_rtx_5070_ti__20260615T211537317482Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -22110,7 +22110,7 @@
         "device": "gpu"
       },
       "source_file": "rtdetr-r50m__onnx__cuda__nvidia_geforce_rtx_5070_ti__20260615T211550668905Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -22220,7 +22220,7 @@
         "device": "gpu"
       },
       "source_file": "rtdetr-r101__onnx__cuda__nvidia_geforce_rtx_5070_ti__20260615T211608532488Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -22330,7 +22330,7 @@
         "device": "gpu"
       },
       "source_file": "rtdetr-l__onnx__cuda__nvidia_geforce_rtx_5070_ti__20260615T211623179977Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -22440,7 +22440,7 @@
         "device": "gpu"
       },
       "source_file": "rtdetr-x__onnx__cuda__nvidia_geforce_rtx_5070_ti__20260615T211641125112Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -22550,7 +22550,7 @@
         "device": "gpu"
       },
       "source_file": "rtdetrv2-r18__onnx__cuda__nvidia_geforce_rtx_5070_ti__20260615T211652316019Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -22660,7 +22660,7 @@
         "device": "gpu"
       },
       "source_file": "rtdetrv2-r34__onnx__cuda__nvidia_geforce_rtx_5070_ti__20260615T211705230783Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -22770,7 +22770,7 @@
         "device": "gpu"
       },
       "source_file": "rtdetrv2-r50__onnx__cuda__nvidia_geforce_rtx_5070_ti__20260615T211719588162Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -22880,7 +22880,7 @@
         "device": "gpu"
       },
       "source_file": "rtdetrv2-r50m__onnx__cuda__nvidia_geforce_rtx_5070_ti__20260615T211732492689Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -22990,7 +22990,7 @@
         "device": "gpu"
       },
       "source_file": "rtdetrv2-r101__onnx__cuda__nvidia_geforce_rtx_5070_ti__20260615T211749991397Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -23100,7 +23100,7 @@
         "device": "gpu"
       },
       "source_file": "rtdetrv4-s__onnx__cuda__nvidia_geforce_rtx_5070_ti__20260615T211803981361Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -23210,7 +23210,7 @@
         "device": "gpu"
       },
       "source_file": "dfine-s__tensorrt__cuda__jetson_orin__20260615T211804352110Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -23320,7 +23320,7 @@
         "device": "gpu"
       },
       "source_file": "rtdetrv4-m__onnx__cuda__nvidia_geforce_rtx_5070_ti__20260615T211819683527Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -23430,7 +23430,7 @@
         "device": "gpu"
       },
       "source_file": "rtdetrv4-l__onnx__cuda__nvidia_geforce_rtx_5070_ti__20260615T211837072289Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -23540,7 +23540,7 @@
         "device": "gpu"
       },
       "source_file": "rtdetrv4-x__onnx__cuda__nvidia_geforce_rtx_5070_ti__20260615T211857962364Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -23650,7 +23650,7 @@
         "device": "gpu"
       },
       "source_file": "deim-n__onnx__cuda__nvidia_geforce_rtx_5070_ti__20260615T211911346738Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -23760,7 +23760,7 @@
         "device": "gpu"
       },
       "source_file": "deim-s__onnx__cuda__nvidia_geforce_rtx_5070_ti__20260615T211925053123Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -23870,7 +23870,7 @@
         "device": "gpu"
       },
       "source_file": "deim-m__onnx__cuda__nvidia_geforce_rtx_5070_ti__20260615T211940314728Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -23980,7 +23980,7 @@
         "device": "gpu"
       },
       "source_file": "deim-l__onnx__cuda__nvidia_geforce_rtx_5070_ti__20260615T211956936291Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -24090,7 +24090,7 @@
         "device": "gpu"
       },
       "source_file": "deim-x__onnx__cuda__nvidia_geforce_rtx_5070_ti__20260615T212017248973Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -24200,7 +24200,7 @@
         "device": "gpu"
       },
       "source_file": "deimv2-atto__onnx__cuda__nvidia_geforce_rtx_5070_ti__20260615T212027721294Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -24310,7 +24310,7 @@
         "device": "gpu"
       },
       "source_file": "deimv2-femto__onnx__cuda__nvidia_geforce_rtx_5070_ti__20260615T212039443089Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -24420,7 +24420,7 @@
         "device": "gpu"
       },
       "source_file": "deimv2-pico__onnx__cuda__nvidia_geforce_rtx_5070_ti__20260615T212051721570Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -24530,7 +24530,7 @@
         "device": "gpu"
       },
       "source_file": "deimv2-n__onnx__cuda__nvidia_geforce_rtx_5070_ti__20260615T212104479068Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -24640,7 +24640,7 @@
         "device": "gpu"
       },
       "source_file": "deimv2-s__onnx__cuda__nvidia_geforce_rtx_5070_ti__20260615T212123828055Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -24750,7 +24750,7 @@
         "device": "gpu"
       },
       "source_file": "deimv2-m__onnx__cuda__nvidia_geforce_rtx_5070_ti__20260615T212144355443Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -24860,7 +24860,7 @@
         "device": "gpu"
       },
       "source_file": "deimv2-l__onnx__cuda__nvidia_geforce_rtx_5070_ti__20260615T212207425556Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -24970,7 +24970,7 @@
         "device": "gpu"
       },
       "source_file": "deimv2-x__onnx__cuda__nvidia_geforce_rtx_5070_ti__20260615T212233191096Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -25080,7 +25080,7 @@
         "device": "gpu"
       },
       "source_file": "dfine-n__onnx__cuda__nvidia_geforce_rtx_5070_ti__20260615T212245417041Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -25190,7 +25190,7 @@
         "device": "gpu"
       },
       "source_file": "dfine-s__onnx__cuda__nvidia_geforce_rtx_5070_ti__20260615T212258708807Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -25300,7 +25300,7 @@
         "device": "gpu"
       },
       "source_file": "dfine-m__onnx__cuda__nvidia_geforce_rtx_5070_ti__20260615T212313587957Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -25410,7 +25410,7 @@
         "device": "gpu"
       },
       "source_file": "dfine-l__onnx__cuda__nvidia_geforce_rtx_5070_ti__20260615T212330109021Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -25520,7 +25520,7 @@
         "device": "gpu"
       },
       "source_file": "dfine-x__onnx__cuda__nvidia_geforce_rtx_5070_ti__20260615T212349418802Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -25630,7 +25630,7 @@
         "device": "gpu"
       },
       "source_file": "dfine-m__tensorrt__cuda__jetson_orin__20260615T212412947608Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -25740,7 +25740,7 @@
         "device": "gpu"
       },
       "source_file": "ec-s__onnx__cuda__nvidia_geforce_rtx_5070_ti__20260615T212628408705Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -25850,7 +25850,7 @@
         "device": "gpu"
       },
       "source_file": "ec-m__onnx__cuda__nvidia_geforce_rtx_5070_ti__20260615T212647512880Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -25960,7 +25960,7 @@
         "device": "gpu"
       },
       "source_file": "ec-l__onnx__cuda__nvidia_geforce_rtx_5070_ti__20260615T212709319551Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -26070,7 +26070,7 @@
         "device": "gpu"
       },
       "source_file": "ec-x__onnx__cuda__nvidia_geforce_rtx_5070_ti__20260615T212731907449Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -26180,7 +26180,7 @@
         "device": "gpu"
       },
       "source_file": "dfine-l__tensorrt__cuda__jetson_orin__20260615T213209631840Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -26290,7 +26290,7 @@
         "device": "gpu"
       },
       "source_file": "dfine-x__tensorrt__cuda__jetson_orin__20260615T214253611054Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -26400,7 +26400,7 @@
         "device": "gpu"
       },
       "source_file": "rtdetrv4-s__tensorrt__cuda__jetson_orin__20260615T214750615553Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -26510,7 +26510,7 @@
         "device": "gpu"
       },
       "source_file": "rtdetrv4-m__tensorrt__cuda__jetson_orin__20260615T215408742738Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -26620,7 +26620,7 @@
         "device": "gpu"
       },
       "source_file": "rtdetrv4-l__tensorrt__cuda__jetson_orin__20260615T220221852082Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -26730,7 +26730,7 @@
         "device": "gpu"
       },
       "source_file": "yolov9t__tensorrt__cuda__nvidia_geforce_rtx_5070_ti__20260615T221041619192Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -26840,7 +26840,7 @@
         "device": "gpu"
       },
       "source_file": "yolov9s__tensorrt__cuda__nvidia_geforce_rtx_5070_ti__20260615T221055972069Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -26950,7 +26950,7 @@
         "device": "gpu"
       },
       "source_file": "yolov9m__tensorrt__cuda__nvidia_geforce_rtx_5070_ti__20260615T221108833701Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -27060,7 +27060,7 @@
         "device": "gpu"
       },
       "source_file": "yolov9c__tensorrt__cuda__nvidia_geforce_rtx_5070_ti__20260615T221121462717Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -27170,7 +27170,7 @@
         "device": "gpu"
       },
       "source_file": "rfdetr-n__tensorrt__cuda__nvidia_geforce_rtx_5070_ti__20260615T221242944857Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -27280,7 +27280,7 @@
         "device": "gpu"
       },
       "source_file": "rfdetr-s__tensorrt__cuda__nvidia_geforce_rtx_5070_ti__20260615T221300237441Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -27390,7 +27390,7 @@
         "device": "gpu"
       },
       "source_file": "rfdetr-m__tensorrt__cuda__nvidia_geforce_rtx_5070_ti__20260615T221318341681Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -27500,7 +27500,7 @@
         "device": "gpu"
       },
       "source_file": "rfdetr-l__tensorrt__cuda__nvidia_geforce_rtx_5070_ti__20260615T221339381198Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -27610,7 +27610,7 @@
         "device": "gpu"
       },
       "source_file": "rtdetr-r18__tensorrt__cuda__nvidia_geforce_rtx_5070_ti__20260615T221353097165Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -27720,7 +27720,7 @@
         "device": "gpu"
       },
       "source_file": "rtdetrv4-x__tensorrt__cuda__jetson_orin__20260615T221356812815Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -27830,7 +27830,7 @@
         "device": "gpu"
       },
       "source_file": "rtdetr-r34__tensorrt__cuda__nvidia_geforce_rtx_5070_ti__20260615T221407565905Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -27940,7 +27940,7 @@
         "device": "gpu"
       },
       "source_file": "rtdetr-r50__tensorrt__cuda__nvidia_geforce_rtx_5070_ti__20260615T221422995037Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -28050,7 +28050,7 @@
         "device": "gpu"
       },
       "source_file": "rtdetr-r50m__tensorrt__cuda__nvidia_geforce_rtx_5070_ti__20260615T221437850535Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -28160,7 +28160,7 @@
         "device": "gpu"
       },
       "source_file": "rtdetr-r101__tensorrt__cuda__nvidia_geforce_rtx_5070_ti__20260615T221451951876Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -28270,7 +28270,7 @@
         "device": "gpu"
       },
       "source_file": "rtdetr-l__tensorrt__cuda__nvidia_geforce_rtx_5070_ti__20260615T221505290844Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -28380,7 +28380,7 @@
         "device": "gpu"
       },
       "source_file": "rtdetr-x__tensorrt__cuda__nvidia_geforce_rtx_5070_ti__20260615T221521490916Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -28490,7 +28490,7 @@
         "device": "gpu"
       },
       "source_file": "rtdetrv2-r18__tensorrt__cuda__nvidia_geforce_rtx_5070_ti__20260615T221535150693Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -28600,7 +28600,7 @@
         "device": "gpu"
       },
       "source_file": "rtdetrv2-r34__tensorrt__cuda__nvidia_geforce_rtx_5070_ti__20260615T221546821440Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -28710,7 +28710,7 @@
         "device": "gpu"
       },
       "source_file": "rtdetrv2-r50__tensorrt__cuda__nvidia_geforce_rtx_5070_ti__20260615T221601685525Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -28820,7 +28820,7 @@
         "device": "gpu"
       },
       "source_file": "rtdetrv2-r50m__tensorrt__cuda__nvidia_geforce_rtx_5070_ti__20260615T221615947881Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -28930,7 +28930,7 @@
         "device": "gpu"
       },
       "source_file": "rtdetrv2-r101__tensorrt__cuda__nvidia_geforce_rtx_5070_ti__20260615T221631719267Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -29040,7 +29040,7 @@
         "device": "gpu"
       },
       "source_file": "deim-n__tensorrt__cuda__nvidia_geforce_rtx_5070_ti__20260615T221647492459Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -29150,7 +29150,7 @@
         "device": "gpu"
       },
       "source_file": "deimv2-n__tensorrt__cuda__nvidia_geforce_rtx_5070_ti__20260615T221747208722Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -29260,7 +29260,7 @@
         "device": "gpu"
       },
       "source_file": "dfine-n__tensorrt__cuda__nvidia_geforce_rtx_5070_ti__20260615T221802924623Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -29370,7 +29370,7 @@
         "device": "gpu"
       },
       "source_file": "ec-s__tensorrt__cuda__jetson_orin__20260615T221826139823Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -29480,7 +29480,7 @@
         "device": "gpu"
       },
       "source_file": "ec-m__tensorrt__cuda__jetson_orin__20260615T222320891442Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -29590,7 +29590,7 @@
         "device": "gpu"
       },
       "source_file": "ec-l__tensorrt__cuda__jetson_orin__20260615T222850108677Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -29700,7 +29700,7 @@
         "device": "gpu"
       },
       "source_file": "ec-x__tensorrt__cuda__jetson_orin__20260615T223453181920Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -29810,7 +29810,7 @@
         "device": "gpu"
       },
       "source_file": "deim-n__tensorrt__cuda__jetson_orin__20260615T223839921764Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -29920,7 +29920,7 @@
         "device": "gpu"
       },
       "source_file": "deimv2-atto__tensorrt__cuda__jetson_orin__20260615T224204335778Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -30030,7 +30030,7 @@
         "device": "gpu"
       },
       "source_file": "deimv2-femto__tensorrt__cuda__jetson_orin__20260615T224526799629Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -30140,7 +30140,7 @@
         "device": "gpu"
       },
       "source_file": "deimv2-pico__tensorrt__cuda__jetson_orin__20260615T224923515400Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -30250,7 +30250,7 @@
         "device": "gpu"
       },
       "source_file": "deimv2-n__tensorrt__cuda__jetson_orin__20260615T225317613686Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -30360,7 +30360,7 @@
         "device": "gpu"
       },
       "source_file": "dfine-n__tensorrt__cuda__jetson_orin__20260615T225702661412Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -30470,7 +30470,7 @@
         "device": "gpu"
       },
       "source_file": "rtdetr-r18__tensorrt__cuda__jetson_orin__20260615T230053599860Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -30580,7 +30580,7 @@
         "device": "gpu"
       },
       "source_file": "rtdetr-r34__tensorrt__cuda__jetson_orin__20260615T230428153223Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -30690,7 +30690,7 @@
         "device": "gpu"
       },
       "source_file": "rtdetr-r50__tensorrt__cuda__jetson_orin__20260615T230911928358Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -30800,7 +30800,7 @@
         "device": "gpu"
       },
       "source_file": "rtdetr-r50m__tensorrt__cuda__jetson_orin__20260615T231330036519Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -30910,7 +30910,7 @@
         "device": "gpu"
       },
       "source_file": "rtdetr-r101__tensorrt__cuda__jetson_orin__20260615T231941767134Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -31020,7 +31020,7 @@
         "device": "gpu"
       },
       "source_file": "rtdetr-l__tensorrt__cuda__jetson_orin__20260615T232546487074Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -31130,7 +31130,7 @@
         "device": "gpu"
       },
       "source_file": "rtdetr-x__tensorrt__cuda__jetson_orin__20260615T233426104928Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -31240,7 +31240,7 @@
         "device": "gpu"
       },
       "source_file": "rtdetrv2-r18__tensorrt__cuda__jetson_orin__20260615T233745713380Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -31350,7 +31350,7 @@
         "device": "gpu"
       },
       "source_file": "rtdetrv2-r34__tensorrt__cuda__jetson_orin__20260615T234116368868Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -31460,7 +31460,7 @@
         "device": "gpu"
       },
       "source_file": "rtdetrv2-r50__tensorrt__cuda__jetson_orin__20260615T234554810712Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -31570,7 +31570,7 @@
         "device": "gpu"
       },
       "source_file": "rtdetrv2-r50m__tensorrt__cuda__jetson_orin__20260615T235010177818Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -31680,7 +31680,7 @@
         "device": "gpu"
       },
       "source_file": "rtdetrv2-r101__tensorrt__cuda__jetson_orin__20260615T235604437302Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -31790,7 +31790,7 @@
         "device": "gpu"
       },
       "source_file": "rfdetr-n__tensorrt__cuda__jetson_orin__20260615T235807521777Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -31900,7 +31900,7 @@
         "device": "gpu"
       },
       "source_file": "rfdetr-s__tensorrt__cuda__jetson_orin__20260616T000028588668Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -32010,7 +32010,7 @@
         "device": "gpu"
       },
       "source_file": "rfdetr-m__tensorrt__cuda__jetson_orin__20260616T000301963035Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -32120,7 +32120,7 @@
         "device": "gpu"
       },
       "source_file": "rfdetr-l__tensorrt__cuda__jetson_orin__20260616T000559875923Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -32230,7 +32230,7 @@
         "device": "gpu"
       },
       "source_file": "yolov9t__tensorrt__cuda__jetson_orin__20260616T000932659916Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -32340,7 +32340,7 @@
         "device": "gpu"
       },
       "source_file": "yolov9s__tensorrt__cuda__jetson_orin__20260616T001316580915Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -32450,7 +32450,7 @@
         "device": "gpu"
       },
       "source_file": "yolov9m__tensorrt__cuda__jetson_orin__20260616T001801525069Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -32560,7 +32560,7 @@
         "device": "gpu"
       },
       "source_file": "yolov9c__tensorrt__cuda__jetson_orin__20260616T002304492690Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -32670,7 +32670,7 @@
         "device": "gpu"
       },
       "source_file": "yolox-nano__tensorrt__cuda__jetson_orin__20260616T005119746051Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -32780,7 +32780,7 @@
         "device": "gpu"
       },
       "source_file": "yolox-tiny__tensorrt__cuda__jetson_orin__20260616T005426937875Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -32890,7 +32890,7 @@
         "device": "gpu"
       },
       "source_file": "yolox-s__tensorrt__cuda__jetson_orin__20260616T005755845973Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -33000,7 +33000,7 @@
         "device": "gpu"
       },
       "source_file": "yolox-m__tensorrt__cuda__jetson_orin__20260616T010207809536Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -33110,7 +33110,7 @@
         "device": "gpu"
       },
       "source_file": "yolox-l__tensorrt__cuda__jetson_orin__20260616T010728414508Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -33220,7 +33220,7 @@
         "device": "gpu"
       },
       "source_file": "yolox-x__tensorrt__cuda__jetson_orin__20260616T011412984219Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -33330,7 +33330,7 @@
         "device": "gpu"
       },
       "source_file": "picodet-s__tensorrt__cuda__jetson_orin__20260616T011748789953Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -33440,7 +33440,7 @@
         "device": "gpu"
       },
       "source_file": "picodet-m__tensorrt__cuda__jetson_orin__20260616T012211925953Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -33550,7 +33550,7 @@
         "device": "gpu"
       },
       "source_file": "picodet-l__tensorrt__cuda__jetson_orin__20260616T012806413496Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -33660,7 +33660,7 @@
         "device": "gpu"
       },
       "source_file": "damoyolo-ns__tensorrt__cuda__jetson_orin__20260616T013446399921Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -33770,7 +33770,7 @@
         "device": "gpu"
       },
       "source_file": "damoyolo-nm__tensorrt__cuda__jetson_orin__20260616T014153156884Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -33880,7 +33880,7 @@
         "device": "gpu"
       },
       "source_file": "damoyolo-nl__tensorrt__cuda__jetson_orin__20260616T014919046811Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -33990,7 +33990,7 @@
         "device": "gpu"
       },
       "source_file": "damoyolo-t__tensorrt__cuda__jetson_orin__20260616T015454318685Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -34100,7 +34100,7 @@
         "device": "gpu"
       },
       "source_file": "damoyolo-s__tensorrt__cuda__jetson_orin__20260616T020043827700Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -34210,7 +34210,7 @@
         "device": "gpu"
       },
       "source_file": "damoyolo-m__tensorrt__cuda__jetson_orin__20260616T020628560494Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -34320,7 +34320,7 @@
         "device": "gpu"
       },
       "source_file": "yolox-nano__onnx__cuda__jetson_orin__20260616T020902133031Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -34430,7 +34430,7 @@
         "device": "gpu"
       },
       "source_file": "yolox-tiny__onnx__cuda__jetson_orin__20260616T020941182136Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -34540,7 +34540,7 @@
         "device": "gpu"
       },
       "source_file": "yolox-s__onnx__cuda__jetson_orin__20260616T021034321564Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -34650,7 +34650,7 @@
         "device": "gpu"
       },
       "source_file": "yolox-m__onnx__cuda__jetson_orin__20260616T021151249775Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -34760,7 +34760,7 @@
         "device": "gpu"
       },
       "source_file": "yolox-l__onnx__cuda__jetson_orin__20260616T021335659849Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -34870,7 +34870,7 @@
         "device": "gpu"
       },
       "source_file": "yolox-x__onnx__cuda__jetson_orin__20260616T021617298420Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -34980,7 +34980,7 @@
         "device": "gpu"
       },
       "source_file": "picodet-s__onnx__cuda__jetson_orin__20260616T021719729074Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -35090,7 +35090,7 @@
         "device": "gpu"
       },
       "source_file": "picodet-m__onnx__cuda__jetson_orin__20260616T021837700090Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -35200,7 +35200,7 @@
         "device": "gpu"
       },
       "source_file": "picodet-l__onnx__cuda__jetson_orin__20260616T022107014293Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -35310,7 +35310,7 @@
         "device": "gpu"
       },
       "source_file": "damoyolo-ns__onnx__cuda__jetson_orin__20260616T022541169685Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -35420,7 +35420,7 @@
         "device": "gpu"
       },
       "source_file": "damoyolo-nm__onnx__cuda__jetson_orin__20260616T023020385444Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -35530,7 +35530,7 @@
         "device": "gpu"
       },
       "source_file": "damoyolo-nl__onnx__cuda__jetson_orin__20260616T023458263872Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -35640,7 +35640,7 @@
         "device": "gpu"
       },
       "source_file": "damoyolo-t__onnx__cuda__jetson_orin__20260616T023840393521Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -35750,7 +35750,7 @@
         "device": "gpu"
       },
       "source_file": "damoyolo-s__onnx__cuda__jetson_orin__20260616T024239917050Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -35860,7 +35860,7 @@
         "device": "gpu"
       },
       "source_file": "damoyolo-m__onnx__cuda__jetson_orin__20260616T024614126059Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -35970,7 +35970,7 @@
         "device": "gpu"
       },
       "source_file": "yolox-nano__onnx__cuda__nvidia_geforce_rtx_5070_ti__20260616T074312955376Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -36080,7 +36080,7 @@
         "device": "gpu"
       },
       "source_file": "yolox-tiny__onnx__cuda__nvidia_geforce_rtx_5070_ti__20260616T074324480195Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -36190,7 +36190,7 @@
         "device": "gpu"
       },
       "source_file": "yolox-s__onnx__cuda__nvidia_geforce_rtx_5070_ti__20260616T074337821049Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -36300,7 +36300,7 @@
         "device": "gpu"
       },
       "source_file": "yolox-m__onnx__cuda__nvidia_geforce_rtx_5070_ti__20260616T074351727925Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -36410,7 +36410,7 @@
         "device": "gpu"
       },
       "source_file": "yolox-l__onnx__cuda__nvidia_geforce_rtx_5070_ti__20260616T074406645337Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -36520,7 +36520,7 @@
         "device": "gpu"
       },
       "source_file": "yolox-x__onnx__cuda__nvidia_geforce_rtx_5070_ti__20260616T074423109943Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -36630,7 +36630,7 @@
         "device": "gpu"
       },
       "source_file": "picodet-s__onnx__cuda__nvidia_geforce_rtx_5070_ti__20260616T074440399507Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -36740,7 +36740,7 @@
         "device": "gpu"
       },
       "source_file": "picodet-m__onnx__cuda__nvidia_geforce_rtx_5070_ti__20260616T074458253393Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -36850,7 +36850,7 @@
         "device": "gpu"
       },
       "source_file": "picodet-l__onnx__cuda__nvidia_geforce_rtx_5070_ti__20260616T074521154668Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -36960,7 +36960,7 @@
         "device": "gpu"
       },
       "source_file": "yolox-nano__tensorrt__cuda__nvidia_geforce_rtx_5070_ti__20260616T074535631181Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -37070,7 +37070,7 @@
         "device": "gpu"
       },
       "source_file": "yolox-tiny__tensorrt__cuda__nvidia_geforce_rtx_5070_ti__20260616T074545063781Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -37180,7 +37180,7 @@
         "device": "gpu"
       },
       "source_file": "yolox-s__tensorrt__cuda__nvidia_geforce_rtx_5070_ti__20260616T074557015944Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -37290,7 +37290,7 @@
         "device": "gpu"
       },
       "source_file": "yolox-m__tensorrt__cuda__nvidia_geforce_rtx_5070_ti__20260616T074607516408Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -37400,7 +37400,7 @@
         "device": "gpu"
       },
       "source_file": "yolox-l__tensorrt__cuda__nvidia_geforce_rtx_5070_ti__20260616T074618053197Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -37510,7 +37510,7 @@
         "device": "gpu"
       },
       "source_file": "yolox-x__tensorrt__cuda__nvidia_geforce_rtx_5070_ti__20260616T074629286670Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -37620,7 +37620,7 @@
         "device": "gpu"
       },
       "source_file": "picodet-s__tensorrt__cuda__nvidia_geforce_rtx_5070_ti__20260616T074643513138Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -37730,7 +37730,7 @@
         "device": "gpu"
       },
       "source_file": "picodet-m__tensorrt__cuda__nvidia_geforce_rtx_5070_ti__20260616T074657897179Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -37840,7 +37840,7 @@
         "device": "gpu"
       },
       "source_file": "picodet-l__tensorrt__cuda__nvidia_geforce_rtx_5070_ti__20260616T074717981361Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -37950,7 +37950,7 @@
         "device": "gpu"
       },
       "source_file": "yolov9t__tensorrt__cuda__nvidia_geforce_rtx_5070_ti__20260616T082722706615Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -38060,7 +38060,7 @@
         "device": "gpu"
       },
       "source_file": "yolov9s__tensorrt__cuda__nvidia_geforce_rtx_5070_ti__20260616T082734950131Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -38170,7 +38170,7 @@
         "device": "gpu"
       },
       "source_file": "yolov9m__tensorrt__cuda__nvidia_geforce_rtx_5070_ti__20260616T082746365125Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -38280,7 +38280,7 @@
         "device": "gpu"
       },
       "source_file": "yolov9c__tensorrt__cuda__nvidia_geforce_rtx_5070_ti__20260616T082757803415Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -38390,7 +38390,7 @@
         "device": "gpu"
       },
       "source_file": "yolox-nano__tensorrt__cuda__nvidia_geforce_rtx_5070_ti__20260616T082808687058Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -38500,7 +38500,7 @@
         "device": "gpu"
       },
       "source_file": "yolox-tiny__tensorrt__cuda__nvidia_geforce_rtx_5070_ti__20260616T082819325092Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -38610,7 +38610,7 @@
         "device": "gpu"
       },
       "source_file": "yolox-s__tensorrt__cuda__nvidia_geforce_rtx_5070_ti__20260616T082831093121Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -38720,7 +38720,7 @@
         "device": "gpu"
       },
       "source_file": "yolox-m__tensorrt__cuda__nvidia_geforce_rtx_5070_ti__20260616T082842841203Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -38830,7 +38830,7 @@
         "device": "gpu"
       },
       "source_file": "yolox-l__tensorrt__cuda__nvidia_geforce_rtx_5070_ti__20260616T082855113766Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -38940,7 +38940,7 @@
         "device": "gpu"
       },
       "source_file": "yolox-x__tensorrt__cuda__nvidia_geforce_rtx_5070_ti__20260616T082909850200Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -39050,7 +39050,7 @@
         "device": "gpu"
       },
       "source_file": "rfdetr-n__tensorrt__cuda__nvidia_geforce_rtx_5070_ti__20260616T082924948628Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -39160,7 +39160,7 @@
         "device": "gpu"
       },
       "source_file": "rfdetr-s__tensorrt__cuda__nvidia_geforce_rtx_5070_ti__20260616T082939656692Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -39270,7 +39270,7 @@
         "device": "gpu"
       },
       "source_file": "rfdetr-m__tensorrt__cuda__nvidia_geforce_rtx_5070_ti__20260616T082956257935Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -39380,7 +39380,7 @@
         "device": "gpu"
       },
       "source_file": "rfdetr-l__tensorrt__cuda__nvidia_geforce_rtx_5070_ti__20260616T083016399601Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -39490,7 +39490,7 @@
         "device": "gpu"
       },
       "source_file": "rtdetr-r18__tensorrt__cuda__nvidia_geforce_rtx_5070_ti__20260616T083028608796Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -39600,7 +39600,7 @@
         "device": "gpu"
       },
       "source_file": "rtdetr-r34__tensorrt__cuda__nvidia_geforce_rtx_5070_ti__20260616T083041183265Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -39710,7 +39710,7 @@
         "device": "gpu"
       },
       "source_file": "rtdetr-r50__tensorrt__cuda__nvidia_geforce_rtx_5070_ti__20260616T083054850685Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -39820,7 +39820,7 @@
         "device": "gpu"
       },
       "source_file": "rtdetr-r50m__tensorrt__cuda__nvidia_geforce_rtx_5070_ti__20260616T083107354733Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -39930,7 +39930,7 @@
         "device": "gpu"
       },
       "source_file": "rtdetr-r101__tensorrt__cuda__nvidia_geforce_rtx_5070_ti__20260616T083123074180Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -40040,7 +40040,7 @@
         "device": "gpu"
       },
       "source_file": "rtdetr-l__tensorrt__cuda__nvidia_geforce_rtx_5070_ti__20260616T083136218210Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -40150,7 +40150,7 @@
         "device": "gpu"
       },
       "source_file": "rtdetr-x__tensorrt__cuda__nvidia_geforce_rtx_5070_ti__20260616T083151188306Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -40260,7 +40260,7 @@
         "device": "gpu"
       },
       "source_file": "rtdetrv2-r18__tensorrt__cuda__nvidia_geforce_rtx_5070_ti__20260616T083202317997Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -40370,7 +40370,7 @@
         "device": "gpu"
       },
       "source_file": "rtdetrv2-r34__tensorrt__cuda__nvidia_geforce_rtx_5070_ti__20260616T083215114517Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -40480,7 +40480,7 @@
         "device": "gpu"
       },
       "source_file": "rtdetrv2-r50__tensorrt__cuda__nvidia_geforce_rtx_5070_ti__20260616T083229030722Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -40590,7 +40590,7 @@
         "device": "gpu"
       },
       "source_file": "rtdetrv2-r50m__tensorrt__cuda__nvidia_geforce_rtx_5070_ti__20260616T083241083405Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -40700,7 +40700,7 @@
         "device": "gpu"
       },
       "source_file": "rtdetrv2-r101__tensorrt__cuda__nvidia_geforce_rtx_5070_ti__20260616T083256733312Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -40810,7 +40810,7 @@
         "device": "gpu"
       },
       "source_file": "deim-n__tensorrt__cuda__nvidia_geforce_rtx_5070_ti__20260616T083312349376Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -40920,7 +40920,7 @@
         "device": "gpu"
       },
       "source_file": "deimv2-atto__tensorrt__cuda__nvidia_geforce_rtx_5070_ti__20260616T083322863604Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -41030,7 +41030,7 @@
         "device": "gpu"
       },
       "source_file": "deimv2-femto__tensorrt__cuda__nvidia_geforce_rtx_5070_ti__20260616T083334545908Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -41140,7 +41140,7 @@
         "device": "gpu"
       },
       "source_file": "deimv2-pico__tensorrt__cuda__nvidia_geforce_rtx_5070_ti__20260616T083348420746Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -41250,7 +41250,7 @@
         "device": "gpu"
       },
       "source_file": "deimv2-n__tensorrt__cuda__nvidia_geforce_rtx_5070_ti__20260616T083403729414Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -41360,7 +41360,7 @@
         "device": "gpu"
       },
       "source_file": "dfine-n__tensorrt__cuda__nvidia_geforce_rtx_5070_ti__20260616T083416024897Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -41470,7 +41470,7 @@
         "device": "gpu"
       },
       "source_file": "picodet-s__tensorrt__cuda__nvidia_geforce_rtx_5070_ti__20260616T083430396216Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -41580,7 +41580,7 @@
         "device": "gpu"
       },
       "source_file": "picodet-m__tensorrt__cuda__nvidia_geforce_rtx_5070_ti__20260616T083446940237Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -41690,7 +41690,7 @@
         "device": "gpu"
       },
       "source_file": "picodet-l__tensorrt__cuda__nvidia_geforce_rtx_5070_ti__20260616T083510214047Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -41800,7 +41800,7 @@
         "device": "gpu"
       },
       "source_file": "deimv2-s__tensorrt__cuda__jetson_orin__20260616T090519204181Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -41910,7 +41910,7 @@
         "device": "gpu"
       },
       "source_file": "deimv2-l__tensorrt__cuda__jetson_orin__20260616T092409920312Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -42020,7 +42020,7 @@
         "device": "gpu"
       },
       "source_file": "deimv2-x__tensorrt__cuda__jetson_orin__20260616T093631480902Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -42130,7 +42130,7 @@
         "device": "gpu"
       },
       "source_file": "deimv2-atto__tensorrt__cuda__jetson_orin__20260616T094508996554Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -42240,7 +42240,7 @@
         "device": "gpu"
       },
       "source_file": "deimv2-n__tensorrt__cuda__jetson_orin__20260616T101501224601Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -42350,7 +42350,7 @@
         "device": "gpu"
       },
       "source_file": "rfdetr-n__tensorrt__cuda__jetson_orin__20260616T101745535686Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -42460,7 +42460,7 @@
         "device": "gpu"
       },
       "source_file": "rfdetr-s__tensorrt__cuda__jetson_orin__20260616T102049087608Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -42570,7 +42570,7 @@
         "device": "gpu"
       },
       "source_file": "rfdetr-m__tensorrt__cuda__jetson_orin__20260616T102407438565Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -42680,7 +42680,7 @@
         "device": "gpu"
       },
       "source_file": "rfdetr-l__tensorrt__cuda__jetson_orin__20260616T102749906264Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -42790,7 +42790,7 @@
         "device": "gpu"
       },
       "source_file": "deim-s__tensorrt__cuda__jetson_orin__20260616T103950070021Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -42900,7 +42900,7 @@
         "device": "gpu"
       },
       "source_file": "deim-m__tensorrt__cuda__jetson_orin__20260616T105410985701Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -43010,7 +43010,7 @@
         "device": "gpu"
       },
       "source_file": "deim-l__tensorrt__cuda__jetson_orin__20260616T111010201744Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -43120,7 +43120,7 @@
         "device": "gpu"
       },
       "source_file": "deim-x__tensorrt__cuda__jetson_orin__20260616T112930883080Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -43230,7 +43230,7 @@
         "device": "gpu"
       },
       "source_file": "deim-n__tensorrt__cuda__jetson_orin__20260616T114044910267Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -43340,7 +43340,7 @@
         "device": "gpu"
       },
       "source_file": "dfine-s__tensorrt__cuda__jetson_orin__20260616T115249714215Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -43450,7 +43450,7 @@
         "device": "gpu"
       },
       "source_file": "dfine-m__tensorrt__cuda__jetson_orin__20260616T120657438366Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -43560,7 +43560,7 @@
         "device": "gpu"
       },
       "source_file": "dfine-l__tensorrt__cuda__jetson_orin__20260616T122240564496Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -43670,7 +43670,7 @@
         "device": "gpu"
       },
       "source_file": "dfine-x__tensorrt__cuda__jetson_orin__20260616T124200993578Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -43780,7 +43780,7 @@
         "device": "gpu"
       },
       "source_file": "dfine-n__tensorrt__cuda__jetson_orin__20260616T125247791913Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -43890,7 +43890,7 @@
         "device": "gpu"
       },
       "source_file": "rtdetrv4-s__tensorrt__cuda__jetson_orin__20260616T130729909614Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -44000,7 +44000,7 @@
         "device": "gpu"
       },
       "source_file": "rtdetrv4-m__tensorrt__cuda__jetson_orin__20260616T132351143007Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -44110,7 +44110,7 @@
         "device": "gpu"
       },
       "source_file": "rtdetrv4-l__tensorrt__cuda__jetson_orin__20260616T134225084048Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -44220,7 +44220,7 @@
         "device": "gpu"
       },
       "source_file": "rtdetrv4-x__tensorrt__cuda__jetson_orin__20260616T140429141345Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -44330,7 +44330,7 @@
         "device": "gpu"
       },
       "source_file": "ec-s__tensorrt__cuda__jetson_orin__20260616T141232358636Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -44440,7 +44440,7 @@
         "device": "gpu"
       },
       "source_file": "ec-m__tensorrt__cuda__jetson_orin__20260616T142044081614Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -44550,7 +44550,7 @@
         "device": "gpu"
       },
       "source_file": "ec-l__tensorrt__cuda__jetson_orin__20260616T142931496567Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -44660,7 +44660,7 @@
         "device": "gpu"
       },
       "source_file": "ec-x__tensorrt__cuda__jetson_orin__20260616T143934814423Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -44770,7 +44770,7 @@
         "device": "gpu"
       },
       "source_file": "rtdetr-r18__tensorrt__cuda__jetson_orin__20260616T144828716766Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -44880,7 +44880,7 @@
         "device": "gpu"
       },
       "source_file": "rtdetr-r34__tensorrt__cuda__jetson_orin__20260616T145733448008Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     },
     {
       "schema_version": "va.submission.v1",
@@ -44990,7 +44990,2207 @@
         "device": "gpu"
       },
       "source_file": "rtdetr-r50__tensorrt__cuda__jetson_orin__20260616T151039983640Z.json",
-      "verified_at": "2026-06-16T15:10:39.983640Z"
+      "verified_at": "2026-06-16T18:29:03.986112Z"
+    },
+    {
+      "schema_version": "va.submission.v1",
+      "submission_id": "rtdetrv4-s-tensorrt-cuda-nvidia_geforce_rtx_5070_ti-20260616T182354Z",
+      "created_at": "2026-06-16T18:23:54.518183Z",
+      "benchmark": {
+        "harness": "vision-analysis-benchmark",
+        "harness_version": "2.0.0",
+        "libreyolo_version": "1.2.0.dev0",
+        "libreyolo_commit": "436fff0f3a8c0f2cebdf82506a74b22ef18b423b"
+      },
+      "model": {
+        "id": "rtdetrv4-s",
+        "name": "rt-detrv4-s",
+        "family": "rtdetrv4",
+        "variant": "s",
+        "source": "libreyolo",
+        "weights": "LibreRTDETRv4s.pt",
+        "input_size": 640
+      },
+      "dataset": {
+        "id": "coco2017",
+        "split": "val2017",
+        "num_images": 500
+      },
+      "config": {
+        "batch_size": 1,
+        "input_size": 640,
+        "conf": 0.001,
+        "iou": 0.6,
+        "max_det": 300
+      },
+      "hardware": {
+        "gpu": "NVIDIA GeForce RTX 5070 Ti",
+        "gpu_memory_gb": 15.9,
+        "driver_version": "591.86",
+        "cuda_version": "12.8",
+        "cpu": "AMD64 Family 25 Model 97 Stepping 2, AuthenticAMD",
+        "cpu_cores": 16,
+        "ram_gb": 31,
+        "id": "nvidia_geforce_rtx_5070_ti"
+      },
+      "software": {
+        "python": "3.12.13",
+        "torch": "2.11.0+cu128",
+        "libreyolo": "1.2.0.dev0",
+        "libreyolo_commit": "436fff0f3a8c0f2cebdf82506a74b22ef18b423b",
+        "onnxruntime": "1.26.0"
+      },
+      "accuracy": {
+        "mAP_50_95": 0.5286188684060517,
+        "mAP_50": 0.6994797058407329,
+        "mAP_75": 0.5736581170528606,
+        "mAP_small": 0.3498502489687557,
+        "mAP_medium": 0.5713463697292334,
+        "mAP_large": 0.684083296002106,
+        "AR1": 0.4092029444079006,
+        "AR10": 0.6753486590046841,
+        "AR100": 0.7286736262802926,
+        "AR_small": 0.5294077082705039,
+        "AR_medium": 0.7700760414005898,
+        "AR_large": 0.8805500506761164
+      },
+      "timing": {
+        "batch_size": 1,
+        "num_images": 500,
+        "total_ms": {
+          "mean": 10.294,
+          "std": 0.816,
+          "p50": 10.387,
+          "p95": 11.445,
+          "p99": 12.665,
+          "preprocess_ms": null,
+          "inference_ms": null,
+          "postprocess_ms": null
+        }
+      },
+      "throughput": {
+        "fps_mean": 97.14,
+        "fps_p50": 96.27
+      },
+      "model_stats": {
+        "params_millions": 0.0,
+        "gflops": 0.0
+      },
+      "memory": {
+        "peak_vram_mb": null,
+        "peak_ram_mb": 74.3
+      },
+      "metadata": {
+        "benchmark_date": "2026-06-16T18:23:54.518183Z",
+        "benchmark_version": "2.0.0"
+      },
+      "eval": {
+        "dataset": "coco",
+        "split": "val2017",
+        "numImages": 500
+      },
+      "implementation": {
+        "provider": "libreyolo",
+        "version": "1.2.0.dev0"
+      },
+      "runtime": {
+        "format": "tensorrt",
+        "precision": "fp32",
+        "provider": "cuda",
+        "device": "gpu"
+      },
+      "source_file": "rtdetrv4-s__tensorrt__cuda__nvidia_geforce_rtx_5070_ti__20260616T182354518183Z.json",
+      "verified_at": "2026-06-16T18:29:03.986112Z"
+    },
+    {
+      "schema_version": "va.submission.v1",
+      "submission_id": "rtdetrv4-m-tensorrt-cuda-nvidia_geforce_rtx_5070_ti-20260616T182408Z",
+      "created_at": "2026-06-16T18:24:08.560215Z",
+      "benchmark": {
+        "harness": "vision-analysis-benchmark",
+        "harness_version": "2.0.0",
+        "libreyolo_version": "1.2.0.dev0",
+        "libreyolo_commit": "436fff0f3a8c0f2cebdf82506a74b22ef18b423b"
+      },
+      "model": {
+        "id": "rtdetrv4-m",
+        "name": "rt-detrv4-m",
+        "family": "rtdetrv4",
+        "variant": "m",
+        "source": "libreyolo",
+        "weights": "LibreRTDETRv4m.pt",
+        "input_size": 640
+      },
+      "dataset": {
+        "id": "coco2017",
+        "split": "val2017",
+        "num_images": 500
+      },
+      "config": {
+        "batch_size": 1,
+        "input_size": 640,
+        "conf": 0.001,
+        "iou": 0.6,
+        "max_det": 300
+      },
+      "hardware": {
+        "gpu": "NVIDIA GeForce RTX 5070 Ti",
+        "gpu_memory_gb": 15.9,
+        "driver_version": "591.86",
+        "cuda_version": "12.8",
+        "cpu": "AMD64 Family 25 Model 97 Stepping 2, AuthenticAMD",
+        "cpu_cores": 16,
+        "ram_gb": 31,
+        "id": "nvidia_geforce_rtx_5070_ti"
+      },
+      "software": {
+        "python": "3.12.13",
+        "torch": "2.11.0+cu128",
+        "libreyolo": "1.2.0.dev0",
+        "libreyolo_commit": "436fff0f3a8c0f2cebdf82506a74b22ef18b423b",
+        "onnxruntime": "1.26.0"
+      },
+      "accuracy": {
+        "mAP_50_95": 0.5645697759874776,
+        "mAP_50": 0.7288736496525218,
+        "mAP_75": 0.6206106839540142,
+        "mAP_small": 0.394975190344273,
+        "mAP_medium": 0.6072894649958759,
+        "mAP_large": 0.7336158253350358,
+        "AR1": 0.4222072479794867,
+        "AR10": 0.7024077131963136,
+        "AR100": 0.7482258464730842,
+        "AR_small": 0.5865552895281562,
+        "AR_medium": 0.7872885720107862,
+        "AR_large": 0.8851196194805976
+      },
+      "timing": {
+        "batch_size": 1,
+        "num_images": 500,
+        "total_ms": {
+          "mean": 11.851,
+          "std": 0.903,
+          "p50": 11.969,
+          "p95": 13.056,
+          "p99": 14.55,
+          "preprocess_ms": null,
+          "inference_ms": null,
+          "postprocess_ms": null
+        }
+      },
+      "throughput": {
+        "fps_mean": 84.38,
+        "fps_p50": 83.55
+      },
+      "model_stats": {
+        "params_millions": 0.0,
+        "gflops": 0.0
+      },
+      "memory": {
+        "peak_vram_mb": null,
+        "peak_ram_mb": 21.1
+      },
+      "metadata": {
+        "benchmark_date": "2026-06-16T18:24:08.560215Z",
+        "benchmark_version": "2.0.0"
+      },
+      "eval": {
+        "dataset": "coco",
+        "split": "val2017",
+        "numImages": 500
+      },
+      "implementation": {
+        "provider": "libreyolo",
+        "version": "1.2.0.dev0"
+      },
+      "runtime": {
+        "format": "tensorrt",
+        "precision": "fp32",
+        "provider": "cuda",
+        "device": "gpu"
+      },
+      "source_file": "rtdetrv4-m__tensorrt__cuda__nvidia_geforce_rtx_5070_ti__20260616T182408560215Z.json",
+      "verified_at": "2026-06-16T18:29:03.986112Z"
+    },
+    {
+      "schema_version": "va.submission.v1",
+      "submission_id": "rtdetrv4-l-tensorrt-cuda-nvidia_geforce_rtx_5070_ti-20260616T182424Z",
+      "created_at": "2026-06-16T18:24:24.014321Z",
+      "benchmark": {
+        "harness": "vision-analysis-benchmark",
+        "harness_version": "2.0.0",
+        "libreyolo_version": "1.2.0.dev0",
+        "libreyolo_commit": "436fff0f3a8c0f2cebdf82506a74b22ef18b423b"
+      },
+      "model": {
+        "id": "rtdetrv4-l",
+        "name": "rt-detrv4-l",
+        "family": "rtdetrv4",
+        "variant": "l",
+        "source": "libreyolo",
+        "weights": "LibreRTDETRv4l.pt",
+        "input_size": 640
+      },
+      "dataset": {
+        "id": "coco2017",
+        "split": "val2017",
+        "num_images": 500
+      },
+      "config": {
+        "batch_size": 1,
+        "input_size": 640,
+        "conf": 0.001,
+        "iou": 0.6,
+        "max_det": 300
+      },
+      "hardware": {
+        "gpu": "NVIDIA GeForce RTX 5070 Ti",
+        "gpu_memory_gb": 15.9,
+        "driver_version": "591.86",
+        "cuda_version": "12.8",
+        "cpu": "AMD64 Family 25 Model 97 Stepping 2, AuthenticAMD",
+        "cpu_cores": 16,
+        "ram_gb": 31,
+        "id": "nvidia_geforce_rtx_5070_ti"
+      },
+      "software": {
+        "python": "3.12.13",
+        "torch": "2.11.0+cu128",
+        "libreyolo": "1.2.0.dev0",
+        "libreyolo_commit": "436fff0f3a8c0f2cebdf82506a74b22ef18b423b",
+        "onnxruntime": "1.26.0"
+      },
+      "accuracy": {
+        "mAP_50_95": 0.5777884604681501,
+        "mAP_50": 0.7443601232055251,
+        "mAP_75": 0.6334073257810358,
+        "mAP_small": 0.4213200913354185,
+        "mAP_medium": 0.6364604416005152,
+        "mAP_large": 0.744733399312973,
+        "AR1": 0.4357771560108287,
+        "AR10": 0.7177731455601983,
+        "AR100": 0.7650439785723424,
+        "AR_small": 0.608473951781483,
+        "AR_medium": 0.8013215615331533,
+        "AR_large": 0.9102358857357479
+      },
+      "timing": {
+        "batch_size": 1,
+        "num_images": 500,
+        "total_ms": {
+          "mean": 13.752,
+          "std": 0.747,
+          "p50": 13.792,
+          "p95": 14.795,
+          "p99": 16.284,
+          "preprocess_ms": null,
+          "inference_ms": null,
+          "postprocess_ms": null
+        }
+      },
+      "throughput": {
+        "fps_mean": 72.72,
+        "fps_p50": 72.51
+      },
+      "model_stats": {
+        "params_millions": 0.0,
+        "gflops": 0.0
+      },
+      "memory": {
+        "peak_vram_mb": null,
+        "peak_ram_mb": 31.7
+      },
+      "metadata": {
+        "benchmark_date": "2026-06-16T18:24:24.014321Z",
+        "benchmark_version": "2.0.0"
+      },
+      "eval": {
+        "dataset": "coco",
+        "split": "val2017",
+        "numImages": 500
+      },
+      "implementation": {
+        "provider": "libreyolo",
+        "version": "1.2.0.dev0"
+      },
+      "runtime": {
+        "format": "tensorrt",
+        "precision": "fp32",
+        "provider": "cuda",
+        "device": "gpu"
+      },
+      "source_file": "rtdetrv4-l__tensorrt__cuda__nvidia_geforce_rtx_5070_ti__20260616T182424014321Z.json",
+      "verified_at": "2026-06-16T18:29:03.986112Z"
+    },
+    {
+      "schema_version": "va.submission.v1",
+      "submission_id": "rtdetrv4-x-tensorrt-cuda-nvidia_geforce_rtx_5070_ti-20260616T182440Z",
+      "created_at": "2026-06-16T18:24:40.870743Z",
+      "benchmark": {
+        "harness": "vision-analysis-benchmark",
+        "harness_version": "2.0.0",
+        "libreyolo_version": "1.2.0.dev0",
+        "libreyolo_commit": "436fff0f3a8c0f2cebdf82506a74b22ef18b423b"
+      },
+      "model": {
+        "id": "rtdetrv4-x",
+        "name": "rt-detrv4-x",
+        "family": "rtdetrv4",
+        "variant": "x",
+        "source": "libreyolo",
+        "weights": "LibreRTDETRv4x.pt",
+        "input_size": 640
+      },
+      "dataset": {
+        "id": "coco2017",
+        "split": "val2017",
+        "num_images": 500
+      },
+      "config": {
+        "batch_size": 1,
+        "input_size": 640,
+        "conf": 0.001,
+        "iou": 0.6,
+        "max_det": 300
+      },
+      "hardware": {
+        "gpu": "NVIDIA GeForce RTX 5070 Ti",
+        "gpu_memory_gb": 15.9,
+        "driver_version": "591.86",
+        "cuda_version": "12.8",
+        "cpu": "AMD64 Family 25 Model 97 Stepping 2, AuthenticAMD",
+        "cpu_cores": 16,
+        "ram_gb": 31,
+        "id": "nvidia_geforce_rtx_5070_ti"
+      },
+      "software": {
+        "python": "3.12.13",
+        "torch": "2.11.0+cu128",
+        "libreyolo": "1.2.0.dev0",
+        "libreyolo_commit": "436fff0f3a8c0f2cebdf82506a74b22ef18b423b",
+        "onnxruntime": "1.26.0"
+      },
+      "accuracy": {
+        "mAP_50_95": 0.6000632091444518,
+        "mAP_50": 0.7715617963774781,
+        "mAP_75": 0.6589082285879543,
+        "mAP_small": 0.44239597120959845,
+        "mAP_medium": 0.6528925206769508,
+        "mAP_large": 0.7411407685750078,
+        "AR1": 0.44461456012597017,
+        "AR10": 0.7257209482109325,
+        "AR100": 0.7759330824736237,
+        "AR_small": 0.6303498661689186,
+        "AR_medium": 0.8148909742875761,
+        "AR_large": 0.895449505172405
+      },
+      "timing": {
+        "batch_size": 1,
+        "num_images": 500,
+        "total_ms": {
+          "mean": 17.143,
+          "std": 0.978,
+          "p50": 17.315,
+          "p95": 18.376,
+          "p99": 19.773,
+          "preprocess_ms": null,
+          "inference_ms": null,
+          "postprocess_ms": null
+        }
+      },
+      "throughput": {
+        "fps_mean": 58.33,
+        "fps_p50": 57.75
+      },
+      "model_stats": {
+        "params_millions": 0.0,
+        "gflops": 0.0
+      },
+      "memory": {
+        "peak_vram_mb": null,
+        "peak_ram_mb": 31.7
+      },
+      "metadata": {
+        "benchmark_date": "2026-06-16T18:24:40.870743Z",
+        "benchmark_version": "2.0.0"
+      },
+      "eval": {
+        "dataset": "coco",
+        "split": "val2017",
+        "numImages": 500
+      },
+      "implementation": {
+        "provider": "libreyolo",
+        "version": "1.2.0.dev0"
+      },
+      "runtime": {
+        "format": "tensorrt",
+        "precision": "fp32",
+        "provider": "cuda",
+        "device": "gpu"
+      },
+      "source_file": "rtdetrv4-x__tensorrt__cuda__nvidia_geforce_rtx_5070_ti__20260616T182440870743Z.json",
+      "verified_at": "2026-06-16T18:29:03.986112Z"
+    },
+    {
+      "schema_version": "va.submission.v1",
+      "submission_id": "deim-s-tensorrt-cuda-nvidia_geforce_rtx_5070_ti-20260616T182454Z",
+      "created_at": "2026-06-16T18:24:54.154995Z",
+      "benchmark": {
+        "harness": "vision-analysis-benchmark",
+        "harness_version": "2.0.0",
+        "libreyolo_version": "1.2.0.dev0",
+        "libreyolo_commit": "436fff0f3a8c0f2cebdf82506a74b22ef18b423b"
+      },
+      "model": {
+        "id": "deim-s",
+        "name": "deim-s",
+        "family": "deim",
+        "variant": "s",
+        "source": "libreyolo",
+        "weights": "LibreDEIMs.pt",
+        "input_size": 640
+      },
+      "dataset": {
+        "id": "coco2017",
+        "split": "val2017",
+        "num_images": 500
+      },
+      "config": {
+        "batch_size": 1,
+        "input_size": 640,
+        "conf": 0.001,
+        "iou": 0.6,
+        "max_det": 300
+      },
+      "hardware": {
+        "gpu": "NVIDIA GeForce RTX 5070 Ti",
+        "gpu_memory_gb": 15.9,
+        "driver_version": "591.86",
+        "cuda_version": "12.8",
+        "cpu": "AMD64 Family 25 Model 97 Stepping 2, AuthenticAMD",
+        "cpu_cores": 16,
+        "ram_gb": 31,
+        "id": "nvidia_geforce_rtx_5070_ti"
+      },
+      "software": {
+        "python": "3.12.13",
+        "torch": "2.11.0+cu128",
+        "libreyolo": "1.2.0.dev0",
+        "libreyolo_commit": "436fff0f3a8c0f2cebdf82506a74b22ef18b423b",
+        "onnxruntime": "1.26.0"
+      },
+      "accuracy": {
+        "mAP_50_95": 0.5206477976045556,
+        "mAP_50": 0.6835285962549998,
+        "mAP_75": 0.5698401233502476,
+        "mAP_small": 0.35982038991421433,
+        "mAP_medium": 0.5635879868278767,
+        "mAP_large": 0.6692444542915723,
+        "AR1": 0.39861871845155583,
+        "AR10": 0.683488526195819,
+        "AR100": 0.7361292812978555,
+        "AR_small": 0.5491679366689487,
+        "AR_medium": 0.7811666920155468,
+        "AR_large": 0.8810492146775492
+      },
+      "timing": {
+        "batch_size": 1,
+        "num_images": 500,
+        "total_ms": {
+          "mean": 10.248,
+          "std": 0.86,
+          "p50": 10.389,
+          "p95": 11.28,
+          "p99": 12.928,
+          "preprocess_ms": null,
+          "inference_ms": null,
+          "postprocess_ms": null
+        }
+      },
+      "throughput": {
+        "fps_mean": 97.58,
+        "fps_p50": 96.26
+      },
+      "model_stats": {
+        "params_millions": 0.0,
+        "gflops": 0.0
+      },
+      "memory": {
+        "peak_vram_mb": null,
+        "peak_ram_mb": 26.7
+      },
+      "metadata": {
+        "benchmark_date": "2026-06-16T18:24:54.154995Z",
+        "benchmark_version": "2.0.0"
+      },
+      "eval": {
+        "dataset": "coco",
+        "split": "val2017",
+        "numImages": 500
+      },
+      "implementation": {
+        "provider": "libreyolo",
+        "version": "1.2.0.dev0"
+      },
+      "runtime": {
+        "format": "tensorrt",
+        "precision": "fp32",
+        "provider": "cuda",
+        "device": "gpu"
+      },
+      "source_file": "deim-s__tensorrt__cuda__nvidia_geforce_rtx_5070_ti__20260616T182454154995Z.json",
+      "verified_at": "2026-06-16T18:29:03.986112Z"
+    },
+    {
+      "schema_version": "va.submission.v1",
+      "submission_id": "deim-m-tensorrt-cuda-nvidia_geforce_rtx_5070_ti-20260616T182508Z",
+      "created_at": "2026-06-16T18:25:08.299890Z",
+      "benchmark": {
+        "harness": "vision-analysis-benchmark",
+        "harness_version": "2.0.0",
+        "libreyolo_version": "1.2.0.dev0",
+        "libreyolo_commit": "436fff0f3a8c0f2cebdf82506a74b22ef18b423b"
+      },
+      "model": {
+        "id": "deim-m",
+        "name": "deim-m",
+        "family": "deim",
+        "variant": "m",
+        "source": "libreyolo",
+        "weights": "LibreDEIMm.pt",
+        "input_size": 640
+      },
+      "dataset": {
+        "id": "coco2017",
+        "split": "val2017",
+        "num_images": 500
+      },
+      "config": {
+        "batch_size": 1,
+        "input_size": 640,
+        "conf": 0.001,
+        "iou": 0.6,
+        "max_det": 300
+      },
+      "hardware": {
+        "gpu": "NVIDIA GeForce RTX 5070 Ti",
+        "gpu_memory_gb": 15.9,
+        "driver_version": "591.86",
+        "cuda_version": "12.8",
+        "cpu": "AMD64 Family 25 Model 97 Stepping 2, AuthenticAMD",
+        "cpu_cores": 16,
+        "ram_gb": 31,
+        "id": "nvidia_geforce_rtx_5070_ti"
+      },
+      "software": {
+        "python": "3.12.13",
+        "torch": "2.11.0+cu128",
+        "libreyolo": "1.2.0.dev0",
+        "libreyolo_commit": "436fff0f3a8c0f2cebdf82506a74b22ef18b423b",
+        "onnxruntime": "1.26.0"
+      },
+      "accuracy": {
+        "mAP_50_95": 0.5547737650963505,
+        "mAP_50": 0.7207113046364707,
+        "mAP_75": 0.6062462899403884,
+        "mAP_small": 0.38946147852716284,
+        "mAP_medium": 0.6053596751089431,
+        "mAP_large": 0.7164496897514766,
+        "AR1": 0.42641871749351157,
+        "AR10": 0.6976205661694015,
+        "AR100": 0.7414728740278661,
+        "AR_small": 0.5770224436609667,
+        "AR_medium": 0.7775184929507075,
+        "AR_large": 0.8921763668597716
+      },
+      "timing": {
+        "batch_size": 1,
+        "num_images": 500,
+        "total_ms": {
+          "mean": 11.714,
+          "std": 0.861,
+          "p50": 11.85,
+          "p95": 12.948,
+          "p99": 14.425,
+          "preprocess_ms": null,
+          "inference_ms": null,
+          "postprocess_ms": null
+        }
+      },
+      "throughput": {
+        "fps_mean": 85.37,
+        "fps_p50": 84.39
+      },
+      "model_stats": {
+        "params_millions": 0.0,
+        "gflops": 0.0
+      },
+      "memory": {
+        "peak_vram_mb": null,
+        "peak_ram_mb": 28.4
+      },
+      "metadata": {
+        "benchmark_date": "2026-06-16T18:25:08.299890Z",
+        "benchmark_version": "2.0.0"
+      },
+      "eval": {
+        "dataset": "coco",
+        "split": "val2017",
+        "numImages": 500
+      },
+      "implementation": {
+        "provider": "libreyolo",
+        "version": "1.2.0.dev0"
+      },
+      "runtime": {
+        "format": "tensorrt",
+        "precision": "fp32",
+        "provider": "cuda",
+        "device": "gpu"
+      },
+      "source_file": "deim-m__tensorrt__cuda__nvidia_geforce_rtx_5070_ti__20260616T182508299890Z.json",
+      "verified_at": "2026-06-16T18:29:03.986112Z"
+    },
+    {
+      "schema_version": "va.submission.v1",
+      "submission_id": "deim-l-tensorrt-cuda-nvidia_geforce_rtx_5070_ti-20260616T182523Z",
+      "created_at": "2026-06-16T18:25:23.332633Z",
+      "benchmark": {
+        "harness": "vision-analysis-benchmark",
+        "harness_version": "2.0.0",
+        "libreyolo_version": "1.2.0.dev0",
+        "libreyolo_commit": "436fff0f3a8c0f2cebdf82506a74b22ef18b423b"
+      },
+      "model": {
+        "id": "deim-l",
+        "name": "deim-l",
+        "family": "deim",
+        "variant": "l",
+        "source": "libreyolo",
+        "weights": "LibreDEIMl.pt",
+        "input_size": 640
+      },
+      "dataset": {
+        "id": "coco2017",
+        "split": "val2017",
+        "num_images": 500
+      },
+      "config": {
+        "batch_size": 1,
+        "input_size": 640,
+        "conf": 0.001,
+        "iou": 0.6,
+        "max_det": 300
+      },
+      "hardware": {
+        "gpu": "NVIDIA GeForce RTX 5070 Ti",
+        "gpu_memory_gb": 15.9,
+        "driver_version": "591.86",
+        "cuda_version": "12.8",
+        "cpu": "AMD64 Family 25 Model 97 Stepping 2, AuthenticAMD",
+        "cpu_cores": 16,
+        "ram_gb": 31,
+        "id": "nvidia_geforce_rtx_5070_ti"
+      },
+      "software": {
+        "python": "3.12.13",
+        "torch": "2.11.0+cu128",
+        "libreyolo": "1.2.0.dev0",
+        "libreyolo_commit": "436fff0f3a8c0f2cebdf82506a74b22ef18b423b",
+        "onnxruntime": "1.26.0"
+      },
+      "accuracy": {
+        "mAP_50_95": 0.5784533245588364,
+        "mAP_50": 0.7556680760462089,
+        "mAP_75": 0.6393179340159327,
+        "mAP_small": 0.4448614749236907,
+        "mAP_medium": 0.6355389671155446,
+        "mAP_large": 0.7457459016923809,
+        "AR1": 0.43139040688740427,
+        "AR10": 0.7128327693806094,
+        "AR100": 0.7593837485398377,
+        "AR_small": 0.6188462743040197,
+        "AR_medium": 0.7951936866800607,
+        "AR_large": 0.8894076943487436
+      },
+      "timing": {
+        "batch_size": 1,
+        "num_images": 500,
+        "total_ms": {
+          "mean": 13.214,
+          "std": 0.907,
+          "p50": 13.37,
+          "p95": 14.341,
+          "p99": 16.172,
+          "preprocess_ms": null,
+          "inference_ms": null,
+          "postprocess_ms": null
+        }
+      },
+      "throughput": {
+        "fps_mean": 75.68,
+        "fps_p50": 74.79
+      },
+      "model_stats": {
+        "params_millions": 0.0,
+        "gflops": 0.0
+      },
+      "memory": {
+        "peak_vram_mb": null,
+        "peak_ram_mb": 22.6
+      },
+      "metadata": {
+        "benchmark_date": "2026-06-16T18:25:23.332633Z",
+        "benchmark_version": "2.0.0"
+      },
+      "eval": {
+        "dataset": "coco",
+        "split": "val2017",
+        "numImages": 500
+      },
+      "implementation": {
+        "provider": "libreyolo",
+        "version": "1.2.0.dev0"
+      },
+      "runtime": {
+        "format": "tensorrt",
+        "precision": "fp32",
+        "provider": "cuda",
+        "device": "gpu"
+      },
+      "source_file": "deim-l__tensorrt__cuda__nvidia_geforce_rtx_5070_ti__20260616T182523332633Z.json",
+      "verified_at": "2026-06-16T18:29:03.986112Z"
+    },
+    {
+      "schema_version": "va.submission.v1",
+      "submission_id": "deim-x-tensorrt-cuda-nvidia_geforce_rtx_5070_ti-20260616T182540Z",
+      "created_at": "2026-06-16T18:25:40.784600Z",
+      "benchmark": {
+        "harness": "vision-analysis-benchmark",
+        "harness_version": "2.0.0",
+        "libreyolo_version": "1.2.0.dev0",
+        "libreyolo_commit": "436fff0f3a8c0f2cebdf82506a74b22ef18b423b"
+      },
+      "model": {
+        "id": "deim-x",
+        "name": "deim-x",
+        "family": "deim",
+        "variant": "x",
+        "source": "libreyolo",
+        "weights": "LibreDEIMx.pt",
+        "input_size": 640
+      },
+      "dataset": {
+        "id": "coco2017",
+        "split": "val2017",
+        "num_images": 500
+      },
+      "config": {
+        "batch_size": 1,
+        "input_size": 640,
+        "conf": 0.001,
+        "iou": 0.6,
+        "max_det": 300
+      },
+      "hardware": {
+        "gpu": "NVIDIA GeForce RTX 5070 Ti",
+        "gpu_memory_gb": 15.9,
+        "driver_version": "591.86",
+        "cuda_version": "12.8",
+        "cpu": "AMD64 Family 25 Model 97 Stepping 2, AuthenticAMD",
+        "cpu_cores": 16,
+        "ram_gb": 31,
+        "id": "nvidia_geforce_rtx_5070_ti"
+      },
+      "software": {
+        "python": "3.12.13",
+        "torch": "2.11.0+cu128",
+        "libreyolo": "1.2.0.dev0",
+        "libreyolo_commit": "436fff0f3a8c0f2cebdf82506a74b22ef18b423b",
+        "onnxruntime": "1.26.0"
+      },
+      "accuracy": {
+        "mAP_50_95": 0.5962464843170148,
+        "mAP_50": 0.7700925614695328,
+        "mAP_75": 0.6564321909438542,
+        "mAP_small": 0.4559331591470747,
+        "mAP_medium": 0.6569233496461022,
+        "mAP_large": 0.7668558356721503,
+        "AR1": 0.4446957387317866,
+        "AR10": 0.7250358642522834,
+        "AR100": 0.7705408413774675,
+        "AR_small": 0.62109302378424,
+        "AR_medium": 0.8126541769686159,
+        "AR_large": 0.9076892664639177
+      },
+      "timing": {
+        "batch_size": 1,
+        "num_images": 500,
+        "total_ms": {
+          "mean": 17.074,
+          "std": 0.87,
+          "p50": 17.163,
+          "p95": 18.148,
+          "p99": 19.673,
+          "preprocess_ms": null,
+          "inference_ms": null,
+          "postprocess_ms": null
+        }
+      },
+      "throughput": {
+        "fps_mean": 58.57,
+        "fps_p50": 58.26
+      },
+      "model_stats": {
+        "params_millions": 0.0,
+        "gflops": 0.0
+      },
+      "memory": {
+        "peak_vram_mb": null,
+        "peak_ram_mb": 16.0
+      },
+      "metadata": {
+        "benchmark_date": "2026-06-16T18:25:40.784600Z",
+        "benchmark_version": "2.0.0"
+      },
+      "eval": {
+        "dataset": "coco",
+        "split": "val2017",
+        "numImages": 500
+      },
+      "implementation": {
+        "provider": "libreyolo",
+        "version": "1.2.0.dev0"
+      },
+      "runtime": {
+        "format": "tensorrt",
+        "precision": "fp32",
+        "provider": "cuda",
+        "device": "gpu"
+      },
+      "source_file": "deim-x__tensorrt__cuda__nvidia_geforce_rtx_5070_ti__20260616T182540784600Z.json",
+      "verified_at": "2026-06-16T18:29:03.986112Z"
+    },
+    {
+      "schema_version": "va.submission.v1",
+      "submission_id": "deimv2-s-tensorrt-cuda-nvidia_geforce_rtx_5070_ti-20260616T182558Z",
+      "created_at": "2026-06-16T18:25:58.803484Z",
+      "benchmark": {
+        "harness": "vision-analysis-benchmark",
+        "harness_version": "2.0.0",
+        "libreyolo_version": "1.2.0.dev0",
+        "libreyolo_commit": "436fff0f3a8c0f2cebdf82506a74b22ef18b423b"
+      },
+      "model": {
+        "id": "deimv2-s",
+        "name": "deimv2-s",
+        "family": "deimv2",
+        "variant": "s",
+        "source": "libreyolo",
+        "weights": "LibreDEIMv2s.pt",
+        "input_size": 640
+      },
+      "dataset": {
+        "id": "coco2017",
+        "split": "val2017",
+        "num_images": 500
+      },
+      "config": {
+        "batch_size": 1,
+        "input_size": 640,
+        "conf": 0.001,
+        "iou": 0.6,
+        "max_det": 300
+      },
+      "hardware": {
+        "gpu": "NVIDIA GeForce RTX 5070 Ti",
+        "gpu_memory_gb": 15.9,
+        "driver_version": "591.86",
+        "cuda_version": "12.8",
+        "cpu": "AMD64 Family 25 Model 97 Stepping 2, AuthenticAMD",
+        "cpu_cores": 16,
+        "ram_gb": 31,
+        "id": "nvidia_geforce_rtx_5070_ti"
+      },
+      "software": {
+        "python": "3.12.13",
+        "torch": "2.11.0+cu128",
+        "libreyolo": "1.2.0.dev0",
+        "libreyolo_commit": "436fff0f3a8c0f2cebdf82506a74b22ef18b423b",
+        "onnxruntime": "1.26.0"
+      },
+      "accuracy": {
+        "mAP_50_95": 0.5301964580424496,
+        "mAP_50": 0.6976893222850059,
+        "mAP_75": 0.5750241219107093,
+        "mAP_small": 0.3498125291811378,
+        "mAP_medium": 0.5803802408139572,
+        "mAP_large": 0.7313471853668991,
+        "AR1": 0.4085122492928289,
+        "AR10": 0.6752341190114556,
+        "AR100": 0.7238577747149347,
+        "AR_small": 0.5434892044912718,
+        "AR_medium": 0.7722860431949731,
+        "AR_large": 0.8777711183144514
+      },
+      "timing": {
+        "batch_size": 1,
+        "num_images": 500,
+        "total_ms": {
+          "mean": 19.046,
+          "std": 1.601,
+          "p50": 19.532,
+          "p95": 20.975,
+          "p99": 21.815,
+          "preprocess_ms": null,
+          "inference_ms": null,
+          "postprocess_ms": null
+        }
+      },
+      "throughput": {
+        "fps_mean": 52.5,
+        "fps_p50": 51.2
+      },
+      "model_stats": {
+        "params_millions": 0.0,
+        "gflops": 0.0
+      },
+      "memory": {
+        "peak_vram_mb": null,
+        "peak_ram_mb": 16.4
+      },
+      "metadata": {
+        "benchmark_date": "2026-06-16T18:25:58.803484Z",
+        "benchmark_version": "2.0.0"
+      },
+      "eval": {
+        "dataset": "coco",
+        "split": "val2017",
+        "numImages": 500
+      },
+      "implementation": {
+        "provider": "libreyolo",
+        "version": "1.2.0.dev0"
+      },
+      "runtime": {
+        "format": "tensorrt",
+        "precision": "fp32",
+        "provider": "cuda",
+        "device": "gpu"
+      },
+      "source_file": "deimv2-s__tensorrt__cuda__nvidia_geforce_rtx_5070_ti__20260616T182558803484Z.json",
+      "verified_at": "2026-06-16T18:29:03.986112Z"
+    },
+    {
+      "schema_version": "va.submission.v1",
+      "submission_id": "deimv2-m-tensorrt-cuda-nvidia_geforce_rtx_5070_ti-20260616T182617Z",
+      "created_at": "2026-06-16T18:26:17.198782Z",
+      "benchmark": {
+        "harness": "vision-analysis-benchmark",
+        "harness_version": "2.0.0",
+        "libreyolo_version": "1.2.0.dev0",
+        "libreyolo_commit": "436fff0f3a8c0f2cebdf82506a74b22ef18b423b"
+      },
+      "model": {
+        "id": "deimv2-m",
+        "name": "deimv2-m",
+        "family": "deimv2",
+        "variant": "m",
+        "source": "libreyolo",
+        "weights": "LibreDEIMv2m.pt",
+        "input_size": 640
+      },
+      "dataset": {
+        "id": "coco2017",
+        "split": "val2017",
+        "num_images": 500
+      },
+      "config": {
+        "batch_size": 1,
+        "input_size": 640,
+        "conf": 0.001,
+        "iou": 0.6,
+        "max_det": 300
+      },
+      "hardware": {
+        "gpu": "NVIDIA GeForce RTX 5070 Ti",
+        "gpu_memory_gb": 15.9,
+        "driver_version": "591.86",
+        "cuda_version": "12.8",
+        "cpu": "AMD64 Family 25 Model 97 Stepping 2, AuthenticAMD",
+        "cpu_cores": 16,
+        "ram_gb": 31,
+        "id": "nvidia_geforce_rtx_5070_ti"
+      },
+      "software": {
+        "python": "3.12.13",
+        "torch": "2.11.0+cu128",
+        "libreyolo": "1.2.0.dev0",
+        "libreyolo_commit": "436fff0f3a8c0f2cebdf82506a74b22ef18b423b",
+        "onnxruntime": "1.26.0"
+      },
+      "accuracy": {
+        "mAP_50_95": 0.5599113699026368,
+        "mAP_50": 0.7294289161600004,
+        "mAP_75": 0.6147600460313627,
+        "mAP_small": 0.3914557579944993,
+        "mAP_medium": 0.6022474395068228,
+        "mAP_large": 0.7213538612033092,
+        "AR1": 0.42503011409866354,
+        "AR10": 0.6940264562610446,
+        "AR100": 0.7369612010406332,
+        "AR_small": 0.5636456649762297,
+        "AR_medium": 0.7742198354416118,
+        "AR_large": 0.8769299791859062
+      },
+      "timing": {
+        "batch_size": 1,
+        "num_images": 500,
+        "total_ms": {
+          "mean": 20.152,
+          "std": 1.565,
+          "p50": 20.599,
+          "p95": 21.674,
+          "p99": 23.364,
+          "preprocess_ms": null,
+          "inference_ms": null,
+          "postprocess_ms": null
+        }
+      },
+      "throughput": {
+        "fps_mean": 49.62,
+        "fps_p50": 48.55
+      },
+      "model_stats": {
+        "params_millions": 0.0,
+        "gflops": 0.0
+      },
+      "memory": {
+        "peak_vram_mb": null,
+        "peak_ram_mb": 15.5
+      },
+      "metadata": {
+        "benchmark_date": "2026-06-16T18:26:17.198782Z",
+        "benchmark_version": "2.0.0"
+      },
+      "eval": {
+        "dataset": "coco",
+        "split": "val2017",
+        "numImages": 500
+      },
+      "implementation": {
+        "provider": "libreyolo",
+        "version": "1.2.0.dev0"
+      },
+      "runtime": {
+        "format": "tensorrt",
+        "precision": "fp32",
+        "provider": "cuda",
+        "device": "gpu"
+      },
+      "source_file": "deimv2-m__tensorrt__cuda__nvidia_geforce_rtx_5070_ti__20260616T182617198782Z.json",
+      "verified_at": "2026-06-16T18:29:03.986112Z"
+    },
+    {
+      "schema_version": "va.submission.v1",
+      "submission_id": "deimv2-l-tensorrt-cuda-nvidia_geforce_rtx_5070_ti-20260616T182637Z",
+      "created_at": "2026-06-16T18:26:37.683430Z",
+      "benchmark": {
+        "harness": "vision-analysis-benchmark",
+        "harness_version": "2.0.0",
+        "libreyolo_version": "1.2.0.dev0",
+        "libreyolo_commit": "436fff0f3a8c0f2cebdf82506a74b22ef18b423b"
+      },
+      "model": {
+        "id": "deimv2-l",
+        "name": "deimv2-l",
+        "family": "deimv2",
+        "variant": "l",
+        "source": "libreyolo",
+        "weights": "LibreDEIMv2l.pt",
+        "input_size": 640
+      },
+      "dataset": {
+        "id": "coco2017",
+        "split": "val2017",
+        "num_images": 500
+      },
+      "config": {
+        "batch_size": 1,
+        "input_size": 640,
+        "conf": 0.001,
+        "iou": 0.6,
+        "max_det": 300
+      },
+      "hardware": {
+        "gpu": "NVIDIA GeForce RTX 5070 Ti",
+        "gpu_memory_gb": 15.9,
+        "driver_version": "591.86",
+        "cuda_version": "12.8",
+        "cpu": "AMD64 Family 25 Model 97 Stepping 2, AuthenticAMD",
+        "cpu_cores": 16,
+        "ram_gb": 31,
+        "id": "nvidia_geforce_rtx_5070_ti"
+      },
+      "software": {
+        "python": "3.12.13",
+        "torch": "2.11.0+cu128",
+        "libreyolo": "1.2.0.dev0",
+        "libreyolo_commit": "436fff0f3a8c0f2cebdf82506a74b22ef18b423b",
+        "onnxruntime": "1.26.0"
+      },
+      "accuracy": {
+        "mAP_50_95": 0.5857988334303167,
+        "mAP_50": 0.7560345966697437,
+        "mAP_75": 0.6423172351338419,
+        "mAP_small": 0.4237956614597745,
+        "mAP_medium": 0.6454981635089424,
+        "mAP_large": 0.755580637833609,
+        "AR1": 0.430195290632025,
+        "AR10": 0.7113010434293132,
+        "AR100": 0.7559689718588053,
+        "AR_small": 0.6039903970542189,
+        "AR_medium": 0.791515606422943,
+        "AR_large": 0.8834491039348646
+      },
+      "timing": {
+        "batch_size": 1,
+        "num_images": 500,
+        "total_ms": {
+          "mean": 23.172,
+          "std": 1.821,
+          "p50": 23.995,
+          "p95": 25.591,
+          "p99": 26.849,
+          "preprocess_ms": null,
+          "inference_ms": null,
+          "postprocess_ms": null
+        }
+      },
+      "throughput": {
+        "fps_mean": 43.16,
+        "fps_p50": 41.68
+      },
+      "model_stats": {
+        "params_millions": 0.0,
+        "gflops": 0.0
+      },
+      "memory": {
+        "peak_vram_mb": null,
+        "peak_ram_mb": 16.4
+      },
+      "metadata": {
+        "benchmark_date": "2026-06-16T18:26:37.683430Z",
+        "benchmark_version": "2.0.0"
+      },
+      "eval": {
+        "dataset": "coco",
+        "split": "val2017",
+        "numImages": 500
+      },
+      "implementation": {
+        "provider": "libreyolo",
+        "version": "1.2.0.dev0"
+      },
+      "runtime": {
+        "format": "tensorrt",
+        "precision": "fp32",
+        "provider": "cuda",
+        "device": "gpu"
+      },
+      "source_file": "deimv2-l__tensorrt__cuda__nvidia_geforce_rtx_5070_ti__20260616T182637683430Z.json",
+      "verified_at": "2026-06-16T18:29:03.986112Z"
+    },
+    {
+      "schema_version": "va.submission.v1",
+      "submission_id": "deimv2-x-tensorrt-cuda-nvidia_geforce_rtx_5070_ti-20260616T182659Z",
+      "created_at": "2026-06-16T18:26:59.489847Z",
+      "benchmark": {
+        "harness": "vision-analysis-benchmark",
+        "harness_version": "2.0.0",
+        "libreyolo_version": "1.2.0.dev0",
+        "libreyolo_commit": "436fff0f3a8c0f2cebdf82506a74b22ef18b423b"
+      },
+      "model": {
+        "id": "deimv2-x",
+        "name": "deimv2-x",
+        "family": "deimv2",
+        "variant": "x",
+        "source": "libreyolo",
+        "weights": "LibreDEIMv2x.pt",
+        "input_size": 640
+      },
+      "dataset": {
+        "id": "coco2017",
+        "split": "val2017",
+        "num_images": 500
+      },
+      "config": {
+        "batch_size": 1,
+        "input_size": 640,
+        "conf": 0.001,
+        "iou": 0.6,
+        "max_det": 300
+      },
+      "hardware": {
+        "gpu": "NVIDIA GeForce RTX 5070 Ti",
+        "gpu_memory_gb": 15.9,
+        "driver_version": "591.86",
+        "cuda_version": "12.8",
+        "cpu": "AMD64 Family 25 Model 97 Stepping 2, AuthenticAMD",
+        "cpu_cores": 16,
+        "ram_gb": 31,
+        "id": "nvidia_geforce_rtx_5070_ti"
+      },
+      "software": {
+        "python": "3.12.13",
+        "torch": "2.11.0+cu128",
+        "libreyolo": "1.2.0.dev0",
+        "libreyolo_commit": "436fff0f3a8c0f2cebdf82506a74b22ef18b423b",
+        "onnxruntime": "1.26.0"
+      },
+      "accuracy": {
+        "mAP_50_95": 0.6133168779893332,
+        "mAP_50": 0.7894722691321878,
+        "mAP_75": 0.6726029135108691,
+        "mAP_small": 0.43435047811832445,
+        "mAP_medium": 0.6736917496957094,
+        "mAP_large": 0.7656548497170377,
+        "AR1": 0.4455321254198138,
+        "AR10": 0.7288607936661248,
+        "AR100": 0.771142298744529,
+        "AR_small": 0.6195962291160884,
+        "AR_medium": 0.819047708327909,
+        "AR_large": 0.8828790255234866
+      },
+      "timing": {
+        "batch_size": 1,
+        "num_images": 500,
+        "total_ms": {
+          "mean": 26.219,
+          "std": 1.37,
+          "p50": 26.519,
+          "p95": 27.772,
+          "p99": 29.055,
+          "preprocess_ms": null,
+          "inference_ms": null,
+          "postprocess_ms": null
+        }
+      },
+      "throughput": {
+        "fps_mean": 38.14,
+        "fps_p50": 37.71
+      },
+      "model_stats": {
+        "params_millions": 0.0,
+        "gflops": 0.0
+      },
+      "memory": {
+        "peak_vram_mb": null,
+        "peak_ram_mb": 16.7
+      },
+      "metadata": {
+        "benchmark_date": "2026-06-16T18:26:59.489847Z",
+        "benchmark_version": "2.0.0"
+      },
+      "eval": {
+        "dataset": "coco",
+        "split": "val2017",
+        "numImages": 500
+      },
+      "implementation": {
+        "provider": "libreyolo",
+        "version": "1.2.0.dev0"
+      },
+      "runtime": {
+        "format": "tensorrt",
+        "precision": "fp32",
+        "provider": "cuda",
+        "device": "gpu"
+      },
+      "source_file": "deimv2-x__tensorrt__cuda__nvidia_geforce_rtx_5070_ti__20260616T182659489847Z.json",
+      "verified_at": "2026-06-16T18:29:03.986112Z"
+    },
+    {
+      "schema_version": "va.submission.v1",
+      "submission_id": "dfine-s-tensorrt-cuda-nvidia_geforce_rtx_5070_ti-20260616T182712Z",
+      "created_at": "2026-06-16T18:27:12.515254Z",
+      "benchmark": {
+        "harness": "vision-analysis-benchmark",
+        "harness_version": "2.0.0",
+        "libreyolo_version": "1.2.0.dev0",
+        "libreyolo_commit": "436fff0f3a8c0f2cebdf82506a74b22ef18b423b"
+      },
+      "model": {
+        "id": "dfine-s",
+        "name": "d-fine-s",
+        "family": "dfine",
+        "variant": "s",
+        "source": "libreyolo",
+        "weights": "LibreDFINEs.pt",
+        "input_size": 640
+      },
+      "dataset": {
+        "id": "coco2017",
+        "split": "val2017",
+        "num_images": 500
+      },
+      "config": {
+        "batch_size": 1,
+        "input_size": 640,
+        "conf": 0.001,
+        "iou": 0.6,
+        "max_det": 300
+      },
+      "hardware": {
+        "gpu": "NVIDIA GeForce RTX 5070 Ti",
+        "gpu_memory_gb": 15.9,
+        "driver_version": "591.86",
+        "cuda_version": "12.8",
+        "cpu": "AMD64 Family 25 Model 97 Stepping 2, AuthenticAMD",
+        "cpu_cores": 16,
+        "ram_gb": 31,
+        "id": "nvidia_geforce_rtx_5070_ti"
+      },
+      "software": {
+        "python": "3.12.13",
+        "torch": "2.11.0+cu128",
+        "libreyolo": "1.2.0.dev0",
+        "libreyolo_commit": "436fff0f3a8c0f2cebdf82506a74b22ef18b423b",
+        "onnxruntime": "1.26.0"
+      },
+      "accuracy": {
+        "mAP_50_95": 0.5337938293997531,
+        "mAP_50": 0.6981270325165325,
+        "mAP_75": 0.5815522468458248,
+        "mAP_small": 0.37880234770766946,
+        "mAP_medium": 0.5790294110738412,
+        "mAP_large": 0.6713723040143869,
+        "AR1": 0.4081123588992473,
+        "AR10": 0.683601074490555,
+        "AR100": 0.7343459803891139,
+        "AR_small": 0.5815505287827711,
+        "AR_medium": 0.7775125898642017,
+        "AR_large": 0.876162449431354
+      },
+      "timing": {
+        "batch_size": 1,
+        "num_images": 500,
+        "total_ms": {
+          "mean": 10.131,
+          "std": 1.154,
+          "p50": 10.415,
+          "p95": 11.524,
+          "p99": 13.242,
+          "preprocess_ms": null,
+          "inference_ms": null,
+          "postprocess_ms": null
+        }
+      },
+      "throughput": {
+        "fps_mean": 98.71,
+        "fps_p50": 96.02
+      },
+      "model_stats": {
+        "params_millions": 0.0,
+        "gflops": 0.0
+      },
+      "memory": {
+        "peak_vram_mb": null,
+        "peak_ram_mb": 11.2
+      },
+      "metadata": {
+        "benchmark_date": "2026-06-16T18:27:12.515254Z",
+        "benchmark_version": "2.0.0"
+      },
+      "eval": {
+        "dataset": "coco",
+        "split": "val2017",
+        "numImages": 500
+      },
+      "implementation": {
+        "provider": "libreyolo",
+        "version": "1.2.0.dev0"
+      },
+      "runtime": {
+        "format": "tensorrt",
+        "precision": "fp32",
+        "provider": "cuda",
+        "device": "gpu"
+      },
+      "source_file": "dfine-s__tensorrt__cuda__nvidia_geforce_rtx_5070_ti__20260616T182712515254Z.json",
+      "verified_at": "2026-06-16T18:29:03.986112Z"
+    },
+    {
+      "schema_version": "va.submission.v1",
+      "submission_id": "dfine-m-tensorrt-cuda-nvidia_geforce_rtx_5070_ti-20260616T182726Z",
+      "created_at": "2026-06-16T18:27:26.477918Z",
+      "benchmark": {
+        "harness": "vision-analysis-benchmark",
+        "harness_version": "2.0.0",
+        "libreyolo_version": "1.2.0.dev0",
+        "libreyolo_commit": "436fff0f3a8c0f2cebdf82506a74b22ef18b423b"
+      },
+      "model": {
+        "id": "dfine-m",
+        "name": "d-fine-m",
+        "family": "dfine",
+        "variant": "m",
+        "source": "libreyolo",
+        "weights": "LibreDFINEm.pt",
+        "input_size": 640
+      },
+      "dataset": {
+        "id": "coco2017",
+        "split": "val2017",
+        "num_images": 500
+      },
+      "config": {
+        "batch_size": 1,
+        "input_size": 640,
+        "conf": 0.001,
+        "iou": 0.6,
+        "max_det": 300
+      },
+      "hardware": {
+        "gpu": "NVIDIA GeForce RTX 5070 Ti",
+        "gpu_memory_gb": 15.9,
+        "driver_version": "591.86",
+        "cuda_version": "12.8",
+        "cpu": "AMD64 Family 25 Model 97 Stepping 2, AuthenticAMD",
+        "cpu_cores": 16,
+        "ram_gb": 31,
+        "id": "nvidia_geforce_rtx_5070_ti"
+      },
+      "software": {
+        "python": "3.12.13",
+        "torch": "2.11.0+cu128",
+        "libreyolo": "1.2.0.dev0",
+        "libreyolo_commit": "436fff0f3a8c0f2cebdf82506a74b22ef18b423b",
+        "onnxruntime": "1.26.0"
+      },
+      "accuracy": {
+        "mAP_50_95": 0.5775597079785141,
+        "mAP_50": 0.7468054074447805,
+        "mAP_75": 0.6275243631724098,
+        "mAP_small": 0.4285465083594728,
+        "mAP_medium": 0.6144078361156784,
+        "mAP_large": 0.7292076028847391,
+        "AR1": 0.4258782768305544,
+        "AR10": 0.7206105424199932,
+        "AR100": 0.7723201919585473,
+        "AR_small": 0.6399307110575944,
+        "AR_medium": 0.7985860581994662,
+        "AR_large": 0.8914457396010899
+      },
+      "timing": {
+        "batch_size": 1,
+        "num_images": 500,
+        "total_ms": {
+          "mean": 11.72,
+          "std": 0.923,
+          "p50": 11.809,
+          "p95": 12.953,
+          "p99": 14.156,
+          "preprocess_ms": null,
+          "inference_ms": null,
+          "postprocess_ms": null
+        }
+      },
+      "throughput": {
+        "fps_mean": 85.32,
+        "fps_p50": 84.68
+      },
+      "model_stats": {
+        "params_millions": 0.0,
+        "gflops": 0.0
+      },
+      "memory": {
+        "peak_vram_mb": null,
+        "peak_ram_mb": 18.4
+      },
+      "metadata": {
+        "benchmark_date": "2026-06-16T18:27:26.477918Z",
+        "benchmark_version": "2.0.0"
+      },
+      "eval": {
+        "dataset": "coco",
+        "split": "val2017",
+        "numImages": 500
+      },
+      "implementation": {
+        "provider": "libreyolo",
+        "version": "1.2.0.dev0"
+      },
+      "runtime": {
+        "format": "tensorrt",
+        "precision": "fp32",
+        "provider": "cuda",
+        "device": "gpu"
+      },
+      "source_file": "dfine-m__tensorrt__cuda__nvidia_geforce_rtx_5070_ti__20260616T182726477918Z.json",
+      "verified_at": "2026-06-16T18:29:03.986112Z"
+    },
+    {
+      "schema_version": "va.submission.v1",
+      "submission_id": "dfine-l-tensorrt-cuda-nvidia_geforce_rtx_5070_ti-20260616T182742Z",
+      "created_at": "2026-06-16T18:27:42.198057Z",
+      "benchmark": {
+        "harness": "vision-analysis-benchmark",
+        "harness_version": "2.0.0",
+        "libreyolo_version": "1.2.0.dev0",
+        "libreyolo_commit": "436fff0f3a8c0f2cebdf82506a74b22ef18b423b"
+      },
+      "model": {
+        "id": "dfine-l",
+        "name": "d-fine-l",
+        "family": "dfine",
+        "variant": "l",
+        "source": "libreyolo",
+        "weights": "LibreDFINEl.pt",
+        "input_size": 640
+      },
+      "dataset": {
+        "id": "coco2017",
+        "split": "val2017",
+        "num_images": 500
+      },
+      "config": {
+        "batch_size": 1,
+        "input_size": 640,
+        "conf": 0.001,
+        "iou": 0.6,
+        "max_det": 300
+      },
+      "hardware": {
+        "gpu": "NVIDIA GeForce RTX 5070 Ti",
+        "gpu_memory_gb": 15.9,
+        "driver_version": "591.86",
+        "cuda_version": "12.8",
+        "cpu": "AMD64 Family 25 Model 97 Stepping 2, AuthenticAMD",
+        "cpu_cores": 16,
+        "ram_gb": 31,
+        "id": "nvidia_geforce_rtx_5070_ti"
+      },
+      "software": {
+        "python": "3.12.13",
+        "torch": "2.11.0+cu128",
+        "libreyolo": "1.2.0.dev0",
+        "libreyolo_commit": "436fff0f3a8c0f2cebdf82506a74b22ef18b423b",
+        "onnxruntime": "1.26.0"
+      },
+      "accuracy": {
+        "mAP_50_95": 0.599532824982359,
+        "mAP_50": 0.7706545089679974,
+        "mAP_75": 0.6546303837857852,
+        "mAP_small": 0.45869536682930157,
+        "mAP_medium": 0.6511694067543518,
+        "mAP_large": 0.7510778582713894,
+        "AR1": 0.4436935206696628,
+        "AR10": 0.7300502280153854,
+        "AR100": 0.7821562588185436,
+        "AR_small": 0.6328626054619048,
+        "AR_medium": 0.8251957007588091,
+        "AR_large": 0.9025863392269939
+      },
+      "timing": {
+        "batch_size": 1,
+        "num_images": 500,
+        "total_ms": {
+          "mean": 13.828,
+          "std": 6.851,
+          "p50": 13.52,
+          "p95": 14.946,
+          "p99": 16.779,
+          "preprocess_ms": null,
+          "inference_ms": null,
+          "postprocess_ms": null
+        }
+      },
+      "throughput": {
+        "fps_mean": 72.32,
+        "fps_p50": 73.96
+      },
+      "model_stats": {
+        "params_millions": 0.0,
+        "gflops": 0.0
+      },
+      "memory": {
+        "peak_vram_mb": null,
+        "peak_ram_mb": 18.3
+      },
+      "metadata": {
+        "benchmark_date": "2026-06-16T18:27:42.198057Z",
+        "benchmark_version": "2.0.0"
+      },
+      "eval": {
+        "dataset": "coco",
+        "split": "val2017",
+        "numImages": 500
+      },
+      "implementation": {
+        "provider": "libreyolo",
+        "version": "1.2.0.dev0"
+      },
+      "runtime": {
+        "format": "tensorrt",
+        "precision": "fp32",
+        "provider": "cuda",
+        "device": "gpu"
+      },
+      "source_file": "dfine-l__tensorrt__cuda__nvidia_geforce_rtx_5070_ti__20260616T182742198057Z.json",
+      "verified_at": "2026-06-16T18:29:03.986112Z"
+    },
+    {
+      "schema_version": "va.submission.v1",
+      "submission_id": "dfine-x-tensorrt-cuda-nvidia_geforce_rtx_5070_ti-20260616T182759Z",
+      "created_at": "2026-06-16T18:27:59.638880Z",
+      "benchmark": {
+        "harness": "vision-analysis-benchmark",
+        "harness_version": "2.0.0",
+        "libreyolo_version": "1.2.0.dev0",
+        "libreyolo_commit": "436fff0f3a8c0f2cebdf82506a74b22ef18b423b"
+      },
+      "model": {
+        "id": "dfine-x",
+        "name": "d-fine-x",
+        "family": "dfine",
+        "variant": "x",
+        "source": "libreyolo",
+        "weights": "LibreDFINEx.pt",
+        "input_size": 640
+      },
+      "dataset": {
+        "id": "coco2017",
+        "split": "val2017",
+        "num_images": 500
+      },
+      "config": {
+        "batch_size": 1,
+        "input_size": 640,
+        "conf": 0.001,
+        "iou": 0.6,
+        "max_det": 300
+      },
+      "hardware": {
+        "gpu": "NVIDIA GeForce RTX 5070 Ti",
+        "gpu_memory_gb": 15.9,
+        "driver_version": "591.86",
+        "cuda_version": "12.8",
+        "cpu": "AMD64 Family 25 Model 97 Stepping 2, AuthenticAMD",
+        "cpu_cores": 16,
+        "ram_gb": 31,
+        "id": "nvidia_geforce_rtx_5070_ti"
+      },
+      "software": {
+        "python": "3.12.13",
+        "torch": "2.11.0+cu128",
+        "libreyolo": "1.2.0.dev0",
+        "libreyolo_commit": "436fff0f3a8c0f2cebdf82506a74b22ef18b423b",
+        "onnxruntime": "1.26.0"
+      },
+      "accuracy": {
+        "mAP_50_95": 0.6144332041347108,
+        "mAP_50": 0.780022696732557,
+        "mAP_75": 0.6733048784690707,
+        "mAP_small": 0.47864898011670964,
+        "mAP_medium": 0.6775074871275107,
+        "mAP_large": 0.7698357581356605,
+        "AR1": 0.4480229712308346,
+        "AR10": 0.7494960628658984,
+        "AR100": 0.7947219735624987,
+        "AR_small": 0.6545865644098985,
+        "AR_medium": 0.8378361794911754,
+        "AR_large": 0.9082663514679822
+      },
+      "timing": {
+        "batch_size": 1,
+        "num_images": 500,
+        "total_ms": {
+          "mean": 17.262,
+          "std": 1.183,
+          "p50": 17.215,
+          "p95": 19.457,
+          "p99": 20.945,
+          "preprocess_ms": null,
+          "inference_ms": null,
+          "postprocess_ms": null
+        }
+      },
+      "throughput": {
+        "fps_mean": 57.93,
+        "fps_p50": 58.09
+      },
+      "model_stats": {
+        "params_millions": 0.0,
+        "gflops": 0.0
+      },
+      "memory": {
+        "peak_vram_mb": null,
+        "peak_ram_mb": 13.0
+      },
+      "metadata": {
+        "benchmark_date": "2026-06-16T18:27:59.638880Z",
+        "benchmark_version": "2.0.0"
+      },
+      "eval": {
+        "dataset": "coco",
+        "split": "val2017",
+        "numImages": 500
+      },
+      "implementation": {
+        "provider": "libreyolo",
+        "version": "1.2.0.dev0"
+      },
+      "runtime": {
+        "format": "tensorrt",
+        "precision": "fp32",
+        "provider": "cuda",
+        "device": "gpu"
+      },
+      "source_file": "dfine-x__tensorrt__cuda__nvidia_geforce_rtx_5070_ti__20260616T182759638880Z.json",
+      "verified_at": "2026-06-16T18:29:03.986112Z"
+    },
+    {
+      "schema_version": "va.submission.v1",
+      "submission_id": "ec-s-tensorrt-cuda-nvidia_geforce_rtx_5070_ti-20260616T182814Z",
+      "created_at": "2026-06-16T18:28:14.384902Z",
+      "benchmark": {
+        "harness": "vision-analysis-benchmark",
+        "harness_version": "2.0.0",
+        "libreyolo_version": "1.2.0.dev0",
+        "libreyolo_commit": "436fff0f3a8c0f2cebdf82506a74b22ef18b423b"
+      },
+      "model": {
+        "id": "ec-s",
+        "name": "ec-s",
+        "family": "ec",
+        "variant": "s",
+        "source": "libreyolo",
+        "weights": "LibreECs.pt",
+        "input_size": 640
+      },
+      "dataset": {
+        "id": "coco2017",
+        "split": "val2017",
+        "num_images": 500
+      },
+      "config": {
+        "batch_size": 1,
+        "input_size": 640,
+        "conf": 0.001,
+        "iou": 0.6,
+        "max_det": 300
+      },
+      "hardware": {
+        "gpu": "NVIDIA GeForce RTX 5070 Ti",
+        "gpu_memory_gb": 15.9,
+        "driver_version": "591.86",
+        "cuda_version": "12.8",
+        "cpu": "AMD64 Family 25 Model 97 Stepping 2, AuthenticAMD",
+        "cpu_cores": 16,
+        "ram_gb": 31,
+        "id": "nvidia_geforce_rtx_5070_ti"
+      },
+      "software": {
+        "python": "3.12.13",
+        "torch": "2.11.0+cu128",
+        "libreyolo": "1.2.0.dev0",
+        "libreyolo_commit": "436fff0f3a8c0f2cebdf82506a74b22ef18b423b",
+        "onnxruntime": "1.26.0"
+      },
+      "accuracy": {
+        "mAP_50_95": 0.5435638446126257,
+        "mAP_50": 0.7143583060807168,
+        "mAP_75": 0.5927003300455712,
+        "mAP_small": 0.36739031732377736,
+        "mAP_medium": 0.6007955542911716,
+        "mAP_large": 0.7146930643974748,
+        "AR1": 0.4212239022674024,
+        "AR10": 0.6851472192715995,
+        "AR100": 0.7310626146723999,
+        "AR_small": 0.5454754805767235,
+        "AR_medium": 0.7834626602978837,
+        "AR_large": 0.8874666430088628
+      },
+      "timing": {
+        "batch_size": 1,
+        "num_images": 500,
+        "total_ms": {
+          "mean": 15.782,
+          "std": 1.294,
+          "p50": 15.4,
+          "p95": 18.775,
+          "p99": 20.357,
+          "preprocess_ms": null,
+          "inference_ms": null,
+          "postprocess_ms": null
+        }
+      },
+      "throughput": {
+        "fps_mean": 63.36,
+        "fps_p50": 64.94
+      },
+      "model_stats": {
+        "params_millions": 0.0,
+        "gflops": 0.0
+      },
+      "memory": {
+        "peak_vram_mb": null,
+        "peak_ram_mb": 12.8
+      },
+      "metadata": {
+        "benchmark_date": "2026-06-16T18:28:14.384902Z",
+        "benchmark_version": "2.0.0"
+      },
+      "eval": {
+        "dataset": "coco",
+        "split": "val2017",
+        "numImages": 500
+      },
+      "implementation": {
+        "provider": "libreyolo",
+        "version": "1.2.0.dev0"
+      },
+      "runtime": {
+        "format": "tensorrt",
+        "precision": "fp32",
+        "provider": "cuda",
+        "device": "gpu"
+      },
+      "source_file": "ec-s__tensorrt__cuda__nvidia_geforce_rtx_5070_ti__20260616T182814384902Z.json",
+      "verified_at": "2026-06-16T18:29:03.986112Z"
+    },
+    {
+      "schema_version": "va.submission.v1",
+      "submission_id": "ec-m-tensorrt-cuda-nvidia_geforce_rtx_5070_ti-20260616T182829Z",
+      "created_at": "2026-06-16T18:28:29.561040Z",
+      "benchmark": {
+        "harness": "vision-analysis-benchmark",
+        "harness_version": "2.0.0",
+        "libreyolo_version": "1.2.0.dev0",
+        "libreyolo_commit": "436fff0f3a8c0f2cebdf82506a74b22ef18b423b"
+      },
+      "model": {
+        "id": "ec-m",
+        "name": "ec-m",
+        "family": "ec",
+        "variant": "m",
+        "source": "libreyolo",
+        "weights": "LibreECm.pt",
+        "input_size": 640
+      },
+      "dataset": {
+        "id": "coco2017",
+        "split": "val2017",
+        "num_images": 500
+      },
+      "config": {
+        "batch_size": 1,
+        "input_size": 640,
+        "conf": 0.001,
+        "iou": 0.6,
+        "max_det": 300
+      },
+      "hardware": {
+        "gpu": "NVIDIA GeForce RTX 5070 Ti",
+        "gpu_memory_gb": 15.9,
+        "driver_version": "591.86",
+        "cuda_version": "12.8",
+        "cpu": "AMD64 Family 25 Model 97 Stepping 2, AuthenticAMD",
+        "cpu_cores": 16,
+        "ram_gb": 31,
+        "id": "nvidia_geforce_rtx_5070_ti"
+      },
+      "software": {
+        "python": "3.12.13",
+        "torch": "2.11.0+cu128",
+        "libreyolo": "1.2.0.dev0",
+        "libreyolo_commit": "436fff0f3a8c0f2cebdf82506a74b22ef18b423b",
+        "onnxruntime": "1.26.0"
+      },
+      "accuracy": {
+        "mAP_50_95": 0.5834530432492133,
+        "mAP_50": 0.7574870856643554,
+        "mAP_75": 0.6348054028941824,
+        "mAP_small": 0.4069503464223795,
+        "mAP_medium": 0.6390334815784253,
+        "mAP_large": 0.7506418778470002,
+        "AR1": 0.43350652821101504,
+        "AR10": 0.7058219649431938,
+        "AR100": 0.7504206512993351,
+        "AR_small": 0.5726736892089724,
+        "AR_medium": 0.7895955444618612,
+        "AR_large": 0.8825219781694822
+      },
+      "timing": {
+        "batch_size": 1,
+        "num_images": 500,
+        "total_ms": {
+          "mean": 16.904,
+          "std": 0.979,
+          "p50": 16.717,
+          "p95": 18.362,
+          "p99": 19.675,
+          "preprocess_ms": null,
+          "inference_ms": null,
+          "postprocess_ms": null
+        }
+      },
+      "throughput": {
+        "fps_mean": 59.16,
+        "fps_p50": 59.82
+      },
+      "model_stats": {
+        "params_millions": 0.0,
+        "gflops": 0.0
+      },
+      "memory": {
+        "peak_vram_mb": null,
+        "peak_ram_mb": 16.6
+      },
+      "metadata": {
+        "benchmark_date": "2026-06-16T18:28:29.561040Z",
+        "benchmark_version": "2.0.0"
+      },
+      "eval": {
+        "dataset": "coco",
+        "split": "val2017",
+        "numImages": 500
+      },
+      "implementation": {
+        "provider": "libreyolo",
+        "version": "1.2.0.dev0"
+      },
+      "runtime": {
+        "format": "tensorrt",
+        "precision": "fp32",
+        "provider": "cuda",
+        "device": "gpu"
+      },
+      "source_file": "ec-m__tensorrt__cuda__nvidia_geforce_rtx_5070_ti__20260616T182829561040Z.json",
+      "verified_at": "2026-06-16T18:29:03.986112Z"
+    },
+    {
+      "schema_version": "va.submission.v1",
+      "submission_id": "ec-l-tensorrt-cuda-nvidia_geforce_rtx_5070_ti-20260616T182846Z",
+      "created_at": "2026-06-16T18:28:46.448943Z",
+      "benchmark": {
+        "harness": "vision-analysis-benchmark",
+        "harness_version": "2.0.0",
+        "libreyolo_version": "1.2.0.dev0",
+        "libreyolo_commit": "436fff0f3a8c0f2cebdf82506a74b22ef18b423b"
+      },
+      "model": {
+        "id": "ec-l",
+        "name": "ec-l",
+        "family": "ec",
+        "variant": "l",
+        "source": "libreyolo",
+        "weights": "LibreECl.pt",
+        "input_size": 640
+      },
+      "dataset": {
+        "id": "coco2017",
+        "split": "val2017",
+        "num_images": 500
+      },
+      "config": {
+        "batch_size": 1,
+        "input_size": 640,
+        "conf": 0.001,
+        "iou": 0.6,
+        "max_det": 300
+      },
+      "hardware": {
+        "gpu": "NVIDIA GeForce RTX 5070 Ti",
+        "gpu_memory_gb": 15.9,
+        "driver_version": "591.86",
+        "cuda_version": "12.8",
+        "cpu": "AMD64 Family 25 Model 97 Stepping 2, AuthenticAMD",
+        "cpu_cores": 16,
+        "ram_gb": 31,
+        "id": "nvidia_geforce_rtx_5070_ti"
+      },
+      "software": {
+        "python": "3.12.13",
+        "torch": "2.11.0+cu128",
+        "libreyolo": "1.2.0.dev0",
+        "libreyolo_commit": "436fff0f3a8c0f2cebdf82506a74b22ef18b423b",
+        "onnxruntime": "1.26.0"
+      },
+      "accuracy": {
+        "mAP_50_95": 0.6007922710025788,
+        "mAP_50": 0.7748941759652777,
+        "mAP_75": 0.6526771701063069,
+        "mAP_small": 0.43444287582531865,
+        "mAP_medium": 0.6627639242335519,
+        "mAP_large": 0.7572520904390906,
+        "AR1": 0.43765552357332943,
+        "AR10": 0.72080517208834,
+        "AR100": 0.7593506295773597,
+        "AR_small": 0.5850871832058173,
+        "AR_medium": 0.814278052981653,
+        "AR_large": 0.8965838247250204
+      },
+      "timing": {
+        "batch_size": 1,
+        "num_images": 500,
+        "total_ms": {
+          "mean": 20.424,
+          "std": 0.739,
+          "p50": 20.298,
+          "p95": 21.677,
+          "p99": 22.791,
+          "preprocess_ms": null,
+          "inference_ms": null,
+          "postprocess_ms": null
+        }
+      },
+      "throughput": {
+        "fps_mean": 48.96,
+        "fps_p50": 49.27
+      },
+      "model_stats": {
+        "params_millions": 0.0,
+        "gflops": 0.0
+      },
+      "memory": {
+        "peak_vram_mb": null,
+        "peak_ram_mb": 15.9
+      },
+      "metadata": {
+        "benchmark_date": "2026-06-16T18:28:46.448943Z",
+        "benchmark_version": "2.0.0"
+      },
+      "eval": {
+        "dataset": "coco",
+        "split": "val2017",
+        "numImages": 500
+      },
+      "implementation": {
+        "provider": "libreyolo",
+        "version": "1.2.0.dev0"
+      },
+      "runtime": {
+        "format": "tensorrt",
+        "precision": "fp32",
+        "provider": "cuda",
+        "device": "gpu"
+      },
+      "source_file": "ec-l__tensorrt__cuda__nvidia_geforce_rtx_5070_ti__20260616T182846448943Z.json",
+      "verified_at": "2026-06-16T18:29:03.986112Z"
+    },
+    {
+      "schema_version": "va.submission.v1",
+      "submission_id": "ec-x-tensorrt-cuda-nvidia_geforce_rtx_5070_ti-20260616T182903Z",
+      "created_at": "2026-06-16T18:29:03.986112Z",
+      "benchmark": {
+        "harness": "vision-analysis-benchmark",
+        "harness_version": "2.0.0",
+        "libreyolo_version": "1.2.0.dev0",
+        "libreyolo_commit": "436fff0f3a8c0f2cebdf82506a74b22ef18b423b"
+      },
+      "model": {
+        "id": "ec-x",
+        "name": "ec-x",
+        "family": "ec",
+        "variant": "x",
+        "source": "libreyolo",
+        "weights": "LibreECx.pt",
+        "input_size": 640
+      },
+      "dataset": {
+        "id": "coco2017",
+        "split": "val2017",
+        "num_images": 500
+      },
+      "config": {
+        "batch_size": 1,
+        "input_size": 640,
+        "conf": 0.001,
+        "iou": 0.6,
+        "max_det": 300
+      },
+      "hardware": {
+        "gpu": "NVIDIA GeForce RTX 5070 Ti",
+        "gpu_memory_gb": 15.9,
+        "driver_version": "591.86",
+        "cuda_version": "12.8",
+        "cpu": "AMD64 Family 25 Model 97 Stepping 2, AuthenticAMD",
+        "cpu_cores": 16,
+        "ram_gb": 31,
+        "id": "nvidia_geforce_rtx_5070_ti"
+      },
+      "software": {
+        "python": "3.12.13",
+        "torch": "2.11.0+cu128",
+        "libreyolo": "1.2.0.dev0",
+        "libreyolo_commit": "436fff0f3a8c0f2cebdf82506a74b22ef18b423b",
+        "onnxruntime": "1.26.0"
+      },
+      "accuracy": {
+        "mAP_50_95": 0.6112929540256391,
+        "mAP_50": 0.7857675411669596,
+        "mAP_75": 0.6656590086855148,
+        "mAP_small": 0.4361320460662109,
+        "mAP_medium": 0.6756850820591866,
+        "mAP_large": 0.7793052652651342,
+        "AR1": 0.43811980652865196,
+        "AR10": 0.7266864324696698,
+        "AR100": 0.762430221585412,
+        "AR_small": 0.5840005423214454,
+        "AR_medium": 0.8113295155646688,
+        "AR_large": 0.9073491850466066
+      },
+      "timing": {
+        "batch_size": 1,
+        "num_images": 500,
+        "total_ms": {
+          "mean": 21.937,
+          "std": 0.707,
+          "p50": 21.813,
+          "p95": 23.151,
+          "p99": 24.376,
+          "preprocess_ms": null,
+          "inference_ms": null,
+          "postprocess_ms": null
+        }
+      },
+      "throughput": {
+        "fps_mean": 45.59,
+        "fps_p50": 45.84
+      },
+      "model_stats": {
+        "params_millions": 0.0,
+        "gflops": 0.0
+      },
+      "memory": {
+        "peak_vram_mb": null,
+        "peak_ram_mb": 4.7
+      },
+      "metadata": {
+        "benchmark_date": "2026-06-16T18:29:03.986112Z",
+        "benchmark_version": "2.0.0"
+      },
+      "eval": {
+        "dataset": "coco",
+        "split": "val2017",
+        "numImages": 500
+      },
+      "implementation": {
+        "provider": "libreyolo",
+        "version": "1.2.0.dev0"
+      },
+      "runtime": {
+        "format": "tensorrt",
+        "precision": "fp32",
+        "provider": "cuda",
+        "device": "gpu"
+      },
+      "source_file": "ec-x__tensorrt__cuda__nvidia_geforce_rtx_5070_ti__20260616T182903986112Z.json",
+      "verified_at": "2026-06-16T18:29:03.986112Z"
     }
   ]
 }
