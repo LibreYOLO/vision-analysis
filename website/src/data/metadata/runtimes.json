@@ -20,6 +20,13 @@
       "format": "tensorrt",
       "precision": "fp32",
       "device": "gpu"
+    },
+    {
+      "id": "tensorrt_fp16",
+      "displayName": "TensorRT FP16",
+      "format": "tensorrt",
+      "precision": "fp16",
+      "device": "gpu"
     }
   ]
 }
