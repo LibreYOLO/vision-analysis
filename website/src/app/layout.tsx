@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { M_PLUS_2, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
-import { Header, Footer, ThemeProvider } from "@/components/layout";
+import { Header, Footer, ThemeProvider, LibreyoloSnippet } from "@/components/layout";
 import type { SearchItem } from "@/components/layout/SearchDialog";
 import { siteConfig } from "@/config/site";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -106,6 +106,7 @@ export default function RootLayout({
           <TooltipProvider>
             <Header searchItems={searchItems} />
             <main className="flex-1">{children}</main>
+            <LibreyoloSnippet />
             <Footer />
           </TooltipProvider>
         </ThemeProvider>

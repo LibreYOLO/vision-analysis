@@ -41,7 +41,6 @@ const COMPANY_TIMELINE: CompanyPoint[] = [
   { company: "Roboflow", date: new Date("2025-03-15"), score: 68, model: "RF-DETR-L", color: COMPANY_COLORS.Roboflow },
   { company: "Open Source", date: new Date("2022-07-01"), score: 35, model: "YOLOv7-T", color: COMPANY_COLORS["Open Source"] },
   { company: "Open Source", date: new Date("2023-10-01"), score: 46, model: "Gold-YOLO-M", color: COMPANY_COLORS["Open Source"] },
-  { company: "Open Source", date: new Date("2025-01-01"), score: 53, model: "DAMO-YOLO-L", color: COMPANY_COLORS["Open Source"] },
 ];
 
 export function AccuracyTimeline() {

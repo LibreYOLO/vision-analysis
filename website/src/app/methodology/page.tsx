@@ -66,11 +66,20 @@ export default function MethodologyPage() {
           <div className="section-group-content">
             <div className="space-y-3 text-base text-foreground leading-relaxed">
               <p>
-                All accuracy numbers are computed on <strong>COCO val2017</strong> (5,000 images,
-                80 classes) with <strong>pycocotools COCOeval</strong> in bounding-box mode. The
-                harness records all 12 standard COCO metrics: mAP@50-95, mAP@50, mAP@75, mAP for
-                small/medium/large objects, and the AR (average recall) variants. The site
-                headlines mAP@50-95, the strictest and most standard of these.
+                All accuracy numbers are computed with <strong>pycocotools COCOeval</strong> in
+                bounding-box mode on{" "}
+                <a
+                  href="https://huggingface.co/datasets/LibreYOLO/coco-val2017-mini500"
+                  className="text-brand hover:underline"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  coco-val2017-mini500
+                </a>
+                , a frozen, reproducible 500-image subset of <strong>COCO val2017</strong>{" "}
+                (80 classes). The harness records all 12 standard COCO metrics: mAP@50-95,
+                mAP@50, mAP@75, mAP for small/medium/large objects, and the AR (average recall)
+                variants. The site headlines mAP@50-95, the strictest and most standard of these.
               </p>
               <p>
                 Evaluation settings follow the convention used by the original model releases:
@@ -101,8 +110,7 @@ export default function MethodologyPage() {
                 (<code>torch.cuda.synchronize</code> or the MPS equivalent) around{" "}
                 <code>time.perf_counter</code>, so asynchronous GPU work cannot leak across
                 timestamps. Per-image timings are aggregated as mean, standard deviation, p50,
-                p95, and p99; throughput (FPS) is derived from them. Peak VRAM is recorded on
-                CUDA, along with peak host RAM.
+                p95, and p99; throughput (FPS) is derived from them.
               </p>
             </div>
           </div>
@@ -123,8 +131,9 @@ export default function MethodologyPage() {
               </p>
               <p>
                 Runtimes covered by the harness today: <strong>PyTorch</strong> (CPU and NVIDIA
-                CUDA) and <strong>ONNX Runtime</strong> (CPU and NVIDIA CUDA). TensorRT and
-                OpenVINO are not yet part of the harness.
+                CUDA), <strong>ONNX Runtime</strong> (CPU and NVIDIA CUDA), and{" "}
+                <strong>TensorRT</strong> (NVIDIA CUDA, FP32 and FP16). OpenVINO is not yet part of
+                the harness.
               </p>
             </div>
           </div>
@@ -165,8 +174,8 @@ export default function MethodologyPage() {
                   large-batch throughput is not currently measured.
                 </li>
                 <li>
-                  Apple MPS runs work but memory reporting on that path is incomplete, so
-                  MPS results may omit VRAM figures.
+                  Peak GPU memory (VRAM) and host RAM are not currently captured in submissions,
+                  so memory figures are omitted from the site.
                 </li>
                 <li>
                   YOLO-NAS is excluded from harness runs because its weights are gated by

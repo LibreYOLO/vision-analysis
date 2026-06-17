@@ -16,7 +16,6 @@ export const FAMILY_COLORS: Record<ModelFamily | string, string> = {
   deim: "#2563eb",     // blue
   deimv2: "#4f46e5",   // indigo
   ec: "#0d9488",       // teal
-  damoyolo: "#db2777", // magenta
   other: "#6b7280",    // gray
 };
 

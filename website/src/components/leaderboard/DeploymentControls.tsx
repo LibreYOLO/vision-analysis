@@ -19,12 +19,14 @@ interface DeploymentControlsProps {
   runtimeLabel: string;
   paretoLine: boolean;
   onParetoLineChange: (value: boolean) => void;
+  logScale: boolean;
+  onLogScaleChange: (value: boolean) => void;
 }
 
 /**
  * Controls scoped to the hardware-SPECIFIC view (latency chart + leaderboard
  * table). Latency, FPS and the Pareto frontier all depend on the chosen
- * hardware + runtime, so these selectors live next to that chart — not next to
+ * hardware + runtime, so these selectors live next to that chart, not next to
  * the architecture (params) chart, whose numbers never change with hardware.
  */
 export function DeploymentControls({
@@ -38,6 +40,8 @@ export function DeploymentControls({
   runtimeLabel,
   paretoLine,
   onParetoLineChange,
+  logScale,
+  onLogScaleChange,
 }: DeploymentControlsProps) {
   return (
     <div className="bg-card rounded-md p-3 border border-border">
@@ -87,9 +91,20 @@ export function DeploymentControls({
             />
             Pareto frontier
           </label>
+
+          {/* Log x-scale toggle (off by default) */}
+          <label className="flex items-center gap-2 text-sm text-muted-foreground cursor-pointer select-none h-9 px-2">
+            <input
+              type="checkbox"
+              checked={logScale}
+              onChange={(e) => onLogScaleChange(e.target.checked)}
+              className="h-4 w-4 rounded border-border accent-foreground cursor-pointer"
+            />
+            Log scale
+          </label>
         </div>
 
-        {/* Active deployment summary — makes the hardware-specific scope explicit */}
+        {/* Active deployment summary: makes the hardware-specific scope explicit */}
         <div className="text-xs text-muted-foreground whitespace-nowrap rounded-full border border-border px-3 py-1">
           showing{" "}
           <span className="font-medium text-foreground">{hardwareLabel}</span>

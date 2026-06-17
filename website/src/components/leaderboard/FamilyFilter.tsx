@@ -11,9 +11,9 @@ interface FamilyFilterProps {
 }
 
 /**
- * Family selection is an architecture-level filter — it applies to BOTH the
- * hardware-agnostic and the hardware-specific charts, so it lives once at the
- * top of the dashboard rather than inside either chart's controls.
+ * Family selection is an architecture-level filter: it applies to BOTH the
+ * hardware-agnostic and the hardware-specific charts. It lives with the first
+ * (Accuracy vs Parameters) chart, since families are what that chart plots.
  */
 export function FamilyFilter({
   families,

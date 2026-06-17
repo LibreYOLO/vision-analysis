@@ -108,9 +108,6 @@ export function SearchDialog({ items }: SearchDialogProps) {
       >
         <Search className="h-4 w-4 mr-2 flex-shrink-0" />
         <span>Search...</span>
-        <kbd className="ml-auto text-[10px] font-mono border border-white/20 rounded px-1 py-0.5">
-          Ctrl K
-        </kbd>
       </button>
 
       {/* Mobile trigger */}

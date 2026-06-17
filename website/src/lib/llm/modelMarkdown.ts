@@ -1,9 +1,10 @@
 import { ModelMetadata, FamilyMetadata, BenchmarkResult } from "@/lib/types";
 import { siteConfig } from "@/config/site";
 import { LIBREYOLO } from "@/config/libreyolo";
+import { libreyoloWeightsFile } from "@/lib/utils/libreyoloWeights";
 
 /**
- * Markdown twin of a model page — the clean, LLM-ingestible version served at
+ * Markdown twin of a model page: the clean, LLM-ingestible version served at
  * /model/[slug]/markdown and advertised via <link rel="alternate">. Pure /
  * client-safe (no fs); the route resolves hardware/runtime labels and passes
  * them in.
@@ -15,15 +16,8 @@ export interface ModelBenchRow {
   result: BenchmarkResult;
 }
 
-/** Replicates the page's "Usage with LibreYOLO" weights filename. */
-export function libreyoloWeightsFile(model: ModelMetadata): string {
-  if (model.family === "yolox") return `libreyoloX${model.variant}.pt`;
-  if (model.family === "yolov9") return `libreyolo9${model.variant}.pt`;
-  return `libre${model.family}${model.variant}.pth`;
-}
-
 function fmt(n: number, d = 1): string {
-  return Number.isFinite(n) ? n.toFixed(d) : "—";
+  return Number.isFinite(n) ? n.toFixed(d) : "-";
 }
 
 export function buildModelMarkdown(
@@ -56,7 +50,7 @@ export function buildModelMarkdown(
     const body = rows
       .map((r) => {
         const v = r.result;
-        const vram = v.peakVramMb > 0 ? fmt(v.peakVramMb, 0) : "—";
+        const vram = v.peakVramMb > 0 ? fmt(v.peakVramMb, 0) : "-";
         return `| ${r.hardwareLabel} | ${r.runtimeLabel} | ${fmt(v.mAP_50_95)} | ${fmt(v.throughputFps)} | ${fmt(v.totalMs)} | ${vram} |`;
       })
       .join("\n");
@@ -65,9 +59,11 @@ export function buildModelMarkdown(
     benchSection = `## Benchmarks (COCO val2017)\n\nNot yet benchmarked.`;
   }
 
-  const usage = model.inLibreYOLO
-    ? `## Usage with ${LIBREYOLO.name}\n\n\`\`\`python\nfrom libreyolo import LIBREYOLO\n\nmodel = LIBREYOLO("${libreyoloWeightsFile(model)}")\nresult = model("image.jpg", conf=0.25, iou=0.45)\n\`\`\``
-    : "";
+  const weightsFile = libreyoloWeightsFile(model.family, model.variant);
+  const usage =
+    model.inLibreYOLO && weightsFile
+      ? `## Usage with ${LIBREYOLO.name}\n\n\`\`\`python\nfrom libreyolo import LibreYOLO\n\nmodel = LibreYOLO("${weightsFile}")\nresult = model("image.jpg", conf=0.25, iou=0.45)\n\`\`\``
+      : "";
 
   return [
     `# ${model.displayName}`,
@@ -79,7 +75,7 @@ export function buildModelMarkdown(
     benchSection,
     usage ? "\n" + usage : "",
     "",
-    `Source: ${url}/model/${model.id} — benchmarks produced with ${LIBREYOLO.name} (${LIBREYOLO.github}).`,
+    `Source: ${url}/model/${model.id}. Benchmarks produced with ${LIBREYOLO.name} (${LIBREYOLO.github}).`,
     "",
   ].join("\n");
 }

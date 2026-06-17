@@ -35,7 +35,7 @@ export function CopyForLlm({
       setCopied(true);
       setTimeout(() => setCopied(false), 1800);
     } catch {
-      // Clipboard API unavailable (e.g. insecure context) — no-op.
+      // Clipboard API unavailable (e.g. insecure context); no-op.
     }
   }, [data, xAxis, title, hardwareLabel, runtimeLabel]);
 
@@ -43,11 +43,11 @@ export function CopyForLlm({
     <button
       onClick={onCopy}
       disabled={data.length === 0}
-      className="inline-flex items-center gap-1.5 rounded border border-border px-2 py-1 text-xs text-muted-foreground hover:text-foreground hover:bg-muted transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
+      className="inline-flex shrink-0 items-center gap-1.5 whitespace-nowrap rounded border border-border px-2 py-1 text-xs text-muted-foreground hover:text-foreground hover:bg-muted transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
       aria-label="Copy chart data as Markdown for an LLM"
       title="Copy as Markdown (model table + summary) to paste into an LLM"
     >
-      {copied ? <Check className="h-3 w-3 text-green-600" /> : <Copy className="h-3 w-3" />}
+      {copied ? <Check className="h-3 w-3 shrink-0 text-green-600" /> : <Copy className="h-3 w-3 shrink-0" />}
       {copied ? "Copied" : "Copy for LLM"}
     </button>
   );

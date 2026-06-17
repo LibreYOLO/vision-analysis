@@ -205,7 +205,7 @@ function normalizeModelName(raw: RawBenchmark): string {
 // --- mAP conversion ---
 
 function toPercentage(value: number): number {
-  // If < 1, it's decimal form (0.37 → 37.03). If >= 1, already percentage.
+  // If < 1, it's decimal form (0.37 becomes 37.03). If >= 1, already percentage.
   const pct = value < 1 ? value * 100 : value;
   return Math.round(pct * 100) / 100;
 }

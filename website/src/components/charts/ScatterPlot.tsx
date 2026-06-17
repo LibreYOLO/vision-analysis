@@ -24,9 +24,9 @@ const X_FIELD: Record<XMode, "paramsM" | "flopsG" | "totalMs"> = {
 };
 
 const X_LABEL: Record<XMode, string> = {
-  paramsM: "Parameters (M) →",
-  flopsG: "GFLOPs →",
-  latencyMs: "Latency (ms, log) →",
+  paramsM: "Parameters (M)",
+  flopsG: "GFLOPs",
+  latencyMs: "Latency (ms)",
 };
 
 interface ScatterPlotProps {
@@ -43,6 +43,12 @@ interface ScatterPlotProps {
   exportCaption?: string;
   /** Shown centered when there is no data for the current selection. */
   emptyMessage?: string;
+  /** Use a log x-scale (only meaningful for the latency axis). */
+  logScale?: boolean;
+  /** Render the built-in PNG button. When false, expose the download via onDownloadReady. */
+  showToolbar?: boolean;
+  /** Hands the PNG download function to a parent so it can trigger it from elsewhere. */
+  onDownloadReady?: (download: () => void) => void;
 }
 
 export function ScatterPlot({
@@ -54,6 +60,9 @@ export function ScatterPlot({
   connectFamilies = false,
   exportCaption,
   emptyMessage = "No results for this hardware + runtime yet.",
+  logScale = false,
+  showToolbar = true,
+  onDownloadReady,
 }: ScatterPlotProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const router = useRouter();
@@ -62,6 +71,12 @@ export function ScatterPlot({
   const xMode = xAxis;
   const xKey = X_FIELD[xMode];
   const isLatency = xMode === "latencyMs";
+  const useLog = isLatency && logScale;
+  const xLabel = isLatency
+    ? logScale
+      ? "Latency (ms, log)"
+      : "Latency (ms)"
+    : X_LABEL[xMode];
   const showFrontier = showPareto;
 
   const families = useMemo(
@@ -146,13 +161,18 @@ export function ScatterPlot({
     img.src = url;
   }, [families, resolvedTheme, exportCaption, xMode]);
 
+  // Expose the PNG download to a parent (used when showToolbar is false).
+  useEffect(() => {
+    onDownloadReady?.(downloadPng);
+  }, [onDownloadReady, downloadPng]);
+
   const paretoPoints = useMemo(() => computeParetoFrontier(data), [data]);
 
   useEffect(() => {
     if (!containerRef.current) return;
     containerRef.current.innerHTML = "";
 
-    // Empty / no-data state — some hardware+runtime combos have no results yet.
+    // Empty / no-data state: some hardware+runtime combos have no results yet.
     if (data.length === 0) {
       const isDark = resolvedTheme === "dark";
       const el = document.createElement("div");
@@ -172,17 +192,17 @@ export function ScatterPlot({
 
     // In log (latency) mode, drop any non-positive x so the scale stays valid.
     const plotData = data
-      .filter((d) => !isLatency || (d[xKey] as number) > 0)
+      .filter((d) => !useLog || (d[xKey] as number) > 0)
       .map((d) => ({ ...d, color: getFamilyColor(d.family) }));
 
     const sortedPareto = [...paretoPoints]
-      .filter((d) => !isLatency || (d[xKey] as number) > 0)
+      .filter((d) => !useLog || (d[xKey] as number) > 0)
       .sort((a, b) => (a[xKey] as number) - (b[xKey] as number));
 
     const marks: Plot.Markish[] = [];
 
     // Per-family connecting lines (on the params chart this traces each
-    // family's n→s→m→l→x size ladder).
+    // family's size ladder, from the smallest variant to the largest).
     if (connectFamilies) {
       const byFamily = new Map<string, typeof plotData>();
       for (const d of plotData) {
@@ -261,9 +281,9 @@ export function ScatterPlot({
       ],
 
       x: {
-        label: X_LABEL[xMode],
+        label: xLabel,
         nice: true,
-        ...(isLatency ? { type: "log" as const } : {}),
+        ...(useLog ? { type: "log" as const } : {}),
       },
       y: {
         label: "mAP@50-95 (%)",
@@ -305,20 +325,24 @@ export function ScatterPlot({
     router,
     resolvedTheme,
     connectFamilies,
+    useLog,
+    xLabel,
   ]);
 
   return (
     <div className="w-full">
-      <div className="flex items-center justify-end gap-2">
-        <button
-          onClick={downloadPng}
-          className="inline-flex items-center gap-1.5 rounded border border-border px-2 py-1 text-xs text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
-          aria-label="Download chart as PNG"
-        >
-          <Download className="h-3 w-3" />
-          PNG
-        </button>
-      </div>
+      {showToolbar && (
+        <div className="flex items-center justify-end gap-2">
+          <button
+            onClick={downloadPng}
+            className="inline-flex items-center gap-1.5 rounded border border-border px-2 py-1 text-xs text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
+            aria-label="Download chart as PNG"
+          >
+            <Download className="h-3 w-3" />
+            PNG
+          </button>
+        </div>
+      )}
       <div ref={containerRef} className="w-full" style={{ minHeight: height }} />
 
       {/* Legend */}

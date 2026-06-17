@@ -13,7 +13,7 @@ interface ChartDataTableProps {
  * A text/table representation of the chart's data, rendered in the DOM (and so
  * in the server HTML) but visually hidden. The Observable Plot chart is an SVG
  * built client-side in a useEffect, which non-JS crawlers and screen readers
- * cannot read — this table is the machine-readable equivalent. NOT a client
+ * cannot read; this table is the machine-readable equivalent. NOT a client
  * component, so it server-renders into the initial HTML.
  */
 export function ChartDataTable({
@@ -29,7 +29,7 @@ export function ChartDataTable({
   const summary = summarizeChart(data, { title, xAxis, hardwareLabel, runtimeLabel });
 
   return (
-    <table className="sr-only" aria-label={`${title} — data table`}>
+    <table className="sr-only" aria-label={`${title} data table`}>
       <caption>{summary}</caption>
       <thead>
         <tr>

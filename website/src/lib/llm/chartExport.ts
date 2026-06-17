@@ -8,7 +8,7 @@ import { LIBREYOLO, libreyoloOneLiner } from "@/config/libreyolo";
  * "Copy for LLM" button. NO fs / server-only imports.
  */
 
-export type ChartXAxis = "paramsM" | "latencyMs";
+export type ChartXAxis = "paramsM" | "flopsG" | "latencyMs";
 
 interface ChartContext {
   title: string;
@@ -20,7 +20,7 @@ interface ChartContext {
 }
 
 function fmt(n: number, digits = 1): string {
-  return Number.isFinite(n) ? n.toFixed(digits) : "—";
+  return Number.isFinite(n) ? n.toFixed(digits) : "-";
 }
 
 /** One plain-English sentence describing what the chart shows. */
@@ -45,14 +45,18 @@ export function summarizeChart(data: BenchmarkResult[], ctx: ChartContext): stri
     );
   }
 
-  const bySize = [...data].filter((d) => d.paramsM > 0).sort((a, b) => a.paramsM - b.paramsM);
+  const isFlops = ctx.xAxis === "flopsG";
+  const cost = (d: BenchmarkResult) => (isFlops ? d.flopsG : d.paramsM);
+  const unit = isFlops ? "GFLOPs" : "M params";
+  const axisWord = isFlops ? "compute" : "model size";
+  const bySize = [...data].filter((d) => cost(d) > 0).sort((a, b) => cost(a) - cost(b));
   const smallest = bySize[0];
   const smallBit = smallest
-    ? ` Smallest is ${smallest.model} at ${fmt(smallest.paramsM)}M params (${fmt(smallest.mAP_50_95)} mAP).`
+    ? ` Lightest is ${smallest.model} at ${fmt(cost(smallest))} ${unit} (${fmt(smallest.mAP_50_95)} mAP).`
     : "";
   return (
-    `Accuracy vs model size for ${data.length} models across ${families} families. ` +
-    `Highest accuracy: ${top.model} at ${fmt(top.mAP_50_95)} mAP@50-95 (${fmt(top.paramsM)}M params).${smallBit}`
+    `Accuracy vs ${axisWord} for ${data.length} models across ${families} families. ` +
+    `Highest accuracy: ${top.model} at ${fmt(top.mAP_50_95)} mAP@50-95 (${fmt(cost(top))} ${unit}).${smallBit}`
   );
 }
 

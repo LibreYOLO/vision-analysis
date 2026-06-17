@@ -11,7 +11,7 @@ import { buildModelMarkdown, ModelBenchRow } from "@/lib/llm/modelMarkdown";
 /**
  * Markdown twin of each model page, served at /model/[slug]/markdown and
  * advertised from the page via <link rel="alternate" type="text/markdown">.
- * Clean, LLM-ingestible text — no HTML chrome. Invisible to humans unless they
+ * Clean, LLM-ingestible text, no HTML chrome. Invisible to humans unless they
  * navigate to it directly.
  */
 export const dynamic = "force-static";

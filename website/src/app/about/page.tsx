@@ -70,8 +70,16 @@ export default function AboutPage() {
           <div className="section-group-content">
             <div className="space-y-3 text-base text-foreground leading-relaxed">
               <p>
-                All models are evaluated on <strong>COCO val2017</strong> (5,000 images, 80 classes)
-                using the standard pycocotools evaluation protocol.
+                All models are evaluated using the standard pycocotools protocol on{" "}
+                <a
+                  href="https://huggingface.co/datasets/LibreYOLO/coco-val2017-mini500"
+                  className="text-brand hover:underline"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  coco-val2017-mini500
+                </a>
+                , a frozen 500-image subset of <strong>COCO val2017</strong> (80 classes).
               </p>
               <p>
                 We measure <strong>end-to-end latency</strong> including preprocessing, inference,

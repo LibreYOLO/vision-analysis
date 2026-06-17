@@ -1,9 +1,3 @@
-"use client";
-
-/* eslint-disable @next/next/no-img-element */
-
-import { useTheme } from "next-themes";
-
 interface VAScoreEntry {
   model: string;
   score: number;
@@ -55,10 +49,6 @@ const MAX_SCORE = 100;
 const GRID_LINES = 7;
 
 export function VAScoreChart() {
-  const { resolvedTheme } = useTheme();
-  const isDark = resolvedTheme === "dark";
-  const gridColor = isDark ? "#2a2a38" : "#dddddd";
-  const labelColor = isDark ? "#7a7a92" : "#666666";
   const chartWidth = VA_SCORES.length * BAR_SPACING;
   const gridSpacing = CHART_HEIGHT / (GRID_LINES + 1);
 
@@ -98,7 +88,7 @@ export function VAScoreChart() {
                   y1={y}
                   x2={chartWidth}
                   y2={y}
-                  stroke={gridColor}
+                  style={{ stroke: "var(--border)" }}
                   strokeWidth={1}
                 />
               );
@@ -147,8 +137,7 @@ export function VAScoreChart() {
                     textAnchor="end"
                     dominantBaseline="middle"
                     fontSize={11}
-                    fill={labelColor}
-                    style={{ fontFamily: "ui-sans-serif, system-ui, sans-serif" }}
+                    style={{ fill: "var(--muted-foreground)", fontFamily: "ui-sans-serif, system-ui, sans-serif" }}
                     transform={`translate(-6, 24) rotate(-62, ${centerX}, ${CHART_HEIGHT + 30})`}
                   >
                     {entry.model}
@@ -162,7 +151,7 @@ export function VAScoreChart() {
               y1={CHART_HEIGHT}
               x2={chartWidth}
               y2={CHART_HEIGHT}
-              stroke={gridColor}
+              style={{ stroke: "var(--border)" }}
               strokeWidth={1}
             />
           </g>

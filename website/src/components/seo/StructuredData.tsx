@@ -42,7 +42,7 @@ export function StructuredData({ modelCount, familyCount }: StructuredDataProps)
       {
         "@type": "Dataset",
         "@id": `${url}#leaderboard`,
-        name: "Vision Analysis — Open-Source Object Detection Leaderboard",
+        name: "Vision Analysis: Open-Source Object Detection Leaderboard",
         description: headline,
         url,
         license: MIT_LICENSE_URL,

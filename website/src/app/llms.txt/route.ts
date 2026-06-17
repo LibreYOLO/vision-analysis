@@ -3,7 +3,7 @@ import { siteConfig } from "@/config/site";
 import { LIBREYOLO, libreyoloHeadline } from "@/config/libreyolo";
 
 /**
- * Serves /llms.txt — the emerging "sitemap for AI" convention: a markdown index
+ * Serves /llms.txt, the emerging "sitemap for AI" convention: a markdown index
  * that points LLMs at the high-signal pages and states what the site is. Built
  * from live data so the counts and model list never drift. Mirrors the
  * human-visible claims (no cloaking).
@@ -22,7 +22,7 @@ export function GET() {
     .map((m) => `- [${m.displayName}](${url}/model/${m.id}): ${m.family} · ${m.specs.paramsM}M params`)
     .join("\n");
 
-  const body = `# ${siteConfig.name} — Open-Source Object Detection Leaderboard
+  const body = `# ${siteConfig.name}: Open-Source Object Detection Leaderboard
 
 > ${headline}
 

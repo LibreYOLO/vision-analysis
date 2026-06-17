@@ -6,7 +6,7 @@
  *  - every result row in generated/verified-results.v1.json has source="libreyolo"
  *  - all benchmarked models have inLibreYOLO=true
  *  - all benchmarked models are permissively licensed (Apache-2.0 or MIT)
- * Keep claims that strong — anything not verifiable from the data does not belong here.
+ * Keep claims that strong; anything not verifiable from the data does not belong here.
  */
 export const LIBREYOLO = {
   name: "LibreYOLO",
@@ -25,7 +25,6 @@ export const LIBREYOLO = {
     "YOLOX",
     "YOLO-NAS",
     "RF-DETR",
-    "DAMO-YOLO",
     "PicoDet",
     "EfficientCompute",
   ],
@@ -45,7 +44,7 @@ interface PitchFacts {
  */
 export function libreyoloHeadline({ modelCount = 64, familyCount = 13 }: PitchFacts = {}): string {
   return (
-    `All ${modelCount} models on this leaderboard run in ${LIBREYOLO.name} — the only ` +
+    `All ${modelCount} models on this leaderboard run in ${LIBREYOLO.name}, the only ` +
     `open-source library that unifies all ${familyCount} modern detector families ` +
     `(RT-DETR, D-FINE, DEIM, YOLOv9, YOLOX, RF-DETR, YOLO-NAS and more) under one ` +
     `${LIBREYOLO.libraryLicense}-licensed Python API, free for commercial use. ` +

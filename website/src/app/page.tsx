@@ -98,7 +98,7 @@ export default function HomePage() {
             Object Detection Leaderboard
           </h1>
           <p className="max-w-2xl text-base text-white/60">
-            Understand the computer vision landscape to select the best model and hardware for your use case.
+            Understand the real-time computer vision landscape and pick the best model and hardware for your use case.
           </p>
         </div>
       </section>
@@ -120,7 +120,7 @@ export default function HomePage() {
               <ChartDataTable
                 data={paramsRows}
                 xAxis="paramsM"
-                title="Accuracy vs Parameters — LibreYOLO models on COCO val2017"
+                title="Accuracy vs Parameters: LibreYOLO models on COCO val2017"
               />
               {Object.entries(benchmarkData).map(([key, rows]) => {
                 const [hw, rt] = key.split("__");
@@ -131,7 +131,7 @@ export default function HomePage() {
                     key={key}
                     data={rows}
                     xAxis="latencyMs"
-                    title={`Accuracy vs Latency — ${hardwareLabel} · ${runtimeLabel}`}
+                    title={`Accuracy vs Latency: ${hardwareLabel} · ${runtimeLabel}`}
                     hardwareLabel={hardwareLabel}
                     runtimeLabel={runtimeLabel}
                   />

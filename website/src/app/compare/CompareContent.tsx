@@ -3,7 +3,7 @@
 import { useState, useMemo } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import Link from "next/link";
-import { X, Plus } from "lucide-react";
+import { X, Plus, GripVertical } from "lucide-react";
 import { getFamilyColor } from "@/lib/utils/colors";
 import { formatNumber, formatPercent, formatMs } from "@/lib/utils/format";
 import { BenchmarkResult, ModelMetadata } from "@/lib/types";
@@ -44,12 +44,12 @@ const COMPARISON_METRICS = [
 ] as const;
 
 function formatValue(value: number | undefined | null, format: string): string {
-  if (value == null || !Number.isFinite(value)) return "—";
+  if (value == null || !Number.isFinite(value)) return "-";
   switch (format) {
     case "percent":
       return formatPercent(value);
     case "ms":
-      return value === 0 ? "—" : formatMs(value);
+      return value === 0 ? "-" : formatMs(value);
     case "millions":
       return `${formatNumber(value, 1)}M`;
     default:
@@ -85,6 +85,8 @@ export function CompareContent({
 
   const [hardware, setHardware] = useState(initialHardware);
   const [runtime, setRuntime] = useState(initialRuntime);
+  // Index of the tag currently being dragged (for reordering selected models).
+  const [dragIndex, setDragIndex] = useState<number | null>(null);
 
   // Mirror hardware/runtime into the URL without triggering navigation
   const syncUrl = (newHardware: string, newRuntime: string) => {
@@ -161,6 +163,16 @@ export function CompareContent({
     updateSelectedModels(selectedModelIds.filter((id) => id !== modelId));
   };
 
+  // Drag-to-reorder: move a selected model from one position to another. The
+  // comparison table reads selectedModels in this order, so it updates live.
+  const moveModel = (from: number, to: number) => {
+    if (from === to || from < 0 || to < 0) return;
+    const next = [...selectedModelIds];
+    const [moved] = next.splice(from, 1);
+    next.splice(to, 0, moved);
+    updateSelectedModels(next);
+  };
+
   const handleHardwareChange = (newHardware: string) => {
     setHardware(newHardware);
     const availableRuntimes = Object.keys(benchmarkData)
@@ -208,27 +220,38 @@ export function CompareContent({
           <CardTitle>Selected Models</CardTitle>
           <CardDescription>
             {selectedModels.length} of {MAX_MODELS} models selected
+            {selectedModelIds.length > 1 ? " · drag the tags to reorder" : ""}
           </CardDescription>
         </CardHeader>
         <CardContent>
           <div className="flex flex-wrap gap-4 items-center">
-            {selectedModelIds.map((modelId) => {
+            {selectedModelIds.map((modelId, index) => {
               const model = allResults.find((r) => r.model === modelId);
               const meta = allModels.find((m) => m.id === modelId);
               const hasData = !!model;
               return (
                 <div
                   key={modelId}
-                  className={`flex items-center gap-2 px-3 py-2 rounded-lg border ${
+                  draggable
+                  onDragStart={() => setDragIndex(index)}
+                  onDragEnd={() => setDragIndex(null)}
+                  onDragOver={(e) => e.preventDefault()}
+                  onDrop={() => {
+                    if (dragIndex !== null) moveModel(dragIndex, index);
+                    setDragIndex(null);
+                  }}
+                  className={`flex items-center gap-2 px-3 py-2 rounded-lg border cursor-grab active:cursor-grabbing ${
                     hasData ? "bg-background" : "bg-muted/50 border-dashed"
-                  }`}
+                  } ${dragIndex === index ? "opacity-50" : ""}`}
                 >
+                  <GripVertical className="h-4 w-4 text-muted-foreground" />
                   <div
                     className={`w-2.5 h-2.5 rounded-full ${!hasData ? "opacity-40" : ""}`}
                     style={{ backgroundColor: getFamilyColor(model?.family ?? meta?.family ?? "") }}
                   />
                   <Link
                     href={`/model/${modelId}`}
+                    draggable={false}
                     className={`font-medium hover:underline ${!hasData ? "text-muted-foreground" : ""}`}
                   >
                     {modelId}

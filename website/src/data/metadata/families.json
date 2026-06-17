@@ -182,21 +182,6 @@
       "trainingDataset": "Objects365 + COCO + Roboflow-100"
     },
     {
-      "id": "damoyolo",
-      "displayName": "DAMO-YOLO",
-      "organization": "TinyVision",
-      "paper": {
-        "title": "DAMO-YOLO: A Report on Real-Time Object Detection Design",
-        "authors": [
-          "TinyVision Team"
-        ],
-        "venue": "arXiv 2022",
-        "url": "https://arxiv.org/abs/2211.15444"
-      },
-      "originalRepo": "https://github.com/tinyvision/DAMO-YOLO",
-      "trainingDataset": "COCO train2017"
-    },
-    {
       "id": "rtdetrv2",
       "displayName": "RT-DETRv2",
       "organization": "Baidu",

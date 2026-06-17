@@ -173,11 +173,18 @@ export function LeaderboardTable({
               </td>
 
               {/* Data cells */}
-              {COLUMNS.slice(1).map((col) => (
-                <td key={col.key} className={cn("px-2 py-2 font-mono text-sm", col.align === "right" && "text-right")}>
-                  {formatValue(row[col.key as keyof BenchmarkResult] as number, col.format)}
-                </td>
-              ))}
+              {COLUMNS.slice(1).map((col) => {
+                const value = row[col.key as keyof BenchmarkResult] as number;
+                // GFLOPs / mAP-per-GFLOP are unknown for a few models (no published
+                // FLOPs); show a dash rather than a misleading 0.0.
+                const blankZero =
+                  (col.key === "flopsG" || col.key === "mAPPerGflop") && !(value > 0);
+                return (
+                  <td key={col.key} className={cn("px-2 py-2 font-mono text-sm", col.align === "right" && "text-right")}>
+                    {blankZero ? "-" : formatValue(value, col.format)}
+                  </td>
+                );
+              })}
 
               {/* Model link */}
               <td className="px-2 py-2 text-right">

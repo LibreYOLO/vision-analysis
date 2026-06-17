@@ -68,7 +68,7 @@ export function ModelStructuredData({ model, family, benchmarks }: ModelStructur
         name: model.displayName,
         description,
         url: pageUrl,
-        applicationCategory: "Computer vision — object detection",
+        applicationCategory: "Computer vision: object detection",
         programmingLanguage: "Python",
         license: licenseValue(model.license),
         datePublished: model.releaseDate,

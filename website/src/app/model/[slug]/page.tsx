@@ -13,6 +13,7 @@ import {
 } from "@/lib/data";
 import { getFamilyColor } from "@/lib/utils/colors";
 import { formatNumber, formatPercent, formatMs } from "@/lib/utils/format";
+import { libreyoloWeightsFile } from "@/lib/utils/libreyoloWeights";
 import { siteConfig } from "@/config/site";
 import { ModelStructuredData } from "@/components/seo/ModelStructuredData";
 
@@ -300,17 +301,17 @@ export default async function ModelPage({ params }: Props) {
         )}
 
         {/* Code Example */}
-        {model.inLibreYOLO && (
+        {model.inLibreYOLO && libreyoloWeightsFile(model.family, model.variant) && (
           <div className="section-group">
             <div className="section-group-header">
               <h2>Usage with LibreYOLO</h2>
             </div>
             <div className="section-group-content">
               <pre className="bg-surface-dark-card text-white p-4 rounded text-sm overflow-x-auto font-mono">
-                <code>{`from libreyolo import LIBREYOLO
+                <code>{`from libreyolo import LibreYOLO
 
 # Load model (auto-downloads from HuggingFace if not found locally)
-model = LIBREYOLO("${model.family === "yolox" ? `libreyoloX${model.variant}.pt` : model.family === "yolov9" ? `libreyolo9${model.variant}.pt` : `libre${model.family}${model.variant}.pth`}")
+model = LibreYOLO("${libreyoloWeightsFile(model.family, model.variant)}")
 
 # Run inference
 result = model("image.jpg", conf=0.25, iou=0.45)
