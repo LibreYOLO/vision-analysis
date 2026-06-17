@@ -1,0 +1,108 @@
+{
+  "schema_version": "va.submission.v1",
+  "submission_id": "damoyolo-nm-pytorch-cuda-nvidia_geforce_rtx_5070_ti-20260616T215210Z",
+  "created_at": "2026-06-16T21:52:10.408881Z",
+  "benchmark": {
+    "harness": "vision-analysis-benchmark",
+    "harness_version": "2.0.0",
+    "libreyolo_version": "1.2.0.dev0",
+    "libreyolo_commit": "0f1ef8e4d0d275068fadd25009a35c13c2364dc8"
+  },
+  "model": {
+    "id": "damoyolo-nm",
+    "name": "damo-yolo-nm",
+    "family": "damoyolo",
+    "variant": "nm",
+    "source": "libreyolo",
+    "weights": "LibreDAMOYOLOnm.pt",
+    "input_size": 416
+  },
+  "dataset": {
+    "id": "coco2017",
+    "split": "val2017",
+    "num_images": 500
+  },
+  "config": {
+    "batch_size": 1,
+    "input_size": 416,
+    "conf": 0.001,
+    "iou": 0.6,
+    "max_det": 300
+  },
+  "hardware": {
+    "gpu": "NVIDIA GeForce RTX 5070 Ti",
+    "gpu_memory_gb": 15.9,
+    "driver_version": "591.86",
+    "cuda_version": "12.8",
+    "cpu": "AMD64 Family 25 Model 97 Stepping 2, AuthenticAMD",
+    "cpu_cores": 16,
+    "ram_gb": 31,
+    "id": "nvidia_geforce_rtx_5070_ti"
+  },
+  "software": {
+    "python": "3.12.13",
+    "torch": "2.11.0+cu128",
+    "libreyolo": "1.2.0.dev0",
+    "libreyolo_commit": "0f1ef8e4d0d275068fadd25009a35c13c2364dc8",
+    "onnxruntime": "1.26.0"
+  },
+  "accuracy": {
+    "mAP_50_95": 0.4146081148897185,
+    "mAP_50": 0.5890494174114553,
+    "mAP_75": 0.44249435370387585,
+    "mAP_small": 0.2199091509739554,
+    "mAP_medium": 0.46166679766810176,
+    "mAP_large": 0.5959109710145458,
+    "AR1": 0.335473926738394,
+    "AR10": 0.5585368943069206,
+    "AR100": 0.5968211580607176,
+    "AR_small": 0.35888319189716694,
+    "AR_medium": 0.6664035196002773,
+    "AR_large": 0.7837550682844164
+  },
+  "timing": {
+    "batch_size": 1,
+    "num_images": 500,
+    "total_ms": {
+      "mean": 59.808,
+      "std": 10.031,
+      "p50": 59.123,
+      "p95": 67.673,
+      "p99": 72.731,
+      "preprocess_ms": 1.456,
+      "inference_ms": 10.013,
+      "postprocess_ms": 48.339
+    }
+  },
+  "throughput": {
+    "fps_mean": 16.72,
+    "fps_p50": 16.91
+  },
+  "model_stats": {
+    "params_millions": 2.71,
+    "gflops": 0.0
+  },
+  "memory": {
+    "peak_vram_mb": 74.7,
+    "peak_ram_mb": 4.0
+  },
+  "metadata": {
+    "benchmark_date": "2026-06-16T21:52:10.408881Z",
+    "benchmark_version": "2.0.0"
+  },
+  "eval": {
+    "dataset": "coco",
+    "split": "val2017",
+    "numImages": 500
+  },
+  "implementation": {
+    "provider": "libreyolo",
+    "version": "1.2.0.dev0"
+  },
+  "runtime": {
+    "format": "pytorch",
+    "precision": "fp32",
+    "provider": "cuda",
+    "device": "gpu"
+  }
+}
