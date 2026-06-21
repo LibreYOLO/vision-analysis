@@ -1,0 +1,1191 @@
+{
+  "schema": "va.onnxExportParity.v1",
+  "checkedDate": "2026-06-21",
+  "sourceCommit": "02b48e0",
+  "sourcePr": "https://github.com/LibreYOLO/libreyolo/pull/418",
+  "dataset": "COCO val2017 mini500",
+  "datasetSource": "https://huggingface.co/datasets/LibreYOLO/coco-val2017-mini500",
+  "hardware": "NVIDIA GeForce RTX 5070 Ti",
+  "runtime": "PyTorch CUDA vs ONNX Runtime CUDAExecutionProvider",
+  "tolerances": {
+    "abs": 0.001,
+    "rel": 0.002
+  },
+  "scope": "Detection, segmentation, and pose models with complete or experimental ONNX export support in LibreYOLO.",
+  "methodology": "Each case reuses or exports ONNX, validates PyTorch and ONNX on the same 500-image COCO val2017 mini500 dataset, compares task metrics with abs tolerance 0.001 and rel tolerance 0.002, and records the worst metric delta.",
+  "counts": {
+    "total": 102,
+    "passed": 79,
+    "failed": 18,
+    "unavailable": 5,
+    "error": 0
+  },
+  "taskCounts": [
+    {
+      "task": "detect",
+      "total": 74,
+      "passed": 68,
+      "failed": 5,
+      "unavailable": 1
+    },
+    {
+      "task": "segment",
+      "total": 14,
+      "passed": 5,
+      "failed": 5,
+      "unavailable": 4
+    },
+    {
+      "task": "pose",
+      "total": 14,
+      "passed": 6,
+      "failed": 8,
+      "unavailable": 0
+    }
+  ],
+  "claimCounts": [
+    {
+      "claim": "complete",
+      "total": 24,
+      "passed": 8,
+      "failed": 12,
+      "unavailable": 4
+    },
+    {
+      "claim": "experimental",
+      "total": 78,
+      "passed": 71,
+      "failed": 6,
+      "unavailable": 1
+    }
+  ],
+  "failedCases": [
+    {
+      "case": "deimv2-femto",
+      "task": "detect",
+      "claim": "experimental",
+      "worst_metric": "metrics/mAP50",
+      "pytorch": 0.488548393384786,
+      "onnx": 0.48960135890240597,
+      "abs_delta": 0.0010529655176199637,
+      "tolerance": 0.001
+    },
+    {
+      "case": "dfine-n",
+      "task": "detect",
+      "claim": "experimental",
+      "worst_metric": "metrics/mAP50",
+      "pytorch": 0.6261789115045351,
+      "onnx": 0.6277549034906418,
+      "abs_delta": 0.0015759919861066951,
+      "tolerance": 0.0012523578230090701
+    },
+    {
+      "case": "ec-m-pose",
+      "task": "pose",
+      "claim": "experimental",
+      "worst_metric": "metrics/keypoints_AR50-95",
+      "pytorch": 0.4190705128205129,
+      "onnx": 0.4176282051282051,
+      "abs_delta": 0.0014423076923077982,
+      "tolerance": 0.001
+    },
+    {
+      "case": "ec-s-pose",
+      "task": "pose",
+      "claim": "experimental",
+      "worst_metric": "metrics/keypoints_AR75",
+      "pytorch": 0.049679487179487176,
+      "onnx": 0.04807692307692308,
+      "abs_delta": 0.0016025641025640969,
+      "tolerance": 0.001
+    },
+    {
+      "case": "ec-x-pose",
+      "task": "pose",
+      "claim": "experimental",
+      "worst_metric": "metrics/keypoints_AR50",
+      "pytorch": 0.1266025641025641,
+      "onnx": 0.12980769230769232,
+      "abs_delta": 0.0032051282051282215,
+      "tolerance": 0.001
+    },
+    {
+      "case": "rfdetr-l",
+      "task": "detect",
+      "claim": "complete",
+      "worst_metric": "metrics/recall",
+      "pytorch": 0.759612942135538,
+      "onnx": 0.7613526810765282,
+      "abs_delta": 0.0017397389409902209,
+      "tolerance": 0.001519225884271076
+    },
+    {
+      "case": "rfdetr-l-pose",
+      "task": "pose",
+      "claim": "complete",
+      "worst_metric": "metrics/keypoints_AR50",
+      "pytorch": 0.008012820512820512,
+      "onnx": 0.00641025641025641,
+      "abs_delta": 0.001602564102564102,
+      "tolerance": 0.001
+    },
+    {
+      "case": "rfdetr-l-segment",
+      "task": "segment",
+      "claim": "complete",
+      "worst_metric": "metrics/recall(M)",
+      "pytorch": 0.6390329423589284,
+      "onnx": 0.6370010566827808,
+      "abs_delta": 0.002031885676147538,
+      "tolerance": 0.0012780658847178568
+    },
+    {
+      "case": "rfdetr-m-pose",
+      "task": "pose",
+      "claim": "complete",
+      "worst_metric": "metrics/keypoints_AR50",
+      "pytorch": 0.011217948717948718,
+      "onnx": 0.01282051282051282,
+      "abs_delta": 0.001602564102564102,
+      "tolerance": 0.001
+    },
+    {
+      "case": "rfdetr-m-segment",
+      "task": "segment",
+      "claim": "complete",
+      "worst_metric": "metrics/mAP50(M)",
+      "pytorch": 0.7149419530712245,
+      "onnx": 0.7171458408763907,
+      "abs_delta": 0.002203887805166116,
+      "tolerance": 0.0014298839061424491
+    },
+    {
+      "case": "rfdetr-n",
+      "task": "detect",
+      "claim": "complete",
+      "worst_metric": "metrics/recall",
+      "pytorch": 0.6728536574518549,
+      "onnx": 0.6743144867272375,
+      "abs_delta": 0.0014608292753826024,
+      "tolerance": 0.0013457073149037097
+    },
+    {
+      "case": "rfdetr-n-pose",
+      "task": "pose",
+      "claim": "complete",
+      "worst_metric": "metrics/keypoints_AR50",
+      "pytorch": 0.004807692307692308,
+      "onnx": 0.00641025641025641,
+      "abs_delta": 0.001602564102564102,
+      "tolerance": 0.001
+    },
+    {
+      "case": "rfdetr-n-segment",
+      "task": "segment",
+      "claim": "complete",
+      "worst_metric": "metrics/mAP50(M)",
+      "pytorch": 0.665592391605741,
+      "onnx": 0.667874146135667,
+      "abs_delta": 0.002281754529925961,
+      "tolerance": 0.001331184783211482
+    },
+    {
+      "case": "rfdetr-s",
+      "task": "detect",
+      "claim": "complete",
+      "worst_metric": "metrics/recall",
+      "pytorch": 0.7213493418122873,
+      "onnx": 0.7246211589972834,
+      "abs_delta": 0.0032718171849961397,
+      "tolerance": 0.0014426986836245746
+    },
+    {
+      "case": "rfdetr-x-segment",
+      "task": "segment",
+      "claim": "complete",
+      "worst_metric": "metrics/recall(B)",
+      "pytorch": 0.777118935585831,
+      "onnx": 0.7794556473389781,
+      "abs_delta": 0.0023367117531470916,
+      "tolerance": 0.0015542378711716621
+    },
+    {
+      "case": "rfdetr-xx-segment",
+      "task": "segment",
+      "claim": "complete",
+      "worst_metric": "metrics/mAP50(M)",
+      "pytorch": 0.7570910178640811,
+      "onnx": 0.7623666364691736,
+      "abs_delta": 0.005275618605092514,
+      "tolerance": 0.0015141820357281622
+    },
+    {
+      "case": "yolo9-s-pose",
+      "task": "pose",
+      "claim": "complete",
+      "worst_metric": "metrics/keypoints_mAP75",
+      "pytorch": 0.4290175045437676,
+      "onnx": 0.42649420223986734,
+      "abs_delta": 0.0025233023039002433,
+      "tolerance": 0.001
+    },
+    {
+      "case": "yolonas-n-pose",
+      "task": "pose",
+      "claim": "experimental",
+      "worst_metric": "metrics/keypoints_mAP75",
+      "pytorch": 0.6554803995192786,
+      "onnx": 0.6569366109977204,
+      "abs_delta": 0.0014562114784417712,
+      "tolerance": 0.0013109607990385572
+    }
+  ],
+  "unavailableCases": [
+    {
+      "case": "damoyolo-l",
+      "task": "detect",
+      "reason": "DAMO-YOLO-L pretrained weights are not available \u2014 Alibaba's Aliyun bucket was deleted before any mirror picked them up (see github.com/tinyvision/DAMO-YOLO/issues/144). Use size t, s, m, ns, nm, or nl instead, or build size='l' from scratch for training (LibreDAMOYOLO(size='l').train(allow_experimental=True))."
+    },
+    {
+      "case": "yolo9-c-segment",
+      "task": "segment",
+      "reason": "Failed to download weights from https://huggingface.co/LibreYOLO/LibreYOLO9c-seg/resolve/main/LibreYOLO9c-seg.pt: 401 Client Error: Unauthorized for url: https://huggingface.co/LibreYOLO/LibreYOLO9c-seg/resolve/main/LibreYOLO9c-seg.pt"
+    },
+    {
+      "case": "yolo9-m-segment",
+      "task": "segment",
+      "reason": "Failed to download weights from https://huggingface.co/LibreYOLO/LibreYOLO9m-seg/resolve/main/LibreYOLO9m-seg.pt: 401 Client Error: Unauthorized for url: https://huggingface.co/LibreYOLO/LibreYOLO9m-seg/resolve/main/LibreYOLO9m-seg.pt"
+    },
+    {
+      "case": "yolo9-s-segment",
+      "task": "segment",
+      "reason": "Failed to download weights from https://huggingface.co/LibreYOLO/LibreYOLO9s-seg/resolve/main/LibreYOLO9s-seg.pt: 401 Client Error: Unauthorized for url: https://huggingface.co/LibreYOLO/LibreYOLO9s-seg/resolve/main/LibreYOLO9s-seg.pt"
+    },
+    {
+      "case": "yolo9-t-segment",
+      "task": "segment",
+      "reason": "Failed to download weights from https://huggingface.co/LibreYOLO/LibreYOLO9t-seg/resolve/main/LibreYOLO9t-seg.pt: 401 Client Error: Unauthorized for url: https://huggingface.co/LibreYOLO/LibreYOLO9t-seg/resolve/main/LibreYOLO9t-seg.pt"
+    }
+  ],
+  "cases": [
+    {
+      "case": "damoyolo-l",
+      "family": "damoyolo",
+      "size": "l",
+      "task": "detect",
+      "claim": "experimental",
+      "status": "unavailable",
+      "worst_delta": null
+    },
+    {
+      "case": "damoyolo-m",
+      "family": "damoyolo",
+      "size": "m",
+      "task": "detect",
+      "claim": "experimental",
+      "status": "passed",
+      "worst_delta": 0.0007299401266154248
+    },
+    {
+      "case": "damoyolo-nl",
+      "family": "damoyolo",
+      "size": "nl",
+      "task": "detect",
+      "claim": "experimental",
+      "status": "passed",
+      "worst_delta": 0.0003193477250704735
+    },
+    {
+      "case": "damoyolo-nm",
+      "family": "damoyolo",
+      "size": "nm",
+      "task": "detect",
+      "claim": "experimental",
+      "status": "passed",
+      "worst_delta": 0.0001384480454348358
+    },
+    {
+      "case": "damoyolo-ns",
+      "family": "damoyolo",
+      "size": "ns",
+      "task": "detect",
+      "claim": "experimental",
+      "status": "passed",
+      "worst_delta": 0.0004778714776589865
+    },
+    {
+      "case": "damoyolo-s",
+      "family": "damoyolo",
+      "size": "s",
+      "task": "detect",
+      "claim": "experimental",
+      "status": "passed",
+      "worst_delta": 0.000367712918961427
+    },
+    {
+      "case": "damoyolo-t",
+      "family": "damoyolo",
+      "size": "t",
+      "task": "detect",
+      "claim": "experimental",
+      "status": "passed",
+      "worst_delta": 0.00019412010708352856
+    },
+    {
+      "case": "deim-l",
+      "family": "deim",
+      "size": "l",
+      "task": "detect",
+      "claim": "experimental",
+      "status": "passed",
+      "worst_delta": 0.00019894658266816911
+    },
+    {
+      "case": "deim-m",
+      "family": "deim",
+      "size": "m",
+      "task": "detect",
+      "claim": "experimental",
+      "status": "passed",
+      "worst_delta": 0.0004449615511157301
+    },
+    {
+      "case": "deim-n",
+      "family": "deim",
+      "size": "n",
+      "task": "detect",
+      "claim": "experimental",
+      "status": "passed",
+      "worst_delta": 0.00038190832448464773
+    },
+    {
+      "case": "deim-s",
+      "family": "deim",
+      "size": "s",
+      "task": "detect",
+      "claim": "experimental",
+      "status": "passed",
+      "worst_delta": 0.0009080332705654337
+    },
+    {
+      "case": "deim-x",
+      "family": "deim",
+      "size": "x",
+      "task": "detect",
+      "claim": "experimental",
+      "status": "passed",
+      "worst_delta": 0.00019884943407466604
+    },
+    {
+      "case": "deimv2-atto",
+      "family": "deimv2",
+      "size": "atto",
+      "task": "detect",
+      "claim": "experimental",
+      "status": "passed",
+      "worst_delta": 0.0004962759566740638
+    },
+    {
+      "case": "deimv2-femto",
+      "family": "deimv2",
+      "size": "femto",
+      "task": "detect",
+      "claim": "experimental",
+      "status": "failed",
+      "worst_delta": 0.0010529655176199637
+    },
+    {
+      "case": "deimv2-l",
+      "family": "deimv2",
+      "size": "l",
+      "task": "detect",
+      "claim": "experimental",
+      "status": "passed",
+      "worst_delta": 0.00019066048773586086
+    },
+    {
+      "case": "deimv2-m",
+      "family": "deimv2",
+      "size": "m",
+      "task": "detect",
+      "claim": "experimental",
+      "status": "passed",
+      "worst_delta": 0.00014390917010975723
+    },
+    {
+      "case": "deimv2-n",
+      "family": "deimv2",
+      "size": "n",
+      "task": "detect",
+      "claim": "experimental",
+      "status": "passed",
+      "worst_delta": 0.00047815624155933545
+    },
+    {
+      "case": "deimv2-pico",
+      "family": "deimv2",
+      "size": "pico",
+      "task": "detect",
+      "claim": "experimental",
+      "status": "passed",
+      "worst_delta": 0.0004121670749839268
+    },
+    {
+      "case": "deimv2-s",
+      "family": "deimv2",
+      "size": "s",
+      "task": "detect",
+      "claim": "experimental",
+      "status": "passed",
+      "worst_delta": 0.00026187829889023906
+    },
+    {
+      "case": "deimv2-x",
+      "family": "deimv2",
+      "size": "x",
+      "task": "detect",
+      "claim": "experimental",
+      "status": "passed",
+      "worst_delta": 0.00046549137660023554
+    },
+    {
+      "case": "dfine-l",
+      "family": "dfine",
+      "size": "l",
+      "task": "detect",
+      "claim": "experimental",
+      "status": "passed",
+      "worst_delta": 0.0003704370529560297
+    },
+    {
+      "case": "dfine-m",
+      "family": "dfine",
+      "size": "m",
+      "task": "detect",
+      "claim": "experimental",
+      "status": "passed",
+      "worst_delta": 0.0008516934200014648
+    },
+    {
+      "case": "dfine-n",
+      "family": "dfine",
+      "size": "n",
+      "task": "detect",
+      "claim": "experimental",
+      "status": "failed",
+      "worst_delta": 0.0015759919861066951
+    },
+    {
+      "case": "dfine-s",
+      "family": "dfine",
+      "size": "s",
+      "task": "detect",
+      "claim": "experimental",
+      "status": "passed",
+      "worst_delta": 0.0006388347651917758
+    },
+    {
+      "case": "dfine-x",
+      "family": "dfine",
+      "size": "x",
+      "task": "detect",
+      "claim": "experimental",
+      "status": "passed",
+      "worst_delta": 0.0005575647982742904
+    },
+    {
+      "case": "ec-l",
+      "family": "ec",
+      "size": "l",
+      "task": "detect",
+      "claim": "experimental",
+      "status": "passed",
+      "worst_delta": 0.00030697444368898985
+    },
+    {
+      "case": "ec-l-pose",
+      "family": "ec",
+      "size": "l",
+      "task": "pose",
+      "claim": "experimental",
+      "status": "passed",
+      "worst_delta": 0.00015057667063398772
+    },
+    {
+      "case": "ec-l-segment",
+      "family": "ec",
+      "size": "l",
+      "task": "segment",
+      "claim": "experimental",
+      "status": "passed",
+      "worst_delta": 0.000400587173993161
+    },
+    {
+      "case": "ec-m",
+      "family": "ec",
+      "size": "m",
+      "task": "detect",
+      "claim": "experimental",
+      "status": "passed",
+      "worst_delta": 0.00017062855848093417
+    },
+    {
+      "case": "ec-m-pose",
+      "family": "ec",
+      "size": "m",
+      "task": "pose",
+      "claim": "experimental",
+      "status": "failed",
+      "worst_delta": 0.0014423076923077982
+    },
+    {
+      "case": "ec-m-segment",
+      "family": "ec",
+      "size": "m",
+      "task": "segment",
+      "claim": "experimental",
+      "status": "passed",
+      "worst_delta": 0.0002758619494342973
+    },
+    {
+      "case": "ec-s",
+      "family": "ec",
+      "size": "s",
+      "task": "detect",
+      "claim": "experimental",
+      "status": "passed",
+      "worst_delta": 9.272562560558306e-05
+    },
+    {
+      "case": "ec-s-pose",
+      "family": "ec",
+      "size": "s",
+      "task": "pose",
+      "claim": "experimental",
+      "status": "failed",
+      "worst_delta": 0.0016025641025640969
+    },
+    {
+      "case": "ec-s-segment",
+      "family": "ec",
+      "size": "s",
+      "task": "segment",
+      "claim": "experimental",
+      "status": "passed",
+      "worst_delta": 0.0002298587674930408
+    },
+    {
+      "case": "ec-x",
+      "family": "ec",
+      "size": "x",
+      "task": "detect",
+      "claim": "experimental",
+      "status": "passed",
+      "worst_delta": 0.00013363545094469131
+    },
+    {
+      "case": "ec-x-pose",
+      "family": "ec",
+      "size": "x",
+      "task": "pose",
+      "claim": "experimental",
+      "status": "failed",
+      "worst_delta": 0.0032051282051282215
+    },
+    {
+      "case": "ec-x-segment",
+      "family": "ec",
+      "size": "x",
+      "task": "segment",
+      "claim": "experimental",
+      "status": "passed",
+      "worst_delta": 0.0005113311011331056
+    },
+    {
+      "case": "picodet-l",
+      "family": "picodet",
+      "size": "l",
+      "task": "detect",
+      "claim": "experimental",
+      "status": "passed",
+      "worst_delta": 0.0004054636063717809
+    },
+    {
+      "case": "picodet-m",
+      "family": "picodet",
+      "size": "m",
+      "task": "detect",
+      "claim": "experimental",
+      "status": "passed",
+      "worst_delta": 0.00024133335428178082
+    },
+    {
+      "case": "picodet-s",
+      "family": "picodet",
+      "size": "s",
+      "task": "detect",
+      "claim": "experimental",
+      "status": "passed",
+      "worst_delta": 0.00022057141993264695
+    },
+    {
+      "case": "rfdetr-l",
+      "family": "rfdetr",
+      "size": "l",
+      "task": "detect",
+      "claim": "complete",
+      "status": "failed",
+      "worst_delta": 0.0017397389409902209
+    },
+    {
+      "case": "rfdetr-l-pose",
+      "family": "rfdetr",
+      "size": "l",
+      "task": "pose",
+      "claim": "complete",
+      "status": "failed",
+      "worst_delta": 0.001602564102564102
+    },
+    {
+      "case": "rfdetr-l-segment",
+      "family": "rfdetr",
+      "size": "l",
+      "task": "segment",
+      "claim": "complete",
+      "status": "failed",
+      "worst_delta": 0.002031885676147538
+    },
+    {
+      "case": "rfdetr-m",
+      "family": "rfdetr",
+      "size": "m",
+      "task": "detect",
+      "claim": "complete",
+      "status": "passed",
+      "worst_delta": 0.0008728196747859185
+    },
+    {
+      "case": "rfdetr-m-pose",
+      "family": "rfdetr",
+      "size": "m",
+      "task": "pose",
+      "claim": "complete",
+      "status": "failed",
+      "worst_delta": 0.001602564102564102
+    },
+    {
+      "case": "rfdetr-m-segment",
+      "family": "rfdetr",
+      "size": "m",
+      "task": "segment",
+      "claim": "complete",
+      "status": "failed",
+      "worst_delta": 0.002203887805166116
+    },
+    {
+      "case": "rfdetr-n",
+      "family": "rfdetr",
+      "size": "n",
+      "task": "detect",
+      "claim": "complete",
+      "status": "failed",
+      "worst_delta": 0.0014608292753826024
+    },
+    {
+      "case": "rfdetr-n-pose",
+      "family": "rfdetr",
+      "size": "n",
+      "task": "pose",
+      "claim": "complete",
+      "status": "failed",
+      "worst_delta": 0.001602564102564102
+    },
+    {
+      "case": "rfdetr-n-segment",
+      "family": "rfdetr",
+      "size": "n",
+      "task": "segment",
+      "claim": "complete",
+      "status": "failed",
+      "worst_delta": 0.002281754529925961
+    },
+    {
+      "case": "rfdetr-s",
+      "family": "rfdetr",
+      "size": "s",
+      "task": "detect",
+      "claim": "complete",
+      "status": "failed",
+      "worst_delta": 0.0032718171849961397
+    },
+    {
+      "case": "rfdetr-s-pose",
+      "family": "rfdetr",
+      "size": "s",
+      "task": "pose",
+      "claim": "complete",
+      "status": "passed",
+      "worst_delta": 5.86485952578815e-07
+    },
+    {
+      "case": "rfdetr-s-segment",
+      "family": "rfdetr",
+      "size": "s",
+      "task": "segment",
+      "claim": "complete",
+      "status": "passed",
+      "worst_delta": 0.0013778908227636277
+    },
+    {
+      "case": "rfdetr-x-pose",
+      "family": "rfdetr",
+      "size": "x",
+      "task": "pose",
+      "claim": "complete",
+      "status": "passed",
+      "worst_delta": 0.001602564102564208
+    },
+    {
+      "case": "rfdetr-x-segment",
+      "family": "rfdetr",
+      "size": "x",
+      "task": "segment",
+      "claim": "complete",
+      "status": "failed",
+      "worst_delta": 0.0023367117531470916
+    },
+    {
+      "case": "rfdetr-xx-segment",
+      "family": "rfdetr",
+      "size": "xx",
+      "task": "segment",
+      "claim": "complete",
+      "status": "failed",
+      "worst_delta": 0.005275618605092514
+    },
+    {
+      "case": "rtdetr-l",
+      "family": "rtdetr",
+      "size": "l",
+      "task": "detect",
+      "claim": "experimental",
+      "status": "passed",
+      "worst_delta": 0.00017858116606783714
+    },
+    {
+      "case": "rtdetr-r101",
+      "family": "rtdetr",
+      "size": "r101",
+      "task": "detect",
+      "claim": "experimental",
+      "status": "passed",
+      "worst_delta": 0.00030123492750633307
+    },
+    {
+      "case": "rtdetr-r18",
+      "family": "rtdetr",
+      "size": "r18",
+      "task": "detect",
+      "claim": "experimental",
+      "status": "passed",
+      "worst_delta": 0.0003782334623334549
+    },
+    {
+      "case": "rtdetr-r34",
+      "family": "rtdetr",
+      "size": "r34",
+      "task": "detect",
+      "claim": "experimental",
+      "status": "passed",
+      "worst_delta": 0.00015618022081376193
+    },
+    {
+      "case": "rtdetr-r50",
+      "family": "rtdetr",
+      "size": "r50",
+      "task": "detect",
+      "claim": "experimental",
+      "status": "passed",
+      "worst_delta": 0.00023633688036350797
+    },
+    {
+      "case": "rtdetr-r50m",
+      "family": "rtdetr",
+      "size": "r50m",
+      "task": "detect",
+      "claim": "experimental",
+      "status": "passed",
+      "worst_delta": 0.0002639412556730836
+    },
+    {
+      "case": "rtdetr-x",
+      "family": "rtdetr",
+      "size": "x",
+      "task": "detect",
+      "claim": "experimental",
+      "status": "passed",
+      "worst_delta": 0.0004295460505033821
+    },
+    {
+      "case": "rtdetrv2-r101",
+      "family": "rtdetrv2",
+      "size": "r101",
+      "task": "detect",
+      "claim": "experimental",
+      "status": "passed",
+      "worst_delta": 0.0004047564074820542
+    },
+    {
+      "case": "rtdetrv2-r18",
+      "family": "rtdetrv2",
+      "size": "r18",
+      "task": "detect",
+      "claim": "experimental",
+      "status": "passed",
+      "worst_delta": 0.00017053246569576075
+    },
+    {
+      "case": "rtdetrv2-r34",
+      "family": "rtdetrv2",
+      "size": "r34",
+      "task": "detect",
+      "claim": "experimental",
+      "status": "passed",
+      "worst_delta": 0.00020964841998682981
+    },
+    {
+      "case": "rtdetrv2-r50",
+      "family": "rtdetrv2",
+      "size": "r50",
+      "task": "detect",
+      "claim": "experimental",
+      "status": "passed",
+      "worst_delta": 0.00016365013812813523
+    },
+    {
+      "case": "rtdetrv2-r50m",
+      "family": "rtdetrv2",
+      "size": "r50m",
+      "task": "detect",
+      "claim": "experimental",
+      "status": "passed",
+      "worst_delta": 0.0009955426251566646
+    },
+    {
+      "case": "rtdetrv4-l",
+      "family": "rtdetrv4",
+      "size": "l",
+      "task": "detect",
+      "claim": "experimental",
+      "status": "passed",
+      "worst_delta": 0.0002453561900688239
+    },
+    {
+      "case": "rtdetrv4-m",
+      "family": "rtdetrv4",
+      "size": "m",
+      "task": "detect",
+      "claim": "experimental",
+      "status": "passed",
+      "worst_delta": 0.0009895584019707915
+    },
+    {
+      "case": "rtdetrv4-s",
+      "family": "rtdetrv4",
+      "size": "s",
+      "task": "detect",
+      "claim": "experimental",
+      "status": "passed",
+      "worst_delta": 0.0007045090284510946
+    },
+    {
+      "case": "rtdetrv4-x",
+      "family": "rtdetrv4",
+      "size": "x",
+      "task": "detect",
+      "claim": "experimental",
+      "status": "passed",
+      "worst_delta": 0.00017245962761924805
+    },
+    {
+      "case": "rtmdet-l",
+      "family": "rtmdet",
+      "size": "l",
+      "task": "detect",
+      "claim": "experimental",
+      "status": "passed",
+      "worst_delta": 0.00023739562507241185
+    },
+    {
+      "case": "rtmdet-m",
+      "family": "rtmdet",
+      "size": "m",
+      "task": "detect",
+      "claim": "experimental",
+      "status": "passed",
+      "worst_delta": 0.00018862747954173642
+    },
+    {
+      "case": "rtmdet-s",
+      "family": "rtmdet",
+      "size": "s",
+      "task": "detect",
+      "claim": "experimental",
+      "status": "passed",
+      "worst_delta": 0.001206803593105099
+    },
+    {
+      "case": "rtmdet-t",
+      "family": "rtmdet",
+      "size": "t",
+      "task": "detect",
+      "claim": "experimental",
+      "status": "passed",
+      "worst_delta": 0.0003192298900214219
+    },
+    {
+      "case": "rtmdet-x",
+      "family": "rtmdet",
+      "size": "x",
+      "task": "detect",
+      "claim": "experimental",
+      "status": "passed",
+      "worst_delta": 0.0001113549334822439
+    },
+    {
+      "case": "yolo9-c",
+      "family": "yolo9",
+      "size": "c",
+      "task": "detect",
+      "claim": "complete",
+      "status": "passed",
+      "worst_delta": 0.0004284930390532349
+    },
+    {
+      "case": "yolo9-c-segment",
+      "family": "yolo9",
+      "size": "c",
+      "task": "segment",
+      "claim": "complete",
+      "status": "unavailable",
+      "worst_delta": null
+    },
+    {
+      "case": "yolo9-m",
+      "family": "yolo9",
+      "size": "m",
+      "task": "detect",
+      "claim": "complete",
+      "status": "passed",
+      "worst_delta": 0.00034812029956754476
+    },
+    {
+      "case": "yolo9-m-segment",
+      "family": "yolo9",
+      "size": "m",
+      "task": "segment",
+      "claim": "complete",
+      "status": "unavailable",
+      "worst_delta": null
+    },
+    {
+      "case": "yolo9-s",
+      "family": "yolo9",
+      "size": "s",
+      "task": "detect",
+      "claim": "complete",
+      "status": "passed",
+      "worst_delta": 0.00024148560879011516
+    },
+    {
+      "case": "yolo9-s-pose",
+      "family": "yolo9",
+      "size": "s",
+      "task": "pose",
+      "claim": "complete",
+      "status": "failed",
+      "worst_delta": 0.0025233023039002433
+    },
+    {
+      "case": "yolo9-s-segment",
+      "family": "yolo9",
+      "size": "s",
+      "task": "segment",
+      "claim": "complete",
+      "status": "unavailable",
+      "worst_delta": null
+    },
+    {
+      "case": "yolo9-t",
+      "family": "yolo9",
+      "size": "t",
+      "task": "detect",
+      "claim": "complete",
+      "status": "passed",
+      "worst_delta": 0.0010363853877417561
+    },
+    {
+      "case": "yolo9-t-segment",
+      "family": "yolo9",
+      "size": "t",
+      "task": "segment",
+      "claim": "complete",
+      "status": "unavailable",
+      "worst_delta": null
+    },
+    {
+      "case": "yolo9_e2e-c",
+      "family": "yolo9_e2e",
+      "size": "c",
+      "task": "detect",
+      "claim": "experimental",
+      "status": "passed",
+      "worst_delta": 0.00013948819178910554
+    },
+    {
+      "case": "yolo9_e2e-m",
+      "family": "yolo9_e2e",
+      "size": "m",
+      "task": "detect",
+      "claim": "experimental",
+      "status": "passed",
+      "worst_delta": 0.00017358561081437518
+    },
+    {
+      "case": "yolo9_e2e-s",
+      "family": "yolo9_e2e",
+      "size": "s",
+      "task": "detect",
+      "claim": "experimental",
+      "status": "passed",
+      "worst_delta": 0.00017722447354995285
+    },
+    {
+      "case": "yolo9_e2e-t",
+      "family": "yolo9_e2e",
+      "size": "t",
+      "task": "detect",
+      "claim": "experimental",
+      "status": "passed",
+      "worst_delta": 9.887629975019463e-05
+    },
+    {
+      "case": "yolonas-l",
+      "family": "yolonas",
+      "size": "l",
+      "task": "detect",
+      "claim": "experimental",
+      "status": "passed",
+      "worst_delta": 0.0002329406164855996
+    },
+    {
+      "case": "yolonas-l-pose",
+      "family": "yolonas",
+      "size": "l",
+      "task": "pose",
+      "claim": "experimental",
+      "status": "passed",
+      "worst_delta": 0.0001602564102565207
+    },
+    {
+      "case": "yolonas-m",
+      "family": "yolonas",
+      "size": "m",
+      "task": "detect",
+      "claim": "experimental",
+      "status": "passed",
+      "worst_delta": 0.00013007948306542616
+    },
+    {
+      "case": "yolonas-m-pose",
+      "family": "yolonas",
+      "size": "m",
+      "task": "pose",
+      "claim": "experimental",
+      "status": "passed",
+      "worst_delta": 0.0003096102059743089
+    },
+    {
+      "case": "yolonas-n-pose",
+      "family": "yolonas",
+      "size": "n",
+      "task": "pose",
+      "claim": "experimental",
+      "status": "failed",
+      "worst_delta": 0.0014562114784417712
+    },
+    {
+      "case": "yolonas-s",
+      "family": "yolonas",
+      "size": "s",
+      "task": "detect",
+      "claim": "experimental",
+      "status": "passed",
+      "worst_delta": 0.00016855562363038423
+    },
+    {
+      "case": "yolonas-s-pose",
+      "family": "yolonas",
+      "size": "s",
+      "task": "pose",
+      "claim": "experimental",
+      "status": "passed",
+      "worst_delta": 0.00032051282051270835
+    },
+    {
+      "case": "yolox-l",
+      "family": "yolox",
+      "size": "l",
+      "task": "detect",
+      "claim": "experimental",
+      "status": "passed",
+      "worst_delta": 0.00019369894116394448
+    },
+    {
+      "case": "yolox-m",
+      "family": "yolox",
+      "size": "m",
+      "task": "detect",
+      "claim": "experimental",
+      "status": "passed",
+      "worst_delta": 0.0005291409850740614
+    },
+    {
+      "case": "yolox-n",
+      "family": "yolox",
+      "size": "n",
+      "task": "detect",
+      "claim": "experimental",
+      "status": "passed",
+      "worst_delta": 0.0008640283138494631
+    },
+    {
+      "case": "yolox-s",
+      "family": "yolox",
+      "size": "s",
+      "task": "detect",
+      "claim": "experimental",
+      "status": "passed",
+      "worst_delta": 0.0003450376403025812
+    },
+    {
+      "case": "yolox-t",
+      "family": "yolox",
+      "size": "t",
+      "task": "detect",
+      "claim": "experimental",
+      "status": "passed",
+      "worst_delta": 0.00017471942015656605
+    },
+    {
+      "case": "yolox-x",
+      "family": "yolox",
+      "size": "x",
+      "task": "detect",
+      "claim": "experimental",
+      "status": "passed",
+      "worst_delta": 0.00028576338414398883
+    }
+  ]
+}
