@@ -36,7 +36,19 @@ type OnnxCase = {
   task: string;
   claim: string;
   status: string;
-  worst_delta: number | null;
+  worst_metric: string | null;
+  pytorch: number | null;
+  onnx: number | null;
+  abs_delta: number | null;
+  tolerance: number | null;
+  metrics: {
+    metric: string;
+    pytorch: number | null;
+    onnx: number | null;
+    abs_delta: number | null;
+    tolerance: number | null;
+    passed: boolean;
+  }[];
 };
 
 type OnnxFailedCase = {
@@ -314,7 +326,7 @@ export default function ParityPage() {
 
         <details className="rounded-md border border-border bg-card overflow-hidden mb-6">
           <summary className="cursor-pointer px-4 py-3 font-semibold bg-muted/30 border-b border-border">
-            Unavailable exports and full case matrix
+            Unavailable exports and full case matrix with PyTorch and ONNX values
           </summary>
           <div className="overflow-x-auto">
             <table className="w-full text-sm">
@@ -346,7 +358,11 @@ export default function ParityPage() {
                   <th className="text-left font-medium px-3 py-2">Task</th>
                   <th className="text-left font-medium px-3 py-2">Claim</th>
                   <th className="text-left font-medium px-3 py-2">Status</th>
-                  <th className="text-right font-medium px-4 py-2">Worst delta</th>
+                  <th className="text-left font-medium px-3 py-2">Worst metric</th>
+                  <th className="text-right font-medium px-3 py-2">PyTorch</th>
+                  <th className="text-right font-medium px-3 py-2">ONNX</th>
+                  <th className="text-right font-medium px-3 py-2">Delta</th>
+                  <th className="text-right font-medium px-4 py-2">Tolerance</th>
                 </tr>
               </thead>
               <tbody>
@@ -357,7 +373,13 @@ export default function ParityPage() {
                     <td className="px-3 py-2 text-muted-foreground">{row.task}</td>
                     <td className="px-3 py-2 text-muted-foreground">{row.claim}</td>
                     <td className={`px-3 py-2 font-medium ${statusClass(row.status)}`}>{row.status}</td>
-                    <td className="px-4 py-2 text-right tabular-nums">{fmtSmall(row.worst_delta)}</td>
+                    <td className="px-3 py-2 text-xs">{row.worst_metric ?? "-"}</td>
+                    <td className="px-3 py-2 text-right tabular-nums">{fmtSmall(row.pytorch)}</td>
+                    <td className="px-3 py-2 text-right tabular-nums">{fmtSmall(row.onnx)}</td>
+                    <td className={`px-3 py-2 text-right tabular-nums font-medium ${statusClass(row.status)}`}>
+                      {fmtSmall(row.abs_delta)}
+                    </td>
+                    <td className="px-4 py-2 text-right tabular-nums">{fmtSmall(row.tolerance)}</td>
                   </tr>
                 ))}
               </tbody>
