@@ -109,16 +109,35 @@ function fmtDate(iso: string): string {
   return `${day}/${m}/${y}`;
 }
 
-function statusClass(status: string): string {
-  if (status === "passed") return "text-green-500";
-  if (status === "failed") return "text-red-500";
-  if (status === "unavailable") return "text-yellow-500";
-  return "text-muted-foreground";
+function statusPillClass(status: string): string {
+  if (status === "passed") return "border-green-500/30 bg-green-500/10 text-green-600";
+  if (status === "failed") return "border-red-500/30 bg-red-500/10 text-red-600";
+  if (status === "unavailable") return "border-yellow-500/30 bg-yellow-500/10 text-yellow-600";
+  return "border-border bg-muted text-muted-foreground";
+}
+
+function metricDeltaClass(passed: boolean, delta: number | null): string {
+  if (delta === null) return "text-muted-foreground";
+  return passed ? "text-green-500" : "text-red-500";
+}
+
+function compactMetricName(metric: string): string {
+  return metric.replace(/^metrics\//, "");
 }
 
 export default function ParityPage() {
   const p = parity as typeof parity & { families: { family: string; displayName: string; variants: Variant[] }[] };
   const onnx = onnxExportParity as OnnxParity;
+  const unavailableByCase = new Map(onnx.unavailableCases.map((row) => [row.case, row.reason]));
+  const onnxFamilies = onnx.cases.reduce((groups, row) => {
+    const cases = groups.get(row.family);
+    if (cases) {
+      cases.push(row);
+    } else {
+      groups.set(row.family, [row]);
+    }
+    return groups;
+  }, new Map<string, OnnxCase[]>());
 
   return (
     <div className="container mx-auto px-4 py-8 max-w-5xl">
@@ -207,11 +226,7 @@ export default function ParityPage() {
           </div>
           <p className="text-muted-foreground mt-3 leading-relaxed">{onnx.methodology}</p>
           <div className="mt-3 text-xs text-muted-foreground">
-            Runtime: {onnx.runtime}. Tolerances: abs {onnx.tolerances.abs}, rel {onnx.tolerances.rel}. Source:{" "}
-            <a href={onnx.sourcePr} target="_blank" rel="noopener noreferrer" className="text-brand hover:underline">
-              LibreYOLO PR 418
-            </a>
-            .
+            Runtime: {onnx.runtime}. Tolerances: abs {onnx.tolerances.abs}, rel {onnx.tolerances.rel}.
           </div>
         </div>
 
@@ -288,104 +303,100 @@ export default function ParityPage() {
           </div>
         </div>
 
-        <div className="rounded-md border border-border bg-card overflow-hidden mb-6">
-          <div className="px-4 py-2.5 border-b border-border bg-muted/30">
-            <h3 className="font-semibold">Cases over tolerance</h3>
-          </div>
-          <div className="overflow-x-auto">
-            <table className="w-full text-sm">
-              <thead>
-                <tr className="text-muted-foreground text-xs border-b border-border">
-                  <th className="text-left font-medium px-4 py-2">Case</th>
-                  <th className="text-left font-medium px-3 py-2">Task</th>
-                  <th className="text-left font-medium px-3 py-2">Claim</th>
-                  <th className="text-left font-medium px-3 py-2">Worst metric</th>
-                  <th className="text-right font-medium px-3 py-2">PyTorch</th>
-                  <th className="text-right font-medium px-3 py-2">ONNX</th>
-                  <th className="text-right font-medium px-3 py-2">Delta</th>
-                  <th className="text-right font-medium px-4 py-2">Tolerance</th>
-                </tr>
-              </thead>
-              <tbody>
-                {onnx.failedCases.map((row) => (
-                  <tr key={row.case} className="border-b border-border/50 last:border-0 hover:bg-muted/20">
-                    <td className="px-4 py-2 font-medium">{row.case}</td>
-                    <td className="px-3 py-2 text-muted-foreground">{row.task}</td>
-                    <td className="px-3 py-2 text-muted-foreground">{row.claim}</td>
-                    <td className="px-3 py-2 text-xs">{row.worst_metric}</td>
-                    <td className="px-3 py-2 text-right tabular-nums">{fmtSmall(row.pytorch)}</td>
-                    <td className="px-3 py-2 text-right tabular-nums">{fmtSmall(row.onnx)}</td>
-                    <td className="px-3 py-2 text-right tabular-nums text-red-500 font-medium">{fmtSmall(row.abs_delta)}</td>
-                    <td className="px-4 py-2 text-right tabular-nums">{fmtSmall(row.tolerance)}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+        <div className="space-y-8">
+          {Array.from(onnxFamilies, ([family, cases]) => {
+            const familyCounts = cases.reduce(
+              (acc, row) => {
+                acc.total += 1;
+                if (row.status === "passed") acc.passed += 1;
+                if (row.status === "failed") acc.failed += 1;
+                if (row.status === "unavailable") acc.unavailable += 1;
+                return acc;
+              },
+              { total: 0, passed: 0, failed: 0, unavailable: 0 },
+            );
+
+            return (
+              <section key={family}>
+                <div className="flex flex-wrap items-end justify-between gap-2 mb-3">
+                  <div>
+                    <h3 className="text-lg font-semibold">{family}</h3>
+                    <p className="text-xs text-muted-foreground">
+                      {familyCounts.passed} passed, {familyCounts.failed} failed, {familyCounts.unavailable} unavailable
+                    </p>
+                  </div>
+                  <div className="text-xs text-muted-foreground tabular-nums">{familyCounts.total} cases</div>
+                </div>
+
+                <div className="grid gap-4 lg:grid-cols-2">
+                  {cases.map((row) => (
+                    <article key={row.case} className="rounded-md border border-border bg-card overflow-hidden">
+                      <div className="px-4 py-3 border-b border-border bg-muted/30 flex flex-wrap items-start justify-between gap-2">
+                        <div>
+                          <h4 className="font-semibold leading-tight">{row.case}</h4>
+                          <div className="mt-1 flex flex-wrap gap-x-3 gap-y-1 text-xs text-muted-foreground">
+                            <span>{row.task}</span>
+                            <span>{row.claim}</span>
+                            {row.worst_metric ? <span>worst: {compactMetricName(row.worst_metric)}</span> : null}
+                          </div>
+                        </div>
+                        <span className={`rounded-full border px-2 py-0.5 text-xs font-medium ${statusPillClass(row.status)}`}>
+                          {row.status}
+                        </span>
+                      </div>
+
+                      {row.metrics.length > 0 ? (
+                        <div className="overflow-x-auto">
+                          <table className="w-full text-sm">
+                            <thead>
+                              <tr className="text-muted-foreground text-xs border-b border-border">
+                                <th className="text-left font-medium px-4 py-2">Metric</th>
+                                <th className="text-right font-medium px-3 py-2">PyTorch</th>
+                                <th className="text-right font-medium px-3 py-2">ONNX</th>
+                                <th className="text-right font-medium px-3 py-2">Delta</th>
+                                <th className="text-right font-medium px-4 py-2">Tolerance</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              {row.metrics.map((metric) => {
+                                const isWorst = metric.metric === row.worst_metric;
+                                const isFailed = !metric.passed;
+
+                                return (
+                                  <tr
+                                    key={metric.metric}
+                                    className={`border-b border-border/50 last:border-0 ${
+                                      isFailed ? "bg-red-500/5" : isWorst ? "bg-muted/20" : "hover:bg-muted/20"
+                                    }`}
+                                  >
+                                    <td className="px-4 py-2 text-xs">
+                                      <span className="font-medium">{compactMetricName(metric.metric)}</span>
+                                      {isWorst ? <span className="ml-2 text-muted-foreground">worst</span> : null}
+                                    </td>
+                                    <td className="px-3 py-2 text-right tabular-nums">{fmtSmall(metric.pytorch)}</td>
+                                    <td className="px-3 py-2 text-right tabular-nums">{fmtSmall(metric.onnx)}</td>
+                                    <td className={`px-3 py-2 text-right tabular-nums font-medium ${metricDeltaClass(metric.passed, metric.abs_delta)}`}>
+                                      {fmtSmall(metric.abs_delta)}
+                                    </td>
+                                    <td className="px-4 py-2 text-right tabular-nums text-muted-foreground">{fmtSmall(metric.tolerance)}</td>
+                                  </tr>
+                                );
+                              })}
+                            </tbody>
+                          </table>
+                        </div>
+                      ) : (
+                        <div className="px-4 py-3 text-sm text-muted-foreground">
+                          {unavailableByCase.get(row.case) ?? "No ONNX parity metrics were produced for this case."}
+                        </div>
+                      )}
+                    </article>
+                  ))}
+                </div>
+              </section>
+            );
+          })}
         </div>
-
-        <details className="rounded-md border border-border bg-card overflow-hidden mb-6">
-          <summary className="cursor-pointer px-4 py-3 font-semibold bg-muted/30 border-b border-border">
-            Unavailable exports and full case matrix with PyTorch and ONNX values
-          </summary>
-          <div className="overflow-x-auto">
-            <table className="w-full text-sm">
-              <thead>
-                <tr className="text-muted-foreground text-xs border-b border-border">
-                  <th className="text-left font-medium px-4 py-2">Case</th>
-                  <th className="text-left font-medium px-3 py-2">Task</th>
-                  <th className="text-left font-medium px-4 py-2">Reason</th>
-                </tr>
-              </thead>
-              <tbody>
-                {onnx.unavailableCases.map((row) => (
-                  <tr key={row.case} className="border-b border-border/50 last:border-0">
-                    <td className="px-4 py-2 font-medium">{row.case}</td>
-                    <td className="px-3 py-2 text-muted-foreground">{row.task}</td>
-                    <td className="px-4 py-2 text-xs text-muted-foreground">{row.reason}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-
-          <div className="overflow-x-auto border-t border-border">
-            <table className="w-full text-sm">
-              <thead>
-                <tr className="text-muted-foreground text-xs border-b border-border">
-                  <th className="text-left font-medium px-4 py-2">Case</th>
-                  <th className="text-left font-medium px-3 py-2">Family</th>
-                  <th className="text-left font-medium px-3 py-2">Task</th>
-                  <th className="text-left font-medium px-3 py-2">Claim</th>
-                  <th className="text-left font-medium px-3 py-2">Status</th>
-                  <th className="text-left font-medium px-3 py-2">Worst metric</th>
-                  <th className="text-right font-medium px-3 py-2">PyTorch</th>
-                  <th className="text-right font-medium px-3 py-2">ONNX</th>
-                  <th className="text-right font-medium px-3 py-2">Delta</th>
-                  <th className="text-right font-medium px-4 py-2">Tolerance</th>
-                </tr>
-              </thead>
-              <tbody>
-                {onnx.cases.map((row) => (
-                  <tr key={row.case} className="border-b border-border/50 last:border-0 hover:bg-muted/20">
-                    <td className="px-4 py-2 font-medium">{row.case}</td>
-                    <td className="px-3 py-2 text-muted-foreground">{row.family}</td>
-                    <td className="px-3 py-2 text-muted-foreground">{row.task}</td>
-                    <td className="px-3 py-2 text-muted-foreground">{row.claim}</td>
-                    <td className={`px-3 py-2 font-medium ${statusClass(row.status)}`}>{row.status}</td>
-                    <td className="px-3 py-2 text-xs">{row.worst_metric ?? "-"}</td>
-                    <td className="px-3 py-2 text-right tabular-nums">{fmtSmall(row.pytorch)}</td>
-                    <td className="px-3 py-2 text-right tabular-nums">{fmtSmall(row.onnx)}</td>
-                    <td className={`px-3 py-2 text-right tabular-nums font-medium ${statusClass(row.status)}`}>
-                      {fmtSmall(row.abs_delta)}
-                    </td>
-                    <td className="px-4 py-2 text-right tabular-nums">{fmtSmall(row.tolerance)}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </details>
       </section>
 
       <p className="text-xs text-muted-foreground mt-8 leading-relaxed">
