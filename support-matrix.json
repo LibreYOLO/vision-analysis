@@ -103,6 +103,69 @@
         "fp32",
         "fp16"
       ]
+    },
+    {
+      "backend": "torchscript",
+      "providers": [
+        "cpu",
+        "cuda"
+      ],
+      "precisions": [
+        "fp32",
+        "fp16"
+      ]
+    },
+    {
+      "backend": "ncnn",
+      "providers": [
+        "cpu"
+      ],
+      "precisions": [
+        "fp32",
+        "fp16"
+      ]
+    },
+    {
+      "backend": "openvino",
+      "providers": [
+        "cpu"
+      ],
+      "precisions": [
+        "fp32",
+        "fp16",
+        "int8"
+      ]
+    },
+    {
+      "backend": "tflite",
+      "providers": [
+        "cpu"
+      ],
+      "precisions": [
+        "fp32",
+        "fp16",
+        "int8"
+      ]
+    },
+    {
+      "backend": "coreml",
+      "providers": [
+        "cpu",
+        "gpu"
+      ],
+      "precisions": [
+        "fp32",
+        "fp16"
+      ]
+    },
+    {
+      "backend": "hailo",
+      "providers": [
+        "hailort"
+      ],
+      "precisions": [
+        "int8"
+      ]
     }
   ]
 }

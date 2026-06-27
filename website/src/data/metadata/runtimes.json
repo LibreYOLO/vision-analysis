@@ -27,6 +27,97 @@
       "format": "tensorrt",
       "precision": "fp16",
       "device": "gpu"
+    },
+    {
+      "id": "torchscript_fp32",
+      "displayName": "TorchScript FP32",
+      "format": "torchscript",
+      "precision": "fp32",
+      "device": "cpu"
+    },
+    {
+      "id": "torchscript_fp16",
+      "displayName": "TorchScript FP16",
+      "format": "torchscript",
+      "precision": "fp16",
+      "device": "gpu"
+    },
+    {
+      "id": "ncnn_fp32",
+      "displayName": "ncnn FP32",
+      "format": "ncnn",
+      "precision": "fp32",
+      "device": "cpu"
+    },
+    {
+      "id": "ncnn_fp16",
+      "displayName": "ncnn FP16",
+      "format": "ncnn",
+      "precision": "fp16",
+      "device": "cpu"
+    },
+    {
+      "id": "openvino_fp32",
+      "displayName": "OpenVINO FP32",
+      "format": "openvino",
+      "precision": "fp32",
+      "device": "cpu"
+    },
+    {
+      "id": "openvino_fp16",
+      "displayName": "OpenVINO FP16",
+      "format": "openvino",
+      "precision": "fp16",
+      "device": "cpu"
+    },
+    {
+      "id": "openvino_int8",
+      "displayName": "OpenVINO INT8",
+      "format": "openvino",
+      "precision": "int8",
+      "device": "cpu"
+    },
+    {
+      "id": "tflite_fp32",
+      "displayName": "TFLite FP32",
+      "format": "tflite",
+      "precision": "fp32",
+      "device": "cpu"
+    },
+    {
+      "id": "tflite_fp16",
+      "displayName": "TFLite FP16",
+      "format": "tflite",
+      "precision": "fp16",
+      "device": "cpu"
+    },
+    {
+      "id": "tflite_int8",
+      "displayName": "TFLite INT8",
+      "format": "tflite",
+      "precision": "int8",
+      "device": "cpu"
+    },
+    {
+      "id": "coreml_fp32",
+      "displayName": "CoreML FP32",
+      "format": "coreml",
+      "precision": "fp32",
+      "device": "gpu"
+    },
+    {
+      "id": "coreml_fp16",
+      "displayName": "CoreML FP16",
+      "format": "coreml",
+      "precision": "fp16",
+      "device": "gpu"
+    },
+    {
+      "id": "hailo_int8",
+      "displayName": "HailoRT INT8",
+      "format": "hailo",
+      "precision": "int8",
+      "device": "npu"
     }
   ]
 }
