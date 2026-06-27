@@ -972,18 +972,18 @@
       "detectionApproach": "detr",
       "postprocessing": "nms-free",
       "specs": {
-        "paramsM": 0,
+        "paramsM": 30.5,
         "flopsG": 0,
-        "inputSizeDefault": 560,
+        "inputSizeDefault": 384,
         "numClasses": 80
       },
-      "paperReportedMap": null,
+      "paperReportedMap": 48.4,
       "source": {
         "originalWeightsUrl": "https://github.com/roboflow/rf-detr/releases",
         "libreyoloWeightsUrl": null
       },
       "license": "Apache-2.0",
-      "releaseDate": "2025-02-24",
+      "releaseDate": "2026-02-23",
       "inLibreYOLO": true
     },
     {
@@ -1001,18 +1001,18 @@
       "detectionApproach": "detr",
       "postprocessing": "nms-free",
       "specs": {
-        "paramsM": 0,
+        "paramsM": 32.1,
         "flopsG": 0,
-        "inputSizeDefault": 560,
+        "inputSizeDefault": 512,
         "numClasses": 80
       },
-      "paperReportedMap": null,
+      "paperReportedMap": 53.0,
       "source": {
         "originalWeightsUrl": "https://github.com/roboflow/rf-detr/releases",
         "libreyoloWeightsUrl": null
       },
       "license": "Apache-2.0",
-      "releaseDate": "2025-02-24",
+      "releaseDate": "2026-02-23",
       "inLibreYOLO": true
     },
     {
@@ -1030,48 +1030,19 @@
       "detectionApproach": "detr",
       "postprocessing": "nms-free",
       "specs": {
-        "paramsM": 0,
+        "paramsM": 33.7,
         "flopsG": 0,
-        "inputSizeDefault": 560,
+        "inputSizeDefault": 576,
         "numClasses": 80
       },
-      "paperReportedMap": null,
+      "paperReportedMap": 54.7,
       "source": {
         "originalWeightsUrl": "https://github.com/roboflow/rf-detr/releases",
         "libreyoloWeightsUrl": null
       },
       "license": "Apache-2.0",
-      "releaseDate": "2025-02-24",
+      "releaseDate": "2026-02-23",
       "inLibreYOLO": true
-    },
-    {
-      "id": "rfdetr-b",
-      "displayName": "RF-DETR-B",
-      "family": "rfdetr",
-      "variant": "b",
-      "task": "detection",
-      "architecture": {
-        "type": "transformer",
-        "backbone": "DINOv2",
-        "neck": "Agg2Former",
-        "head": "DETR"
-      },
-      "detectionApproach": "detr",
-      "postprocessing": "nms-free",
-      "specs": {
-        "paramsM": 29,
-        "flopsG": 120,
-        "inputSizeDefault": 560,
-        "numClasses": 80
-      },
-      "paperReportedMap": 53.2,
-      "source": {
-        "originalWeightsUrl": "https://github.com/roboflow/rf-detr/releases",
-        "libreyoloWeightsUrl": null
-      },
-      "license": "Apache-2.0",
-      "releaseDate": "2025-02-24",
-      "inLibreYOLO": false
     },
     {
       "id": "rfdetr-l",
@@ -1088,18 +1059,18 @@
       "detectionApproach": "detr",
       "postprocessing": "nms-free",
       "specs": {
-        "paramsM": 128,
-        "flopsG": 340,
-        "inputSizeDefault": 560,
+        "paramsM": 33.9,
+        "flopsG": 0,
+        "inputSizeDefault": 704,
         "numClasses": 80
       },
-      "paperReportedMap": 55.5,
+      "paperReportedMap": 56.5,
       "source": {
         "originalWeightsUrl": "https://github.com/roboflow/rf-detr/releases",
         "libreyoloWeightsUrl": null
       },
       "license": "Apache-2.0",
-      "releaseDate": "2025-02-24",
+      "releaseDate": "2026-02-23",
       "inLibreYOLO": true
     },
     {

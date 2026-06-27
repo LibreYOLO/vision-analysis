@@ -181,8 +181,6 @@ const MODEL_NAME_MAP: Record<string, string> = {
   "rf-detr-s": "rfdetr-s",
   "rfdetr-m": "rfdetr-m",
   "rf-detr-m": "rfdetr-m",
-  "rfdetr-b": "rfdetr-b",
-  "rf-detr-b": "rfdetr-b",
   "rfdetr-l": "rfdetr-l",
   "rf-detr-l": "rfdetr-l",
 };

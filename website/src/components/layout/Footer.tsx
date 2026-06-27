@@ -54,6 +54,11 @@ export function Footer() {
                   </Link>
                 </li>
                 <li>
+                  <Link href="/embed-builder" className="hover:text-white transition-colors">
+                    Embed Builder
+                  </Link>
+                </li>
+                <li>
                   <a
                     href="https://github.com/LibreYOLO/vision-analysis/tree/main/submissions"
                     target="_blank"
