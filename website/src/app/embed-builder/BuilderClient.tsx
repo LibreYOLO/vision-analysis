@@ -31,7 +31,7 @@ export function BuilderClient({ models, hardwareOptions, runtimesByHw }: Props) 
   const [dataSource, setDataSource] = useState<string>('paper'); // 'paper' | hardware id
   const [runtime, setRuntime] = useState<string>('');
   const [theme, setTheme] = useState<Theme>('light');
-  const [height, setHeight] = useState<number>(420);
+  const [maxWidth, setMaxWidth] = useState<number | 'full'>('full');
   const [copied, setCopied] = useState<'iframe' | 'url' | null>(null);
   const [origin, setOrigin] = useState<string>(PROD_ORIGIN);
 
@@ -78,8 +78,19 @@ export function BuilderClient({ models, hardwareOptions, runtimesByHw }: Props) 
   }, [highlight, dataSource, runtime, theme]);
 
   const snippetUrl = `${origin}${embedPath}`;
+  // Responsive wrapper: the chart is a fixed 8:5 SVG, so a padding-top box keeps
+  // the iframe height locked to its width (62.5% = 400/640). That removes the
+  // scrollbar a fixed pixel height produces whenever the column width changes.
+  const widthCap = maxWidth === 'full' ? '' : `max-width:${maxWidth}px;`;
   const iframeSnippet =
-    `<iframe\n  src="${snippetUrl}"\n  width="100%"\n  height="${height}"\n  style="border:0;border-radius:12px;overflow:hidden"\n  loading="lazy"\n  title="Accuracy vs parameters - Vision Analysis">\n</iframe>`;
+    `<div style="position:relative;width:100%;${widthCap}padding-top:62.5%">\n` +
+    `  <iframe\n` +
+    `    src="${snippetUrl}"\n` +
+    `    style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;border-radius:12px"\n` +
+    `    loading="lazy"\n` +
+    `    title="Accuracy vs parameters - Vision Analysis">\n` +
+    `  </iframe>\n` +
+    `</div>`;
 
   function toggleModel(id: string) {
     setHighlight(h => (h.includes(id) ? h.filter(x => x !== id) : [...h, id]));
@@ -228,23 +239,28 @@ export function BuilderClient({ models, hardwareOptions, runtimesByHw }: Props) 
                 <strong>System</strong> follows each visitor&apos;s OS light/dark setting automatically.
               </p>
 
-              <label style={{ ...styles.label, marginTop: 12 }}>Height (px)</label>
+              <label style={{ ...styles.label, marginTop: 12 }}>Max width</label>
               <div style={styles.segment}>
-                {[360, 420, 480].map(h => (
+                {(['full', 720, 560] as const).map(w => (
                   <button
-                    key={h}
+                    key={w}
                     type="button"
-                    onClick={() => setHeight(h)}
+                    onClick={() => setMaxWidth(w)}
                     style={{
                       ...styles.segmentBtn,
-                      background: height === h ? ACCENT : 'transparent',
-                      color: height === h ? 'white' : '#64748b',
+                      background: maxWidth === w ? ACCENT : 'transparent',
+                      color: maxWidth === w ? 'white' : '#64748b',
                     }}
                   >
-                    {h}
+                    {w === 'full' ? 'Full' : `${w}px`}
                   </button>
                 ))}
               </div>
+              <p style={{ ...styles.hint, marginTop: 8, marginBottom: 0 }}>
+                The chart fills its container and keeps an 8:5 ratio, so its height follows the
+                width automatically with no scrollbar. Cap the width if you do not want it to
+                stretch across a wide column.
+              </p>
             </section>
           </div>
 
@@ -258,14 +274,21 @@ export function BuilderClient({ models, hardwareOptions, runtimesByHw }: Props) 
                 </a>
               </div>
               <div style={styles.previewFrame}>
-                <iframe
-                  key={embedPath}
-                  src={embedPath}
-                  width="100%"
-                  height={height}
-                  style={{ border: 0, display: 'block' }}
-                  title="Embed preview"
-                />
+                <div
+                  style={{
+                    position: 'relative',
+                    width: '100%',
+                    maxWidth: maxWidth === 'full' ? undefined : maxWidth,
+                    paddingTop: '62.5%',
+                  }}
+                >
+                  <iframe
+                    key={embedPath}
+                    src={embedPath}
+                    style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', border: 0, display: 'block' }}
+                    title="Embed preview"
+                  />
+                </div>
               </div>
             </section>
 
@@ -357,10 +380,10 @@ function Docs() {
 
       <h2 style={styles.h2}>Sizing &amp; interactions</h2>
       <p style={styles.docP}>
-        The chart is responsive: it fills the width of its container and keeps its aspect ratio, so{' '}
-        <code style={styles.inlineCode}>width=&quot;100%&quot;</code> with a fixed{' '}
-        <code style={styles.inlineCode}>height</code> is all you need. Hovering a dot shows the model name,
-        parameter count and mAP; clicking a dot opens that model&apos;s page on Vision Analysis in a new tab.
+        The snippet wraps the chart in a fixed 8:5 aspect-ratio box, so it fills the width of its
+        container and computes its own height. There is no fixed pixel height to keep in sync, so no
+        scrollbar appears whatever the column width. Hovering a dot shows the model name, parameter
+        count and mAP; clicking a dot opens that model&apos;s page on Vision Analysis in a new tab.
       </p>
     </div>
   );

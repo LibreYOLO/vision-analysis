@@ -4,15 +4,17 @@ import { parseTheme, bodyBgStyle, T } from '@/lib/embedTheme';
 import { ScatterChart, type ChartPoint, type FamilyLine } from './ScatterChart';
 
 interface Props {
-  searchParams: Promise<{ highlight?: string; hw?: string; rt?: string; task?: string; theme?: string }>;
+  searchParams: Promise<{ highlight?: string; hw?: string; rt?: string; task?: string; theme?: string; title?: string; subtitle?: string }>;
 }
 
 const W = 640;
 const H = 400;
 const PX1 = 65;
 const PX2 = 615;
-const PY1 = 22;
-const PY2 = 282;
+// Top margin reserves room for the figure title + subtitle; bottom for the
+// centered legend. The 640x400 box is unchanged so the embed sizing is stable.
+const PY1 = 62;
+const PY2 = 318;
 
 function xs(v: number, domain: [number, number]): number {
   if (domain[1] === domain[0]) return (PX1 + PX2) / 2;
@@ -35,6 +37,9 @@ export default async function ScatterEmbed({ searchParams }: Props) {
   const rt = typeof sp.rt === 'string' ? sp.rt : null;
   const taskFilter = typeof sp.task === 'string' ? sp.task : 'detection';
   const theme = parseTheme(sp.theme);
+  // The chart is a fixed-aspect SVG that exactly fills its (responsive) iframe,
+  // so hiding overflow guarantees no scrollbar even under sub-pixel rounding.
+  const pageStyle = `${bodyBgStyle(theme)}html,body{overflow:hidden;}`;
 
   const highlightIds = new Set(
     highlightRaw.split(',').map(s => s.trim()).filter(Boolean)
@@ -80,7 +85,7 @@ export default async function ScatterEmbed({ searchParams }: Props) {
   if (rawPoints.length === 0) {
     return (
       <>
-        <style dangerouslySetInnerHTML={{ __html: bodyBgStyle(theme) }} />
+        <style dangerouslySetInnerHTML={{ __html: pageStyle }} />
         <div
           data-theme={theme}
           style={{
@@ -150,13 +155,18 @@ export default async function ScatterEmbed({ searchParams }: Props) {
   const yTicks = yTickVals.map(v => ({ pos: ys(v, yD), label: v.toFixed(1) }));
 
   const hlFamilies = Array.from(hlFamilyMap.keys());
-  const sourceNote = hw && rt
-    ? `${hwMeta?.displayName ?? hw} · ${rtMeta?.displayName ?? rt}`
-    : 'paper-reported mAP';
+  const title =
+    typeof sp.title === 'string' && sp.title.trim() ? sp.title : 'Accuracy vs. parameters';
+  const subtitle =
+    typeof sp.subtitle === 'string' && sp.subtitle.trim()
+      ? sp.subtitle
+      : hw && rt
+        ? `mAP@50-95 on COCO val2017, measured on ${hwMeta?.displayName ?? hw} with ${rtMeta?.displayName ?? rt}`
+        : 'mAP@50-95 values from the papers on COCO val2017';
 
   return (
     <>
-      <style dangerouslySetInnerHTML={{ __html: bodyBgStyle(theme) }} />
+      <style dangerouslySetInnerHTML={{ __html: pageStyle }} />
       <ScatterChart
         width={W}
         height={H}
@@ -171,8 +181,8 @@ export default async function ScatterEmbed({ searchParams }: Props) {
         yTicks={yTicks}
         hlFamilies={hlFamilies}
         hasBackground={bgPoints.length > 0}
-        sourceNote={sourceNote}
-        footerText={`visionanalysis.org · COCO val2017 · ${sourceNote}`}
+        title={title}
+        subtitle={subtitle}
         theme={theme}
       />
     </>

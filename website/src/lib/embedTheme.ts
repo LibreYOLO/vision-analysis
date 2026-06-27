@@ -33,11 +33,14 @@ export const T = {
 export function bodyBgStyle(theme: EmbedTheme): string {
   const LIGHT = '#f8fafc';
   const DARK = '#0b1220';
-  if (theme === 'dark') return `html,body{background:${DARK};}`;
+  // Reset the default 8px body margin so the widget sits flush in the iframe;
+  // a stray margin otherwise adds height and pushes a scrollbar into the frame.
+  const reset = 'html,body{margin:0;padding:0;}';
+  if (theme === 'dark') return `${reset}html,body{background:${DARK};}`;
   if (theme === 'system') {
-    return `html,body{background:${LIGHT};}@media (prefers-color-scheme: dark){html,body{background:${DARK};}}`;
+    return `${reset}html,body{background:${LIGHT};}@media (prefers-color-scheme: dark){html,body{background:${DARK};}}`;
   }
-  return `html,body{background:${LIGHT};}`;
+  return `${reset}html,body{background:${LIGHT};}`;
 }
 
 const LIGHT_VARS = `

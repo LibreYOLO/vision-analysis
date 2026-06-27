@@ -39,8 +39,8 @@ interface Props {
   yTicks: AxisTick[];
   hlFamilies: string[];
   hasBackground: boolean;
-  sourceNote: string;
-  footerText: string;
+  title: string;
+  subtitle: string;
   theme: EmbedTheme;
 }
 
@@ -49,9 +49,10 @@ export function ScatterChart({
   bgPoints, hlPoints, familyLines,
   xTicks, yTicks,
   hlFamilies, hasBackground,
-  footerText, theme,
+  title, subtitle, theme,
 }: Props) {
   const [hovered, setHovered] = useState<ChartPoint | null>(null);
+  const [brandHover, setBrandHover] = useState(false);
   const wrapperRef = useRef<HTMLDivElement>(null);
 
   function openModel(id: string) {
@@ -67,6 +68,30 @@ export function ScatterChart({
   const panelColor = hovered
     ? (hovered.highlighted ? hovered.fill : T.textStrong)
     : T.textStrong;
+
+  // Centered legend: highlighted families, plus an "other models" swatch.
+  // Widths are estimated from label length (~6px per monospace char at 10px)
+  // so the whole row can be centered without measuring the DOM.
+  const legendItems = [
+    ...hlFamilies.map(f => ({
+      label: f,
+      color: hlPoints.find(p => p.family === f)?.fill ?? T.textMuted,
+      faded: false,
+    })),
+    ...(hasBackground ? [{ label: 'other models', color: T.greyDot, faded: true }] : []),
+  ];
+  const LEG_GAP = 22;
+  const legItemW = (label: string) => 10 + label.length * 6;
+  const legTotal =
+    legendItems.reduce((s, it) => s + legItemW(it.label), 0) +
+    LEG_GAP * Math.max(0, legendItems.length - 1);
+  const legY = py2 + 50;
+  let legCursor = (width - legTotal) / 2;
+  const legendPositioned = legendItems.map(it => {
+    const x = legCursor;
+    legCursor += legItemW(it.label) + LEG_GAP;
+    return { ...it, x };
+  });
 
   return (
     <div
@@ -94,6 +119,33 @@ export function ScatterChart({
         </defs>
 
         <rect width={width} height={height} fill={T.bg} />
+
+        {/* Figure header: title + subtitle (left), source link (right) */}
+        <text x={px1} y={27} fill={T.textStrong} fontSize={15} fontWeight={700} fontFamily="'Outfit', system-ui, sans-serif">
+          {title}
+        </text>
+        <text x={px1} y={45} fill={T.textMuted} fontSize={10.5} fontFamily="'Outfit', system-ui, sans-serif">
+          {subtitle}
+        </text>
+        <a
+          href="https://visionanalysis.org"
+          target="_blank"
+          rel="noopener noreferrer"
+          onMouseEnter={() => setBrandHover(true)}
+          onMouseLeave={() => setBrandHover(false)}
+        >
+          <text
+            x={px2}
+            y={27}
+            textAnchor="end"
+            fill={T.accent}
+            fontSize={11}
+            fontFamily="'JetBrains Mono', monospace"
+            style={{ cursor: 'pointer', textDecoration: brandHover ? 'underline' : 'none' }}
+          >
+            visionanalysis.org
+          </text>
+        </a>
 
         {yTicks.map((t, i) => (
           <line key={`hg${i}`} x1={px1} y1={t.pos} x2={px2} y2={t.pos} stroke={T.grid} strokeWidth={1} />
@@ -209,28 +261,14 @@ export function ScatterChart({
           );
         })}
 
-        {hlFamilies.map((family, i) => {
-          const color = hlPoints.find(p => p.family === family)?.fill ?? T.textMuted;
-          const lx = px1 + i * 150;
-          const ly = py2 + 48;
-          return (
-            <g key={`leg-${family}`}>
-              <circle cx={lx + 5} cy={ly} r={5} fill={color} />
-              <text x={lx + 14} y={ly + 4} fill={T.textMuted} fontSize={10} fontFamily="'JetBrains Mono', monospace">
-                {family}
-              </text>
-            </g>
-          );
-        })}
-
-        {hasBackground && (
-          <g>
-            <circle cx={px1 + hlFamilies.length * 150 + 5} cy={py2 + 48} r={4} fill={T.greyDot} opacity={0.65} />
-            <text x={px1 + hlFamilies.length * 150 + 14} y={py2 + 52} fill={T.textMuted} fontSize={10} fontFamily="'JetBrains Mono', monospace">
-              other models
+        {legendPositioned.map(it => (
+          <g key={`leg-${it.label}`}>
+            <circle cx={it.x + 4} cy={legY} r={4} fill={it.color} opacity={it.faded ? 0.65 : 1} />
+            <text x={it.x + 12} y={legY + 4} fill={T.textMuted} fontSize={10} fontFamily="'JetBrains Mono', monospace">
+              {it.label}
             </text>
           </g>
-        )}
+        ))}
 
         {/* Tooltip anchored next to the hovered ball, flips to stay in-bounds */}
         {hovered && (() => {
@@ -264,10 +302,6 @@ export function ScatterChart({
             </g>
           );
         })()}
-
-        <text x={width / 2} y={height - 5} textAnchor="middle" fill={T.textMuted} fontSize={9} fontFamily="'JetBrains Mono', monospace" opacity={0.6}>
-          {footerText}
-        </text>
       </svg>
     </div>
   );
