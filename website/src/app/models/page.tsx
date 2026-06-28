@@ -18,23 +18,20 @@ interface FamilyRow {
   variants: number;
   minParams: number;
   maxParams: number;
-  approach: string;
-  inLibreYOLO: boolean;
   isTransformer: boolean;
 }
 
 function buildRows(): FamilyRow[] {
   const rows: FamilyRow[] = [];
   for (const family of getAllFamilies()) {
-    const models = getModelsByFamily(family.id);
-    if (models.length === 0) continue; // only families with a working family page
+    // Only families that ship in LibreYOLO. External baselines are dropped.
+    const models = getModelsByFamily(family.id).filter((m) => m.inLibreYOLO);
+    if (models.length === 0) continue;
 
     const params = models.map((m) => m.specs.paramsM).filter((p) => p > 0);
     const isTransformer = models.some(
       (m) => m.detectionApproach === "detr" || m.architecture.type === "transformer"
     );
-    const anchorBased = models.some((m) => m.detectionApproach === "anchor-based");
-    const approach = isTransformer ? "DETR" : anchorBased ? "anchor-based" : "anchor-free";
 
     rows.push({
       id: family.id,
@@ -43,17 +40,12 @@ function buildRows(): FamilyRow[] {
       variants: models.length,
       minParams: params.length ? Math.min(...params) : 0,
       maxParams: params.length ? Math.max(...params) : 0,
-      approach,
-      inLibreYOLO: models.some((m) => m.inLibreYOLO),
       isTransformer,
     });
   }
 
-  // In-LibreYOLO first, then smallest model ascending so the lineup reads small to large.
-  return rows.sort((a, b) => {
-    if (a.inLibreYOLO !== b.inLibreYOLO) return a.inLibreYOLO ? -1 : 1;
-    return a.minParams - b.minParams;
-  });
+  // Smallest model ascending so each group reads small to large.
+  return rows.sort((a, b) => a.minParams - b.minParams);
 }
 
 function paramRange(row: FamilyRow): string {
@@ -127,7 +119,6 @@ function FamilyGroup({
                 <th className="px-3 py-2 text-left font-medium text-foreground">Organization</th>
                 <th className="px-3 py-2 text-right font-medium text-foreground">Variants</th>
                 <th className="px-3 py-2 text-right font-medium text-foreground">Parameters</th>
-                <th className="px-3 py-2 text-left font-medium text-foreground">Approach</th>
                 <th className="px-3 py-2" />
               </tr>
             </thead>
@@ -146,15 +137,11 @@ function FamilyGroup({
                       <span className="font-semibold text-foreground group-hover:text-brand">
                         {row.displayName}
                       </span>
-                      {!row.inLibreYOLO && (
-                        <span className="text-xs font-normal text-muted-foreground">baseline</span>
-                      )}
                     </Link>
                   </td>
                   <td className="px-3 py-3 text-muted-foreground">{row.organization}</td>
                   <td className="px-3 py-3 text-right font-mono">{row.variants}</td>
                   <td className="px-3 py-3 text-right font-mono">{paramRange(row)}</td>
-                  <td className="px-3 py-3 text-muted-foreground">{row.approach}</td>
                   <td className="px-3 py-3 text-right">
                     <Link
                       href={`/model/${row.id}`}

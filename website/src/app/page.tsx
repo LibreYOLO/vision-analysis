@@ -3,6 +3,7 @@ import { LeaderboardDashboard } from "@/components/leaderboard";
 import { AccuracyTimeline, VAScoreChart, ChartDataTable } from "@/components/charts";
 import { getAllBenchmarkResults, getHardwareOptions, getRuntimeOptions, getVerifiedRunCount } from "@/lib/data";
 import { StructuredData } from "@/components/seo/StructuredData";
+import { BenchmarkRunsBadge } from "@/components/BenchmarkRunsBadge";
 
 const previewFamilies = ["D-FINE", "RF-DETR", "RT-DETR", "DEIM", "YOLOX"];
 
@@ -64,18 +65,6 @@ function ComingSoonOverlay({
   );
 }
 
-// GitHub shields-style two-tone badge: dark label segment + green value segment.
-function StatBadge({ label, value }: { label: string; value: number }) {
-  return (
-    <span className="inline-flex overflow-hidden rounded-[3px] text-[11px] font-medium leading-none">
-      <span className="bg-white/10 px-2 py-1 text-white/60">{label}</span>
-      <span className="bg-green-600/90 px-2 py-1 tabular-nums text-white">
-        {value.toLocaleString("en-US")}
-      </span>
-    </span>
-  );
-}
-
 export default function HomePage() {
   const benchmarkData = getAllBenchmarkResults();
   const hardwareOptions = getHardwareOptions();
@@ -115,7 +104,7 @@ export default function HomePage() {
           </p>
           {hasVerifiedBenchmarks && (
             <div className="mt-4">
-              <StatBadge label="Benchmark runs" value={verifiedRunCount} />
+              <BenchmarkRunsBadge value={verifiedRunCount} />
             </div>
           )}
         </div>
