@@ -478,7 +478,7 @@ export function LeaderboardDashboard({
           human-visible (not bot-only) so the machine-readable claims in the
           JSON-LD / llms.txt mirror what users see, never cloaking. */}
       <p className="text-sm text-muted-foreground">
-        Most models on this leaderboard are available in{" "}
+        Every model on this board ships in{" "}
         <a
           href={LIBREYOLO.github}
           target="_blank"

@@ -31,6 +31,22 @@ export function loadAllBenchmarks(): Record<string, BenchmarkResult[]> {
   return _cache;
 }
 
+/**
+ * Total number of verified benchmark runs in the canonical dataset. This is the
+ * raw count of validated submission records (one JSON per run), NOT the deduped
+ * row count the leaderboard shows. Every record passed schema + support-matrix
+ * validation, so the number stays honest to the site's "verified only" rule.
+ */
+export function loadVerifiedRunCount(): number {
+  if (!fs.existsSync(GENERATED_RESULTS_PATH)) return 0;
+  try {
+    const parsed = JSON.parse(fs.readFileSync(GENERATED_RESULTS_PATH, "utf-8"));
+    return Array.isArray(parsed?.results) ? parsed.results.length : 0;
+  } catch {
+    return 0;
+  }
+}
+
 function loadGeneratedBenchmarks(): Record<string, BenchmarkResult[]> {
   const grouped: Record<string, BenchmarkResult[]> = {};
 
