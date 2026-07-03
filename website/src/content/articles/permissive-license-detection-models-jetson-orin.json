@@ -1,0 +1,73 @@
+{
+  "slug": "permissive-license-detection-models-jetson-orin",
+  "type": "license-guide",
+  "title": "Commercially safe object detection models for Jetson Orin",
+  "dek": "YOLO-NAS ships under a non-permissive license. On Jetson Orin, YOLOv9-M matches it at 56.1 mAP under a permissive MIT license.",
+  "date": "2026-07-03",
+  "author": "Vision Analysis",
+  "readingMinutes": 4,
+  "tags": ["license-guide", "jetson", "permissive", "deployment"],
+  "status": "published",
+  "claimsFile": "article-pipeline/v2/output/permissive-license-detection-models-jetson-orin.claims.json",
+  "blocks": [
+    {
+      "kind": "verdict",
+      "text": "YOLO-NAS ships under a non-permissive license that restricts commercial use. On Jetson Orin, permissive models match it. YOLOv9-M (MIT) lands just behind YOLO-NAS-L: 56.1 vs 56.3 mAP at 8.0 vs 5.0 FPS. D-FINE-S (Apache-2.0) beats YOLO-NAS-S by 1.6 points at matched speed: 53.4 vs 51.8 mAP, 10.3 vs 10.2 FPS. The license is not a reason to accept YOLO-NAS here."
+    },
+    {
+      "kind": "prose",
+      "text": "License terms decide whether a model can ship in a commercial product. YOLO-NAS carries a non-permissive license from its authors. MIT and Apache-2.0 models carry no such restriction on use, modification, or redistribution. On Jetson Orin, the permissive field is deep enough that you do not have to trade accuracy or speed to stay in it. mAP is shown in percent form throughout."
+    },
+    {
+      "kind": "callout",
+      "text": "This is not legal advice. License names come from each model's upstream repository. Confirm the exact terms with the upstream project and your own counsel before you ship."
+    },
+    {
+      "kind": "heading",
+      "text": "Large and medium: YOLOv9-M covers both"
+    },
+    {
+      "kind": "prose",
+      "text": "YOLOv9-M reaches 56.1 mAP at 8.0 FPS on Jetson Orin. YOLO-NAS-L sits at 56.3 mAP but runs 5.0 FPS. YOLO-NAS-M runs 55.5 mAP at 6.6 FPS. YOLOv9-M sits just behind the larger YOLO-NAS-L at 56.1 vs 56.3 mAP, ahead of YOLO-NAS-M by 0.6, and faster than both. One MIT model replaces two non-permissive ones."
+    },
+    {
+      "kind": "comparison-table",
+      "models": ["yolonas-l", "yolonas-m", "yolov9m"],
+      "hardware": "jetson_orin",
+      "runtime": "pytorch_fp32"
+    },
+    {
+      "kind": "heading",
+      "text": "Small: D-FINE-S leads YOLO-NAS-S"
+    },
+    {
+      "kind": "prose",
+      "text": "D-FINE-S reaches 53.4 mAP at 10.3 FPS on Jetson Orin. YOLO-NAS-S reaches 51.8 mAP at 10.2 FPS. The permissive model is ahead by 1.6 mAP points at matched throughput. In the small class the Apache-2.0 option is the more accurate pick, not a compromise."
+    },
+    {
+      "kind": "comparison-table",
+      "models": ["yolonas-s", "dfine-s"],
+      "hardware": "jetson_orin",
+      "runtime": "pytorch_fp32"
+    },
+    {
+      "kind": "heading",
+      "text": "The permissive leaderboard on Jetson Orin"
+    },
+    {
+      "kind": "prose",
+      "text": "Permissive alternatives extend well past the YOLO-NAS range. D-FINE-X tops the permissive field on Jetson Orin at 61.4 mAP, above the most accurate YOLO-NAS variant measured. The table lists the permissive models with verified rows on this device, sorted by accuracy."
+    },
+    {
+      "kind": "ranking-table",
+      "hardware": "jetson_orin",
+      "runtime": "pytorch_fp32",
+      "metric": "mAP_50_95",
+      "licenseFilter": "permissive",
+      "limit": 15
+    },
+    {
+      "kind": "methodology"
+    }
+  ]
+}

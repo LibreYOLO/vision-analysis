@@ -1,0 +1,80 @@
+{
+  "slug": "deim-s-vs-deimv2-s",
+  "type": "vs",
+  "title": "DEIM-S vs DEIMv2-S: measured on the same protocol",
+  "dek": "DEIMv2-S measures 0.9 mAP points higher than DEIM-S and uses less VRAM, but DEIM-S runs 37% faster on the same COCO protocol.",
+  "date": "2026-07-03",
+  "author": "Vision Analysis",
+  "readingMinutes": 4,
+  "tags": ["comparison", "deim", "deimv2"],
+  "status": "published",
+  "claimsFile": "article-pipeline/v2/output/deim-s-vs-deimv2-s.claims.json",
+  "blocks": [
+    {
+      "kind": "verdict",
+      "text": "DEIMv2-S is the more accurate model: 53.0 vs 52.1 mAP@50-95 on an RTX 5070 Ti in PyTorch, 0.9 points, and it uses less peak VRAM at 104 vs 142 MB. DEIM-S answers on speed, running 37% faster: 33.4 vs 24.3 FPS. The v2 revision trades throughput for accuracy and memory."
+    },
+    {
+      "kind": "prose",
+      "text": "DEIMv2-S (released 2025-09-25) is the second-generation model; DEIM-S (2024-12-05) is the first. Both are Apache-2.0 and evaluated at 640 px, so the comparison isolates what the v2 revision changed."
+    },
+    {
+      "kind": "comparison-table",
+      "models": ["deim-s", "deimv2-s"],
+      "hardware": "nvidia_geforce_rtx_5070_ti",
+      "runtime": "pytorch_fp32"
+    },
+    {
+      "kind": "chart",
+      "src": "/embed/scatter?highlight=deim-s,deimv2-s",
+      "caption": "Accuracy vs parameters on COCO val2017. DEIM-S and DEIMv2-S highlighted against the full field."
+    },
+    {
+      "kind": "heading",
+      "text": "Accuracy"
+    },
+    {
+      "kind": "prose",
+      "text": "mAP is shown in percent form. DEIMv2-S measures 53.0 mAP@50-95 to DEIM-S's 52.1, a 0.9 point gain. The two split on small objects, where DEIM-S leads 36.0 vs 35.0 mAP_small. Overall accuracy tilts to v2."
+    },
+    {
+      "kind": "heading",
+      "text": "Speed"
+    },
+    {
+      "kind": "prose",
+      "text": "In PyTorch on the RTX 5070 Ti, DEIM-S runs 33.4 FPS to DEIMv2-S's 24.3, a 37% gap. The split holds under conversion: 97.6 vs 52.5 FPS on TensorRT FP32 and 82.4 vs 50.4 FPS on TensorRT FP16. On Jetson Orin, DEIM-S runs 10.2 FPS to DEIMv2-S's 5.7."
+    },
+    {
+      "kind": "callout",
+      "text": "The pattern is consistent. DEIMv2-S leads on accuracy and DEIM-S on speed across 4 runtimes and 3 hardware platforms with verified data, down to the Raspberry Pi 5, where DEIM-S runs 1.1 FPS to DEIMv2-S's 0.8."
+    },
+    {
+      "kind": "kv",
+      "title": "License and provenance",
+      "items": [
+        { "k": "DEIM-S license", "v": "Apache-2.0" },
+        { "k": "DEIMv2-S license", "v": "Apache-2.0" },
+        { "k": "DEIM-S release", "v": "2024-12-05" },
+        { "k": "DEIMv2-S release", "v": "2025-09-25" },
+        { "k": "Evaluated weights", "v": "LibreYOLO retrained checkpoints" }
+      ]
+    },
+    {
+      "kind": "heading",
+      "text": "When to pick which"
+    },
+    {
+      "kind": "prose",
+      "text": "Pick DEIMv2-S when accuracy and memory matter more than frame rate: it is more accurate and uses less VRAM. Pick DEIM-S when throughput is the constraint, on GPU or on Jetson Orin, where it is faster by a wide margin. Both are Apache-2.0."
+    },
+    {
+      "kind": "code",
+      "language": "python",
+      "text": "# pip install libreyolo\nfrom libreyolo import LibreYOLO\n\ndeim = LibreYOLO(\"LibreDEIMs.pt\")      # 10.32M params, 52.1 mAP@50-95\ndeimv2 = LibreYOLO(\"LibreDEIMv2s.pt\")  # 9.78M params, 53.0 mAP@50-95\n\nresults = deimv2(\"image.jpg\")\n"
+    },
+    {
+      "kind": "methodology"
+    }
+  ]
+}

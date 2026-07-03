@@ -1,0 +1,344 @@
+{
+  "engine": "article-pipeline-v2",
+  "generated_at": "2026-07-03T21:56:14.161317+00:00",
+  "slug": "rtdetr-r18-vs-rtdetrv2-r18",
+  "meta": {
+    "type": "vs",
+    "a": "rtdetr-r18",
+    "b": "rtdetrv2-r18",
+    "hardware": "nvidia_geforce_rtx_5070_ti",
+    "runtime": "pytorch_fp32"
+  },
+  "facts": {
+    "a": {
+      "id": "rtdetr-r18",
+      "displayName": "RT-DETR-R18",
+      "license": "Apache-2.0",
+      "releaseDate": "2023-04-17",
+      "inLibreYOLO": true,
+      "bench": {
+        "mAP_50_95": 0.49787927521150827,
+        "mAP_50": 0.663704009633566,
+        "mAP_small": 0.32710231823159713,
+        "mAP_medium": 0.5484637312981646,
+        "mAP_large": 0.6407169138607522,
+        "fps_mean": 47.22,
+        "fps_p50": 48.89,
+        "ms_per_image": 21.179,
+        "inference_ms": 16.645,
+        "preprocess_ms": 3.452,
+        "postprocess_ms": 1.082,
+        "p95_ms": 25.931,
+        "peak_vram_mb": 168.9,
+        "peak_ram_mb": 2.0,
+        "params_millions": 20.18,
+        "gflops": 0.0,
+        "input_size": 640,
+        "config": {
+          "batch_size": 1,
+          "input_size": 640,
+          "conf": 0.001,
+          "iou": 0.6,
+          "max_det": 300
+        },
+        "eval": {
+          "dataset": "coco",
+          "split": "val2017",
+          "numImages": 500
+        },
+        "benchmark_date": "2026-06-16T21:23:32.849123Z"
+      }
+    },
+    "b": {
+      "id": "rtdetrv2-r18",
+      "displayName": "RT-DETRv2-R18",
+      "license": "Apache-2.0",
+      "releaseDate": "2024-05-01",
+      "inLibreYOLO": true,
+      "bench": {
+        "mAP_50_95": 0.5074977298289686,
+        "mAP_50": 0.6738187878266525,
+        "mAP_small": 0.3347978553273374,
+        "mAP_medium": 0.5390239587831667,
+        "mAP_large": 0.663719218286382,
+        "fps_mean": 51.15,
+        "fps_p50": 52.26,
+        "ms_per_image": 19.552,
+        "inference_ms": 14.819,
+        "preprocess_ms": 3.67,
+        "postprocess_ms": 1.062,
+        "p95_ms": 23.873,
+        "peak_vram_mb": 169.1,
+        "peak_ram_mb": 0.0,
+        "params_millions": 20.18,
+        "gflops": 0.0,
+        "input_size": 640,
+        "config": {
+          "batch_size": 1,
+          "input_size": 640,
+          "conf": 0.001,
+          "iou": 0.6,
+          "max_det": 300
+        },
+        "eval": {
+          "dataset": "coco",
+          "split": "val2017",
+          "numImages": 500
+        },
+        "benchmark_date": "2026-06-16T21:29:32.230268Z"
+      }
+    },
+    "primary": {
+      "hardware": "nvidia_geforce_rtx_5070_ti",
+      "hardware_display": "NVIDIA RTX 5070 Ti",
+      "runtime": "pytorch_fp32",
+      "runtime_display": "PyTorch FP32"
+    },
+    "deltas_pct": {
+      "mAP_50_95": -1.9,
+      "fps": -7.68,
+      "params": 0.0,
+      "flops": 0.0,
+      "peak_vram": -0.12
+    },
+    "map_pts": {
+      "a": 49.8,
+      "b": 50.7,
+      "delta": -0.9
+    },
+    "pair": {
+      "params_ratio": 1.0,
+      "meaningful": true
+    },
+    "efficiency": {
+      "a_mAP_per_GFLOP": 0.0083,
+      "b_mAP_per_GFLOP": 0.00846
+    },
+    "cross_runtime": [
+      {
+        "runtime": "onnx_fp32",
+        "display": "ONNX Runtime FP32",
+        "a": {
+          "mAP": 49.8,
+          "fps": 92.5
+        },
+        "b": {
+          "mAP": 50.7,
+          "fps": 97.1
+        }
+      },
+      {
+        "runtime": "pytorch_fp32",
+        "display": "PyTorch FP32",
+        "a": {
+          "mAP": 49.8,
+          "fps": 47.2
+        },
+        "b": {
+          "mAP": 50.7,
+          "fps": 51.1
+        }
+      },
+      {
+        "runtime": "tensorrt_fp16",
+        "display": "TensorRT FP16",
+        "a": {
+          "mAP": 49.8,
+          "fps": 113.4
+        },
+        "b": {
+          "mAP": 50.8,
+          "fps": 117.8
+        }
+      },
+      {
+        "runtime": "tensorrt_fp32",
+        "display": "TensorRT FP32",
+        "a": {
+          "mAP": 49.8,
+          "fps": 120.6
+        },
+        "b": {
+          "mAP": 50.7,
+          "fps": 125.5
+        }
+      }
+    ],
+    "cross_hardware": [
+      {
+        "hardware": "jetson_orin",
+        "display": "NVIDIA Jetson Orin Nano Super 8GB",
+        "a": {
+          "mAP": 49.8,
+          "fps": 10.2
+        },
+        "b": {
+          "mAP": 50.8,
+          "fps": 10.3
+        }
+      },
+      {
+        "hardware": "nvidia_geforce_rtx_5070_ti",
+        "display": "NVIDIA RTX 5070 Ti",
+        "a": {
+          "mAP": 49.8,
+          "fps": 47.2
+        },
+        "b": {
+          "mAP": 50.7,
+          "fps": 51.1
+        }
+      },
+      {
+        "hardware": "rpi5",
+        "display": "Raspberry Pi 5",
+        "a": {
+          "mAP": 49.7,
+          "fps": 0.8
+        },
+        "b": {
+          "mAP": 50.8,
+          "fps": 0.8
+        }
+      }
+    ],
+    "input_sizes": {
+      "a": 640,
+      "b": 640,
+      "match": true
+    }
+  },
+  "claims": [
+    {
+      "id": "accuracy_winner",
+      "kind": "accuracy",
+      "statement": "RT-DETRv2-R18 measures 0.9 mAP points higher than RT-DETR-R18 on NVIDIA RTX 5070 Ti (PyTorch FP32): 49.8 vs 50.7 mAP@50-95.",
+      "values": {
+        "delta_pts": 0.9,
+        "a_map": 49.8,
+        "b_map": 50.7
+      },
+      "passed": true,
+      "strength": "strong"
+    },
+    {
+      "id": "speed_winner",
+      "kind": "speed",
+      "statement": "RT-DETRv2-R18 is 7.68% faster: 47.2 vs 51.1 FPS (21.18 vs 19.55 ms/image).",
+      "values": {
+        "delta_pct": 7.68,
+        "a_fps": 47.2,
+        "b_fps": 51.1
+      },
+      "passed": true,
+      "strength": "strong"
+    },
+    {
+      "id": "ranking_stable",
+      "kind": "robustness",
+      "statement": "The verdict holds across 4 runtimes and 3 hardware platforms with verified data.",
+      "values": {
+        "n_runtimes": 4,
+        "n_hardware": 3
+      },
+      "passed": true,
+      "strength": "normal"
+    }
+  ],
+  "gate": {
+    "passed": true,
+    "passed_claims": 3,
+    "required": 2,
+    "reason": null
+  },
+  "allowed_numbers": [
+    -7.68,
+    -1.9,
+    -0.9,
+    -0.12,
+    0.0,
+    0.001,
+    0.0083,
+    0.0085,
+    0.1,
+    0.3271,
+    0.3348,
+    0.4979,
+    0.5075,
+    0.539,
+    0.5485,
+    0.6,
+    0.6407,
+    0.6637,
+    0.6738,
+    0.8,
+    0.83,
+    0.846,
+    0.9,
+    1.0,
+    1.062,
+    1.082,
+    2.0,
+    3.0,
+    3.452,
+    3.67,
+    4.0,
+    5,
+    6,
+    7,
+    7.68,
+    8,
+    9,
+    10,
+    10.2,
+    10.3,
+    11,
+    12,
+    14.819,
+    16.645,
+    19.552,
+    20.18,
+    21.179,
+    23.873,
+    25.931,
+    32.7102,
+    33.4798,
+    47.2,
+    47.22,
+    48.89,
+    49.7,
+    49.7879,
+    49.8,
+    50,
+    50.7,
+    50.7498,
+    50.8,
+    51.1,
+    51.15,
+    52.26,
+    53.9024,
+    54.8464,
+    60.0,
+    64.0717,
+    66.3704,
+    66.3719,
+    67.3819,
+    75,
+    80.0,
+    90.0,
+    92.5,
+    95,
+    97.1,
+    100.0,
+    113.4,
+    117.8,
+    120.6,
+    125.5,
+    168.9,
+    169.1,
+    300.0,
+    500.0,
+    640.0,
+    5000
+  ]
+}

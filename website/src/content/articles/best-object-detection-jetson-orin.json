@@ -1,0 +1,57 @@
+{
+  "slug": "best-object-detection-jetson-orin",
+  "type": "hardware-guide",
+  "title": "Best object detection models for Jetson Orin Nano (2026)",
+  "dek": "On the Jetson Orin Nano Super with TensorRT FP16, D-FINE-X leads accuracy at 61.4 mAP and DEIMv2-Atto runs fastest at 89.1 FPS.",
+  "date": "2026-07-03",
+  "author": "Vision Analysis",
+  "readingMinutes": 3,
+  "tags": ["hardware-guide", "jetson", "edge", "tensorrt"],
+  "status": "published",
+  "claimsFile": "article-pipeline/v2/output/best-object-detection-jetson-orin.claims.json",
+  "blocks": [
+    {
+      "kind": "verdict",
+      "text": "On the NVIDIA Jetson Orin Nano Super with TensorRT FP16, D-FINE-X leads accuracy at 61.4 mAP@50-95 and still clears real time at 14.2 FPS. If you need higher frame rates, DEIMv2-Atto reaches 89.1 FPS at 27.5 mAP. Unlike a bare CPU board, the Orin runs the accuracy leaders fast enough to use, so the choice is about how much frame rate you trade for mAP. mAP is shown here in percent form."
+    },
+    {
+      "kind": "prose",
+      "text": "Every row below is TensorRT FP16 on the Orin Nano Super. FP16 keeps the largest detectors in real-time range, so the accuracy table and the speed table overlap far more than they do on a CPU target. Start from the accuracy ceiling, then check the throughput table to confirm the model clears your frame budget."
+    },
+    {
+      "kind": "ranking-table",
+      "hardware": "jetson_orin",
+      "runtime": "tensorrt_fp16",
+      "metric": "mAP_50_95",
+      "limit": 15,
+      "caption": "Top detectors by COCO val2017 mAP@50-95 on Jetson Orin Nano Super (TensorRT FP16)."
+    },
+    {
+      "kind": "heading",
+      "text": "The accuracy-speed frontier"
+    },
+    {
+      "kind": "prose",
+      "text": "The measured frontier runs from DEIMv2-Atto at 27.5 mAP up to D-FINE-X at 61.4 mAP. The D-FINE family holds most of the high end: DEIMv2-Atto, DEIMv2-Femto, YOLOX-Tiny, DEIMv2-Pico, D-FINE-N, DEIM-N, RT-DETRv2-R18, RT-DETRv2-R34, D-FINE-S, RT-DETRv2-R50m, YOLOv9-M, YOLOv9-C, D-FINE-M, D-FINE-L, D-FINE-X. Anything off this list is beaten on both accuracy and speed by a model on it."
+    },
+    {
+      "kind": "ranking-table",
+      "hardware": "jetson_orin",
+      "runtime": "tensorrt_fp16",
+      "metric": "throughputFps",
+      "limit": 10,
+      "caption": "Fastest detectors on Jetson Orin Nano Super (TensorRT FP16), by throughput."
+    },
+    {
+      "kind": "heading",
+      "text": "Picks by latency budget"
+    },
+    {
+      "kind": "prose",
+      "text": "For 30 FPS work with a 33 ms budget, RT-DETRv2-R34 is the most accurate model that fits, at 53.2 mAP (30.59 ms). If you can spend up to 100 ms per image, D-FINE-X is reachable at its full 61.4 mAP (70.45 ms), which buys nearly 8 more mAP points over the 33 ms pick. Between the two, pick by whether your pipeline is frame-rate bound or accuracy bound."
+    },
+    {
+      "kind": "methodology"
+    }
+  ]
+}

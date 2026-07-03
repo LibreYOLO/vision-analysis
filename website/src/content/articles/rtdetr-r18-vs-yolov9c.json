@@ -1,0 +1,80 @@
+{
+  "slug": "rtdetr-r18-vs-yolov9c",
+  "type": "vs",
+  "title": "RT-DETR-R18 vs YOLOv9-C: measured on the same protocol",
+  "dek": "On the same COCO protocol, YOLOv9-C leads by 7.3 mAP points while RT-DETR-R18 runs 47.2 FPS to 42.3 on desktop GPU.",
+  "date": "2026-07-03",
+  "author": "Vision Analysis",
+  "readingMinutes": 4,
+  "tags": ["comparison", "rtdetr", "yolov9", "detr"],
+  "status": "published",
+  "claimsFile": "article-pipeline/v2/output/rtdetr-r18-vs-yolov9c.claims.json",
+  "blocks": [
+    {
+      "kind": "verdict",
+      "text": "YOLOv9-C is the more accurate detector: 57.1 vs 49.8 mAP@50-95 on an RTX 5070 Ti in PyTorch, a 7.3 point lead. RT-DETR-R18 answers on speed, running 47.2 FPS to YOLOv9-C's 42.3, and it holds a memory edge at 169 vs 241 MB peak VRAM. Pick by whether accuracy or latency drives the deployment."
+    },
+    {
+      "kind": "prose",
+      "text": "RT-DETR-R18 (20.18M parameters) comes from the DETR line; YOLOv9-C (25.5M) from the YOLO line. Both are permissive-licensed and evaluated at 640 px input, with verified rows on desktop GPU, Jetson Orin, and Raspberry Pi 5, so this comparison spans the deploy targets that matter."
+    },
+    {
+      "kind": "comparison-table",
+      "models": ["rtdetr-r18", "yolov9c"],
+      "hardware": "nvidia_geforce_rtx_5070_ti",
+      "runtime": "pytorch_fp32"
+    },
+    {
+      "kind": "chart",
+      "src": "/embed/scatter?highlight=rtdetr-r18,yolov9c",
+      "caption": "Accuracy vs parameters on COCO val2017. RT-DETR-R18 and YOLOv9-C highlighted against the full field."
+    },
+    {
+      "kind": "heading",
+      "text": "Accuracy"
+    },
+    {
+      "kind": "prose",
+      "text": "mAP is shown in percent form. YOLOv9-C measures 57.1 mAP@50-95 to RT-DETR-R18's 49.8, and the lead holds on small objects: 39.3 vs 32.7 mAP_small, a 16.75% relative gap. Where accuracy is the metric that ships, YOLOv9-C is ahead across object sizes."
+    },
+    {
+      "kind": "heading",
+      "text": "Speed"
+    },
+    {
+      "kind": "prose",
+      "text": "On the RTX 5070 Ti, RT-DETR-R18 runs 47.2 FPS to YOLOv9-C's 42.3 in PyTorch, and the gap widens under conversion: 120.6 vs 76.7 FPS on TensorRT FP32, 113.4 vs 74.7 FPS on TensorRT FP16. On Jetson Orin the split is wider still: 10.2 vs 6.4 FPS."
+    },
+    {
+      "kind": "callout",
+      "text": "The order does not swap. RT-DETR-R18 leads on throughput and YOLOv9-C on accuracy across 4 runtimes and 3 hardware platforms with verified data, from the RTX 5070 Ti down to the Raspberry Pi 5, where both fall under 1 FPS."
+    },
+    {
+      "kind": "kv",
+      "title": "License and provenance",
+      "items": [
+        { "k": "RT-DETR-R18 license", "v": "Apache-2.0" },
+        { "k": "YOLOv9-C license", "v": "MIT" },
+        { "k": "RT-DETR-R18 release", "v": "2023-04-17" },
+        { "k": "YOLOv9-C release", "v": "2024-02-21" },
+        { "k": "Evaluated weights", "v": "LibreYOLO retrained checkpoints" }
+      ]
+    },
+    {
+      "kind": "heading",
+      "text": "When to pick which"
+    },
+    {
+      "kind": "prose",
+      "text": "Pick YOLOv9-C when detection accuracy is the deliverable, including scenes full of small objects, and the extra 241 vs 169 MB VRAM fits the budget. Pick RT-DETR-R18 when throughput or memory is the constraint: it is faster on every GPU runtime measured and on Jetson Orin. Both ship under permissive licenses, so licensing does not decide it."
+    },
+    {
+      "kind": "code",
+      "language": "python",
+      "text": "# pip install libreyolo\nfrom libreyolo import LibreYOLO\n\nrtdetr = LibreYOLO(\"LibreRTDETRr18.pt\")  # 20.18M params, 49.8 mAP@50-95\nyolo9 = LibreYOLO(\"LibreYOLO9c.pt\")      # 25.5M params, 57.1 mAP@50-95\n\nresults = yolo9(\"image.jpg\")\n"
+    },
+    {
+      "kind": "methodology"
+    }
+  ]
+}
