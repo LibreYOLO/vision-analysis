@@ -764,6 +764,190 @@ def coverage_report(index, models_meta, hardware_meta, runtimes_meta):
     print("Model ids:", ", ".join(sorted({k[0] for k in index})))
 
 
+# ---------------------------------------------------------------- plan
+
+# Demand proxy: families and sizes people actually search for and deploy. This
+# is the ONE piece of editorial judgment in the engine. Not in the allowlist
+# does not mean "never write", it means "do not auto-prioritize at scale".
+POPULAR_FAMILIES = {
+    "yolov9": 3, "yolox": 3, "rtdetr": 3, "rfdetr": 3, "dfine": 2,
+    "deim": 2, "rtdetrv2": 2, "yolonas": 2, "deimv2": 1, "picodet": 1,
+    "rtdetrv4": 1, "ec": 1,
+}
+SIZE_ORDER = ["n", "nano", "atto", "femto", "pico", "t", "tiny", "s", "m",
+              "c", "l", "r18", "r34", "r50", "r50m", "r101", "x"]
+
+
+def _size_token(model_id, models_meta):
+    return (models_meta.get(model_id) or {}).get("variant", "")
+
+
+def _size_rank(model_id, models_meta):
+    tok = _size_token(model_id, models_meta)
+    return SIZE_ORDER.index(tok) if tok in SIZE_ORDER else 99
+
+
+def _vs_significance(a, b, models_meta):
+    """Cheap significance count + which axes, mirroring build_vs gates."""
+    axes = []
+    am, bm = get_map(a), get_map(b)
+    if abs(map_pts(am) - map_pts(bm)) >= ACC_PTS:
+        axes.append("accuracy")
+    d_fps = pct(get_fps(a), get_fps(b))
+    if d_fps is not None and abs(d_fps) >= SPEED_PCT:
+        axes.append("speed")
+    afl, bfl = flops_g(a, models_meta), flops_g(b, models_meta)
+    if afl and bfl and abs(pct(am / afl, bm / bfl) or 0) >= EFFICIENCY_PCT:
+        axes.append("efficiency")
+    va = (a.get("memory") or {}).get("peak_vram_mb")
+    vb = (b.get("memory") or {}).get("peak_vram_mb")
+    if va and vb and abs(pct(va, vb) or 0) >= MEMORY_PCT:
+        axes.append("memory")
+    as_, bs_ = a["accuracy"].get("mAP_small"), b["accuracy"].get("mAP_small")
+    if as_ and bs_ and abs(pct(as_, bs_) or 0) >= SMALL_OBJ_PCT:
+        axes.append("small_object")
+    la = (models_meta.get(a["model"]["id"]) or {}).get("license") in PERMISSIVE
+    lb = (models_meta.get(b["model"]["id"]) or {}).get("license") in PERMISSIVE
+    if la != lb:
+        axes.append("license")
+    return axes
+
+
+def _has_ranking_flip(a_id, b_id, index):
+    """Speed winner differs across hardware on the default runtime."""
+    winners = set()
+    for h in {k[1] for k in index}:
+        a2, b2 = index.get((a_id, h, DEFAULT_RUNTIME)), index.get((b_id, h, DEFAULT_RUNTIME))
+        if a2 and b2 and abs(pct(get_fps(a2), get_fps(b2)) or 0) >= SPEED_PCT:
+            winners.add(a_id if get_fps(a2) > get_fps(b2) else b_id)
+    return len(winners) > 1
+
+
+def build_plan(index, models_meta, hardware_meta, runtimes_meta, limit, vs_slice):
+    """Enumerate every viable article, score, de-duplicate, rank."""
+    hw, rt = vs_slice
+    items = []
+
+    # --- vs pairs on the chosen primary slice ---
+    models = sorted({k[0] for k in index if k[1] == hw and k[2] == rt})
+    seen_shape = defaultdict(int)  # (family-pair, size-class-pair) -> count
+    vs_rows = []
+    for a_id, b_id in __import__("itertools").combinations(models, 2):
+        a, b = index[(a_id, hw, rt)], index[(b_id, hw, rt)]
+        ap, bp = params_m(a, models_meta), params_m(b, models_meta)
+        if not ap or not bp or max(ap, bp) / min(ap, bp) > PAIR_PARAMS_RATIO:
+            continue
+        axes = _vs_significance(a, b, models_meta)
+        if len(axes) < 2:
+            continue
+        fa = (models_meta.get(a_id) or {}).get("family")
+        fb = (models_meta.get(b_id) or {}).get("family")
+        cross = fa != fb
+        flip = _has_ranking_flip(a_id, b_id, index)
+        # score: demand (popular families) + differentiation (cross-family,
+        # ranking flip, license edge, small-object story) + delta richness
+        score = 0.0
+        score += POPULAR_FAMILIES.get(fa, 0) + POPULAR_FAMILIES.get(fb, 0)
+        score += 3 if cross else -1  # same-family adjacent is lower value
+        score += 4 if flip else 0
+        score += 2 if "license" in axes else 0
+        score += 1.5 if "small_object" in axes else 0
+        score += 0.5 * len(axes)
+        # de-dup: penalize the Nth article with the same family+size shape
+        shape = (frozenset([fa, fb]),
+                 frozenset([_size_token(a_id, models_meta), _size_token(b_id, models_meta)]))
+        dup_n = seen_shape[shape]
+        score -= 3 * dup_n
+        seen_shape[shape] += 1
+        vs_rows.append({
+            "type": "vs", "slug": f"{a_id}-vs-{b_id}",
+            "cmd": f"vs {a_id} {b_id} --hardware {hw} --runtime {rt}",
+            "score": round(score, 2), "axes": axes, "cross_family": cross,
+            "ranking_flip": flip,
+        })
+    vs_rows.sort(key=lambda r: -r["score"])
+    items += vs_rows
+
+    # --- hardware guides (every hw x meaningful runtime with >=8 models) ---
+    hw_rt = defaultdict(set)
+    for (m, h, r) in index:
+        hw_rt[(h, r)].add(m)
+    for (h, r), ms in hw_rt.items():
+        if len(ms) >= 8:
+            items.append({
+                "type": "hardware-guide",
+                "slug": f"best-object-detection-{h.replace('_', '-')}",
+                "cmd": f"hardware-guide {h} --runtime {r}",
+                "score": round(6 + min(len(ms), 20) * 0.1, 2),
+                "n_models": len(ms), "runtime": r,
+            })
+
+    # --- runtime guides (hw with a baseline+target pair, >=8 overlap) ---
+    for h in {k[1] for k in index}:
+        rts = sorted({k[2] for k in index if k[1] == h})
+        for base in rts:
+            for tgt in rts:
+                if base == tgt:
+                    continue
+                overlap = sum(1 for m in {k[0] for k in index}
+                              if index.get((m, h, base)) and index.get((m, h, tgt)))
+                if overlap >= 8 and ("fp16" in tgt or tgt.startswith("tensorrt")
+                                     or tgt.startswith("onnx") or "int8" in tgt):
+                    items.append({
+                        "type": "runtime-guide",
+                        "slug": f"{tgt.replace('_', '-')}-vs-{base.replace('_', '-')}-{h.replace('_', '-')}",
+                        "cmd": f"runtime-guide {h} {base} {tgt}",
+                        "score": round(5 + overlap * 0.05, 2), "overlap": overlap,
+                    })
+
+    # --- license guides (hw with >=2 non-permissive + >=5 permissive) ---
+    for (h, r), ms in hw_rt.items():
+        perm = sum(1 for m in ms if (models_meta.get(m) or {}).get("license") in PERMISSIVE)
+        nonperm = sum(1 for m in ms
+                      if (models_meta.get(m) or {}).get("license")
+                      and (models_meta.get(m) or {}).get("license") not in PERMISSIVE)
+        if perm >= 5 and nonperm >= 2:
+            items.append({
+                "type": "license-guide",
+                "slug": f"permissive-license-detection-models-{h.replace('_', '-')}",
+                "cmd": f"license-guide --hardware {h} --runtime {r}",
+                "score": round(5.5 + nonperm * 0.2, 2), "nonpermissive": nonperm,
+            })
+
+    # dedupe guide slugs (same slug from multiple runtimes -> keep best score)
+    best = {}
+    for it in items:
+        key = it["slug"]
+        if key not in best or it["score"] > best[key]["score"]:
+            best[key] = it
+    ranked = sorted(best.values(), key=lambda r: -r["score"])
+    if limit:
+        ranked = ranked[:limit]
+    return ranked
+
+
+def plan_report(index, models_meta, hardware_meta, runtimes_meta, limit, vs_slice, as_json):
+    ranked = build_plan(index, models_meta, hardware_meta, runtimes_meta, limit, vs_slice)
+    if as_json:
+        print(json.dumps(ranked, indent=2))
+        return
+    by_type = defaultdict(int)
+    for r in ranked:
+        by_type[r["type"]] += 1
+    print(f"PLAN: {len(ranked)} articles (primary vs slice {vs_slice[0]}/{vs_slice[1]})")
+    for t, n in sorted(by_type.items(), key=lambda kv: -kv[1]):
+        print(f"  {t:16s} {n}")
+    print("\nrank  score  type              slug")
+    for i, r in enumerate(ranked, 1):
+        tags = []
+        if r.get("ranking_flip"):
+            tags.append("FLIP")
+        if r.get("cross_family") is False:
+            tags.append("same-fam")
+        tag = (" [" + ",".join(tags) + "]") if tags else ""
+        print(f"{i:4d}  {r['score']:5.1f}  {r['type']:16s}  {r['slug']}{tag}")
+
+
 # ---------------------------------------------------------------- main
 
 def main():
@@ -792,11 +976,22 @@ def main():
 
     sub.add_parser("list")
 
+    p_plan = sub.add_parser("plan")
+    p_plan.add_argument("--limit", type=int, default=0, help="top N articles (0 = all)")
+    p_plan.add_argument("--hardware", default=DEFAULT_HARDWARE, help="primary hw for vs pairs")
+    p_plan.add_argument("--runtime", default=DEFAULT_RUNTIME, help="primary runtime for vs pairs")
+    p_plan.add_argument("--json", action="store_true", help="emit ranked worklist as JSON")
+
     args = ap.parse_args()
     index, models_meta, hardware_meta, runtimes_meta = load_dataset()
 
     if args.cmd == "list":
         coverage_report(index, models_meta, hardware_meta, runtimes_meta)
+        return
+
+    if args.cmd == "plan":
+        plan_report(index, models_meta, hardware_meta, runtimes_meta,
+                    args.limit, (args.hardware, args.runtime), args.json)
         return
 
     if args.cmd == "vs":

@@ -22,6 +22,7 @@ Run everything from the repo root (`vision-analysis/`).
 
 ```
 python3 article-pipeline/v2/claims.py list                      # coverage: what can be written
+python3 article-pipeline/v2/claims.py plan [--limit N] [--json]  # ranked, de-duplicated worklist of every viable article
 python3 article-pipeline/v2/claims.py vs <a> <b> [--hardware H] [--runtime R]
 python3 article-pipeline/v2/claims.py hardware-guide <hw> [--runtime R]
 python3 article-pipeline/v2/claims.py runtime-guide <hw> <baseline_rt> <target_rt>
@@ -193,7 +194,20 @@ Deks must contain at least one concrete number from the claims file.
 
 ## Batch generation
 
-When asked to generate many articles, process them one at a time through the
-full workflow. If any gate fails, skip that article and list it in the final
-report with the gate reason. Never lower a threshold in claims.py to force a
-gate to pass.
+Use `claims.py plan` to get a ranked, de-duplicated worklist. It scores every
+viable article by demand (popular families) plus differentiation (cross-family,
+ranking flips, license edges, small-object gaps) and penalizes the Nth article
+with the same family+size shape, so near-duplicates sink. Take the top N from
+the plan, not an arbitrary enumeration.
+
+Do NOT try to write all ~680 viable articles. The gate proves each has a real
+delta, but it cannot see search demand or judge whether a page is differentiated
+from its neighbors. A pile of near-identical vs pages triggers site-wide
+Helpful-Content demotion (the pSEO failure mode in SEO-ROADMAP.md). Generate in
+waves: a differentiated core first, measure in Search Console, expand where real
+queries land. Guides (hardware, runtime, license) are each structurally unique,
+so prefer them; vs pages need demand behind the pair.
+
+Process one article at a time through the full workflow. If any gate fails, skip
+it and list it in the final report with the reason. Never lower a threshold in
+claims.py to force a gate to pass.
