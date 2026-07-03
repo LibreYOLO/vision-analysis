@@ -24,6 +24,7 @@ import json
 import sys
 from collections import defaultdict
 from datetime import datetime, timezone
+from functools import lru_cache
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -426,6 +427,193 @@ def build_vs(index, models_meta, hardware_meta, runtimes_meta, a_id, b_id, hw, r
     meta_block = {"type": "vs", "a": a_id, "b": b_id, "hardware": hw, "runtime": rt}
     gate_min = 2 if pair_ok else 999  # unmeaningful pairs never pass
     return finalize(meta_block, facts, claims, gate_min, slug)
+
+
+# ---------------------------------------------------------------- family-vs
+
+@lru_cache(maxsize=1)
+def _families_meta():
+    data = _load(METADATA / "families.json")["families"]
+    return {f["id"]: f for f in data}
+
+
+def _family_display(fam_id):
+    f = _families_meta().get(fam_id)
+    return f["displayName"] if f else fam_id
+
+
+def _family_all_permissive(fam_id, models_meta):
+    variants = [m for m in models_meta.values() if m.get("family") == fam_id]
+    lics = [m.get("license") for m in variants]
+    return bool(lics) and all(l in PERMISSIVE for l in lics)
+
+
+def _family_frontier(fam_id, hw, rt, index, models_meta):
+    """Every variant of a family with data on hw/rt, sorted by params ascending."""
+    rows = []
+    for m in models_meta.values():
+        if m.get("family") != fam_id:
+            continue
+        bench = index.get((m["id"], hw, rt))
+        if not bench:
+            continue
+        p = params_m(bench, models_meta)
+        if not p:
+            continue
+        rows.append({
+            "id": m["id"], "displayName": m["displayName"], "params": round(p, 2),
+            "mAP": map_pts(get_map(bench)), "fps": round(get_fps(bench), 1),
+            "license": m.get("license"),
+        })
+    return sorted(rows, key=lambda r: r["params"])
+
+
+def build_family_vs(index, models_meta, hardware_meta, runtimes_meta,
+                    fam_a, fam_b, hw=DEFAULT_HARDWARE, rt=DEFAULT_RUNTIME):
+    fam_a, fam_b = sorted([fam_a, fam_b])  # canonical slug order
+    a_front = _family_frontier(fam_a, hw, rt, index, models_meta)
+    b_front = _family_frontier(fam_b, hw, rt, index, models_meta)
+    if len(a_front) < 2 or len(b_front) < 2:
+        sys.exit(f"ERROR: need >=2 variants each with data on {hw}/{rt}; "
+                 f"{fam_a}={len(a_front)} {fam_b}={len(b_front)}.")
+
+    a_name, b_name = _family_display(fam_a), _family_display(fam_b)
+    hw_name, rt_name = hw_display(hw, hardware_meta), rt_display(rt, runtimes_meta)
+
+    # match each A variant to nearest-params B variant (matched-compute view)
+    matched = []
+    for a in a_front:
+        b = min(b_front, key=lambda r: abs(r["params"] - a["params"]))
+        ratio = max(a["params"], b["params"]) / min(a["params"], b["params"])
+        if ratio > 1.6:  # no fair compute match
+            continue
+        matched.append({
+            "a": a, "b": b,
+            "mAP_delta_pts": round(a["mAP"] - b["mAP"], 1),
+            "fps_delta_pct": pct(a["fps"], b["fps"]),
+        })
+    # dedup on (a_id,b_id)
+    seen, uniq = set(), []
+    for mp in matched:
+        key = (mp["a"]["id"], mp["b"]["id"])
+        if key not in seen:
+            seen.add(key)
+            uniq.append(mp)
+    matched = uniq
+    if len(matched) < 2:
+        sys.exit(f"ERROR: fewer than 2 matched-compute pairs between {fam_a} and {fam_b} "
+                 f"on {hw}/{rt}. Frontiers do not overlap in params.")
+
+    deltas = [mp["mAP_delta_pts"] for mp in matched]
+    mean_map_delta = round(sum(deltas) / len(deltas), 1)
+    a_wins = sum(1 for d in deltas if d > 0)
+    b_wins = sum(1 for d in deltas if d < 0)
+    fps_deltas = [mp["fps_delta_pct"] for mp in matched if mp["fps_delta_pct"] is not None]
+    mean_fps_delta = round(sum(fps_deltas) / len(fps_deltas), 1) if fps_deltas else None
+
+    flagship = {"a": a_front[-1], "b": b_front[-1]}
+    smallest = {"a": a_front[0], "b": b_front[0]}
+
+    # crossover: which family leads on accuracy in the low-param vs high-param half
+    low = [mp for mp in matched if mp["a"]["params"] <= (matched[0]["a"]["params"] + matched[-1]["a"]["params"]) / 2]
+    high = [mp for mp in matched if mp not in low]
+    def _lead(group):
+        if not group:
+            return None
+        s = sum(mp["mAP_delta_pts"] for mp in group) / len(group)
+        return fam_a if s > 0 else (fam_b if s < 0 else "tie")
+    low_lead, high_lead = _lead(low), _lead(high)
+
+    a_perm = _family_all_permissive(fam_a, models_meta)
+    b_perm = _family_all_permissive(fam_b, models_meta)
+
+    facts = {
+        "families": {"a": fam_a, "b": fam_b, "a_display": a_name, "b_display": b_name},
+        "primary": {"hardware": hw, "hardware_display": hw_name,
+                    "runtime": rt, "runtime_display": rt_name},
+        "a_frontier": a_front, "b_frontier": b_front,
+        "matched_pairs": matched,
+        "aggregate": {
+            "n_pairs": len(matched), "mean_mAP_delta_pts": mean_map_delta,
+            "a_wins": a_wins, "b_wins": b_wins, "mean_fps_delta_pct": mean_fps_delta,
+        },
+        "flagship": flagship, "smallest": smallest,
+        "crossover": {"low_param_leader": low_lead, "high_param_leader": high_lead},
+        "license": {"a_all_permissive": a_perm, "b_all_permissive": b_perm},
+        "chart_highlight": ",".join([r["id"] for r in a_front] + [r["id"] for r in b_front]),
+    }
+
+    claims = []
+
+    # aggregate accuracy edge at matched compute
+    if abs(mean_map_delta) >= 0.5:
+        lead = a_name if mean_map_delta > 0 else b_name
+        claims.append(claim(
+            "family_accuracy_edge", "accuracy",
+            f"At matched compute, {lead} averages {abs(mean_map_delta)} mAP points higher across "
+            f"{len(matched)} paired variants on {hw_name}. {a_name} wins {a_wins}, {b_name} wins {b_wins}.",
+            {"mean_delta_pts": abs(mean_map_delta), "a_wins": a_wins, "b_wins": b_wins}, True, "strong"))
+    else:
+        claims.append(claim(
+            "family_accuracy_tie", "accuracy",
+            f"At matched compute the two families are even: mean gap {abs(mean_map_delta)} mAP points "
+            f"across {len(matched)} pairs ({a_name} wins {a_wins}, {b_name} wins {b_wins}).",
+            {"mean_delta_pts": abs(mean_map_delta)}, True))
+
+    # aggregate speed edge
+    if mean_fps_delta is not None and abs(mean_fps_delta) >= SPEED_PCT:
+        lead = a_name if mean_fps_delta > 0 else b_name
+        claims.append(claim(
+            "family_speed_edge", "speed",
+            f"At matched compute, {lead} is {abs(mean_fps_delta)}% faster on average on {hw_name} "
+            f"({rt_name}).",
+            {"mean_delta_pct": abs(mean_fps_delta)}, True, "strong"))
+
+    # crossover
+    if low_lead and high_lead and low_lead != high_lead and "tie" not in (low_lead, high_lead):
+        claims.append(claim(
+            "family_crossover", "robustness",
+            f"The frontier crosses: {_family_display(low_lead)} leads at the small-model end, "
+            f"{_family_display(high_lead)} leads at the large-model end. There is no single winner; "
+            f"the choice depends on your size class.",
+            {"low": low_lead, "high": high_lead}, True, "strong"))
+
+    # flagship end
+    fa, fb = flagship["a"], flagship["b"]
+    claims.append(claim(
+        "flagship", "accuracy",
+        f"At the top end, {a_name}'s largest measured variant ({fa['displayName']}) reaches "
+        f"{fa['mAP']} mAP; {b_name}'s ({fb['displayName']}) reaches {fb['mAP']} mAP.",
+        {"a": fa, "b": fb}, abs(fa["mAP"] - fb["mAP"]) >= 0.5))
+
+    # efficient end
+    sa, sb = smallest["a"], smallest["b"]
+    claims.append(claim(
+        "efficient_end", "efficiency",
+        f"At the small end, {a_name}'s {sa['displayName']} ({sa['params']}M, {sa['mAP']} mAP, {sa['fps']} FPS) "
+        f"faces {b_name}'s {sb['displayName']} ({sb['params']}M, {sb['mAP']} mAP, {sb['fps']} FPS).",
+        {"a": sa, "b": sb}, True))
+
+    # license edge at family level
+    if a_perm != b_perm:
+        perm_fam = a_name if a_perm else b_name
+        other_fam = b_name if a_perm else a_name
+        claims.append(claim(
+            "family_license_edge", "license",
+            f"Every measured {perm_fam} variant ships under a permissive license; {other_fam} does not. "
+            f"For commercial embedding, {perm_fam} is the safe default.",
+            {"permissive_family": perm_fam}, True, "strong"))
+
+    # coverage
+    claims.append(claim(
+        "coverage", "ranking",
+        f"{a_name} fields {len(a_front)} measured variants, {b_name} fields {len(b_front)}, "
+        f"all on the same protocol on {hw_name}.",
+        {"a_n": len(a_front), "b_n": len(b_front)}, True))
+
+    slug = f"{fam_a}-vs-{fam_b}"
+    meta_block = {"type": "family-vs", "a": fam_a, "b": fam_b, "hardware": hw, "runtime": rt}
+    return finalize(meta_block, facts, claims, 2, slug)
 
 
 # ---------------------------------------------------------------- hardware-guide
@@ -959,6 +1147,11 @@ def main():
     p_vs.add_argument("--hardware", default=DEFAULT_HARDWARE)
     p_vs.add_argument("--runtime", default=DEFAULT_RUNTIME)
 
+    p_fv = sub.add_parser("family-vs")
+    p_fv.add_argument("a"); p_fv.add_argument("b")
+    p_fv.add_argument("--hardware", default=DEFAULT_HARDWARE)
+    p_fv.add_argument("--runtime", default=DEFAULT_RUNTIME)
+
     p_hg = sub.add_parser("hardware-guide")
     p_hg.add_argument("hardware")
     p_hg.add_argument("--runtime", default=DEFAULT_RUNTIME)
@@ -997,6 +1190,9 @@ def main():
     if args.cmd == "vs":
         doc = build_vs(index, models_meta, hardware_meta, runtimes_meta,
                        args.a, args.b, args.hardware, args.runtime)
+    elif args.cmd == "family-vs":
+        doc = build_family_vs(index, models_meta, hardware_meta, runtimes_meta,
+                              args.a, args.b, args.hardware, args.runtime)
     elif args.cmd == "hardware-guide":
         doc = build_hardware_guide(index, models_meta, hardware_meta, runtimes_meta,
                                    args.hardware, args.runtime)

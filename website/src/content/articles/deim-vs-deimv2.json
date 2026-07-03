@@ -1,0 +1,70 @@
+{
+  "slug": "deim-vs-deimv2",
+  "type": "family-vs",
+  "title": "DEIM vs DEIMv2: full benchmark comparison",
+  "dek": "DEIMv2 wins 4 of 5 matched pairs on accuracy, but DEIM runs 10.4% faster on average on an RTX 5070 Ti.",
+  "date": "2026-07-03",
+  "author": "Vision Analysis",
+  "readingMinutes": 4,
+  "tags": ["comparison", "family-vs", "deim", "deimv2"],
+  "status": "published",
+  "claimsFile": "article-pipeline/v2/output/deim-vs-deimv2.claims.json",
+  "blocks": [
+    {
+      "kind": "verdict",
+      "text": "At matched compute on an RTX 5070 Ti, DEIMv2 is the more accurate family: it averages 0.8 mAP points higher and wins 4 of 5 nearest-parameter pairs. DEIM answers on speed, running 10.4% faster on average in PyTorch. DEIMv2 also extends further down in size, fielding variants below 1M parameters."
+    },
+    {
+      "kind": "prose",
+      "text": "DEIM fields 5 measured variants; DEIMv2 fields 8. Both run the same COCO val2017 protocol at 640 px on an RTX 5070 Ti, so the two ladders align by parameter count."
+    },
+    {
+      "kind": "family-frontier",
+      "familyA": "deim",
+      "familyB": "deimv2",
+      "hardware": "nvidia_geforce_rtx_5070_ti",
+      "runtime": "pytorch_fp32"
+    },
+    {
+      "kind": "chart",
+      "src": "/embed/scatter?highlight=deim-n,deim-s,deim-m,deim-l,deim-x,deimv2-atto,deimv2-femto,deimv2-pico,deimv2-n,deimv2-s,deimv2-m,deimv2-l,deimv2-x",
+      "caption": "Accuracy vs parameters on COCO val2017. Every DEIM and DEIMv2 variant highlighted against the full set."
+    },
+    {
+      "kind": "heading",
+      "text": "Accuracy at matched compute"
+    },
+    {
+      "kind": "prose",
+      "text": "mAP is shown in percent. Pairing by nearest parameter count, DEIMv2 wins 4 of 5 pairs and averages 0.8 mAP points higher. At the top end DEIMv2-X reaches 61.3 mAP against DEIM-X at 59.6. DEIM holds only the smallest matched pair."
+    },
+    {
+      "kind": "heading",
+      "text": "Speed"
+    },
+    {
+      "kind": "prose",
+      "text": "DEIM is the faster family at matched compute: 10.4% faster on average in PyTorch FP32. The gap is widest in the small and mid classes, where DEIM-S runs 33.4 FPS against DEIMv2-S at 24.3."
+    },
+    {
+      "kind": "kv",
+      "title": "Licensing",
+      "items": [
+        { "k": "DEIM", "v": "Apache-2.0 (permissive)" },
+        { "k": "DEIMv2", "v": "Apache-2.0 (permissive)" },
+        { "k": "Commercial use", "v": "Both families ship under Apache-2.0" }
+      ]
+    },
+    {
+      "kind": "heading",
+      "text": "Which family to pick"
+    },
+    {
+      "kind": "prose",
+      "text": "Pick DEIMv2 when accuracy leads or when you need the smallest models: it wins most matched pairs and fields variants down to 0.51M parameters. Pick DEIM when throughput is the constraint, since it runs faster at matched compute. Both ship under Apache-2.0. See the per-variant specs on the DEIM and DEIMv2 model pages."
+    },
+    {
+      "kind": "methodology"
+    }
+  ]
+}

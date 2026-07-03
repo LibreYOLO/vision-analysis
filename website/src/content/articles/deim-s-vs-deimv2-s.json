@@ -6,8 +6,12 @@
   "date": "2026-07-03",
   "author": "Vision Analysis",
   "readingMinutes": 4,
-  "tags": ["comparison", "deim", "deimv2"],
-  "status": "published",
+  "tags": [
+    "comparison",
+    "deim",
+    "deimv2"
+  ],
+  "status": "draft",
   "claimsFile": "article-pipeline/v2/output/deim-s-vs-deimv2-s.claims.json",
   "blocks": [
     {
@@ -20,7 +24,10 @@
     },
     {
       "kind": "comparison-table",
-      "models": ["deim-s", "deimv2-s"],
+      "models": [
+        "deim-s",
+        "deimv2-s"
+      ],
       "hardware": "nvidia_geforce_rtx_5070_ti",
       "runtime": "pytorch_fp32"
     },
@@ -53,11 +60,26 @@
       "kind": "kv",
       "title": "License and provenance",
       "items": [
-        { "k": "DEIM-S license", "v": "Apache-2.0" },
-        { "k": "DEIMv2-S license", "v": "Apache-2.0" },
-        { "k": "DEIM-S release", "v": "2024-12-05" },
-        { "k": "DEIMv2-S release", "v": "2025-09-25" },
-        { "k": "Evaluated weights", "v": "LibreYOLO retrained checkpoints" }
+        {
+          "k": "DEIM-S license",
+          "v": "Apache-2.0"
+        },
+        {
+          "k": "DEIMv2-S license",
+          "v": "Apache-2.0"
+        },
+        {
+          "k": "DEIM-S release",
+          "v": "2024-12-05"
+        },
+        {
+          "k": "DEIMv2-S release",
+          "v": "2025-09-25"
+        },
+        {
+          "k": "Evaluated weights",
+          "v": "LibreYOLO retrained checkpoints"
+        }
       ]
     },
     {

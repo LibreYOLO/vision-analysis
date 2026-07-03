@@ -9,6 +9,7 @@ import Link from "next/link";
 import {
   getBenchmarkResults,
   getModelById,
+  getFamilyById,
   getHardwareById,
   getRuntimeById,
 } from "@/lib/data";
@@ -19,6 +20,7 @@ import type {
   ChartBlock,
   CodeBlock,
   ComparisonTableBlock,
+  FamilyFrontierBlock,
   KvBlock,
   RankingTableBlock,
   SpeedupTableBlock,
@@ -460,6 +462,63 @@ function SpeedupTable({ block }: { block: SpeedupTableBlock }) {
   );
 }
 
+function familyName(id: string): string {
+  return getFamilyById(id)?.displayName ?? id;
+}
+
+function FamilyFrontier({ block }: { block: FamilyFrontierBlock }) {
+  const all = getBenchmarkResults(block.hardware, block.runtime);
+  const rows = all
+    .filter((r) => r.family === block.familyA || r.family === block.familyB)
+    .filter((r) => r.paramsM)
+    .sort((a, b) => a.paramsM - b.paramsM);
+  if (rows.length < 4) {
+    return (
+      <Callout
+        text={`Not enough verified variants for ${familyName(block.familyA)} and ${familyName(block.familyB)} on ${hwName(block.hardware)} / ${rtName(block.runtime)}.`}
+      />
+    );
+  }
+  const aName = familyName(block.familyA);
+  const bName = familyName(block.familyB);
+  return (
+    <TableShell
+      caption={
+        block.caption ??
+        `${aName} and ${bName} variant ladders interleaved by parameter count on ${hwName(block.hardware)}, ${rtName(block.runtime)}, batch 1. mAP in percent form. The family column shows where each frontier sits at every size.`
+      }
+    >
+      <thead>
+        <tr>
+          <th className={th}>Model</th>
+          <th className={th}>Family</th>
+          <th className={th}>Params (M)</th>
+          <th className={th}>mAP@50-95</th>
+          <th className={th}>FPS</th>
+        </tr>
+      </thead>
+      <tbody>
+        {rows.map((r) => {
+          const isA = r.family === block.familyA;
+          return (
+            <tr key={r.model}>
+              <td className={td}>
+                <ModelLink id={r.model} />
+              </td>
+              <td className={`${td} font-medium ${isA ? "text-brand" : "text-foreground"}`}>
+                {isA ? aName : bName}
+              </td>
+              <td className={td}>{r.paramsM.toFixed(1)}</td>
+              <td className={td}>{fmtMap(r.mAP_50_95)}</td>
+              <td className={td}>{fmtFps(r.throughputFps)}</td>
+            </tr>
+          );
+        })}
+      </tbody>
+    </TableShell>
+  );
+}
+
 // ---------------------------------------------------------------- renderer
 
 function renderBlock(block: ArticleBlock, i: number): React.ReactNode {
@@ -484,6 +543,8 @@ function renderBlock(block: ArticleBlock, i: number): React.ReactNode {
       return <RankingTable key={i} block={block} />;
     case "speedup-table":
       return <SpeedupTable key={i} block={block} />;
+    case "family-frontier":
+      return <FamilyFrontier key={i} block={block} />;
     case "methodology":
       return <Methodology key={i} />;
     default:

@@ -36,12 +36,13 @@ BLOCK_KINDS = {
     "comparison-table": {"models", "hardware", "runtime"},
     "ranking-table": {"hardware", "runtime", "metric"},
     "speedup-table": {"hardware", "baseline", "target"},
+    "family-frontier": {"familyA", "familyB", "hardware", "runtime"},
     "methodology": set(),
 }
 
 TEXT_KINDS = {"prose", "verdict", "callout"}
 
-ARTICLE_TYPES = {"vs", "hardware-guide", "runtime-guide", "license-guide", "finding"}
+ARTICLE_TYPES = {"vs", "family-vs", "hardware-guide", "runtime-guide", "license-guide", "finding"}
 
 BANNED_PATTERNS = [
     (r"—", "em dash (use colon, comma, or period)"),
@@ -117,7 +118,7 @@ def check_schema(doc, errors):
         errors.append(f"first block must be verdict or lede prose, got {kinds[0]}")
     if "methodology" not in kinds:
         errors.append("no methodology block: every article must link the protocol")
-    data_kinds = {"comparison-table", "ranking-table", "speedup-table", "chart"}
+    data_kinds = {"comparison-table", "ranking-table", "speedup-table", "family-frontier", "chart"}
     if not any(k in data_kinds for k in kinds):
         errors.append("no data block (table or chart): articles must show data, not just prose")
 

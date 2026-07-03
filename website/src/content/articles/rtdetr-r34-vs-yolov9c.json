@@ -6,8 +6,12 @@
   "date": "2026-07-03",
   "author": "Vision Analysis",
   "readingMinutes": 4,
-  "tags": ["comparison", "rtdetr", "yolov9"],
-  "status": "published",
+  "tags": [
+    "comparison",
+    "rtdetr",
+    "yolov9"
+  ],
+  "status": "draft",
   "claimsFile": "article-pipeline/v2/output/rtdetr-r34-vs-yolov9c.claims.json",
   "blocks": [
     {
@@ -20,7 +24,10 @@
     },
     {
       "kind": "comparison-table",
-      "models": ["rtdetr-r34", "yolov9c"],
+      "models": [
+        "rtdetr-r34",
+        "yolov9c"
+      ],
       "hardware": "nvidia_geforce_rtx_5070_ti",
       "runtime": "pytorch_fp32"
     },
@@ -53,11 +60,26 @@
       "kind": "kv",
       "title": "License and provenance",
       "items": [
-        { "k": "RT-DETR-R34 license", "v": "Apache-2.0" },
-        { "k": "YOLOv9-C license", "v": "MIT" },
-        { "k": "RT-DETR-R34 release", "v": "2023-04-17" },
-        { "k": "YOLOv9-C release", "v": "2024-02-21" },
-        { "k": "Evaluated weights", "v": "LibreYOLO retrained checkpoints" }
+        {
+          "k": "RT-DETR-R34 license",
+          "v": "Apache-2.0"
+        },
+        {
+          "k": "YOLOv9-C license",
+          "v": "MIT"
+        },
+        {
+          "k": "RT-DETR-R34 release",
+          "v": "2023-04-17"
+        },
+        {
+          "k": "YOLOv9-C release",
+          "v": "2024-02-21"
+        },
+        {
+          "k": "Evaluated weights",
+          "v": "LibreYOLO retrained checkpoints"
+        }
       ]
     },
     {

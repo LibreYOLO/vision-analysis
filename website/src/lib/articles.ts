@@ -35,7 +35,8 @@ const LEGACY_ARTICLES: Article[] = [
     author: "Vision Analysis",
     readingMinutes: 6,
     tags: ["comparison", "edge", "yolov9", "yolox"],
-    status: "published",
+    // Superseded by the yolov9-vs-yolox family comparison; kept as draft.
+    status: "draft",
   },
   {
     slug: "how-to-run-rtmdet-with-libreyolo",

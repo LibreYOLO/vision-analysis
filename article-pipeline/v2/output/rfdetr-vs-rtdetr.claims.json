@@ -1,0 +1,400 @@
+{
+  "engine": "article-pipeline-v2",
+  "generated_at": "2026-07-03T22:28:19.322060+00:00",
+  "slug": "rfdetr-vs-rtdetr",
+  "meta": {
+    "type": "family-vs",
+    "a": "rfdetr",
+    "b": "rtdetr",
+    "hardware": "nvidia_geforce_rtx_5070_ti",
+    "runtime": "pytorch_fp32"
+  },
+  "facts": {
+    "families": {
+      "a": "rfdetr",
+      "b": "rtdetr",
+      "a_display": "RF-DETR",
+      "b_display": "RT-DETR"
+    },
+    "primary": {
+      "hardware": "nvidia_geforce_rtx_5070_ti",
+      "hardware_display": "NVIDIA RTX 5070 Ti",
+      "runtime": "pytorch_fp32",
+      "runtime_display": "PyTorch FP32"
+    },
+    "a_frontier": [
+      {
+        "id": "rfdetr-n",
+        "displayName": "RF-DETR-N",
+        "params": 30.47,
+        "mAP": 51.4,
+        "fps": 39.5,
+        "license": "Apache-2.0"
+      },
+      {
+        "id": "rfdetr-s",
+        "displayName": "RF-DETR-S",
+        "params": 32.11,
+        "mAP": 55.1,
+        "fps": 35.8,
+        "license": "Apache-2.0"
+      },
+      {
+        "id": "rfdetr-m",
+        "displayName": "RF-DETR-M",
+        "params": 33.69,
+        "mAP": 57.3,
+        "fps": 30.3,
+        "license": "Apache-2.0"
+      },
+      {
+        "id": "rfdetr-l",
+        "displayName": "RF-DETR-L",
+        "params": 33.93,
+        "mAP": 58.6,
+        "fps": 25.1,
+        "license": "Apache-2.0"
+      }
+    ],
+    "b_frontier": [
+      {
+        "id": "rtdetr-r18",
+        "displayName": "RT-DETR-R18",
+        "params": 20.18,
+        "mAP": 49.8,
+        "fps": 47.2,
+        "license": "Apache-2.0"
+      },
+      {
+        "id": "rtdetr-r34",
+        "displayName": "RT-DETR-R34",
+        "params": 31.44,
+        "mAP": 52.2,
+        "fps": 40.2,
+        "license": "Apache-2.0"
+      },
+      {
+        "id": "rtdetr-l",
+        "displayName": "RT-DETR-L",
+        "params": 32.93,
+        "mAP": 55.8,
+        "fps": 27.7,
+        "license": "Apache-2.0"
+      },
+      {
+        "id": "rtdetr-r50m",
+        "displayName": "RT-DETR-R50m",
+        "params": 36.59,
+        "mAP": 53.8,
+        "fps": 35.3,
+        "license": "Apache-2.0"
+      },
+      {
+        "id": "rtdetr-r50",
+        "displayName": "RT-DETR-R50",
+        "params": 42.89,
+        "mAP": 55.9,
+        "fps": 29.8,
+        "license": "Apache-2.0"
+      },
+      {
+        "id": "rtdetr-x",
+        "displayName": "RT-DETR-X",
+        "params": 67.37,
+        "mAP": 57.9,
+        "fps": 21.8,
+        "license": "Apache-2.0"
+      },
+      {
+        "id": "rtdetr-r101",
+        "displayName": "RT-DETR-R101",
+        "params": 76.56,
+        "mAP": 56.8,
+        "fps": 23.6,
+        "license": "Apache-2.0"
+      }
+    ],
+    "matched_pairs": [
+      {
+        "a": {
+          "id": "rfdetr-n",
+          "displayName": "RF-DETR-N",
+          "params": 30.47,
+          "mAP": 51.4,
+          "fps": 39.5,
+          "license": "Apache-2.0"
+        },
+        "b": {
+          "id": "rtdetr-r34",
+          "displayName": "RT-DETR-R34",
+          "params": 31.44,
+          "mAP": 52.2,
+          "fps": 40.2,
+          "license": "Apache-2.0"
+        },
+        "mAP_delta_pts": -0.8,
+        "fps_delta_pct": -1.74
+      },
+      {
+        "a": {
+          "id": "rfdetr-s",
+          "displayName": "RF-DETR-S",
+          "params": 32.11,
+          "mAP": 55.1,
+          "fps": 35.8,
+          "license": "Apache-2.0"
+        },
+        "b": {
+          "id": "rtdetr-r34",
+          "displayName": "RT-DETR-R34",
+          "params": 31.44,
+          "mAP": 52.2,
+          "fps": 40.2,
+          "license": "Apache-2.0"
+        },
+        "mAP_delta_pts": 2.9,
+        "fps_delta_pct": -10.95
+      },
+      {
+        "a": {
+          "id": "rfdetr-m",
+          "displayName": "RF-DETR-M",
+          "params": 33.69,
+          "mAP": 57.3,
+          "fps": 30.3,
+          "license": "Apache-2.0"
+        },
+        "b": {
+          "id": "rtdetr-l",
+          "displayName": "RT-DETR-L",
+          "params": 32.93,
+          "mAP": 55.8,
+          "fps": 27.7,
+          "license": "Apache-2.0"
+        },
+        "mAP_delta_pts": 1.5,
+        "fps_delta_pct": 9.39
+      },
+      {
+        "a": {
+          "id": "rfdetr-l",
+          "displayName": "RF-DETR-L",
+          "params": 33.93,
+          "mAP": 58.6,
+          "fps": 25.1,
+          "license": "Apache-2.0"
+        },
+        "b": {
+          "id": "rtdetr-l",
+          "displayName": "RT-DETR-L",
+          "params": 32.93,
+          "mAP": 55.8,
+          "fps": 27.7,
+          "license": "Apache-2.0"
+        },
+        "mAP_delta_pts": 2.8,
+        "fps_delta_pct": -9.39
+      }
+    ],
+    "aggregate": {
+      "n_pairs": 4,
+      "mean_mAP_delta_pts": 1.6,
+      "a_wins": 3,
+      "b_wins": 1,
+      "mean_fps_delta_pct": -3.2
+    },
+    "flagship": {
+      "a": {
+        "id": "rfdetr-l",
+        "displayName": "RF-DETR-L",
+        "params": 33.93,
+        "mAP": 58.6,
+        "fps": 25.1,
+        "license": "Apache-2.0"
+      },
+      "b": {
+        "id": "rtdetr-r101",
+        "displayName": "RT-DETR-R101",
+        "params": 76.56,
+        "mAP": 56.8,
+        "fps": 23.6,
+        "license": "Apache-2.0"
+      }
+    },
+    "smallest": {
+      "a": {
+        "id": "rfdetr-n",
+        "displayName": "RF-DETR-N",
+        "params": 30.47,
+        "mAP": 51.4,
+        "fps": 39.5,
+        "license": "Apache-2.0"
+      },
+      "b": {
+        "id": "rtdetr-r18",
+        "displayName": "RT-DETR-R18",
+        "params": 20.18,
+        "mAP": 49.8,
+        "fps": 47.2,
+        "license": "Apache-2.0"
+      }
+    },
+    "crossover": {
+      "low_param_leader": "rfdetr",
+      "high_param_leader": "rfdetr"
+    },
+    "license": {
+      "a_all_permissive": true,
+      "b_all_permissive": true
+    },
+    "chart_highlight": "rfdetr-n,rfdetr-s,rfdetr-m,rfdetr-l,rtdetr-r18,rtdetr-r34,rtdetr-l,rtdetr-r50m,rtdetr-r50,rtdetr-x,rtdetr-r101"
+  },
+  "claims": [
+    {
+      "id": "family_accuracy_edge",
+      "kind": "accuracy",
+      "statement": "At matched compute, RF-DETR averages 1.6 mAP points higher across 4 paired variants on NVIDIA RTX 5070 Ti. RF-DETR wins 3, RT-DETR wins 1.",
+      "values": {
+        "mean_delta_pts": 1.6,
+        "a_wins": 3,
+        "b_wins": 1
+      },
+      "passed": true,
+      "strength": "strong"
+    },
+    {
+      "id": "flagship",
+      "kind": "accuracy",
+      "statement": "At the top end, RF-DETR's largest measured variant (RF-DETR-L) reaches 58.6 mAP; RT-DETR's (RT-DETR-R101) reaches 56.8 mAP.",
+      "values": {
+        "a": {
+          "id": "rfdetr-l",
+          "displayName": "RF-DETR-L",
+          "params": 33.93,
+          "mAP": 58.6,
+          "fps": 25.1,
+          "license": "Apache-2.0"
+        },
+        "b": {
+          "id": "rtdetr-r101",
+          "displayName": "RT-DETR-R101",
+          "params": 76.56,
+          "mAP": 56.8,
+          "fps": 23.6,
+          "license": "Apache-2.0"
+        }
+      },
+      "passed": true,
+      "strength": "normal"
+    },
+    {
+      "id": "efficient_end",
+      "kind": "efficiency",
+      "statement": "At the small end, RF-DETR's RF-DETR-N (30.47M, 51.4 mAP, 39.5 FPS) faces RT-DETR's RT-DETR-R18 (20.18M, 49.8 mAP, 47.2 FPS).",
+      "values": {
+        "a": {
+          "id": "rfdetr-n",
+          "displayName": "RF-DETR-N",
+          "params": 30.47,
+          "mAP": 51.4,
+          "fps": 39.5,
+          "license": "Apache-2.0"
+        },
+        "b": {
+          "id": "rtdetr-r18",
+          "displayName": "RT-DETR-R18",
+          "params": 20.18,
+          "mAP": 49.8,
+          "fps": 47.2,
+          "license": "Apache-2.0"
+        }
+      },
+      "passed": true,
+      "strength": "normal"
+    },
+    {
+      "id": "coverage",
+      "kind": "ranking",
+      "statement": "RF-DETR fields 4 measured variants, RT-DETR fields 7, all on the same protocol on NVIDIA RTX 5070 Ti.",
+      "values": {
+        "a_n": 4,
+        "b_n": 7
+      },
+      "passed": true,
+      "strength": "normal"
+    }
+  ],
+  "gate": {
+    "passed": true,
+    "passed_claims": 4,
+    "required": 2,
+    "reason": null
+  },
+  "allowed_numbers": [
+    -10.95,
+    -9.39,
+    -3.2,
+    -1.74,
+    -0.8,
+    0.001,
+    0.6,
+    1.0,
+    1.5,
+    1.6,
+    2,
+    2.8,
+    2.9,
+    3.0,
+    4.0,
+    5,
+    6,
+    7.0,
+    8,
+    9,
+    9.39,
+    10,
+    11,
+    12,
+    20.18,
+    21.8,
+    23.6,
+    25.1,
+    27.7,
+    29.8,
+    30.3,
+    30.47,
+    31.44,
+    32.11,
+    32.93,
+    33.69,
+    33.93,
+    35.3,
+    35.8,
+    36.59,
+    39.5,
+    40.2,
+    42.89,
+    47.2,
+    49.8,
+    50,
+    51.4,
+    52.2,
+    53.8,
+    55.1,
+    55.8,
+    55.9,
+    56.8,
+    57.3,
+    57.9,
+    58.6,
+    67.37,
+    75,
+    76.56,
+    95,
+    100.0,
+    300,
+    500,
+    640,
+    5000
+  ]
+}

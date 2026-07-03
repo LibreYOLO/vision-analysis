@@ -1,0 +1,78 @@
+{
+  "slug": "rfdetr-vs-yolov9",
+  "type": "family-vs",
+  "title": "RF-DETR vs YOLOv9: where the frontier crosses",
+  "dek": "The frontier crosses: YOLOv9 wins the small end and runs 22.8% faster, while RF-DETR tops out at 58.6 mAP on an RTX 5070 Ti.",
+  "date": "2026-07-03",
+  "author": "Vision Analysis",
+  "readingMinutes": 4,
+  "tags": ["comparison", "family-vs", "rfdetr", "yolov9"],
+  "status": "published",
+  "claimsFile": "article-pipeline/v2/output/rfdetr-vs-yolov9.claims.json",
+  "blocks": [
+    {
+      "kind": "verdict",
+      "text": "At matched compute on an RTX 5070 Ti, neither family wins outright. YOLOv9 is more accurate per parameter at the small end and 22.8% faster on average in PyTorch; RF-DETR pulls ahead on accuracy at the large end, topping out at 58.6 mAP against YOLOv9's 57.1. Across 4 nearest-parameter pairs the accuracy split is even, 2 to 2, with YOLOv9 averaging 1.5 mAP points higher overall."
+    },
+    {
+      "kind": "prose",
+      "text": "RF-DETR fields 4 measured variants; YOLOv9 fields 4. Both run the same COCO val2017 protocol at 640 px on an RTX 5070 Ti, so the two ladders align by parameter count."
+    },
+    {
+      "kind": "family-frontier",
+      "familyA": "rfdetr",
+      "familyB": "yolov9",
+      "hardware": "nvidia_geforce_rtx_5070_ti",
+      "runtime": "pytorch_fp32"
+    },
+    {
+      "kind": "chart",
+      "src": "/embed/scatter?highlight=rfdetr-n,rfdetr-s,rfdetr-m,rfdetr-l,yolov9t,yolov9s,yolov9m,yolov9c",
+      "caption": "Accuracy vs parameters on COCO val2017. Every RF-DETR and YOLOv9 variant highlighted against the full set."
+    },
+    {
+      "kind": "heading",
+      "text": "Accuracy at matched compute"
+    },
+    {
+      "kind": "prose",
+      "text": "mAP is shown in percent. Pairing by nearest parameter count, the two families split the 4 pairs 2 and 2, and YOLOv9 averages 1.5 mAP points higher overall. The result depends on size class: YOLOv9-C leads the lower pairs, while RF-DETR-L reaches 58.6 mAP at the top, above YOLOv9-C's 57.1."
+    },
+    {
+      "kind": "heading",
+      "text": "Speed"
+    },
+    {
+      "kind": "prose",
+      "text": "YOLOv9 is faster at matched compute: 22.8% faster on average in PyTorch FP32. RF-DETR's most accurate variant, RF-DETR-L, runs 25.1 FPS against YOLOv9-C at 42.3."
+    },
+    {
+      "kind": "heading",
+      "text": "Where the frontier crosses"
+    },
+    {
+      "kind": "prose",
+      "text": "The accuracy lead changes hands with model size. At the small end YOLOv9 leads: its parameter-efficient variants sit above RF-DETR's smallest, RF-DETR-N, which needs 30.47M parameters to reach 51.4 mAP. At the large end RF-DETR leads, with RF-DETR-L at 58.6 mAP. There is no single winner; the choice follows your size class."
+    },
+    {
+      "kind": "kv",
+      "title": "Licensing",
+      "items": [
+        { "k": "RF-DETR", "v": "Apache-2.0 (permissive)" },
+        { "k": "YOLOv9", "v": "MIT (permissive)" },
+        { "k": "Commercial use", "v": "Both families ship under permissive licenses" }
+      ]
+    },
+    {
+      "kind": "heading",
+      "text": "Which family to pick"
+    },
+    {
+      "kind": "prose",
+      "text": "Pick YOLOv9 for small and mid-size deployments and for raw throughput: it is faster on average and more parameter-efficient at the small end. Pick RF-DETR when peak accuracy matters and you can run a larger model, since it reaches 58.6 mAP at the top of the measured range. Both ship under permissive licenses. See the per-variant specs on the RF-DETR and YOLOv9 model pages."
+    },
+    {
+      "kind": "methodology"
+    }
+  ]
+}

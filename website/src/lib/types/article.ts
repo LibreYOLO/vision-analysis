@@ -8,6 +8,7 @@
 
 export type ArticleType =
   | "vs"
+  | "family-vs"
   | "hardware-guide"
   | "runtime-guide"
   | "license-guide"
@@ -80,6 +81,15 @@ export interface SpeedupTableBlock {
   caption?: string;
 }
 
+export interface FamilyFrontierBlock {
+  kind: "family-frontier";
+  familyA: string; // family id
+  familyB: string; // family id
+  hardware: string;
+  runtime: string;
+  caption?: string;
+}
+
 export interface MethodologyBlock {
   kind: "methodology";
 }
@@ -95,6 +105,7 @@ export type ArticleBlock =
   | ComparisonTableBlock
   | RankingTableBlock
   | SpeedupTableBlock
+  | FamilyFrontierBlock
   | MethodologyBlock;
 
 export interface ArticleContent {

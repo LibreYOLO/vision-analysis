@@ -6,8 +6,12 @@
   "date": "2026-07-03",
   "author": "Vision Analysis",
   "readingMinutes": 4,
-  "tags": ["comparison", "dfine", "rtdetr"],
-  "status": "published",
+  "tags": [
+    "comparison",
+    "dfine",
+    "rtdetr"
+  ],
+  "status": "draft",
   "claimsFile": "article-pipeline/v2/output/dfine-m-vs-rtdetr-r50m.claims.json",
   "blocks": [
     {
@@ -20,7 +24,10 @@
     },
     {
       "kind": "comparison-table",
-      "models": ["dfine-m", "rtdetr-r50m"],
+      "models": [
+        "dfine-m",
+        "rtdetr-r50m"
+      ],
       "hardware": "nvidia_geforce_rtx_5070_ti",
       "runtime": "pytorch_fp32"
     },
@@ -53,11 +60,26 @@
       "kind": "kv",
       "title": "License and provenance",
       "items": [
-        { "k": "D-FINE-M license", "v": "Apache-2.0" },
-        { "k": "RT-DETR-R50m license", "v": "Apache-2.0" },
-        { "k": "D-FINE-M release", "v": "2024-10-18" },
-        { "k": "RT-DETR-R50m release", "v": "2026-04-22" },
-        { "k": "Evaluated weights", "v": "LibreYOLO retrained checkpoints" }
+        {
+          "k": "D-FINE-M license",
+          "v": "Apache-2.0"
+        },
+        {
+          "k": "RT-DETR-R50m license",
+          "v": "Apache-2.0"
+        },
+        {
+          "k": "D-FINE-M release",
+          "v": "2024-10-18"
+        },
+        {
+          "k": "RT-DETR-R50m release",
+          "v": "2026-04-22"
+        },
+        {
+          "k": "Evaluated weights",
+          "v": "LibreYOLO retrained checkpoints"
+        }
       ]
     },
     {

@@ -6,8 +6,12 @@
   "date": "2026-07-03",
   "author": "Vision Analysis",
   "readingMinutes": 3,
-  "tags": ["comparison", "rfdetr", "yolox"],
-  "status": "published",
+  "tags": [
+    "comparison",
+    "rfdetr",
+    "yolox"
+  ],
+  "status": "draft",
   "claimsFile": "article-pipeline/v2/output/rfdetr-s-vs-yolox-l.claims.json",
   "blocks": [
     {
@@ -20,7 +24,10 @@
     },
     {
       "kind": "comparison-table",
-      "models": ["rfdetr-s", "yolox-l"],
+      "models": [
+        "rfdetr-s",
+        "yolox-l"
+      ],
       "hardware": "nvidia_geforce_rtx_5070_ti",
       "runtime": "pytorch_fp32"
     },
@@ -53,13 +60,34 @@
       "kind": "kv",
       "title": "License and provenance",
       "items": [
-        { "k": "RF-DETR-S license", "v": "Apache-2.0" },
-        { "k": "YOLOX-L license", "v": "Apache-2.0" },
-        { "k": "RF-DETR-S release", "v": "2026-02-23" },
-        { "k": "YOLOX-L release", "v": "2021-07-18" },
-        { "k": "RF-DETR-S input", "v": "512 px" },
-        { "k": "YOLOX-L input", "v": "640 px" },
-        { "k": "Evaluated weights", "v": "LibreYOLO retrained checkpoints" }
+        {
+          "k": "RF-DETR-S license",
+          "v": "Apache-2.0"
+        },
+        {
+          "k": "YOLOX-L license",
+          "v": "Apache-2.0"
+        },
+        {
+          "k": "RF-DETR-S release",
+          "v": "2026-02-23"
+        },
+        {
+          "k": "YOLOX-L release",
+          "v": "2021-07-18"
+        },
+        {
+          "k": "RF-DETR-S input",
+          "v": "512 px"
+        },
+        {
+          "k": "YOLOX-L input",
+          "v": "640 px"
+        },
+        {
+          "k": "Evaluated weights",
+          "v": "LibreYOLO retrained checkpoints"
+        }
       ]
     },
     {

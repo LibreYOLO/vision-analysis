@@ -6,8 +6,12 @@
   "date": "2026-07-03",
   "author": "Vision Analysis",
   "readingMinutes": 4,
-  "tags": ["comparison", "rfdetr", "yolov9"],
-  "status": "published",
+  "tags": [
+    "comparison",
+    "rfdetr",
+    "yolov9"
+  ],
+  "status": "draft",
   "claimsFile": "article-pipeline/v2/output/rfdetr-s-vs-yolov9c.claims.json",
   "blocks": [
     {
@@ -20,7 +24,10 @@
     },
     {
       "kind": "comparison-table",
-      "models": ["rfdetr-s", "yolov9c"],
+      "models": [
+        "rfdetr-s",
+        "yolov9c"
+      ],
       "hardware": "nvidia_geforce_rtx_5070_ti",
       "runtime": "pytorch_fp32"
     },
@@ -53,11 +60,26 @@
       "kind": "kv",
       "title": "License and provenance",
       "items": [
-        { "k": "RF-DETR-S license", "v": "Apache-2.0" },
-        { "k": "YOLOv9-C license", "v": "MIT" },
-        { "k": "RF-DETR-S release", "v": "2026-02-23" },
-        { "k": "YOLOv9-C release", "v": "2024-02-21" },
-        { "k": "Evaluated weights", "v": "LibreYOLO retrained checkpoints" }
+        {
+          "k": "RF-DETR-S license",
+          "v": "Apache-2.0"
+        },
+        {
+          "k": "YOLOv9-C license",
+          "v": "MIT"
+        },
+        {
+          "k": "RF-DETR-S release",
+          "v": "2026-02-23"
+        },
+        {
+          "k": "YOLOv9-C release",
+          "v": "2024-02-21"
+        },
+        {
+          "k": "Evaluated weights",
+          "v": "LibreYOLO retrained checkpoints"
+        }
       ]
     },
     {

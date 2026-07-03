@@ -6,8 +6,13 @@
   "date": "2026-07-03",
   "author": "Vision Analysis",
   "readingMinutes": 4,
-  "tags": ["comparison", "dfine", "yolov9", "edge"],
-  "status": "published",
+  "tags": [
+    "comparison",
+    "dfine",
+    "yolov9",
+    "edge"
+  ],
+  "status": "draft",
   "claimsFile": "article-pipeline/v2/output/dfine-n-vs-yolov9t.claims.json",
   "blocks": [
     {
@@ -20,7 +25,10 @@
     },
     {
       "kind": "comparison-table",
-      "models": ["dfine-n", "yolov9t"],
+      "models": [
+        "dfine-n",
+        "yolov9t"
+      ],
       "hardware": "nvidia_geforce_rtx_5070_ti",
       "runtime": "pytorch_fp32"
     },
@@ -53,11 +61,26 @@
       "kind": "kv",
       "title": "License and provenance",
       "items": [
-        { "k": "D-FINE-N license", "v": "Apache-2.0" },
-        { "k": "YOLOv9-T license", "v": "MIT" },
-        { "k": "D-FINE-N release", "v": "2024-10-18" },
-        { "k": "YOLOv9-T release", "v": "2024-02-21" },
-        { "k": "Evaluated weights", "v": "LibreYOLO retrained checkpoints" }
+        {
+          "k": "D-FINE-N license",
+          "v": "Apache-2.0"
+        },
+        {
+          "k": "YOLOv9-T license",
+          "v": "MIT"
+        },
+        {
+          "k": "D-FINE-N release",
+          "v": "2024-10-18"
+        },
+        {
+          "k": "YOLOv9-T release",
+          "v": "2024-02-21"
+        },
+        {
+          "k": "Evaluated weights",
+          "v": "LibreYOLO retrained checkpoints"
+        }
       ]
     },
     {

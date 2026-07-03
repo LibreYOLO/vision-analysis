@@ -6,8 +6,13 @@
   "date": "2026-07-03",
   "author": "Vision Analysis",
   "readingMinutes": 4,
-  "tags": ["comparison", "rtdetr", "rtdetrv2", "detr"],
-  "status": "published",
+  "tags": [
+    "comparison",
+    "rtdetr",
+    "rtdetrv2",
+    "detr"
+  ],
+  "status": "draft",
   "claimsFile": "article-pipeline/v2/output/rtdetr-r18-vs-rtdetrv2-r18.claims.json",
   "blocks": [
     {
@@ -20,7 +25,10 @@
     },
     {
       "kind": "comparison-table",
-      "models": ["rtdetr-r18", "rtdetrv2-r18"],
+      "models": [
+        "rtdetr-r18",
+        "rtdetrv2-r18"
+      ],
       "hardware": "nvidia_geforce_rtx_5070_ti",
       "runtime": "pytorch_fp32"
     },
@@ -53,11 +61,26 @@
       "kind": "kv",
       "title": "License and provenance",
       "items": [
-        { "k": "RT-DETR-R18 license", "v": "Apache-2.0" },
-        { "k": "RT-DETRv2-R18 license", "v": "Apache-2.0" },
-        { "k": "RT-DETR-R18 release", "v": "2023-04-17" },
-        { "k": "RT-DETRv2-R18 release", "v": "2024-05-01" },
-        { "k": "Evaluated weights", "v": "LibreYOLO retrained checkpoints" }
+        {
+          "k": "RT-DETR-R18 license",
+          "v": "Apache-2.0"
+        },
+        {
+          "k": "RT-DETRv2-R18 license",
+          "v": "Apache-2.0"
+        },
+        {
+          "k": "RT-DETR-R18 release",
+          "v": "2023-04-17"
+        },
+        {
+          "k": "RT-DETRv2-R18 release",
+          "v": "2024-05-01"
+        },
+        {
+          "k": "Evaluated weights",
+          "v": "LibreYOLO retrained checkpoints"
+        }
       ]
     },
     {

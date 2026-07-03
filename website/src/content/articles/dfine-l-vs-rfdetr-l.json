@@ -6,8 +6,12 @@
   "date": "2026-07-03",
   "author": "Vision Analysis",
   "readingMinutes": 4,
-  "tags": ["comparison", "dfine", "rfdetr"],
-  "status": "published",
+  "tags": [
+    "comparison",
+    "dfine",
+    "rfdetr"
+  ],
+  "status": "draft",
   "claimsFile": "article-pipeline/v2/output/dfine-l-vs-rfdetr-l.claims.json",
   "blocks": [
     {
@@ -20,7 +24,10 @@
     },
     {
       "kind": "comparison-table",
-      "models": ["dfine-l", "rfdetr-l"],
+      "models": [
+        "dfine-l",
+        "rfdetr-l"
+      ],
       "hardware": "nvidia_geforce_rtx_5070_ti",
       "runtime": "pytorch_fp32"
     },
@@ -53,12 +60,30 @@
       "kind": "kv",
       "title": "License and provenance",
       "items": [
-        { "k": "D-FINE-L license", "v": "Apache-2.0" },
-        { "k": "RF-DETR-L license", "v": "Apache-2.0" },
-        { "k": "D-FINE-L release", "v": "2024-10-18" },
-        { "k": "RF-DETR-L release", "v": "2026-02-23" },
-        { "k": "Input sizes", "v": "D-FINE-L 640 px, RF-DETR-L 704 px" },
-        { "k": "Evaluated weights", "v": "LibreYOLO retrained checkpoints" }
+        {
+          "k": "D-FINE-L license",
+          "v": "Apache-2.0"
+        },
+        {
+          "k": "RF-DETR-L license",
+          "v": "Apache-2.0"
+        },
+        {
+          "k": "D-FINE-L release",
+          "v": "2024-10-18"
+        },
+        {
+          "k": "RF-DETR-L release",
+          "v": "2026-02-23"
+        },
+        {
+          "k": "Input sizes",
+          "v": "D-FINE-L 640 px, RF-DETR-L 704 px"
+        },
+        {
+          "k": "Evaluated weights",
+          "v": "LibreYOLO retrained checkpoints"
+        }
       ]
     },
     {

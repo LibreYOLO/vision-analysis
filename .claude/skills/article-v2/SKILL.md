@@ -23,6 +23,7 @@ Run everything from the repo root (`vision-analysis/`).
 ```
 python3 article-pipeline/v2/claims.py list                      # coverage: what can be written
 python3 article-pipeline/v2/claims.py plan [--limit N] [--json]  # ranked, de-duplicated worklist of every viable article
+python3 article-pipeline/v2/claims.py family-vs <famA> <famB> [--hardware H] [--runtime R]
 python3 article-pipeline/v2/claims.py vs <a> <b> [--hardware H] [--runtime R]
 python3 article-pipeline/v2/claims.py hardware-guide <hw> [--runtime R]
 python3 article-pipeline/v2/claims.py runtime-guide <hw> <baseline_rt> <target_rt>
@@ -119,6 +120,7 @@ new benchmark runs land, so prefer them over prose for anything numeric):
 | `{"kind": "comparison-table", "models": ["a","b"], "hardware": H, "runtime": R}` | side-by-side metric table with winner highlighting, license row included |
 | `{"kind": "ranking-table", "hardware": H, "runtime": R, "metric": "mAP_50_95"\|"throughputFps", "limit": 10, "licenseFilter": "permissive"?, "maxParamsM": 20?}` | leaderboard slice |
 | `{"kind": "speedup-table", "hardware": H, "baseline": RT, "target": RT, "limit": 15?}` | per-model conversion speedups + mAP delta |
+| `{"kind": "family-frontier", "familyA": famId, "familyB": famId, "hardware": H, "runtime": R}` | both families' variant ladders interleaved by params (the family-vs signature block) |
 | `{"kind": "chart", "src": "/embed/scatter?highlight=a,b", "caption": ...}` | live scatter iframe |
 | `{"kind": "kv", "title": ..., "items": [{"k": ..., "v": ..., "href"?: ...}]}` | license/provenance key-value block |
 | `{"kind": "code", "language": "python", "text": ...}` | LibreYOLO snippet |
@@ -131,7 +133,28 @@ All blocks take an optional `caption`.
 Every article: `verdict` first, at least one data block, one `methodology`
 block, prose budget max 900 words total (target 350-600).
 
-**vs** (slug `<a>-vs-<b>`, ids alphabetical):
+**family-vs** (slug `<famA>-vs-<famB>`, family ids alphabetical) is the HEADLINE
+type: it compares two architecture families across their whole size range, which
+is the higher-traffic head-term query ("YOLOv9 vs RT-DETR", "D-FINE vs DEIM").
+Prefer it over vs. Structure:
+verdict (the matched-compute accuracy edge AND the speed edge in one breath, plus
+the crossover if `family_crossover` passed: name which family wins at the small
+end vs the large end), lede prose (how many variants each family fields, both on
+one protocol), `family-frontier` block (familyA/familyB/hardware/runtime from
+claims meta: this is the signature visual, both ladders interleaved by params),
+chart using `facts.chart_highlight` as the highlight list, heading "Accuracy at
+matched compute" + prose (use `aggregate.mean_mAP_delta_pts`, `a_wins`/`b_wins`,
+flagship and efficient-end claims; the comparison is nearest-params, say so),
+heading "Speed" + prose (`aggregate.mean_fps_delta_pct`), heading "Where the
+frontier crosses" + prose ONLY if `family_crossover` passed, kv "Licensing"
+(per-family permissiveness from `facts.license`; surface `family_license_edge`
+if it passed), heading "Which family to pick" + prose (small-model use, large-
+model use, license-driven, runtime-driven), methodology. No per-model code block
+(too many variants); instead one sentence pointing to the family's model pages.
+Never claim a single overall winner when the crossover claim passed.
+
+**vs** (slug `<a>-vs-<b>`, ids alphabetical) is now the LONG-TAIL supporting
+type, for a specific high-intent variant pair only. Structure:
 verdict, lede prose, comparison-table, chart (`/embed/scatter?highlight=a,b`),
 heading "Accuracy" + prose, heading "Speed" + prose, cross-runtime or
 cross-hardware observation if the claims contain `ranking_flip` or
@@ -170,6 +193,7 @@ still no speculation about why architectures behave as they do.
 
 ## SEO title patterns
 
+- family-vs: `"{FamA} vs {FamB}: which detector family wins"` or `"{FamA} vs {FamB}: full benchmark comparison"`
 - vs: `"{A} vs {B}: measured on the same protocol"` or `"{A} vs {B}: benchmark"`
 - hardware-guide: `"Best object detection models for {hardware} ({year})"`
 - runtime-guide: `"{Target} vs {Baseline} on {hardware}: N models measured"`
