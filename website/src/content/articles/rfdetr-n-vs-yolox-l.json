@@ -1,0 +1,84 @@
+{
+  "slug": "rfdetr-n-vs-yolox-l",
+  "type": "vs",
+  "title": "RF-DETR-N vs YOLOX-L: benchmark on COCO",
+  "dek": "YOLOX-L leads by 4.0 mAP points at 640 px, but RF-DETR-N at 384 px is faster on edge hardware and most converted runtimes.",
+  "date": "2026-07-03",
+  "author": "Vision Analysis",
+  "readingMinutes": 4,
+  "tags": ["comparison", "rfdetr", "yolox"],
+  "status": "published",
+  "claimsFile": "article-pipeline/v2/output/rfdetr-n-vs-yolox-l.claims.json",
+  "blocks": [
+    {
+      "kind": "verdict",
+      "text": "YOLOX-L is the more accurate detector, 55.4 vs 51.4 mAP@50-95 against RF-DETR-N on an RTX 5070 Ti in PyTorch. The resolutions differ: RF-DETR-N runs at 384 px and YOLOX-L at 640 px, each at its author default, so read this as a deployment comparison. YOLOX-L edges the PyTorch speed test, 42.8 vs 39.5 FPS, but RF-DETR-N is faster on ONNX Runtime, TensorRT FP32, Jetson Orin, and Raspberry Pi 5. RF-DETR-N uses far less VRAM, 151 vs 307 MB."
+    },
+    {
+      "kind": "prose",
+      "text": "RF-DETR-N (30.47M parameters) and YOLOX-L (54.21M) both ship under Apache-2.0 and evaluate on COCO val2017 at different input sizes: RF-DETR-N at 384 px, YOLOX-L at 640 px, each at the author default. Both have verified rows on desktop GPU, Jetson Orin, and Raspberry Pi 5."
+    },
+    {
+      "kind": "comparison-table",
+      "models": ["rfdetr-n", "yolox-l"],
+      "hardware": "nvidia_geforce_rtx_5070_ti",
+      "runtime": "pytorch_fp32"
+    },
+    {
+      "kind": "chart",
+      "src": "/embed/scatter?highlight=rfdetr-n,yolox-l",
+      "caption": "Accuracy vs parameters on COCO val2017. RF-DETR-N and YOLOX-L highlighted against the full set."
+    },
+    {
+      "kind": "heading",
+      "text": "Accuracy"
+    },
+    {
+      "kind": "prose",
+      "text": "mAP is shown in percent form. YOLOX-L measures 55.4 mAP@50-95 to RF-DETR-N's 51.4, a 4.0 point gap, on nearly double the parameter count. The gap widens on small objects: YOLOX-L leads 39.0 vs 27.7 mAP_small, a 29.09% relative difference."
+    },
+    {
+      "kind": "heading",
+      "text": "Speed"
+    },
+    {
+      "kind": "prose",
+      "text": "In PyTorch on the RTX 5070 Ti, YOLOX-L runs 42.8 FPS to RF-DETR-N's 39.5. The order flips under conversion on two of three GPU runtimes: RF-DETR-N reaches 67.6 vs 61.8 FPS on TensorRT FP32 and 65.7 vs 50.6 on ONNX Runtime. YOLOX-L stays ahead on TensorRT FP16, 79.2 vs 58.3."
+    },
+    {
+      "kind": "callout",
+      "text": "On edge hardware RF-DETR-N is the faster model. It runs 10.2 FPS to YOLOX-L's 5.8 on Jetson Orin, and 2.1 vs 0.4 on Raspberry Pi 5."
+    },
+    {
+      "kind": "kv",
+      "title": "License and provenance",
+      "items": [
+        { "k": "RF-DETR-N license", "v": "Apache-2.0" },
+        { "k": "YOLOX-L license", "v": "Apache-2.0" },
+        { "k": "RF-DETR-N release", "v": "2026-02-23" },
+        { "k": "YOLOX-L release", "v": "2021-07-18" },
+        { "k": "Evaluated weights", "v": "LibreYOLO retrained checkpoints" }
+      ]
+    },
+    {
+      "kind": "heading",
+      "text": "When to pick which"
+    },
+    {
+      "kind": "prose",
+      "text": "Pick YOLOX-L for desktop deployment where the accuracy and small-object lead justify the larger model. Pick RF-DETR-N for edge and most converted runtimes, where it runs faster at 384 px on less than half the VRAM, 151 vs 307 MB. Both ship under Apache-2.0."
+    },
+    {
+      "kind": "heading",
+      "text": "Try both with LibreYOLO"
+    },
+    {
+      "kind": "code",
+      "language": "python",
+      "text": "# pip install libreyolo\nfrom libreyolo import LibreYOLO\n\nrfdetr = LibreYOLO(\"LibreRFDETRn.pt\")  # 30.47M params, 51.4 mAP@50-95\nyolox = LibreYOLO(\"LibreYOLOXl.pt\")    # 54.21M params, 55.4 mAP@50-95\n\nresults = yolox(\"image.jpg\")\n"
+    },
+    {
+      "kind": "methodology"
+    }
+  ]
+}

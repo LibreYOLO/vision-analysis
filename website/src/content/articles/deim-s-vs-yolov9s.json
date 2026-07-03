@@ -1,0 +1,84 @@
+{
+  "slug": "deim-s-vs-yolov9s",
+  "type": "vs",
+  "title": "DEIM-S vs YOLOv9-S: benchmark on the same protocol",
+  "dek": "Measured on the same COCO protocol: DEIM-S leads YOLOv9-S by 1.7 mAP points and is 8.42% faster on desktop GPU, but YOLOv9-S wins on Pi 5.",
+  "date": "2026-07-03",
+  "author": "Vision Analysis",
+  "readingMinutes": 4,
+  "tags": ["comparison", "deim", "yolov9", "edge"],
+  "status": "published",
+  "claimsFile": "article-pipeline/v2/output/deim-s-vs-yolov9s.claims.json",
+  "blocks": [
+    {
+      "kind": "verdict",
+      "text": "DEIM-S wins on desktop GPU: 52.1 vs 50.4 mAP@50-95 and 33.4 vs 30.8 FPS against YOLOv9-S on an RTX 5070 Ti in PyTorch. YOLOv9-S is the lighter model: 7.23M parameters and 92 vs 142 MB peak VRAM. The speed order flips on Raspberry Pi 5, where YOLOv9-S runs 1.4 FPS to DEIM-S's 1.1. Pick by deployment target."
+    },
+    {
+      "kind": "prose",
+      "text": "DEIM-S (10.32M parameters, Apache-2.0) and YOLOv9-S (7.23M, MIT) sit in the same small-detector class, both evaluated at 640 px input, so the input resolution matches and does not skew the comparison. YOLOv9-S is the smaller model. Both have verified rows on desktop GPU, Jetson Orin, and Raspberry Pi 5, so this comparison covers the deploy targets where the answer changes."
+    },
+    {
+      "kind": "comparison-table",
+      "models": ["deim-s", "yolov9s"],
+      "hardware": "nvidia_geforce_rtx_5070_ti",
+      "runtime": "pytorch_fp32"
+    },
+    {
+      "kind": "chart",
+      "src": "/embed/scatter?highlight=deim-s,yolov9s",
+      "caption": "Accuracy vs parameters on COCO val2017. DEIM-S and YOLOv9-S highlighted against the full set."
+    },
+    {
+      "kind": "heading",
+      "text": "Accuracy"
+    },
+    {
+      "kind": "prose",
+      "text": "mAP is shown in percent form. DEIM-S measures 52.1 mAP@50-95 to YOLOv9-S's 50.4, a 1.7 point lead. The gap is wider on small objects: 36.0 vs 30.7 mAP_small, a 17.17% relative difference. If your scenes are dominated by small instances, that row decides the comparison."
+    },
+    {
+      "kind": "heading",
+      "text": "Speed"
+    },
+    {
+      "kind": "prose",
+      "text": "On the RTX 5070 Ti, DEIM-S runs 33.4 FPS to YOLOv9-S's 30.8 in PyTorch, an 8.42% edge, and the gap widens under conversion: 67.5 vs 54.5 FPS on ONNX Runtime, 97.6 vs 75.1 FPS on TensorRT FP32. On Jetson Orin the two are close: 10.2 vs 9.9 FPS."
+    },
+    {
+      "kind": "callout",
+      "text": "The speed verdict does not travel to CPU. On Raspberry Pi 5, YOLOv9-S runs 1.4 FPS to DEIM-S's 1.1. If your target is a bare Pi, the desktop numbers point the wrong way."
+    },
+    {
+      "kind": "kv",
+      "title": "License and provenance",
+      "items": [
+        { "k": "DEIM-S license", "v": "Apache-2.0" },
+        { "k": "YOLOv9-S license", "v": "MIT" },
+        { "k": "DEIM-S release", "v": "2024-12-05" },
+        { "k": "YOLOv9-S release", "v": "2024-02-21" },
+        { "k": "Evaluated weights", "v": "LibreYOLO retrained checkpoints" }
+      ]
+    },
+    {
+      "kind": "heading",
+      "text": "When to pick which"
+    },
+    {
+      "kind": "prose",
+      "text": "Pick DEIM-S for desktop, server, or Jetson deployment and for small-object accuracy: it is more accurate at every object size and faster on every GPU runtime measured, at the cost of 142 vs 92 MB peak VRAM. Pick YOLOv9-S for a Raspberry Pi, where it is the faster detector, or when memory is the constraint. Both ship under permissive licenses, so licensing does not force the choice."
+    },
+    {
+      "kind": "heading",
+      "text": "Try both with LibreYOLO"
+    },
+    {
+      "kind": "code",
+      "language": "python",
+      "text": "# pip install libreyolo\nfrom libreyolo import LibreYOLO\n\ndeim = LibreYOLO(\"LibreDEIMs.pt\")    # 10.32M params, 52.1 mAP@50-95\nyolo9 = LibreYOLO(\"LibreYOLO9s.pt\")  # 7.23M params, 50.4 mAP@50-95\n\nresults = deim(\"image.jpg\")\n"
+    },
+    {
+      "kind": "methodology"
+    }
+  ]
+}

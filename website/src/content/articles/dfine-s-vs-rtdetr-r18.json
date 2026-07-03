@@ -1,0 +1,84 @@
+{
+  "slug": "dfine-s-vs-rtdetr-r18",
+  "type": "vs",
+  "title": "D-FINE-S vs RT-DETR-R18: benchmark on one protocol",
+  "dek": "Measured on the same COCO protocol: D-FINE-S leads by 3.6 mAP points, but RT-DETR-R18 is 27% faster on desktop GPU and the order flips on a Raspberry Pi 5.",
+  "date": "2026-07-03",
+  "author": "Vision Analysis",
+  "readingMinutes": 3,
+  "tags": ["comparison", "dfine", "rtdetr"],
+  "status": "published",
+  "claimsFile": "article-pipeline/v2/output/dfine-s-vs-rtdetr-r18.claims.json",
+  "blocks": [
+    {
+      "kind": "verdict",
+      "text": "D-FINE-S is the more accurate detector: 53.4 vs 49.8 mAP@50-95 against RT-DETR-R18 on an RTX 5070 Ti in PyTorch, a 3.6-point lead. RT-DETR-R18 answers with speed, running 27% faster at 47.2 vs 34.2 FPS. D-FINE-S also holds the smaller memory footprint at 142 vs 169 MB peak VRAM. The order flips on Raspberry Pi 5, so pick by deployment target."
+    },
+    {
+      "kind": "prose",
+      "text": "D-FINE-S (10.32M parameters, Apache-2.0) and RT-DETR-R18 (20.18M, Apache-2.0) are both transformer detectors evaluated at 640 px input on COCO val2017. Both have verified rows on desktop GPU, Jetson Orin, A100, and Raspberry Pi 5, so this comparison covers the targets where the answer changes."
+    },
+    {
+      "kind": "comparison-table",
+      "models": ["dfine-s", "rtdetr-r18"],
+      "hardware": "nvidia_geforce_rtx_5070_ti",
+      "runtime": "pytorch_fp32"
+    },
+    {
+      "kind": "chart",
+      "src": "/embed/scatter?highlight=dfine-s,rtdetr-r18",
+      "caption": "Accuracy vs parameters on COCO val2017. D-FINE-S and RT-DETR-R18 highlighted against the full set of measured models."
+    },
+    {
+      "kind": "heading",
+      "text": "Accuracy"
+    },
+    {
+      "kind": "prose",
+      "text": "mAP is shown in percent form. D-FINE-S measures 53.4 mAP@50-95 to RT-DETR-R18's 49.8, and the gap is stable across runtimes. On small objects D-FINE-S leads 37.9 vs 32.7 mAP_small, a 15.87% relative gap. If small instances dominate your scenes, that row weighs the comparison toward D-FINE-S."
+    },
+    {
+      "kind": "heading",
+      "text": "Speed"
+    },
+    {
+      "kind": "prose",
+      "text": "On the RTX 5070 Ti, RT-DETR-R18 is 27.64% faster in PyTorch (47.2 vs 34.2 FPS) and the gap holds under conversion: 92.5 vs 70.9 FPS on ONNX Runtime, 120.6 vs 98.7 FPS on TensorRT FP32. On Jetson Orin the two are close: 10.2 vs 10.3 FPS."
+    },
+    {
+      "kind": "callout",
+      "text": "The speed verdict does not travel to CPU. On Raspberry Pi 5, D-FINE-S runs 1.1 FPS to RT-DETR-R18's 0.8, so the desktop order reverses. If your target is a bare Pi, the desktop numbers point the wrong way."
+    },
+    {
+      "kind": "kv",
+      "title": "License and provenance",
+      "items": [
+        { "k": "D-FINE-S license", "v": "Apache-2.0" },
+        { "k": "RT-DETR-R18 license", "v": "Apache-2.0" },
+        { "k": "D-FINE-S release", "v": "2024-10-18" },
+        { "k": "RT-DETR-R18 release", "v": "2023-04-17" },
+        { "k": "Evaluated weights", "v": "LibreYOLO retrained checkpoints" }
+      ]
+    },
+    {
+      "kind": "heading",
+      "text": "When to pick which"
+    },
+    {
+      "kind": "prose",
+      "text": "Pick D-FINE-S when accuracy leads the requirement, on small objects, or on a Raspberry Pi 5 where it is also the faster detector, and when peak VRAM matters at 142 vs 169 MB. Pick RT-DETR-R18 for desktop or server GPU throughput, where it runs 27.64% faster. Both ship under Apache-2.0, so licensing does not force the choice."
+    },
+    {
+      "kind": "heading",
+      "text": "Try both with LibreYOLO"
+    },
+    {
+      "kind": "code",
+      "language": "python",
+      "text": "# pip install libreyolo\nfrom libreyolo import LibreYOLO\n\ndfine = LibreYOLO(\"LibreDFINEs.pt\")     # 10.32M params, 53.4 mAP@50-95\nrtdetr = LibreYOLO(\"LibreRTDETRr18.pt\") # 20.18M params, 49.8 mAP@50-95\n\nresults = dfine(\"image.jpg\")\n"
+    },
+    {
+      "kind": "methodology"
+    }
+  ]
+}

@@ -1,0 +1,84 @@
+{
+  "slug": "rtdetr-r34-vs-yolox-l",
+  "type": "vs",
+  "title": "RT-DETR-R34 vs YOLOX-L: benchmark on one protocol",
+  "dek": "On the same COCO protocol YOLOX-L leads RT-DETR-R34 by 3.2 mAP points, yet RT-DETR-R34 is faster on every runtime except PyTorch.",
+  "date": "2026-07-03",
+  "author": "Vision Analysis",
+  "readingMinutes": 4,
+  "tags": ["comparison", "rtdetr", "yolox"],
+  "status": "published",
+  "claimsFile": "article-pipeline/v2/output/rtdetr-r34-vs-yolox-l.claims.json",
+  "blocks": [
+    {
+      "kind": "verdict",
+      "text": "YOLOX-L is the more accurate detector: 55.4 vs 52.2 mAP@50-95 against RT-DETR-R34 on an RTX 5070 Ti in PyTorch, both at 640 px. It also edges the PyTorch speed test, 42.8 vs 40.2 FPS. That speed result does not travel: RT-DETR-R34 is faster on ONNX Runtime, both TensorRT builds, Jetson Orin, and Raspberry Pi 5. RT-DETR-R34 also uses far less peak VRAM, 213 vs 307 MB."
+    },
+    {
+      "kind": "prose",
+      "text": "RT-DETR-R34 (31.44M parameters) and YOLOX-L (54.21M) both evaluate at 640 px on COCO val2017, and both ship under Apache-2.0. Both have verified rows on desktop GPU, Jetson Orin, and Raspberry Pi 5, across four runtimes, so this comparison covers the targets where the answer changes."
+    },
+    {
+      "kind": "comparison-table",
+      "models": ["rtdetr-r34", "yolox-l"],
+      "hardware": "nvidia_geforce_rtx_5070_ti",
+      "runtime": "pytorch_fp32"
+    },
+    {
+      "kind": "chart",
+      "src": "/embed/scatter?highlight=rtdetr-r34,yolox-l",
+      "caption": "Accuracy vs parameters on COCO val2017. RT-DETR-R34 and YOLOX-L highlighted against the full set."
+    },
+    {
+      "kind": "heading",
+      "text": "Accuracy"
+    },
+    {
+      "kind": "prose",
+      "text": "mAP is shown in percent form. YOLOX-L measures 55.4 mAP@50-95 to RT-DETR-R34's 52.2, a 3.2 point gap that holds across runtimes. YOLOX-L also leads on small objects: 39.0 vs 34.9 mAP_small, a 10.48% relative gap. It carries this with more than half again the parameter count."
+    },
+    {
+      "kind": "heading",
+      "text": "Speed"
+    },
+    {
+      "kind": "prose",
+      "text": "In PyTorch on the RTX 5070 Ti, YOLOX-L runs 42.8 FPS to RT-DETR-R34's 40.2. Convert either model and the order reverses. On TensorRT FP32, RT-DETR-R34 reaches 98.1 FPS to YOLOX-L's 61.8. On ONNX Runtime it is 77.7 vs 50.6, and on TensorRT FP16 it is 108.4 vs 79.2."
+    },
+    {
+      "kind": "callout",
+      "text": "The PyTorch speed result is the exception, not the rule. RT-DETR-R34 is the faster model on every other runtime and on both edge devices: 8.0 vs 5.8 FPS on Jetson Orin, 0.6 vs 0.4 on Raspberry Pi 5."
+    },
+    {
+      "kind": "kv",
+      "title": "License and provenance",
+      "items": [
+        { "k": "RT-DETR-R34 license", "v": "Apache-2.0" },
+        { "k": "YOLOX-L license", "v": "Apache-2.0" },
+        { "k": "RT-DETR-R34 release", "v": "2023-04-17" },
+        { "k": "YOLOX-L release", "v": "2021-07-18" },
+        { "k": "Evaluated weights", "v": "LibreYOLO retrained checkpoints" }
+      ]
+    },
+    {
+      "kind": "heading",
+      "text": "When to pick which"
+    },
+    {
+      "kind": "prose",
+      "text": "Pick YOLOX-L when you deploy in PyTorch or need the accuracy edge, especially on small objects. Pick RT-DETR-R34 for any converted runtime or edge target, where it runs faster on fewer parameters and less than half the VRAM. Both ship under Apache-2.0, so licensing does not force the choice."
+    },
+    {
+      "kind": "heading",
+      "text": "Try both with LibreYOLO"
+    },
+    {
+      "kind": "code",
+      "language": "python",
+      "text": "# pip install libreyolo\nfrom libreyolo import LibreYOLO\n\nrtdetr = LibreYOLO(\"LibreRTDETRr34.pt\")  # 31.44M params, 52.2 mAP@50-95\nyolox = LibreYOLO(\"LibreYOLOXl.pt\")      # 54.21M params, 55.4 mAP@50-95\n\nresults = yolox(\"image.jpg\")\n"
+    },
+    {
+      "kind": "methodology"
+    }
+  ]
+}

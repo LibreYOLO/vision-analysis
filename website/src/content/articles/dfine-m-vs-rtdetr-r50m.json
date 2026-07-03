@@ -1,0 +1,84 @@
+{
+  "slug": "dfine-m-vs-rtdetr-r50m",
+  "type": "vs",
+  "title": "D-FINE-M vs RT-DETR-R50m: same-protocol benchmark",
+  "dek": "Measured on the same COCO protocol: D-FINE-M leads by 4.0 mAP points on half the VRAM, but RT-DETR-R50m is faster on desktop GPU and the order flips on edge.",
+  "date": "2026-07-03",
+  "author": "Vision Analysis",
+  "readingMinutes": 4,
+  "tags": ["comparison", "dfine", "rtdetr"],
+  "status": "published",
+  "claimsFile": "article-pipeline/v2/output/dfine-m-vs-rtdetr-r50m.claims.json",
+  "blocks": [
+    {
+      "kind": "verdict",
+      "text": "D-FINE-M is the more accurate detector: 57.8 vs 53.8 mAP@50-95 against RT-DETR-R50m on an RTX 5070 Ti, a 4.0 point lead, with roughly half the parameters (19.59M vs 36.59M) and less VRAM (189 vs 302 MB). RT-DETR-R50m wins desktop-GPU speed, 35.3 vs 28.8 FPS. On the edge that reverses: on Jetson Orin D-FINE-M runs 7.0 FPS to RT-DETR-R50m's 5.0."
+    },
+    {
+      "kind": "prose",
+      "text": "D-FINE-M (19.59M parameters, Apache-2.0) and RT-DETR-R50m (36.59M, Apache-2.0) are both mid-size detectors evaluated at 640 px on COCO val2017. D-FINE-M is the smaller model. Both have verified rows on desktop GPU, A100, Jetson Orin, and Raspberry Pi 5, so this comparison covers the deploy targets where the ranking changes."
+    },
+    {
+      "kind": "comparison-table",
+      "models": ["dfine-m", "rtdetr-r50m"],
+      "hardware": "nvidia_geforce_rtx_5070_ti",
+      "runtime": "pytorch_fp32"
+    },
+    {
+      "kind": "chart",
+      "src": "/embed/scatter?highlight=dfine-m,rtdetr-r50m",
+      "caption": "Accuracy vs parameters on COCO val2017. D-FINE-M and RT-DETR-R50m highlighted against the full field."
+    },
+    {
+      "kind": "heading",
+      "text": "Accuracy"
+    },
+    {
+      "kind": "prose",
+      "text": "mAP is shown in percent form. D-FINE-M measures 57.8 mAP@50-95 to RT-DETR-R50m's 53.8, and the lead holds across runtimes. The gap is widest on small objects: 43.0 vs 37.6 mAP_small, a 14.24% relative gap. If small instances dominate your scenes, that row decides it."
+    },
+    {
+      "kind": "heading",
+      "text": "Speed"
+    },
+    {
+      "kind": "prose",
+      "text": "On the RTX 5070 Ti in PyTorch, RT-DETR-R50m runs 35.3 FPS to D-FINE-M's 28.8, so it is 18.46% faster. The margin widens under conversion: 76.4 vs 59.8 FPS on ONNX Runtime and 102.8 vs 85.3 FPS on TensorRT FP32."
+    },
+    {
+      "kind": "callout",
+      "text": "The speed verdict does not travel to the edge. On Jetson Orin D-FINE-M runs 7.0 FPS to RT-DETR-R50m's 5.0, and on Raspberry Pi 5 it leads 0.6 to 0.4 FPS. If your target is a Jetson or a Pi, the desktop numbers point the wrong way."
+    },
+    {
+      "kind": "kv",
+      "title": "License and provenance",
+      "items": [
+        { "k": "D-FINE-M license", "v": "Apache-2.0" },
+        { "k": "RT-DETR-R50m license", "v": "Apache-2.0" },
+        { "k": "D-FINE-M release", "v": "2024-10-18" },
+        { "k": "RT-DETR-R50m release", "v": "2026-04-22" },
+        { "k": "Evaluated weights", "v": "LibreYOLO retrained checkpoints" }
+      ]
+    },
+    {
+      "kind": "heading",
+      "text": "When to pick which"
+    },
+    {
+      "kind": "prose",
+      "text": "Pick D-FINE-M for accuracy, memory, or edge serving: it leads at every object size, uses less VRAM, and is faster on both Jetson Orin and Raspberry Pi 5. Pick RT-DETR-R50m for desktop or server GPU throughput, where it is faster on every GPU runtime measured. Both are Apache-2.0, so licensing does not force the choice."
+    },
+    {
+      "kind": "heading",
+      "text": "Try both with LibreYOLO"
+    },
+    {
+      "kind": "code",
+      "language": "python",
+      "text": "# pip install libreyolo\nfrom libreyolo import LibreYOLO\n\ndfine  = LibreYOLO(\"LibreDFINEm.pt\")      # 19.59M params, 57.8 mAP@50-95\nrtdetr = LibreYOLO(\"LibreRTDETRr50m.pt\")  # 36.59M params, 53.8 mAP@50-95\n\nresults = dfine(\"image.jpg\")\n"
+    },
+    {
+      "kind": "methodology"
+    }
+  ]
+}

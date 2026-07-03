@@ -1,0 +1,376 @@
+{
+  "engine": "article-pipeline-v2",
+  "generated_at": "2026-07-03T22:09:44.136260+00:00",
+  "slug": "dfine-n-vs-yolov9t",
+  "meta": {
+    "type": "vs",
+    "a": "dfine-n",
+    "b": "yolov9t",
+    "hardware": "nvidia_geforce_rtx_5070_ti",
+    "runtime": "pytorch_fp32"
+  },
+  "facts": {
+    "a": {
+      "id": "dfine-n",
+      "displayName": "D-FINE-N",
+      "license": "Apache-2.0",
+      "releaseDate": "2024-10-18",
+      "inLibreYOLO": true,
+      "bench": {
+        "mAP_50_95": 0.457506099610084,
+        "mAP_50": 0.6273955560653228,
+        "mAP_small": 0.25794608999739005,
+        "mAP_medium": 0.5147011969399619,
+        "mAP_large": 0.6162508784225,
+        "fps_mean": 32.54,
+        "fps_p50": 33.05,
+        "ms_per_image": 30.734,
+        "inference_ms": 22.192,
+        "preprocess_ms": 7.261,
+        "postprocess_ms": 1.281,
+        "p95_ms": 36.882,
+        "peak_vram_mb": 70.2,
+        "peak_ram_mb": 6.5,
+        "params_millions": 3.78,
+        "gflops": 0.0,
+        "input_size": 640,
+        "config": {
+          "batch_size": 1,
+          "input_size": 640,
+          "conf": 0.001,
+          "iou": 0.6,
+          "max_det": 300
+        },
+        "eval": {
+          "dataset": "coco",
+          "split": "val2017",
+          "numImages": 500
+        },
+        "benchmark_date": "2026-06-16T21:45:17.563790Z"
+      }
+    },
+    "b": {
+      "id": "yolov9t",
+      "displayName": "YOLOv9-T",
+      "license": "MIT",
+      "releaseDate": "2024-02-21",
+      "inLibreYOLO": true,
+      "bench": {
+        "mAP_50_95": 0.4177885668656335,
+        "mAP_50": 0.5661372018894871,
+        "mAP_small": 0.2225871925542081,
+        "mAP_medium": 0.46300230914348306,
+        "mAP_large": 0.57077934037184,
+        "fps_mean": 31.94,
+        "fps_p50": 33.42,
+        "ms_per_image": 31.307,
+        "inference_ms": 25.151,
+        "preprocess_ms": 3.907,
+        "postprocess_ms": 2.249,
+        "p95_ms": 37.685,
+        "peak_vram_mb": 48.0,
+        "peak_ram_mb": 340.2,
+        "params_millions": 2.04,
+        "gflops": 3.98,
+        "input_size": 640,
+        "config": {
+          "batch_size": 1,
+          "input_size": 640,
+          "conf": 0.001,
+          "iou": 0.6,
+          "max_det": 300
+        },
+        "eval": {
+          "dataset": "coco",
+          "split": "val2017",
+          "numImages": 500
+        },
+        "benchmark_date": "2026-06-16T21:18:14.276169Z"
+      }
+    },
+    "primary": {
+      "hardware": "nvidia_geforce_rtx_5070_ti",
+      "hardware_display": "NVIDIA RTX 5070 Ti",
+      "runtime": "pytorch_fp32",
+      "runtime_display": "PyTorch FP32"
+    },
+    "deltas_pct": {
+      "mAP_50_95": 9.51,
+      "fps": 1.88,
+      "params": 85.29,
+      "flops": 75.88,
+      "peak_vram": 46.25
+    },
+    "map_pts": {
+      "a": 45.8,
+      "b": 41.8,
+      "delta": 4.0
+    },
+    "pair": {
+      "params_ratio": 1.85,
+      "meaningful": true
+    },
+    "efficiency": {
+      "a_mAP_per_GFLOP": 0.06536,
+      "b_mAP_per_GFLOP": 0.10497
+    },
+    "cross_runtime": [
+      {
+        "runtime": "onnx_fp32",
+        "display": "ONNX Runtime FP32",
+        "a": {
+          "mAP": 45.8,
+          "fps": 78.9
+        },
+        "b": {
+          "mAP": 41.8,
+          "fps": 52.1
+        }
+      },
+      {
+        "runtime": "pytorch_fp32",
+        "display": "PyTorch FP32",
+        "a": {
+          "mAP": 45.8,
+          "fps": 32.5
+        },
+        "b": {
+          "mAP": 41.8,
+          "fps": 31.9
+        }
+      },
+      {
+        "runtime": "tensorrt_fp16",
+        "display": "TensorRT FP16",
+        "a": {
+          "mAP": 45.8,
+          "fps": 79.7
+        },
+        "b": {
+          "mAP": 41.8,
+          "fps": 59.0
+        }
+      },
+      {
+        "runtime": "tensorrt_fp32",
+        "display": "TensorRT FP32",
+        "a": {
+          "mAP": 45.8,
+          "fps": 98.7
+        },
+        "b": {
+          "mAP": 41.8,
+          "fps": 72.0
+        }
+      }
+    ],
+    "cross_hardware": [
+      {
+        "hardware": "jetson_orin",
+        "display": "NVIDIA Jetson Orin Nano Super 8GB",
+        "a": {
+          "mAP": 45.8,
+          "fps": 11.7
+        },
+        "b": {
+          "mAP": 41.8,
+          "fps": 9.9
+        }
+      },
+      {
+        "hardware": "nvidia_geforce_rtx_5070_ti",
+        "display": "NVIDIA RTX 5070 Ti",
+        "a": {
+          "mAP": 45.8,
+          "fps": 32.5
+        },
+        "b": {
+          "mAP": 41.8,
+          "fps": 31.9
+        }
+      },
+      {
+        "hardware": "rpi5",
+        "display": "Raspberry Pi 5",
+        "a": {
+          "mAP": 45.8,
+          "fps": 2.3
+        },
+        "b": {
+          "mAP": 41.4,
+          "fps": 2.9
+        }
+      }
+    ],
+    "input_sizes": {
+      "a": 640,
+      "b": 640,
+      "match": true
+    }
+  },
+  "claims": [
+    {
+      "id": "accuracy_winner",
+      "kind": "accuracy",
+      "statement": "D-FINE-N measures 4.0 mAP points higher than YOLOv9-T on NVIDIA RTX 5070 Ti (PyTorch FP32): 45.8 vs 41.8 mAP@50-95.",
+      "values": {
+        "delta_pts": 4.0,
+        "a_map": 45.8,
+        "b_map": 41.8
+      },
+      "passed": true,
+      "strength": "strong"
+    },
+    {
+      "id": "efficiency_winner",
+      "kind": "efficiency",
+      "statement": "YOLOv9-T extracts 37.73% more mAP per GFLOP (0.06536 vs 0.10497).",
+      "values": {
+        "a": 0.06536,
+        "b": 0.10497,
+        "delta_pct": 37.73
+      },
+      "passed": true,
+      "strength": "normal"
+    },
+    {
+      "id": "memory_winner",
+      "kind": "memory",
+      "statement": "YOLOv9-T uses less peak VRAM: 70 vs 48 MB.",
+      "values": {
+        "a_vram": 70,
+        "b_vram": 48
+      },
+      "passed": true,
+      "strength": "normal"
+    },
+    {
+      "id": "small_object_gap",
+      "kind": "accuracy",
+      "statement": "D-FINE-N leads on small objects: 25.8 vs 22.3 mAP_small (15.89% relative gap).",
+      "values": {
+        "a": 25.8,
+        "b": 22.3,
+        "delta_pct": 15.89
+      },
+      "passed": true,
+      "strength": "normal"
+    },
+    {
+      "id": "ranking_flip",
+      "kind": "robustness",
+      "statement": "The speed verdict does NOT survive everywhere. It flips on hardware: Raspberry Pi 5. State this; it is the most useful fact in the article.",
+      "values": {
+        "flips": [
+          "hardware:Raspberry Pi 5"
+        ]
+      },
+      "passed": true,
+      "strength": "strong"
+    }
+  ],
+  "gate": {
+    "passed": true,
+    "passed_claims": 5,
+    "required": 2,
+    "reason": null
+  },
+  "allowed_numbers": [
+    0.0,
+    0.001,
+    0.0654,
+    0.1,
+    0.105,
+    0.2226,
+    0.2579,
+    0.4178,
+    0.4575,
+    0.463,
+    0.5147,
+    0.5661,
+    0.5708,
+    0.6,
+    0.6163,
+    0.6274,
+    1.0,
+    1.281,
+    1.85,
+    1.88,
+    2,
+    2.04,
+    2.249,
+    2.3,
+    2.9,
+    3,
+    3.78,
+    3.907,
+    3.98,
+    4.0,
+    5,
+    6,
+    6.5,
+    6.536,
+    7,
+    7.261,
+    8,
+    9,
+    9.51,
+    9.9,
+    10,
+    10.497,
+    11,
+    11.7,
+    12,
+    15.89,
+    22.192,
+    22.2587,
+    22.3,
+    25.151,
+    25.7946,
+    25.8,
+    30.734,
+    31.307,
+    31.9,
+    31.94,
+    32.5,
+    32.54,
+    33.05,
+    33.42,
+    36.882,
+    37.685,
+    37.73,
+    41.4,
+    41.7789,
+    41.8,
+    45.7506,
+    45.8,
+    46.25,
+    46.3002,
+    48.0,
+    50,
+    51.4701,
+    52.1,
+    56.6137,
+    57.0779,
+    59.0,
+    60.0,
+    61.6251,
+    62.7396,
+    70.0,
+    70.2,
+    72.0,
+    75,
+    75.88,
+    78.9,
+    79.7,
+    85.29,
+    95,
+    98.7,
+    100.0,
+    300.0,
+    340.2,
+    500.0,
+    640.0,
+    5000
+  ]
+}

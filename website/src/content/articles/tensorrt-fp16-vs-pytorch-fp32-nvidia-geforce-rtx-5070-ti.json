@@ -1,0 +1,61 @@
+{
+  "slug": "tensorrt-fp16-vs-pytorch-fp32-nvidia-geforce-rtx-5070-ti",
+  "type": "runtime-guide",
+  "title": "TensorRT FP16 vs PyTorch FP32 on RTX 5070 Ti: 51 models",
+  "dek": "TensorRT FP16 gives a median 2.22x speedup over PyTorch FP32 across 51 models on the RTX 5070 Ti, but four models lose accuracy and one runs slower.",
+  "date": "2026-07-03",
+  "author": "Vision Analysis",
+  "readingMinutes": 3,
+  "tags": ["runtime-guide", "tensorrt", "rtx-5070-ti", "desktop-gpu"],
+  "status": "published",
+  "claimsFile": "article-pipeline/v2/output/tensorrt-fp16-vs-pytorch-fp32-nvidia-geforce-rtx-5070-ti.claims.json",
+  "blocks": [
+    {
+      "kind": "verdict",
+      "text": "Across 51 models on the NVIDIA RTX 5070 Ti, TensorRT FP16 gives a median 2.22x over PyTorch FP32, ranging from 0.96x to 4.72x. The biggest gain is DEIM-X at 4.72x, from 15.0 to 70.7 FPS. FP16 is not free here: four models lose half a point of mAP or more, and one model, PicoDet-L, actually runs slower after conversion. Check your specific model before committing. mAP is shown in percent form."
+    },
+    {
+      "kind": "prose",
+      "text": "PyTorch FP32 is the reference runtime. TensorRT FP16 is the usual deployment path on desktop NVIDIA GPUs. This compares both on the same 51 models, same COCO protocol, same device: an NVIDIA RTX 5070 Ti."
+    },
+    {
+      "kind": "speedup-table",
+      "hardware": "nvidia_geforce_rtx_5070_ti",
+      "baseline": "pytorch_fp32",
+      "target": "tensorrt_fp16",
+      "limit": 15,
+      "caption": "Per-model FPS under PyTorch FP32 and TensorRT FP16 on RTX 5070 Ti, with speedup and mAP delta. Top 15 by speedup."
+    },
+    {
+      "kind": "heading",
+      "text": "Speedup varies by family"
+    },
+    {
+      "kind": "prose",
+      "text": "Conversion gain depends on the model family. RT-DETR gains a median 3.27x, the most of any family here. PicoDet gains only 1.46x, the least. Set your speedup expectation by family, not by the single global median."
+    },
+    {
+      "kind": "heading",
+      "text": "Accuracy cost"
+    },
+    {
+      "kind": "prose",
+      "text": "Most models hold accuracy, but four of the 51 lose half a point of mAP or more under FP16. DEIMv2-Atto falls from 27.5 to 25.8, the largest drop. YOLOX-S falls from 44.3 to 43.4, PicoDet-M from 37.9 to 37.3, and DEIMv2-X from 61.3 to 60.8. If you run one of these four, measure mAP after conversion rather than assuming parity."
+    },
+    {
+      "kind": "heading",
+      "text": "One model runs slower"
+    },
+    {
+      "kind": "prose",
+      "text": "TensorRT FP16 is not a guaranteed win on this card. PicoDet-L regresses to 0.96x, dropping from 39.5 to 38.0 FPS after conversion. It is the only model in the set that ends up slower than its PyTorch baseline. The rest all gain, but this is the reason to benchmark your own model instead of trusting the median."
+    },
+    {
+      "kind": "callout",
+      "text": "TensorRT FP16 is a strong default on this GPU, but not automatic. One model got slower and four gave up accuracy. Verify both speed and mAP for your specific model before shipping."
+    },
+    {
+      "kind": "methodology"
+    }
+  ]
+}

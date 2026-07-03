@@ -1,0 +1,84 @@
+{
+  "slug": "deim-l-vs-rtdetr-r50",
+  "type": "vs",
+  "title": "DEIM-L vs RT-DETR-R50: benchmark on the same protocol",
+  "dek": "Measured on the same COCO protocol: DEIM-L leads by 1.9 mAP points with fewer parameters, but RT-DETR-R50 is 37.5% faster on desktop GPU.",
+  "date": "2026-07-03",
+  "author": "Vision Analysis",
+  "readingMinutes": 4,
+  "tags": ["comparison", "deim", "rtdetr"],
+  "status": "published",
+  "claimsFile": "article-pipeline/v2/output/deim-l-vs-rtdetr-r50.claims.json",
+  "blocks": [
+    {
+      "kind": "verdict",
+      "text": "DEIM-L is the more accurate model: 57.8 vs 55.9 mAP@50-95 against RT-DETR-R50 on an RTX 5070 Ti in PyTorch, and it reaches that with fewer parameters (31.24M vs 42.89M) and less VRAM (245 vs 326 MB). RT-DETR-R50 is the faster detector on that GPU: 29.8 vs 18.6 FPS, a 37.5% edge. The speed order flips on Jetson Orin and Raspberry Pi 5, where DEIM-L pulls ahead. Pick by deployment target."
+    },
+    {
+      "kind": "prose",
+      "text": "DEIM-L (31.24M parameters, Apache-2.0) and RT-DETR-R50 (42.89M, Apache-2.0) both evaluate at 640 px input, so the input resolution matches and does not skew the comparison. DEIM-L is the smaller model here. Both have verified rows on desktop GPU, Jetson Orin, and Raspberry Pi 5, so this comparison covers the deploy targets where the answer changes."
+    },
+    {
+      "kind": "comparison-table",
+      "models": ["deim-l", "rtdetr-r50"],
+      "hardware": "nvidia_geforce_rtx_5070_ti",
+      "runtime": "pytorch_fp32"
+    },
+    {
+      "kind": "chart",
+      "src": "/embed/scatter?highlight=deim-l,rtdetr-r50",
+      "caption": "Accuracy vs parameters on COCO val2017. DEIM-L and RT-DETR-R50 highlighted against the full set."
+    },
+    {
+      "kind": "heading",
+      "text": "Accuracy"
+    },
+    {
+      "kind": "prose",
+      "text": "mAP is shown in percent form. DEIM-L measures 57.8 mAP@50-95 to RT-DETR-R50's 55.9, a 1.9 point lead. The gap is wider on small objects: 45.2 vs 38.3 mAP_small, an 18.01% relative difference. DEIM-L reaches that accuracy with fewer parameters than RT-DETR-R50."
+    },
+    {
+      "kind": "heading",
+      "text": "Speed"
+    },
+    {
+      "kind": "prose",
+      "text": "On the RTX 5070 Ti, RT-DETR-R50 runs 29.8 FPS to DEIM-L's 18.6 in PyTorch, a 37.5% edge. The gap holds under conversion: 62.8 vs 50.5 FPS on ONNX Runtime, 87.4 vs 75.7 FPS on TensorRT FP32."
+    },
+    {
+      "kind": "callout",
+      "text": "The speed verdict does not travel to the edge. On Jetson Orin, DEIM-L runs 4.8 FPS to RT-DETR-R50's 4.3; on Raspberry Pi 5, 0.4 to 0.3. If your target is an edge board, the desktop numbers point the wrong way."
+    },
+    {
+      "kind": "kv",
+      "title": "License and provenance",
+      "items": [
+        { "k": "DEIM-L license", "v": "Apache-2.0" },
+        { "k": "RT-DETR-R50 license", "v": "Apache-2.0" },
+        { "k": "DEIM-L release", "v": "2024-12-05" },
+        { "k": "RT-DETR-R50 release", "v": "2023-04-17" },
+        { "k": "Evaluated weights", "v": "LibreYOLO retrained checkpoints" }
+      ]
+    },
+    {
+      "kind": "heading",
+      "text": "When to pick which"
+    },
+    {
+      "kind": "prose",
+      "text": "Pick DEIM-L when accuracy or memory matters, or when you deploy to Jetson Orin or a Raspberry Pi: it is more accurate at every object size, uses less VRAM, and is the faster model on both edge boards. Pick RT-DETR-R50 for desktop or server GPU throughput, where it leads on every GPU runtime measured. Both ship under Apache-2.0, so licensing does not force the choice."
+    },
+    {
+      "kind": "heading",
+      "text": "Try both with LibreYOLO"
+    },
+    {
+      "kind": "code",
+      "language": "python",
+      "text": "# pip install libreyolo\nfrom libreyolo import LibreYOLO\n\ndeim = LibreYOLO(\"LibreDEIMl.pt\")        # 31.24M params, 57.8 mAP@50-95\nrtdetr = LibreYOLO(\"LibreRTDETRr50.pt\")  # 42.89M params, 55.9 mAP@50-95\n\nresults = deim(\"image.jpg\")\n"
+    },
+    {
+      "kind": "methodology"
+    }
+  ]
+}

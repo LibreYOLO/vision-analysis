@@ -1,0 +1,57 @@
+{
+  "slug": "ncnn-fp32-vs-onnx-fp32-rpi5",
+  "type": "runtime-guide",
+  "title": "ncnn FP32 vs ONNX FP32 on Raspberry Pi 5: 13 models",
+  "dek": "On Raspberry Pi 5 CPU, ncnn FP32 runs a median 2.09x faster than ONNX Runtime FP32 across 13 models, but the YOLOX models give up a point of mAP.",
+  "date": "2026-07-03",
+  "author": "Vision Analysis",
+  "readingMinutes": 3,
+  "tags": ["runtime-guide", "ncnn", "onnx", "raspberry-pi", "edge"],
+  "status": "published",
+  "claimsFile": "article-pipeline/v2/output/ncnn-fp32-vs-onnx-fp32-rpi5.claims.json",
+  "blocks": [
+    {
+      "kind": "verdict",
+      "text": "On Raspberry Pi 5 CPU, ncnn FP32 runs a median 2.09x faster than ONNX Runtime FP32 across 13 models, ranging from 1.25x to 2.87x. The biggest gain is YOLOX-X at 2.87x. The catch is accuracy: five of the 13 models, all YOLOX, lose a point of mAP or more in the ncnn conversion. Take the speedup, but re-check mAP if you run a YOLOX model. mAP is shown in percent form."
+    },
+    {
+      "kind": "prose",
+      "text": "The Raspberry Pi 5 has no GPU for these models, so both runtimes are CPU inference. ONNX Runtime is the common baseline; ncnn is the CPU-tuned alternative. This compares both on the same 13 models, same COCO protocol, same device: a Raspberry Pi 5."
+    },
+    {
+      "kind": "speedup-table",
+      "hardware": "rpi5",
+      "baseline": "onnx_fp32",
+      "target": "ncnn_fp32",
+      "limit": 15,
+      "caption": "Per-model FPS under ONNX Runtime FP32 and ncnn FP32 on Raspberry Pi 5, with speedup and mAP delta. Sorted by speedup."
+    },
+    {
+      "kind": "heading",
+      "text": "Speedup varies by family"
+    },
+    {
+      "kind": "prose",
+      "text": "Conversion gain depends on the model family. YOLOX gains a median 2.72x, the most of the three families here. YOLOv9 gains 2.44x. PicoDet gains only 1.33x. On a bare Pi CPU that difference is large: the fastest-gaining models more than double their frame rate, while PicoDet barely moves."
+    },
+    {
+      "kind": "heading",
+      "text": "The YOLOX accuracy cost"
+    },
+    {
+      "kind": "prose",
+      "text": "The speedup is not free for YOLOX. All five YOLOX models lose a point of mAP or more in the ncnn conversion, and they are the only models that lose accuracy at all. YOLOX-L falls from 54.3 to 52.9, the largest drop. YOLOX-S falls from 43.1 to 41.9, YOLOX-M from 50.8 to 49.7, YOLOX-X from 54.9 to 53.9, and YOLOX-Nano from 27.7 to 26.8. The YOLOv9 and PicoDet models hold their accuracy through the same conversion."
+    },
+    {
+      "kind": "heading",
+      "text": "No regressions"
+    },
+    {
+      "kind": "prose",
+      "text": "No model ran slower under ncnn. The smallest gain was 1.25x, on PicoDet-S. On Raspberry Pi 5, ncnn is the faster CPU runtime across the board: the only question is whether your model is a YOLOX, in which case you trade a point of mAP for the speed."
+    },
+    {
+      "kind": "methodology"
+    }
+  ]
+}

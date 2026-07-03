@@ -1,0 +1,370 @@
+{
+  "engine": "article-pipeline-v2",
+  "generated_at": "2026-07-03T22:09:28.188785+00:00",
+  "slug": "best-object-detection-rpi5-hailo8",
+  "meta": {
+    "type": "hardware-guide",
+    "hardware": "rpi5_hailo8",
+    "runtime": "hailo_int8"
+  },
+  "facts": {
+    "hardware": "rpi5_hailo8",
+    "hardware_display": "Raspberry Pi 5 + Hailo-8",
+    "runtime": "hailo_int8",
+    "runtime_display": "HailoRT INT8",
+    "n_models": 10,
+    "leaderboard": [
+      {
+        "model": "yolov9c",
+        "displayName": "YOLOv9-C",
+        "family": "yolov9",
+        "license": "MIT",
+        "mAP": 54.8,
+        "fps": 21.2,
+        "ms": 47.08,
+        "params_millions": 25.5
+      },
+      {
+        "model": "yolov9m",
+        "displayName": "YOLOv9-M",
+        "family": "yolov9",
+        "license": "MIT",
+        "mAP": 53.3,
+        "fps": 30.1,
+        "ms": 33.23,
+        "params_millions": 20.12
+      },
+      {
+        "model": "yolonas-l",
+        "displayName": "YOLO-NAS-L",
+        "family": "yolonas",
+        "license": "non-permissive",
+        "mAP": 52.4,
+        "fps": 15.4,
+        "ms": 64.89,
+        "params_millions": 66.97
+      },
+      {
+        "model": "yolonas-m",
+        "displayName": "YOLO-NAS-M",
+        "family": "yolonas",
+        "license": "non-permissive",
+        "mAP": 47.4,
+        "fps": 21.7,
+        "ms": 46.05,
+        "params_millions": 51.1
+      },
+      {
+        "model": "yolonas-s",
+        "displayName": "YOLO-NAS-S",
+        "family": "yolonas",
+        "license": "non-permissive",
+        "mAP": 44.5,
+        "fps": 39.7,
+        "ms": 25.2,
+        "params_millions": 19.02
+      },
+      {
+        "model": "yolox-m",
+        "displayName": "YOLOX-M",
+        "family": "yolox",
+        "license": "Apache-2.0",
+        "mAP": 43.7,
+        "fps": 34.8,
+        "ms": 28.76,
+        "params_millions": 25.33
+      },
+      {
+        "model": "yolox-s",
+        "displayName": "YOLOX-S",
+        "family": "yolox",
+        "license": "Apache-2.0",
+        "mAP": 41.1,
+        "fps": 95.8,
+        "ms": 10.44,
+        "params_millions": 8.97
+      },
+      {
+        "model": "yolox-tiny",
+        "displayName": "YOLOX-Tiny",
+        "family": "yolox",
+        "license": "Apache-2.0",
+        "mAP": 33.5,
+        "fps": 195.6,
+        "ms": 5.11,
+        "params_millions": 5.06
+      },
+      {
+        "model": "yolov9s",
+        "displayName": "YOLOv9-S",
+        "family": "yolov9",
+        "license": "MIT",
+        "mAP": 32.0,
+        "fps": 36.3,
+        "ms": 27.52,
+        "params_millions": 7.23
+      },
+      {
+        "model": "yolov9t",
+        "displayName": "YOLOv9-T",
+        "family": "yolov9",
+        "license": "MIT",
+        "mAP": 25.7,
+        "fps": 76.5,
+        "ms": 13.08,
+        "params_millions": 2.04
+      }
+    ],
+    "pareto_models": [
+      "yolox-tiny",
+      "yolox-s",
+      "yolonas-s",
+      "yolov9m",
+      "yolov9c"
+    ],
+    "budget_picks": {
+      "50": {
+        "model": "yolov9c",
+        "displayName": "YOLOv9-C",
+        "family": "yolov9",
+        "license": "MIT",
+        "mAP": 54.8,
+        "fps": 21.2,
+        "ms": 47.08,
+        "params_millions": 25.5
+      },
+      "100": {
+        "model": "yolov9c",
+        "displayName": "YOLOv9-C",
+        "family": "yolov9",
+        "license": "MIT",
+        "mAP": 54.8,
+        "fps": 21.2,
+        "ms": 47.08,
+        "params_millions": 25.5
+      },
+      "500": {
+        "model": "yolov9c",
+        "displayName": "YOLOv9-C",
+        "family": "yolov9",
+        "license": "MIT",
+        "mAP": 54.8,
+        "fps": 21.2,
+        "ms": 47.08,
+        "params_millions": 25.5
+      }
+    },
+    "best_overall": {
+      "model": "yolov9c",
+      "displayName": "YOLOv9-C",
+      "family": "yolov9",
+      "license": "MIT",
+      "mAP": 54.8,
+      "fps": 21.2,
+      "ms": 47.08,
+      "params_millions": 25.5
+    },
+    "best_permissive": {
+      "model": "yolov9c",
+      "displayName": "YOLOv9-C",
+      "family": "yolov9",
+      "license": "MIT",
+      "mAP": 54.8,
+      "fps": 21.2,
+      "ms": 47.08,
+      "params_millions": 25.5
+    },
+    "fastest": {
+      "model": "yolox-tiny",
+      "displayName": "YOLOX-Tiny",
+      "family": "yolox",
+      "license": "Apache-2.0",
+      "mAP": 33.5,
+      "fps": 195.6,
+      "ms": 5.11,
+      "params_millions": 5.06
+    }
+  },
+  "claims": [
+    {
+      "id": "best_overall",
+      "kind": "ranking",
+      "statement": "YOLOv9-C leads on Raspberry Pi 5 + Hailo-8 at 54.8 mAP@50-95 (21.2 FPS, HailoRT INT8).",
+      "values": {
+        "model": "yolov9c",
+        "displayName": "YOLOv9-C",
+        "family": "yolov9",
+        "license": "MIT",
+        "mAP": 54.8,
+        "fps": 21.2,
+        "ms": 47.08,
+        "params_millions": 25.5
+      },
+      "passed": true,
+      "strength": "strong"
+    },
+    {
+      "id": "fastest",
+      "kind": "ranking",
+      "statement": "YOLOX-Tiny is the fastest measured: 195.6 FPS at 33.5 mAP.",
+      "values": {
+        "model": "yolox-tiny",
+        "displayName": "YOLOX-Tiny",
+        "family": "yolox",
+        "license": "Apache-2.0",
+        "mAP": 33.5,
+        "fps": 195.6,
+        "ms": 5.11,
+        "params_millions": 5.06
+      },
+      "passed": true,
+      "strength": "strong"
+    },
+    {
+      "id": "pareto",
+      "kind": "ranking",
+      "statement": "The measured accuracy-speed frontier on Raspberry Pi 5 + Hailo-8 is: YOLOX-Tiny, YOLOX-S, YOLO-NAS-S, YOLOv9-M, YOLOv9-C.",
+      "values": {
+        "pareto": [
+          "yolox-tiny",
+          "yolox-s",
+          "yolonas-s",
+          "yolov9m",
+          "yolov9c"
+        ]
+      },
+      "passed": true,
+      "strength": "normal"
+    },
+    {
+      "id": "budget_50ms",
+      "kind": "budget",
+      "statement": "Under 50 ms/image on Raspberry Pi 5 + Hailo-8: YOLOv9-C is the most accurate (54.8 mAP at 47.08 ms).",
+      "values": {
+        "budget_ms": 50,
+        "pick": {
+          "model": "yolov9c",
+          "displayName": "YOLOv9-C",
+          "family": "yolov9",
+          "license": "MIT",
+          "mAP": 54.8,
+          "fps": 21.2,
+          "ms": 47.08,
+          "params_millions": 25.5
+        }
+      },
+      "passed": true,
+      "strength": "normal"
+    },
+    {
+      "id": "budget_100ms",
+      "kind": "budget",
+      "statement": "Under 100 ms/image on Raspberry Pi 5 + Hailo-8: YOLOv9-C is the most accurate (54.8 mAP at 47.08 ms).",
+      "values": {
+        "budget_ms": 100,
+        "pick": {
+          "model": "yolov9c",
+          "displayName": "YOLOv9-C",
+          "family": "yolov9",
+          "license": "MIT",
+          "mAP": 54.8,
+          "fps": 21.2,
+          "ms": 47.08,
+          "params_millions": 25.5
+        }
+      },
+      "passed": true,
+      "strength": "normal"
+    },
+    {
+      "id": "budget_500ms",
+      "kind": "budget",
+      "statement": "Under 500 ms/image on Raspberry Pi 5 + Hailo-8: YOLOv9-C is the most accurate (54.8 mAP at 47.08 ms).",
+      "values": {
+        "budget_ms": 500,
+        "pick": {
+          "model": "yolov9c",
+          "displayName": "YOLOv9-C",
+          "family": "yolov9",
+          "license": "MIT",
+          "mAP": 54.8,
+          "fps": 21.2,
+          "ms": 47.08,
+          "params_millions": 25.5
+        }
+      },
+      "passed": true,
+      "strength": "normal"
+    }
+  ],
+  "gate": {
+    "passed": true,
+    "passed_claims": 6,
+    "required": 3,
+    "reason": null
+  },
+  "allowed_numbers": [
+    0.001,
+    0.6,
+    1,
+    2,
+    2.04,
+    3,
+    4,
+    5,
+    5.06,
+    5.11,
+    6,
+    7,
+    7.23,
+    8,
+    8.97,
+    9,
+    10.0,
+    10.44,
+    11,
+    12,
+    13.08,
+    15.4,
+    19.02,
+    20.12,
+    21.2,
+    21.7,
+    25.2,
+    25.33,
+    25.5,
+    25.7,
+    27.52,
+    28.76,
+    30.1,
+    32.0,
+    33.23,
+    33.5,
+    34.8,
+    36.3,
+    39.7,
+    41.1,
+    43.7,
+    44.5,
+    46.05,
+    47.08,
+    47.4,
+    50.0,
+    51.1,
+    52.4,
+    53.3,
+    54.8,
+    64.89,
+    66.97,
+    75,
+    76.5,
+    95,
+    95.8,
+    100.0,
+    195.6,
+    300,
+    500.0,
+    640,
+    5000
+  ]
+}

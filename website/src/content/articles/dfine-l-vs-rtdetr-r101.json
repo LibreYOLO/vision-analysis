@@ -1,0 +1,84 @@
+{
+  "slug": "dfine-l-vs-rtdetr-r101",
+  "type": "vs",
+  "title": "D-FINE-L vs RT-DETR-R101: same-protocol benchmark",
+  "dek": "Measured on the same COCO protocol: D-FINE-L leads by 3.2 mAP points with fewer than half the parameters, and beats RT-DETR-R101 on most runtimes.",
+  "date": "2026-07-03",
+  "author": "Vision Analysis",
+  "readingMinutes": 4,
+  "tags": ["comparison", "dfine", "rtdetr"],
+  "status": "published",
+  "claimsFile": "article-pipeline/v2/output/dfine-l-vs-rtdetr-r101.claims.json",
+  "blocks": [
+    {
+      "kind": "verdict",
+      "text": "D-FINE-L is the more accurate model: 60.0 vs 56.8 mAP@50-95 against RT-DETR-R101 on an RTX 5070 Ti in PyTorch, and it reaches that with fewer parameters (31.24M vs 76.56M) and about half the VRAM (245 vs 456 MB). RT-DETR-R101 is 7.3% faster in PyTorch (23.6 vs 21.9 FPS), but D-FINE-L is faster on ONNX, TensorRT FP32, and Jetson. Pick by runtime."
+    },
+    {
+      "kind": "prose",
+      "text": "D-FINE-L (31.24M parameters, Apache-2.0) and RT-DETR-R101 (76.56M, Apache-2.0) both evaluate at 640 px input, so the input resolution matches and does not skew the comparison. D-FINE-L is less than half the size here. Both have verified rows on desktop GPU, A100, and Jetson Orin, so this comparison covers the deploy targets where the answer changes."
+    },
+    {
+      "kind": "comparison-table",
+      "models": ["dfine-l", "rtdetr-r101"],
+      "hardware": "nvidia_geforce_rtx_5070_ti",
+      "runtime": "pytorch_fp32"
+    },
+    {
+      "kind": "chart",
+      "src": "/embed/scatter?highlight=dfine-l,rtdetr-r101",
+      "caption": "Accuracy vs parameters on COCO val2017. D-FINE-L and RT-DETR-R101 highlighted against the full set."
+    },
+    {
+      "kind": "heading",
+      "text": "Accuracy"
+    },
+    {
+      "kind": "prose",
+      "text": "mAP is shown in percent form. D-FINE-L measures 60.0 mAP@50-95 to RT-DETR-R101's 56.8, a 3.2 point lead. The gap is wider on small objects: 45.9 vs 39.2 mAP_small, a 17.2% relative difference. D-FINE-L reaches that with fewer than half the parameters."
+    },
+    {
+      "kind": "heading",
+      "text": "Speed"
+    },
+    {
+      "kind": "prose",
+      "text": "RT-DETR-R101 leads in PyTorch on the RTX 5070 Ti: 23.6 vs 21.9 FPS, a 7.3% edge. That edge does not survive most conversions. On ONNX Runtime D-FINE-L runs 50.9 to RT-DETR-R101's 47.5 FPS; on TensorRT FP32, 72.3 to 64.4."
+    },
+    {
+      "kind": "callout",
+      "text": "The PyTorch speed result does not generalize. D-FINE-L is faster on ONNX Runtime, TensorRT FP32, and Jetson Orin (4.7 vs 2.8 FPS). RT-DETR-R101 keeps its edge on TensorRT FP16: 88.0 vs 69.3 FPS. Pick the runtime you deploy on, then read that row."
+    },
+    {
+      "kind": "kv",
+      "title": "License and provenance",
+      "items": [
+        { "k": "D-FINE-L license", "v": "Apache-2.0" },
+        { "k": "RT-DETR-R101 license", "v": "Apache-2.0" },
+        { "k": "D-FINE-L release", "v": "2024-10-18" },
+        { "k": "RT-DETR-R101 release", "v": "2023-04-17" },
+        { "k": "Evaluated weights", "v": "LibreYOLO retrained checkpoints" }
+      ]
+    },
+    {
+      "kind": "heading",
+      "text": "When to pick which"
+    },
+    {
+      "kind": "prose",
+      "text": "Pick D-FINE-L for nearly every deployment: it is more accurate at every object size, uses about half the VRAM, and is faster on ONNX, TensorRT FP32, and Jetson. Pick RT-DETR-R101 only where its PyTorch or TensorRT FP16 throughput matters. Both ship under Apache-2.0, so licensing does not force the choice."
+    },
+    {
+      "kind": "heading",
+      "text": "Try both with LibreYOLO"
+    },
+    {
+      "kind": "code",
+      "language": "python",
+      "text": "# pip install libreyolo\nfrom libreyolo import LibreYOLO\n\ndfine = LibreYOLO(\"LibreDFINEl.pt\")      # 31.24M params, 60.0 mAP@50-95\nrtdetr = LibreYOLO(\"LibreRTDETRr101.pt\") # 76.56M params, 56.8 mAP@50-95\n\nresults = dfine(\"image.jpg\")\n"
+    },
+    {
+      "kind": "methodology"
+    }
+  ]
+}

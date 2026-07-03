@@ -1,0 +1,84 @@
+{
+  "slug": "deim-l-vs-rtdetrv2-r50",
+  "type": "vs",
+  "title": "DEIM-L vs RT-DETRv2-R50: benchmark on same protocol",
+  "dek": "Measured on the same COCO protocol: DEIM-L leads by 2.1 mAP points with less VRAM, but RT-DETRv2-R50 is 42% faster in PyTorch on an RTX 5070 Ti.",
+  "date": "2026-07-03",
+  "author": "Vision Analysis",
+  "readingMinutes": 4,
+  "tags": ["comparison", "deim", "rtdetr"],
+  "status": "published",
+  "claimsFile": "article-pipeline/v2/output/deim-l-vs-rtdetrv2-r50.claims.json",
+  "blocks": [
+    {
+      "kind": "verdict",
+      "text": "DEIM-L is the more accurate detector: 57.8 vs 55.7 mAP@50-95 against RT-DETRv2-R50 on an RTX 5070 Ti, a 2.1 point lead, with fewer parameters (31.24M vs 42.89M) and less VRAM (245 vs 327 MB). RT-DETRv2-R50 wins desktop-GPU speed, 32.1 vs 18.6 FPS. On the edge that reverses: DEIM-L is faster on both Jetson Orin and Raspberry Pi 5."
+    },
+    {
+      "kind": "prose",
+      "text": "DEIM-L (31.24M parameters, Apache-2.0) and RT-DETRv2-R50 (42.89M, Apache-2.0) are both large detectors evaluated at 640 px on COCO val2017. DEIM-L is the smaller model. Both have verified rows on desktop GPU, Jetson Orin, and Raspberry Pi 5, so this comparison covers the deploy targets where the ranking changes."
+    },
+    {
+      "kind": "comparison-table",
+      "models": ["deim-l", "rtdetrv2-r50"],
+      "hardware": "nvidia_geforce_rtx_5070_ti",
+      "runtime": "pytorch_fp32"
+    },
+    {
+      "kind": "chart",
+      "src": "/embed/scatter?highlight=deim-l,rtdetrv2-r50",
+      "caption": "Accuracy vs parameters on COCO val2017. DEIM-L and RT-DETRv2-R50 highlighted against the full field."
+    },
+    {
+      "kind": "heading",
+      "text": "Accuracy"
+    },
+    {
+      "kind": "prose",
+      "text": "mAP is shown in percent form. DEIM-L measures 57.8 mAP@50-95 to RT-DETRv2-R50's 55.7, and the lead holds across runtimes. The gap is widest on small objects: 45.2 vs 38.9 mAP_small, a 16.02% relative gap. DEIM-L is also the more compute-efficient model, extracting 54.88% more mAP per GFLOP."
+    },
+    {
+      "kind": "heading",
+      "text": "Speed"
+    },
+    {
+      "kind": "prose",
+      "text": "On the RTX 5070 Ti in PyTorch, RT-DETRv2-R50 runs 32.1 FPS to DEIM-L's 18.6, so it is 42.07% faster. The margin holds under conversion: 66.0 vs 50.5 FPS on ONNX Runtime and 88.5 vs 75.7 FPS on TensorRT FP32."
+    },
+    {
+      "kind": "callout",
+      "text": "The speed verdict does not travel to the edge. On Jetson Orin DEIM-L runs 4.8 FPS to RT-DETRv2-R50's 4.3, and on Raspberry Pi 5 it leads 0.4 to 0.3 FPS. If your target is a Jetson or a Pi, the desktop numbers point the wrong way."
+    },
+    {
+      "kind": "kv",
+      "title": "License and provenance",
+      "items": [
+        { "k": "DEIM-L license", "v": "Apache-2.0" },
+        { "k": "RT-DETRv2-R50 license", "v": "Apache-2.0" },
+        { "k": "DEIM-L release", "v": "2024-12-05" },
+        { "k": "RT-DETRv2-R50 release", "v": "2024-05-01" },
+        { "k": "Evaluated weights", "v": "LibreYOLO retrained checkpoints" }
+      ]
+    },
+    {
+      "kind": "heading",
+      "text": "When to pick which"
+    },
+    {
+      "kind": "prose",
+      "text": "Pick DEIM-L for accuracy, memory, compute efficiency, or edge serving, where it leads at every object size and is faster on both Jetson Orin and Raspberry Pi 5. Pick RT-DETRv2-R50 for desktop or server GPU throughput, where it is faster on every GPU runtime measured. Both are Apache-2.0, so licensing does not force the choice."
+    },
+    {
+      "kind": "heading",
+      "text": "Try both with LibreYOLO"
+    },
+    {
+      "kind": "code",
+      "language": "python",
+      "text": "# pip install libreyolo\nfrom libreyolo import LibreYOLO\n\ndeim   = LibreYOLO(\"LibreDEIMl.pt\")         # 31.24M params, 57.8 mAP@50-95\nrtdetr = LibreYOLO(\"LibreRTDETRv2r50.pt\")   # 42.89M params, 55.7 mAP@50-95\n\nresults = deim(\"image.jpg\")\n"
+    },
+    {
+      "kind": "methodology"
+    }
+  ]
+}

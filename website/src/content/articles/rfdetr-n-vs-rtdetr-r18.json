@@ -1,0 +1,84 @@
+{
+  "slug": "rfdetr-n-vs-rtdetr-r18",
+  "type": "vs",
+  "title": "RF-DETR-N vs RT-DETR-R18: benchmark on COCO",
+  "dek": "RF-DETR-N leads by 1.6 mAP points at 384 px, but RT-DETR-R18 at 640 px is faster on desktop and every GPU runtime measured.",
+  "date": "2026-07-03",
+  "author": "Vision Analysis",
+  "readingMinutes": 4,
+  "tags": ["comparison", "rfdetr", "rtdetr"],
+  "status": "published",
+  "claimsFile": "article-pipeline/v2/output/rfdetr-n-vs-rtdetr-r18.claims.json",
+  "blocks": [
+    {
+      "kind": "verdict",
+      "text": "RF-DETR-N is the more accurate model, 51.4 vs 49.8 mAP@50-95 against RT-DETR-R18 on an RTX 5070 Ti in PyTorch. The resolutions differ: RF-DETR-N runs at 384 px and RT-DETR-R18 at 640 px, each at its author default, so read this as a deployment comparison, not a matched-input one. RT-DETR-R18 is faster on desktop, 47.2 vs 39.5 FPS, and on every GPU runtime. The order flips on Raspberry Pi 5, where RF-DETR-N runs 2.1 vs 0.8 FPS."
+    },
+    {
+      "kind": "prose",
+      "text": "RF-DETR-N (30.47M parameters) and RT-DETR-R18 (20.18M) both ship under Apache-2.0 and evaluate on COCO val2017. They run at different input sizes: RF-DETR-N at 384 px, RT-DETR-R18 at 640 px, each at the author default. Both have verified rows on desktop GPU, Jetson Orin, and Raspberry Pi 5."
+    },
+    {
+      "kind": "comparison-table",
+      "models": ["rfdetr-n", "rtdetr-r18"],
+      "hardware": "nvidia_geforce_rtx_5070_ti",
+      "runtime": "pytorch_fp32"
+    },
+    {
+      "kind": "chart",
+      "src": "/embed/scatter?highlight=rfdetr-n,rtdetr-r18",
+      "caption": "Accuracy vs parameters on COCO val2017. RF-DETR-N and RT-DETR-R18 highlighted against the full set."
+    },
+    {
+      "kind": "heading",
+      "text": "Accuracy"
+    },
+    {
+      "kind": "prose",
+      "text": "mAP is shown in percent form. RF-DETR-N measures 51.4 mAP@50-95 to RT-DETR-R18's 49.8, a 1.6 point lead. The picture reverses on small objects: RT-DETR-R18 leads 32.7 vs 27.7 mAP_small, a 15.38% relative gap."
+    },
+    {
+      "kind": "heading",
+      "text": "Speed"
+    },
+    {
+      "kind": "prose",
+      "text": "In PyTorch on the RTX 5070 Ti, RT-DETR-R18 runs 47.2 FPS to RF-DETR-N's 39.5, and its lead grows under conversion: 120.6 vs 67.6 FPS on TensorRT FP32, 113.4 vs 58.3 on TensorRT FP16, 92.5 vs 65.7 on ONNX Runtime. On Jetson Orin both hold 10.2 FPS."
+    },
+    {
+      "kind": "callout",
+      "text": "One target breaks the pattern. On Raspberry Pi 5, RF-DETR-N runs 2.1 FPS to RT-DETR-R18's 0.8, the single device where the desktop order does not hold."
+    },
+    {
+      "kind": "kv",
+      "title": "License and provenance",
+      "items": [
+        { "k": "RF-DETR-N license", "v": "Apache-2.0" },
+        { "k": "RT-DETR-R18 license", "v": "Apache-2.0" },
+        { "k": "RF-DETR-N release", "v": "2026-02-23" },
+        { "k": "RT-DETR-R18 release", "v": "2023-04-17" },
+        { "k": "Evaluated weights", "v": "LibreYOLO retrained checkpoints" }
+      ]
+    },
+    {
+      "kind": "heading",
+      "text": "When to pick which"
+    },
+    {
+      "kind": "prose",
+      "text": "Pick RT-DETR-R18 for desktop or GPU deployment, where it is faster on every runtime measured and stronger on small objects. Pick RF-DETR-N for CPU-bound edge targets like the Raspberry Pi 5, or when the higher overall mAP at 384 px matters and VRAM is tight, 151 vs 169 MB. Both ship under Apache-2.0."
+    },
+    {
+      "kind": "heading",
+      "text": "Try both with LibreYOLO"
+    },
+    {
+      "kind": "code",
+      "language": "python",
+      "text": "# pip install libreyolo\nfrom libreyolo import LibreYOLO\n\nrfdetr = LibreYOLO(\"LibreRFDETRn.pt\")    # 30.47M params, 51.4 mAP@50-95\nrtdetr = LibreYOLO(\"LibreRTDETRr18.pt\")  # 20.18M params, 49.8 mAP@50-95\n\nresults = rfdetr(\"image.jpg\")\n"
+    },
+    {
+      "kind": "methodology"
+    }
+  ]
+}
