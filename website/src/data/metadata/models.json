@@ -1243,7 +1243,7 @@
         "originalWeightsUrl": "https://sg-hub-nv.s3.amazonaws.com/yolo_nas",
         "libreyoloWeightsUrl": null
       },
-      "license": "Apache-2.0",
+      "license": "non-permissive",
       "releaseDate": "2023-05-08",
       "inLibreYOLO": true,
       "notes": "Weights are auto-downloaded from Deci's CloudFront CDN (d2gjn4b69gu75n.cloudfront.net) inside LibreYOLO. License is Apache-2.0 with a non-commercial attribution clause for the pretrained weights Ã¢â‚¬â€ see the upstream super_gradients repo."
@@ -1273,7 +1273,7 @@
         "originalWeightsUrl": "https://sg-hub-nv.s3.amazonaws.com/yolo_nas",
         "libreyoloWeightsUrl": null
       },
-      "license": "Apache-2.0",
+      "license": "non-permissive",
       "releaseDate": "2023-05-08",
       "inLibreYOLO": true,
       "notes": "Weights are auto-downloaded from Deci's CloudFront CDN (d2gjn4b69gu75n.cloudfront.net) inside LibreYOLO. License is Apache-2.0 with a non-commercial attribution clause for the pretrained weights Ã¢â‚¬â€ see the upstream super_gradients repo."
@@ -1303,7 +1303,7 @@
         "originalWeightsUrl": "https://sg-hub-nv.s3.amazonaws.com/yolo_nas",
         "libreyoloWeightsUrl": null
       },
-      "license": "Apache-2.0",
+      "license": "non-permissive",
       "releaseDate": "2023-05-08",
       "inLibreYOLO": true,
       "notes": "Weights are auto-downloaded from Deci's CloudFront CDN (d2gjn4b69gu75n.cloudfront.net) inside LibreYOLO. License is Apache-2.0 with a non-commercial attribution clause for the pretrained weights Ã¢â‚¬â€ see the upstream super_gradients repo."
