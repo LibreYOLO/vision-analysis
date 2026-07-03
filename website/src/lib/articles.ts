@@ -1,9 +1,18 @@
-// Article registry for the Articles section.
+// Article registry.
 //
-// v1 proposal: metadata lives here and bodies are rendered in the site shell so a
-// piece can embed LIVE benchmark charts (not screenshots). In production this list
-// would be generated from MDX files under content/articles, but the shape stays the
-// same: every article is metadata + an on-brand, verified body.
+// Two sources merge here:
+//   1. JSON content files under src/content/articles/ produced by the v2
+//      article engine (article-pipeline/v2/). These carry blocks rendered by
+//      ArticleRenderer; dropping a validated JSON in that folder publishes the
+//      article, adds it to /articles, and puts it in the sitemap.
+//   2. Legacy hand-registered entries (bodies hardcoded in the article page).
+//
+// Server-only: reads the filesystem at build time.
+
+import "server-only";
+import fs from "fs";
+import path from "path";
+import type { ArticleContent } from "@/lib/types/article";
 
 export interface Article {
   slug: string;
@@ -16,7 +25,8 @@ export interface Article {
   status: "published" | "draft";
 }
 
-export const ARTICLES: Article[] = [
+// Legacy entries whose bodies live as React components in the article page.
+const LEGACY_ARTICLES: Article[] = [
   {
     slug: "yolov9s-vs-yolox-s",
     title: "YOLOv9-S vs YOLOX-S: choosing a small detector",
@@ -49,18 +59,75 @@ export const ARTICLES: Article[] = [
   },
 ];
 
+const CONTENT_DIR = path.join(process.cwd(), "src", "content", "articles");
+
+let contentCache: ArticleContent[] | null = null;
+
+function loadContentArticles(): ArticleContent[] {
+  if (contentCache) return contentCache;
+  let files: string[] = [];
+  try {
+    files = fs.readdirSync(CONTENT_DIR).filter((f) => f.endsWith(".json"));
+  } catch {
+    files = [];
+  }
+  const articles: ArticleContent[] = [];
+  for (const file of files) {
+    try {
+      const raw = fs.readFileSync(path.join(CONTENT_DIR, file), "utf-8");
+      const parsed = JSON.parse(raw) as ArticleContent;
+      if (parsed.slug && parsed.title && Array.isArray(parsed.blocks)) {
+        articles.push(parsed);
+      } else {
+        console.warn(`[articles] skipping malformed content file: ${file}`);
+      }
+    } catch (e) {
+      console.warn(`[articles] failed to parse ${file}:`, e);
+    }
+  }
+  contentCache = articles;
+  return articles;
+}
+
+function toArticle(c: ArticleContent): Article {
+  return {
+    slug: c.slug,
+    title: c.title,
+    dek: c.dek,
+    date: c.date,
+    author: c.author,
+    readingMinutes: c.readingMinutes,
+    tags: c.tags,
+    status: c.status,
+  };
+}
+
+export function allArticles(): Article[] {
+  const content = loadContentArticles().map(toArticle);
+  const contentSlugs = new Set(content.map((a) => a.slug));
+  const legacy = LEGACY_ARTICLES.filter((a) => !contentSlugs.has(a.slug));
+  return [...content, ...legacy];
+}
+
 export function publishedArticles(): Article[] {
-  return ARTICLES.filter((a) => a.status === "published").sort((a, b) =>
-    b.date.localeCompare(a.date)
-  );
+  return allArticles()
+    .filter((a) => a.status === "published")
+    .sort((a, b) => b.date.localeCompare(a.date));
 }
 
 export function draftArticles(): Article[] {
-  return ARTICLES.filter((a) => a.status === "draft").sort((a, b) => a.date.localeCompare(b.date));
+  return allArticles()
+    .filter((a) => a.status === "draft")
+    .sort((a, b) => a.date.localeCompare(b.date));
 }
 
 export function getArticle(slug: string): Article | undefined {
-  return ARTICLES.find((a) => a.slug === slug);
+  return allArticles().find((a) => a.slug === slug);
+}
+
+/** Full block content for engine-generated articles; undefined for legacy ones. */
+export function getArticleContent(slug: string): ArticleContent | undefined {
+  return loadContentArticles().find((a) => a.slug === slug);
 }
 
 export function formatArticleDate(iso: string): string {

@@ -2,7 +2,13 @@ import { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft } from "lucide-react";
-import { getArticle, publishedArticles, formatArticleDate } from "@/lib/articles";
+import {
+  getArticle,
+  getArticleContent,
+  publishedArticles,
+  formatArticleDate,
+} from "@/lib/articles";
+import { ArticleRenderer } from "@/components/articles/ArticleRenderer";
 import { siteConfig } from "@/config/site";
 
 interface Props {
@@ -20,6 +26,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: article.title,
     description: article.dek,
+    alternates: { canonical: `/articles/${slug}` },
     openGraph: {
       title: `${article.title} | ${siteConfig.name}`,
       description: article.dek,
@@ -28,24 +35,50 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-// v1 proposal: bodies are React so they can embed live charts. In production this
-// map is replaced by MDX files under content/articles, same metadata + body shape.
+// Legacy bodies: hand-written React articles that predate the v2 engine.
+// New articles are JSON content files under src/content/articles rendered by
+// ArticleRenderer; do not add entries here.
 const BODIES: Record<string, () => React.ReactNode> = {
   "yolov9s-vs-yolox-s": Yolov9sVsYoloxS,
 };
 
+function ArticleJsonLd({ slug }: { slug: string }) {
+  const article = getArticle(slug);
+  if (!article) return null;
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    headline: article.title,
+    description: article.dek,
+    datePublished: article.date,
+    dateModified: article.date,
+    author: { "@type": "Organization", name: article.author, url: siteConfig.url },
+    publisher: { "@type": "Organization", name: siteConfig.name, url: siteConfig.url },
+    mainEntityOfPage: `${siteConfig.url}/articles/${slug}`,
+    isBasedOn: `${siteConfig.url}/methodology`,
+  };
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+    />
+  );
+}
+
 export default async function ArticlePage({ params }: Props) {
   const { slug } = await params;
   const article = getArticle(slug);
-  const Body = BODIES[slug];
+  const content = getArticleContent(slug);
+  const LegacyBody = BODIES[slug];
 
-  if (!article || article.status !== "published" || !Body) {
+  if (!article || article.status !== "published" || (!content && !LegacyBody)) {
     notFound();
     return null;
   }
 
   return (
     <>
+      <ArticleJsonLd slug={slug} />
       <section className="bg-black pb-32">
         <div className="mx-auto max-w-[760px] px-4 pt-4">
           <Link
@@ -68,7 +101,7 @@ export default async function ArticlePage({ params }: Props) {
 
       <div className="-mt-16 mx-auto max-w-[760px] px-4 pb-16">
         <article className="article-body rounded border border-border bg-card p-6 sm:p-9">
-          <Body />
+          {content ? <ArticleRenderer content={content} /> : <LegacyBody />}
         </article>
       </div>
     </>
