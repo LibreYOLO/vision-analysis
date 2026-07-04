@@ -70,7 +70,17 @@
     "rtdetrv4-s",
     "rtdetrv4-m",
     "rtdetrv4-l",
-    "rtdetrv4-x"
+    "rtdetrv4-x",
+    "yolo11n",
+    "yolo11s",
+    "yolo11m",
+    "yolo11l",
+    "yolo11x",
+    "yolov8n",
+    "yolov8s",
+    "yolov8m",
+    "yolov8l",
+    "yolov8x"
   ],
   "runtimes": [
     {
