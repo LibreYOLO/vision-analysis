@@ -2119,6 +2119,151 @@
       "license": "Apache-2.0",
       "releaseDate": "2025-10-30",
       "inLibreYOLO": true
+    },
+    {
+      "id": "yolo26n",
+      "displayName": "YOLO26-N",
+      "family": "yolo26",
+      "variant": "n",
+      "task": "detection",
+      "architecture": {
+        "type": "one-stage",
+        "backbone": "CSPDarknet",
+        "neck": "PAFPN",
+        "head": "NMS-Free End-to-End"
+      },
+      "specs": {
+        "paramsM": 2.4,
+        "flopsG": 5.4,
+        "inputSizeDefault": 640,
+        "numClasses": 80
+      },
+      "source": {
+        "originalWeightsUrl": null,
+        "libreyoloWeightsUrl": null
+      },
+      "license": "non-permissive",
+      "releaseDate": "2025-09-25",
+      "inLibreYOLO": false,
+      "detectionApproach": "anchor-free",
+      "postprocessing": "nms-free",
+      "paperReportedMap": 40.9
+    },
+    {
+      "id": "yolo26s",
+      "displayName": "YOLO26-S",
+      "family": "yolo26",
+      "variant": "s",
+      "task": "detection",
+      "architecture": {
+        "type": "one-stage",
+        "backbone": "CSPDarknet",
+        "neck": "PAFPN",
+        "head": "NMS-Free End-to-End"
+      },
+      "specs": {
+        "paramsM": 9.5,
+        "flopsG": 20.7,
+        "inputSizeDefault": 640,
+        "numClasses": 80
+      },
+      "source": {
+        "originalWeightsUrl": null,
+        "libreyoloWeightsUrl": null
+      },
+      "license": "non-permissive",
+      "releaseDate": "2025-09-25",
+      "inLibreYOLO": false,
+      "detectionApproach": "anchor-free",
+      "postprocessing": "nms-free",
+      "paperReportedMap": 48.6
+    },
+    {
+      "id": "yolo26m",
+      "displayName": "YOLO26-M",
+      "family": "yolo26",
+      "variant": "m",
+      "task": "detection",
+      "architecture": {
+        "type": "one-stage",
+        "backbone": "CSPDarknet",
+        "neck": "PAFPN",
+        "head": "NMS-Free End-to-End"
+      },
+      "specs": {
+        "paramsM": 20.4,
+        "flopsG": 68.2,
+        "inputSizeDefault": 640,
+        "numClasses": 80
+      },
+      "source": {
+        "originalWeightsUrl": null,
+        "libreyoloWeightsUrl": null
+      },
+      "license": "non-permissive",
+      "releaseDate": "2025-09-25",
+      "inLibreYOLO": false,
+      "detectionApproach": "anchor-free",
+      "postprocessing": "nms-free",
+      "paperReportedMap": 53.1
+    },
+    {
+      "id": "yolo26l",
+      "displayName": "YOLO26-L",
+      "family": "yolo26",
+      "variant": "l",
+      "task": "detection",
+      "architecture": {
+        "type": "one-stage",
+        "backbone": "CSPDarknet",
+        "neck": "PAFPN",
+        "head": "NMS-Free End-to-End"
+      },
+      "specs": {
+        "paramsM": 24.8,
+        "flopsG": 86.4,
+        "inputSizeDefault": 640,
+        "numClasses": 80
+      },
+      "source": {
+        "originalWeightsUrl": null,
+        "libreyoloWeightsUrl": null
+      },
+      "license": "non-permissive",
+      "releaseDate": "2025-09-25",
+      "inLibreYOLO": false,
+      "detectionApproach": "anchor-free",
+      "postprocessing": "nms-free",
+      "paperReportedMap": 55.0
+    },
+    {
+      "id": "yolo26x",
+      "displayName": "YOLO26-X",
+      "family": "yolo26",
+      "variant": "x",
+      "task": "detection",
+      "architecture": {
+        "type": "one-stage",
+        "backbone": "CSPDarknet",
+        "neck": "PAFPN",
+        "head": "NMS-Free End-to-End"
+      },
+      "specs": {
+        "paramsM": 55.7,
+        "flopsG": 193.9,
+        "inputSizeDefault": 640,
+        "numClasses": 80
+      },
+      "source": {
+        "originalWeightsUrl": null,
+        "libreyoloWeightsUrl": null
+      },
+      "license": "non-permissive",
+      "releaseDate": "2025-09-25",
+      "inLibreYOLO": false,
+      "detectionApproach": "anchor-free",
+      "postprocessing": "nms-free",
+      "paperReportedMap": 57.5
     }
   ]
 }

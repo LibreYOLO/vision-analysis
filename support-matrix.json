@@ -80,7 +80,12 @@
     "yolov8s",
     "yolov8m",
     "yolov8l",
-    "yolov8x"
+    "yolov8x",
+    "yolo26n",
+    "yolo26s",
+    "yolo26m",
+    "yolo26l",
+    "yolo26x"
   ],
   "runtimes": [
     {
