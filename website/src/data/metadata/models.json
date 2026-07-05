@@ -2264,6 +2264,151 @@
       "detectionApproach": "anchor-free",
       "postprocessing": "nms-free",
       "paperReportedMap": 57.5
+    },
+    {
+      "id": "yolov5nu",
+      "displayName": "YOLOv5nu",
+      "family": "yolov5u",
+      "variant": "n",
+      "task": "detection",
+      "architecture": {
+        "type": "one-stage",
+        "backbone": "CSPDarknet",
+        "neck": "PAFPN",
+        "head": "Anchor-Free Decoupled"
+      },
+      "specs": {
+        "paramsM": 2.6,
+        "flopsG": 7.7,
+        "inputSizeDefault": 640,
+        "numClasses": 80
+      },
+      "source": {
+        "originalWeightsUrl": null,
+        "libreyoloWeightsUrl": null
+      },
+      "license": "non-permissive",
+      "releaseDate": "2023-01-10",
+      "inLibreYOLO": false,
+      "detectionApproach": "anchor-free",
+      "postprocessing": "nms",
+      "paperReportedMap": 34.3
+    },
+    {
+      "id": "yolov5su",
+      "displayName": "YOLOv5su",
+      "family": "yolov5u",
+      "variant": "s",
+      "task": "detection",
+      "architecture": {
+        "type": "one-stage",
+        "backbone": "CSPDarknet",
+        "neck": "PAFPN",
+        "head": "Anchor-Free Decoupled"
+      },
+      "specs": {
+        "paramsM": 9.1,
+        "flopsG": 24.0,
+        "inputSizeDefault": 640,
+        "numClasses": 80
+      },
+      "source": {
+        "originalWeightsUrl": null,
+        "libreyoloWeightsUrl": null
+      },
+      "license": "non-permissive",
+      "releaseDate": "2023-01-10",
+      "inLibreYOLO": false,
+      "detectionApproach": "anchor-free",
+      "postprocessing": "nms",
+      "paperReportedMap": 43.0
+    },
+    {
+      "id": "yolov5mu",
+      "displayName": "YOLOv5mu",
+      "family": "yolov5u",
+      "variant": "m",
+      "task": "detection",
+      "architecture": {
+        "type": "one-stage",
+        "backbone": "CSPDarknet",
+        "neck": "PAFPN",
+        "head": "Anchor-Free Decoupled"
+      },
+      "specs": {
+        "paramsM": 25.1,
+        "flopsG": 64.2,
+        "inputSizeDefault": 640,
+        "numClasses": 80
+      },
+      "source": {
+        "originalWeightsUrl": null,
+        "libreyoloWeightsUrl": null
+      },
+      "license": "non-permissive",
+      "releaseDate": "2023-01-10",
+      "inLibreYOLO": false,
+      "detectionApproach": "anchor-free",
+      "postprocessing": "nms",
+      "paperReportedMap": 49.0
+    },
+    {
+      "id": "yolov5lu",
+      "displayName": "YOLOv5lu",
+      "family": "yolov5u",
+      "variant": "l",
+      "task": "detection",
+      "architecture": {
+        "type": "one-stage",
+        "backbone": "CSPDarknet",
+        "neck": "PAFPN",
+        "head": "Anchor-Free Decoupled"
+      },
+      "specs": {
+        "paramsM": 53.2,
+        "flopsG": 135.0,
+        "inputSizeDefault": 640,
+        "numClasses": 80
+      },
+      "source": {
+        "originalWeightsUrl": null,
+        "libreyoloWeightsUrl": null
+      },
+      "license": "non-permissive",
+      "releaseDate": "2023-01-10",
+      "inLibreYOLO": false,
+      "detectionApproach": "anchor-free",
+      "postprocessing": "nms",
+      "paperReportedMap": 52.2
+    },
+    {
+      "id": "yolov5xu",
+      "displayName": "YOLOv5xu",
+      "family": "yolov5u",
+      "variant": "x",
+      "task": "detection",
+      "architecture": {
+        "type": "one-stage",
+        "backbone": "CSPDarknet",
+        "neck": "PAFPN",
+        "head": "Anchor-Free Decoupled"
+      },
+      "specs": {
+        "paramsM": 97.2,
+        "flopsG": 246.4,
+        "inputSizeDefault": 640,
+        "numClasses": 80
+      },
+      "source": {
+        "originalWeightsUrl": null,
+        "libreyoloWeightsUrl": null
+      },
+      "license": "non-permissive",
+      "releaseDate": "2023-01-10",
+      "inLibreYOLO": false,
+      "detectionApproach": "anchor-free",
+      "postprocessing": "nms",
+      "paperReportedMap": 53.2
     }
   ]
 }

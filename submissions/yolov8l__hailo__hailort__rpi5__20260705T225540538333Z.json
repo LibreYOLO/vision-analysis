@@ -1,0 +1,107 @@
+{
+  "schema_version": "va.submission.v1",
+  "submission_id": "yolov8l-hailo-hailort-rpi5-20260705T130609Z",
+  "created_at": "2026-07-05T13:06:09.736537Z",
+  "benchmark": {
+    "harness": "hailo-va/pi_coco500_hailort",
+    "harness_version": "pi",
+    "libreyolo_version": "unknown",
+    "libreyolo_commit": "unknown"
+  },
+  "model": {
+    "id": "yolov8l",
+    "name": "yolov8l",
+    "family": "yolov8",
+    "variant": "l",
+    "source": "ultralytics",
+    "weights": "yolov8l.hef (hailo-model-zoo public, hailo8, int8)",
+    "input_size": 640
+  },
+  "dataset": {
+    "id": "coco2017",
+    "split": "val2017",
+    "num_images": 500
+  },
+  "config": {
+    "batch_size": 1,
+    "input_size": 640,
+    "conf": 0.001,
+    "iou": 0.6,
+    "max_det": 100
+  },
+  "hardware": {
+    "gpu": "Raspberry Pi 5 Model B Rev 1.1",
+    "gpu_memory_gb": 0.0,
+    "driver_version": "N/A",
+    "cuda_version": "N/A",
+    "cpu": "Unknown",
+    "cpu_cores": 4,
+    "ram_gb": 15,
+    "id": "rpi5"
+  },
+  "software": {
+    "hailort": "4.23.0",
+    "hef_source": "hailo-model-zoo/public-hailo8",
+    "postprocess": "cpu-nms",
+    "note": "Hailo INT8 compilation of ultralytics YOLOv8"
+  },
+  "accuracy": {
+    "mAP_50_95": 0.44266114344214547,
+    "mAP_50": 0.5743186872332217,
+    "mAP_75": 0.4863543276911909,
+    "mAP_small": 0.24722873171740192,
+    "mAP_medium": 0.48489615719153273,
+    "mAP_large": 0.6193658824438669,
+    "AR1": 0.3454080479486579,
+    "AR10": 0.5030822902512674,
+    "AR100": 0.5097300129207362,
+    "AR_small": 0.2813598592907241,
+    "AR_medium": 0.552537941200672,
+    "AR_large": 0.7062410754449074
+  },
+  "timing": {
+    "batch_size": 1,
+    "num_images": 500,
+    "total_ms": {
+      "mean": 58.145,
+      "std": 0.0,
+      "p50": 58.145,
+      "p95": 58.145,
+      "p99": 58.145,
+      "preprocess_ms": null,
+      "inference_ms": 51.205,
+      "postprocess_ms": null
+    }
+  },
+  "throughput": {
+    "fps_mean": 17.2,
+    "fps_p50": 17.2
+  },
+  "model_stats": {
+    "params_millions": 43.67,
+    "gflops": 165.2
+  },
+  "memory": {
+    "peak_vram_mb": null,
+    "peak_ram_mb": 0.0
+  },
+  "metadata": {
+    "benchmark_date": "2026-07-05T13:06:09.736537Z",
+    "benchmark_version": "hailo-pi"
+  },
+  "eval": {
+    "dataset": "coco",
+    "split": "val2017",
+    "numImages": 500
+  },
+  "implementation": {
+    "provider": "hailo",
+    "version": "model-zoo public (hailort 4.23.0)"
+  },
+  "runtime": {
+    "format": "hailo",
+    "precision": "int8",
+    "provider": "hailort",
+    "device": "npu"
+  }
+}

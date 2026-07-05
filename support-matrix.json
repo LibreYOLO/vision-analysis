@@ -85,7 +85,12 @@
     "yolo26s",
     "yolo26m",
     "yolo26l",
-    "yolo26x"
+    "yolo26x",
+    "yolov5nu",
+    "yolov5su",
+    "yolov5mu",
+    "yolov5lu",
+    "yolov5xu"
   ],
   "runtimes": [
     {
