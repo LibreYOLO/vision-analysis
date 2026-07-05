@@ -2,6 +2,7 @@ import { Suspense } from "react";
 import { LeaderboardDashboard } from "@/components/leaderboard";
 import { AccuracyTimeline, VAScoreChart, ChartDataTable } from "@/components/charts";
 import { getAllBenchmarkResults, getHardwareOptions, getRuntimeOptions } from "@/lib/data";
+import { libreYoloOnly } from "@/lib/data/provenance";
 import { StructuredData } from "@/components/seo/StructuredData";
 
 const previewFamilies = ["D-FINE", "RF-DETR", "RT-DETR", "DEIM", "YOLOX"];
@@ -70,8 +71,12 @@ export default function HomePage() {
   const allRows = Object.values(benchmarkData).flat();
   const benchmarkCount = allRows.length;
   const hasVerifiedBenchmarks = benchmarkCount > 0;
-  const distinctModels = new Set(allRows.map((r) => r.model)).size;
-  const distinctFamilies = new Set(allRows.map((r) => r.family)).size;
+  // Headline/JSON-LD claims ("N models run in LibreYOLO") are only true of the
+  // LibreYOLO set. Competitor rows (inLibreYOLO=false) are shown for comparison
+  // but must not inflate these counts.
+  const libreRows = libreYoloOnly(allRows);
+  const distinctModels = new Set(libreRows.map((r) => r.model)).size;
+  const distinctFamilies = new Set(libreRows.map((r) => r.family)).size;
 
   // Labels for the server-rendered (sr-only) data tables below.
   const hwLabel = new Map(hardwareOptions.map((o) => [o.value, o.label]));
@@ -120,7 +125,7 @@ export default function HomePage() {
               <ChartDataTable
                 data={paramsRows}
                 xAxis="paramsM"
-                title="Accuracy vs Parameters: LibreYOLO models on COCO val2017"
+                title="Accuracy vs Parameters: LibreYOLO models (with competitor models shown for comparison) on COCO val2017"
               />
               {Object.entries(benchmarkData).map(([key, rows]) => {
                 const [hw, rt] = key.split("__");

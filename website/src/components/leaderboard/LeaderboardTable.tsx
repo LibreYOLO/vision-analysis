@@ -7,6 +7,7 @@ import { BenchmarkResult, SortKey, SortOrder } from "@/lib/types";
 import { getFamilyColor } from "@/lib/utils/colors";
 import { formatNumber, formatPercent, formatMs } from "@/lib/utils/format";
 import { benchmarkCoordinateKey } from "@/lib/data/utils";
+import { isLibreYoloModel } from "@/lib/data/provenance";
 import { cn } from "@/lib/utils";
 
 interface LeaderboardTableProps {
@@ -169,6 +170,14 @@ export function LeaderboardTable({
                     style={{ backgroundColor: getFamilyColor(row.family) }}
                   />
                   <span className="font-semibold text-sm">{row.model}</span>
+                  {!isLibreYoloModel(row.model) && (
+                    <span
+                      title="Competitor model — not part of LibreYOLO (AGPL-licensed). Benchmarked on the same harness for comparison."
+                      className="ml-1 flex-shrink-0 rounded px-1 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-amber-700 bg-amber-100 dark:text-amber-300 dark:bg-amber-900/40"
+                    >
+                      AGPL
+                    </span>
+                  )}
                 </Link>
               </td>
 

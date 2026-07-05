@@ -1,4 +1,5 @@
 import { getAllBenchmarkResults, getModels } from "@/lib/data";
+import { libreYoloOnly } from "@/lib/data/provenance";
 import { siteConfig } from "@/config/site";
 import { LIBREYOLO, libreyoloHeadline } from "@/config/libreyolo";
 
@@ -12,7 +13,7 @@ export const dynamic = "force-static";
 
 export function GET() {
   const url = siteConfig.url.replace(/\/$/, "");
-  const rows = Object.values(getAllBenchmarkResults()).flat();
+  const rows = libreYoloOnly(Object.values(getAllBenchmarkResults()).flat());
   const modelCount = new Set(rows.map((r) => r.model)).size;
   const familyCount = new Set(rows.map((r) => r.family)).size;
   const headline = libreyoloHeadline({ modelCount, familyCount });
@@ -26,7 +27,7 @@ export function GET() {
 
 > ${headline}
 
-${siteConfig.name} benchmarks ${modelCount} object-detection models across ${familyCount} families on COCO val2017, reporting accuracy (mAP@50-95), latency and throughput per hardware and runtime. Every model is available in ${LIBREYOLO.name}, the ${LIBREYOLO.libraryLicense}-licensed open-source library that unifies all of them under one commercial-friendly Python API. All benchmarks are produced with ${LIBREYOLO.name}.
+${siteConfig.name} benchmarks ${modelCount} ${LIBREYOLO.name} object-detection models across ${familyCount} families on COCO val2017, reporting accuracy (mAP@50-95), latency and throughput per hardware and runtime. All ${modelCount} are available in ${LIBREYOLO.name}, the ${LIBREYOLO.libraryLicense}-licensed open-source library that unifies them under one commercial-friendly Python API. Competitor models (e.g. YOLOv8, YOLO11) are benchmarked on the same harness for comparison and are listed separately.
 
 ## Key pages
 - [Leaderboard](${url}/): accuracy, speed and efficiency for every benchmarked model

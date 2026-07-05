@@ -32,7 +32,7 @@ export default function AboutPage() {
           <div className="section-group-content prose max-w-none">
             <p className="text-base text-foreground leading-relaxed">
               Vision Analysis provides credible benchmarks for object detection models.
-              All benchmarks are run using <a href={benchmarkRepoUrl} className="text-brand hover:underline" target="_blank" rel="noopener noreferrer">vision-analysis-benchmark</a> on top of <a href={siteConfig.links.github} className="text-brand hover:underline" target="_blank" rel="noopener noreferrer">LibreYOLO</a>.
+              All benchmarks are run on the same <a href={benchmarkRepoUrl} className="text-brand hover:underline" target="_blank" rel="noopener noreferrer">vision-analysis-benchmark</a> harness; <a href={siteConfig.links.github} className="text-brand hover:underline" target="_blank" rel="noopener noreferrer">LibreYOLO</a> models run through LibreYOLO, and competitor models (e.g. YOLOv8, YOLO11) run through their own libraries for a like-for-like comparison.
             </p>
           </div>
         </div>
