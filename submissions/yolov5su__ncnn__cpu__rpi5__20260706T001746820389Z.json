@@ -1,0 +1,110 @@
+{
+  "schema_version": "va.submission.v1",
+  "submission_id": "yolov5su-ncnn-cpu-rpi5-20260705T235823Z",
+  "created_at": "2026-07-05T23:58:23.948800Z",
+  "benchmark": {
+    "harness": "vision-analysis-benchmark",
+    "harness_version": "2.0.0",
+    "libreyolo_version": "unknown",
+    "libreyolo_commit": "unknown"
+  },
+  "model": {
+    "id": "yolov5su",
+    "name": "yolov5su",
+    "family": "yolov5u",
+    "variant": "s",
+    "source": "ultralytics",
+    "weights": "yolov5su.pt",
+    "input_size": 640
+  },
+  "dataset": {
+    "id": "coco2017",
+    "split": "val2017",
+    "num_images": 500
+  },
+  "config": {
+    "batch_size": 1,
+    "input_size": 640,
+    "conf": 0.001,
+    "iou": 0.7,
+    "max_det": 300
+  },
+  "hardware": {
+    "gpu": "Raspberry Pi 5 Model B Rev 1.1",
+    "gpu_memory_gb": 0.0,
+    "driver_version": "N/A",
+    "cuda_version": "N/A",
+    "cpu": "Unknown",
+    "cpu_cores": 4,
+    "ram_gb": 15,
+    "id": "rpi5"
+  },
+  "software": {
+    "python": "3.13.5",
+    "torch": "2.12.1+cpu",
+    "libreyolo": "unknown",
+    "libreyolo_commit": "unknown",
+    "onnxruntime": "1.27.0",
+    "ultralytics": "8.4.60",
+    "ultralytics_torch": "2.12.1+cpu"
+  },
+  "accuracy": {
+    "mAP_50_95": 0.4238371205375474,
+    "mAP_50": 0.5888050692393819,
+    "mAP_75": 0.45916764712359653,
+    "mAP_small": 0.23738546003815295,
+    "mAP_medium": 0.47236607669589503,
+    "mAP_large": 0.5767228579876916,
+    "AR1": 0.3346905761822876,
+    "AR10": 0.5468360030800069,
+    "AR100": 0.5953192696803477,
+    "AR_small": 0.3847228911404258,
+    "AR_medium": 0.6574723853041365,
+    "AR_large": 0.7493510284895806
+  },
+  "timing": {
+    "batch_size": 1,
+    "num_images": 500,
+    "total_ms": {
+      "mean": 162.517,
+      "std": 2.893,
+      "p50": 162.553,
+      "p95": 166.136,
+      "p99": 168.308,
+      "preprocess_ms": 3.238,
+      "inference_ms": 153.217,
+      "postprocess_ms": 2.128
+    }
+  },
+  "throughput": {
+    "fps_mean": 6.15,
+    "fps_p50": 6.15
+  },
+  "model_stats": {
+    "params_millions": 9.1,
+    "gflops": 24.0
+  },
+  "memory": {
+    "peak_vram_mb": null,
+    "peak_ram_mb": 563.7
+  },
+  "metadata": {
+    "benchmark_date": "2026-07-05T23:58:23.948800Z",
+    "benchmark_version": "2.0.0"
+  },
+  "eval": {
+    "dataset": "coco",
+    "split": "val2017",
+    "numImages": 500
+  },
+  "implementation": {
+    "provider": "ultralytics",
+    "version": "8.4.60"
+  },
+  "runtime": {
+    "format": "ncnn",
+    "precision": "fp32",
+    "provider": "cpu",
+    "device": "cpu"
+  }
+}
