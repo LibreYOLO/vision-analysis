@@ -50,6 +50,19 @@ Current support matrix:
 - `hardware.id` is non-empty
 - `submission_id` is unique across `submissions/*.json`
 
+## Reproducibility checks (harness >= 2.1.0)
+
+The `repro` block is optional so pre-2.1.0 submissions still validate, but new
+runs should carry it. When present:
+
+- `repro.harness_commit` is a real commit and `repro.harness_dirty` is not `true`
+  (a dirty run is not a clean pin; ask for a re-run from a clean checkout)
+- `repro.command` is present and consistent with `runtime` / `config` / `model`
+- `repro.dataset.image_id_sha256` is present; the same mini500 fingerprint should
+  recur across mini500 runs, and full-val2017 runs share their own fingerprint
+- ONNX / TensorRT runs carry `repro.weights.sha256` and, ideally, an
+  `export_manifest`
+
 ## Numeric sanity
 
 - No negative numeric values in `config`, `hardware`, `accuracy`, `timing`, `throughput`, or `model_stats`
