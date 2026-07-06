@@ -96,6 +96,31 @@ export interface RawBenchmark {
     split?: string;
     numImages?: number;
   };
+  benchmark?: {
+    harness?: string;
+    harness_version?: string;
+    libreyolo_version?: string;
+    libreyolo_commit?: string;
+  };
+  repro?: {
+    harness_commit?: string;
+    harness_dirty?: boolean | null;
+    command?: string;
+    argv?: string[];
+    dataset?: {
+      image_id_sha256?: string;
+      hf_dataset?: string;
+      hf_revision?: string;
+    };
+    weights?: {
+      file?: string;
+      sha256?: string | null;
+      source?: string;
+    };
+  };
+  // Added by the build step (verified_payload) when materializing the
+  // canonical dataset; identifies the raw submission file this row came from.
+  source_file?: string;
 }
 
 // --- Hardware ID mapping ---
@@ -348,6 +373,11 @@ export function transformRawBenchmark(
       paramsM,
       flopsG,
       timestamp: new Date(raw.metadata.benchmark_date).toISOString(),
+      sourceFile: raw.source_file,
+      libreyoloCommit: raw.benchmark?.libreyolo_commit,
+      harnessCommit: raw.repro?.harness_commit,
+      command: raw.repro?.command,
+      datasetImageIdSha256: raw.repro?.dataset?.image_id_sha256,
     };
   } catch {
     return null;

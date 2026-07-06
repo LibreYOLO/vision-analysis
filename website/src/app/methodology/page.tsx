@@ -11,6 +11,7 @@ export const metadata: Metadata = {
 const benchmarkRepoUrl = "https://github.com/LibreYOLO/vision-analysis-benchmark";
 const submissionsUrl = "https://github.com/LibreYOLO/vision-analysis/tree/main/submissions";
 const schemaUrl = "https://github.com/LibreYOLO/vision-analysis/blob/main/schemas/submission.v1.json";
+const datasetUrl = "https://huggingface.co/datasets/LibreYOLO/coco-val2017-mini500";
 
 export default function MethodologyPage() {
   return (
@@ -53,6 +54,74 @@ export default function MethodologyPage() {
                 . After review, the canonical verified dataset is rebuilt and the website renders
                 exclusively from that snapshot. Raw submissions stay in the repository for
                 provenance.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Reproduce */}
+        <div className="section-group">
+          <div className="section-group-header">
+            <h2>Reproduce any published number</h2>
+          </div>
+          <div className="section-group-content">
+            <div className="space-y-3 text-base text-foreground leading-relaxed">
+              <p>
+                Every run emitted by the harness (version 2.1.0 and later) carries a{" "}
+                <code>repro</code> block that records exactly how it was produced, so any
+                number on this site can be reproduced without guesswork:
+              </p>
+              <ul className="list-disc pl-5 space-y-2">
+                <li>
+                  <strong>The exact command.</strong> <code>repro.command</code> is the literal,
+                  copy-pasteable <code>va-bench</code> invocation that produced the run, and{" "}
+                  <code>repro.argv</code> is its parsed form.
+                </li>
+                <li>
+                  <strong>The harness commit.</strong> <code>repro.harness_commit</code> pins the{" "}
+                  <a href={benchmarkRepoUrl} className="text-brand hover:underline" target="_blank" rel="noopener noreferrer">
+                    vision-analysis-benchmark
+                  </a>{" "}
+                  version that defined the timing and eval protocol.{" "}
+                  <code>repro.harness_dirty</code> flags a run made from an uncommitted working
+                  tree, so it can never be silently passed off as pinned.
+                </li>
+                <li>
+                  <strong>The exact model.</strong> <code>benchmark.libreyolo_commit</code> pins
+                  the LibreYOLO build; for user-supplied ONNX and TensorRT artifacts,{" "}
+                  <code>repro.weights.sha256</code> and the embedded export manifest pin the file
+                  and how it was exported.
+                </li>
+                <li>
+                  <strong>The exact images.</strong> <code>repro.dataset.image_id_sha256</code> is a
+                  verifiable fingerprint of the evaluated image-id set, so you can confirm you are
+                  scoring the identical images rather than trusting a label.
+                </li>
+              </ul>
+              <p>
+                To reproduce a row: open its raw submission JSON in{" "}
+                <a href={submissionsUrl} className="text-brand hover:underline" target="_blank" rel="noopener noreferrer">
+                  <code>submissions/</code>
+                </a>
+                , install LibreYOLO at the recorded <code>benchmark.libreyolo_commit</code>, fetch{" "}
+                <a href={datasetUrl} className="text-brand hover:underline" target="_blank" rel="noopener noreferrer">
+                  coco-val2017-mini500
+                </a>{" "}
+                (or full COCO val2017 for the 5000-image rows), and run the recorded{" "}
+                <code>repro.command</code>. A PyTorch run is fully reconstructible from the JSON:
+              </p>
+              <pre className="overflow-x-auto rounded-md border border-foreground/10 bg-foreground/5 p-4 text-sm leading-relaxed text-foreground">
+{`pip install "libreyolo @ git+https://github.com/LibreYOLO/libreyolo@<benchmark.libreyolo_commit>"
+pip install "git+https://github.com/LibreYOLO/vision-analysis-benchmark@<repro.harness_commit>"
+
+# from repro.command, e.g.:
+va-bench run --models yolov9t --coco-dir /path/to/coco \\
+  --format pytorch --conf 0.001 --iou 0.6 --max-det 300`}
+              </pre>
+              <p>
+                Match the emitted <code>repro.dataset.image_id_sha256</code> to confirm you scored
+                the same image set. ONNX and TensorRT rows additionally require the exported
+                artifact described by <code>repro.weights</code> and its export manifest.
               </p>
             </div>
           </div>

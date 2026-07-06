@@ -22,7 +22,44 @@
     "schema_version": { "const": "va.submission.v1" },
     "submission_id": { "type": "string", "minLength": 1 },
     "created_at": { "type": "string", "minLength": 1 },
-    "benchmark": { "type": "object" },
+    "benchmark": {
+      "type": "object",
+      "properties": {
+        "harness": { "type": "string" },
+        "harness_version": { "type": "string" },
+        "libreyolo_version": { "type": "string" },
+        "libreyolo_commit": { "type": "string" }
+      }
+    },
+    "repro": {
+      "type": "object",
+      "description": "Reproducibility provenance (harness >= 2.1.0). Optional for backward compatibility with earlier submissions.",
+      "properties": {
+        "harness_version": { "type": "string" },
+        "harness_commit": { "type": "string" },
+        "harness_dirty": { "type": ["boolean", "null"] },
+        "command": { "type": "string" },
+        "argv": { "type": "array", "items": { "type": "string" } },
+        "dataset": {
+          "type": "object",
+          "properties": {
+            "image_id_sha256": { "type": "string" },
+            "hf_dataset": { "type": "string" },
+            "hf_revision": { "type": "string" }
+          }
+        },
+        "weights": {
+          "type": "object",
+          "properties": {
+            "file": { "type": "string" },
+            "sha256": { "type": ["string", "null"] },
+            "source": { "type": "string" },
+            "onnx_opset": { "type": "integer" },
+            "export_manifest": { "type": "object" }
+          }
+        }
+      }
+    },
     "model": {
       "type": "object",
       "required": ["id", "family", "variant", "input_size"],

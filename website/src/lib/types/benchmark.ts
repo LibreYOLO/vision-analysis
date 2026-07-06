@@ -58,6 +58,15 @@ export interface BenchmarkResult {
 
   // Metadata
   timestamp: string;
+
+  // Reproducibility provenance (optional; present on runs emitted by
+  // vision-analysis-benchmark >= 2.1.0). Lets a viewer trace a number back to
+  // the exact run that produced it.
+  sourceFile?: string;          // raw submission JSON filename under submissions/
+  libreyoloCommit?: string;     // pins model behavior
+  harnessCommit?: string;       // pins the benchmark harness
+  command?: string;             // copy-pasteable command that produced the run
+  datasetImageIdSha256?: string; // verifiable fingerprint of the evaluated image set
 }
 
 // Model metadata for model pages and comparison
