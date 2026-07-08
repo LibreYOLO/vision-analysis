@@ -188,15 +188,6 @@ export type SortKey = keyof Pick<
   | "mAPPerMParams"
 >;
 
-// Per-model RF100-VL score attached to a leaderboard row (percent scale).
-export interface Rf100VlModelScore {
-  model: string;
-  ap50: number;
-  ap5095: number;
-  /** True while these are placeholder numbers, not a real harness run. */
-  fake?: boolean;
-}
-
 export type SortOrder = "asc" | "desc";
 
 // Filter state

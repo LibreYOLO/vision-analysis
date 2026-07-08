@@ -3,7 +3,6 @@ import { LeaderboardDashboard } from "@/components/leaderboard";
 import { AccuracyTimeline, VAScoreChart, ChartDataTable } from "@/components/charts";
 import { getAllBenchmarkResultsByTask, getHardwareOptions, getRuntimeOptions } from "@/lib/data";
 import { libreYoloOnly } from "@/lib/data/provenance";
-import { buildFakeRf100VlRows } from "@/lib/data/rf100vl-fake";
 import { StructuredData } from "@/components/seo/StructuredData";
 
 const previewFamilies = ["D-FINE", "RF-DETR", "RT-DETR", "DEIM", "YOLOX"];
@@ -95,11 +94,6 @@ export default function HomePage() {
   for (const r of allRows) if (!paramsByModel.has(r.model)) paramsByModel.set(r.model, r);
   const paramsRows = Array.from(paramsByModel.values());
 
-  // RF100-VL section rows: PLACEHOLDER numbers until real harness submissions
-  // land (see lib/data/rf100vl-fake.ts). Rows are tagged fake and the UI
-  // banners them.
-  const rf100vlRows = buildFakeRf100VlRows(paramsRows);
-
   return (
     <>
       {hasVerifiedBenchmarks && (
@@ -123,7 +117,7 @@ export default function HomePage() {
               <LeaderboardDashboard
                 benchmarkData={benchmarkData}
                 hardwareOptions={hardwareOptions}
-                rf100vl={rf100vlRows}
+                rf100vlComingSoon
               />
             </Suspense>
             {/* Machine-readable data tables (sr-only). The interactive dashboard

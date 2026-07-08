@@ -20,9 +20,11 @@ interface LeaderboardTableProps {
   mapLabel?: string;
   /** Show the two RF100-VL columns (only meaningful on the detection board). */
   showRf100vl?: boolean;
+  /** Render the RF100-VL columns as "Coming soon" (no scores published yet). */
+  rf100vlComingSoon?: boolean;
 }
 
-function buildColumns(mapLabel: string, showRf100vl: boolean): Array<{
+function buildColumns(mapLabel: string, showRf100vl: boolean, rf100vlComingSoon: boolean): Array<{
   key: SortKey | "model";
   label: string;
   align: "left" | "right";
@@ -35,8 +37,8 @@ function buildColumns(mapLabel: string, showRf100vl: boolean): Array<{
     { key: "mAP_50", label: `${mapLabel}@50`, align: "right", format: "percent", sortable: true },
     ...(showRf100vl
       ? ([
-          { key: "rf100vlAp50", label: "RF100-VL AP@50", align: "right", format: "percent", sortable: true },
-          { key: "rf100vlAp5095", label: "RF100-VL AP@50-95", align: "right", format: "percent", sortable: true },
+          { key: "rf100vlAp50", label: "RF100-VL AP@50", align: "right", format: "percent", sortable: !rf100vlComingSoon },
+          { key: "rf100vlAp5095", label: "RF100-VL AP@50-95", align: "right", format: "percent", sortable: !rf100vlComingSoon },
         ] as const)
       : []),
     { key: "throughputFps", label: "FPS", align: "right", format: "number", sortable: true },
@@ -78,10 +80,14 @@ export function LeaderboardTable({
   onSortChange,
   mapLabel = "mAP",
   showRf100vl = false,
+  rf100vlComingSoon = false,
 }: LeaderboardTableProps) {
   const [sortKey, setSortKey] = useState<SortKey | "model">(initialSortKey);
   const [sortOrder, setSortOrder] = useState<SortOrder>(initialSortOrder);
-  const COLUMNS = useMemo(() => buildColumns(mapLabel, showRf100vl), [mapLabel, showRf100vl]);
+  const COLUMNS = useMemo(
+    () => buildColumns(mapLabel, showRf100vl, rf100vlComingSoon),
+    [mapLabel, showRf100vl, rf100vlComingSoon]
+  );
 
   const sortedData = useMemo(() => {
     const filtered = familyFilter.length > 0
@@ -199,17 +205,29 @@ export function LeaderboardTable({
               {/* Data cells */}
               {COLUMNS.slice(1).map((col) => {
                 const value = row[col.key as keyof BenchmarkResult] as number | undefined;
+                const isRf100vl =
+                  col.key === "rf100vlAp50" || col.key === "rf100vlAp5095";
+                // RF100-VL scores are not published yet: show "Coming soon".
+                if (isRf100vl && rf100vlComingSoon) {
+                  return (
+                    <td
+                      key={col.key}
+                      className={cn(
+                        "px-2 py-2 text-xs italic text-muted-foreground",
+                        col.align === "right" && "text-right"
+                      )}
+                    >
+                      Coming soon
+                    </td>
+                  );
+                }
                 // GFLOPs / mAP-per-GFLOP are unknown for a few models (no published
                 // FLOPs); show a dash rather than a misleading 0.0.
                 const blankZero =
                   (col.key === "flopsG" || col.key === "mAPPerGflop") && !((value ?? 0) > 0);
-                // RF100-VL is absent for models with no attached result yet.
-                const blankMissing =
-                  (col.key === "rf100vlAp50" || col.key === "rf100vlAp5095") &&
-                  (value === undefined || value === null);
                 return (
                   <td key={col.key} className={cn("px-2 py-2 font-mono text-sm", col.align === "right" && "text-right")}>
-                    {blankZero || blankMissing ? "-" : formatValue(value, col.format)}
+                    {blankZero ? "-" : formatValue(value, col.format)}
                   </td>
                 );
               })}
