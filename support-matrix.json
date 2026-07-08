@@ -10,7 +10,8 @@
     "436fff0f3a8c0f2cebdf82506a74b22ef18b423b",
     "8a7a0beff4ac5c104dd44936d55d9d58baf2b72b",
     "75235c5fc55239166c14e2017efc0eaa3bad0dea",
-    "0f1ef8e4d0d275068fadd25009a35c13c2364dc8"
+    "0f1ef8e4d0d275068fadd25009a35c13c2364dc8",
+    "61c7f13f44a41aa68cc05b305d01cce40c895c98"
   ],
   "models": [
     "yolox-nano",
@@ -90,7 +91,20 @@
     "yolov5su",
     "yolov5mu",
     "yolov5lu",
-    "yolov5xu"
+    "yolov5xu",
+    "rfdetr-seg-n",
+    "rfdetr-seg-s",
+    "rfdetr-seg-m",
+    "rfdetr-seg-l",
+    "dfine-seg-n",
+    "dfine-seg-s",
+    "dfine-seg-m",
+    "dfine-seg-l",
+    "dfine-seg-x",
+    "ec-seg-s",
+    "ec-seg-m",
+    "ec-seg-l",
+    "ec-seg-x"
   ],
   "runtimes": [
     {
