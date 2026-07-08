@@ -138,7 +138,7 @@ export function Rf100VlTable({ rows }: { rows: Rf100VlRow[] }) {
                   )}
                   {row.fake && (
                     <span
-                      title="Placeholder number — no RF100-VL harness run submitted yet."
+                      title="Placeholder number: no RF100-VL harness run submitted yet."
                       className="ml-1 flex-shrink-0 rounded px-1 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-red-700 bg-red-100 dark:text-red-300 dark:bg-red-900/40"
                     >
                       Fake

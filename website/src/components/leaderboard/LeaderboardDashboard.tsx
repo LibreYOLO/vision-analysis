@@ -730,7 +730,7 @@ export function LeaderboardDashboard({
                 <span className="mr-2 rounded-full border border-amber-500/50 bg-amber-500/15 px-2 py-0.5 text-xs font-semibold uppercase tracking-[0.08em] text-amber-600 dark:text-amber-400">
                   Fake numbers
                 </span>
-                Placeholder values to preview the layout — no RF100-VL harness
+                Placeholder values to preview the layout: no RF100-VL harness
                 runs have been submitted yet. Every placeholder row is tagged.
               </div>
             )}
