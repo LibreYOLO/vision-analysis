@@ -14,12 +14,19 @@ let _cache: Record<string, BenchmarkResult[]> | null = null;
 
 type ModelSpec = {
   id: string;
+  task?: string;
   specs: {
     flopsG: number;
     paramsM: number;
     inputSizeDefault?: number;
   };
 };
+
+// Backstop task lookup for entries whose submission predates model.task.
+function taskForModel(modelId: string, modelSpecs: ModelSpec[]): "detection" | "segmentation" {
+  const meta = modelSpecs.find((m) => m.id === modelId);
+  return meta?.task === "segmentation" ? "segmentation" : "detection";
+}
 
 /**
  * Loads the canonical verified benchmark dataset generated from reviewed submissions.
@@ -113,6 +120,7 @@ function completeBenchmarkResult(
 
   return {
     ...entry,
+    task: entry.task ?? taskForModel(entry.model ?? "", modelSpecs),
     dataset: entry.dataset ?? "coco_val2017",
     datasetVariant: entry.datasetVariant ?? datasetVariantFromCount(numImages),
     numImages,

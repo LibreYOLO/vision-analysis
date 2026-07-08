@@ -16,24 +16,28 @@ interface LeaderboardTableProps {
   initialSortKey?: SortKey | "model";
   initialSortOrder?: SortOrder;
   onSortChange?: (key: SortKey | "model", order: SortOrder) => void;
+  /** Headline metric name, e.g. "mAP" (detection) or "mask mAP" (segmentation). */
+  mapLabel?: string;
 }
 
-const COLUMNS: Array<{
+function buildColumns(mapLabel: string): Array<{
   key: SortKey | "model";
   label: string;
   align: "left" | "right";
   format?: "percent" | "number" | "ms" | "millions";
   sortable: boolean;
-}> = [
-  { key: "model", label: "Model", align: "left", sortable: true },
-  { key: "mAP_50_95", label: "mAP@50-95", align: "right", format: "percent", sortable: true },
-  { key: "mAP_50", label: "mAP@50", align: "right", format: "percent", sortable: true },
-  { key: "throughputFps", label: "FPS", align: "right", format: "number", sortable: true },
-  { key: "totalMs", label: "Latency", align: "right", format: "ms", sortable: true },
-  { key: "paramsM", label: "Params (M)", align: "right", format: "millions", sortable: true },
-  { key: "flopsG", label: "GFLOPs", align: "right", format: "number", sortable: true },
-  { key: "mAPPerGflop", label: "mAP/GFLOP", align: "right", format: "number", sortable: true },
-];
+}> {
+  return [
+    { key: "model", label: "Model", align: "left", sortable: true },
+    { key: "mAP_50_95", label: `${mapLabel}@50-95`, align: "right", format: "percent", sortable: true },
+    { key: "mAP_50", label: `${mapLabel}@50`, align: "right", format: "percent", sortable: true },
+    { key: "throughputFps", label: "FPS", align: "right", format: "number", sortable: true },
+    { key: "totalMs", label: "Latency", align: "right", format: "ms", sortable: true },
+    { key: "paramsM", label: "Params (M)", align: "right", format: "millions", sortable: true },
+    { key: "flopsG", label: "GFLOPs", align: "right", format: "number", sortable: true },
+    { key: "mAPPerGflop", label: `${mapLabel}/GFLOP`, align: "right", format: "number", sortable: true },
+  ];
+}
 
 function formatValue(value: number | undefined, format?: string): string {
   if (value === undefined || value === null) return "-";
@@ -64,9 +68,11 @@ export function LeaderboardTable({
   initialSortKey = "mAP_50_95",
   initialSortOrder = "desc",
   onSortChange,
+  mapLabel = "mAP",
 }: LeaderboardTableProps) {
   const [sortKey, setSortKey] = useState<SortKey | "model">(initialSortKey);
   const [sortOrder, setSortOrder] = useState<SortOrder>(initialSortOrder);
+  const COLUMNS = useMemo(() => buildColumns(mapLabel), [mapLabel]);
 
   const sortedData = useMemo(() => {
     const filtered = familyFilter.length > 0

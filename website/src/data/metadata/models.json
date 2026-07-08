@@ -2409,6 +2409,370 @@
       "detectionApproach": "anchor-free",
       "postprocessing": "nms",
       "paperReportedMap": 53.2
+    },
+    {
+      "id": "rfdetr-seg-n",
+      "displayName": "RF-DETR-Seg-N",
+      "family": "rfdetr",
+      "variant": "n",
+      "task": "segmentation",
+      "architecture": {
+        "type": "transformer",
+        "backbone": "DINOv2",
+        "neck": "Agg2Former",
+        "head": "DETR"
+      },
+      "detectionApproach": "detr",
+      "postprocessing": "nms-free",
+      "specs": {
+        "paramsM": 0,
+        "flopsG": 0,
+        "inputSizeDefault": 312,
+        "numClasses": 80
+      },
+      "source": {
+        "originalWeightsUrl": "https://github.com/roboflow/rf-detr/releases",
+        "libreyoloWeightsUrl": "https://huggingface.co/LibreYOLO/LibreRFDETRn-seg"
+      },
+      "license": "Apache-2.0",
+      "releaseDate": "2026-02-23",
+      "inLibreYOLO": true
+    },
+    {
+      "id": "rfdetr-seg-s",
+      "displayName": "RF-DETR-Seg-S",
+      "family": "rfdetr",
+      "variant": "s",
+      "task": "segmentation",
+      "architecture": {
+        "type": "transformer",
+        "backbone": "DINOv2",
+        "neck": "Agg2Former",
+        "head": "DETR"
+      },
+      "detectionApproach": "detr",
+      "postprocessing": "nms-free",
+      "specs": {
+        "paramsM": 0,
+        "flopsG": 0,
+        "inputSizeDefault": 384,
+        "numClasses": 80
+      },
+      "source": {
+        "originalWeightsUrl": "https://github.com/roboflow/rf-detr/releases",
+        "libreyoloWeightsUrl": "https://huggingface.co/LibreYOLO/LibreRFDETRs-seg"
+      },
+      "license": "Apache-2.0",
+      "releaseDate": "2026-02-23",
+      "inLibreYOLO": true
+    },
+    {
+      "id": "rfdetr-seg-m",
+      "displayName": "RF-DETR-Seg-M",
+      "family": "rfdetr",
+      "variant": "m",
+      "task": "segmentation",
+      "architecture": {
+        "type": "transformer",
+        "backbone": "DINOv2",
+        "neck": "Agg2Former",
+        "head": "DETR"
+      },
+      "detectionApproach": "detr",
+      "postprocessing": "nms-free",
+      "specs": {
+        "paramsM": 0,
+        "flopsG": 0,
+        "inputSizeDefault": 432,
+        "numClasses": 80
+      },
+      "source": {
+        "originalWeightsUrl": "https://github.com/roboflow/rf-detr/releases",
+        "libreyoloWeightsUrl": "https://huggingface.co/LibreYOLO/LibreRFDETRm-seg"
+      },
+      "license": "Apache-2.0",
+      "releaseDate": "2026-02-23",
+      "inLibreYOLO": true
+    },
+    {
+      "id": "rfdetr-seg-l",
+      "displayName": "RF-DETR-Seg-L",
+      "family": "rfdetr",
+      "variant": "l",
+      "task": "segmentation",
+      "architecture": {
+        "type": "transformer",
+        "backbone": "DINOv2",
+        "neck": "Agg2Former",
+        "head": "DETR"
+      },
+      "detectionApproach": "detr",
+      "postprocessing": "nms-free",
+      "specs": {
+        "paramsM": 0,
+        "flopsG": 0,
+        "inputSizeDefault": 504,
+        "numClasses": 80
+      },
+      "source": {
+        "originalWeightsUrl": "https://github.com/roboflow/rf-detr/releases",
+        "libreyoloWeightsUrl": "https://huggingface.co/LibreYOLO/LibreRFDETRl-seg"
+      },
+      "license": "Apache-2.0",
+      "releaseDate": "2026-02-23",
+      "inLibreYOLO": true
+    },
+    {
+      "id": "dfine-seg-n",
+      "displayName": "D-FINE-Seg-N",
+      "family": "dfine",
+      "variant": "n",
+      "task": "segmentation",
+      "architecture": {
+        "type": "transformer",
+        "backbone": "HGNetv2",
+        "neck": "HybridEncoder",
+        "head": "FDR (Fine-grained Distribution Refinement)"
+      },
+      "detectionApproach": "detr",
+      "postprocessing": "nms-free",
+      "specs": {
+        "paramsM": 0,
+        "flopsG": 0,
+        "inputSizeDefault": 640,
+        "numClasses": 80
+      },
+      "source": {
+        "originalWeightsUrl": "https://github.com/Peterande/D-FINE/releases",
+        "libreyoloWeightsUrl": "https://huggingface.co/LibreYOLO/LibreDFINEn-seg"
+      },
+      "license": "Apache-2.0",
+      "releaseDate": "2024-10-18",
+      "inLibreYOLO": true
+    },
+    {
+      "id": "dfine-seg-s",
+      "displayName": "D-FINE-Seg-S",
+      "family": "dfine",
+      "variant": "s",
+      "task": "segmentation",
+      "architecture": {
+        "type": "transformer",
+        "backbone": "HGNetv2",
+        "neck": "HybridEncoder",
+        "head": "FDR (Fine-grained Distribution Refinement)"
+      },
+      "detectionApproach": "detr",
+      "postprocessing": "nms-free",
+      "specs": {
+        "paramsM": 0,
+        "flopsG": 0,
+        "inputSizeDefault": 640,
+        "numClasses": 80
+      },
+      "source": {
+        "originalWeightsUrl": "https://github.com/Peterande/D-FINE/releases",
+        "libreyoloWeightsUrl": "https://huggingface.co/LibreYOLO/LibreDFINEs-seg"
+      },
+      "license": "Apache-2.0",
+      "releaseDate": "2024-10-18",
+      "inLibreYOLO": true
+    },
+    {
+      "id": "dfine-seg-m",
+      "displayName": "D-FINE-Seg-M",
+      "family": "dfine",
+      "variant": "m",
+      "task": "segmentation",
+      "architecture": {
+        "type": "transformer",
+        "backbone": "HGNetv2",
+        "neck": "HybridEncoder",
+        "head": "FDR (Fine-grained Distribution Refinement)"
+      },
+      "detectionApproach": "detr",
+      "postprocessing": "nms-free",
+      "specs": {
+        "paramsM": 0,
+        "flopsG": 0,
+        "inputSizeDefault": 640,
+        "numClasses": 80
+      },
+      "source": {
+        "originalWeightsUrl": "https://github.com/Peterande/D-FINE/releases",
+        "libreyoloWeightsUrl": "https://huggingface.co/LibreYOLO/LibreDFINEm-seg"
+      },
+      "license": "Apache-2.0",
+      "releaseDate": "2024-10-18",
+      "inLibreYOLO": true
+    },
+    {
+      "id": "dfine-seg-l",
+      "displayName": "D-FINE-Seg-L",
+      "family": "dfine",
+      "variant": "l",
+      "task": "segmentation",
+      "architecture": {
+        "type": "transformer",
+        "backbone": "HGNetv2",
+        "neck": "HybridEncoder",
+        "head": "FDR (Fine-grained Distribution Refinement)"
+      },
+      "detectionApproach": "detr",
+      "postprocessing": "nms-free",
+      "specs": {
+        "paramsM": 0,
+        "flopsG": 0,
+        "inputSizeDefault": 640,
+        "numClasses": 80
+      },
+      "source": {
+        "originalWeightsUrl": "https://github.com/Peterande/D-FINE/releases",
+        "libreyoloWeightsUrl": "https://huggingface.co/LibreYOLO/LibreDFINEl-seg"
+      },
+      "license": "Apache-2.0",
+      "releaseDate": "2024-10-18",
+      "inLibreYOLO": true
+    },
+    {
+      "id": "dfine-seg-x",
+      "displayName": "D-FINE-Seg-X",
+      "family": "dfine",
+      "variant": "x",
+      "task": "segmentation",
+      "architecture": {
+        "type": "transformer",
+        "backbone": "HGNetv2",
+        "neck": "HybridEncoder",
+        "head": "FDR (Fine-grained Distribution Refinement)"
+      },
+      "detectionApproach": "detr",
+      "postprocessing": "nms-free",
+      "specs": {
+        "paramsM": 0,
+        "flopsG": 0,
+        "inputSizeDefault": 640,
+        "numClasses": 80
+      },
+      "source": {
+        "originalWeightsUrl": "https://github.com/Peterande/D-FINE/releases",
+        "libreyoloWeightsUrl": "https://huggingface.co/LibreYOLO/LibreDFINEx-seg"
+      },
+      "license": "Apache-2.0",
+      "releaseDate": "2024-10-18",
+      "inLibreYOLO": true
+    },
+    {
+      "id": "ec-seg-s",
+      "displayName": "EC-Seg-S",
+      "family": "ec",
+      "variant": "s",
+      "task": "segmentation",
+      "architecture": {
+        "type": "transformer",
+        "backbone": "ECViT (compact ViT)",
+        "neck": "HybridEncoder",
+        "head": "DETR"
+      },
+      "detectionApproach": "detr",
+      "postprocessing": "nms-free",
+      "specs": {
+        "paramsM": 0,
+        "flopsG": 0,
+        "inputSizeDefault": 640,
+        "numClasses": 80
+      },
+      "source": {
+        "originalWeightsUrl": "https://github.com/Intellindust-AI-Lab/EdgeCrafter",
+        "libreyoloWeightsUrl": "https://huggingface.co/LibreYOLO/LibreECs-seg"
+      },
+      "license": "Apache-2.0",
+      "releaseDate": "2026-03-19",
+      "inLibreYOLO": true
+    },
+    {
+      "id": "ec-seg-m",
+      "displayName": "EC-Seg-M",
+      "family": "ec",
+      "variant": "m",
+      "task": "segmentation",
+      "architecture": {
+        "type": "transformer",
+        "backbone": "ECViT (compact ViT)",
+        "neck": "HybridEncoder",
+        "head": "DETR"
+      },
+      "detectionApproach": "detr",
+      "postprocessing": "nms-free",
+      "specs": {
+        "paramsM": 0,
+        "flopsG": 0,
+        "inputSizeDefault": 640,
+        "numClasses": 80
+      },
+      "source": {
+        "originalWeightsUrl": "https://github.com/Intellindust-AI-Lab/EdgeCrafter",
+        "libreyoloWeightsUrl": "https://huggingface.co/LibreYOLO/LibreECm-seg"
+      },
+      "license": "Apache-2.0",
+      "releaseDate": "2026-03-19",
+      "inLibreYOLO": true
+    },
+    {
+      "id": "ec-seg-l",
+      "displayName": "EC-Seg-L",
+      "family": "ec",
+      "variant": "l",
+      "task": "segmentation",
+      "architecture": {
+        "type": "transformer",
+        "backbone": "ECViT (compact ViT)",
+        "neck": "HybridEncoder",
+        "head": "DETR"
+      },
+      "detectionApproach": "detr",
+      "postprocessing": "nms-free",
+      "specs": {
+        "paramsM": 0,
+        "flopsG": 0,
+        "inputSizeDefault": 640,
+        "numClasses": 80
+      },
+      "source": {
+        "originalWeightsUrl": "https://github.com/Intellindust-AI-Lab/EdgeCrafter",
+        "libreyoloWeightsUrl": "https://huggingface.co/LibreYOLO/LibreECl-seg"
+      },
+      "license": "Apache-2.0",
+      "releaseDate": "2026-03-19",
+      "inLibreYOLO": true
+    },
+    {
+      "id": "ec-seg-x",
+      "displayName": "EC-Seg-X",
+      "family": "ec",
+      "variant": "x",
+      "task": "segmentation",
+      "architecture": {
+        "type": "transformer",
+        "backbone": "ECViT (compact ViT)",
+        "neck": "HybridEncoder",
+        "head": "DETR"
+      },
+      "detectionApproach": "detr",
+      "postprocessing": "nms-free",
+      "specs": {
+        "paramsM": 0,
+        "flopsG": 0,
+        "inputSizeDefault": 640,
+        "numClasses": 80
+      },
+      "source": {
+        "originalWeightsUrl": "https://github.com/Intellindust-AI-Lab/EdgeCrafter",
+        "libreyoloWeightsUrl": "https://huggingface.co/LibreYOLO/LibreECx-seg"
+      },
+      "license": "Apache-2.0",
+      "releaseDate": "2026-03-19",
+      "inLibreYOLO": true
     }
   ]
 }

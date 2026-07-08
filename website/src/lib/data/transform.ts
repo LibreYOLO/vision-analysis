@@ -9,6 +9,8 @@ export interface RawBenchmark {
     name: string;
     family: string;
     variant: string;
+    // Harness task label ("detect" or "segment"); absent on older submissions.
+    task?: string;
     source?: string;
     weights?: string;
     input_size: number;
@@ -346,10 +348,16 @@ export function transformRawBenchmark(
       }
     }
 
+    const task =
+      raw.model.task === "segment" || raw.model.task === "segmentation"
+        ? ("segmentation" as const)
+        : ("detection" as const);
+
     return {
       model: modelId,
       family: raw.model.family,
       variant: raw.model.variant,
+      task,
       dataset,
       datasetVariant: datasetVariantFromCount(numImages),
       numImages,

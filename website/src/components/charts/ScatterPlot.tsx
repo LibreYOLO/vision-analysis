@@ -49,6 +49,8 @@ interface ScatterPlotProps {
   showToolbar?: boolean;
   /** Hands the PNG download function to a parent so it can trigger it from elsewhere. */
   onDownloadReady?: (download: () => void) => void;
+  /** Headline metric name for the y-axis, e.g. "mAP" or "mask mAP". */
+  mapLabel?: string;
 }
 
 export function ScatterPlot({
@@ -63,6 +65,7 @@ export function ScatterPlot({
   logScale = false,
   showToolbar = true,
   onDownloadReady,
+  mapLabel = "mAP",
 }: ScatterPlotProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const router = useRouter();
@@ -286,7 +289,7 @@ export function ScatterPlot({
         ...(useLog ? { type: "log" as const } : {}),
       },
       y: {
-        label: "mAP@50-95 (%)",
+        label: `${mapLabel}@50-95 (%)`,
         nice: true,
         domain: [
           Math.floor(Math.min(...data.map((d) => d.mAP_50_95)) - 5),
@@ -327,6 +330,7 @@ export function ScatterPlot({
     connectFamilies,
     useLog,
     xLabel,
+    mapLabel,
   ]);
 
   return (

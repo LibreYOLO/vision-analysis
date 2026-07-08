@@ -1,7 +1,7 @@
 import { Suspense } from "react";
 import { LeaderboardDashboard } from "@/components/leaderboard";
 import { AccuracyTimeline, VAScoreChart, ChartDataTable } from "@/components/charts";
-import { getAllBenchmarkResults, getHardwareOptions, getRuntimeOptions } from "@/lib/data";
+import { getAllBenchmarkResultsByTask, getHardwareOptions, getRuntimeOptions } from "@/lib/data";
 import { libreYoloOnly } from "@/lib/data/provenance";
 import { StructuredData } from "@/components/seo/StructuredData";
 
@@ -66,8 +66,10 @@ function ComingSoonOverlay({
 }
 
 export default function HomePage() {
-  const benchmarkData = getAllBenchmarkResults();
-  const hardwareOptions = getHardwareOptions();
+  // The homepage is the detection leaderboard. Segmentation rows report mask
+  // mAP and live on /segmentation; mixing the two would rank different metrics.
+  const benchmarkData = getAllBenchmarkResultsByTask("detection");
+  const hardwareOptions = getHardwareOptions(benchmarkData);
   const allRows = Object.values(benchmarkData).flat();
   const benchmarkCount = allRows.length;
   const hasVerifiedBenchmarks = benchmarkCount > 0;

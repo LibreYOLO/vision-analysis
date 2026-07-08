@@ -21,6 +21,8 @@ import { LIBREYOLO } from "@/config/libreyolo";
 interface LeaderboardDashboardProps {
   benchmarkData: Record<string, BenchmarkResult[]>;
   hardwareOptions: Array<{ value: string; label: string }>;
+  /** Headline metric name, "mAP" (detection, default) or "mask mAP" (segmentation). */
+  mapLabel?: string;
 }
 
 function getDefaultSelection(
@@ -223,6 +225,7 @@ function selectArchitectureCoordinates(
 export function LeaderboardDashboard({
   benchmarkData,
   hardwareOptions,
+  mapLabel = "mAP",
 }: LeaderboardDashboardProps) {
   const searchParams = useSearchParams();
   const defaultSelection = getDefaultSelection(benchmarkData, hardwareOptions);
@@ -465,7 +468,7 @@ export function LeaderboardDashboard({
 
   const archMetricLabel = archXAxis === "flopsG" ? "GFLOPs" : "Parameters";
   const archTitle = `Accuracy vs ${archMetricLabel}: LibreYOLO models on COCO val2017`;
-  const archExportCaption = `COCO val2017 | mAP@50-95 vs ${archMetricLabel} | architecture (hardware-independent)`;
+  const archExportCaption = `COCO val2017 | ${mapLabel}@50-95 vs ${archMetricLabel} | architecture (hardware-independent)`;
   // GFLOPs view hides models with no published FLOPs figure (they would plot at 0).
   const archChartData =
     archXAxis === "flopsG"
@@ -525,12 +528,13 @@ export function LeaderboardDashboard({
                 exportCaption={archExportCaption}
                 showToolbar={false}
                 onDownloadReady={registerArchDownload}
+                mapLabel={mapLabel}
               />
             </div>
             {/* Caption + chart controls share one row at the bottom of the chart. */}
             <figcaption className="chart-card-subtitle flex flex-wrap items-center justify-between gap-3 px-4 pb-4 pt-1">
               <span>
-                mAP@50-95 on COCO val2017 against{" "}
+                {mapLabel}@50-95 on COCO val2017 against{" "}
                 {archXAxis === "flopsG" ? "compute (GFLOPs)" : "parameter count"}. Higher
                 and left is better.
               </span>
@@ -643,7 +647,7 @@ export function LeaderboardDashboard({
                 <div>
                   <h3>Accuracy vs Latency</h3>
                   <p className="chart-card-subtitle">
-                    mAP@50-95 vs per-image latency{logScale ? " (log scale)" : ""} on{" "}
+                    {mapLabel}@50-95 vs per-image latency{logScale ? " (log scale)" : ""} on{" "}
                     <strong>{hardwareLabel}</strong> · <strong>{runtimeLabel}</strong>.
                     Bubble size = parameters; the green dashed line is the speed/accuracy
                     Pareto frontier: the models where nothing is both faster and more accurate.
@@ -671,7 +675,8 @@ export function LeaderboardDashboard({
                     ? "Every model is hidden. Re-enable some in the model list above."
                     : `No results on ${hardwareLabel} · ${runtimeLabel} for the selected families yet.`
                 }
-                exportCaption={`${hardwareLabel} | ${runtimeLabel} | COCO val2017 | mAP@50-95 vs Latency`}
+                exportCaption={`${hardwareLabel} | ${runtimeLabel} | COCO val2017 | ${mapLabel}@50-95 vs Latency`}
+                mapLabel={mapLabel}
               />
             </div>
             {/* Machine-readable equivalent of the SVG chart (hidden from view) */}
@@ -740,6 +745,7 @@ export function LeaderboardDashboard({
             initialSortKey={sortKey}
             initialSortOrder={sortOrder}
             onSortChange={handleSortChange}
+            mapLabel={mapLabel}
           />
         </div>
       </div>

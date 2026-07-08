@@ -45,6 +45,22 @@ export function getAllBenchmarkResults(): Record<string, BenchmarkResult[]> {
 }
 
 /**
+ * Get all benchmark results for one task, keeping the hardware__runtime
+ * grouping. Detection and segmentation report different headline metrics
+ * (box vs mask mAP), so every leaderboard view is task-scoped.
+ */
+export function getAllBenchmarkResultsByTask(
+  task: BenchmarkResult["task"]
+): Record<string, BenchmarkResult[]> {
+  const filtered: Record<string, BenchmarkResult[]> = {};
+  for (const [key, results] of Object.entries(getBenchmarkData())) {
+    const rows = results.filter((r) => r.task === task);
+    if (rows.length > 0) filtered[key] = rows;
+  }
+  return filtered;
+}
+
+/**
  * Get benchmark results for a specific model across all hardware/runtime combos
  */
 export function getModelBenchmarks(modelId: string): ModelBenchmarkEntry[] {
@@ -168,9 +184,11 @@ export function getFamilies(): string[] {
 /**
  * Get hardware options for selectors (only hardware with benchmark data)
  */
-export function getHardwareOptions(): Array<{ value: string; label: string }> {
+export function getHardwareOptions(
+  data?: Record<string, BenchmarkResult[]>
+): Array<{ value: string; label: string }> {
   const hardwareWithData = new Set(
-    Object.keys(getBenchmarkData()).map((key) => key.split("__")[0])
+    Object.keys(data ?? getBenchmarkData()).map((key) => key.split("__")[0])
   );
   return getHardware()
     .filter((h) => hardwareWithData.has(h.id))

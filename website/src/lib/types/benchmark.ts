@@ -14,12 +14,19 @@ export interface RuntimeMetadata {
   device: string;
 }
 
+// Task of the model that produced a benchmark row. Detection rows report box
+// mAP; segmentation rows report mask mAP in the same mAP_* fields (their box
+// mAP lives in the raw submission under bbox_-prefixed keys). The two tasks
+// must never be ranked in one table.
+export type BenchmarkTask = "detection" | "segmentation";
+
 // Core benchmark result interface
 export interface BenchmarkResult {
   // Identifiers
   model: string;
   family: string;
   variant: string;
+  task: BenchmarkTask;
   dataset: string;
   datasetVariant: string;
   numImages: number;
