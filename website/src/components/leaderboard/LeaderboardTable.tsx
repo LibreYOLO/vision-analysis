@@ -18,9 +18,11 @@ interface LeaderboardTableProps {
   onSortChange?: (key: SortKey | "model", order: SortOrder) => void;
   /** Headline metric name, e.g. "mAP" (detection) or "mask mAP" (segmentation). */
   mapLabel?: string;
+  /** Show the two RF100-VL columns (only meaningful on the detection board). */
+  showRf100vl?: boolean;
 }
 
-function buildColumns(mapLabel: string): Array<{
+function buildColumns(mapLabel: string, showRf100vl: boolean): Array<{
   key: SortKey | "model";
   label: string;
   align: "left" | "right";
@@ -31,6 +33,12 @@ function buildColumns(mapLabel: string): Array<{
     { key: "model", label: "Model", align: "left", sortable: true },
     { key: "mAP_50_95", label: `${mapLabel}@50-95`, align: "right", format: "percent", sortable: true },
     { key: "mAP_50", label: `${mapLabel}@50`, align: "right", format: "percent", sortable: true },
+    ...(showRf100vl
+      ? ([
+          { key: "rf100vlAp50", label: "RF100-VL AP@50", align: "right", format: "percent", sortable: true },
+          { key: "rf100vlAp5095", label: "RF100-VL AP@50-95", align: "right", format: "percent", sortable: true },
+        ] as const)
+      : []),
     { key: "throughputFps", label: "FPS", align: "right", format: "number", sortable: true },
     { key: "totalMs", label: "Latency", align: "right", format: "ms", sortable: true },
     { key: "paramsM", label: "Params (M)", align: "right", format: "millions", sortable: true },
@@ -69,10 +77,11 @@ export function LeaderboardTable({
   initialSortOrder = "desc",
   onSortChange,
   mapLabel = "mAP",
+  showRf100vl = false,
 }: LeaderboardTableProps) {
   const [sortKey, setSortKey] = useState<SortKey | "model">(initialSortKey);
   const [sortOrder, setSortOrder] = useState<SortOrder>(initialSortOrder);
-  const COLUMNS = useMemo(() => buildColumns(mapLabel), [mapLabel]);
+  const COLUMNS = useMemo(() => buildColumns(mapLabel, showRf100vl), [mapLabel, showRf100vl]);
 
   const sortedData = useMemo(() => {
     const filtered = familyFilter.length > 0
@@ -189,14 +198,18 @@ export function LeaderboardTable({
 
               {/* Data cells */}
               {COLUMNS.slice(1).map((col) => {
-                const value = row[col.key as keyof BenchmarkResult] as number;
+                const value = row[col.key as keyof BenchmarkResult] as number | undefined;
                 // GFLOPs / mAP-per-GFLOP are unknown for a few models (no published
                 // FLOPs); show a dash rather than a misleading 0.0.
                 const blankZero =
-                  (col.key === "flopsG" || col.key === "mAPPerGflop") && !(value > 0);
+                  (col.key === "flopsG" || col.key === "mAPPerGflop") && !((value ?? 0) > 0);
+                // RF100-VL is absent for models with no attached result yet.
+                const blankMissing =
+                  (col.key === "rf100vlAp50" || col.key === "rf100vlAp5095") &&
+                  (value === undefined || value === null);
                 return (
                   <td key={col.key} className={cn("px-2 py-2 font-mono text-sm", col.align === "right" && "text-right")}>
-                    {blankZero ? "-" : formatValue(value, col.format)}
+                    {blankZero || blankMissing ? "-" : formatValue(value, col.format)}
                   </td>
                 );
               })}

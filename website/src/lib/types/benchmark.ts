@@ -44,6 +44,11 @@ export interface BenchmarkResult {
   mAP_medium: number;
   mAP_large: number;
 
+  // RF100-VL: mean AP across the 100 datasets (percent scale). Optional —
+  // present only when an RF100-VL result is attached to this model's row.
+  rf100vlAp50?: number;
+  rf100vlAp5095?: number;
+
   // Speed metrics (milliseconds)
   preprocessMs: number;
   inferenceMs: number;
@@ -173,6 +178,8 @@ export type SortKey = keyof Pick<
   BenchmarkResult,
   | "mAP_50_95"
   | "mAP_50"
+  | "rf100vlAp50"
+  | "rf100vlAp5095"
   | "throughputFps"
   | "totalMs"
   | "paramsM"
@@ -180,6 +187,15 @@ export type SortKey = keyof Pick<
   | "mAPPerGflop"
   | "mAPPerMParams"
 >;
+
+// Per-model RF100-VL score attached to a leaderboard row (percent scale).
+export interface Rf100VlModelScore {
+  model: string;
+  ap50: number;
+  ap5095: number;
+  /** True while these are placeholder numbers, not a real harness run. */
+  fake?: boolean;
+}
 
 export type SortOrder = "asc" | "desc";
 

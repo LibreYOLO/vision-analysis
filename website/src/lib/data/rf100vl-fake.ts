@@ -7,8 +7,7 @@
 // Every row is tagged `fake: true` and the UI must keep labeling it as such.
 // Delete this module when real RF100-VL results land in generated/.
 
-import type { BenchmarkResult } from "@/lib/types";
-import type { Rf100VlRow } from "@/components/leaderboard/Rf100VlTable";
+import type { BenchmarkResult, Rf100VlModelScore } from "@/lib/types";
 
 /** FNV-1a hash: cheap, stable, good-enough spread for placeholder values. */
 function hash(str: string): number {
@@ -21,13 +20,13 @@ function hash(str: string): number {
 }
 
 /**
- * One fake RF100-VL row per model (percent scale). AP@50 lands in ~[62, 90],
- * AP@50-95 at a plausible ~[0.62, 0.74] ratio of it — the shape of the real
+ * One fake RF100-VL score per model (percent scale). AP@50 lands in ~[62, 90],
+ * AP@50-95 at a plausible ~[0.62, 0.74] ratio of it: the shape of the real
  * published RF100-VL tables, with none of the substance.
  */
-export function buildFakeRf100VlRows(canonicalRows: BenchmarkResult[]): Rf100VlRow[] {
+export function buildFakeRf100VlRows(canonicalRows: BenchmarkResult[]): Rf100VlModelScore[] {
   const seen = new Set<string>();
-  const rows: Rf100VlRow[] = [];
+  const rows: Rf100VlModelScore[] = [];
   for (const r of canonicalRows) {
     if (seen.has(r.model)) continue;
     seen.add(r.model);
@@ -36,10 +35,8 @@ export function buildFakeRf100VlRows(canonicalRows: BenchmarkResult[]): Rf100VlR
     const ratio = 0.62 + ((h >>> 11) % 1200) / 10000; // 0.62 .. 0.74
     rows.push({
       model: r.model,
-      family: r.family,
       ap50: Math.round(ap50 * 10) / 10,
       ap5095: Math.round(ap50 * ratio * 10) / 10,
-      paramsM: r.paramsM,
       fake: true,
     });
   }

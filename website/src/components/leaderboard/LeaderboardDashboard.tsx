@@ -17,15 +17,16 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { LIBREYOLO } from "@/config/libreyolo";
-import { Rf100VlTable, type Rf100VlRow } from "./Rf100VlTable";
+import type { Rf100VlModelScore } from "@/lib/types";
 
 interface LeaderboardDashboardProps {
   benchmarkData: Record<string, BenchmarkResult[]>;
   hardwareOptions: Array<{ value: string; label: string }>;
   /** Headline metric name, "mAP" (detection, default) or "mask mAP" (segmentation). */
   mapLabel?: string;
-  /** RF100-VL rows (one per model). When present, an RF100-VL section renders. */
-  rf100vl?: Rf100VlRow[];
+  /** Per-model RF100-VL scores. When present, two RF100-VL columns are added
+   *  to the leaderboard table (same table, extra columns). */
+  rf100vl?: Rf100VlModelScore[];
 }
 
 function getDefaultSelection(
@@ -408,12 +409,34 @@ export function LeaderboardDashboard({
     [tableRuntimeOptions, tableRuntime]
   );
 
+  // RF100-VL scores attach to each model's leaderboard row as two extra
+  // columns (same table). Look them up by model id.
+  const rf100vlByModel = useMemo(() => {
+    const map = new Map<string, Rf100VlModelScore>();
+    for (const r of rf100vl ?? []) map.set(r.model, r);
+    return map;
+  }, [rf100vl]);
+  const hasRf100vl = rf100vlByModel.size > 0;
+  const rf100vlHasFake = useMemo(
+    () => (rf100vl ?? []).some((r) => r.fake),
+    [rf100vl]
+  );
+
   const tableFilteredResults = useMemo(() => {
     const rows = selectLeaderboardCoordinates(
       benchmarkData[`${tableHardware}__${tableRuntime}`] || []
     );
-    return filterByFamilies(rows, visibleSelectedFamilies);
-  }, [benchmarkData, tableHardware, tableRuntime, visibleSelectedFamilies]);
+    const filtered = filterByFamilies(rows, visibleSelectedFamilies);
+    if (!hasRf100vl) return filtered;
+    // Attach RF100-VL scores as extra fields on each row (same table, extra
+    // columns). Models without a score simply leave the cells blank.
+    return filtered.map((r) => {
+      const score = rf100vlByModel.get(r.model);
+      return score
+        ? { ...r, rf100vlAp50: score.ap50, rf100vlAp5095: score.ap5095 }
+        : r;
+    });
+  }, [benchmarkData, tableHardware, tableRuntime, visibleSelectedFamilies, hasRf100vl, rf100vlByModel]);
 
   // Same family filter applied to the hardware-agnostic architecture chart.
   const architectureFiltered = useMemo(() => {
@@ -493,13 +516,6 @@ export function LeaderboardDashboard({
       ? architectureFiltered.filter((r) => r.flopsG > 0)
       : architectureFiltered;
 
-  // RF100-VL rows respect the shared family filter.
-  const rf100vlFiltered = useMemo(() => {
-    if (!rf100vl) return [];
-    if (visibleSelectedFamilies.length === 0) return rf100vl;
-    const set = new Set(visibleSelectedFamilies);
-    return rf100vl.filter((r) => set.has(r.family));
-  }, [rf100vl, visibleSelectedFamilies]);
 
   return (
     <div className="space-y-6">
@@ -703,41 +719,6 @@ export function LeaderboardDashboard({
         </div>
       </div>
 
-      {/* Section 2: RF100-VL benchmark (hardware-independent, fine-tuned).
-          Rendered only when rows are supplied by the page. */}
-      {rf100vlFiltered.length > 0 && (
-        <div className="section-group">
-          <div className="section-group-header">
-            <h2>RF100-VL Benchmark</h2>
-            <p className="text-base text-foreground">
-              How well each model adapts to real-world data: fine-tuned accuracy
-              averaged across the 100{" "}
-              <a
-                href="https://rf100-vl.org"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="font-medium text-brand hover:underline"
-              >
-                Roboflow100-VL
-              </a>{" "}
-              datasets (COCO evaluation per dataset). Hardware-independent, like
-              params and GFLOPs.
-            </p>
-          </div>
-          <div className="section-group-content">
-            {rf100vlFiltered.some((r) => r.fake) && (
-              <div className="mb-4 rounded-md border border-amber-500/50 bg-amber-500/10 px-4 py-3 text-sm text-foreground/80">
-                <span className="mr-2 rounded-full border border-amber-500/50 bg-amber-500/15 px-2 py-0.5 text-xs font-semibold uppercase tracking-[0.08em] text-amber-600 dark:text-amber-400">
-                  Fake numbers
-                </span>
-                Placeholder values to preview the layout: no RF100-VL harness
-                runs have been submitted yet. Every placeholder row is tagged.
-              </div>
-            )}
-            <Rf100VlTable rows={rf100vlFiltered} />
-          </div>
-        </div>
-      )}
 
       {/* Section: Full Leaderboard (own hardware/backend, independent of the chart) */}
       <div className="section-group">
@@ -750,6 +731,15 @@ export function LeaderboardDashboard({
           </p>
         </div>
         <div className="section-group-content">
+          {hasRf100vl && rf100vlHasFake && (
+            <div className="mb-4 rounded-md border border-amber-500/50 bg-amber-500/10 px-4 py-3 text-sm text-foreground/80">
+              <span className="mr-2 rounded-full border border-amber-500/50 bg-amber-500/15 px-2 py-0.5 text-xs font-semibold uppercase tracking-[0.08em] text-amber-600 dark:text-amber-400">
+                Fake numbers
+              </span>
+              The RF100-VL AP columns are placeholder values to preview the
+              layout: no RF100-VL harness runs have been submitted yet.
+            </div>
+          )}
           <div className="mb-4 rounded-md border border-border bg-card p-3">
             <div className="flex flex-wrap items-center gap-3">
               <label className="flex items-center gap-2">
@@ -794,6 +784,7 @@ export function LeaderboardDashboard({
             initialSortOrder={sortOrder}
             onSortChange={handleSortChange}
             mapLabel={mapLabel}
+            showRf100vl={hasRf100vl}
           />
         </div>
       </div>
