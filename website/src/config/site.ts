@@ -12,9 +12,6 @@ export const siteConfig = {
 export const navLinks = [
   { href: "/", label: "Leaderboard" },
   { href: "/segmentation", label: "Segmentation" },
-  // Preview-only entry: /rf100-vl serves placeholder 0.123 data until real
-  // harness submissions exist. Remove or keep based on rollout decision.
-  { href: "/rf100-vl", label: "RF100-VL" },
   { href: "/compare", label: "Compare" },
   { href: "/about", label: "About" },
 ];

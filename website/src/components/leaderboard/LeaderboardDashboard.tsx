@@ -17,12 +17,15 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { LIBREYOLO } from "@/config/libreyolo";
+import { Rf100VlTable, type Rf100VlRow } from "./Rf100VlTable";
 
 interface LeaderboardDashboardProps {
   benchmarkData: Record<string, BenchmarkResult[]>;
   hardwareOptions: Array<{ value: string; label: string }>;
   /** Headline metric name, "mAP" (detection, default) or "mask mAP" (segmentation). */
   mapLabel?: string;
+  /** RF100-VL rows (one per model). When present, an RF100-VL section renders. */
+  rf100vl?: Rf100VlRow[];
 }
 
 function getDefaultSelection(
@@ -226,9 +229,14 @@ export function LeaderboardDashboard({
   benchmarkData,
   hardwareOptions,
   mapLabel = "mAP",
+  rf100vl,
 }: LeaderboardDashboardProps) {
   const searchParams = useSearchParams();
-  const defaultSelection = getDefaultSelection(benchmarkData, hardwareOptions);
+  // Latency views default to Jetson Orin Nano Super + ONNX Runtime when that
+  // combination has results; otherwise fall back to the densest coordinate.
+  const defaultSelection = benchmarkData["jetson_orin__onnx_fp32"]?.length
+    ? { hardware: "jetson_orin", runtime: "onnx_fp32" }
+    : getDefaultSelection(benchmarkData, hardwareOptions);
 
   // Initial state comes from the URL so filtered views are shareable
   const hwParam = searchParams.get("hw");
@@ -260,8 +268,10 @@ export function LeaderboardDashboard({
   const [paretoLine, setParetoLine] = useState(searchParams.get("pareto") !== "0");
   const [sortKey, setSortKey] = useState<SortKey | "model">(initialSortKey);
   const [sortOrder, setSortOrder] = useState<SortOrder>(initialSortOrder);
-  // X-axis for the hardware-independent chart: parameter count or compute (GFLOPs).
-  const [archXAxis, setArchXAxis] = useState<"paramsM" | "flopsG">("paramsM");
+  // X-axis for the accuracy chart: parameter count, compute (GFLOPs), or
+  // per-image latency (the latency view is hardware-specific and reveals the
+  // hardware/runtime selectors).
+  const [archXAxis, setArchXAxis] = useState<"paramsM" | "flopsG" | "latencyMs">("paramsM");
   // Deployment chart: linear x by default; users can hide individual models.
   const [logScale, setLogScale] = useState(false);
   const [hiddenModels, setHiddenModels] = useState<Set<string>>(() => new Set());
@@ -466,14 +476,30 @@ export function LeaderboardDashboard({
     syncUrl({ sort: key, order });
   };
 
-  const archMetricLabel = archXAxis === "flopsG" ? "GFLOPs" : "Parameters";
-  const archTitle = `Accuracy vs ${archMetricLabel}: LibreYOLO models on COCO val2017`;
-  const archExportCaption = `COCO val2017 | ${mapLabel}@50-95 vs ${archMetricLabel} | architecture (hardware-independent)`;
+  const isLatencyView = archXAxis === "latencyMs";
+  const archMetricLabel =
+    archXAxis === "flopsG" ? "GFLOPs" : isLatencyView ? "Latency" : "Parameters";
+  const archTitle = isLatencyView
+    ? `Accuracy vs Latency on ${hardwareLabel} · ${runtimeLabel}: LibreYOLO models`
+    : `Accuracy vs ${archMetricLabel}: LibreYOLO models on COCO val2017`;
+  const archExportCaption = isLatencyView
+    ? `${hardwareLabel} | ${runtimeLabel} | COCO val2017 | ${mapLabel}@50-95 vs Latency`
+    : `COCO val2017 | ${mapLabel}@50-95 vs ${archMetricLabel} | architecture (hardware-independent)`;
   // GFLOPs view hides models with no published FLOPs figure (they would plot at 0).
-  const archChartData =
-    archXAxis === "flopsG"
+  // Latency view switches to the hardware-specific rows (with per-model hiding).
+  const archChartData = isLatencyView
+    ? deployedResults
+    : archXAxis === "flopsG"
       ? architectureFiltered.filter((r) => r.flopsG > 0)
       : architectureFiltered;
+
+  // RF100-VL rows respect the shared family filter.
+  const rf100vlFiltered = useMemo(() => {
+    if (!rf100vl) return [];
+    if (visibleSelectedFamilies.length === 0) return rf100vl;
+    const set = new Set(visibleSelectedFamilies);
+    return rf100vl.filter((r) => set.has(r.family));
+  }, [rf100vl, visibleSelectedFamilies]);
 
   return (
     <div className="space-y-6">
@@ -494,37 +520,115 @@ export function LeaderboardDashboard({
         under one commercial-friendly API.
       </p>
 
-      {/* Section 1: Accuracy vs Parameters / GFLOPs (hardware-INDEPENDENT).
-          The family filter lives here because families are what this chart plots;
-          it also filters the deployment chart and the table below. */}
+      {/* Section 1: Accuracy vs Parameters / GFLOPs / Latency. Params and
+          GFLOPs are hardware-independent; the Latency view is hardware-specific
+          and reveals the deployment selectors. The family filter lives here
+          because families are what this chart plots; it also filters the table
+          below. */}
       <div className="section-group">
         <div className="section-group-header">
           <h2>Accuracy vs {archMetricLabel}</h2>
           <p className="text-base text-foreground">
-            How accurate each model is for its{" "}
-            {archXAxis === "flopsG" ? "compute budget" : "size"}. Accuracy,
-            parameters and GFLOPs are properties of the architecture, so they don&apos;t
-            change with GPU or runtime, and there are no hardware selectors here.
+            {isLatencyView ? (
+              <>
+                How accurate each model is for its speed on the deployment you
+                pick below. Latency, FPS and the Pareto frontier depend on the
+                hardware and runtime.
+              </>
+            ) : (
+              <>
+                How accurate each model is for its{" "}
+                {archXAxis === "flopsG" ? "compute budget" : "size"}. Accuracy,
+                parameters and GFLOPs are properties of the architecture, so they
+                don&apos;t change with GPU or runtime, and there are no hardware
+                selectors here. Switch the axis to Latency for deployment numbers.
+              </>
+            )}
           </p>
         </div>
         <div className="section-group-content">
           {/* Shared family filter. Families are what this chart plots, so the
-              selector lives with it; it also drives the deployment chart and table. */}
+              selector lives with it; it also drives the RF100-VL table and the
+              leaderboard below. */}
           <FamilyFilter
             families={availableFamilies}
             selectedFamilies={visibleSelectedFamilies}
             onFamilyToggle={handleFamilyToggle}
-            resultCount={architectureFiltered.length}
+            resultCount={isLatencyView ? filteredResults.length : architectureFiltered.length}
           />
+
+          {isLatencyView && (
+            <div className="mt-4">
+              <DeploymentControls
+                hardware={hardware}
+                onHardwareChange={handleHardwareChange}
+                runtime={runtime}
+                onRuntimeChange={handleRuntimeChange}
+                hardwareOptions={hardwareOptions}
+                runtimeOptions={runtimeOptions}
+                hardwareLabel={hardwareLabel}
+                runtimeLabel={runtimeLabel}
+                paretoLine={paretoLine}
+                onParetoLineChange={handleParetoChange}
+                logScale={logScale}
+                onLogScaleChange={setLogScale}
+              />
+              {/* Per-model visibility for this chart only (the table keeps all). */}
+              {filteredResults.length > 0 && (
+                <details className="mt-3 rounded-md border border-border bg-card p-3 text-sm">
+                  <summary className="cursor-pointer select-none text-muted-foreground">
+                    Hide or show individual models
+                    {hiddenModels.size > 0 ? ` (${hiddenModels.size} hidden)` : ""}
+                  </summary>
+                  <div className="mt-3 flex flex-wrap items-center gap-1.5">
+                    {filteredResults.map((r) => {
+                      const hidden = hiddenModels.has(r.model);
+                      return (
+                        <button
+                          key={r.model}
+                          onClick={() => toggleHiddenModel(r.model)}
+                          aria-pressed={!hidden}
+                          className={
+                            hidden
+                              ? "filter-chip text-muted-foreground line-through opacity-60"
+                              : "filter-chip filter-chip-active"
+                          }
+                        >
+                          {r.model}
+                        </button>
+                      );
+                    })}
+                    {hiddenModels.size > 0 && (
+                      <button
+                        onClick={() => setHiddenModels(new Set())}
+                        className="ml-1 text-xs text-muted-foreground hover:text-foreground"
+                      >
+                        Reset
+                      </button>
+                    )}
+                  </div>
+                </details>
+              )}
+            </div>
+          )}
+
           <figure className="chart-card mt-4">
             <div className="p-4 pb-0">
               <ScatterPlot
                 data={archChartData}
                 xAxis={archXAxis}
-                showPareto={false}
-                connectFamilies
+                showPareto={isLatencyView ? paretoLine : false}
+                connectFamilies={!isLatencyView}
+                sizeByParams={isLatencyView}
+                logScale={isLatencyView ? logScale : false}
                 height={420}
-                emptyMessage="No models match the selected families."
+                emptyMessage={
+                  isLatencyView
+                    ? filteredResults.length > 0
+                      ? "Every model is hidden. Re-enable some in the model list above."
+                      : `No results on ${hardwareLabel} · ${runtimeLabel} for the selected families yet.`
+                    : "No models match the selected families."
+                }
                 exportCaption={archExportCaption}
                 showToolbar={false}
                 onDownloadReady={registerArchDownload}
@@ -534,15 +638,27 @@ export function LeaderboardDashboard({
             {/* Caption + chart controls share one row at the bottom of the chart. */}
             <figcaption className="chart-card-subtitle flex flex-wrap items-center justify-between gap-3 px-4 pb-4 pt-1">
               <span>
-                {mapLabel}@50-95 on COCO val2017 against{" "}
-                {archXAxis === "flopsG" ? "compute (GFLOPs)" : "parameter count"}. Higher
-                and left is better.
+                {isLatencyView ? (
+                  <>
+                    {mapLabel}@50-95 vs per-image latency{logScale ? " (log scale)" : ""} on{" "}
+                    <strong>{hardwareLabel}</strong> · <strong>{runtimeLabel}</strong>.
+                    Bubble size = parameters; the green dashed line is the
+                    speed/accuracy Pareto frontier.
+                  </>
+                ) : (
+                  <>
+                    {mapLabel}@50-95 on COCO val2017 against{" "}
+                    {archXAxis === "flopsG" ? "compute (GFLOPs)" : "parameter count"}. Higher
+                    and left is better.
+                  </>
+                )}
               </span>
               <div className="flex shrink-0 items-center gap-2">
                 <div className="inline-flex rounded-md border border-border p-0.5 text-xs">
                   {([
                     ["paramsM", "Params"],
                     ["flopsG", "GFLOPs"],
+                    ["latencyMs", "Latency"],
                   ] as const).map(([value, label]) => (
                     <button
                       key={value}
@@ -558,7 +674,13 @@ export function LeaderboardDashboard({
                     </button>
                   ))}
                 </div>
-                <CopyForLlm data={archChartData} xAxis={archXAxis} title={archTitle} />
+                <CopyForLlm
+                  data={archChartData}
+                  xAxis={archXAxis}
+                  title={archTitle}
+                  hardwareLabel={isLatencyView ? hardwareLabel : undefined}
+                  runtimeLabel={isLatencyView ? runtimeLabel : undefined}
+                />
                 <button
                   onClick={() => archDownloadRef.current?.()}
                   className="inline-flex shrink-0 items-center gap-1.5 whitespace-nowrap rounded border border-border px-2 py-1 text-xs text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
@@ -574,122 +696,48 @@ export function LeaderboardDashboard({
               data={archChartData}
               xAxis={archXAxis}
               title={archTitle}
+              hardwareLabel={isLatencyView ? hardwareLabel : undefined}
+              runtimeLabel={isLatencyView ? runtimeLabel : undefined}
             />
           </figure>
         </div>
       </div>
 
-      {/* Section 2: Deployment Performance (hardware-SPECIFIC) */}
-      <div className="section-group">
-        <div className="section-group-header">
-          <h2>Deployment Performance</h2>
-          <p className="text-base text-foreground">
-            Accuracy vs latency on your target hardware and runtime. Latency, FPS and
-            the Pareto frontier all depend on the deployment you pick below.
-          </p>
-        </div>
-        <div className="section-group-content">
-          <DeploymentControls
-            hardware={hardware}
-            onHardwareChange={handleHardwareChange}
-            runtime={runtime}
-            onRuntimeChange={handleRuntimeChange}
-            hardwareOptions={hardwareOptions}
-            runtimeOptions={runtimeOptions}
-            hardwareLabel={hardwareLabel}
-            runtimeLabel={runtimeLabel}
-            paretoLine={paretoLine}
-            onParetoLineChange={handleParetoChange}
-            logScale={logScale}
-            onLogScaleChange={setLogScale}
-          />
-
-          {/* Per-model visibility for this chart only (the table below keeps all). */}
-          {filteredResults.length > 0 && (
-            <details className="mt-3 rounded-md border border-border bg-card p-3 text-sm">
-              <summary className="cursor-pointer select-none text-muted-foreground">
-                Hide or show individual models
-                {hiddenModels.size > 0 ? ` (${hiddenModels.size} hidden)` : ""}
-              </summary>
-              <div className="mt-3 flex flex-wrap items-center gap-1.5">
-                {filteredResults.map((r) => {
-                  const hidden = hiddenModels.has(r.model);
-                  return (
-                    <button
-                      key={r.model}
-                      onClick={() => toggleHiddenModel(r.model)}
-                      aria-pressed={!hidden}
-                      className={
-                        hidden
-                          ? "filter-chip text-muted-foreground line-through opacity-60"
-                          : "filter-chip filter-chip-active"
-                      }
-                    >
-                      {r.model}
-                    </button>
-                  );
-                })}
-                {hiddenModels.size > 0 && (
-                  <button
-                    onClick={() => setHiddenModels(new Set())}
-                    className="ml-1 text-xs text-muted-foreground hover:text-foreground"
-                  >
-                    Reset
-                  </button>
-                )}
+      {/* Section 2: RF100-VL benchmark (hardware-independent, fine-tuned).
+          Rendered only when rows are supplied by the page. */}
+      {rf100vlFiltered.length > 0 && (
+        <div className="section-group">
+          <div className="section-group-header">
+            <h2>RF100-VL Benchmark</h2>
+            <p className="text-base text-foreground">
+              How well each model adapts to real-world data: fine-tuned accuracy
+              averaged across the 100{" "}
+              <a
+                href="https://rf100-vl.org"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-medium text-brand hover:underline"
+              >
+                Roboflow100-VL
+              </a>{" "}
+              datasets (COCO evaluation per dataset). Hardware-independent, like
+              params and GFLOPs.
+            </p>
+          </div>
+          <div className="section-group-content">
+            {rf100vlFiltered.some((r) => r.fake) && (
+              <div className="mb-4 rounded-md border border-amber-500/50 bg-amber-500/10 px-4 py-3 text-sm text-foreground/80">
+                <span className="mr-2 rounded-full border border-amber-500/50 bg-amber-500/15 px-2 py-0.5 text-xs font-semibold uppercase tracking-[0.08em] text-amber-600 dark:text-amber-400">
+                  Fake numbers
+                </span>
+                Placeholder values to preview the layout — no RF100-VL harness
+                runs have been submitted yet. Every placeholder row is tagged.
               </div>
-            </details>
-          )}
-
-          <figure className="chart-card mt-4">
-            <figcaption className="chart-card-header">
-              <div className="flex items-start justify-between gap-3">
-                <div>
-                  <h3>Accuracy vs Latency</h3>
-                  <p className="chart-card-subtitle">
-                    {mapLabel}@50-95 vs per-image latency{logScale ? " (log scale)" : ""} on{" "}
-                    <strong>{hardwareLabel}</strong> · <strong>{runtimeLabel}</strong>.
-                    Bubble size = parameters; the green dashed line is the speed/accuracy
-                    Pareto frontier: the models where nothing is both faster and more accurate.
-                  </p>
-                </div>
-                <CopyForLlm
-                  data={deployedResults}
-                  xAxis="latencyMs"
-                  title={`Accuracy vs Latency on ${hardwareLabel} · ${runtimeLabel}: LibreYOLO models`}
-                  hardwareLabel={hardwareLabel}
-                  runtimeLabel={runtimeLabel}
-                />
-              </div>
-            </figcaption>
-            <div className="p-4">
-              <ScatterPlot
-                data={deployedResults}
-                xAxis="latencyMs"
-                showPareto={paretoLine}
-                sizeByParams
-                logScale={logScale}
-                height={420}
-                emptyMessage={
-                  filteredResults.length > 0
-                    ? "Every model is hidden. Re-enable some in the model list above."
-                    : `No results on ${hardwareLabel} · ${runtimeLabel} for the selected families yet.`
-                }
-                exportCaption={`${hardwareLabel} | ${runtimeLabel} | COCO val2017 | ${mapLabel}@50-95 vs Latency`}
-                mapLabel={mapLabel}
-              />
-            </div>
-            {/* Machine-readable equivalent of the SVG chart (hidden from view) */}
-            <ChartDataTable
-              data={deployedResults}
-              xAxis="latencyMs"
-              title={`Accuracy vs Latency on ${hardwareLabel} · ${runtimeLabel}: LibreYOLO models`}
-              hardwareLabel={hardwareLabel}
-              runtimeLabel={runtimeLabel}
-            />
-          </figure>
+            )}
+            <Rf100VlTable rows={rf100vlFiltered} />
+          </div>
         </div>
-      </div>
+      )}
 
       {/* Section: Full Leaderboard (own hardware/backend, independent of the chart) */}
       <div className="section-group">
