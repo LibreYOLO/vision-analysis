@@ -1,0 +1,379 @@
+{
+  "engine": "article-pipeline-v2",
+  "generated_at": "2026-07-03T22:28:19.981437+00:00",
+  "slug": "dfine-vs-rtdetrv2",
+  "meta": {
+    "type": "family-vs",
+    "a": "dfine",
+    "b": "rtdetrv2",
+    "hardware": "nvidia_geforce_rtx_5070_ti",
+    "runtime": "pytorch_fp32"
+  },
+  "facts": {
+    "families": {
+      "a": "dfine",
+      "b": "rtdetrv2",
+      "a_display": "D-FINE",
+      "b_display": "RT-DETRv2"
+    },
+    "primary": {
+      "hardware": "nvidia_geforce_rtx_5070_ti",
+      "hardware_display": "NVIDIA RTX 5070 Ti",
+      "runtime": "pytorch_fp32",
+      "runtime_display": "PyTorch FP32"
+    },
+    "a_frontier": [
+      {
+        "id": "dfine-n",
+        "displayName": "D-FINE-N",
+        "params": 3.78,
+        "mAP": 45.8,
+        "fps": 32.5,
+        "license": "Apache-2.0"
+      },
+      {
+        "id": "dfine-s",
+        "displayName": "D-FINE-S",
+        "params": 10.32,
+        "mAP": 53.4,
+        "fps": 34.2,
+        "license": "Apache-2.0"
+      },
+      {
+        "id": "dfine-m",
+        "displayName": "D-FINE-M",
+        "params": 19.59,
+        "mAP": 57.8,
+        "fps": 28.8,
+        "license": "Apache-2.0"
+      },
+      {
+        "id": "dfine-l",
+        "displayName": "D-FINE-L",
+        "params": 31.24,
+        "mAP": 60.0,
+        "fps": 21.9,
+        "license": "Apache-2.0"
+      },
+      {
+        "id": "dfine-x",
+        "displayName": "D-FINE-X",
+        "params": 62.62,
+        "mAP": 61.4,
+        "fps": 18.1,
+        "license": "Apache-2.0"
+      }
+    ],
+    "b_frontier": [
+      {
+        "id": "rtdetrv2-r18",
+        "displayName": "RT-DETRv2-R18",
+        "params": 20.18,
+        "mAP": 50.7,
+        "fps": 51.1,
+        "license": "Apache-2.0"
+      },
+      {
+        "id": "rtdetrv2-r34",
+        "displayName": "RT-DETRv2-R34",
+        "params": 31.44,
+        "mAP": 53.2,
+        "fps": 40.4,
+        "license": "Apache-2.0"
+      },
+      {
+        "id": "rtdetrv2-r50m",
+        "displayName": "RT-DETRv2-R50m",
+        "params": 36.59,
+        "mAP": 54.8,
+        "fps": 39.9,
+        "license": "Apache-2.0"
+      },
+      {
+        "id": "rtdetrv2-r50",
+        "displayName": "RT-DETRv2-R50",
+        "params": 42.89,
+        "mAP": 55.7,
+        "fps": 32.1,
+        "license": "Apache-2.0"
+      },
+      {
+        "id": "rtdetrv2-r101",
+        "displayName": "RT-DETRv2-R101",
+        "params": 76.56,
+        "mAP": 56.8,
+        "fps": 25.7,
+        "license": "Apache-2.0"
+      }
+    ],
+    "matched_pairs": [
+      {
+        "a": {
+          "id": "dfine-m",
+          "displayName": "D-FINE-M",
+          "params": 19.59,
+          "mAP": 57.8,
+          "fps": 28.8,
+          "license": "Apache-2.0"
+        },
+        "b": {
+          "id": "rtdetrv2-r18",
+          "displayName": "RT-DETRv2-R18",
+          "params": 20.18,
+          "mAP": 50.7,
+          "fps": 51.1,
+          "license": "Apache-2.0"
+        },
+        "mAP_delta_pts": 7.1,
+        "fps_delta_pct": -43.64
+      },
+      {
+        "a": {
+          "id": "dfine-l",
+          "displayName": "D-FINE-L",
+          "params": 31.24,
+          "mAP": 60.0,
+          "fps": 21.9,
+          "license": "Apache-2.0"
+        },
+        "b": {
+          "id": "rtdetrv2-r34",
+          "displayName": "RT-DETRv2-R34",
+          "params": 31.44,
+          "mAP": 53.2,
+          "fps": 40.4,
+          "license": "Apache-2.0"
+        },
+        "mAP_delta_pts": 6.8,
+        "fps_delta_pct": -45.79
+      },
+      {
+        "a": {
+          "id": "dfine-x",
+          "displayName": "D-FINE-X",
+          "params": 62.62,
+          "mAP": 61.4,
+          "fps": 18.1,
+          "license": "Apache-2.0"
+        },
+        "b": {
+          "id": "rtdetrv2-r101",
+          "displayName": "RT-DETRv2-R101",
+          "params": 76.56,
+          "mAP": 56.8,
+          "fps": 25.7,
+          "license": "Apache-2.0"
+        },
+        "mAP_delta_pts": 4.6,
+        "fps_delta_pct": -29.57
+      }
+    ],
+    "aggregate": {
+      "n_pairs": 3,
+      "mean_mAP_delta_pts": 6.2,
+      "a_wins": 3,
+      "b_wins": 0,
+      "mean_fps_delta_pct": -39.7
+    },
+    "flagship": {
+      "a": {
+        "id": "dfine-x",
+        "displayName": "D-FINE-X",
+        "params": 62.62,
+        "mAP": 61.4,
+        "fps": 18.1,
+        "license": "Apache-2.0"
+      },
+      "b": {
+        "id": "rtdetrv2-r101",
+        "displayName": "RT-DETRv2-R101",
+        "params": 76.56,
+        "mAP": 56.8,
+        "fps": 25.7,
+        "license": "Apache-2.0"
+      }
+    },
+    "smallest": {
+      "a": {
+        "id": "dfine-n",
+        "displayName": "D-FINE-N",
+        "params": 3.78,
+        "mAP": 45.8,
+        "fps": 32.5,
+        "license": "Apache-2.0"
+      },
+      "b": {
+        "id": "rtdetrv2-r18",
+        "displayName": "RT-DETRv2-R18",
+        "params": 20.18,
+        "mAP": 50.7,
+        "fps": 51.1,
+        "license": "Apache-2.0"
+      }
+    },
+    "crossover": {
+      "low_param_leader": "dfine",
+      "high_param_leader": "dfine"
+    },
+    "license": {
+      "a_all_permissive": true,
+      "b_all_permissive": true
+    },
+    "chart_highlight": "dfine-n,dfine-s,dfine-m,dfine-l,dfine-x,rtdetrv2-r18,rtdetrv2-r34,rtdetrv2-r50m,rtdetrv2-r50,rtdetrv2-r101"
+  },
+  "claims": [
+    {
+      "id": "family_accuracy_edge",
+      "kind": "accuracy",
+      "statement": "At matched compute, D-FINE averages 6.2 mAP points higher across 3 paired variants on NVIDIA RTX 5070 Ti. D-FINE wins 3, RT-DETRv2 wins 0.",
+      "values": {
+        "mean_delta_pts": 6.2,
+        "a_wins": 3,
+        "b_wins": 0
+      },
+      "passed": true,
+      "strength": "strong"
+    },
+    {
+      "id": "family_speed_edge",
+      "kind": "speed",
+      "statement": "At matched compute, RT-DETRv2 is 39.7% faster on average on NVIDIA RTX 5070 Ti (PyTorch FP32).",
+      "values": {
+        "mean_delta_pct": 39.7
+      },
+      "passed": true,
+      "strength": "strong"
+    },
+    {
+      "id": "flagship",
+      "kind": "accuracy",
+      "statement": "At the top end, D-FINE's largest measured variant (D-FINE-X) reaches 61.4 mAP; RT-DETRv2's (RT-DETRv2-R101) reaches 56.8 mAP.",
+      "values": {
+        "a": {
+          "id": "dfine-x",
+          "displayName": "D-FINE-X",
+          "params": 62.62,
+          "mAP": 61.4,
+          "fps": 18.1,
+          "license": "Apache-2.0"
+        },
+        "b": {
+          "id": "rtdetrv2-r101",
+          "displayName": "RT-DETRv2-R101",
+          "params": 76.56,
+          "mAP": 56.8,
+          "fps": 25.7,
+          "license": "Apache-2.0"
+        }
+      },
+      "passed": true,
+      "strength": "normal"
+    },
+    {
+      "id": "efficient_end",
+      "kind": "efficiency",
+      "statement": "At the small end, D-FINE's D-FINE-N (3.78M, 45.8 mAP, 32.5 FPS) faces RT-DETRv2's RT-DETRv2-R18 (20.18M, 50.7 mAP, 51.1 FPS).",
+      "values": {
+        "a": {
+          "id": "dfine-n",
+          "displayName": "D-FINE-N",
+          "params": 3.78,
+          "mAP": 45.8,
+          "fps": 32.5,
+          "license": "Apache-2.0"
+        },
+        "b": {
+          "id": "rtdetrv2-r18",
+          "displayName": "RT-DETRv2-R18",
+          "params": 20.18,
+          "mAP": 50.7,
+          "fps": 51.1,
+          "license": "Apache-2.0"
+        }
+      },
+      "passed": true,
+      "strength": "normal"
+    },
+    {
+      "id": "coverage",
+      "kind": "ranking",
+      "statement": "D-FINE fields 5 measured variants, RT-DETRv2 fields 5, all on the same protocol on NVIDIA RTX 5070 Ti.",
+      "values": {
+        "a_n": 5,
+        "b_n": 5
+      },
+      "passed": true,
+      "strength": "normal"
+    }
+  ],
+  "gate": {
+    "passed": true,
+    "passed_claims": 5,
+    "required": 2,
+    "reason": null
+  },
+  "allowed_numbers": [
+    -45.79,
+    -43.64,
+    -39.7,
+    -29.57,
+    0.0,
+    0.001,
+    0.6,
+    1,
+    2,
+    3.0,
+    3.78,
+    4,
+    4.6,
+    5.0,
+    6,
+    6.2,
+    6.8,
+    7,
+    7.1,
+    8,
+    9,
+    10,
+    10.32,
+    11,
+    12,
+    18.1,
+    19.59,
+    20.18,
+    21.9,
+    25.7,
+    28.8,
+    31.24,
+    31.44,
+    32.1,
+    32.5,
+    34.2,
+    36.59,
+    39.7,
+    39.9,
+    40.4,
+    42.89,
+    45.8,
+    50,
+    50.7,
+    51.1,
+    53.2,
+    53.4,
+    54.8,
+    55.7,
+    56.8,
+    57.8,
+    60.0,
+    61.4,
+    62.62,
+    75,
+    76.56,
+    95,
+    100,
+    300,
+    500,
+    640,
+    5000
+  ]
+}

@@ -1,0 +1,238 @@
+{
+  "engine": "article-pipeline-v2",
+  "generated_at": "2026-07-03T22:09:29.262634+00:00",
+  "slug": "permissive-license-detection-models-rpi5-hailo8",
+  "meta": {
+    "type": "license-guide",
+    "hardware": "rpi5_hailo8",
+    "runtime": "hailo_int8"
+  },
+  "facts": {
+    "hardware": "rpi5_hailo8",
+    "hardware_display": "Raspberry Pi 5 + Hailo-8",
+    "runtime": "hailo_int8",
+    "runtime_display": "HailoRT INT8",
+    "n_permissive": 7,
+    "n_nonpermissive": 3,
+    "matchups": [
+      {
+        "model": "yolonas-l",
+        "displayName": "YOLO-NAS-L",
+        "license": "non-permissive",
+        "mAP": 52.4,
+        "fps": 15.4,
+        "alternative": {
+          "model": "yolov9m",
+          "displayName": "YOLOv9-M",
+          "license": "MIT",
+          "mAP": 53.3,
+          "fps": 30.1,
+          "mAP_gap_pts": 0.9
+        }
+      },
+      {
+        "model": "yolonas-m",
+        "displayName": "YOLO-NAS-M",
+        "license": "non-permissive",
+        "mAP": 47.4,
+        "fps": 21.7,
+        "alternative": {
+          "model": "yolov9m",
+          "displayName": "YOLOv9-M",
+          "license": "MIT",
+          "mAP": 53.3,
+          "fps": 30.1,
+          "mAP_gap_pts": 5.9
+        }
+      },
+      {
+        "model": "yolonas-s",
+        "displayName": "YOLO-NAS-S",
+        "license": "non-permissive",
+        "mAP": 44.5,
+        "fps": 39.7,
+        "alternative": {
+          "model": "yolox-m",
+          "displayName": "YOLOX-M",
+          "license": "Apache-2.0",
+          "mAP": 43.7,
+          "fps": 34.8,
+          "mAP_gap_pts": -0.8
+        }
+      }
+    ],
+    "permissive_leaderboard": [
+      {
+        "model": "yolov9c",
+        "displayName": "YOLOv9-C",
+        "license": "MIT",
+        "mAP": 54.8,
+        "fps": 21.2
+      },
+      {
+        "model": "yolov9m",
+        "displayName": "YOLOv9-M",
+        "license": "MIT",
+        "mAP": 53.3,
+        "fps": 30.1
+      },
+      {
+        "model": "yolox-m",
+        "displayName": "YOLOX-M",
+        "license": "Apache-2.0",
+        "mAP": 43.7,
+        "fps": 34.8
+      },
+      {
+        "model": "yolox-s",
+        "displayName": "YOLOX-S",
+        "license": "Apache-2.0",
+        "mAP": 41.1,
+        "fps": 95.8
+      },
+      {
+        "model": "yolox-tiny",
+        "displayName": "YOLOX-Tiny",
+        "license": "Apache-2.0",
+        "mAP": 33.5,
+        "fps": 195.6
+      },
+      {
+        "model": "yolov9s",
+        "displayName": "YOLOv9-S",
+        "license": "MIT",
+        "mAP": 32.0,
+        "fps": 36.3
+      },
+      {
+        "model": "yolov9t",
+        "displayName": "YOLOv9-T",
+        "license": "MIT",
+        "mAP": 25.7,
+        "fps": 76.5
+      }
+    ]
+  },
+  "claims": [
+    {
+      "id": "alt_yolonas-l",
+      "kind": "license",
+      "statement": "YOLOv9-M (MIT) matches YOLO-NAS-L (non-permissive) within 0.9 mAP points on Raspberry Pi 5 + Hailo-8: 53.3 vs 52.4 mAP, 30.1 vs 15.4 FPS.",
+      "values": {
+        "model": "yolonas-l",
+        "displayName": "YOLO-NAS-L",
+        "license": "non-permissive",
+        "mAP": 52.4,
+        "fps": 15.4,
+        "alternative": {
+          "model": "yolov9m",
+          "displayName": "YOLOv9-M",
+          "license": "MIT",
+          "mAP": 53.3,
+          "fps": 30.1,
+          "mAP_gap_pts": 0.9
+        }
+      },
+      "passed": true,
+      "strength": "strong"
+    },
+    {
+      "id": "alt_yolonas-m",
+      "kind": "license",
+      "statement": "YOLOv9-M (MIT) matches YOLO-NAS-M (non-permissive) within 5.9 mAP points on Raspberry Pi 5 + Hailo-8: 53.3 vs 47.4 mAP, 30.1 vs 21.7 FPS.",
+      "values": {
+        "model": "yolonas-m",
+        "displayName": "YOLO-NAS-M",
+        "license": "non-permissive",
+        "mAP": 47.4,
+        "fps": 21.7,
+        "alternative": {
+          "model": "yolov9m",
+          "displayName": "YOLOv9-M",
+          "license": "MIT",
+          "mAP": 53.3,
+          "fps": 30.1,
+          "mAP_gap_pts": 5.9
+        }
+      },
+      "passed": true,
+      "strength": "strong"
+    },
+    {
+      "id": "alt_yolonas-s",
+      "kind": "license",
+      "statement": "YOLOX-M (Apache-2.0) matches YOLO-NAS-S (non-permissive) within 0.8 mAP points on Raspberry Pi 5 + Hailo-8: 43.7 vs 44.5 mAP, 34.8 vs 39.7 FPS.",
+      "values": {
+        "model": "yolonas-s",
+        "displayName": "YOLO-NAS-S",
+        "license": "non-permissive",
+        "mAP": 44.5,
+        "fps": 39.7,
+        "alternative": {
+          "model": "yolox-m",
+          "displayName": "YOLOX-M",
+          "license": "Apache-2.0",
+          "mAP": 43.7,
+          "fps": 34.8,
+          "mAP_gap_pts": -0.8
+        }
+      },
+      "passed": true,
+      "strength": "strong"
+    }
+  ],
+  "gate": {
+    "passed": true,
+    "passed_claims": 3,
+    "required": 2,
+    "reason": null
+  },
+  "allowed_numbers": [
+    -0.8,
+    0.001,
+    0.6,
+    0.9,
+    1,
+    2,
+    3.0,
+    4,
+    5,
+    5.9,
+    6,
+    7.0,
+    8,
+    9,
+    10,
+    11,
+    12,
+    15.4,
+    21.2,
+    21.7,
+    25.7,
+    30.1,
+    32.0,
+    33.5,
+    34.8,
+    36.3,
+    39.7,
+    41.1,
+    43.7,
+    44.5,
+    47.4,
+    50,
+    52.4,
+    53.3,
+    54.8,
+    75,
+    76.5,
+    90.0,
+    95,
+    95.8,
+    100,
+    195.6,
+    300,
+    500,
+    640,
+    5000
+  ]
+}

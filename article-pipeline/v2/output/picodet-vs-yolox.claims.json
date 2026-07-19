@@ -1,0 +1,346 @@
+{
+  "engine": "article-pipeline-v2",
+  "generated_at": "2026-07-03T22:28:20.153528+00:00",
+  "slug": "picodet-vs-yolox",
+  "meta": {
+    "type": "family-vs",
+    "a": "picodet",
+    "b": "yolox",
+    "hardware": "nvidia_geforce_rtx_5070_ti",
+    "runtime": "pytorch_fp32"
+  },
+  "facts": {
+    "families": {
+      "a": "picodet",
+      "b": "yolox",
+      "a_display": "PicoDet",
+      "b_display": "YOLOX"
+    },
+    "primary": {
+      "hardware": "nvidia_geforce_rtx_5070_ti",
+      "hardware_display": "NVIDIA RTX 5070 Ti",
+      "runtime": "pytorch_fp32",
+      "runtime_display": "PyTorch FP32"
+    },
+    "a_frontier": [
+      {
+        "id": "picodet-s",
+        "displayName": "PicoDet-S",
+        "params": 0.99,
+        "mAP": 30.4,
+        "fps": 50.0,
+        "license": "Apache-2.0"
+      },
+      {
+        "id": "picodet-m",
+        "displayName": "PicoDet-M",
+        "params": 2.15,
+        "mAP": 37.9,
+        "fps": 45.1,
+        "license": "Apache-2.0"
+      },
+      {
+        "id": "picodet-l",
+        "displayName": "PicoDet-L",
+        "params": 3.31,
+        "mAP": 44.1,
+        "fps": 39.5,
+        "license": "Apache-2.0"
+      }
+    ],
+    "b_frontier": [
+      {
+        "id": "yolox-nano",
+        "displayName": "YOLOX-Nano",
+        "params": 0.91,
+        "mAP": 28.8,
+        "fps": 53.6,
+        "license": "Apache-2.0"
+      },
+      {
+        "id": "yolox-tiny",
+        "displayName": "YOLOX-Tiny",
+        "params": 5.06,
+        "mAP": 35.5,
+        "fps": 61.6,
+        "license": "Apache-2.0"
+      },
+      {
+        "id": "yolox-s",
+        "displayName": "YOLOX-S",
+        "params": 8.97,
+        "mAP": 44.3,
+        "fps": 50.0,
+        "license": "Apache-2.0"
+      },
+      {
+        "id": "yolox-m",
+        "displayName": "YOLOX-M",
+        "params": 25.33,
+        "mAP": 51.7,
+        "fps": 48.2,
+        "license": "Apache-2.0"
+      },
+      {
+        "id": "yolox-l",
+        "displayName": "YOLOX-L",
+        "params": 54.21,
+        "mAP": 55.4,
+        "fps": 42.8,
+        "license": "Apache-2.0"
+      },
+      {
+        "id": "yolox-x",
+        "displayName": "YOLOX-X",
+        "params": 99.07,
+        "mAP": 56.3,
+        "fps": 39.6,
+        "license": "Apache-2.0"
+      }
+    ],
+    "matched_pairs": [
+      {
+        "a": {
+          "id": "picodet-s",
+          "displayName": "PicoDet-S",
+          "params": 0.99,
+          "mAP": 30.4,
+          "fps": 50.0,
+          "license": "Apache-2.0"
+        },
+        "b": {
+          "id": "yolox-nano",
+          "displayName": "YOLOX-Nano",
+          "params": 0.91,
+          "mAP": 28.8,
+          "fps": 53.6,
+          "license": "Apache-2.0"
+        },
+        "mAP_delta_pts": 1.6,
+        "fps_delta_pct": -6.72
+      },
+      {
+        "a": {
+          "id": "picodet-l",
+          "displayName": "PicoDet-L",
+          "params": 3.31,
+          "mAP": 44.1,
+          "fps": 39.5,
+          "license": "Apache-2.0"
+        },
+        "b": {
+          "id": "yolox-tiny",
+          "displayName": "YOLOX-Tiny",
+          "params": 5.06,
+          "mAP": 35.5,
+          "fps": 61.6,
+          "license": "Apache-2.0"
+        },
+        "mAP_delta_pts": 8.6,
+        "fps_delta_pct": -35.88
+      }
+    ],
+    "aggregate": {
+      "n_pairs": 2,
+      "mean_mAP_delta_pts": 5.1,
+      "a_wins": 2,
+      "b_wins": 0,
+      "mean_fps_delta_pct": -21.3
+    },
+    "flagship": {
+      "a": {
+        "id": "picodet-l",
+        "displayName": "PicoDet-L",
+        "params": 3.31,
+        "mAP": 44.1,
+        "fps": 39.5,
+        "license": "Apache-2.0"
+      },
+      "b": {
+        "id": "yolox-x",
+        "displayName": "YOLOX-X",
+        "params": 99.07,
+        "mAP": 56.3,
+        "fps": 39.6,
+        "license": "Apache-2.0"
+      }
+    },
+    "smallest": {
+      "a": {
+        "id": "picodet-s",
+        "displayName": "PicoDet-S",
+        "params": 0.99,
+        "mAP": 30.4,
+        "fps": 50.0,
+        "license": "Apache-2.0"
+      },
+      "b": {
+        "id": "yolox-nano",
+        "displayName": "YOLOX-Nano",
+        "params": 0.91,
+        "mAP": 28.8,
+        "fps": 53.6,
+        "license": "Apache-2.0"
+      }
+    },
+    "crossover": {
+      "low_param_leader": "picodet",
+      "high_param_leader": "picodet"
+    },
+    "license": {
+      "a_all_permissive": true,
+      "b_all_permissive": true
+    },
+    "chart_highlight": "picodet-s,picodet-m,picodet-l,yolox-nano,yolox-tiny,yolox-s,yolox-m,yolox-l,yolox-x"
+  },
+  "claims": [
+    {
+      "id": "family_accuracy_edge",
+      "kind": "accuracy",
+      "statement": "At matched compute, PicoDet averages 5.1 mAP points higher across 2 paired variants on NVIDIA RTX 5070 Ti. PicoDet wins 2, YOLOX wins 0.",
+      "values": {
+        "mean_delta_pts": 5.1,
+        "a_wins": 2,
+        "b_wins": 0
+      },
+      "passed": true,
+      "strength": "strong"
+    },
+    {
+      "id": "family_speed_edge",
+      "kind": "speed",
+      "statement": "At matched compute, YOLOX is 21.3% faster on average on NVIDIA RTX 5070 Ti (PyTorch FP32).",
+      "values": {
+        "mean_delta_pct": 21.3
+      },
+      "passed": true,
+      "strength": "strong"
+    },
+    {
+      "id": "flagship",
+      "kind": "accuracy",
+      "statement": "At the top end, PicoDet's largest measured variant (PicoDet-L) reaches 44.1 mAP; YOLOX's (YOLOX-X) reaches 56.3 mAP.",
+      "values": {
+        "a": {
+          "id": "picodet-l",
+          "displayName": "PicoDet-L",
+          "params": 3.31,
+          "mAP": 44.1,
+          "fps": 39.5,
+          "license": "Apache-2.0"
+        },
+        "b": {
+          "id": "yolox-x",
+          "displayName": "YOLOX-X",
+          "params": 99.07,
+          "mAP": 56.3,
+          "fps": 39.6,
+          "license": "Apache-2.0"
+        }
+      },
+      "passed": true,
+      "strength": "normal"
+    },
+    {
+      "id": "efficient_end",
+      "kind": "efficiency",
+      "statement": "At the small end, PicoDet's PicoDet-S (0.99M, 30.4 mAP, 50.0 FPS) faces YOLOX's YOLOX-Nano (0.91M, 28.8 mAP, 53.6 FPS).",
+      "values": {
+        "a": {
+          "id": "picodet-s",
+          "displayName": "PicoDet-S",
+          "params": 0.99,
+          "mAP": 30.4,
+          "fps": 50.0,
+          "license": "Apache-2.0"
+        },
+        "b": {
+          "id": "yolox-nano",
+          "displayName": "YOLOX-Nano",
+          "params": 0.91,
+          "mAP": 28.8,
+          "fps": 53.6,
+          "license": "Apache-2.0"
+        }
+      },
+      "passed": true,
+      "strength": "normal"
+    },
+    {
+      "id": "coverage",
+      "kind": "ranking",
+      "statement": "PicoDet fields 3 measured variants, YOLOX fields 6, all on the same protocol on NVIDIA RTX 5070 Ti.",
+      "values": {
+        "a_n": 3,
+        "b_n": 6
+      },
+      "passed": true,
+      "strength": "normal"
+    }
+  ],
+  "gate": {
+    "passed": true,
+    "passed_claims": 5,
+    "required": 2,
+    "reason": null
+  },
+  "allowed_numbers": [
+    -35.88,
+    -21.3,
+    -6.72,
+    0.0,
+    0.001,
+    0.6,
+    0.91,
+    0.99,
+    1,
+    1.6,
+    2.0,
+    2.15,
+    3.0,
+    3.31,
+    4,
+    5,
+    5.06,
+    5.1,
+    6.0,
+    7,
+    8,
+    8.6,
+    8.97,
+    9,
+    10,
+    11,
+    12,
+    21.3,
+    25.33,
+    28.8,
+    30.4,
+    35.5,
+    37.9,
+    39.5,
+    39.6,
+    42.8,
+    44.1,
+    44.3,
+    45.1,
+    48.2,
+    50.0,
+    51.7,
+    53.6,
+    54.21,
+    55.4,
+    56.3,
+    61.6,
+    75,
+    91.0,
+    95,
+    99.0,
+    99.07,
+    100,
+    300,
+    500,
+    640,
+    5000
+  ]
+}

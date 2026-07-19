@@ -1,0 +1,70 @@
+{
+  "slug": "dfine-vs-yolov9",
+  "type": "family-vs",
+  "title": "D-FINE vs YOLOv9: which detector family wins",
+  "dek": "Measured on one COCO protocol on an RTX 5070 Ti: D-FINE averages 2.5 mAP points higher at matched compute, while YOLOv9 runs 19.9% faster.",
+  "date": "2026-07-03",
+  "author": "Vision Analysis",
+  "readingMinutes": 4,
+  "tags": ["comparison", "family-vs", "dfine", "yolov9"],
+  "status": "published",
+  "claimsFile": "article-pipeline/v2/output/dfine-vs-yolov9.claims.json",
+  "blocks": [
+    {
+      "kind": "verdict",
+      "text": "On an RTX 5070 Ti in PyTorch, D-FINE averages 2.5 mAP points higher than YOLOv9 at matched parameter counts, winning all 3 nearest-params pairings. YOLOv9 is 19.9% faster on average. D-FINE leads on accuracy across the whole range; YOLOv9 wins on raw throughput."
+    },
+    {
+      "kind": "prose",
+      "text": "D-FINE fields 5 measured variants and YOLOv9 fields 4, all on the same COCO val2017 protocol on an RTX 5070 Ti. Three variants line up closely by parameter count, giving 3 matched pairs."
+    },
+    {
+      "kind": "family-frontier",
+      "familyA": "dfine",
+      "familyB": "yolov9",
+      "hardware": "nvidia_geforce_rtx_5070_ti",
+      "runtime": "pytorch_fp32"
+    },
+    {
+      "kind": "chart",
+      "src": "/embed/scatter?highlight=dfine-n,dfine-s,dfine-m,dfine-l,dfine-x,yolov9t,yolov9s,yolov9m,yolov9c",
+      "caption": "Accuracy vs parameters on COCO val2017, D-FINE and YOLOv9 variants highlighted against the full field."
+    },
+    {
+      "kind": "heading",
+      "text": "Accuracy at matched compute"
+    },
+    {
+      "kind": "prose",
+      "text": "mAP is shown in percent. Each D-FINE variant is paired with the nearest YOLOv9 variant by parameter count. Across the 3 pairings D-FINE averages 2.5 mAP points higher and wins all three. D-FINE-X tops the range at 61.4 mAP; YOLOv9-C, the largest YOLOv9 variant measured, reaches 57.1. At the small end D-FINE-N (3.78M, 45.8 mAP) faces YOLOv9-T (2.04M, 41.8 mAP)."
+    },
+    {
+      "kind": "heading",
+      "text": "Speed"
+    },
+    {
+      "kind": "prose",
+      "text": "Averaged across the matched pairs, YOLOv9 is 19.9% faster than D-FINE in PyTorch, and its lead is largest at the top of the range."
+    },
+    {
+      "kind": "kv",
+      "title": "Licensing",
+      "items": [
+        { "k": "D-FINE license", "v": "Apache-2.0" },
+        { "k": "YOLOv9 license", "v": "MIT" },
+        { "k": "Both families", "v": "permissive, cleared for commercial use" }
+      ]
+    },
+    {
+      "kind": "heading",
+      "text": "Which family to pick"
+    },
+    {
+      "kind": "prose",
+      "text": "Pick D-FINE for accuracy per parameter: it wins every matched pairing and reaches 61.4 mAP. Pick YOLOv9 for throughput, at 19.9% faster on average here. D-FINE ships under Apache-2.0 and YOLOv9 under MIT; both are permissive, so licensing does not force the call."
+    },
+    {
+      "kind": "methodology"
+    }
+  ]
+}

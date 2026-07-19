@@ -1,0 +1,106 @@
+{
+  "slug": "dfine-m-vs-rtdetr-r34",
+  "type": "vs",
+  "title": "D-FINE-M vs RT-DETR-R34: benchmark on one protocol",
+  "dek": "Measured on the same COCO protocol: D-FINE-M leads by 5.6 mAP points, but RT-DETR-R34 is 28% faster on desktop GPU and that lead vanishes on a Raspberry Pi 5.",
+  "date": "2026-07-03",
+  "author": "Vision Analysis",
+  "readingMinutes": 3,
+  "tags": [
+    "comparison",
+    "dfine",
+    "rtdetr"
+  ],
+  "status": "draft",
+  "claimsFile": "article-pipeline/v2/output/dfine-m-vs-rtdetr-r34.claims.json",
+  "blocks": [
+    {
+      "kind": "verdict",
+      "text": "D-FINE-M is the more accurate detector: 57.8 vs 52.2 mAP@50-95 against RT-DETR-R34 on an RTX 5070 Ti in PyTorch, a 5.6-point lead. RT-DETR-R34 answers with speed, running 28% faster at 40.2 vs 28.8 FPS. D-FINE-M also holds the smaller memory footprint at 189 vs 213 MB peak VRAM. The speed order does not hold on Raspberry Pi 5, so pick by deployment target."
+    },
+    {
+      "kind": "prose",
+      "text": "D-FINE-M (19.59M parameters, Apache-2.0) and RT-DETR-R34 (31.44M, Apache-2.0) are both transformer detectors evaluated at 640 px input on COCO val2017. Both have verified rows on desktop GPU, Jetson Orin, A100, and Raspberry Pi 5, so this comparison covers the targets where the answer changes."
+    },
+    {
+      "kind": "comparison-table",
+      "models": [
+        "dfine-m",
+        "rtdetr-r34"
+      ],
+      "hardware": "nvidia_geforce_rtx_5070_ti",
+      "runtime": "pytorch_fp32"
+    },
+    {
+      "kind": "chart",
+      "src": "/embed/scatter?highlight=dfine-m,rtdetr-r34",
+      "caption": "Accuracy vs parameters on COCO val2017. D-FINE-M and RT-DETR-R34 highlighted against the full set of measured models."
+    },
+    {
+      "kind": "heading",
+      "text": "Accuracy"
+    },
+    {
+      "kind": "prose",
+      "text": "mAP is shown in percent form. D-FINE-M measures 57.8 mAP@50-95 to RT-DETR-R34's 52.2, and the gap is stable across runtimes. The largest single difference is on small objects: 43.0 vs 34.9 mAP_small, a 23.0% relative gap. If your scenes are dominated by small instances, that row decides the comparison."
+    },
+    {
+      "kind": "heading",
+      "text": "Speed"
+    },
+    {
+      "kind": "prose",
+      "text": "On the RTX 5070 Ti, RT-DETR-R34 is 28.41% faster in PyTorch (40.2 vs 28.8 FPS) and the gap holds under conversion: 77.7 vs 59.8 FPS on ONNX Runtime, 98.1 vs 85.3 FPS on TensorRT FP32. On Jetson Orin the two are close: 8.0 vs 7.0 FPS."
+    },
+    {
+      "kind": "callout",
+      "text": "The speed verdict does not travel to CPU. On Raspberry Pi 5 both models run at 0.6 FPS, so RT-DETR-R34's desktop speed lead disappears. If your target is a bare Pi, the accuracy gap is what remains."
+    },
+    {
+      "kind": "kv",
+      "title": "License and provenance",
+      "items": [
+        {
+          "k": "D-FINE-M license",
+          "v": "Apache-2.0"
+        },
+        {
+          "k": "RT-DETR-R34 license",
+          "v": "Apache-2.0"
+        },
+        {
+          "k": "D-FINE-M release",
+          "v": "2024-10-18"
+        },
+        {
+          "k": "RT-DETR-R34 release",
+          "v": "2023-04-17"
+        },
+        {
+          "k": "Evaluated weights",
+          "v": "LibreYOLO retrained checkpoints"
+        }
+      ]
+    },
+    {
+      "kind": "heading",
+      "text": "When to pick which"
+    },
+    {
+      "kind": "prose",
+      "text": "Pick D-FINE-M when accuracy leads the requirement, especially on small objects, and when peak VRAM matters at 189 vs 213 MB. Pick RT-DETR-R34 for desktop or server GPU throughput, where it runs 28.41% faster. Both ship under Apache-2.0, so licensing does not force the choice."
+    },
+    {
+      "kind": "heading",
+      "text": "Try both with LibreYOLO"
+    },
+    {
+      "kind": "code",
+      "language": "python",
+      "text": "# pip install libreyolo\nfrom libreyolo import LibreYOLO\n\ndfine = LibreYOLO(\"LibreDFINEm.pt\")     # 19.59M params, 57.8 mAP@50-95\nrtdetr = LibreYOLO(\"LibreRTDETRr34.pt\") # 31.44M params, 52.2 mAP@50-95\n\nresults = dfine(\"image.jpg\")\n"
+    },
+    {
+      "kind": "methodology"
+    }
+  ]
+}

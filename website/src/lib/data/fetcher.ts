@@ -1,6 +1,6 @@
 import "server-only";
 import { BenchmarkResult, ModelMetadata, FamilyMetadata, HardwareMetadata, DatasetMetadata, RuntimeMetadata } from "@/lib/types";
-import { loadAllBenchmarks } from "./loader";
+import { loadAllBenchmarks, loadVerifiedRunCount } from "./loader";
 import { benchmarkCoordinateKey, compareBenchmarkCoordinates } from "./utils";
 
 // Import metadata (manually maintained)
@@ -42,6 +42,13 @@ export function getBenchmarkResults(
  */
 export function getAllBenchmarkResults(): Record<string, BenchmarkResult[]> {
   return getBenchmarkData();
+}
+
+/**
+ * Total verified benchmark runs (validated submission records) in the dataset.
+ */
+export function getVerifiedRunCount(): number {
+  return loadVerifiedRunCount();
 }
 
 /**

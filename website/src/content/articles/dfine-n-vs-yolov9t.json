@@ -1,0 +1,107 @@
+{
+  "slug": "dfine-n-vs-yolov9t",
+  "type": "vs",
+  "title": "D-FINE-N vs YOLOv9-T: benchmark on the same protocol",
+  "dek": "Measured on the same COCO protocol: D-FINE-N leads by 4.0 mAP points, but YOLOv9-T is lighter, more compute-efficient, and faster on Raspberry Pi 5.",
+  "date": "2026-07-03",
+  "author": "Vision Analysis",
+  "readingMinutes": 4,
+  "tags": [
+    "comparison",
+    "dfine",
+    "yolov9",
+    "edge"
+  ],
+  "status": "draft",
+  "claimsFile": "article-pipeline/v2/output/dfine-n-vs-yolov9t.claims.json",
+  "blocks": [
+    {
+      "kind": "verdict",
+      "text": "D-FINE-N is the more accurate detector: 45.8 vs 41.8 mAP@50-95 against YOLOv9-T on an RTX 5070 Ti, a 4.0 point lead. YOLOv9-T answers with a lighter footprint: 2.04M parameters to 3.78M, 48 vs 70 MB peak VRAM, and 37.73% more mAP per GFLOP. On desktop GPU the two are level in PyTorch, but on Raspberry Pi 5 YOLOv9-T is the faster detector."
+    },
+    {
+      "kind": "prose",
+      "text": "D-FINE-N (3.78M parameters, Apache-2.0) and YOLOv9-T (2.04M, MIT) are the smallest detectors in each family, both evaluated at 640 px on COCO val2017. YOLOv9-T is the lighter model. Both have verified rows on desktop GPU, Jetson Orin, and Raspberry Pi 5, so this comparison covers the edge targets where the answer changes."
+    },
+    {
+      "kind": "comparison-table",
+      "models": [
+        "dfine-n",
+        "yolov9t"
+      ],
+      "hardware": "nvidia_geforce_rtx_5070_ti",
+      "runtime": "pytorch_fp32"
+    },
+    {
+      "kind": "chart",
+      "src": "/embed/scatter?highlight=dfine-n,yolov9t",
+      "caption": "Accuracy vs parameters on COCO val2017. D-FINE-N and YOLOv9-T highlighted against the full field."
+    },
+    {
+      "kind": "heading",
+      "text": "Accuracy"
+    },
+    {
+      "kind": "prose",
+      "text": "mAP is shown in percent form. D-FINE-N measures 45.8 mAP@50-95 to YOLOv9-T's 41.8, and the lead holds across runtimes. The gap is widest on small objects: 25.8 vs 22.3 mAP_small, a 15.89% relative gap. YOLOv9-T is the more efficient model per unit of compute, extracting 37.73% more mAP per GFLOP."
+    },
+    {
+      "kind": "heading",
+      "text": "Speed"
+    },
+    {
+      "kind": "prose",
+      "text": "On the RTX 5070 Ti in PyTorch the two are level: 32.5 vs 31.9 FPS. D-FINE-N pulls ahead under conversion, 78.9 vs 52.1 FPS on ONNX Runtime and 98.7 vs 72.0 FPS on TensorRT FP32, and it also leads on Jetson Orin at 11.7 vs 9.9 FPS."
+    },
+    {
+      "kind": "callout",
+      "text": "The speed verdict does not hold on CPU. On Raspberry Pi 5 YOLOv9-T runs 2.9 FPS to D-FINE-N's 2.3. If your target is a bare Pi, the GPU numbers point the wrong way."
+    },
+    {
+      "kind": "kv",
+      "title": "License and provenance",
+      "items": [
+        {
+          "k": "D-FINE-N license",
+          "v": "Apache-2.0"
+        },
+        {
+          "k": "YOLOv9-T license",
+          "v": "MIT"
+        },
+        {
+          "k": "D-FINE-N release",
+          "v": "2024-10-18"
+        },
+        {
+          "k": "YOLOv9-T release",
+          "v": "2024-02-21"
+        },
+        {
+          "k": "Evaluated weights",
+          "v": "LibreYOLO retrained checkpoints"
+        }
+      ]
+    },
+    {
+      "kind": "heading",
+      "text": "When to pick which"
+    },
+    {
+      "kind": "prose",
+      "text": "Pick D-FINE-N for accuracy and for GPU or Jetson serving, where it leads at every object size and on every accelerated runtime measured. Pick YOLOv9-T for the tightest footprint, the best compute efficiency, or a bare Raspberry Pi 5, where it is the faster detector. Both ship under permissive licenses, so licensing does not force the choice."
+    },
+    {
+      "kind": "heading",
+      "text": "Try both with LibreYOLO"
+    },
+    {
+      "kind": "code",
+      "language": "python",
+      "text": "# pip install libreyolo\nfrom libreyolo import LibreYOLO\n\ndfine = LibreYOLO(\"LibreDFINEn.pt\")   # 3.78M params, 45.8 mAP@50-95\nyolo9 = LibreYOLO(\"LibreYOLO9t.pt\")   # 2.04M params, 41.8 mAP@50-95\n\nresults = dfine(\"image.jpg\")\n"
+    },
+    {
+      "kind": "methodology"
+    }
+  ]
+}

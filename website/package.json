@@ -4,10 +4,12 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "prebuild": "npm run verify:analytics",
     "build": "next build",
-    "vercel-build": "next build",
+    "vercel-build": "npm run verify:analytics && next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "verify:analytics": "node scripts/verify-analytics.mjs"
   },
   "dependencies": {
     "@observablehq/plot": "^0.6.17",
@@ -21,6 +23,7 @@
     "@radix-ui/react-switch": "^1.2.6",
     "@radix-ui/react-tabs": "^1.1.13",
     "@radix-ui/react-tooltip": "^1.2.8",
+    "@vercel/analytics": "^2.0.1",
     "@vercel/og": "^0.8.6",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",

@@ -1,0 +1,535 @@
+{
+  "engine": "article-pipeline-v2",
+  "generated_at": "2026-07-03T22:09:29.134889+00:00",
+  "slug": "permissive-license-detection-models-rpi5",
+  "meta": {
+    "type": "license-guide",
+    "hardware": "rpi5",
+    "runtime": "pytorch_fp32"
+  },
+  "facts": {
+    "hardware": "rpi5",
+    "hardware_display": "Raspberry Pi 5",
+    "runtime": "pytorch_fp32",
+    "runtime_display": "PyTorch FP32",
+    "n_permissive": 48,
+    "n_nonpermissive": 2,
+    "matchups": [
+      {
+        "model": "yolonas-m",
+        "displayName": "YOLO-NAS-M",
+        "license": "non-permissive",
+        "mAP": 55.4,
+        "fps": 0.5,
+        "alternative": {
+          "model": "rfdetr-s",
+          "displayName": "RF-DETR-S",
+          "license": "Apache-2.0",
+          "mAP": 55.1,
+          "fps": 1.0,
+          "mAP_gap_pts": -0.3
+        }
+      },
+      {
+        "model": "yolonas-s",
+        "displayName": "YOLO-NAS-S",
+        "license": "non-permissive",
+        "mAP": 51.8,
+        "fps": 0.9,
+        "alternative": {
+          "model": "rfdetr-n",
+          "displayName": "RF-DETR-N",
+          "license": "Apache-2.0",
+          "mAP": 51.4,
+          "fps": 2.1,
+          "mAP_gap_pts": -0.4
+        }
+      }
+    ],
+    "permissive_leaderboard": [
+      {
+        "model": "deimv2-x",
+        "displayName": "DEIMv2-X",
+        "license": "Apache-2.0",
+        "mAP": 61.3,
+        "fps": 0.3
+      },
+      {
+        "model": "ec-x",
+        "displayName": "ECDet-X",
+        "license": "Apache-2.0",
+        "mAP": 61.1,
+        "fps": 0.3
+      },
+      {
+        "model": "ec-l",
+        "displayName": "ECDet-L",
+        "license": "Apache-2.0",
+        "mAP": 60.1,
+        "fps": 0.3
+      },
+      {
+        "model": "dfine-l",
+        "displayName": "D-FINE-L",
+        "license": "Apache-2.0",
+        "mAP": 60.0,
+        "fps": 0.4
+      },
+      {
+        "model": "rfdetr-l",
+        "displayName": "RF-DETR-L",
+        "license": "Apache-2.0",
+        "mAP": 58.6,
+        "fps": 0.5
+      },
+      {
+        "model": "deimv2-l",
+        "displayName": "DEIMv2-L",
+        "license": "Apache-2.0",
+        "mAP": 58.6,
+        "fps": 0.4
+      },
+      {
+        "model": "ec-m",
+        "displayName": "ECDet-M",
+        "license": "Apache-2.0",
+        "mAP": 58.4,
+        "fps": 0.5
+      },
+      {
+        "model": "dfine-m",
+        "displayName": "D-FINE-M",
+        "license": "Apache-2.0",
+        "mAP": 57.8,
+        "fps": 0.6
+      },
+      {
+        "model": "deim-l",
+        "displayName": "DEIM-L",
+        "license": "Apache-2.0",
+        "mAP": 57.8,
+        "fps": 0.4
+      },
+      {
+        "model": "rtdetrv4-l",
+        "displayName": "RT-DETRv4-L",
+        "license": "Apache-2.0",
+        "mAP": 57.8,
+        "fps": 0.4
+      },
+      {
+        "model": "rfdetr-m",
+        "displayName": "RF-DETR-M",
+        "license": "Apache-2.0",
+        "mAP": 57.4,
+        "fps": 0.8
+      },
+      {
+        "model": "rtdetrv4-m",
+        "displayName": "RT-DETRv4-M",
+        "license": "Apache-2.0",
+        "mAP": 56.5,
+        "fps": 0.6
+      },
+      {
+        "model": "yolov9c",
+        "displayName": "YOLOv9-C",
+        "license": "MIT",
+        "mAP": 56.4,
+        "fps": 0.5
+      },
+      {
+        "model": "deimv2-m",
+        "displayName": "DEIMv2-M",
+        "license": "Apache-2.0",
+        "mAP": 56.0,
+        "fps": 0.5
+      },
+      {
+        "model": "rtdetr-r50",
+        "displayName": "RT-DETR-R50",
+        "license": "Apache-2.0",
+        "mAP": 55.9,
+        "fps": 0.3
+      },
+      {
+        "model": "rtdetr-l",
+        "displayName": "RT-DETR-L",
+        "license": "Apache-2.0",
+        "mAP": 55.8,
+        "fps": 0.4
+      },
+      {
+        "model": "rtdetrv2-r50",
+        "displayName": "RT-DETRv2-R50",
+        "license": "Apache-2.0",
+        "mAP": 55.7,
+        "fps": 0.3
+      },
+      {
+        "model": "deim-m",
+        "displayName": "DEIM-M",
+        "license": "Apache-2.0",
+        "mAP": 55.4,
+        "fps": 0.6
+      },
+      {
+        "model": "yolov9m",
+        "displayName": "YOLOv9-M",
+        "license": "MIT",
+        "mAP": 55.3,
+        "fps": 0.6
+      },
+      {
+        "model": "rfdetr-s",
+        "displayName": "RF-DETR-S",
+        "license": "Apache-2.0",
+        "mAP": 55.1,
+        "fps": 1.0
+      },
+      {
+        "model": "rtdetrv2-r50m",
+        "displayName": "RT-DETRv2-R50m",
+        "license": "Apache-2.0",
+        "mAP": 54.8,
+        "fps": 0.4
+      },
+      {
+        "model": "ec-s",
+        "displayName": "ECDet-S",
+        "license": "Apache-2.0",
+        "mAP": 54.3,
+        "fps": 0.8
+      },
+      {
+        "model": "yolox-l",
+        "displayName": "YOLOX-L",
+        "license": "Apache-2.0",
+        "mAP": 53.9,
+        "fps": 0.4
+      },
+      {
+        "model": "rtdetr-r50m",
+        "displayName": "RT-DETR-R50m",
+        "license": "Apache-2.0",
+        "mAP": 53.8,
+        "fps": 0.4
+      },
+      {
+        "model": "dfine-s",
+        "displayName": "D-FINE-S",
+        "license": "Apache-2.0",
+        "mAP": 53.4,
+        "fps": 1.1
+      },
+      {
+        "model": "rtdetrv2-r34",
+        "displayName": "RT-DETRv2-R34",
+        "license": "Apache-2.0",
+        "mAP": 53.2,
+        "fps": 0.6
+      },
+      {
+        "model": "deimv2-s",
+        "displayName": "DEIMv2-S",
+        "license": "Apache-2.0",
+        "mAP": 53.0,
+        "fps": 0.8
+      },
+      {
+        "model": "rtdetrv4-s",
+        "displayName": "RT-DETRv4-S",
+        "license": "Apache-2.0",
+        "mAP": 52.8,
+        "fps": 1.1
+      },
+      {
+        "model": "rtdetr-r34",
+        "displayName": "RT-DETR-R34",
+        "license": "Apache-2.0",
+        "mAP": 52.2,
+        "fps": 0.6
+      },
+      {
+        "model": "deim-s",
+        "displayName": "DEIM-S",
+        "license": "Apache-2.0",
+        "mAP": 52.1,
+        "fps": 1.1
+      },
+      {
+        "model": "rfdetr-n",
+        "displayName": "RF-DETR-N",
+        "license": "Apache-2.0",
+        "mAP": 51.4,
+        "fps": 2.1
+      },
+      {
+        "model": "yolox-m",
+        "displayName": "YOLOX-M",
+        "license": "Apache-2.0",
+        "mAP": 50.9,
+        "fps": 0.8
+      },
+      {
+        "model": "rtdetrv2-r18",
+        "displayName": "RT-DETRv2-R18",
+        "license": "Apache-2.0",
+        "mAP": 50.8,
+        "fps": 0.8
+      },
+      {
+        "model": "rtdetr-r18",
+        "displayName": "RT-DETR-R18",
+        "license": "Apache-2.0",
+        "mAP": 49.7,
+        "fps": 0.8
+      },
+      {
+        "model": "yolov9s",
+        "displayName": "YOLOv9-S",
+        "license": "MIT",
+        "mAP": 49.4,
+        "fps": 1.4
+      },
+      {
+        "model": "deim-n",
+        "displayName": "DEIM-N",
+        "license": "Apache-2.0",
+        "mAP": 46.8,
+        "fps": 2.3
+      },
+      {
+        "model": "deimv2-n",
+        "displayName": "DEIMv2-N",
+        "license": "Apache-2.0",
+        "mAP": 46.7,
+        "fps": 2.4
+      },
+      {
+        "model": "dfine-n",
+        "displayName": "D-FINE-N",
+        "license": "Apache-2.0",
+        "mAP": 45.8,
+        "fps": 2.3
+      },
+      {
+        "model": "picodet-l",
+        "displayName": "PicoDet-L",
+        "license": "Apache-2.0",
+        "mAP": 44.2,
+        "fps": 1.9
+      },
+      {
+        "model": "yolox-s",
+        "displayName": "YOLOX-S",
+        "license": "Apache-2.0",
+        "mAP": 43.0,
+        "fps": 1.6
+      },
+      {
+        "model": "deimv2-pico",
+        "displayName": "DEIMv2-Pico",
+        "license": "Apache-2.0",
+        "mAP": 42.2,
+        "fps": 2.9
+      },
+      {
+        "model": "yolov9t",
+        "displayName": "YOLOv9-T",
+        "license": "MIT",
+        "mAP": 41.4,
+        "fps": 2.9
+      },
+      {
+        "model": "picodet-m",
+        "displayName": "PicoDet-M",
+        "license": "Apache-2.0",
+        "mAP": 37.6,
+        "fps": 5.0
+      },
+      {
+        "model": "yolox-tiny",
+        "displayName": "YOLOX-Tiny",
+        "license": "Apache-2.0",
+        "mAP": 35.1,
+        "fps": 5.5
+      },
+      {
+        "model": "deimv2-femto",
+        "displayName": "DEIMv2-Femto",
+        "license": "Apache-2.0",
+        "mAP": 34.5,
+        "fps": 7.4
+      },
+      {
+        "model": "picodet-s",
+        "displayName": "PicoDet-S",
+        "license": "Apache-2.0",
+        "mAP": 29.5,
+        "fps": 10.5
+      },
+      {
+        "model": "yolox-nano",
+        "displayName": "YOLOX-Nano",
+        "license": "Apache-2.0",
+        "mAP": 28.8,
+        "fps": 8.6
+      },
+      {
+        "model": "deimv2-atto",
+        "displayName": "DEIMv2-Atto",
+        "license": "Apache-2.0",
+        "mAP": 27.5,
+        "fps": 12.7
+      }
+    ]
+  },
+  "claims": [
+    {
+      "id": "alt_yolonas-m",
+      "kind": "license",
+      "statement": "RF-DETR-S (Apache-2.0) matches YOLO-NAS-M (non-permissive) within 0.3 mAP points on Raspberry Pi 5: 55.1 vs 55.4 mAP, 1.0 vs 0.5 FPS.",
+      "values": {
+        "model": "yolonas-m",
+        "displayName": "YOLO-NAS-M",
+        "license": "non-permissive",
+        "mAP": 55.4,
+        "fps": 0.5,
+        "alternative": {
+          "model": "rfdetr-s",
+          "displayName": "RF-DETR-S",
+          "license": "Apache-2.0",
+          "mAP": 55.1,
+          "fps": 1.0,
+          "mAP_gap_pts": -0.3
+        }
+      },
+      "passed": true,
+      "strength": "strong"
+    },
+    {
+      "id": "alt_yolonas-s",
+      "kind": "license",
+      "statement": "RF-DETR-N (Apache-2.0) matches YOLO-NAS-S (non-permissive) within 0.4 mAP points on Raspberry Pi 5: 51.4 vs 51.8 mAP, 2.1 vs 0.9 FPS.",
+      "values": {
+        "model": "yolonas-s",
+        "displayName": "YOLO-NAS-S",
+        "license": "non-permissive",
+        "mAP": 51.8,
+        "fps": 0.9,
+        "alternative": {
+          "model": "rfdetr-n",
+          "displayName": "RF-DETR-N",
+          "license": "Apache-2.0",
+          "mAP": 51.4,
+          "fps": 2.1,
+          "mAP_gap_pts": -0.4
+        }
+      },
+      "passed": true,
+      "strength": "strong"
+    }
+  ],
+  "gate": {
+    "passed": true,
+    "passed_claims": 2,
+    "required": 2,
+    "reason": null
+  },
+  "allowed_numbers": [
+    -0.4,
+    -0.3,
+    0.001,
+    0.3,
+    0.4,
+    0.5,
+    0.6,
+    0.8,
+    0.9,
+    1.0,
+    1.1,
+    1.4,
+    1.6,
+    1.9,
+    2.0,
+    2.1,
+    2.3,
+    2.4,
+    2.9,
+    3,
+    4,
+    5.0,
+    5.5,
+    6,
+    7,
+    7.4,
+    8,
+    8.6,
+    9,
+    10,
+    10.5,
+    11,
+    12,
+    12.7,
+    27.5,
+    28.8,
+    29.5,
+    30.0,
+    34.5,
+    35.1,
+    37.6,
+    40.0,
+    41.4,
+    42.2,
+    43.0,
+    44.2,
+    45.8,
+    46.7,
+    46.8,
+    48.0,
+    49.4,
+    49.7,
+    50.0,
+    50.8,
+    50.9,
+    51.4,
+    51.8,
+    52.1,
+    52.2,
+    52.8,
+    53.0,
+    53.2,
+    53.4,
+    53.8,
+    53.9,
+    54.3,
+    54.8,
+    55.1,
+    55.3,
+    55.4,
+    55.7,
+    55.8,
+    55.9,
+    56.0,
+    56.4,
+    56.5,
+    57.4,
+    57.8,
+    58.4,
+    58.6,
+    60.0,
+    60.1,
+    61.1,
+    61.3,
+    75,
+    80.0,
+    90.0,
+    95,
+    100.0,
+    300,
+    500,
+    640,
+    5000
+  ]
+}

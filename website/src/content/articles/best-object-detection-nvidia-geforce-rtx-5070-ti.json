@@ -1,0 +1,57 @@
+{
+  "slug": "best-object-detection-nvidia-geforce-rtx-5070-ti",
+  "type": "hardware-guide",
+  "title": "Best object detection models for RTX 5070 Ti (2026)",
+  "dek": "On the RTX 5070 Ti with TensorRT FP16, D-FINE-X leads at 61.5 mAP and RT-DETRv2-R34 runs fastest at 132.9 FPS. Accuracy is the deciding axis.",
+  "date": "2026-07-03",
+  "author": "Vision Analysis",
+  "readingMinutes": 3,
+  "tags": ["hardware-guide", "desktop-gpu", "rtx-5070-ti", "tensorrt"],
+  "status": "published",
+  "claimsFile": "article-pipeline/v2/output/best-object-detection-nvidia-geforce-rtx-5070-ti.claims.json",
+  "blocks": [
+    {
+      "kind": "verdict",
+      "text": "On the NVIDIA RTX 5070 Ti with TensorRT FP16, D-FINE-X leads accuracy at 61.5 mAP@50-95 and runs 73.0 FPS. The fastest measured model is RT-DETRv2-R34 at 132.9 FPS (53.2 mAP). Every model in this table clears real time on this card, so accuracy is the deciding axis, not speed. mAP is shown here in percent form."
+    },
+    {
+      "kind": "prose",
+      "text": "Every row below is TensorRT FP16 on the RTX 5070 Ti. On a desktop GPU this fast, the speed table stops being the constraint: even the largest detectors run well above 30 FPS. That makes the accuracy table the one that matters, with the speed table only ruling out the few models you cannot afford at your target frame rate."
+    },
+    {
+      "kind": "ranking-table",
+      "hardware": "nvidia_geforce_rtx_5070_ti",
+      "runtime": "tensorrt_fp16",
+      "metric": "mAP_50_95",
+      "limit": 15,
+      "caption": "Top detectors by COCO val2017 mAP@50-95 on RTX 5070 Ti (TensorRT FP16)."
+    },
+    {
+      "kind": "heading",
+      "text": "The accuracy-speed frontier"
+    },
+    {
+      "kind": "prose",
+      "text": "The measured frontier is short: RT-DETRv2-R34, RT-DETR-L, RT-DETR-R101, RT-DETRv2-R101, RT-DETR-X, D-FINE-X. It spans 53.2 to 61.5 mAP. The small detectors do not earn a spot on this GPU: they save little wall-clock time over these models, so a larger model matches their frame rate at higher accuracy."
+    },
+    {
+      "kind": "ranking-table",
+      "hardware": "nvidia_geforce_rtx_5070_ti",
+      "runtime": "tensorrt_fp16",
+      "metric": "throughputFps",
+      "limit": 10,
+      "caption": "Fastest detectors on RTX 5070 Ti (TensorRT FP16), by throughput."
+    },
+    {
+      "kind": "heading",
+      "text": "Picks by latency budget"
+    },
+    {
+      "kind": "prose",
+      "text": "Under 10 ms per image, RT-DETR-L is the most accurate fit at 55.8 mAP (8.2 ms). Give it a 33 ms budget and D-FINE-X reaches the top of the table at 61.5 mAP (13.7 ms); a 100 ms budget does not change that pick. On this card even the accuracy leader fits inside a single 33 ms frame."
+    },
+    {
+      "kind": "methodology"
+    }
+  ]
+}

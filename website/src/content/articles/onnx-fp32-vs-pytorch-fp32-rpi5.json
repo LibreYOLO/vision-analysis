@@ -1,0 +1,57 @@
+{
+  "slug": "onnx-fp32-vs-pytorch-fp32-rpi5",
+  "type": "runtime-guide",
+  "title": "ONNX FP32 vs PyTorch FP32 on Raspberry Pi 5: 48 models",
+  "dek": "ONNX Runtime FP32 gives a median 1.57x speedup over PyTorch FP32 across 48 models on Raspberry Pi 5, but it costs accuracy and one model runs slower.",
+  "date": "2026-07-03",
+  "author": "Vision Analysis",
+  "readingMinutes": 3,
+  "tags": ["runtime-guide", "onnx", "raspberry-pi", "edge"],
+  "status": "published",
+  "claimsFile": "article-pipeline/v2/output/onnx-fp32-vs-pytorch-fp32-rpi5.claims.json",
+  "blocks": [
+    {
+      "kind": "verdict",
+      "text": "Across 48 models on Raspberry Pi 5, ONNX Runtime FP32 gives a median 1.57x over PyTorch FP32, ranging from 0.92x to 2.49x. The biggest gain is YOLOX-Nano at 2.49x, from 8.6 to 21.3 FPS. Accuracy is not free here: 9 models lose more than half a point of mAP, and one model, PicoDet-L, runs slower on ONNX than on PyTorch."
+    },
+    {
+      "kind": "prose",
+      "text": "PyTorch FP32 is the reference runtime. ONNX Runtime FP32 is the common first step off PyTorch on a CPU device. This compares both on the same 48 models, same COCO protocol, same board: a Raspberry Pi 5 running on bare CPU."
+    },
+    {
+      "kind": "speedup-table",
+      "hardware": "rpi5",
+      "baseline": "pytorch_fp32",
+      "target": "onnx_fp32",
+      "limit": 15,
+      "caption": "Per-model FPS under PyTorch FP32 and ONNX Runtime FP32 on Raspberry Pi 5, with speedup and mAP delta. Top 15 by speedup."
+    },
+    {
+      "kind": "heading",
+      "text": "Speedup varies by family"
+    },
+    {
+      "kind": "prose",
+      "text": "Conversion gain depends on the model family. DEIMv2 gains a median 1.87x, the most of any family. ECDet gains 1.07x, the least. On a CPU board the spread is narrow: most families cluster near the 1.57x median."
+    },
+    {
+      "kind": "heading",
+      "text": "Accuracy"
+    },
+    {
+      "kind": "prose",
+      "text": "mAP is shown in percent form. ONNX conversion costs accuracy on this board. 9 of the 48 models lose more than half a point of mAP. YOLOv9-M drops the most at 1.7 points, from 55.3 to 53.6. The losses land on the YOLOX, YOLOv9, and PicoDet families; every other family held its accuracy."
+    },
+    {
+      "kind": "heading",
+      "text": "The one regression"
+    },
+    {
+      "kind": "prose",
+      "text": "One model ran slower on ONNX than on PyTorch: PicoDet-L, at 0.92x. It dropped from 1.9 to 1.7 FPS and also lost 1.5 mAP, from 44.2 to 42.7. It is the only conversion on this board that costs both speed and accuracy. We did not determine the cause; the row is measured, not modeled."
+    },
+    {
+      "kind": "methodology"
+    }
+  ]
+}

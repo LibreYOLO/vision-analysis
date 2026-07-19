@@ -1,0 +1,57 @@
+{
+  "slug": "onnx-fp32-vs-pytorch-fp32-nvidia-geforce-rtx-5070-ti",
+  "type": "runtime-guide",
+  "title": "ONNX FP32 vs PyTorch FP32 on RTX 5070 Ti: 55 models",
+  "dek": "ONNX Runtime FP32 gives a median 1.92x speedup over PyTorch FP32 across 55 models on the RTX 5070 Ti, with no accuracy loss and only one model slower.",
+  "date": "2026-07-03",
+  "author": "Vision Analysis",
+  "readingMinutes": 3,
+  "tags": ["runtime-guide", "onnx", "rtx-5070-ti", "desktop-gpu"],
+  "status": "published",
+  "claimsFile": "article-pipeline/v2/output/onnx-fp32-vs-pytorch-fp32-nvidia-geforce-rtx-5070-ti.claims.json",
+  "blocks": [
+    {
+      "kind": "verdict",
+      "text": "Across 55 models on the NVIDIA RTX 5070 Ti, ONNX Runtime FP32 gives a median 1.92x over PyTorch FP32, ranging from 0.87x to 2.71x. The biggest gain is DEIM-L at 2.71x, from 18.6 to 50.5 FPS. Because precision does not change, no model loses accuracy, and only one model runs slower. It is a low-risk speedup when you do not want to touch mAP. mAP is shown in percent form."
+    },
+    {
+      "kind": "prose",
+      "text": "PyTorch FP32 is the reference runtime. ONNX Runtime FP32 keeps the same precision and runs the exported graph. This compares both on the same 55 models, same COCO protocol, same device: an NVIDIA RTX 5070 Ti."
+    },
+    {
+      "kind": "speedup-table",
+      "hardware": "nvidia_geforce_rtx_5070_ti",
+      "baseline": "pytorch_fp32",
+      "target": "onnx_fp32",
+      "limit": 15,
+      "caption": "Per-model FPS under PyTorch FP32 and ONNX Runtime FP32 on RTX 5070 Ti, with speedup and mAP delta. Top 15 by speedup."
+    },
+    {
+      "kind": "heading",
+      "text": "Speedup varies by family"
+    },
+    {
+      "kind": "prose",
+      "text": "Conversion gain depends on the model family. D-FINE gains a median 2.29x, the most here. PicoDet gains only 1.02x, effectively flat. The DETR-style families cluster around 2x, while the YOLOX models gain the least outside PicoDet. Set your speedup expectation by family, not by the single global median."
+    },
+    {
+      "kind": "heading",
+      "text": "Accuracy holds"
+    },
+    {
+      "kind": "prose",
+      "text": "Because ONNX FP32 keeps full precision, no model loses more than half a point of mAP through the export. The accuracy numbers match the PyTorch baseline within measurement noise. That is the appeal on this card: you get most of a 2x speedup without spending any accuracy to get it."
+    },
+    {
+      "kind": "heading",
+      "text": "One model runs slower"
+    },
+    {
+      "kind": "prose",
+      "text": "The single exception is PicoDet-L, which regresses to 0.87x, dropping from 39.5 to 34.2 FPS. It is the only model in the set that ends up slower than its PyTorch baseline. Every other model gains, but this is the reason to confirm your own model before shipping the ONNX path."
+    },
+    {
+      "kind": "methodology"
+    }
+  ]
+}

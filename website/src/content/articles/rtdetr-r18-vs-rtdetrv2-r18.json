@@ -1,0 +1,103 @@
+{
+  "slug": "rtdetr-r18-vs-rtdetrv2-r18",
+  "type": "vs",
+  "title": "RT-DETR-R18 vs RT-DETRv2-R18: benchmark",
+  "dek": "On the same COCO protocol, RT-DETRv2-R18 measures 0.9 mAP points higher than RT-DETR-R18 and runs 51.1 FPS to 47.2 on desktop GPU.",
+  "date": "2026-07-03",
+  "author": "Vision Analysis",
+  "readingMinutes": 4,
+  "tags": [
+    "comparison",
+    "rtdetr",
+    "rtdetrv2",
+    "detr"
+  ],
+  "status": "draft",
+  "claimsFile": "article-pipeline/v2/output/rtdetr-r18-vs-rtdetrv2-r18.claims.json",
+  "blocks": [
+    {
+      "kind": "verdict",
+      "text": "RT-DETRv2-R18 improves on RT-DETR-R18 on both axes: 50.7 vs 49.8 mAP@50-95 and 51.1 vs 47.2 FPS on an RTX 5070 Ti in PyTorch. The two share 20.18M parameters and the same peak VRAM. The v2 revision is a small gain at no measured cost."
+    },
+    {
+      "kind": "prose",
+      "text": "RT-DETRv2-R18 (released 2024-05-01) is the second version; RT-DETR-R18 (2023-04-17) is the original. Both are Apache-2.0 and evaluated at 640 px with the same parameter count, so the comparison isolates what v2 changed."
+    },
+    {
+      "kind": "comparison-table",
+      "models": [
+        "rtdetr-r18",
+        "rtdetrv2-r18"
+      ],
+      "hardware": "nvidia_geforce_rtx_5070_ti",
+      "runtime": "pytorch_fp32"
+    },
+    {
+      "kind": "chart",
+      "src": "/embed/scatter?highlight=rtdetr-r18,rtdetrv2-r18",
+      "caption": "Accuracy vs parameters on COCO val2017. RT-DETR-R18 and RT-DETRv2-R18 highlighted against the full field."
+    },
+    {
+      "kind": "heading",
+      "text": "Accuracy"
+    },
+    {
+      "kind": "prose",
+      "text": "mAP is shown in percent form. RT-DETRv2-R18 measures 50.7 mAP@50-95 to RT-DETR-R18's 49.8, a 0.9 point gain, and it holds a slim edge on small objects: 33.5 vs 32.7 mAP_small. The accuracy improvement is real but narrow."
+    },
+    {
+      "kind": "heading",
+      "text": "Speed"
+    },
+    {
+      "kind": "prose",
+      "text": "In PyTorch on the RTX 5070 Ti, RT-DETRv2-R18 runs 51.1 FPS to RT-DETR-R18's 47.2, 7.68% faster. The edge carries across runtimes: 125.5 vs 120.6 FPS on TensorRT FP32, 97.1 vs 92.5 FPS on ONNX Runtime. On Jetson Orin the two are level near 10 FPS."
+    },
+    {
+      "kind": "callout",
+      "text": "The verdict holds. RT-DETRv2-R18 leads on both accuracy and speed across 4 runtimes and 3 hardware platforms with verified data, from the RTX 5070 Ti to the Raspberry Pi 5."
+    },
+    {
+      "kind": "kv",
+      "title": "License and provenance",
+      "items": [
+        {
+          "k": "RT-DETR-R18 license",
+          "v": "Apache-2.0"
+        },
+        {
+          "k": "RT-DETRv2-R18 license",
+          "v": "Apache-2.0"
+        },
+        {
+          "k": "RT-DETR-R18 release",
+          "v": "2023-04-17"
+        },
+        {
+          "k": "RT-DETRv2-R18 release",
+          "v": "2024-05-01"
+        },
+        {
+          "k": "Evaluated weights",
+          "v": "LibreYOLO retrained checkpoints"
+        }
+      ]
+    },
+    {
+      "kind": "heading",
+      "text": "When to pick which"
+    },
+    {
+      "kind": "prose",
+      "text": "Pick RT-DETRv2-R18 for new deployments: it is more accurate and faster than RT-DETR-R18 at the same size and memory. Pick RT-DETR-R18 only if it is already integrated and the sub-one-point accuracy gain does not justify a swap. Both are Apache-2.0."
+    },
+    {
+      "kind": "code",
+      "language": "python",
+      "text": "# pip install libreyolo\nfrom libreyolo import LibreYOLO\n\nrtdetr = LibreYOLO(\"LibreRTDETRr18.pt\")      # 20.18M params, 49.8 mAP@50-95\nrtdetrv2 = LibreYOLO(\"LibreRTDETRv2r18.pt\")  # 20.18M params, 50.7 mAP@50-95\n\nresults = rtdetrv2(\"image.jpg\")\n"
+    },
+    {
+      "kind": "methodology"
+    }
+  ]
+}

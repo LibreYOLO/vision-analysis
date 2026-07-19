@@ -1,0 +1,264 @@
+{
+  "engine": "article-pipeline-v2",
+  "generated_at": "2026-07-03T22:09:29.019496+00:00",
+  "slug": "permissive-license-detection-models-a100",
+  "meta": {
+    "type": "license-guide",
+    "hardware": "a100",
+    "runtime": "pytorch_fp32"
+  },
+  "facts": {
+    "hardware": "a100",
+    "hardware_display": "NVIDIA A100",
+    "runtime": "pytorch_fp32",
+    "runtime_display": "PyTorch FP32",
+    "n_permissive": 10,
+    "n_nonpermissive": 3,
+    "matchups": [
+      {
+        "model": "yolonas-l",
+        "displayName": "YOLO-NAS-L",
+        "license": "non-permissive",
+        "mAP": 51.2,
+        "fps": 16.6,
+        "alternative": {
+          "model": "rtdetr-r50m",
+          "displayName": "RT-DETR-R50m",
+          "license": "Apache-2.0",
+          "mAP": 50.8,
+          "fps": 25.1,
+          "mAP_gap_pts": -0.4
+        }
+      },
+      {
+        "model": "yolonas-m",
+        "displayName": "YOLO-NAS-M",
+        "license": "non-permissive",
+        "mAP": 50.5,
+        "fps": 17.0,
+        "alternative": {
+          "model": "rtdetr-r50m",
+          "displayName": "RT-DETR-R50m",
+          "license": "Apache-2.0",
+          "mAP": 50.8,
+          "fps": 25.1,
+          "mAP_gap_pts": 0.3
+        }
+      },
+      {
+        "model": "yolonas-s",
+        "displayName": "YOLO-NAS-S",
+        "license": "non-permissive",
+        "mAP": 46.5,
+        "fps": 16.6,
+        "alternative": {
+          "model": "rtdetr-r34",
+          "displayName": "RT-DETR-R34",
+          "license": "Apache-2.0",
+          "mAP": 48.2,
+          "fps": 27.8,
+          "mAP_gap_pts": 1.7
+        }
+      }
+    ],
+    "permissive_leaderboard": [
+      {
+        "model": "dfine-x",
+        "displayName": "D-FINE-X",
+        "license": "Apache-2.0",
+        "mAP": 59.3,
+        "fps": 15.4
+      },
+      {
+        "model": "dfine-l",
+        "displayName": "D-FINE-L",
+        "license": "Apache-2.0",
+        "mAP": 57.2,
+        "fps": 17.1
+      },
+      {
+        "model": "dfine-m",
+        "displayName": "D-FINE-M",
+        "license": "Apache-2.0",
+        "mAP": 55.1,
+        "fps": 21.7
+      },
+      {
+        "model": "rtdetr-r101",
+        "displayName": "RT-DETR-R101",
+        "license": "Apache-2.0",
+        "mAP": 53.9,
+        "fps": 18.6
+      },
+      {
+        "model": "rtdetr-r50",
+        "displayName": "RT-DETR-R50",
+        "license": "Apache-2.0",
+        "mAP": 52.7,
+        "fps": 22.7
+      },
+      {
+        "model": "rtdetr-r50m",
+        "displayName": "RT-DETR-R50m",
+        "license": "Apache-2.0",
+        "mAP": 50.8,
+        "fps": 25.1
+      },
+      {
+        "model": "dfine-s",
+        "displayName": "D-FINE-S",
+        "license": "Apache-2.0",
+        "mAP": 50.7,
+        "fps": 24.0
+      },
+      {
+        "model": "rtdetr-r34",
+        "displayName": "RT-DETR-R34",
+        "license": "Apache-2.0",
+        "mAP": 48.2,
+        "fps": 27.8
+      },
+      {
+        "model": "rtdetr-r18",
+        "displayName": "RT-DETR-R18",
+        "license": "Apache-2.0",
+        "mAP": 45.6,
+        "fps": 27.4
+      },
+      {
+        "model": "dfine-n",
+        "displayName": "D-FINE-N",
+        "license": "Apache-2.0",
+        "mAP": 42.8,
+        "fps": 25.6
+      }
+    ]
+  },
+  "claims": [
+    {
+      "id": "alt_yolonas-l",
+      "kind": "license",
+      "statement": "RT-DETR-R50m (Apache-2.0) matches YOLO-NAS-L (non-permissive) within 0.4 mAP points on NVIDIA A100: 50.8 vs 51.2 mAP, 25.1 vs 16.6 FPS.",
+      "values": {
+        "model": "yolonas-l",
+        "displayName": "YOLO-NAS-L",
+        "license": "non-permissive",
+        "mAP": 51.2,
+        "fps": 16.6,
+        "alternative": {
+          "model": "rtdetr-r50m",
+          "displayName": "RT-DETR-R50m",
+          "license": "Apache-2.0",
+          "mAP": 50.8,
+          "fps": 25.1,
+          "mAP_gap_pts": -0.4
+        }
+      },
+      "passed": true,
+      "strength": "strong"
+    },
+    {
+      "id": "alt_yolonas-m",
+      "kind": "license",
+      "statement": "RT-DETR-R50m (Apache-2.0) matches YOLO-NAS-M (non-permissive) within 0.3 mAP points on NVIDIA A100: 50.8 vs 50.5 mAP, 25.1 vs 17.0 FPS.",
+      "values": {
+        "model": "yolonas-m",
+        "displayName": "YOLO-NAS-M",
+        "license": "non-permissive",
+        "mAP": 50.5,
+        "fps": 17.0,
+        "alternative": {
+          "model": "rtdetr-r50m",
+          "displayName": "RT-DETR-R50m",
+          "license": "Apache-2.0",
+          "mAP": 50.8,
+          "fps": 25.1,
+          "mAP_gap_pts": 0.3
+        }
+      },
+      "passed": true,
+      "strength": "strong"
+    },
+    {
+      "id": "alt_yolonas-s",
+      "kind": "license",
+      "statement": "RT-DETR-R34 (Apache-2.0) matches YOLO-NAS-S (non-permissive) within 1.7 mAP points on NVIDIA A100: 48.2 vs 46.5 mAP, 27.8 vs 16.6 FPS.",
+      "values": {
+        "model": "yolonas-s",
+        "displayName": "YOLO-NAS-S",
+        "license": "non-permissive",
+        "mAP": 46.5,
+        "fps": 16.6,
+        "alternative": {
+          "model": "rtdetr-r34",
+          "displayName": "RT-DETR-R34",
+          "license": "Apache-2.0",
+          "mAP": 48.2,
+          "fps": 27.8,
+          "mAP_gap_pts": 1.7
+        }
+      },
+      "passed": true,
+      "strength": "strong"
+    }
+  ],
+  "gate": {
+    "passed": true,
+    "passed_claims": 3,
+    "required": 2,
+    "reason": null
+  },
+  "allowed_numbers": [
+    -0.4,
+    0.001,
+    0.3,
+    0.6,
+    1,
+    1.7,
+    2,
+    3.0,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10.0,
+    11,
+    12,
+    15.4,
+    16.6,
+    17.0,
+    17.1,
+    18.6,
+    21.7,
+    22.7,
+    24.0,
+    25.1,
+    25.6,
+    27.4,
+    27.8,
+    30.0,
+    42.8,
+    45.6,
+    46.5,
+    48.2,
+    50,
+    50.5,
+    50.7,
+    50.8,
+    51.2,
+    52.7,
+    53.9,
+    55.1,
+    57.2,
+    59.3,
+    75,
+    95,
+    100,
+    300,
+    500,
+    640,
+    5000
+  ]
+}

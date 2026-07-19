@@ -1,0 +1,48 @@
+{
+  "slug": "tensorrt-fp16-slower-than-fp32-rtx-5070-ti",
+  "type": "finding",
+  "title": "TensorRT FP16 slower than FP32 on the RTX 5070 Ti",
+  "dek": "On an RTX 5070 Ti, TensorRT FP16 measured slower than FP32 for many models: D-FINE-N ran 79.7 FPS against 98.7 on FP32.",
+  "date": "2026-07-03",
+  "author": "Vision Analysis",
+  "readingMinutes": 3,
+  "tags": ["finding", "tensorrt", "benchmark"],
+  "status": "published",
+  "claimsFile": "article-pipeline/v2/output/finding-scan.claims.json",
+  "blocks": [
+    {
+      "kind": "verdict",
+      "text": "On an RTX 5070 Ti, converting to TensorRT FP16 does not always beat TensorRT FP32. For a wide set of detection models, FP16 runs slower. D-FINE-N drops from 98.7 to 79.7 FPS. ECDet-S drops from 63.4 to 43.5 FPS. The effect spans nano through extra-large variants."
+    },
+    {
+      "kind": "prose",
+      "text": "The table below covers every model on the RTX 5070 Ti where TensorRT FP16 throughput came in under TensorRT FP32, with both figures and the mAP change side by side. mAP is shown in percent form. Some gaps are small: DEIMv2-X moves from 38.1 to 37.9 FPS. Others are wide: D-FINE-S moves from 98.7 to 86.5, and DEIM-S from 97.6 to 82.4."
+    },
+    {
+      "kind": "speedup-table",
+      "hardware": "nvidia_geforce_rtx_5070_ti",
+      "baseline": "tensorrt_fp32",
+      "target": "tensorrt_fp16",
+      "limit": 15
+    },
+    {
+      "kind": "heading",
+      "text": "Which models and where"
+    },
+    {
+      "kind": "prose",
+      "text": "The regression appears across the YOLOv9, RF-DETR, D-FINE, DEIM, DEIMv2, RT-DETR, RT-DETRv4, ECDet, and YOLOX families. It is not tied to model size: YOLOv9-T at 59.0 FPS and DEIMv2-X at 37.9 FPS both regress. Every row here is on the RTX 5070 Ti. This finding does not extend to other hardware."
+    },
+    {
+      "kind": "heading",
+      "text": "What we did not determine"
+    },
+    {
+      "kind": "prose",
+      "text": "We did not determine why FP16 lands slower. We did not vary TensorRT version, driver, batch size, or input resolution beyond the fixed protocol. We did not measure whether the gap reproduces on a second card of the same model. The claim is narrow: on this GPU, at batch and resolution held fixed, FP16 measured slower than FP32 for these models."
+    },
+    {
+      "kind": "methodology"
+    }
+  ]
+}

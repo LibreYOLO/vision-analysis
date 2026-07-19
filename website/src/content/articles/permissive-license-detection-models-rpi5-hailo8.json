@@ -1,0 +1,73 @@
+{
+  "slug": "permissive-license-detection-models-rpi5-hailo8",
+  "type": "license-guide",
+  "title": "Commercially safe detection models for Pi 5 + Hailo-8",
+  "dek": "YOLO-NAS ships under a non-permissive license. On a Pi 5 with Hailo-8, YOLOv9-M (MIT) beats YOLO-NAS-L by 0.9 mAP at INT8.",
+  "date": "2026-07-03",
+  "author": "Vision Analysis",
+  "readingMinutes": 4,
+  "tags": ["license-guide", "hailo8", "permissive", "deployment"],
+  "status": "published",
+  "claimsFile": "article-pipeline/v2/output/permissive-license-detection-models-rpi5-hailo8.claims.json",
+  "blocks": [
+    {
+      "kind": "verdict",
+      "text": "YOLO-NAS ships under a non-permissive license that restricts commercial use. On a Raspberry Pi 5 with a Hailo-8, permissive models match it. All numbers here are INT8 on the NPU. YOLOv9-M (MIT) beats YOLO-NAS-L by 0.9 mAP: 53.3 vs 52.4 mAP, at 30.1 vs 15.4 FPS. It clears YOLO-NAS-M by 5.9 points. YOLOX-M lands just behind YOLO-NAS-S at 43.7 vs 44.5 mAP. The license is not a reason to accept YOLO-NAS here."
+    },
+    {
+      "kind": "prose",
+      "text": "License terms decide whether a model can ship in a commercial product. YOLO-NAS carries a non-permissive license from its authors. MIT and Apache-2.0 models carry no such restriction on use, modification, or redistribution. On the Hailo-8 NPU the permissive field covers the full YOLO-NAS range. These numbers are INT8, quantized for the accelerator. mAP is shown in percent form throughout."
+    },
+    {
+      "kind": "callout",
+      "text": "This is not legal advice. License names come from each model's upstream repository. Confirm the exact terms with the upstream project and your own counsel before you ship."
+    },
+    {
+      "kind": "heading",
+      "text": "Large and medium: YOLOv9-M covers both"
+    },
+    {
+      "kind": "prose",
+      "text": "YOLOv9-M reaches 53.3 mAP at 30.1 FPS on the Hailo-8. YOLO-NAS-L sits at 52.4 mAP at 15.4 FPS. YOLO-NAS-M drops to 47.4 mAP at 21.7 FPS. The MIT model leads YOLO-NAS-L by 0.9 mAP and YOLO-NAS-M by 5.9, and runs faster than both. One permissive model replaces two non-permissive ones."
+    },
+    {
+      "kind": "comparison-table",
+      "models": ["yolonas-l", "yolonas-m", "yolov9m"],
+      "hardware": "rpi5_hailo8",
+      "runtime": "hailo_int8"
+    },
+    {
+      "kind": "heading",
+      "text": "Small: YOLOX-M holds with YOLO-NAS-S"
+    },
+    {
+      "kind": "prose",
+      "text": "YOLOX-M reaches 43.7 mAP at 34.8 FPS on the Hailo-8. YOLO-NAS-S reaches 44.5 mAP at 39.7 FPS. The permissive model lands just behind at a comparable frame rate. In the small class the Apache-2.0 option is a close, license-clean substitute."
+    },
+    {
+      "kind": "comparison-table",
+      "models": ["yolonas-s", "yolox-m"],
+      "hardware": "rpi5_hailo8",
+      "runtime": "hailo_int8"
+    },
+    {
+      "kind": "heading",
+      "text": "The permissive leaderboard on the Hailo-8"
+    },
+    {
+      "kind": "prose",
+      "text": "Permissive alternatives cover the top of the field. YOLOv9-C tops the permissive leaderboard on the Hailo-8 at 54.8 mAP, above every YOLO-NAS variant measured. The table lists the permissive models with verified rows on this device, sorted by accuracy."
+    },
+    {
+      "kind": "ranking-table",
+      "hardware": "rpi5_hailo8",
+      "runtime": "hailo_int8",
+      "metric": "mAP_50_95",
+      "licenseFilter": "permissive",
+      "limit": 15
+    },
+    {
+      "kind": "methodology"
+    }
+  ]
+}

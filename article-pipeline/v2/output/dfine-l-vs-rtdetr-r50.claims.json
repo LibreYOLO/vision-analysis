@@ -1,0 +1,407 @@
+{
+  "engine": "article-pipeline-v2",
+  "generated_at": "2026-07-03T22:09:43.248665+00:00",
+  "slug": "dfine-l-vs-rtdetr-r50",
+  "meta": {
+    "type": "vs",
+    "a": "dfine-l",
+    "b": "rtdetr-r50",
+    "hardware": "nvidia_geforce_rtx_5070_ti",
+    "runtime": "pytorch_fp32"
+  },
+  "facts": {
+    "a": {
+      "id": "dfine-l",
+      "displayName": "D-FINE-L",
+      "license": "Apache-2.0",
+      "releaseDate": "2024-10-18",
+      "inLibreYOLO": true,
+      "bench": {
+        "mAP_50_95": 0.5996245426151996,
+        "mAP_50": 0.7707410623602181,
+        "mAP_small": 0.45942561116012665,
+        "mAP_medium": 0.651596755649647,
+        "mAP_large": 0.7515868250873818,
+        "fps_mean": 21.85,
+        "fps_p50": 21.75,
+        "ms_per_image": 45.771,
+        "inference_ms": 38.652,
+        "preprocess_ms": 6.029,
+        "postprocess_ms": 1.09,
+        "p95_ms": 50.628,
+        "peak_vram_mb": 245.2,
+        "peak_ram_mb": 3.7,
+        "params_millions": 31.24,
+        "gflops": 0.0,
+        "input_size": 640,
+        "config": {
+          "batch_size": 1,
+          "input_size": 640,
+          "conf": 0.001,
+          "iou": 0.6,
+          "max_det": 300
+        },
+        "eval": {
+          "dataset": "coco",
+          "split": "val2017",
+          "numImages": 500
+        },
+        "benchmark_date": "2026-06-16T21:46:44.881379Z"
+      }
+    },
+    "b": {
+      "id": "rtdetr-r50",
+      "displayName": "RT-DETR-R50",
+      "license": "Apache-2.0",
+      "releaseDate": "2023-04-17",
+      "inLibreYOLO": true,
+      "bench": {
+        "mAP_50_95": 0.5587851459971446,
+        "mAP_50": 0.730485227930135,
+        "mAP_small": 0.3826303200265574,
+        "mAP_medium": 0.6127541876937886,
+        "mAP_large": 0.7053415491294674,
+        "fps_mean": 29.76,
+        "fps_p50": 30.87,
+        "ms_per_image": 33.598,
+        "inference_ms": 29.052,
+        "preprocess_ms": 3.448,
+        "postprocess_ms": 1.099,
+        "p95_ms": 39.857,
+        "peak_vram_mb": 326.4,
+        "peak_ram_mb": 0.0,
+        "params_millions": 42.89,
+        "gflops": 0.0,
+        "input_size": 640,
+        "config": {
+          "batch_size": 1,
+          "input_size": 640,
+          "conf": 0.001,
+          "iou": 0.6,
+          "max_det": 300
+        },
+        "eval": {
+          "dataset": "coco",
+          "split": "val2017",
+          "numImages": 500
+        },
+        "benchmark_date": "2026-06-16T21:24:24.814896Z"
+      }
+    },
+    "primary": {
+      "hardware": "nvidia_geforce_rtx_5070_ti",
+      "hardware_display": "NVIDIA RTX 5070 Ti",
+      "runtime": "pytorch_fp32",
+      "runtime_display": "PyTorch FP32"
+    },
+    "deltas_pct": {
+      "mAP_50_95": 7.31,
+      "fps": -26.58,
+      "params": -27.16,
+      "flops": -33.09,
+      "peak_vram": -24.88
+    },
+    "map_pts": {
+      "a": 60.0,
+      "b": 55.9,
+      "delta": 4.1
+    },
+    "pair": {
+      "params_ratio": 1.37,
+      "meaningful": true
+    },
+    "efficiency": {
+      "a_mAP_per_GFLOP": 0.00659,
+      "b_mAP_per_GFLOP": 0.00411
+    },
+    "cross_runtime": [
+      {
+        "runtime": "onnx_fp32",
+        "display": "ONNX Runtime FP32",
+        "a": {
+          "mAP": 60.0,
+          "fps": 50.9
+        },
+        "b": {
+          "mAP": 55.9,
+          "fps": 62.8
+        }
+      },
+      {
+        "runtime": "pytorch_fp32",
+        "display": "PyTorch FP32",
+        "a": {
+          "mAP": 60.0,
+          "fps": 21.9
+        },
+        "b": {
+          "mAP": 55.9,
+          "fps": 29.8
+        }
+      },
+      {
+        "runtime": "tensorrt_fp16",
+        "display": "TensorRT FP16",
+        "a": {
+          "mAP": 60.0,
+          "fps": 69.3
+        },
+        "b": {
+          "mAP": 55.8,
+          "fps": 97.4
+        }
+      },
+      {
+        "runtime": "tensorrt_fp32",
+        "display": "TensorRT FP32",
+        "a": {
+          "mAP": 60.0,
+          "fps": 72.3
+        },
+        "b": {
+          "mAP": 55.8,
+          "fps": 87.4
+        }
+      }
+    ],
+    "cross_hardware": [
+      {
+        "hardware": "a100",
+        "display": "NVIDIA A100",
+        "a": {
+          "mAP": 57.2,
+          "fps": 17.1
+        },
+        "b": {
+          "mAP": 52.7,
+          "fps": 22.7
+        }
+      },
+      {
+        "hardware": "jetson_orin",
+        "display": "NVIDIA Jetson Orin Nano Super 8GB",
+        "a": {
+          "mAP": 60.0,
+          "fps": 4.7
+        },
+        "b": {
+          "mAP": 55.9,
+          "fps": 4.3
+        }
+      },
+      {
+        "hardware": "nvidia_geforce_rtx_5070_ti",
+        "display": "NVIDIA RTX 5070 Ti",
+        "a": {
+          "mAP": 60.0,
+          "fps": 21.9
+        },
+        "b": {
+          "mAP": 55.9,
+          "fps": 29.8
+        }
+      },
+      {
+        "hardware": "rpi5",
+        "display": "Raspberry Pi 5",
+        "a": {
+          "mAP": 60.0,
+          "fps": 0.4
+        },
+        "b": {
+          "mAP": 55.9,
+          "fps": 0.3
+        }
+      }
+    ],
+    "input_sizes": {
+      "a": 640,
+      "b": 640,
+      "match": true
+    }
+  },
+  "claims": [
+    {
+      "id": "accuracy_winner",
+      "kind": "accuracy",
+      "statement": "D-FINE-L measures 4.1 mAP points higher than RT-DETR-R50 on NVIDIA RTX 5070 Ti (PyTorch FP32): 60.0 vs 55.9 mAP@50-95.",
+      "values": {
+        "delta_pts": 4.1,
+        "a_map": 60.0,
+        "b_map": 55.9
+      },
+      "passed": true,
+      "strength": "strong"
+    },
+    {
+      "id": "speed_winner",
+      "kind": "speed",
+      "statement": "RT-DETR-R50 is 26.58% faster: 21.9 vs 29.8 FPS (45.77 vs 33.6 ms/image).",
+      "values": {
+        "delta_pct": 26.58,
+        "a_fps": 21.9,
+        "b_fps": 29.8
+      },
+      "passed": true,
+      "strength": "strong"
+    },
+    {
+      "id": "efficiency_winner",
+      "kind": "efficiency",
+      "statement": "D-FINE-L extracts 60.34% more mAP per GFLOP (0.00659 vs 0.00411).",
+      "values": {
+        "a": 0.00659,
+        "b": 0.00411,
+        "delta_pct": 60.34
+      },
+      "passed": true,
+      "strength": "normal"
+    },
+    {
+      "id": "memory_winner",
+      "kind": "memory",
+      "statement": "D-FINE-L uses less peak VRAM: 245 vs 326 MB.",
+      "values": {
+        "a_vram": 245,
+        "b_vram": 326
+      },
+      "passed": true,
+      "strength": "normal"
+    },
+    {
+      "id": "small_object_gap",
+      "kind": "accuracy",
+      "statement": "D-FINE-L leads on small objects: 45.9 vs 38.3 mAP_small (20.07% relative gap).",
+      "values": {
+        "a": 45.9,
+        "b": 38.3,
+        "delta_pct": 20.07
+      },
+      "passed": true,
+      "strength": "normal"
+    },
+    {
+      "id": "ranking_flip",
+      "kind": "robustness",
+      "statement": "The speed verdict does NOT survive everywhere. It flips on hardware: NVIDIA Jetson Orin Nano Super 8GB, hardware: Raspberry Pi 5. State this; it is the most useful fact in the article.",
+      "values": {
+        "flips": [
+          "hardware:NVIDIA Jetson Orin Nano Super 8GB",
+          "hardware:Raspberry Pi 5"
+        ]
+      },
+      "passed": true,
+      "strength": "strong"
+    }
+  ],
+  "gate": {
+    "passed": true,
+    "passed_claims": 6,
+    "required": 2,
+    "reason": null
+  },
+  "allowed_numbers": [
+    -33.09,
+    -27.16,
+    -26.58,
+    -24.88,
+    0.0,
+    0.001,
+    0.0041,
+    0.0066,
+    0.1,
+    0.3,
+    0.3826,
+    0.4,
+    0.411,
+    0.4594,
+    0.5588,
+    0.5996,
+    0.6,
+    0.6128,
+    0.6516,
+    0.659,
+    0.7053,
+    0.7305,
+    0.7516,
+    0.7707,
+    1.0,
+    1.09,
+    1.099,
+    1.37,
+    2,
+    3,
+    3.448,
+    3.7,
+    4,
+    4.1,
+    4.3,
+    4.7,
+    5,
+    6,
+    6.029,
+    7,
+    7.31,
+    8,
+    9,
+    10,
+    11,
+    12,
+    17.1,
+    20.07,
+    21.75,
+    21.85,
+    21.9,
+    22.7,
+    26.58,
+    29.052,
+    29.76,
+    29.8,
+    30.0,
+    30.87,
+    31.24,
+    33.598,
+    38.263,
+    38.3,
+    38.652,
+    39.857,
+    40.0,
+    42.89,
+    45.771,
+    45.9,
+    45.9426,
+    50,
+    50.628,
+    50.9,
+    52.7,
+    55.8,
+    55.8785,
+    55.9,
+    57.2,
+    59.9625,
+    60.0,
+    60.34,
+    61.2754,
+    62.8,
+    65.1597,
+    69.3,
+    70.5342,
+    72.3,
+    73.0485,
+    75,
+    75.1587,
+    77.0741,
+    87.4,
+    95,
+    97.4,
+    100.0,
+    245.0,
+    245.2,
+    300.0,
+    326.0,
+    326.4,
+    500.0,
+    640.0,
+    5000
+  ]
+}

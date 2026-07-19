@@ -173,8 +173,6 @@ function generateDraft(
 
   // Compute deltas if we have data
   const mapDelta = hasData ? benchB.mAP_50_95 - benchA.mAP_50_95 : 0;
-  const fpsDelta = hasData ? benchB.throughputFps / benchA.throughputFps : 0;
-
   return `<!DOCTYPE html>
 <html lang="en">
 <head>

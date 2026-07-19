@@ -1,0 +1,70 @@
+{
+  "slug": "yolov9-vs-yolox",
+  "type": "family-vs",
+  "title": "YOLOv9 vs YOLOX: which detector family wins",
+  "dek": "At matched compute YOLOv9 averages 5.3 mAP points more than YOLOX, while YOLOX runs 24.6% faster on an RTX 5070 Ti.",
+  "date": "2026-07-03",
+  "author": "Vision Analysis",
+  "readingMinutes": 4,
+  "tags": ["comparison", "family-vs", "yolov9", "yolox"],
+  "status": "published",
+  "claimsFile": "article-pipeline/v2/output/yolov9-vs-yolox.claims.json",
+  "blocks": [
+    {
+      "kind": "verdict",
+      "text": "At matched compute on an RTX 5070 Ti, YOLOv9 is the more accurate family: it averages 5.3 mAP points higher and wins all 3 nearest-parameter pairs. YOLOX answers on speed, running 24.6% faster on average in PyTorch. Neither family wins on both axes, so pick YOLOv9 for accuracy per parameter and YOLOX when raw throughput leads."
+    },
+    {
+      "kind": "prose",
+      "text": "YOLOv9 fields 4 measured variants; YOLOX fields 6. Both run the same COCO val2017 protocol at 640 px on an RTX 5070 Ti, so the two ladders line up by parameter count."
+    },
+    {
+      "kind": "family-frontier",
+      "familyA": "yolov9",
+      "familyB": "yolox",
+      "hardware": "nvidia_geforce_rtx_5070_ti",
+      "runtime": "pytorch_fp32"
+    },
+    {
+      "kind": "chart",
+      "src": "/embed/scatter?highlight=yolov9t,yolov9s,yolov9m,yolov9c,yolox-nano,yolox-tiny,yolox-s,yolox-m,yolox-l,yolox-x",
+      "caption": "Accuracy vs parameters on COCO val2017. Every YOLOv9 and YOLOX variant highlighted against the full set."
+    },
+    {
+      "kind": "heading",
+      "text": "Accuracy at matched compute"
+    },
+    {
+      "kind": "prose",
+      "text": "mAP is shown in percent. Pairing each YOLOv9 model with the nearest YOLOX model by parameter count, YOLOv9 wins all 3 pairs and averages 5.3 mAP points higher. At the top end YOLOv9-C reaches 57.1 mAP against YOLOX-X at 56.3. The gap is widest in the small class, where YOLOv9-S posts 50.4 mAP to YOLOX-S at 44.3."
+    },
+    {
+      "kind": "heading",
+      "text": "Speed"
+    },
+    {
+      "kind": "prose",
+      "text": "YOLOX is the faster family at matched compute: 24.6% faster on average in PyTorch FP32. Its smallest variant, YOLOX-Nano, runs 53.6 FPS at 0.91M parameters; YOLOv9-T runs 31.9 FPS at 2.04M. YOLOX trades accuracy for that throughput."
+    },
+    {
+      "kind": "kv",
+      "title": "Licensing",
+      "items": [
+        { "k": "YOLOv9", "v": "MIT (permissive)" },
+        { "k": "YOLOX", "v": "Apache-2.0 (permissive)" },
+        { "k": "Commercial use", "v": "Both families ship under permissive licenses" }
+      ]
+    },
+    {
+      "kind": "heading",
+      "text": "Which family to pick"
+    },
+    {
+      "kind": "prose",
+      "text": "Pick YOLOv9 when accuracy per parameter matters or when a size budget caps the model: it leads at every matched pair measured here. Pick YOLOX when throughput is the constraint and you can absorb the accuracy cost, or when you need the smallest possible model, down to 0.91M parameters. Both ship under permissive licenses, so licensing does not force the call. See the per-variant specs on the YOLOv9 and YOLOX model pages."
+    },
+    {
+      "kind": "methodology"
+    }
+  ]
+}

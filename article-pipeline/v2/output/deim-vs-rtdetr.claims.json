@@ -1,0 +1,401 @@
+{
+  "engine": "article-pipeline-v2",
+  "generated_at": "2026-07-03T22:28:19.642154+00:00",
+  "slug": "deim-vs-rtdetr",
+  "meta": {
+    "type": "family-vs",
+    "a": "deim",
+    "b": "rtdetr",
+    "hardware": "nvidia_geforce_rtx_5070_ti",
+    "runtime": "pytorch_fp32"
+  },
+  "facts": {
+    "families": {
+      "a": "deim",
+      "b": "rtdetr",
+      "a_display": "DEIM",
+      "b_display": "RT-DETR"
+    },
+    "primary": {
+      "hardware": "nvidia_geforce_rtx_5070_ti",
+      "hardware_display": "NVIDIA RTX 5070 Ti",
+      "runtime": "pytorch_fp32",
+      "runtime_display": "PyTorch FP32"
+    },
+    "a_frontier": [
+      {
+        "id": "deim-n",
+        "displayName": "DEIM-N",
+        "params": 3.78,
+        "mAP": 46.8,
+        "fps": 37.0,
+        "license": "Apache-2.0"
+      },
+      {
+        "id": "deim-s",
+        "displayName": "DEIM-S",
+        "params": 10.32,
+        "mAP": 52.1,
+        "fps": 33.4,
+        "license": "Apache-2.0"
+      },
+      {
+        "id": "deim-m",
+        "displayName": "DEIM-M",
+        "params": 19.59,
+        "mAP": 55.5,
+        "fps": 28.4,
+        "license": "Apache-2.0"
+      },
+      {
+        "id": "deim-l",
+        "displayName": "DEIM-L",
+        "params": 31.24,
+        "mAP": 57.8,
+        "fps": 18.6,
+        "license": "Apache-2.0"
+      },
+      {
+        "id": "deim-x",
+        "displayName": "DEIM-X",
+        "params": 62.62,
+        "mAP": 59.6,
+        "fps": 15.0,
+        "license": "Apache-2.0"
+      }
+    ],
+    "b_frontier": [
+      {
+        "id": "rtdetr-r18",
+        "displayName": "RT-DETR-R18",
+        "params": 20.18,
+        "mAP": 49.8,
+        "fps": 47.2,
+        "license": "Apache-2.0"
+      },
+      {
+        "id": "rtdetr-r34",
+        "displayName": "RT-DETR-R34",
+        "params": 31.44,
+        "mAP": 52.2,
+        "fps": 40.2,
+        "license": "Apache-2.0"
+      },
+      {
+        "id": "rtdetr-l",
+        "displayName": "RT-DETR-L",
+        "params": 32.93,
+        "mAP": 55.8,
+        "fps": 27.7,
+        "license": "Apache-2.0"
+      },
+      {
+        "id": "rtdetr-r50m",
+        "displayName": "RT-DETR-R50m",
+        "params": 36.59,
+        "mAP": 53.8,
+        "fps": 35.3,
+        "license": "Apache-2.0"
+      },
+      {
+        "id": "rtdetr-r50",
+        "displayName": "RT-DETR-R50",
+        "params": 42.89,
+        "mAP": 55.9,
+        "fps": 29.8,
+        "license": "Apache-2.0"
+      },
+      {
+        "id": "rtdetr-x",
+        "displayName": "RT-DETR-X",
+        "params": 67.37,
+        "mAP": 57.9,
+        "fps": 21.8,
+        "license": "Apache-2.0"
+      },
+      {
+        "id": "rtdetr-r101",
+        "displayName": "RT-DETR-R101",
+        "params": 76.56,
+        "mAP": 56.8,
+        "fps": 23.6,
+        "license": "Apache-2.0"
+      }
+    ],
+    "matched_pairs": [
+      {
+        "a": {
+          "id": "deim-m",
+          "displayName": "DEIM-M",
+          "params": 19.59,
+          "mAP": 55.5,
+          "fps": 28.4,
+          "license": "Apache-2.0"
+        },
+        "b": {
+          "id": "rtdetr-r18",
+          "displayName": "RT-DETR-R18",
+          "params": 20.18,
+          "mAP": 49.8,
+          "fps": 47.2,
+          "license": "Apache-2.0"
+        },
+        "mAP_delta_pts": 5.7,
+        "fps_delta_pct": -39.83
+      },
+      {
+        "a": {
+          "id": "deim-l",
+          "displayName": "DEIM-L",
+          "params": 31.24,
+          "mAP": 57.8,
+          "fps": 18.6,
+          "license": "Apache-2.0"
+        },
+        "b": {
+          "id": "rtdetr-r34",
+          "displayName": "RT-DETR-R34",
+          "params": 31.44,
+          "mAP": 52.2,
+          "fps": 40.2,
+          "license": "Apache-2.0"
+        },
+        "mAP_delta_pts": 5.6,
+        "fps_delta_pct": -53.73
+      },
+      {
+        "a": {
+          "id": "deim-x",
+          "displayName": "DEIM-X",
+          "params": 62.62,
+          "mAP": 59.6,
+          "fps": 15.0,
+          "license": "Apache-2.0"
+        },
+        "b": {
+          "id": "rtdetr-x",
+          "displayName": "RT-DETR-X",
+          "params": 67.37,
+          "mAP": 57.9,
+          "fps": 21.8,
+          "license": "Apache-2.0"
+        },
+        "mAP_delta_pts": 1.7,
+        "fps_delta_pct": -31.19
+      }
+    ],
+    "aggregate": {
+      "n_pairs": 3,
+      "mean_mAP_delta_pts": 4.3,
+      "a_wins": 3,
+      "b_wins": 0,
+      "mean_fps_delta_pct": -41.6
+    },
+    "flagship": {
+      "a": {
+        "id": "deim-x",
+        "displayName": "DEIM-X",
+        "params": 62.62,
+        "mAP": 59.6,
+        "fps": 15.0,
+        "license": "Apache-2.0"
+      },
+      "b": {
+        "id": "rtdetr-r101",
+        "displayName": "RT-DETR-R101",
+        "params": 76.56,
+        "mAP": 56.8,
+        "fps": 23.6,
+        "license": "Apache-2.0"
+      }
+    },
+    "smallest": {
+      "a": {
+        "id": "deim-n",
+        "displayName": "DEIM-N",
+        "params": 3.78,
+        "mAP": 46.8,
+        "fps": 37.0,
+        "license": "Apache-2.0"
+      },
+      "b": {
+        "id": "rtdetr-r18",
+        "displayName": "RT-DETR-R18",
+        "params": 20.18,
+        "mAP": 49.8,
+        "fps": 47.2,
+        "license": "Apache-2.0"
+      }
+    },
+    "crossover": {
+      "low_param_leader": "deim",
+      "high_param_leader": "deim"
+    },
+    "license": {
+      "a_all_permissive": true,
+      "b_all_permissive": true
+    },
+    "chart_highlight": "deim-n,deim-s,deim-m,deim-l,deim-x,rtdetr-r18,rtdetr-r34,rtdetr-l,rtdetr-r50m,rtdetr-r50,rtdetr-x,rtdetr-r101"
+  },
+  "claims": [
+    {
+      "id": "family_accuracy_edge",
+      "kind": "accuracy",
+      "statement": "At matched compute, DEIM averages 4.3 mAP points higher across 3 paired variants on NVIDIA RTX 5070 Ti. DEIM wins 3, RT-DETR wins 0.",
+      "values": {
+        "mean_delta_pts": 4.3,
+        "a_wins": 3,
+        "b_wins": 0
+      },
+      "passed": true,
+      "strength": "strong"
+    },
+    {
+      "id": "family_speed_edge",
+      "kind": "speed",
+      "statement": "At matched compute, RT-DETR is 41.6% faster on average on NVIDIA RTX 5070 Ti (PyTorch FP32).",
+      "values": {
+        "mean_delta_pct": 41.6
+      },
+      "passed": true,
+      "strength": "strong"
+    },
+    {
+      "id": "flagship",
+      "kind": "accuracy",
+      "statement": "At the top end, DEIM's largest measured variant (DEIM-X) reaches 59.6 mAP; RT-DETR's (RT-DETR-R101) reaches 56.8 mAP.",
+      "values": {
+        "a": {
+          "id": "deim-x",
+          "displayName": "DEIM-X",
+          "params": 62.62,
+          "mAP": 59.6,
+          "fps": 15.0,
+          "license": "Apache-2.0"
+        },
+        "b": {
+          "id": "rtdetr-r101",
+          "displayName": "RT-DETR-R101",
+          "params": 76.56,
+          "mAP": 56.8,
+          "fps": 23.6,
+          "license": "Apache-2.0"
+        }
+      },
+      "passed": true,
+      "strength": "normal"
+    },
+    {
+      "id": "efficient_end",
+      "kind": "efficiency",
+      "statement": "At the small end, DEIM's DEIM-N (3.78M, 46.8 mAP, 37.0 FPS) faces RT-DETR's RT-DETR-R18 (20.18M, 49.8 mAP, 47.2 FPS).",
+      "values": {
+        "a": {
+          "id": "deim-n",
+          "displayName": "DEIM-N",
+          "params": 3.78,
+          "mAP": 46.8,
+          "fps": 37.0,
+          "license": "Apache-2.0"
+        },
+        "b": {
+          "id": "rtdetr-r18",
+          "displayName": "RT-DETR-R18",
+          "params": 20.18,
+          "mAP": 49.8,
+          "fps": 47.2,
+          "license": "Apache-2.0"
+        }
+      },
+      "passed": true,
+      "strength": "normal"
+    },
+    {
+      "id": "coverage",
+      "kind": "ranking",
+      "statement": "DEIM fields 5 measured variants, RT-DETR fields 7, all on the same protocol on NVIDIA RTX 5070 Ti.",
+      "values": {
+        "a_n": 5,
+        "b_n": 7
+      },
+      "passed": true,
+      "strength": "normal"
+    }
+  ],
+  "gate": {
+    "passed": true,
+    "passed_claims": 5,
+    "required": 2,
+    "reason": null
+  },
+  "allowed_numbers": [
+    -53.73,
+    -41.6,
+    -39.83,
+    -31.19,
+    0.0,
+    0.001,
+    0.6,
+    1,
+    1.7,
+    2,
+    3.0,
+    3.78,
+    4,
+    4.3,
+    5.0,
+    5.6,
+    5.7,
+    6,
+    7.0,
+    8,
+    9,
+    10,
+    10.32,
+    11,
+    12,
+    15.0,
+    18.6,
+    19.59,
+    20.18,
+    21.8,
+    23.6,
+    27.7,
+    28.4,
+    29.8,
+    31.24,
+    31.44,
+    32.93,
+    33.4,
+    35.3,
+    36.59,
+    37.0,
+    40.2,
+    41.6,
+    42.89,
+    46.8,
+    47.2,
+    49.8,
+    50,
+    52.1,
+    52.2,
+    53.8,
+    55.5,
+    55.8,
+    55.9,
+    56.8,
+    57.8,
+    57.9,
+    59.6,
+    62.62,
+    67.37,
+    75,
+    76.56,
+    95,
+    100,
+    300,
+    500,
+    640,
+    5000
+  ]
+}

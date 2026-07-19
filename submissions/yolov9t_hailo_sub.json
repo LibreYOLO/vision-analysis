@@ -1,0 +1,101 @@
+{
+  "schema_version": "va.submission.v1",
+  "submission_id": "yolov9t-hailo-int8-hailort-rpi5_hailo8-20260628T134218779826Z",
+  "created_at": "2026-06-28T13:42:18.779870Z",
+  "benchmark": {
+    "harness": "hailo-kit",
+    "harness_version": "1.0",
+    "libreyolo_version": "1.2.0",
+    "libreyolo_commit": "unknown"
+  },
+  "model": {
+    "id": "yolov9t",
+    "name": "yolov9t",
+    "family": "yolov9",
+    "variant": "t",
+    "source": "libreyolo",
+    "weights": "LibreYOLO9t.pt",
+    "input_size": 640
+  },
+  "dataset": {
+    "id": "coco2017",
+    "split": "val2017",
+    "num_images": 500
+  },
+  "config": {
+    "batch_size": 1,
+    "input_size": 640,
+    "conf": 0.001,
+    "iou": 0.6,
+    "max_det": 300
+  },
+  "hardware": {
+    "gpu": "Hailo-8",
+    "gpu_memory_gb": 0,
+    "driver_version": "4.23.0",
+    "cuda_version": "N/A",
+    "cpu": "Broadcom BCM2712",
+    "cpu_cores": 4,
+    "ram_gb": 16,
+    "id": "rpi5_hailo8"
+  },
+  "accuracy": {
+    "mAP_50_95": 0.2574812551731687,
+    "mAP_50": 0.3724033083680573,
+    "mAP_75": 0.26901622770320943,
+    "mAP_small": 0.1810754891905198,
+    "mAP_medium": 0.2300524545800218,
+    "mAP_large": 0.38513007996398724,
+    "AR1": 0.2640856426966872,
+    "AR10": 0.4639695273232776,
+    "AR100": 0.500326398525334,
+    "AR_small": 0.31131925240285746,
+    "AR_medium": 0.5204978214354378,
+    "AR_large": 0.6177960497236653
+  },
+  "timing": {
+    "batch_size": 1,
+    "num_images": 500,
+    "total_ms": {
+      "mean": 13.077,
+      "std": 0.12,
+      "p50": 13.058,
+      "p95": 13.259,
+      "p99": 13.424,
+      "preprocess_ms": null,
+      "inference_ms": null,
+      "postprocess_ms": null
+    }
+  },
+  "throughput": {
+    "fps_mean": 76.47,
+    "fps_p50": 76.58
+  },
+  "model_stats": {
+    "params_millions": 2.04,
+    "gflops": 3.98
+  },
+  "memory": {
+    "peak_vram_mb": null,
+    "peak_ram_mb": null
+  },
+  "metadata": {
+    "benchmark_date": "2026-06-28T13:42:18.779870Z",
+    "benchmark_version": "1.0"
+  },
+  "eval": {
+    "dataset": "coco",
+    "split": "val2017",
+    "numImages": 500
+  },
+  "implementation": {
+    "provider": "libreyolo",
+    "version": "1.2.0"
+  },
+  "runtime": {
+    "format": "hailo",
+    "precision": "int8",
+    "provider": "hailort",
+    "device": "npu"
+  }
+}

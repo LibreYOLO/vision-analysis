@@ -1,0 +1,57 @@
+{
+  "slug": "tensorrt-fp16-vs-pytorch-fp32-jetson-orin",
+  "type": "runtime-guide",
+  "title": "TensorRT FP16 vs PyTorch FP32 on Jetson Orin: 55 models",
+  "dek": "TensorRT FP16 gives a median 3.39x speedup over PyTorch FP32 across 55 models on Jetson Orin, and only one model loses more than half a point of mAP.",
+  "date": "2026-07-03",
+  "author": "Vision Analysis",
+  "readingMinutes": 3,
+  "tags": ["runtime-guide", "tensorrt", "jetson-orin", "edge"],
+  "status": "published",
+  "claimsFile": "article-pipeline/v2/output/tensorrt-fp16-vs-pytorch-fp32-jetson-orin.claims.json",
+  "blocks": [
+    {
+      "kind": "verdict",
+      "text": "Across 55 models on Jetson Orin, TensorRT FP16 gives a median 3.39x over PyTorch FP32, ranging from 1.68x to 6.21x. The biggest gain is RT-DETRv2-R101 at 6.21x, from 2.8 to 17.3 FPS. Accuracy holds: only DEIMv2-X loses more than half a point, dropping 0.6 (61.3 to 60.7). Every model measured ran faster."
+    },
+    {
+      "kind": "prose",
+      "text": "PyTorch FP32 is the reference runtime. TensorRT FP16 is the standard deployment path on Jetson hardware. This compares both on the same 55 models, same COCO protocol, same device: an NVIDIA Jetson Orin Nano Super."
+    },
+    {
+      "kind": "speedup-table",
+      "hardware": "jetson_orin",
+      "baseline": "pytorch_fp32",
+      "target": "tensorrt_fp16",
+      "limit": 15,
+      "caption": "Per-model FPS under PyTorch FP32 and TensorRT FP16 on Jetson Orin, with speedup and mAP delta. Top 15 by speedup."
+    },
+    {
+      "kind": "heading",
+      "text": "Speedup varies by family"
+    },
+    {
+      "kind": "prose",
+      "text": "Conversion gain depends on the model family. RT-DETRv2 gains a median 5.66x, the most of any family. ECDet gains 1.83x, the least. Set your speedup expectation by family, not by a single global number."
+    },
+    {
+      "kind": "heading",
+      "text": "Accuracy"
+    },
+    {
+      "kind": "prose",
+      "text": "mAP is shown in percent form. FP16 conversion holds accuracy on this device. Only one of the 55 models loses more than half a point: DEIMv2-X drops 0.6, from 61.3 to 60.7. Every other model stays within a couple tenths of a point of its PyTorch baseline."
+    },
+    {
+      "kind": "heading",
+      "text": "No regressions"
+    },
+    {
+      "kind": "prose",
+      "text": "No model on this device ran slower under TensorRT FP16. The smallest gain was 1.68x. On Jetson Orin, TensorRT FP16 is a safe default: real speedups with negligible accuracy cost."
+    },
+    {
+      "kind": "methodology"
+    }
+  ]
+}

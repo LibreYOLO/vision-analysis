@@ -1,0 +1,367 @@
+{
+  "engine": "article-pipeline-v2",
+  "generated_at": "2026-07-03T22:28:19.158659+00:00",
+  "slug": "dfine-vs-yolov9",
+  "meta": {
+    "type": "family-vs",
+    "a": "dfine",
+    "b": "yolov9",
+    "hardware": "nvidia_geforce_rtx_5070_ti",
+    "runtime": "pytorch_fp32"
+  },
+  "facts": {
+    "families": {
+      "a": "dfine",
+      "b": "yolov9",
+      "a_display": "D-FINE",
+      "b_display": "YOLOv9"
+    },
+    "primary": {
+      "hardware": "nvidia_geforce_rtx_5070_ti",
+      "hardware_display": "NVIDIA RTX 5070 Ti",
+      "runtime": "pytorch_fp32",
+      "runtime_display": "PyTorch FP32"
+    },
+    "a_frontier": [
+      {
+        "id": "dfine-n",
+        "displayName": "D-FINE-N",
+        "params": 3.78,
+        "mAP": 45.8,
+        "fps": 32.5,
+        "license": "Apache-2.0"
+      },
+      {
+        "id": "dfine-s",
+        "displayName": "D-FINE-S",
+        "params": 10.32,
+        "mAP": 53.4,
+        "fps": 34.2,
+        "license": "Apache-2.0"
+      },
+      {
+        "id": "dfine-m",
+        "displayName": "D-FINE-M",
+        "params": 19.59,
+        "mAP": 57.8,
+        "fps": 28.8,
+        "license": "Apache-2.0"
+      },
+      {
+        "id": "dfine-l",
+        "displayName": "D-FINE-L",
+        "params": 31.24,
+        "mAP": 60.0,
+        "fps": 21.9,
+        "license": "Apache-2.0"
+      },
+      {
+        "id": "dfine-x",
+        "displayName": "D-FINE-X",
+        "params": 62.62,
+        "mAP": 61.4,
+        "fps": 18.1,
+        "license": "Apache-2.0"
+      }
+    ],
+    "b_frontier": [
+      {
+        "id": "yolov9t",
+        "displayName": "YOLOv9-T",
+        "params": 2.04,
+        "mAP": 41.8,
+        "fps": 31.9,
+        "license": "MIT"
+      },
+      {
+        "id": "yolov9s",
+        "displayName": "YOLOv9-S",
+        "params": 7.23,
+        "mAP": 50.4,
+        "fps": 30.8,
+        "license": "MIT"
+      },
+      {
+        "id": "yolov9m",
+        "displayName": "YOLOv9-M",
+        "params": 20.12,
+        "mAP": 56.1,
+        "fps": 37.1,
+        "license": "MIT"
+      },
+      {
+        "id": "yolov9c",
+        "displayName": "YOLOv9-C",
+        "params": 25.5,
+        "mAP": 57.1,
+        "fps": 42.3,
+        "license": "MIT"
+      }
+    ],
+    "matched_pairs": [
+      {
+        "a": {
+          "id": "dfine-s",
+          "displayName": "D-FINE-S",
+          "params": 10.32,
+          "mAP": 53.4,
+          "fps": 34.2,
+          "license": "Apache-2.0"
+        },
+        "b": {
+          "id": "yolov9s",
+          "displayName": "YOLOv9-S",
+          "params": 7.23,
+          "mAP": 50.4,
+          "fps": 30.8,
+          "license": "MIT"
+        },
+        "mAP_delta_pts": 3.0,
+        "fps_delta_pct": 11.04
+      },
+      {
+        "a": {
+          "id": "dfine-m",
+          "displayName": "D-FINE-M",
+          "params": 19.59,
+          "mAP": 57.8,
+          "fps": 28.8,
+          "license": "Apache-2.0"
+        },
+        "b": {
+          "id": "yolov9m",
+          "displayName": "YOLOv9-M",
+          "params": 20.12,
+          "mAP": 56.1,
+          "fps": 37.1,
+          "license": "MIT"
+        },
+        "mAP_delta_pts": 1.7,
+        "fps_delta_pct": -22.37
+      },
+      {
+        "a": {
+          "id": "dfine-l",
+          "displayName": "D-FINE-L",
+          "params": 31.24,
+          "mAP": 60.0,
+          "fps": 21.9,
+          "license": "Apache-2.0"
+        },
+        "b": {
+          "id": "yolov9c",
+          "displayName": "YOLOv9-C",
+          "params": 25.5,
+          "mAP": 57.1,
+          "fps": 42.3,
+          "license": "MIT"
+        },
+        "mAP_delta_pts": 2.9,
+        "fps_delta_pct": -48.23
+      }
+    ],
+    "aggregate": {
+      "n_pairs": 3,
+      "mean_mAP_delta_pts": 2.5,
+      "a_wins": 3,
+      "b_wins": 0,
+      "mean_fps_delta_pct": -19.9
+    },
+    "flagship": {
+      "a": {
+        "id": "dfine-x",
+        "displayName": "D-FINE-X",
+        "params": 62.62,
+        "mAP": 61.4,
+        "fps": 18.1,
+        "license": "Apache-2.0"
+      },
+      "b": {
+        "id": "yolov9c",
+        "displayName": "YOLOv9-C",
+        "params": 25.5,
+        "mAP": 57.1,
+        "fps": 42.3,
+        "license": "MIT"
+      }
+    },
+    "smallest": {
+      "a": {
+        "id": "dfine-n",
+        "displayName": "D-FINE-N",
+        "params": 3.78,
+        "mAP": 45.8,
+        "fps": 32.5,
+        "license": "Apache-2.0"
+      },
+      "b": {
+        "id": "yolov9t",
+        "displayName": "YOLOv9-T",
+        "params": 2.04,
+        "mAP": 41.8,
+        "fps": 31.9,
+        "license": "MIT"
+      }
+    },
+    "crossover": {
+      "low_param_leader": "dfine",
+      "high_param_leader": "dfine"
+    },
+    "license": {
+      "a_all_permissive": true,
+      "b_all_permissive": true
+    },
+    "chart_highlight": "dfine-n,dfine-s,dfine-m,dfine-l,dfine-x,yolov9t,yolov9s,yolov9m,yolov9c"
+  },
+  "claims": [
+    {
+      "id": "family_accuracy_edge",
+      "kind": "accuracy",
+      "statement": "At matched compute, D-FINE averages 2.5 mAP points higher across 3 paired variants on NVIDIA RTX 5070 Ti. D-FINE wins 3, YOLOv9 wins 0.",
+      "values": {
+        "mean_delta_pts": 2.5,
+        "a_wins": 3,
+        "b_wins": 0
+      },
+      "passed": true,
+      "strength": "strong"
+    },
+    {
+      "id": "family_speed_edge",
+      "kind": "speed",
+      "statement": "At matched compute, YOLOv9 is 19.9% faster on average on NVIDIA RTX 5070 Ti (PyTorch FP32).",
+      "values": {
+        "mean_delta_pct": 19.9
+      },
+      "passed": true,
+      "strength": "strong"
+    },
+    {
+      "id": "flagship",
+      "kind": "accuracy",
+      "statement": "At the top end, D-FINE's largest measured variant (D-FINE-X) reaches 61.4 mAP; YOLOv9's (YOLOv9-C) reaches 57.1 mAP.",
+      "values": {
+        "a": {
+          "id": "dfine-x",
+          "displayName": "D-FINE-X",
+          "params": 62.62,
+          "mAP": 61.4,
+          "fps": 18.1,
+          "license": "Apache-2.0"
+        },
+        "b": {
+          "id": "yolov9c",
+          "displayName": "YOLOv9-C",
+          "params": 25.5,
+          "mAP": 57.1,
+          "fps": 42.3,
+          "license": "MIT"
+        }
+      },
+      "passed": true,
+      "strength": "normal"
+    },
+    {
+      "id": "efficient_end",
+      "kind": "efficiency",
+      "statement": "At the small end, D-FINE's D-FINE-N (3.78M, 45.8 mAP, 32.5 FPS) faces YOLOv9's YOLOv9-T (2.04M, 41.8 mAP, 31.9 FPS).",
+      "values": {
+        "a": {
+          "id": "dfine-n",
+          "displayName": "D-FINE-N",
+          "params": 3.78,
+          "mAP": 45.8,
+          "fps": 32.5,
+          "license": "Apache-2.0"
+        },
+        "b": {
+          "id": "yolov9t",
+          "displayName": "YOLOv9-T",
+          "params": 2.04,
+          "mAP": 41.8,
+          "fps": 31.9,
+          "license": "MIT"
+        }
+      },
+      "passed": true,
+      "strength": "normal"
+    },
+    {
+      "id": "coverage",
+      "kind": "ranking",
+      "statement": "D-FINE fields 5 measured variants, YOLOv9 fields 4, all on the same protocol on NVIDIA RTX 5070 Ti.",
+      "values": {
+        "a_n": 5,
+        "b_n": 4
+      },
+      "passed": true,
+      "strength": "normal"
+    }
+  ],
+  "gate": {
+    "passed": true,
+    "passed_claims": 5,
+    "required": 2,
+    "reason": null
+  },
+  "allowed_numbers": [
+    -48.23,
+    -22.37,
+    -19.9,
+    0.0,
+    0.001,
+    0.6,
+    1,
+    1.7,
+    2,
+    2.04,
+    2.5,
+    2.9,
+    3.0,
+    3.78,
+    4.0,
+    5.0,
+    6,
+    7,
+    7.23,
+    8,
+    9,
+    10,
+    10.32,
+    11,
+    11.04,
+    12,
+    18.1,
+    19.59,
+    19.9,
+    20.12,
+    21.9,
+    25.5,
+    28.8,
+    30.8,
+    31.24,
+    31.9,
+    32.5,
+    34.2,
+    37.1,
+    41.8,
+    42.3,
+    45.8,
+    50,
+    50.4,
+    53.4,
+    56.1,
+    57.1,
+    57.8,
+    60.0,
+    61.4,
+    62.62,
+    75,
+    95,
+    100,
+    300,
+    500,
+    640,
+    5000
+  ]
+}

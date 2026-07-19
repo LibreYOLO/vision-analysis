@@ -1,0 +1,84 @@
+{
+  "slug": "dfine-l-vs-yolox-l",
+  "type": "vs",
+  "title": "D-FINE-L vs YOLOX-L: benchmark on the same protocol",
+  "dek": "Measured on the same COCO protocol: D-FINE-L leads by 4.6 mAP points with less VRAM, but YOLOX-L runs 49% faster in PyTorch on an RTX 5070 Ti.",
+  "date": "2026-07-03",
+  "author": "Vision Analysis",
+  "readingMinutes": 4,
+  "tags": ["comparison", "dfine", "yolox"],
+  "status": "published",
+  "claimsFile": "article-pipeline/v2/output/dfine-l-vs-yolox-l.claims.json",
+  "blocks": [
+    {
+      "kind": "verdict",
+      "text": "D-FINE-L is the more accurate detector: 60.0 vs 55.4 mAP@50-95 against YOLOX-L on an RTX 5070 Ti, a 4.6 point lead, and it does it with fewer parameters (31.24M vs 54.21M) and less VRAM (245 vs 307 MB). YOLOX-L wins raw PyTorch speed, 42.8 vs 21.9 FPS. That speed edge does not hold everywhere: on TensorRT FP32 the order flips and D-FINE-L pulls ahead at 72.3 vs 61.8 FPS."
+    },
+    {
+      "kind": "prose",
+      "text": "D-FINE-L and YOLOX-L are both large detectors evaluated at 640 px on COCO val2017. D-FINE-L (31.24M parameters, Apache-2.0) is the smaller model here; YOLOX-L (54.21M, Apache-2.0) is the older one. Both have verified rows on desktop GPU, Jetson Orin, and Raspberry Pi 5, so this comparison covers the targets where the answer changes."
+    },
+    {
+      "kind": "comparison-table",
+      "models": ["dfine-l", "yolox-l"],
+      "hardware": "nvidia_geforce_rtx_5070_ti",
+      "runtime": "pytorch_fp32"
+    },
+    {
+      "kind": "chart",
+      "src": "/embed/scatter?highlight=dfine-l,yolox-l",
+      "caption": "Accuracy vs parameters on COCO val2017. D-FINE-L and YOLOX-L highlighted against the full field."
+    },
+    {
+      "kind": "heading",
+      "text": "Accuracy"
+    },
+    {
+      "kind": "prose",
+      "text": "mAP is shown in percent form. D-FINE-L measures 60.0 mAP@50-95 to YOLOX-L's 55.4, and the gap holds across every runtime measured. The difference is widest on small objects: 45.9 vs 39.0 mAP_small, a 17.7% relative gap. If your scenes are dominated by small instances, that row decides the comparison."
+    },
+    {
+      "kind": "heading",
+      "text": "Speed"
+    },
+    {
+      "kind": "prose",
+      "text": "On the RTX 5070 Ti in PyTorch, YOLOX-L runs 42.8 FPS to D-FINE-L's 21.9, so it is 49% faster there. The two converge under conversion: on ONNX Runtime they are level at 50.9 vs 50.6 FPS. On Jetson Orin YOLOX-L keeps the edge, 5.8 vs 4.7 FPS."
+    },
+    {
+      "kind": "callout",
+      "text": "The speed verdict does not survive TensorRT FP32. There D-FINE-L runs 72.3 FPS to YOLOX-L's 61.8, reversing the PyTorch result. Pick your speed number from the runtime you will actually deploy."
+    },
+    {
+      "kind": "kv",
+      "title": "License and provenance",
+      "items": [
+        { "k": "D-FINE-L license", "v": "Apache-2.0" },
+        { "k": "YOLOX-L license", "v": "Apache-2.0" },
+        { "k": "D-FINE-L release", "v": "2024-10-18" },
+        { "k": "YOLOX-L release", "v": "2021-07-18" },
+        { "k": "Evaluated weights", "v": "LibreYOLO retrained checkpoints" }
+      ]
+    },
+    {
+      "kind": "heading",
+      "text": "When to pick which"
+    },
+    {
+      "kind": "prose",
+      "text": "Pick D-FINE-L when accuracy or memory is the constraint: it leads at every object size, uses less VRAM, and overtakes on TensorRT FP32. Pick YOLOX-L for PyTorch or Jetson serving where its raw throughput lead is what you ship. Both are Apache-2.0, so licensing does not force the choice."
+    },
+    {
+      "kind": "heading",
+      "text": "Try both with LibreYOLO"
+    },
+    {
+      "kind": "code",
+      "language": "python",
+      "text": "# pip install libreyolo\nfrom libreyolo import LibreYOLO\n\ndfine = LibreYOLO(\"LibreDFINEl.pt\")   # 31.24M params, 60.0 mAP@50-95\nyolox = LibreYOLO(\"LibreYOLOXl.pt\")   # 54.21M params, 55.4 mAP@50-95\n\nresults = dfine(\"image.jpg\")\n"
+    },
+    {
+      "kind": "methodology"
+    }
+  ]
+}
