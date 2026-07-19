@@ -12,8 +12,6 @@ ROOT = Path(__file__).resolve().parents[1]
 GENERATED_RESULTS_PATH = ROOT / "generated" / "verified-results.v1.json"
 MODELS_METADATA_PATH = ROOT / "website" / "src" / "data" / "metadata" / "models.json"
 
-EXPECTED_RESULT_COUNT = 74
-
 OLD_HARDWARE_MAP = [
     ("a100", "a100"),
     ("raspberry pi 5", "rpi5"),
@@ -213,9 +211,7 @@ def main() -> int:
         model["id"] for model in load_json(MODELS_METADATA_PATH)["models"]
     }
 
-    assert len(submissions) == EXPECTED_RESULT_COUNT, (
-        f"expected {EXPECTED_RESULT_COUNT} verified results, got {len(submissions)}"
-    )
+    assert submissions, "expected at least one verified result"
 
     missing_metadata = sorted(
         {new_model_id(submission) for submission in submissions} - metadata_model_ids
@@ -224,24 +220,44 @@ def main() -> int:
 
     for submission in submissions:
         source = submission["source_file"]
+        assert new_model_id(submission), f"{source}: expected a model id"
+        assert new_hardware_id(submission), f"{source}: expected a hardware id"
+        assert num_images(submission) > 0, f"{source}: expected a non-empty evaluation set"
+        assert batch_size(submission) == 1, f"{source}: expected batch size 1"
+
+    # Coordinate-aware loading must retain every canonical row, including
+    # full-val and subset runs that share a model/hardware/runtime tuple.
+    new_rows_by_coordinate = latest_by_key(submissions, new_coordinate)
+    assert len(new_rows_by_coordinate) == len(submissions), (
+        "canonical results contain duplicate benchmark coordinates"
+    )
+
+    # The original loader only represented one full-val row per
+    # model/hardware/runtime. Keep its parity check scoped to that legacy cohort;
+    # subset runs are intentionally distinct in the coordinate-aware loader.
+    legacy_submissions = [
+        submission for submission in submissions if num_images(submission) == 5000
+    ]
+    assert legacy_submissions, "expected at least one full-val legacy result"
+
+    for submission in legacy_submissions:
+        source = submission["source_file"]
         assert old_model_id(submission) == new_model_id(submission), (
             f"{source}: model.id no longer matches legacy normalization"
         )
         assert old_hardware_id(submission) == new_hardware_id(submission), (
             f"{source}: hardware id changed from legacy detection"
         )
-        assert num_images(submission) == 5000, f"{source}: expected 5000 images"
-        assert batch_size(submission) == 1, f"{source}: expected batch size 1"
 
     old_rows_by_model = latest_by_key(
-        submissions,
+        legacy_submissions,
         lambda submission: (
             old_hardware_id(submission),
             runtime_id(submission),
             old_model_id(submission),
         ),
     )
-    new_rows_by_coordinate = latest_by_key(submissions, new_coordinate)
+    legacy_rows_by_coordinate = latest_by_key(legacy_submissions, new_coordinate)
 
     old_rows = sorted(
         row_identity(submission, old_hardware_id(submission))
@@ -249,20 +265,14 @@ def main() -> int:
     )
     new_rows = sorted(
         row_identity(submission, new_hardware_id(submission))
-        for submission in new_rows_by_coordinate.values()
+        for submission in legacy_rows_by_coordinate.values()
     )
 
-    assert len(old_rows) == EXPECTED_RESULT_COUNT, (
-        f"legacy model-keyed loader would keep {len(old_rows)} rows"
-    )
-    assert len(new_rows) == EXPECTED_RESULT_COUNT, (
-        f"coordinate-keyed loader keeps {len(new_rows)} rows"
-    )
     assert old_rows == new_rows, "coordinate-keyed loader changed the current row set"
 
     print(
-        f"Verified Step 1 compatibility: {len(new_rows)} rows, "
-        "unique per model/hardware/runtime, all full-val batch=1."
+        f"Verified coordinate compatibility: {len(submissions)} canonical rows, "
+        f"{len(new_rows)} legacy full-val rows, no duplicate coordinates."
     )
     return 0
 

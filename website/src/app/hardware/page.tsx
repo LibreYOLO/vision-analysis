@@ -3,7 +3,6 @@ import Link from "next/link";
 import { getHardware } from "@/lib/data";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { formatNumber } from "@/lib/utils/format";
 
 export const metadata: Metadata = {
   title: "Hardware Benchmarks",

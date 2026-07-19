@@ -1,0 +1,70 @@
+{
+  "slug": "picodet-vs-yolox",
+  "type": "family-vs",
+  "title": "PicoDet vs YOLOX: which detector family wins",
+  "dek": "Measured on one COCO protocol on an RTX 5070 Ti: PicoDet averages 5.1 mAP points higher in the sub-5M tier, while YOLOX runs 21.3% faster and scales far larger.",
+  "date": "2026-07-03",
+  "author": "Vision Analysis",
+  "readingMinutes": 4,
+  "tags": ["comparison", "family-vs", "picodet", "yolox"],
+  "status": "published",
+  "claimsFile": "article-pipeline/v2/output/picodet-vs-yolox.claims.json",
+  "blocks": [
+    {
+      "kind": "verdict",
+      "text": "On an RTX 5070 Ti in PyTorch, PicoDet averages 5.1 mAP points higher than YOLOX at matched parameter counts, winning both nearest-params pairings in the sub-5M tier. YOLOX is 21.3% faster on average and is the only family that scales past 3M parameters: its largest variant reaches 56.3 mAP against PicoDet's top of 44.1. Pick PicoDet for the smallest models, YOLOX when you need more accuracy or throughput."
+    },
+    {
+      "kind": "prose",
+      "text": "PicoDet fields 3 measured variants and YOLOX fields 6, all on the same COCO val2017 protocol on an RTX 5070 Ti. PicoDet tops out at 3.31M parameters, so only its tiny end overlaps YOLOX, giving 2 matched pairs."
+    },
+    {
+      "kind": "family-frontier",
+      "familyA": "picodet",
+      "familyB": "yolox",
+      "hardware": "nvidia_geforce_rtx_5070_ti",
+      "runtime": "pytorch_fp32"
+    },
+    {
+      "kind": "chart",
+      "src": "/embed/scatter?highlight=picodet-s,picodet-m,picodet-l,yolox-nano,yolox-tiny,yolox-s,yolox-m,yolox-l,yolox-x",
+      "caption": "Accuracy vs parameters on COCO val2017, PicoDet and YOLOX variants highlighted against the full field."
+    },
+    {
+      "kind": "heading",
+      "text": "Accuracy at matched compute"
+    },
+    {
+      "kind": "prose",
+      "text": "mAP is shown in percent. Each PicoDet variant is paired with the nearest YOLOX variant by parameter count. Across the 2 overlapping pairings PicoDet averages 5.1 mAP points higher and wins both. PicoDet-S (0.99M) reaches 30.4 mAP against YOLOX-Nano (0.91M) at 28.8. Above 5M parameters PicoDet has no entry: YOLOX-X reaches 56.3 mAP at 99.07M, while PicoDet-L, the largest measured, sits at 44.1."
+    },
+    {
+      "kind": "heading",
+      "text": "Speed"
+    },
+    {
+      "kind": "prose",
+      "text": "Averaged across the 2 matched pairs, YOLOX is 21.3% faster than PicoDet in PyTorch. YOLOX keeps that throughput as it scales, which PicoDet cannot follow past its 3 small variants."
+    },
+    {
+      "kind": "kv",
+      "title": "Licensing",
+      "items": [
+        { "k": "PicoDet license", "v": "Apache-2.0" },
+        { "k": "YOLOX license", "v": "Apache-2.0" },
+        { "k": "Both families", "v": "permissive, cleared for commercial use" }
+      ]
+    },
+    {
+      "kind": "heading",
+      "text": "Which family to pick"
+    },
+    {
+      "kind": "prose",
+      "text": "Pick PicoDet when the model must be tiny: it wins both sub-5M pairings and reaches 44.1 mAP at 3.31M parameters. Pick YOLOX when you need higher absolute accuracy or a larger model, up to 56.3 mAP, or the extra throughput. Both ship under Apache-2.0, so licensing does not force the call."
+    },
+    {
+      "kind": "methodology"
+    }
+  ]
+}

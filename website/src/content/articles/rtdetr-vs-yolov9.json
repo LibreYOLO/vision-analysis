@@ -1,0 +1,70 @@
+{
+  "slug": "rtdetr-vs-yolov9",
+  "type": "family-vs",
+  "title": "RT-DETR vs YOLOv9: full benchmark comparison",
+  "dek": "YOLOv9 beats RT-DETR at matched compute, averaging 4.0 mAP points higher and running 7.2% faster on an RTX 5070 Ti.",
+  "date": "2026-07-03",
+  "author": "Vision Analysis",
+  "readingMinutes": 4,
+  "tags": ["comparison", "family-vs", "rtdetr", "yolov9"],
+  "status": "published",
+  "claimsFile": "article-pipeline/v2/output/rtdetr-vs-yolov9.claims.json",
+  "blocks": [
+    {
+      "kind": "verdict",
+      "text": "At matched compute on an RTX 5070 Ti, YOLOv9 leads RT-DETR on both axes. It averages 4.0 mAP points higher across 4 nearest-parameter pairs and wins all 4, and it runs 7.2% faster on average in PyTorch. RT-DETR's advantage here is range, not results: it fields more variants, but none of its matched pairs beats YOLOv9."
+    },
+    {
+      "kind": "prose",
+      "text": "RT-DETR fields 7 measured variants; YOLOv9 fields 4. Both run the same COCO val2017 protocol at 640 px on an RTX 5070 Ti, so the two ladders align by parameter count."
+    },
+    {
+      "kind": "family-frontier",
+      "familyA": "rtdetr",
+      "familyB": "yolov9",
+      "hardware": "nvidia_geforce_rtx_5070_ti",
+      "runtime": "pytorch_fp32"
+    },
+    {
+      "kind": "chart",
+      "src": "/embed/scatter?highlight=rtdetr-r18,rtdetr-r34,rtdetr-l,rtdetr-r50m,rtdetr-r50,rtdetr-x,rtdetr-r101,yolov9t,yolov9s,yolov9m,yolov9c",
+      "caption": "Accuracy vs parameters on COCO val2017. Every RT-DETR and YOLOv9 variant highlighted against the full set."
+    },
+    {
+      "kind": "heading",
+      "text": "Accuracy at matched compute"
+    },
+    {
+      "kind": "prose",
+      "text": "mAP is shown in percent. Each RT-DETR model is paired with the nearest YOLOv9 model by parameter count. YOLOv9 wins all 4 pairs and averages 4.0 mAP points higher. The pattern holds through the mid range: YOLOv9-M reaches 56.1 mAP against RT-DETR-R18 at 49.8 in the same parameter class."
+    },
+    {
+      "kind": "heading",
+      "text": "Speed"
+    },
+    {
+      "kind": "prose",
+      "text": "YOLOv9 is also faster at matched compute: 7.2% faster on average in PyTorch FP32. RT-DETR's throughput lead shows up only against models in a different size class, not at matched parameters."
+    },
+    {
+      "kind": "kv",
+      "title": "Licensing",
+      "items": [
+        { "k": "RT-DETR", "v": "Apache-2.0 (permissive)" },
+        { "k": "YOLOv9", "v": "MIT (permissive)" },
+        { "k": "Commercial use", "v": "Both families ship under permissive licenses" }
+      ]
+    },
+    {
+      "kind": "heading",
+      "text": "Which family to pick"
+    },
+    {
+      "kind": "prose",
+      "text": "Pick YOLOv9 across the measured range: it is more accurate at every matched pair and faster on average. Pick RT-DETR only when you need a size YOLOv9 does not field, since it offers 7 variants to YOLOv9's 4. Both ship under permissive licenses, so licensing does not force the call. See the per-variant specs on the RT-DETR and YOLOv9 model pages."
+    },
+    {
+      "kind": "methodology"
+    }
+  ]
+}

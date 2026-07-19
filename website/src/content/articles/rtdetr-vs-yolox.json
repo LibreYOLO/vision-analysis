@@ -1,0 +1,70 @@
+{
+  "slug": "rtdetr-vs-yolox",
+  "type": "family-vs",
+  "title": "RT-DETR vs YOLOX: which detector family wins",
+  "dek": "RT-DETR wins 6 of 7 matched pairs on accuracy, but YOLOX runs 30.3% faster on average on an RTX 5070 Ti.",
+  "date": "2026-07-03",
+  "author": "Vision Analysis",
+  "readingMinutes": 4,
+  "tags": ["comparison", "family-vs", "rtdetr", "yolox"],
+  "status": "published",
+  "claimsFile": "article-pipeline/v2/output/rtdetr-vs-yolox.claims.json",
+  "blocks": [
+    {
+      "kind": "verdict",
+      "text": "At matched compute on an RTX 5070 Ti, RT-DETR is the more accurate family: it averages 1.3 mAP points higher and wins 6 of 7 nearest-parameter pairs. YOLOX answers on speed, running 30.3% faster on average in PyTorch. Pick by which axis you optimize for."
+    },
+    {
+      "kind": "prose",
+      "text": "RT-DETR fields 7 measured variants; YOLOX fields 6. Both run the same COCO val2017 protocol at 640 px on an RTX 5070 Ti, so the two ladders align by parameter count."
+    },
+    {
+      "kind": "family-frontier",
+      "familyA": "rtdetr",
+      "familyB": "yolox",
+      "hardware": "nvidia_geforce_rtx_5070_ti",
+      "runtime": "pytorch_fp32"
+    },
+    {
+      "kind": "chart",
+      "src": "/embed/scatter?highlight=rtdetr-r18,rtdetr-r34,rtdetr-l,rtdetr-r50m,rtdetr-r50,rtdetr-x,rtdetr-r101,yolox-nano,yolox-tiny,yolox-s,yolox-m,yolox-l,yolox-x",
+      "caption": "Accuracy vs parameters on COCO val2017. Every RT-DETR and YOLOX variant highlighted against the full set."
+    },
+    {
+      "kind": "heading",
+      "text": "Accuracy at matched compute"
+    },
+    {
+      "kind": "prose",
+      "text": "mAP is shown in percent. Pairing by nearest parameter count, RT-DETR wins 6 of 7 pairs and averages 1.3 mAP points higher. At the top end RT-DETR-R101 reaches 56.8 mAP against YOLOX-X at 56.3. The single pair YOLOX takes is narrow."
+    },
+    {
+      "kind": "heading",
+      "text": "Speed"
+    },
+    {
+      "kind": "prose",
+      "text": "YOLOX is the faster family: 30.3% faster on average in PyTorch FP32. Its smallest variant, YOLOX-Nano, runs 53.6 FPS at 0.91M parameters, above any RT-DETR variant's throughput here."
+    },
+    {
+      "kind": "kv",
+      "title": "Licensing",
+      "items": [
+        { "k": "RT-DETR", "v": "Apache-2.0 (permissive)" },
+        { "k": "YOLOX", "v": "Apache-2.0 (permissive)" },
+        { "k": "Commercial use", "v": "Both families ship under Apache-2.0" }
+      ]
+    },
+    {
+      "kind": "heading",
+      "text": "Which family to pick"
+    },
+    {
+      "kind": "prose",
+      "text": "Pick RT-DETR when accuracy per parameter leads: it wins nearly every matched pair. Pick YOLOX when throughput is the constraint, or when you need the smallest models, down to 0.91M parameters. Both ship under Apache-2.0, so licensing does not force the call. See the per-variant specs on the RT-DETR and YOLOX model pages."
+    },
+    {
+      "kind": "methodology"
+    }
+  ]
+}

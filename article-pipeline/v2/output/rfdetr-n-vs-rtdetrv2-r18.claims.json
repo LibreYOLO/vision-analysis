@@ -1,0 +1,387 @@
+{
+  "engine": "article-pipeline-v2",
+  "generated_at": "2026-07-03T22:09:44.240654+00:00",
+  "slug": "rfdetr-n-vs-rtdetrv2-r18",
+  "meta": {
+    "type": "vs",
+    "a": "rfdetr-n",
+    "b": "rtdetrv2-r18",
+    "hardware": "nvidia_geforce_rtx_5070_ti",
+    "runtime": "pytorch_fp32"
+  },
+  "facts": {
+    "a": {
+      "id": "rfdetr-n",
+      "displayName": "RF-DETR-N",
+      "license": "Apache-2.0",
+      "releaseDate": "2026-02-23",
+      "inLibreYOLO": true,
+      "bench": {
+        "mAP_50_95": 0.5135247777250423,
+        "mAP_50": 0.6989693323963424,
+        "mAP_small": 0.2768082791741451,
+        "mAP_medium": 0.5713133502545867,
+        "mAP_large": 0.7180799558822147,
+        "fps_mean": 39.53,
+        "fps_p50": 41.33,
+        "ms_per_image": 25.295,
+        "inference_ms": 16.983,
+        "preprocess_ms": 5.999,
+        "postprocess_ms": 2.313,
+        "p95_ms": 29.239,
+        "peak_vram_mb": 151.0,
+        "peak_ram_mb": 136.7,
+        "params_millions": 30.47,
+        "gflops": 0.0,
+        "input_size": 384,
+        "config": {
+          "batch_size": 1,
+          "input_size": 384,
+          "conf": 0.001,
+          "iou": 0.6,
+          "max_det": 300
+        },
+        "eval": {
+          "dataset": "coco",
+          "split": "val2017",
+          "numImages": 500
+        },
+        "benchmark_date": "2026-06-17T17:13:52.106298Z"
+      }
+    },
+    "b": {
+      "id": "rtdetrv2-r18",
+      "displayName": "RT-DETRv2-R18",
+      "license": "Apache-2.0",
+      "releaseDate": "2024-05-01",
+      "inLibreYOLO": true,
+      "bench": {
+        "mAP_50_95": 0.5074977298289686,
+        "mAP_50": 0.6738187878266525,
+        "mAP_small": 0.3347978553273374,
+        "mAP_medium": 0.5390239587831667,
+        "mAP_large": 0.663719218286382,
+        "fps_mean": 51.15,
+        "fps_p50": 52.26,
+        "ms_per_image": 19.552,
+        "inference_ms": 14.819,
+        "preprocess_ms": 3.67,
+        "postprocess_ms": 1.062,
+        "p95_ms": 23.873,
+        "peak_vram_mb": 169.1,
+        "peak_ram_mb": 0.0,
+        "params_millions": 20.18,
+        "gflops": 0.0,
+        "input_size": 640,
+        "config": {
+          "batch_size": 1,
+          "input_size": 640,
+          "conf": 0.001,
+          "iou": 0.6,
+          "max_det": 300
+        },
+        "eval": {
+          "dataset": "coco",
+          "split": "val2017",
+          "numImages": 500
+        },
+        "benchmark_date": "2026-06-16T21:29:32.230268Z"
+      }
+    },
+    "primary": {
+      "hardware": "nvidia_geforce_rtx_5070_ti",
+      "hardware_display": "NVIDIA RTX 5070 Ti",
+      "runtime": "pytorch_fp32",
+      "runtime_display": "PyTorch FP32"
+    },
+    "deltas_pct": {
+      "mAP_50_95": 1.19,
+      "fps": -22.72,
+      "params": 50.99,
+      "flops": -100.0,
+      "peak_vram": -10.7
+    },
+    "map_pts": {
+      "a": 51.4,
+      "b": 50.7,
+      "delta": 0.7
+    },
+    "pair": {
+      "params_ratio": 1.51,
+      "meaningful": true
+    },
+    "efficiency": {
+      "a_mAP_per_GFLOP": null,
+      "b_mAP_per_GFLOP": 0.00846
+    },
+    "cross_runtime": [
+      {
+        "runtime": "onnx_fp32",
+        "display": "ONNX Runtime FP32",
+        "a": {
+          "mAP": 51.4,
+          "fps": 65.7
+        },
+        "b": {
+          "mAP": 50.7,
+          "fps": 97.1
+        }
+      },
+      {
+        "runtime": "pytorch_fp32",
+        "display": "PyTorch FP32",
+        "a": {
+          "mAP": 51.4,
+          "fps": 39.5
+        },
+        "b": {
+          "mAP": 50.7,
+          "fps": 51.1
+        }
+      },
+      {
+        "runtime": "tensorrt_fp16",
+        "display": "TensorRT FP16",
+        "a": {
+          "mAP": 51.4,
+          "fps": 58.3
+        },
+        "b": {
+          "mAP": 50.8,
+          "fps": 117.8
+        }
+      },
+      {
+        "runtime": "tensorrt_fp32",
+        "display": "TensorRT FP32",
+        "a": {
+          "mAP": 51.4,
+          "fps": 67.6
+        },
+        "b": {
+          "mAP": 50.7,
+          "fps": 125.5
+        }
+      }
+    ],
+    "cross_hardware": [
+      {
+        "hardware": "jetson_orin",
+        "display": "NVIDIA Jetson Orin Nano Super 8GB",
+        "a": {
+          "mAP": 51.4,
+          "fps": 10.2
+        },
+        "b": {
+          "mAP": 50.8,
+          "fps": 10.3
+        }
+      },
+      {
+        "hardware": "nvidia_geforce_rtx_5070_ti",
+        "display": "NVIDIA RTX 5070 Ti",
+        "a": {
+          "mAP": 51.4,
+          "fps": 39.5
+        },
+        "b": {
+          "mAP": 50.7,
+          "fps": 51.1
+        }
+      },
+      {
+        "hardware": "rpi5",
+        "display": "Raspberry Pi 5",
+        "a": {
+          "mAP": 51.4,
+          "fps": 2.1
+        },
+        "b": {
+          "mAP": 50.8,
+          "fps": 0.8
+        }
+      }
+    ],
+    "input_sizes": {
+      "a": 384,
+      "b": 640,
+      "match": false
+    }
+  },
+  "claims": [
+    {
+      "id": "accuracy_winner",
+      "kind": "accuracy",
+      "statement": "RF-DETR-N measures 0.7 mAP points higher than RT-DETRv2-R18 on NVIDIA RTX 5070 Ti (PyTorch FP32): 51.4 vs 50.7 mAP@50-95.",
+      "values": {
+        "delta_pts": 0.7,
+        "a_map": 51.4,
+        "b_map": 50.7
+      },
+      "passed": true,
+      "strength": "strong"
+    },
+    {
+      "id": "speed_winner",
+      "kind": "speed",
+      "statement": "RT-DETRv2-R18 is 22.72% faster: 39.5 vs 51.1 FPS (25.3 vs 19.55 ms/image).",
+      "values": {
+        "delta_pct": 22.72,
+        "a_fps": 39.5,
+        "b_fps": 51.1
+      },
+      "passed": true,
+      "strength": "strong"
+    },
+    {
+      "id": "memory_winner",
+      "kind": "memory",
+      "statement": "RF-DETR-N uses less peak VRAM: 151 vs 169 MB.",
+      "values": {
+        "a_vram": 151,
+        "b_vram": 169
+      },
+      "passed": true,
+      "strength": "normal"
+    },
+    {
+      "id": "small_object_gap",
+      "kind": "accuracy",
+      "statement": "RT-DETRv2-R18 leads on small objects: 27.7 vs 33.5 mAP_small (17.32% relative gap).",
+      "values": {
+        "a": 27.7,
+        "b": 33.5,
+        "delta_pct": 17.32
+      },
+      "passed": true,
+      "strength": "normal"
+    },
+    {
+      "id": "ranking_flip",
+      "kind": "robustness",
+      "statement": "The speed verdict does NOT survive everywhere. It flips on hardware: Raspberry Pi 5. State this; it is the most useful fact in the article.",
+      "values": {
+        "flips": [
+          "hardware:Raspberry Pi 5"
+        ]
+      },
+      "passed": true,
+      "strength": "strong"
+    },
+    {
+      "id": "input_size_caveat",
+      "kind": "caveat",
+      "statement": "MANDATORY CAVEAT: RF-DETR-N runs at 384 px and RT-DETRv2-R18 at 640 px (each model at its author default). Say this in Setup and the verdict.",
+      "values": {
+        "a": 384,
+        "b": 640
+      },
+      "passed": true,
+      "strength": "strong"
+    }
+  ],
+  "gate": {
+    "passed": true,
+    "passed_claims": 6,
+    "required": 2,
+    "reason": null
+  },
+  "allowed_numbers": [
+    -100.0,
+    -22.72,
+    -10.7,
+    0.0,
+    0.001,
+    0.0085,
+    0.1,
+    0.2768,
+    0.3348,
+    0.5075,
+    0.5135,
+    0.539,
+    0.5713,
+    0.6,
+    0.6637,
+    0.6738,
+    0.699,
+    0.7,
+    0.7181,
+    0.8,
+    0.846,
+    1.0,
+    1.062,
+    1.19,
+    1.51,
+    2,
+    2.1,
+    2.313,
+    3,
+    3.67,
+    4,
+    5,
+    5.999,
+    6,
+    7,
+    8,
+    9,
+    10,
+    10.2,
+    10.3,
+    11,
+    12,
+    14.819,
+    16.983,
+    17.32,
+    19.552,
+    20.18,
+    22.72,
+    23.873,
+    25.295,
+    27.6808,
+    27.7,
+    29.239,
+    30.47,
+    33.4798,
+    33.5,
+    39.5,
+    39.53,
+    41.33,
+    50,
+    50.7,
+    50.7498,
+    50.8,
+    50.99,
+    51.1,
+    51.15,
+    51.3525,
+    51.4,
+    52.26,
+    53.9024,
+    57.1313,
+    58.3,
+    60.0,
+    65.7,
+    66.3719,
+    67.3819,
+    67.6,
+    69.8969,
+    70.0,
+    71.808,
+    75,
+    80.0,
+    95,
+    97.1,
+    100.0,
+    117.8,
+    125.5,
+    136.7,
+    151.0,
+    169.0,
+    169.1,
+    300.0,
+    384.0,
+    500.0,
+    640.0,
+    5000
+  ]
+}

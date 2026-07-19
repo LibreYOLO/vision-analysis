@@ -1,0 +1,106 @@
+{
+  "slug": "rfdetr-n-vs-yolov9c",
+  "type": "vs",
+  "title": "RF-DETR-N vs YOLOv9-C: benchmark on COCO",
+  "dek": "YOLOv9-C leads by 5.7 mAP points at 640 px, but RF-DETR-N at 384 px pulls ahead on Jetson Orin and Raspberry Pi 5.",
+  "date": "2026-07-03",
+  "author": "Vision Analysis",
+  "readingMinutes": 4,
+  "tags": [
+    "comparison",
+    "rfdetr",
+    "yolov9"
+  ],
+  "status": "draft",
+  "claimsFile": "article-pipeline/v2/output/rfdetr-n-vs-yolov9c.claims.json",
+  "blocks": [
+    {
+      "kind": "verdict",
+      "text": "YOLOv9-C is the more accurate detector, 57.1 vs 51.4 mAP@50-95 against RF-DETR-N on an RTX 5070 Ti in PyTorch. The resolutions differ: RF-DETR-N runs at 384 px and YOLOv9-C at 640 px, each at its author default, so read this as a deployment comparison. YOLOv9-C also edges the PyTorch speed test, 42.3 vs 39.5 FPS, but RF-DETR-N is faster on Jetson Orin and Raspberry Pi 5. RF-DETR-N holds a smaller footprint, 151 vs 241 MB peak VRAM."
+    },
+    {
+      "kind": "prose",
+      "text": "RF-DETR-N (30.47M parameters, Apache-2.0) and YOLOv9-C (25.5M, MIT) evaluate on COCO val2017 at different input sizes: RF-DETR-N at 384 px, YOLOv9-C at 640 px, each at the author default. Both have verified rows on desktop GPU, Jetson Orin, and Raspberry Pi 5."
+    },
+    {
+      "kind": "comparison-table",
+      "models": [
+        "rfdetr-n",
+        "yolov9c"
+      ],
+      "hardware": "nvidia_geforce_rtx_5070_ti",
+      "runtime": "pytorch_fp32"
+    },
+    {
+      "kind": "chart",
+      "src": "/embed/scatter?highlight=rfdetr-n,yolov9c",
+      "caption": "Accuracy vs parameters on COCO val2017. RF-DETR-N and YOLOv9-C highlighted against the full set."
+    },
+    {
+      "kind": "heading",
+      "text": "Accuracy"
+    },
+    {
+      "kind": "prose",
+      "text": "mAP is shown in percent form. YOLOv9-C measures 57.1 mAP@50-95 to RF-DETR-N's 51.4, a 5.7 point gap. The gap widens on small objects: YOLOv9-C leads 39.3 vs 27.7 mAP_small, a 29.55% relative difference."
+    },
+    {
+      "kind": "heading",
+      "text": "Speed"
+    },
+    {
+      "kind": "prose",
+      "text": "In PyTorch on the RTX 5070 Ti, YOLOv9-C runs 42.3 FPS to RF-DETR-N's 39.5. YOLOv9-C keeps the lead on both TensorRT builds: 76.7 vs 67.6 FPS on FP32, 74.7 vs 58.3 on FP16. On ONNX Runtime the two are close, 63.5 vs 65.7."
+    },
+    {
+      "kind": "callout",
+      "text": "The desktop order reverses on edge hardware. On Jetson Orin, RF-DETR-N runs 10.2 FPS to YOLOv9-C's 6.4. On Raspberry Pi 5 it is 2.1 vs 0.5. For low-power targets RF-DETR-N is the faster model."
+    },
+    {
+      "kind": "kv",
+      "title": "License and provenance",
+      "items": [
+        {
+          "k": "RF-DETR-N license",
+          "v": "Apache-2.0"
+        },
+        {
+          "k": "YOLOv9-C license",
+          "v": "MIT"
+        },
+        {
+          "k": "RF-DETR-N release",
+          "v": "2026-02-23"
+        },
+        {
+          "k": "YOLOv9-C release",
+          "v": "2024-02-21"
+        },
+        {
+          "k": "Evaluated weights",
+          "v": "LibreYOLO retrained checkpoints"
+        }
+      ]
+    },
+    {
+      "kind": "heading",
+      "text": "When to pick which"
+    },
+    {
+      "kind": "prose",
+      "text": "Pick YOLOv9-C for desktop or GPU deployment and for accuracy, especially on small objects. Pick RF-DETR-N for Jetson- or Pi-class edge hardware, where it runs faster at 384 px, and when VRAM is tight, 151 vs 241 MB. Both ship under permissive licenses."
+    },
+    {
+      "kind": "heading",
+      "text": "Try both with LibreYOLO"
+    },
+    {
+      "kind": "code",
+      "language": "python",
+      "text": "# pip install libreyolo\nfrom libreyolo import LibreYOLO\n\nrfdetr = LibreYOLO(\"LibreRFDETRn.pt\")  # 30.47M params, 51.4 mAP@50-95\nyolo9 = LibreYOLO(\"LibreYOLO9c.pt\")    # 25.5M params, 57.1 mAP@50-95\n\nresults = yolo9(\"image.jpg\")\n"
+    },
+    {
+      "kind": "methodology"
+    }
+  ]
+}

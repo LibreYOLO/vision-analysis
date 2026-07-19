@@ -1,0 +1,70 @@
+{
+  "slug": "dfine-vs-rtdetrv2",
+  "type": "family-vs",
+  "title": "D-FINE vs RT-DETRv2: full benchmark comparison",
+  "dek": "Measured on one COCO protocol on an RTX 5070 Ti: D-FINE averages 6.2 mAP points higher at matched compute, while RT-DETRv2 runs 39.7% faster.",
+  "date": "2026-07-03",
+  "author": "Vision Analysis",
+  "readingMinutes": 4,
+  "tags": ["comparison", "family-vs", "dfine", "rtdetrv2"],
+  "status": "published",
+  "claimsFile": "article-pipeline/v2/output/dfine-vs-rtdetrv2.claims.json",
+  "blocks": [
+    {
+      "kind": "verdict",
+      "text": "On an RTX 5070 Ti in PyTorch, D-FINE averages 6.2 mAP points higher than RT-DETRv2 at matched parameter counts, winning all 3 nearest-params pairings. RT-DETRv2 is 39.7% faster on average. D-FINE leads accuracy from smallest to largest; RT-DETRv2 wins on throughput."
+    },
+    {
+      "kind": "prose",
+      "text": "D-FINE fields 5 measured variants and RT-DETRv2 fields 5, all on the same COCO val2017 protocol on an RTX 5070 Ti. Three pair closely by parameter count, giving 3 matched comparisons."
+    },
+    {
+      "kind": "family-frontier",
+      "familyA": "dfine",
+      "familyB": "rtdetrv2",
+      "hardware": "nvidia_geforce_rtx_5070_ti",
+      "runtime": "pytorch_fp32"
+    },
+    {
+      "kind": "chart",
+      "src": "/embed/scatter?highlight=dfine-n,dfine-s,dfine-m,dfine-l,dfine-x,rtdetrv2-r18,rtdetrv2-r34,rtdetrv2-r50m,rtdetrv2-r50,rtdetrv2-r101",
+      "caption": "Accuracy vs parameters on COCO val2017, D-FINE and RT-DETRv2 variants highlighted against the full field."
+    },
+    {
+      "kind": "heading",
+      "text": "Accuracy at matched compute"
+    },
+    {
+      "kind": "prose",
+      "text": "mAP is shown in percent. Each D-FINE variant is paired with the nearest RT-DETRv2 variant by parameter count. Across the 3 pairings D-FINE averages 6.2 mAP points higher and wins all three. D-FINE-X reaches 61.4 mAP at the top; RT-DETRv2-R101 reaches 56.8. At the small end D-FINE-N is a 3.78M model at 45.8 mAP, lighter than RT-DETRv2-R18 at 20.18M and 50.7 mAP."
+    },
+    {
+      "kind": "heading",
+      "text": "Speed"
+    },
+    {
+      "kind": "prose",
+      "text": "Averaged across the matched pairs, RT-DETRv2 is 39.7% faster than D-FINE in PyTorch. Its lead holds across the range, from the D-FINE-M pairing to the D-FINE-X pairing."
+    },
+    {
+      "kind": "kv",
+      "title": "Licensing",
+      "items": [
+        { "k": "D-FINE license", "v": "Apache-2.0" },
+        { "k": "RT-DETRv2 license", "v": "Apache-2.0" },
+        { "k": "Both families", "v": "permissive, cleared for commercial use" }
+      ]
+    },
+    {
+      "kind": "heading",
+      "text": "Which family to pick"
+    },
+    {
+      "kind": "prose",
+      "text": "Pick D-FINE for accuracy per parameter: it wins every matched pairing and reaches 61.4 mAP. Pick RT-DETRv2 for throughput, at 39.7% faster on average here. Both ship under Apache-2.0, so licensing does not force the call."
+    },
+    {
+      "kind": "methodology"
+    }
+  ]
+}

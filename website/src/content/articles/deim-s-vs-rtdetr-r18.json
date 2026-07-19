@@ -1,0 +1,106 @@
+{
+  "slug": "deim-s-vs-rtdetr-r18",
+  "type": "vs",
+  "title": "DEIM-S vs RT-DETR-R18: benchmark on the same protocol",
+  "dek": "Measured on the same COCO protocol: DEIM-S leads by 2.3 mAP points with fewer parameters, but RT-DETR-R18 is 29.37% faster on desktop GPU.",
+  "date": "2026-07-03",
+  "author": "Vision Analysis",
+  "readingMinutes": 4,
+  "tags": [
+    "comparison",
+    "deim",
+    "rtdetr"
+  ],
+  "status": "draft",
+  "claimsFile": "article-pipeline/v2/output/deim-s-vs-rtdetr-r18.claims.json",
+  "blocks": [
+    {
+      "kind": "verdict",
+      "text": "DEIM-S is the more accurate model: 52.1 vs 49.8 mAP@50-95 against RT-DETR-R18 on an RTX 5070 Ti in PyTorch, and it reaches that with fewer parameters (10.32M vs 20.18M) and less VRAM (142 vs 169 MB). RT-DETR-R18 is the faster detector on that GPU: 47.2 vs 33.4 FPS, a 29.37% edge. The speed order flips on Raspberry Pi 5, where DEIM-S pulls ahead. Pick by deployment target."
+    },
+    {
+      "kind": "prose",
+      "text": "DEIM-S (10.32M parameters, Apache-2.0) and RT-DETR-R18 (20.18M, Apache-2.0) both evaluate at 640 px input, so the input resolution matches and does not skew the comparison. DEIM-S is the smaller model here. Both have verified rows on desktop GPU, Jetson Orin, and Raspberry Pi 5, so this comparison covers the deploy targets where the answer changes."
+    },
+    {
+      "kind": "comparison-table",
+      "models": [
+        "deim-s",
+        "rtdetr-r18"
+      ],
+      "hardware": "nvidia_geforce_rtx_5070_ti",
+      "runtime": "pytorch_fp32"
+    },
+    {
+      "kind": "chart",
+      "src": "/embed/scatter?highlight=deim-s,rtdetr-r18",
+      "caption": "Accuracy vs parameters on COCO val2017. DEIM-S and RT-DETR-R18 highlighted against the full set."
+    },
+    {
+      "kind": "heading",
+      "text": "Accuracy"
+    },
+    {
+      "kind": "prose",
+      "text": "mAP is shown in percent form. DEIM-S measures 52.1 mAP@50-95 to RT-DETR-R18's 49.8, a 2.3 point lead. The gap is wider on small objects: 36.0 vs 32.7 mAP_small, a 10.11% relative difference. DEIM-S reaches that accuracy with fewer parameters than RT-DETR-R18."
+    },
+    {
+      "kind": "heading",
+      "text": "Speed"
+    },
+    {
+      "kind": "prose",
+      "text": "On the RTX 5070 Ti, RT-DETR-R18 runs 47.2 FPS to DEIM-S's 33.4 in PyTorch, a 29.37% edge. The gap holds under conversion: 92.5 vs 67.5 FPS on ONNX Runtime, 120.6 vs 97.6 FPS on TensorRT FP32."
+    },
+    {
+      "kind": "callout",
+      "text": "The speed verdict does not travel to CPU. On Raspberry Pi 5, DEIM-S runs 1.1 FPS to RT-DETR-R18's 0.8. On Jetson Orin the two tie at 10.2 FPS. If your target is a bare Pi, the desktop numbers point the wrong way."
+    },
+    {
+      "kind": "kv",
+      "title": "License and provenance",
+      "items": [
+        {
+          "k": "DEIM-S license",
+          "v": "Apache-2.0"
+        },
+        {
+          "k": "RT-DETR-R18 license",
+          "v": "Apache-2.0"
+        },
+        {
+          "k": "DEIM-S release",
+          "v": "2024-12-05"
+        },
+        {
+          "k": "RT-DETR-R18 release",
+          "v": "2023-04-17"
+        },
+        {
+          "k": "Evaluated weights",
+          "v": "LibreYOLO retrained checkpoints"
+        }
+      ]
+    },
+    {
+      "kind": "heading",
+      "text": "When to pick which"
+    },
+    {
+      "kind": "prose",
+      "text": "Pick DEIM-S when accuracy or memory matters, or when the target is a Raspberry Pi where it is the faster detector: it is more accurate at every object size and uses less VRAM. Pick RT-DETR-R18 for desktop or server GPU throughput, where it leads on every GPU runtime measured. Both ship under Apache-2.0, so licensing does not force the choice."
+    },
+    {
+      "kind": "heading",
+      "text": "Try both with LibreYOLO"
+    },
+    {
+      "kind": "code",
+      "language": "python",
+      "text": "# pip install libreyolo\nfrom libreyolo import LibreYOLO\n\ndeim = LibreYOLO(\"LibreDEIMs.pt\")        # 10.32M params, 52.1 mAP@50-95\nrtdetr = LibreYOLO(\"LibreRTDETRr18.pt\")  # 20.18M params, 49.8 mAP@50-95\n\nresults = deim(\"image.jpg\")\n"
+    },
+    {
+      "kind": "methodology"
+    }
+  ]
+}

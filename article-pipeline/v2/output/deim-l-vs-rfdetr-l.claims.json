@@ -1,0 +1,389 @@
+{
+  "engine": "article-pipeline-v2",
+  "generated_at": "2026-07-03T22:09:42.525938+00:00",
+  "slug": "deim-l-vs-rfdetr-l",
+  "meta": {
+    "type": "vs",
+    "a": "deim-l",
+    "b": "rfdetr-l",
+    "hardware": "nvidia_geforce_rtx_5070_ti",
+    "runtime": "pytorch_fp32"
+  },
+  "facts": {
+    "a": {
+      "id": "deim-l",
+      "displayName": "DEIM-L",
+      "license": "Apache-2.0",
+      "releaseDate": "2024-12-05",
+      "inLibreYOLO": true,
+      "bench": {
+        "mAP_50_95": 0.5782621609188436,
+        "mAP_50": 0.7554692546710929,
+        "mAP_small": 0.45153510221580306,
+        "mAP_medium": 0.6352409300103963,
+        "mAP_large": 0.7456268178594337,
+        "fps_mean": 18.6,
+        "fps_p50": 19.9,
+        "ms_per_image": 53.759,
+        "inference_ms": 46.269,
+        "preprocess_ms": 6.228,
+        "postprocess_ms": 1.262,
+        "p95_ms": 69.775,
+        "peak_vram_mb": 245.2,
+        "peak_ram_mb": 0.0,
+        "params_millions": 31.24,
+        "gflops": 0.0,
+        "input_size": 640,
+        "config": {
+          "batch_size": 1,
+          "input_size": 640,
+          "conf": 0.001,
+          "iou": 0.6,
+          "max_det": 300
+        },
+        "eval": {
+          "dataset": "coco",
+          "split": "val2017",
+          "numImages": 500
+        },
+        "benchmark_date": "2026-06-16T21:37:04.298988Z"
+      }
+    },
+    "b": {
+      "id": "rfdetr-l",
+      "displayName": "RF-DETR-L",
+      "license": "Apache-2.0",
+      "releaseDate": "2026-02-23",
+      "inLibreYOLO": true,
+      "bench": {
+        "mAP_50_95": 0.5855194790573519,
+        "mAP_50": 0.7602544384315711,
+        "mAP_small": 0.40866936129290937,
+        "mAP_medium": 0.6398630646189177,
+        "mAP_large": 0.7508947139639672,
+        "fps_mean": 25.08,
+        "fps_p50": 26.03,
+        "ms_per_image": 39.865,
+        "inference_ms": 21.946,
+        "preprocess_ms": 15.635,
+        "postprocess_ms": 2.284,
+        "p95_ms": 45.271,
+        "peak_vram_mb": 222.7,
+        "peak_ram_mb": 0.0,
+        "params_millions": 33.93,
+        "gflops": 340.0,
+        "input_size": 704,
+        "config": {
+          "batch_size": 1,
+          "input_size": 704,
+          "conf": 0.001,
+          "iou": 0.6,
+          "max_det": 300
+        },
+        "eval": {
+          "dataset": "coco",
+          "split": "val2017",
+          "numImages": 500
+        },
+        "benchmark_date": "2026-06-17T17:15:09.275538Z"
+      }
+    },
+    "primary": {
+      "hardware": "nvidia_geforce_rtx_5070_ti",
+      "hardware_display": "NVIDIA RTX 5070 Ti",
+      "runtime": "pytorch_fp32",
+      "runtime_display": "PyTorch FP32"
+    },
+    "deltas_pct": {
+      "mAP_50_95": -1.24,
+      "fps": -25.84,
+      "params": -7.93,
+      "flops": -73.24,
+      "peak_vram": 10.1
+    },
+    "map_pts": {
+      "a": 57.8,
+      "b": 58.6,
+      "delta": -0.8
+    },
+    "pair": {
+      "params_ratio": 1.09,
+      "meaningful": true
+    },
+    "efficiency": {
+      "a_mAP_per_GFLOP": 0.00635,
+      "b_mAP_per_GFLOP": 0.00172
+    },
+    "cross_runtime": [
+      {
+        "runtime": "onnx_fp32",
+        "display": "ONNX Runtime FP32",
+        "a": {
+          "mAP": 57.8,
+          "fps": 50.5
+        },
+        "b": {
+          "mAP": 58.6,
+          "fps": 43.8
+        }
+      },
+      {
+        "runtime": "pytorch_fp32",
+        "display": "PyTorch FP32",
+        "a": {
+          "mAP": 57.8,
+          "fps": 18.6
+        },
+        "b": {
+          "mAP": 58.6,
+          "fps": 25.1
+        }
+      },
+      {
+        "runtime": "tensorrt_fp32",
+        "display": "TensorRT FP32",
+        "a": {
+          "mAP": 57.8,
+          "fps": 75.7
+        },
+        "b": {
+          "mAP": 58.6,
+          "fps": 45.1
+        }
+      }
+    ],
+    "cross_hardware": [
+      {
+        "hardware": "jetson_orin",
+        "display": "NVIDIA Jetson Orin Nano Super 8GB",
+        "a": {
+          "mAP": 57.8,
+          "fps": 4.8
+        },
+        "b": {
+          "mAP": 58.6,
+          "fps": 4.0
+        }
+      },
+      {
+        "hardware": "nvidia_geforce_rtx_5070_ti",
+        "display": "NVIDIA RTX 5070 Ti",
+        "a": {
+          "mAP": 57.8,
+          "fps": 18.6
+        },
+        "b": {
+          "mAP": 58.6,
+          "fps": 25.1
+        }
+      },
+      {
+        "hardware": "rpi5",
+        "display": "Raspberry Pi 5",
+        "a": {
+          "mAP": 57.8,
+          "fps": 0.4
+        },
+        "b": {
+          "mAP": 58.6,
+          "fps": 0.5
+        }
+      }
+    ],
+    "input_sizes": {
+      "a": 640,
+      "b": 704,
+      "match": false
+    }
+  },
+  "claims": [
+    {
+      "id": "accuracy_winner",
+      "kind": "accuracy",
+      "statement": "RF-DETR-L measures 0.8 mAP points higher than DEIM-L on NVIDIA RTX 5070 Ti (PyTorch FP32): 57.8 vs 58.6 mAP@50-95.",
+      "values": {
+        "delta_pts": 0.8,
+        "a_map": 57.8,
+        "b_map": 58.6
+      },
+      "passed": true,
+      "strength": "strong"
+    },
+    {
+      "id": "speed_winner",
+      "kind": "speed",
+      "statement": "RF-DETR-L is 25.84% faster: 18.6 vs 25.1 FPS (53.76 vs 39.87 ms/image).",
+      "values": {
+        "delta_pct": 25.84,
+        "a_fps": 18.6,
+        "b_fps": 25.1
+      },
+      "passed": true,
+      "strength": "strong"
+    },
+    {
+      "id": "efficiency_winner",
+      "kind": "efficiency",
+      "statement": "DEIM-L extracts 269.19% more mAP per GFLOP (0.00635 vs 0.00172).",
+      "values": {
+        "a": 0.00635,
+        "b": 0.00172,
+        "delta_pct": 269.19
+      },
+      "passed": true,
+      "strength": "normal"
+    },
+    {
+      "id": "memory_winner",
+      "kind": "memory",
+      "statement": "RF-DETR-L uses less peak VRAM: 245 vs 223 MB.",
+      "values": {
+        "a_vram": 245,
+        "b_vram": 223
+      },
+      "passed": true,
+      "strength": "normal"
+    },
+    {
+      "id": "small_object_gap",
+      "kind": "accuracy",
+      "statement": "DEIM-L leads on small objects: 45.2 vs 40.9 mAP_small (10.49% relative gap).",
+      "values": {
+        "a": 45.2,
+        "b": 40.9,
+        "delta_pct": 10.49
+      },
+      "passed": true,
+      "strength": "normal"
+    },
+    {
+      "id": "ranking_flip",
+      "kind": "robustness",
+      "statement": "The speed verdict does NOT survive everywhere. It flips on runtime: ONNX Runtime FP32, runtime: TensorRT FP32, hardware: NVIDIA Jetson Orin Nano Super 8GB. State this; it is the most useful fact in the article.",
+      "values": {
+        "flips": [
+          "runtime:ONNX Runtime FP32",
+          "runtime:TensorRT FP32",
+          "hardware:NVIDIA Jetson Orin Nano Super 8GB"
+        ]
+      },
+      "passed": true,
+      "strength": "strong"
+    },
+    {
+      "id": "input_size_caveat",
+      "kind": "caveat",
+      "statement": "MANDATORY CAVEAT: DEIM-L runs at 640 px and RF-DETR-L at 704 px (each model at its author default). Say this in Setup and the verdict.",
+      "values": {
+        "a": 640,
+        "b": 704
+      },
+      "passed": true,
+      "strength": "strong"
+    }
+  ],
+  "gate": {
+    "passed": true,
+    "passed_claims": 7,
+    "required": 2,
+    "reason": null
+  },
+  "allowed_numbers": [
+    -73.24,
+    -25.84,
+    -7.93,
+    -1.24,
+    -0.8,
+    0.0,
+    0.001,
+    0.0017,
+    0.0063,
+    0.1,
+    0.172,
+    0.4,
+    0.4087,
+    0.4515,
+    0.5,
+    0.5783,
+    0.5855,
+    0.6,
+    0.635,
+    0.6352,
+    0.6399,
+    0.7456,
+    0.7509,
+    0.7555,
+    0.7603,
+    0.8,
+    1.0,
+    1.09,
+    1.262,
+    2,
+    2.284,
+    3,
+    4.0,
+    4.8,
+    5,
+    6,
+    6.228,
+    7,
+    8,
+    9,
+    10,
+    10.1,
+    10.49,
+    11,
+    12,
+    15.635,
+    18.6,
+    19.9,
+    21.946,
+    25.08,
+    25.1,
+    25.84,
+    26.03,
+    31.24,
+    33.93,
+    39.865,
+    40.0,
+    40.8669,
+    40.9,
+    43.8,
+    45.1,
+    45.1535,
+    45.2,
+    45.271,
+    46.269,
+    50.0,
+    50.5,
+    53.759,
+    57.8,
+    57.8262,
+    58.5519,
+    58.6,
+    60.0,
+    63.5241,
+    63.9863,
+    69.775,
+    74.5627,
+    75,
+    75.0895,
+    75.5469,
+    75.7,
+    76.0254,
+    80.0,
+    95,
+    100.0,
+    222.7,
+    223.0,
+    245.0,
+    245.2,
+    269.19,
+    300.0,
+    340.0,
+    500.0,
+    640.0,
+    704.0,
+    5000
+  ]
+}

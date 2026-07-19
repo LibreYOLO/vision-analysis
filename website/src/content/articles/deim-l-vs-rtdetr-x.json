@@ -1,0 +1,106 @@
+{
+  "slug": "deim-l-vs-rtdetr-x",
+  "type": "vs",
+  "title": "DEIM-L vs RT-DETR-X: benchmark on one protocol",
+  "dek": "Measured on the same COCO protocol: accuracy ties at 57.8 vs 57.9 mAP, but DEIM-L reaches it with half the parameters and 245 vs 401 MB peak VRAM.",
+  "date": "2026-07-03",
+  "author": "Vision Analysis",
+  "readingMinutes": 3,
+  "tags": [
+    "comparison",
+    "deim",
+    "rtdetr"
+  ],
+  "status": "draft",
+  "claimsFile": "article-pipeline/v2/output/deim-l-vs-rtdetr-x.claims.json",
+  "blocks": [
+    {
+      "kind": "verdict",
+      "text": "Accuracy is a tie: DEIM-L and RT-DETR-X land at 57.8 vs 57.9 mAP@50-95 on an RTX 5070 Ti in PyTorch, 0.1 points apart. DEIM-L reaches that mark with far fewer parameters and 245 vs 401 MB peak VRAM. RT-DETR-X is 14% faster on this GPU in PyTorch, but the order reverses on TensorRT FP32 and Jetson Orin. When the two are this close on accuracy, efficiency decides."
+    },
+    {
+      "kind": "prose",
+      "text": "DEIM-L (31.24M parameters, Apache-2.0) and RT-DETR-X (67.37M, Apache-2.0) are both transformer detectors evaluated at 640 px input on COCO val2017. Both have verified rows on desktop GPU and Jetson Orin. RT-DETR-X carries more than twice the parameters for the same measured accuracy."
+    },
+    {
+      "kind": "comparison-table",
+      "models": [
+        "deim-l",
+        "rtdetr-x"
+      ],
+      "hardware": "nvidia_geforce_rtx_5070_ti",
+      "runtime": "pytorch_fp32"
+    },
+    {
+      "kind": "chart",
+      "src": "/embed/scatter?highlight=deim-l,rtdetr-x",
+      "caption": "Accuracy vs parameters on COCO val2017. DEIM-L and RT-DETR-X highlighted against the full set of measured models."
+    },
+    {
+      "kind": "heading",
+      "text": "Accuracy"
+    },
+    {
+      "kind": "prose",
+      "text": "mAP is shown in percent form. DEIM-L measures 57.8 mAP@50-95 and RT-DETR-X 57.9, close enough to call a tie. DEIM-L leads on small objects: 45.2 vs 39.8 mAP_small, a 13.56% relative gap. Measured against compute, DEIM-L extracts 156% more mAP per GFLOP."
+    },
+    {
+      "kind": "heading",
+      "text": "Speed"
+    },
+    {
+      "kind": "prose",
+      "text": "On the RTX 5070 Ti, RT-DETR-X is 14.52% faster in PyTorch (21.8 vs 18.6 FPS). That is where its speed lead ends. On ONNX Runtime DEIM-L leads 50.5 vs 48.4 FPS, on TensorRT FP32 75.7 vs 68.5 FPS, and on Jetson Orin 4.8 vs 3.0 FPS."
+    },
+    {
+      "kind": "callout",
+      "text": "The speed answer is not portable. RT-DETR-X wins only on desktop PyTorch; DEIM-L is faster on ONNX Runtime, TensorRT FP32, and Jetson Orin. Benchmark on your own runtime before choosing."
+    },
+    {
+      "kind": "kv",
+      "title": "License and provenance",
+      "items": [
+        {
+          "k": "DEIM-L license",
+          "v": "Apache-2.0"
+        },
+        {
+          "k": "RT-DETR-X license",
+          "v": "Apache-2.0"
+        },
+        {
+          "k": "DEIM-L release",
+          "v": "2024-12-05"
+        },
+        {
+          "k": "RT-DETR-X release",
+          "v": "2023-04-17"
+        },
+        {
+          "k": "Evaluated weights",
+          "v": "LibreYOLO retrained checkpoints"
+        }
+      ]
+    },
+    {
+      "kind": "heading",
+      "text": "When to pick which"
+    },
+    {
+      "kind": "prose",
+      "text": "Pick DEIM-L for the same accuracy at lower cost: fewer parameters, less peak VRAM at 245 vs 401 MB, and faster inference on every runtime except desktop PyTorch. Pick RT-DETR-X only if desktop PyTorch throughput is the single constraint. Both ship under Apache-2.0, so licensing does not force the choice."
+    },
+    {
+      "kind": "heading",
+      "text": "Try both with LibreYOLO"
+    },
+    {
+      "kind": "code",
+      "language": "python",
+      "text": "# pip install libreyolo\nfrom libreyolo import LibreYOLO\n\ndeim = LibreYOLO(\"LibreDEIMl.pt\")     # 31.24M params, 57.8 mAP@50-95\nrtdetr = LibreYOLO(\"LibreRTDETRx.pt\") # 67.37M params, 57.9 mAP@50-95\n\nresults = deim(\"image.jpg\")\n"
+    },
+    {
+      "kind": "methodology"
+    }
+  ]
+}

@@ -1,0 +1,70 @@
+{
+  "slug": "dfine-vs-rfdetr",
+  "type": "family-vs",
+  "title": "D-FINE vs RF-DETR: full benchmark comparison",
+  "dek": "Measured on one COCO protocol on an RTX 5070 Ti: D-FINE averages 7.5 mAP points higher at matched compute, while RF-DETR runs 35.8% faster.",
+  "date": "2026-07-03",
+  "author": "Vision Analysis",
+  "readingMinutes": 4,
+  "tags": ["comparison", "family-vs", "dfine", "rfdetr"],
+  "status": "published",
+  "claimsFile": "article-pipeline/v2/output/dfine-vs-rfdetr.claims.json",
+  "blocks": [
+    {
+      "kind": "verdict",
+      "text": "On an RTX 5070 Ti in PyTorch, D-FINE averages 7.5 mAP points higher than RF-DETR at matched parameter counts, winning both nearest-params pairings. The trade is speed: RF-DETR runs 35.8% faster on average. D-FINE leads on accuracy from the smallest variant to the largest, so pick it for accuracy and RF-DETR for throughput."
+    },
+    {
+      "kind": "prose",
+      "text": "D-FINE fields 5 measured variants and RF-DETR fields 4, all on the same COCO val2017 protocol on an RTX 5070 Ti. RF-DETR's variants cluster between 30 and 34M parameters, so only 2 pairings match closely by parameter count."
+    },
+    {
+      "kind": "family-frontier",
+      "familyA": "dfine",
+      "familyB": "rfdetr",
+      "hardware": "nvidia_geforce_rtx_5070_ti",
+      "runtime": "pytorch_fp32"
+    },
+    {
+      "kind": "chart",
+      "src": "/embed/scatter?highlight=dfine-n,dfine-s,dfine-m,dfine-l,dfine-x,rfdetr-n,rfdetr-s,rfdetr-m,rfdetr-l",
+      "caption": "Accuracy vs parameters on COCO val2017, D-FINE and RF-DETR variants highlighted against the full field."
+    },
+    {
+      "kind": "heading",
+      "text": "Accuracy at matched compute"
+    },
+    {
+      "kind": "prose",
+      "text": "mAP is shown in percent. The comparison pairs each D-FINE variant with the nearest RF-DETR variant by parameter count. Across those 2 pairings D-FINE averages 7.5 mAP points higher and wins both. At the top end D-FINE-X reaches 61.4 mAP against RF-DETR-L at 58.6. At the small end D-FINE-N is a 3.78M model at 45.8 mAP, far lighter than RF-DETR's smallest at 30.47M and 51.4 mAP."
+    },
+    {
+      "kind": "heading",
+      "text": "Speed"
+    },
+    {
+      "kind": "prose",
+      "text": "Averaged across the matched pairs, RF-DETR is 35.8% faster than D-FINE in PyTorch, and its lead grows with model size."
+    },
+    {
+      "kind": "kv",
+      "title": "Licensing",
+      "items": [
+        { "k": "D-FINE license", "v": "Apache-2.0" },
+        { "k": "RF-DETR license", "v": "Apache-2.0" },
+        { "k": "Both families", "v": "permissive, cleared for commercial use" }
+      ]
+    },
+    {
+      "kind": "heading",
+      "text": "Which family to pick"
+    },
+    {
+      "kind": "prose",
+      "text": "Pick D-FINE when you want the most accuracy per parameter: it leads at both matched sizes and reaches 61.4 mAP at the top. Pick RF-DETR when throughput is the constraint, since it runs 35.8% faster on average in this pairing. Both ship under Apache-2.0, so licensing does not force the call."
+    },
+    {
+      "kind": "methodology"
+    }
+  ]
+}

@@ -1,0 +1,57 @@
+{
+  "slug": "tensorrt-fp32-vs-pytorch-fp32-jetson-orin",
+  "type": "runtime-guide",
+  "title": "TensorRT FP32 vs PyTorch FP32 on Jetson Orin: 55 models",
+  "dek": "TensorRT FP32 gives a median 2.2x speedup over PyTorch FP32 across 55 models on Jetson Orin, with no accuracy loss and no model running slower.",
+  "date": "2026-07-03",
+  "author": "Vision Analysis",
+  "readingMinutes": 3,
+  "tags": ["runtime-guide", "tensorrt", "jetson-orin", "edge"],
+  "status": "published",
+  "claimsFile": "article-pipeline/v2/output/tensorrt-fp32-vs-pytorch-fp32-jetson-orin.claims.json",
+  "blocks": [
+    {
+      "kind": "verdict",
+      "text": "Across 55 models on Jetson Orin, TensorRT FP32 gives a median 2.2x over PyTorch FP32, ranging from 1.48x to 5.28x. The biggest gain is DEIMv2-Atto at 5.28x, from 15.4 to 81.4 FPS. Because this stays at full FP32 precision, no model loses more than half a point of mAP, and every model measured ran faster. It is the safe conversion when you want speed without touching accuracy. mAP is shown in percent form."
+    },
+    {
+      "kind": "prose",
+      "text": "PyTorch FP32 is the reference runtime. TensorRT FP32 keeps the same numeric precision but compiles the graph for the device. This compares both on the same 55 models, same COCO protocol, same device: an NVIDIA Jetson Orin Nano Super 8GB."
+    },
+    {
+      "kind": "speedup-table",
+      "hardware": "jetson_orin",
+      "baseline": "pytorch_fp32",
+      "target": "tensorrt_fp32",
+      "limit": 15,
+      "caption": "Per-model FPS under PyTorch FP32 and TensorRT FP32 on Jetson Orin, with speedup and mAP delta. Top 15 by speedup."
+    },
+    {
+      "kind": "heading",
+      "text": "Speedup varies by family"
+    },
+    {
+      "kind": "prose",
+      "text": "Conversion gain depends on the model family. RT-DETRv2 gains a median 2.97x, the most of any family here. ECDet gains only 1.8x, the least. The smallest DEIMv2 models pull the top of the range, with DEIMv2-Atto at 5.28x. Set your speedup expectation by family, not by the single global median."
+    },
+    {
+      "kind": "heading",
+      "text": "Accuracy holds"
+    },
+    {
+      "kind": "prose",
+      "text": "This is the reason to pick FP32 over FP16 when accuracy is fixed: no model loses more than half a point of mAP converting from PyTorch. The precision is identical, so the numbers match the baseline within measurement noise. D-FINE-X stays at 61.4 mAP, and DEIMv2-Atto holds 27.5 mAP while running more than five times faster."
+    },
+    {
+      "kind": "heading",
+      "text": "No regressions"
+    },
+    {
+      "kind": "prose",
+      "text": "No model on this device ran slower under TensorRT FP32. The smallest gain was 1.48x. On Jetson Orin, TensorRT FP32 is the conservative default: a real speedup on every model, with accuracy left untouched. Move to FP16 only when you have measured that the extra speed is worth its accuracy cost."
+    },
+    {
+      "kind": "methodology"
+    }
+  ]
+}

@@ -1,0 +1,73 @@
+{
+  "slug": "permissive-license-detection-models-a100",
+  "type": "license-guide",
+  "title": "Commercially safe object detection models for A100",
+  "dek": "YOLO-NAS ships under a non-permissive license. On the A100, RT-DETR-R50m (Apache-2.0) matches YOLO-NAS-L at 50.8 vs 51.2 mAP.",
+  "date": "2026-07-03",
+  "author": "Vision Analysis",
+  "readingMinutes": 4,
+  "tags": ["license-guide", "a100", "permissive", "deployment"],
+  "status": "published",
+  "claimsFile": "article-pipeline/v2/output/permissive-license-detection-models-a100.claims.json",
+  "blocks": [
+    {
+      "kind": "verdict",
+      "text": "YOLO-NAS ships under a non-permissive license that restricts commercial use. On the A100, permissive models match it. RT-DETR-R50m (Apache-2.0) lands within half a point of YOLO-NAS-L: 50.8 vs 51.2 mAP, and runs 25.1 vs 16.6 FPS. RT-DETR-R34 beats YOLO-NAS-S by 1.7 points: 48.2 vs 46.5 mAP, 27.8 vs 16.6 FPS. The license is not a reason to accept YOLO-NAS here."
+    },
+    {
+      "kind": "prose",
+      "text": "License terms decide whether a model can ship in a commercial product. YOLO-NAS carries a non-permissive license from its authors. MIT and Apache-2.0 models carry no such restriction on use, modification, or redistribution. On the A100, the permissive field is deep enough that you do not trade accuracy or speed to stay in it. mAP is shown in percent form throughout."
+    },
+    {
+      "kind": "callout",
+      "text": "This is not legal advice. License names come from each model's upstream repository. Confirm the exact terms with the upstream project and your own counsel before you ship."
+    },
+    {
+      "kind": "heading",
+      "text": "Large and medium: RT-DETR-R50m covers both"
+    },
+    {
+      "kind": "prose",
+      "text": "RT-DETR-R50m reaches 50.8 mAP at 25.1 FPS on the A100. YOLO-NAS-L sits at 51.2 mAP but runs 16.6 FPS. YOLO-NAS-M reaches 50.5 mAP at 17.0 FPS. The Apache-2.0 model lands within half a point of the larger YOLO-NAS-L, edges past YOLO-NAS-M, and runs faster than both. One permissive model replaces two non-permissive ones."
+    },
+    {
+      "kind": "comparison-table",
+      "models": ["yolonas-l", "yolonas-m", "rtdetr-r50m"],
+      "hardware": "a100",
+      "runtime": "pytorch_fp32"
+    },
+    {
+      "kind": "heading",
+      "text": "Small: RT-DETR-R34 leads YOLO-NAS-S"
+    },
+    {
+      "kind": "prose",
+      "text": "RT-DETR-R34 reaches 48.2 mAP at 27.8 FPS on the A100. YOLO-NAS-S reaches 46.5 mAP at 16.6 FPS. The permissive model is ahead by 1.7 mAP points and faster. In the small class the Apache-2.0 option is the more accurate pick, not a compromise."
+    },
+    {
+      "kind": "comparison-table",
+      "models": ["yolonas-s", "rtdetr-r34"],
+      "hardware": "a100",
+      "runtime": "pytorch_fp32"
+    },
+    {
+      "kind": "heading",
+      "text": "The permissive leaderboard on the A100"
+    },
+    {
+      "kind": "prose",
+      "text": "Permissive alternatives extend past the YOLO-NAS range. D-FINE-X tops the permissive field on the A100 at 59.3 mAP, above every YOLO-NAS variant measured. The table lists the permissive models with verified rows on this device, sorted by accuracy."
+    },
+    {
+      "kind": "ranking-table",
+      "hardware": "a100",
+      "runtime": "pytorch_fp32",
+      "metric": "mAP_50_95",
+      "licenseFilter": "permissive",
+      "limit": 15
+    },
+    {
+      "kind": "methodology"
+    }
+  ]
+}

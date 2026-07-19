@@ -1,0 +1,392 @@
+{
+  "engine": "article-pipeline-v2",
+  "generated_at": "2026-07-03T22:09:43.008651+00:00",
+  "slug": "deim-s-vs-yolov9s",
+  "meta": {
+    "type": "vs",
+    "a": "deim-s",
+    "b": "yolov9s",
+    "hardware": "nvidia_geforce_rtx_5070_ti",
+    "runtime": "pytorch_fp32"
+  },
+  "facts": {
+    "a": {
+      "id": "deim-s",
+      "displayName": "DEIM-S",
+      "license": "Apache-2.0",
+      "releaseDate": "2024-12-05",
+      "inLibreYOLO": true,
+      "bench": {
+        "mAP_50_95": 0.5209629773845224,
+        "mAP_50": 0.6832814321073832,
+        "mAP_small": 0.3601841065325898,
+        "mAP_medium": 0.563738694771644,
+        "mAP_large": 0.6699383734649564,
+        "fps_mean": 33.35,
+        "fps_p50": 34.25,
+        "ms_per_image": 29.985,
+        "inference_ms": 22.909,
+        "preprocess_ms": 5.964,
+        "postprocess_ms": 1.112,
+        "p95_ms": 33.963,
+        "peak_vram_mb": 141.6,
+        "peak_ram_mb": 3.7,
+        "params_millions": 10.32,
+        "gflops": 0.0,
+        "input_size": 640,
+        "config": {
+          "batch_size": 1,
+          "input_size": 640,
+          "conf": 0.001,
+          "iou": 0.6,
+          "max_det": 300
+        },
+        "eval": {
+          "dataset": "coco",
+          "split": "val2017",
+          "numImages": 500
+        },
+        "benchmark_date": "2026-06-16T21:34:26.555726Z"
+      }
+    },
+    "b": {
+      "id": "yolov9s",
+      "displayName": "YOLOv9-S",
+      "license": "MIT",
+      "releaseDate": "2024-02-21",
+      "inLibreYOLO": true,
+      "bench": {
+        "mAP_50_95": 0.5044737676946623,
+        "mAP_50": 0.6719744329452191,
+        "mAP_small": 0.307408881744591,
+        "mAP_medium": 0.5643791782271478,
+        "mAP_large": 0.653006070420912,
+        "fps_mean": 30.76,
+        "fps_p50": 31.79,
+        "ms_per_image": 32.507,
+        "inference_ms": 26.448,
+        "preprocess_ms": 3.813,
+        "postprocess_ms": 2.246,
+        "p95_ms": 39.868,
+        "peak_vram_mb": 91.5,
+        "peak_ram_mb": 20.4,
+        "params_millions": 7.23,
+        "gflops": 13.52,
+        "input_size": 640,
+        "config": {
+          "batch_size": 1,
+          "input_size": 640,
+          "conf": 0.001,
+          "iou": 0.6,
+          "max_det": 300
+        },
+        "eval": {
+          "dataset": "coco",
+          "split": "val2017",
+          "numImages": 500
+        },
+        "benchmark_date": "2026-06-16T21:18:36.206342Z"
+      }
+    },
+    "primary": {
+      "hardware": "nvidia_geforce_rtx_5070_ti",
+      "hardware_display": "NVIDIA RTX 5070 Ti",
+      "runtime": "pytorch_fp32",
+      "runtime_display": "PyTorch FP32"
+    },
+    "deltas_pct": {
+      "mAP_50_95": 3.27,
+      "fps": 8.42,
+      "params": 42.74,
+      "flops": 84.91,
+      "peak_vram": 54.75
+    },
+    "map_pts": {
+      "a": 52.1,
+      "b": 50.4,
+      "delta": 1.7
+    },
+    "pair": {
+      "params_ratio": 1.43,
+      "meaningful": true
+    },
+    "efficiency": {
+      "a_mAP_per_GFLOP": 0.02084,
+      "b_mAP_per_GFLOP": 0.03731
+    },
+    "cross_runtime": [
+      {
+        "runtime": "onnx_fp32",
+        "display": "ONNX Runtime FP32",
+        "a": {
+          "mAP": 52.1,
+          "fps": 67.5
+        },
+        "b": {
+          "mAP": 50.4,
+          "fps": 54.5
+        }
+      },
+      {
+        "runtime": "pytorch_fp32",
+        "display": "PyTorch FP32",
+        "a": {
+          "mAP": 52.1,
+          "fps": 33.4
+        },
+        "b": {
+          "mAP": 50.4,
+          "fps": 30.8
+        }
+      },
+      {
+        "runtime": "tensorrt_fp16",
+        "display": "TensorRT FP16",
+        "a": {
+          "mAP": 51.9,
+          "fps": 82.4
+        },
+        "b": {
+          "mAP": 50.5,
+          "fps": 63.8
+        }
+      },
+      {
+        "runtime": "tensorrt_fp32",
+        "display": "TensorRT FP32",
+        "a": {
+          "mAP": 52.1,
+          "fps": 97.6
+        },
+        "b": {
+          "mAP": 50.4,
+          "fps": 75.1
+        }
+      }
+    ],
+    "cross_hardware": [
+      {
+        "hardware": "jetson_orin",
+        "display": "NVIDIA Jetson Orin Nano Super 8GB",
+        "a": {
+          "mAP": 52.1,
+          "fps": 10.2
+        },
+        "b": {
+          "mAP": 50.4,
+          "fps": 9.9
+        }
+      },
+      {
+        "hardware": "nvidia_geforce_rtx_5070_ti",
+        "display": "NVIDIA RTX 5070 Ti",
+        "a": {
+          "mAP": 52.1,
+          "fps": 33.4
+        },
+        "b": {
+          "mAP": 50.4,
+          "fps": 30.8
+        }
+      },
+      {
+        "hardware": "rpi5",
+        "display": "Raspberry Pi 5",
+        "a": {
+          "mAP": 52.1,
+          "fps": 1.1
+        },
+        "b": {
+          "mAP": 49.4,
+          "fps": 1.4
+        }
+      }
+    ],
+    "input_sizes": {
+      "a": 640,
+      "b": 640,
+      "match": true
+    }
+  },
+  "claims": [
+    {
+      "id": "accuracy_winner",
+      "kind": "accuracy",
+      "statement": "DEIM-S measures 1.7 mAP points higher than YOLOv9-S on NVIDIA RTX 5070 Ti (PyTorch FP32): 52.1 vs 50.4 mAP@50-95.",
+      "values": {
+        "delta_pts": 1.7,
+        "a_map": 52.1,
+        "b_map": 50.4
+      },
+      "passed": true,
+      "strength": "strong"
+    },
+    {
+      "id": "speed_winner",
+      "kind": "speed",
+      "statement": "DEIM-S is 8.42% faster: 33.4 vs 30.8 FPS (29.98 vs 32.51 ms/image).",
+      "values": {
+        "delta_pct": 8.42,
+        "a_fps": 33.4,
+        "b_fps": 30.8
+      },
+      "passed": true,
+      "strength": "strong"
+    },
+    {
+      "id": "efficiency_winner",
+      "kind": "efficiency",
+      "statement": "YOLOv9-S extracts 44.14% more mAP per GFLOP (0.02084 vs 0.03731).",
+      "values": {
+        "a": 0.02084,
+        "b": 0.03731,
+        "delta_pct": 44.14
+      },
+      "passed": true,
+      "strength": "normal"
+    },
+    {
+      "id": "memory_winner",
+      "kind": "memory",
+      "statement": "YOLOv9-S uses less peak VRAM: 142 vs 92 MB.",
+      "values": {
+        "a_vram": 142,
+        "b_vram": 92
+      },
+      "passed": true,
+      "strength": "normal"
+    },
+    {
+      "id": "small_object_gap",
+      "kind": "accuracy",
+      "statement": "DEIM-S leads on small objects: 36.0 vs 30.7 mAP_small (17.17% relative gap).",
+      "values": {
+        "a": 36.0,
+        "b": 30.7,
+        "delta_pct": 17.17
+      },
+      "passed": true,
+      "strength": "normal"
+    },
+    {
+      "id": "ranking_flip",
+      "kind": "robustness",
+      "statement": "The speed verdict does NOT survive everywhere. It flips on hardware: Raspberry Pi 5. State this; it is the most useful fact in the article.",
+      "values": {
+        "flips": [
+          "hardware:Raspberry Pi 5"
+        ]
+      },
+      "passed": true,
+      "strength": "strong"
+    }
+  ],
+  "gate": {
+    "passed": true,
+    "passed_claims": 6,
+    "required": 2,
+    "reason": null
+  },
+  "allowed_numbers": [
+    0.0,
+    0.001,
+    0.0208,
+    0.0373,
+    0.1,
+    0.3074,
+    0.3602,
+    0.5045,
+    0.521,
+    0.5637,
+    0.5644,
+    0.6,
+    0.653,
+    0.6699,
+    0.672,
+    0.6833,
+    1.0,
+    1.1,
+    1.112,
+    1.4,
+    1.43,
+    1.7,
+    2,
+    2.084,
+    2.246,
+    3,
+    3.27,
+    3.7,
+    3.731,
+    3.813,
+    4,
+    5,
+    5.964,
+    6,
+    7,
+    7.23,
+    8,
+    8.42,
+    9,
+    9.9,
+    10,
+    10.2,
+    10.32,
+    11,
+    12,
+    13.52,
+    17.17,
+    20.4,
+    22.909,
+    26.448,
+    29.985,
+    30.7,
+    30.7409,
+    30.76,
+    30.8,
+    31.79,
+    32.507,
+    33.35,
+    33.4,
+    33.963,
+    34.25,
+    36.0,
+    36.0184,
+    39.868,
+    42.74,
+    44.14,
+    49.4,
+    50,
+    50.4,
+    50.4474,
+    50.5,
+    51.9,
+    52.0963,
+    52.1,
+    54.5,
+    54.75,
+    56.3739,
+    56.4379,
+    60.0,
+    63.8,
+    65.3006,
+    66.9938,
+    67.1974,
+    67.5,
+    68.3281,
+    75,
+    75.1,
+    82.4,
+    84.91,
+    91.5,
+    92.0,
+    95,
+    97.6,
+    100.0,
+    141.6,
+    142.0,
+    300.0,
+    500.0,
+    640.0,
+    5000
+  ]
+}

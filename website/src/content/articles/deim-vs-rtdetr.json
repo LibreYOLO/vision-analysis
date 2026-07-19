@@ -1,0 +1,70 @@
+{
+  "slug": "deim-vs-rtdetr",
+  "type": "family-vs",
+  "title": "DEIM vs RT-DETR: which detector family wins",
+  "dek": "Measured on one COCO protocol on an RTX 5070 Ti: DEIM averages 4.3 mAP points higher at matched compute, while RT-DETR runs 41.6% faster.",
+  "date": "2026-07-03",
+  "author": "Vision Analysis",
+  "readingMinutes": 4,
+  "tags": ["comparison", "family-vs", "deim", "rtdetr"],
+  "status": "published",
+  "claimsFile": "article-pipeline/v2/output/deim-vs-rtdetr.claims.json",
+  "blocks": [
+    {
+      "kind": "verdict",
+      "text": "On an RTX 5070 Ti in PyTorch, DEIM averages 4.3 mAP points higher than RT-DETR at matched parameter counts, winning all 3 nearest-params pairings. RT-DETR is 41.6% faster on average. DEIM leads accuracy across the range; RT-DETR wins on throughput."
+    },
+    {
+      "kind": "prose",
+      "text": "DEIM fields 5 measured variants and RT-DETR fields 7, all on the same COCO val2017 protocol on an RTX 5070 Ti. Three pair closely by parameter count, giving 3 matched comparisons."
+    },
+    {
+      "kind": "family-frontier",
+      "familyA": "deim",
+      "familyB": "rtdetr",
+      "hardware": "nvidia_geforce_rtx_5070_ti",
+      "runtime": "pytorch_fp32"
+    },
+    {
+      "kind": "chart",
+      "src": "/embed/scatter?highlight=deim-n,deim-s,deim-m,deim-l,deim-x,rtdetr-r18,rtdetr-r34,rtdetr-l,rtdetr-r50m,rtdetr-r50,rtdetr-x,rtdetr-r101",
+      "caption": "Accuracy vs parameters on COCO val2017, DEIM and RT-DETR variants highlighted against the full field."
+    },
+    {
+      "kind": "heading",
+      "text": "Accuracy at matched compute"
+    },
+    {
+      "kind": "prose",
+      "text": "mAP is shown in percent. Each DEIM variant is paired with the nearest RT-DETR variant by parameter count. Across the 3 pairings DEIM averages 4.3 mAP points higher and wins all three. DEIM-X reaches 59.6 mAP at the top; RT-DETR-R101 reaches 56.8. At the small end DEIM-N is a 3.78M model at 46.8 mAP, against RT-DETR-R18 at 20.18M and 49.8 mAP."
+    },
+    {
+      "kind": "heading",
+      "text": "Speed"
+    },
+    {
+      "kind": "prose",
+      "text": "Averaged across the matched pairs, RT-DETR is 41.6% faster than DEIM in PyTorch. The gap is widest at the DEIM-L pairing and narrowest at the flagship pairing."
+    },
+    {
+      "kind": "kv",
+      "title": "Licensing",
+      "items": [
+        { "k": "DEIM license", "v": "Apache-2.0" },
+        { "k": "RT-DETR license", "v": "Apache-2.0" },
+        { "k": "Both families", "v": "permissive, cleared for commercial use" }
+      ]
+    },
+    {
+      "kind": "heading",
+      "text": "Which family to pick"
+    },
+    {
+      "kind": "prose",
+      "text": "Pick DEIM for accuracy per parameter: it wins every matched pairing and reaches 59.6 mAP. Pick RT-DETR for throughput, at 41.6% faster on average, and for the wider ladder of 7 variants. Both ship under Apache-2.0, so licensing does not force the call."
+    },
+    {
+      "kind": "methodology"
+    }
+  ]
+}

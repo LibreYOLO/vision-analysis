@@ -1,0 +1,114 @@
+{
+  "slug": "rfdetr-n-vs-yolox-m",
+  "type": "vs",
+  "title": "RF-DETR-N vs YOLOX-M: benchmark on one protocol",
+  "dek": "Measured on the same COCO protocol at each model's default input: accuracy ties at 51.4 vs 51.7 mAP, and which one is faster depends entirely on the runtime.",
+  "date": "2026-07-03",
+  "author": "Vision Analysis",
+  "readingMinutes": 3,
+  "tags": [
+    "comparison",
+    "rfdetr",
+    "yolox"
+  ],
+  "status": "draft",
+  "claimsFile": "article-pipeline/v2/output/rfdetr-n-vs-yolox-m.claims.json",
+  "blocks": [
+    {
+      "kind": "verdict",
+      "text": "Accuracy is a tie: RF-DETR-N and YOLOX-M land at 51.4 vs 51.7 mAP@50-95 on an RTX 5070 Ti in PyTorch. The two run at different input sizes, RF-DETR-N at 384 px and YOLOX-M at 640 px, each at its author default. On this GPU YOLOX-M is 18% faster, but that lead reverses on ONNX Runtime, Jetson Orin, and Raspberry Pi 5. RF-DETR-N also uses less peak VRAM at 151 vs 172 MB."
+    },
+    {
+      "kind": "prose",
+      "text": "RF-DETR-N (30.47M parameters, Apache-2.0) runs at 384 px input, while YOLOX-M (25.33M, Apache-2.0) runs at 640 px. Each figure is the author default, so this is a comparison of shipped configurations, not a matched-resolution test. Both were evaluated on COCO val2017 with verified rows on desktop GPU, Jetson Orin, and Raspberry Pi 5."
+    },
+    {
+      "kind": "comparison-table",
+      "models": [
+        "rfdetr-n",
+        "yolox-m"
+      ],
+      "hardware": "nvidia_geforce_rtx_5070_ti",
+      "runtime": "pytorch_fp32"
+    },
+    {
+      "kind": "chart",
+      "src": "/embed/scatter?highlight=rfdetr-n,yolox-m",
+      "caption": "Accuracy vs parameters on COCO val2017. RF-DETR-N and YOLOX-M highlighted against the full set of measured models."
+    },
+    {
+      "kind": "heading",
+      "text": "Accuracy"
+    },
+    {
+      "kind": "prose",
+      "text": "mAP is shown in percent form. RF-DETR-N measures 51.4 mAP@50-95 and YOLOX-M 51.7, close enough to call a tie. The one row that separates them is small objects: YOLOX-M leads 32.9 vs 27.7 mAP_small, a 15.9% relative gap. At 640 px, YOLOX-M keeps more small-object detail."
+    },
+    {
+      "kind": "heading",
+      "text": "Speed"
+    },
+    {
+      "kind": "prose",
+      "text": "On the RTX 5070 Ti, YOLOX-M is 18.0% faster in PyTorch (48.2 vs 39.5 FPS). That is the only setting where it wins. On ONNX Runtime RF-DETR-N leads 65.7 vs 55.8 FPS, on Jetson Orin 10.2 vs 9.1 FPS, and on Raspberry Pi 5 2.1 vs 0.8 FPS."
+    },
+    {
+      "kind": "callout",
+      "text": "The speed answer here is not portable. YOLOX-M wins only on desktop PyTorch; RF-DETR-N is faster on ONNX Runtime, Jetson Orin, and Raspberry Pi 5. Benchmark on your own runtime before choosing."
+    },
+    {
+      "kind": "kv",
+      "title": "License and provenance",
+      "items": [
+        {
+          "k": "RF-DETR-N license",
+          "v": "Apache-2.0"
+        },
+        {
+          "k": "YOLOX-M license",
+          "v": "Apache-2.0"
+        },
+        {
+          "k": "RF-DETR-N release",
+          "v": "2026-02-23"
+        },
+        {
+          "k": "YOLOX-M release",
+          "v": "2021-07-18"
+        },
+        {
+          "k": "RF-DETR-N input",
+          "v": "384 px"
+        },
+        {
+          "k": "YOLOX-M input",
+          "v": "640 px"
+        },
+        {
+          "k": "Evaluated weights",
+          "v": "LibreYOLO retrained checkpoints"
+        }
+      ]
+    },
+    {
+      "kind": "heading",
+      "text": "When to pick which"
+    },
+    {
+      "kind": "prose",
+      "text": "Pick RF-DETR-N for edge and CPU targets like Jetson Orin or Raspberry Pi 5, where it is faster, and when peak VRAM matters at 151 vs 172 MB. Pick YOLOX-M for desktop PyTorch throughput or when small-object recall at 640 px is the priority. Both ship under Apache-2.0, so licensing does not force the choice."
+    },
+    {
+      "kind": "heading",
+      "text": "Try both with LibreYOLO"
+    },
+    {
+      "kind": "code",
+      "language": "python",
+      "text": "# pip install libreyolo\nfrom libreyolo import LibreYOLO\n\nrfdetr = LibreYOLO(\"LibreRFDETRn.pt\") # 384 px, 51.4 mAP@50-95\nyolox = LibreYOLO(\"LibreYOLOXm.pt\")   # 640 px, 51.7 mAP@50-95\n\nresults = rfdetr(\"image.jpg\")\n"
+    },
+    {
+      "kind": "methodology"
+    }
+  ]
+}

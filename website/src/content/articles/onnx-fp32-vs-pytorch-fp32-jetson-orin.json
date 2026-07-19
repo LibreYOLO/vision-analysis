@@ -1,0 +1,61 @@
+{
+  "slug": "onnx-fp32-vs-pytorch-fp32-jetson-orin",
+  "type": "runtime-guide",
+  "title": "ONNX FP32 vs PyTorch FP32 on Jetson Orin: 55 models",
+  "dek": "ONNX Runtime FP32 gives only a median 1.02x over PyTorch FP32 across 55 models on Jetson Orin, and many models run slower. TensorRT is the better path.",
+  "date": "2026-07-03",
+  "author": "Vision Analysis",
+  "readingMinutes": 3,
+  "tags": ["runtime-guide", "onnx", "jetson-orin", "edge"],
+  "status": "published",
+  "claimsFile": "article-pipeline/v2/output/onnx-fp32-vs-pytorch-fp32-jetson-orin.claims.json",
+  "blocks": [
+    {
+      "kind": "verdict",
+      "text": "On Jetson Orin, moving from PyTorch FP32 to ONNX Runtime FP32 buys almost nothing: the median speedup is 1.02x across 55 models, and the range runs from 0.39x to 2.85x. Many models end up slower, not faster. Only the smallest DEIMv2 models see a real gain. If you want speed on this device, convert to TensorRT instead. mAP is shown in percent form."
+    },
+    {
+      "kind": "prose",
+      "text": "PyTorch FP32 is the reference runtime. ONNX Runtime FP32 keeps the same precision and runs the exported graph. This compares both on the same 55 models, same COCO protocol, same device: an NVIDIA Jetson Orin Nano Super 8GB."
+    },
+    {
+      "kind": "speedup-table",
+      "hardware": "jetson_orin",
+      "baseline": "pytorch_fp32",
+      "target": "onnx_fp32",
+      "limit": 15,
+      "caption": "Per-model FPS under PyTorch FP32 and ONNX Runtime FP32 on Jetson Orin, with speedup and mAP delta. Top 15 by speedup."
+    },
+    {
+      "kind": "heading",
+      "text": "The gain is concentrated in small models"
+    },
+    {
+      "kind": "prose",
+      "text": "Only a few families gain anything. DEIMv2 leads at a median 1.51x, and its smallest member, DEIMv2-Atto, is the single biggest gainer at 2.85x, from 15.4 to 43.9 FPS. ECDet is the worst at a median 0.83x, meaning every ECDet model ran slower after conversion. Set your expectation by family, and expect no gain at all for most of the field."
+    },
+    {
+      "kind": "heading",
+      "text": "Many models run slower"
+    },
+    {
+      "kind": "prose",
+      "text": "This is the reason to skip ONNX FP32 on Jetson. A large share of the 55 models ran slower than their PyTorch baseline, which is why the median lands at just 1.02x. The worst case is PicoDet-L, which collapses to 0.39x, dropping from 11.1 to 4.3 FPS. The large transformer detectors mostly land near parity, gaining nothing worth the export step."
+    },
+    {
+      "kind": "heading",
+      "text": "Accuracy cost"
+    },
+    {
+      "kind": "prose",
+      "text": "Three of the 55 models also lose half a point of mAP or more through the ONNX export. PicoDet-S drops from 30.4 to 29.6, PicoDet-M from 37.9 to 37.3, and PicoDet-L from 44.1 to 43.6. So the one family that loses accuracy is also the one that loses the most speed."
+    },
+    {
+      "kind": "callout",
+      "text": "ONNX Runtime FP32 is not a speed win on Jetson Orin. Use it only as a conversion step toward TensorRT, which delivers real gains on this device."
+    },
+    {
+      "kind": "methodology"
+    }
+  ]
+}
