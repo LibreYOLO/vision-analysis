@@ -1,0 +1,107 @@
+{
+  "slug": "dfine-s-vs-yolov9s",
+  "type": "vs",
+  "title": "D-FINE-S vs YOLOv9-S: benchmark on the same protocol",
+  "dek": "Measured on the same COCO protocol: D-FINE-S leads by 3.0 mAP points on desktop GPU, but YOLOv9-S is the faster detector on Raspberry Pi 5.",
+  "date": "2026-07-03",
+  "author": "Vision Analysis",
+  "readingMinutes": 4,
+  "tags": [
+    "comparison",
+    "dfine",
+    "yolov9",
+    "edge"
+  ],
+  "status": "draft",
+  "claimsFile": "article-pipeline/v2/output/dfine-s-vs-yolov9s.claims.json",
+  "blocks": [
+    {
+      "kind": "verdict",
+      "text": "D-FINE-S wins on desktop GPU: 53.4 vs 50.4 mAP@50-95 and 34.2 vs 30.8 FPS against YOLOv9-S on an RTX 5070 Ti in PyTorch. The order flips on Raspberry Pi 5, where YOLOv9-S runs 1.4 FPS to D-FINE-S's 1.1. YOLOv9-S also has the smaller memory footprint: 92 vs 142 MB peak VRAM. Pick by deployment target, not by the leaderboard."
+    },
+    {
+      "kind": "prose",
+      "text": "D-FINE-S (10.3M parameters, Apache-2.0) and YOLOv9-S (7.2M, MIT) sit in the same small-detector class, both evaluated at 640 px input. Both have verified rows on desktop GPU, Jetson Orin, and Raspberry Pi 5, so this comparison covers the deploy targets where the answer changes."
+    },
+    {
+      "kind": "comparison-table",
+      "models": [
+        "dfine-s",
+        "yolov9s"
+      ],
+      "hardware": "nvidia_geforce_rtx_5070_ti",
+      "runtime": "pytorch_fp32"
+    },
+    {
+      "kind": "chart",
+      "src": "/embed/scatter?highlight=dfine-s,yolov9s",
+      "caption": "Accuracy vs parameters on COCO val2017. D-FINE-S and YOLOv9-S highlighted against the full landscape."
+    },
+    {
+      "kind": "heading",
+      "text": "Accuracy"
+    },
+    {
+      "kind": "prose",
+      "text": "mAP is shown in percent form. D-FINE-S measures 53.4 mAP@50-95 to YOLOv9-S's 50.4, and the gap barely moves across runtimes. The largest single difference is on small objects: 37.9 vs 30.7 mAP_small, a 23.3% relative gap. If your scenes are dominated by small instances, that row decides the comparison."
+    },
+    {
+      "kind": "heading",
+      "text": "Speed"
+    },
+    {
+      "kind": "prose",
+      "text": "On the RTX 5070 Ti, D-FINE-S is 11% faster in PyTorch (34.2 vs 30.8 FPS) and the gap widens under conversion: 70.9 vs 54.5 FPS on ONNX Runtime, 98.7 vs 75.1 FPS on TensorRT FP32. On Jetson Orin the two are close: 10.3 vs 9.9 FPS in PyTorch."
+    },
+    {
+      "kind": "callout",
+      "text": "The speed verdict does not travel to CPU. On Raspberry Pi 5, YOLOv9-S runs 1.4 FPS to D-FINE-S's 1.1. If your target is a bare Pi, the desktop numbers point the wrong way."
+    },
+    {
+      "kind": "kv",
+      "title": "License and provenance",
+      "items": [
+        {
+          "k": "D-FINE-S license",
+          "v": "Apache-2.0"
+        },
+        {
+          "k": "YOLOv9-S license",
+          "v": "MIT"
+        },
+        {
+          "k": "D-FINE-S release",
+          "v": "2024-10-18"
+        },
+        {
+          "k": "YOLOv9-S release",
+          "v": "2024-02-21"
+        },
+        {
+          "k": "Evaluated weights",
+          "v": "LibreYOLO retrained checkpoints"
+        }
+      ]
+    },
+    {
+      "kind": "heading",
+      "text": "When to pick which"
+    },
+    {
+      "kind": "prose",
+      "text": "Pick D-FINE-S for desktop or server GPU deployment: it is more accurate at every object size and faster on every GPU runtime measured, at the cost of 142 vs 92 MB peak VRAM. Pick YOLOv9-S for CPU-bound edge targets like the Raspberry Pi 5, or when memory is the constraint. Both ship under permissive licenses, so licensing does not force the choice."
+    },
+    {
+      "kind": "heading",
+      "text": "Try both with LibreYOLO"
+    },
+    {
+      "kind": "code",
+      "language": "python",
+      "text": "# pip install libreyolo\nfrom libreyolo import LibreYOLO\n\ndfine = LibreYOLO(\"LibreDFINEs.pt\")   # 10.3M params, 53.4 mAP@50-95\nyolo9 = LibreYOLO(\"LibreYOLO9s.pt\")   # 7.2M params, 50.4 mAP@50-95\n\nresults = dfine(\"image.jpg\")\n"
+    },
+    {
+      "kind": "methodology"
+    }
+  ]
+}

@@ -1,0 +1,106 @@
+{
+  "slug": "rtdetr-r34-vs-yolov9c",
+  "type": "vs",
+  "title": "RT-DETR-R34 vs YOLOv9-C: benchmark on one protocol",
+  "dek": "On the same COCO protocol YOLOv9-C leads RT-DETR-R34 by 4.9 mAP points, yet RT-DETR-R34 is faster on every runtime except PyTorch.",
+  "date": "2026-07-03",
+  "author": "Vision Analysis",
+  "readingMinutes": 4,
+  "tags": [
+    "comparison",
+    "rtdetr",
+    "yolov9"
+  ],
+  "status": "draft",
+  "claimsFile": "article-pipeline/v2/output/rtdetr-r34-vs-yolov9c.claims.json",
+  "blocks": [
+    {
+      "kind": "verdict",
+      "text": "YOLOv9-C is the more accurate detector: 57.1 vs 52.2 mAP@50-95 against RT-DETR-R34 on an RTX 5070 Ti in PyTorch, both at 640 px. It also edges the PyTorch speed test, 42.3 vs 40.2 FPS. That speed result does not travel: RT-DETR-R34 is faster on ONNX Runtime, both TensorRT builds, Jetson Orin, and Raspberry Pi 5. RT-DETR-R34 also holds a smaller memory footprint, 213 vs 241 MB peak VRAM."
+    },
+    {
+      "kind": "prose",
+      "text": "RT-DETR-R34 (31.44M parameters, Apache-2.0) and YOLOv9-C (25.5M, MIT) both evaluate at 640 px on COCO val2017. Both have verified rows on desktop GPU, Jetson Orin, and Raspberry Pi 5, across four runtimes, so this comparison covers the targets where the answer changes."
+    },
+    {
+      "kind": "comparison-table",
+      "models": [
+        "rtdetr-r34",
+        "yolov9c"
+      ],
+      "hardware": "nvidia_geforce_rtx_5070_ti",
+      "runtime": "pytorch_fp32"
+    },
+    {
+      "kind": "chart",
+      "src": "/embed/scatter?highlight=rtdetr-r34,yolov9c",
+      "caption": "Accuracy vs parameters on COCO val2017. RT-DETR-R34 and YOLOv9-C highlighted against the full set."
+    },
+    {
+      "kind": "heading",
+      "text": "Accuracy"
+    },
+    {
+      "kind": "prose",
+      "text": "mAP is shown in percent form. YOLOv9-C measures 57.1 mAP@50-95 to RT-DETR-R34's 52.2, a 4.9 point gap that holds across runtimes. YOLOv9-C also leads on small objects: 39.3 vs 34.9 mAP_small, an 11.06% relative gap."
+    },
+    {
+      "kind": "heading",
+      "text": "Speed"
+    },
+    {
+      "kind": "prose",
+      "text": "In PyTorch on the RTX 5070 Ti, YOLOv9-C runs 42.3 FPS to RT-DETR-R34's 40.2. Convert either model and the order reverses. On TensorRT FP32, RT-DETR-R34 reaches 98.1 FPS to YOLOv9-C's 76.7. On ONNX Runtime it is 77.7 vs 63.5, and on TensorRT FP16 it is 108.4 vs 74.7."
+    },
+    {
+      "kind": "callout",
+      "text": "The PyTorch speed result is the exception, not the rule. RT-DETR-R34 is the faster model on every other runtime and on both edge devices: 8.0 vs 6.4 FPS on Jetson Orin, 0.6 vs 0.5 on Raspberry Pi 5."
+    },
+    {
+      "kind": "kv",
+      "title": "License and provenance",
+      "items": [
+        {
+          "k": "RT-DETR-R34 license",
+          "v": "Apache-2.0"
+        },
+        {
+          "k": "YOLOv9-C license",
+          "v": "MIT"
+        },
+        {
+          "k": "RT-DETR-R34 release",
+          "v": "2023-04-17"
+        },
+        {
+          "k": "YOLOv9-C release",
+          "v": "2024-02-21"
+        },
+        {
+          "k": "Evaluated weights",
+          "v": "LibreYOLO retrained checkpoints"
+        }
+      ]
+    },
+    {
+      "kind": "heading",
+      "text": "When to pick which"
+    },
+    {
+      "kind": "prose",
+      "text": "Pick YOLOv9-C when you deploy in PyTorch or need the accuracy edge, especially on small objects. Pick RT-DETR-R34 for any converted runtime or edge target, where it runs faster and holds a smaller VRAM footprint. Both ship under permissive licenses, so licensing does not force the choice."
+    },
+    {
+      "kind": "heading",
+      "text": "Try both with LibreYOLO"
+    },
+    {
+      "kind": "code",
+      "language": "python",
+      "text": "# pip install libreyolo\nfrom libreyolo import LibreYOLO\n\nrtdetr = LibreYOLO(\"LibreRTDETRr34.pt\")  # 31.44M params, 52.2 mAP@50-95\nyolo9 = LibreYOLO(\"LibreYOLO9c.pt\")      # 25.5M params, 57.1 mAP@50-95\n\nresults = yolo9(\"image.jpg\")\n"
+    },
+    {
+      "kind": "methodology"
+    }
+  ]
+}

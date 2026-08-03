@@ -1,0 +1,84 @@
+{
+  "slug": "deim-l-vs-yolox-l",
+  "type": "vs",
+  "title": "DEIM-L vs YOLOX-L: benchmark on one protocol",
+  "dek": "Measured on the same COCO protocol: DEIM-L leads by 2.4 mAP points, but YOLOX-L is 56% faster in desktop PyTorch and the order flips on TensorRT.",
+  "date": "2026-07-03",
+  "author": "Vision Analysis",
+  "readingMinutes": 3,
+  "tags": ["comparison", "deim", "yolox"],
+  "status": "published",
+  "claimsFile": "article-pipeline/v2/output/deim-l-vs-yolox-l.claims.json",
+  "blocks": [
+    {
+      "kind": "verdict",
+      "text": "DEIM-L is the more accurate detector: 57.8 vs 55.4 mAP@50-95 against YOLOX-L on an RTX 5070 Ti in PyTorch, a 2.4-point lead. YOLOX-L answers with speed, running 56.58% faster at 42.8 vs 18.6 FPS in PyTorch. DEIM-L also holds the smaller memory footprint at 245 vs 307 MB peak VRAM. The speed order flips on TensorRT FP32, so pick by deployment target."
+    },
+    {
+      "kind": "prose",
+      "text": "DEIM-L (31.24M parameters, Apache-2.0) and YOLOX-L (54.21M, Apache-2.0) are both evaluated at 640 px input on COCO val2017. Both have verified rows on desktop GPU, Jetson Orin, and Raspberry Pi 5, so this comparison covers the targets where the answer changes."
+    },
+    {
+      "kind": "comparison-table",
+      "models": ["deim-l", "yolox-l"],
+      "hardware": "nvidia_geforce_rtx_5070_ti",
+      "runtime": "pytorch_fp32"
+    },
+    {
+      "kind": "chart",
+      "src": "/embed/scatter?highlight=deim-l,yolox-l",
+      "caption": "Accuracy vs parameters on COCO val2017. DEIM-L and YOLOX-L highlighted against the full set of measured models."
+    },
+    {
+      "kind": "heading",
+      "text": "Accuracy"
+    },
+    {
+      "kind": "prose",
+      "text": "mAP is shown in percent form. DEIM-L measures 57.8 mAP@50-95 to YOLOX-L's 55.4, and the gap is stable across runtimes. The largest single difference is on small objects: 45.2 vs 39.0 mAP_small, a 15.67% relative gap. If your scenes are dominated by small instances, that row weighs the comparison toward DEIM-L."
+    },
+    {
+      "kind": "heading",
+      "text": "Speed"
+    },
+    {
+      "kind": "prose",
+      "text": "On the RTX 5070 Ti, YOLOX-L is 56.58% faster in PyTorch (42.8 vs 18.6 FPS). That lead does not hold under conversion. On ONNX Runtime the two match at 50.6 vs 50.5 FPS, and on TensorRT FP32 DEIM-L leads 75.7 vs 61.8 FPS."
+    },
+    {
+      "kind": "callout",
+      "text": "The speed verdict does not travel. YOLOX-L wins in desktop PyTorch, but DEIM-L is faster on TensorRT FP32, and on Raspberry Pi 5 both run at 0.4 FPS. Benchmark on your own runtime before choosing."
+    },
+    {
+      "kind": "kv",
+      "title": "License and provenance",
+      "items": [
+        { "k": "DEIM-L license", "v": "Apache-2.0" },
+        { "k": "YOLOX-L license", "v": "Apache-2.0" },
+        { "k": "DEIM-L release", "v": "2024-12-05" },
+        { "k": "YOLOX-L release", "v": "2021-07-18" },
+        { "k": "Evaluated weights", "v": "LibreYOLO retrained checkpoints" }
+      ]
+    },
+    {
+      "kind": "heading",
+      "text": "When to pick which"
+    },
+    {
+      "kind": "prose",
+      "text": "Pick DEIM-L when accuracy leads the requirement, especially on small objects, when TensorRT is the target runtime, and when peak VRAM matters at 245 vs 307 MB. Pick YOLOX-L for desktop PyTorch throughput, where it runs 56.58% faster. Both ship under Apache-2.0, so licensing does not force the choice."
+    },
+    {
+      "kind": "heading",
+      "text": "Try both with LibreYOLO"
+    },
+    {
+      "kind": "code",
+      "language": "python",
+      "text": "# pip install libreyolo\nfrom libreyolo import LibreYOLO\n\ndeim = LibreYOLO(\"LibreDEIMl.pt\")   # 31.24M params, 57.8 mAP@50-95\nyolox = LibreYOLO(\"LibreYOLOXl.pt\") # 54.21M params, 55.4 mAP@50-95\n\nresults = deim(\"image.jpg\")\n"
+    },
+    {
+      "kind": "methodology"
+    }
+  ]
+}

@@ -6,9 +6,11 @@ import {
   getHardwareOptions,
   getRuntimeOptions,
   getRf100vlResults,
+  getVerifiedRunCount,
 } from "@/lib/data";
 import { libreYoloOnly } from "@/lib/data/provenance";
 import { StructuredData } from "@/components/seo/StructuredData";
+import { BenchmarkRunsBadge } from "@/components/BenchmarkRunsBadge";
 
 const previewFamilies = ["D-FINE", "RF-DETR", "RT-DETR", "DEIM", "YOLOX"];
 
@@ -84,6 +86,7 @@ export default function HomePage() {
   const libreRows = libreYoloOnly(allRows);
   const distinctModels = new Set(libreRows.map((r) => r.model)).size;
   const distinctFamilies = new Set(libreRows.map((r) => r.family)).size;
+  const verifiedRunCount = getVerifiedRunCount();
 
   // RF100-VL is a separate protocol (fine-tuned per dataset), so it gets its
   // own section rather than columns on the COCO board above.
@@ -111,11 +114,16 @@ export default function HomePage() {
       <section className="hero-section">
         <div className="mx-auto max-w-[1280px] px-4 pt-4">
           <h1 className="mb-2 text-2xl font-semibold text-white">
-            Object Detection Leaderboard
+            LibreYOLO Object Detection Leaderboard
           </h1>
           <p className="max-w-2xl text-base text-white/60">
-            Understand the real-time computer vision landscape and pick the best model and hardware for your use case.
+            Every detection model in LibreYOLO, measured on one protocol across hardware and runtimes. Pick the best one for your use case.
           </p>
+          {hasVerifiedBenchmarks && (
+            <div className="mt-4">
+              <BenchmarkRunsBadge value={verifiedRunCount} />
+            </div>
+          )}
         </div>
       </section>
 

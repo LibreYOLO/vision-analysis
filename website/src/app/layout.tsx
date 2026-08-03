@@ -7,6 +7,7 @@ import type { SearchItem } from "@/components/layout/SearchDialog";
 import { siteConfig } from "@/config/site";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { getModels, getHardware } from "@/lib/data";
+import { Analytics } from "@vercel/analytics/next";
 
 const mplus2 = M_PLUS_2({
   variable: "--font-sans",
@@ -78,7 +79,9 @@ function buildSearchItems(): SearchItem[] {
   }));
   const pageItems: SearchItem[] = [
     { label: "Leaderboard", href: "/", group: "Pages" },
+    { label: "Models", href: "/models", group: "Pages" },
     { label: "Compare Models", href: "/compare", group: "Pages" },
+    { label: "Articles", href: "/articles", group: "Pages" },
     { label: "Hardware", href: "/hardware", group: "Pages" },
     { label: "Port Fidelity (Parity)", href: "/parity", group: "Pages" },
     { label: "Methodology", href: "/methodology", group: "Pages" },
@@ -112,6 +115,7 @@ export default function RootLayout({
             <SiteFeedback />
           </TooltipProvider>
         </ThemeProvider>
+        <Analytics />
       </body>
     </html>
   );

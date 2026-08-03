@@ -1,6 +1,6 @@
 import "server-only";
 import { BenchmarkResult, ModelMetadata, FamilyMetadata, HardwareMetadata, DatasetMetadata, RuntimeMetadata } from "@/lib/types";
-import { loadAllBenchmarks } from "./loader";
+import { loadAllBenchmarks, loadVerifiedRunCount } from "./loader";
 import { RF100VL_DATASET_ID } from "./transform";
 import { benchmarkCoordinateKey, compareBenchmarkCoordinates } from "./utils";
 
@@ -88,6 +88,13 @@ export function getAllBenchmarkResultsByTask(
     if (rows.length > 0) filtered[key] = rows;
   }
   return filtered;
+}
+
+/**
+ * Total verified benchmark runs (validated submission records) in the dataset.
+ */
+export function getVerifiedRunCount(): number {
+  return loadVerifiedRunCount();
 }
 
 /**

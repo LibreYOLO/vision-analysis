@@ -1,0 +1,84 @@
+{
+  "slug": "deim-l-vs-rfdetr-l",
+  "type": "vs",
+  "title": "DEIM-L vs RF-DETR-L: benchmark on COCO",
+  "dek": "RF-DETR-L leads by 0.8 mAP and is 25.84% faster in PyTorch, but DEIM-L wins on ONNX, TensorRT, Jetson, and mAP per GFLOP.",
+  "date": "2026-07-03",
+  "author": "Vision Analysis",
+  "readingMinutes": 4,
+  "tags": ["comparison", "deim", "rfdetr"],
+  "status": "published",
+  "claimsFile": "article-pipeline/v2/output/deim-l-vs-rfdetr-l.claims.json",
+  "blocks": [
+    {
+      "kind": "verdict",
+      "text": "RF-DETR-L is the more accurate model, 58.6 vs 57.8 mAP@50-95 against DEIM-L on an RTX 5070 Ti in PyTorch, and 25.84% faster there, 25.1 vs 18.6 FPS. The resolutions differ: DEIM-L runs at 640 px and RF-DETR-L at 704 px, each at its author default, so read this as a deployment comparison. The PyTorch speed result does not hold: DEIM-L is faster on ONNX Runtime, TensorRT FP32, and Jetson Orin, and it leads on small objects."
+    },
+    {
+      "kind": "prose",
+      "text": "DEIM-L (31.24M parameters) and RF-DETR-L (33.93M) both ship under Apache-2.0 and evaluate on COCO val2017 at different input sizes: DEIM-L at 640 px, RF-DETR-L at 704 px, each at the author default. Both have verified rows on desktop GPU, Jetson Orin, and Raspberry Pi 5."
+    },
+    {
+      "kind": "comparison-table",
+      "models": ["deim-l", "rfdetr-l"],
+      "hardware": "nvidia_geforce_rtx_5070_ti",
+      "runtime": "pytorch_fp32"
+    },
+    {
+      "kind": "chart",
+      "src": "/embed/scatter?highlight=deim-l,rfdetr-l",
+      "caption": "Accuracy vs parameters on COCO val2017. DEIM-L and RF-DETR-L highlighted against the full set."
+    },
+    {
+      "kind": "heading",
+      "text": "Accuracy"
+    },
+    {
+      "kind": "prose",
+      "text": "mAP is shown in percent form. RF-DETR-L measures 58.6 mAP@50-95 to DEIM-L's 57.8, a 0.8 point lead. DEIM-L takes small objects, 45.2 vs 40.9 mAP_small, a 10.49% relative gap."
+    },
+    {
+      "kind": "heading",
+      "text": "Speed"
+    },
+    {
+      "kind": "prose",
+      "text": "In PyTorch on the RTX 5070 Ti, RF-DETR-L runs 25.1 FPS to DEIM-L's 18.6. Convert either model and DEIM-L takes over: 75.7 vs 45.1 FPS on TensorRT FP32, 50.5 vs 43.8 on ONNX Runtime. RF-DETR-L reaches its accuracy on 340 GFLOPS, so DEIM-L extracts 269.19% more mAP per GFLOP."
+    },
+    {
+      "kind": "callout",
+      "text": "The PyTorch speed win is narrow ground. DEIM-L is faster on ONNX Runtime, TensorRT FP32, and Jetson Orin, where it runs 4.8 FPS to RF-DETR-L's 4.0."
+    },
+    {
+      "kind": "kv",
+      "title": "License and provenance",
+      "items": [
+        { "k": "DEIM-L license", "v": "Apache-2.0" },
+        { "k": "RF-DETR-L license", "v": "Apache-2.0" },
+        { "k": "DEIM-L release", "v": "2024-12-05" },
+        { "k": "RF-DETR-L release", "v": "2026-02-23" },
+        { "k": "Evaluated weights", "v": "LibreYOLO retrained checkpoints" }
+      ]
+    },
+    {
+      "kind": "heading",
+      "text": "When to pick which"
+    },
+    {
+      "kind": "prose",
+      "text": "Pick RF-DETR-L for PyTorch deployment and for the top mAP at 704 px. Pick DEIM-L for converted runtimes and Jetson, where it is faster, stronger on small objects, and far more compute-efficient. Both ship under Apache-2.0, so licensing does not force the choice."
+    },
+    {
+      "kind": "heading",
+      "text": "Try both with LibreYOLO"
+    },
+    {
+      "kind": "code",
+      "language": "python",
+      "text": "# pip install libreyolo\nfrom libreyolo import LibreYOLO\n\ndeim = LibreYOLO(\"LibreDEIMl.pt\")      # 31.24M params, 57.8 mAP@50-95\nrfdetr = LibreYOLO(\"LibreRFDETRl.pt\")  # 33.93M params, 58.6 mAP@50-95\n\nresults = rfdetr(\"image.jpg\")\n"
+    },
+    {
+      "kind": "methodology"
+    }
+  ]
+}

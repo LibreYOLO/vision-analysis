@@ -1,0 +1,108 @@
+{
+  "schema_version": "va.submission.v1",
+  "submission_id": "picodet-l-onnx-cpu-rpi5-20260628T002141Z",
+  "created_at": "2026-06-28T00:21:41.253882Z",
+  "benchmark": {
+    "harness": "vision-analysis-benchmark",
+    "harness_version": "2.0.0",
+    "libreyolo_version": "1.2.0",
+    "libreyolo_commit": "unknown"
+  },
+  "model": {
+    "id": "picodet-l",
+    "name": "picodet-l",
+    "family": "picodet",
+    "variant": "l",
+    "source": "libreyolo",
+    "weights": "LibrePICODETl.pt",
+    "input_size": 640
+  },
+  "dataset": {
+    "id": "coco2017",
+    "split": "val2017",
+    "num_images": 500
+  },
+  "config": {
+    "batch_size": 1,
+    "input_size": 640,
+    "conf": 0.001,
+    "iou": 0.6,
+    "max_det": 300
+  },
+  "hardware": {
+    "gpu": "Raspberry Pi 5 Model B Rev 1.1",
+    "gpu_memory_gb": 0.0,
+    "driver_version": "N/A",
+    "cuda_version": "N/A",
+    "cpu": "Unknown",
+    "cpu_cores": 4,
+    "ram_gb": 15,
+    "id": "rpi5"
+  },
+  "software": {
+    "python": "3.13.5",
+    "torch": "2.12.1+cpu",
+    "libreyolo": "1.2.0",
+    "libreyolo_commit": "unknown",
+    "onnxruntime": "1.27.0"
+  },
+  "accuracy": {
+    "mAP_50_95": 0.42670912044377685,
+    "mAP_50": 0.5936773089219671,
+    "mAP_75": 0.4612754592116292,
+    "mAP_small": 0.23112272997138533,
+    "mAP_medium": 0.4779040568106618,
+    "mAP_large": 0.5654200117039199,
+    "AR1": 0.3396315456658758,
+    "AR10": 0.5344037912182181,
+    "AR100": 0.5662394426425511,
+    "AR_small": 0.3343903110723805,
+    "AR_medium": 0.6121755479346273,
+    "AR_large": 0.6979159624415997
+  },
+  "timing": {
+    "batch_size": 1,
+    "num_images": 500,
+    "total_ms": {
+      "mean": 589.472,
+      "std": 39.594,
+      "p50": 589.567,
+      "p95": 654.582,
+      "p99": 686.693,
+      "preprocess_ms": null,
+      "inference_ms": null,
+      "postprocess_ms": null
+    }
+  },
+  "throughput": {
+    "fps_mean": 1.7,
+    "fps_p50": 1.7
+  },
+  "model_stats": {
+    "params_millions": 3.29,
+    "gflops": 0.0
+  },
+  "memory": {
+    "peak_vram_mb": null,
+    "peak_ram_mb": 68.4
+  },
+  "metadata": {
+    "benchmark_date": "2026-06-28T00:21:41.253882Z",
+    "benchmark_version": "2.0.0"
+  },
+  "eval": {
+    "dataset": "coco",
+    "split": "val2017",
+    "numImages": 500
+  },
+  "implementation": {
+    "provider": "libreyolo",
+    "version": "1.2.0"
+  },
+  "runtime": {
+    "format": "onnx",
+    "precision": "fp32",
+    "provider": "cpu",
+    "device": "cpu"
+  }
+}

@@ -66,8 +66,20 @@
       "category": "edge",
       "specs": {
         "cpuName": "Broadcom BCM2712",
-        "ramGb": 8,
+        "ramGb": 16,
         "tdpWatts": 12
+      },
+      "providers": []
+    },
+    {
+      "id": "rpi5_hailo8",
+      "displayName": "Raspberry Pi 5 + Hailo-8",
+      "category": "edge",
+      "specs": {
+        "cpuName": "Broadcom BCM2712",
+        "acceleratorName": "Hailo-8",
+        "ramGb": 16,
+        "tdpWatts": 17
       },
       "providers": []
     },

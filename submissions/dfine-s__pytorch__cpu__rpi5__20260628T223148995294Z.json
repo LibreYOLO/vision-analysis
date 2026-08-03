@@ -1,0 +1,108 @@
+{
+  "schema_version": "va.submission.v1",
+  "submission_id": "dfine-s-pytorch-cpu-rpi5-20260628T223148Z",
+  "created_at": "2026-06-28T22:31:48.995294Z",
+  "benchmark": {
+    "harness": "vision-analysis-benchmark",
+    "harness_version": "2.0.0",
+    "libreyolo_version": "1.2.0",
+    "libreyolo_commit": "unknown"
+  },
+  "model": {
+    "id": "dfine-s",
+    "name": "d-fine-s",
+    "family": "dfine",
+    "variant": "s",
+    "source": "libreyolo",
+    "weights": "LibreDFINEs.pt",
+    "input_size": 640
+  },
+  "dataset": {
+    "id": "coco2017",
+    "split": "val2017",
+    "num_images": 500
+  },
+  "config": {
+    "batch_size": 1,
+    "input_size": 640,
+    "conf": 0.001,
+    "iou": 0.6,
+    "max_det": 300
+  },
+  "hardware": {
+    "gpu": "Raspberry Pi 5 Model B Rev 1.1",
+    "gpu_memory_gb": 0.0,
+    "driver_version": "N/A",
+    "cuda_version": "N/A",
+    "cpu": "Unknown",
+    "cpu_cores": 4,
+    "ram_gb": 15,
+    "id": "rpi5"
+  },
+  "software": {
+    "python": "3.13.5",
+    "torch": "2.12.1+cpu",
+    "libreyolo": "1.2.0",
+    "libreyolo_commit": "unknown",
+    "onnxruntime": "not-installed"
+  },
+  "accuracy": {
+    "mAP_50_95": 0.533816550656966,
+    "mAP_50": 0.6978934949475171,
+    "mAP_75": 0.5815146677466713,
+    "mAP_small": 0.3794386468726935,
+    "mAP_medium": 0.5786169334696805,
+    "mAP_large": 0.6712528261067662,
+    "AR1": 0.40807927039626324,
+    "AR10": 0.6848022854803739,
+    "AR100": 0.7343664904079216,
+    "AR_small": 0.5815105988950591,
+    "AR_medium": 0.7768773182389905,
+    "AR_large": 0.8765596543653289
+  },
+  "timing": {
+    "batch_size": 1,
+    "num_images": 500,
+    "total_ms": {
+      "mean": 874.322,
+      "std": 7.672,
+      "p50": 874.788,
+      "p95": 886.507,
+      "p99": 894.322,
+      "preprocess_ms": 7.773,
+      "inference_ms": 865.785,
+      "postprocess_ms": 0.765
+    }
+  },
+  "throughput": {
+    "fps_mean": 1.14,
+    "fps_p50": 1.14
+  },
+  "model_stats": {
+    "params_millions": 10.32,
+    "gflops": 0.0
+  },
+  "memory": {
+    "peak_vram_mb": 0.0,
+    "peak_ram_mb": 109.7
+  },
+  "metadata": {
+    "benchmark_date": "2026-06-28T22:31:48.995294Z",
+    "benchmark_version": "2.0.0"
+  },
+  "eval": {
+    "dataset": "coco",
+    "split": "val2017",
+    "numImages": 500
+  },
+  "implementation": {
+    "provider": "libreyolo",
+    "version": "1.2.0"
+  },
+  "runtime": {
+    "format": "pytorch",
+    "precision": "fp32",
+    "provider": "cpu",
+    "device": "cpu"
+  }
+}

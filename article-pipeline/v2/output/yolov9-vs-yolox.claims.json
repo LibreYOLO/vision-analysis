@@ -1,0 +1,379 @@
+{
+  "engine": "article-pipeline-v2",
+  "generated_at": "2026-07-03T22:28:17.502283+00:00",
+  "slug": "yolov9-vs-yolox",
+  "meta": {
+    "type": "family-vs",
+    "a": "yolov9",
+    "b": "yolox",
+    "hardware": "nvidia_geforce_rtx_5070_ti",
+    "runtime": "pytorch_fp32"
+  },
+  "facts": {
+    "families": {
+      "a": "yolov9",
+      "b": "yolox",
+      "a_display": "YOLOv9",
+      "b_display": "YOLOX"
+    },
+    "primary": {
+      "hardware": "nvidia_geforce_rtx_5070_ti",
+      "hardware_display": "NVIDIA RTX 5070 Ti",
+      "runtime": "pytorch_fp32",
+      "runtime_display": "PyTorch FP32"
+    },
+    "a_frontier": [
+      {
+        "id": "yolov9t",
+        "displayName": "YOLOv9-T",
+        "params": 2.04,
+        "mAP": 41.8,
+        "fps": 31.9,
+        "license": "MIT"
+      },
+      {
+        "id": "yolov9s",
+        "displayName": "YOLOv9-S",
+        "params": 7.23,
+        "mAP": 50.4,
+        "fps": 30.8,
+        "license": "MIT"
+      },
+      {
+        "id": "yolov9m",
+        "displayName": "YOLOv9-M",
+        "params": 20.12,
+        "mAP": 56.1,
+        "fps": 37.1,
+        "license": "MIT"
+      },
+      {
+        "id": "yolov9c",
+        "displayName": "YOLOv9-C",
+        "params": 25.5,
+        "mAP": 57.1,
+        "fps": 42.3,
+        "license": "MIT"
+      }
+    ],
+    "b_frontier": [
+      {
+        "id": "yolox-nano",
+        "displayName": "YOLOX-Nano",
+        "params": 0.91,
+        "mAP": 28.8,
+        "fps": 53.6,
+        "license": "Apache-2.0"
+      },
+      {
+        "id": "yolox-tiny",
+        "displayName": "YOLOX-Tiny",
+        "params": 5.06,
+        "mAP": 35.5,
+        "fps": 61.6,
+        "license": "Apache-2.0"
+      },
+      {
+        "id": "yolox-s",
+        "displayName": "YOLOX-S",
+        "params": 8.97,
+        "mAP": 44.3,
+        "fps": 50.0,
+        "license": "Apache-2.0"
+      },
+      {
+        "id": "yolox-m",
+        "displayName": "YOLOX-M",
+        "params": 25.33,
+        "mAP": 51.7,
+        "fps": 48.2,
+        "license": "Apache-2.0"
+      },
+      {
+        "id": "yolox-l",
+        "displayName": "YOLOX-L",
+        "params": 54.21,
+        "mAP": 55.4,
+        "fps": 42.8,
+        "license": "Apache-2.0"
+      },
+      {
+        "id": "yolox-x",
+        "displayName": "YOLOX-X",
+        "params": 99.07,
+        "mAP": 56.3,
+        "fps": 39.6,
+        "license": "Apache-2.0"
+      }
+    ],
+    "matched_pairs": [
+      {
+        "a": {
+          "id": "yolov9s",
+          "displayName": "YOLOv9-S",
+          "params": 7.23,
+          "mAP": 50.4,
+          "fps": 30.8,
+          "license": "MIT"
+        },
+        "b": {
+          "id": "yolox-s",
+          "displayName": "YOLOX-S",
+          "params": 8.97,
+          "mAP": 44.3,
+          "fps": 50.0,
+          "license": "Apache-2.0"
+        },
+        "mAP_delta_pts": 6.1,
+        "fps_delta_pct": -38.4
+      },
+      {
+        "a": {
+          "id": "yolov9m",
+          "displayName": "YOLOv9-M",
+          "params": 20.12,
+          "mAP": 56.1,
+          "fps": 37.1,
+          "license": "MIT"
+        },
+        "b": {
+          "id": "yolox-m",
+          "displayName": "YOLOX-M",
+          "params": 25.33,
+          "mAP": 51.7,
+          "fps": 48.2,
+          "license": "Apache-2.0"
+        },
+        "mAP_delta_pts": 4.4,
+        "fps_delta_pct": -23.03
+      },
+      {
+        "a": {
+          "id": "yolov9c",
+          "displayName": "YOLOv9-C",
+          "params": 25.5,
+          "mAP": 57.1,
+          "fps": 42.3,
+          "license": "MIT"
+        },
+        "b": {
+          "id": "yolox-m",
+          "displayName": "YOLOX-M",
+          "params": 25.33,
+          "mAP": 51.7,
+          "fps": 48.2,
+          "license": "Apache-2.0"
+        },
+        "mAP_delta_pts": 5.4,
+        "fps_delta_pct": -12.24
+      }
+    ],
+    "aggregate": {
+      "n_pairs": 3,
+      "mean_mAP_delta_pts": 5.3,
+      "a_wins": 3,
+      "b_wins": 0,
+      "mean_fps_delta_pct": -24.6
+    },
+    "flagship": {
+      "a": {
+        "id": "yolov9c",
+        "displayName": "YOLOv9-C",
+        "params": 25.5,
+        "mAP": 57.1,
+        "fps": 42.3,
+        "license": "MIT"
+      },
+      "b": {
+        "id": "yolox-x",
+        "displayName": "YOLOX-X",
+        "params": 99.07,
+        "mAP": 56.3,
+        "fps": 39.6,
+        "license": "Apache-2.0"
+      }
+    },
+    "smallest": {
+      "a": {
+        "id": "yolov9t",
+        "displayName": "YOLOv9-T",
+        "params": 2.04,
+        "mAP": 41.8,
+        "fps": 31.9,
+        "license": "MIT"
+      },
+      "b": {
+        "id": "yolox-nano",
+        "displayName": "YOLOX-Nano",
+        "params": 0.91,
+        "mAP": 28.8,
+        "fps": 53.6,
+        "license": "Apache-2.0"
+      }
+    },
+    "crossover": {
+      "low_param_leader": "yolov9",
+      "high_param_leader": "yolov9"
+    },
+    "license": {
+      "a_all_permissive": true,
+      "b_all_permissive": true
+    },
+    "chart_highlight": "yolov9t,yolov9s,yolov9m,yolov9c,yolox-nano,yolox-tiny,yolox-s,yolox-m,yolox-l,yolox-x"
+  },
+  "claims": [
+    {
+      "id": "family_accuracy_edge",
+      "kind": "accuracy",
+      "statement": "At matched compute, YOLOv9 averages 5.3 mAP points higher across 3 paired variants on NVIDIA RTX 5070 Ti. YOLOv9 wins 3, YOLOX wins 0.",
+      "values": {
+        "mean_delta_pts": 5.3,
+        "a_wins": 3,
+        "b_wins": 0
+      },
+      "passed": true,
+      "strength": "strong"
+    },
+    {
+      "id": "family_speed_edge",
+      "kind": "speed",
+      "statement": "At matched compute, YOLOX is 24.6% faster on average on NVIDIA RTX 5070 Ti (PyTorch FP32).",
+      "values": {
+        "mean_delta_pct": 24.6
+      },
+      "passed": true,
+      "strength": "strong"
+    },
+    {
+      "id": "flagship",
+      "kind": "accuracy",
+      "statement": "At the top end, YOLOv9's largest measured variant (YOLOv9-C) reaches 57.1 mAP; YOLOX's (YOLOX-X) reaches 56.3 mAP.",
+      "values": {
+        "a": {
+          "id": "yolov9c",
+          "displayName": "YOLOv9-C",
+          "params": 25.5,
+          "mAP": 57.1,
+          "fps": 42.3,
+          "license": "MIT"
+        },
+        "b": {
+          "id": "yolox-x",
+          "displayName": "YOLOX-X",
+          "params": 99.07,
+          "mAP": 56.3,
+          "fps": 39.6,
+          "license": "Apache-2.0"
+        }
+      },
+      "passed": true,
+      "strength": "normal"
+    },
+    {
+      "id": "efficient_end",
+      "kind": "efficiency",
+      "statement": "At the small end, YOLOv9's YOLOv9-T (2.04M, 41.8 mAP, 31.9 FPS) faces YOLOX's YOLOX-Nano (0.91M, 28.8 mAP, 53.6 FPS).",
+      "values": {
+        "a": {
+          "id": "yolov9t",
+          "displayName": "YOLOv9-T",
+          "params": 2.04,
+          "mAP": 41.8,
+          "fps": 31.9,
+          "license": "MIT"
+        },
+        "b": {
+          "id": "yolox-nano",
+          "displayName": "YOLOX-Nano",
+          "params": 0.91,
+          "mAP": 28.8,
+          "fps": 53.6,
+          "license": "Apache-2.0"
+        }
+      },
+      "passed": true,
+      "strength": "normal"
+    },
+    {
+      "id": "coverage",
+      "kind": "ranking",
+      "statement": "YOLOv9 fields 4 measured variants, YOLOX fields 6, all on the same protocol on NVIDIA RTX 5070 Ti.",
+      "values": {
+        "a_n": 4,
+        "b_n": 6
+      },
+      "passed": true,
+      "strength": "normal"
+    }
+  ],
+  "gate": {
+    "passed": true,
+    "passed_claims": 5,
+    "required": 2,
+    "reason": null
+  },
+  "allowed_numbers": [
+    -38.4,
+    -24.6,
+    -23.03,
+    -12.24,
+    0.0,
+    0.001,
+    0.6,
+    0.91,
+    1,
+    2,
+    2.04,
+    3.0,
+    4.0,
+    4.4,
+    5,
+    5.06,
+    5.3,
+    5.4,
+    6.0,
+    6.1,
+    7,
+    7.23,
+    8,
+    8.97,
+    9,
+    10,
+    11,
+    12,
+    20.12,
+    24.6,
+    25.33,
+    25.5,
+    28.8,
+    30.8,
+    31.9,
+    35.5,
+    37.1,
+    39.6,
+    41.8,
+    42.3,
+    42.8,
+    44.3,
+    48.2,
+    50.0,
+    50.4,
+    51.7,
+    53.6,
+    54.21,
+    55.4,
+    56.1,
+    56.3,
+    57.1,
+    61.6,
+    75,
+    91.0,
+    95,
+    99.07,
+    100,
+    300,
+    500,
+    640,
+    5000
+  ]
+}

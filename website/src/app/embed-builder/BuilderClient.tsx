@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useMemo, useState, type CSSProperties } from 'react';
+import { useMemo, useState, useSyncExternalStore, type CSSProperties } from 'react';
 
 export interface BuilderModel {
   id: string;
@@ -25,6 +25,12 @@ type Theme = 'light' | 'dark' | 'system';
 
 const ACCENT = '#0891b2';
 const PROD_ORIGIN = 'https://visionanalysis.org';
+const subscribeToOrigin = () => () => {};
+
+function getBrowserOrigin() {
+  if (/localhost|127\.0\.0\.1/.test(window.location.hostname)) return PROD_ORIGIN;
+  return window.location.origin;
+}
 
 export function BuilderClient({ models, hardwareOptions, runtimesByHw }: Props) {
   const [highlight, setHighlight] = useState<string[]>(['yolonas-s', 'yolonas-m', 'yolonas-l']);
@@ -33,28 +39,9 @@ export function BuilderClient({ models, hardwareOptions, runtimesByHw }: Props) 
   const [theme, setTheme] = useState<Theme>('light');
   const [maxWidth, setMaxWidth] = useState<number | 'full'>('full');
   const [copied, setCopied] = useState<'iframe' | 'url' | null>(null);
-  const [origin, setOrigin] = useState<string>(PROD_ORIGIN);
-
-  // Use the live origin when on a real domain; keep the prod domain on localhost
-  // so copied snippets work when pasted elsewhere.
-  useEffect(() => {
-    if (typeof window === 'undefined') return;
-    if (!/localhost|127\.0\.0\.1/.test(window.location.hostname)) {
-      setOrigin(window.location.origin);
-    }
-  }, []);
-
-  // Keep runtime valid when hardware changes
-  useEffect(() => {
-    if (dataSource === 'paper') {
-      setRuntime('');
-      return;
-    }
-    const opts = runtimesByHw[dataSource] ?? [];
-    if (opts.length && !opts.some(o => o.value === runtime)) {
-      setRuntime(opts[0].value);
-    }
-  }, [dataSource, runtimesByHw, runtime]);
+  // Use the live origin on real domains while keeping copied localhost snippets
+  // pointed at production. The server snapshot also prevents a hydration mismatch.
+  const origin = useSyncExternalStore(subscribeToOrigin, getBrowserOrigin, () => PROD_ORIGIN);
 
   const families = useMemo(() => {
     const map = new Map<string, BuilderModel[]>();
@@ -66,16 +53,24 @@ export function BuilderClient({ models, hardwareOptions, runtimesByHw }: Props) 
     return Array.from(map.entries());
   }, [models]);
 
+  const runtimeOpts = dataSource === 'paper' ? [] : runtimesByHw[dataSource] ?? [];
+  const selectedRuntime =
+    dataSource === 'paper'
+      ? ''
+      : runtimeOpts.some(option => option.value === runtime)
+        ? runtime
+        : runtimeOpts[0]?.value ?? '';
+
   const embedPath = useMemo(() => {
     const p = new URLSearchParams();
     if (highlight.length) p.set('highlight', highlight.join(','));
     if (dataSource !== 'paper') {
       p.set('hw', dataSource);
-      if (runtime) p.set('rt', runtime);
+      if (selectedRuntime) p.set('rt', selectedRuntime);
     }
     if (theme !== 'light') p.set('theme', theme);
     return `/embed/scatter?${p.toString()}`;
-  }, [highlight, dataSource, runtime, theme]);
+  }, [highlight, dataSource, selectedRuntime, theme]);
 
   const snippetUrl = `${origin}${embedPath}`;
   // Responsive wrapper: the chart is a fixed 8:5 SVG, so a padding-top box keeps
@@ -111,8 +106,6 @@ export function BuilderClient({ models, hardwareOptions, runtimesByHw }: Props) 
       /* clipboard blocked - ignore */
     }
   }
-
-  const runtimeOpts = dataSource === 'paper' ? [] : runtimesByHw[dataSource] ?? [];
 
   return (
     <div style={styles.page}>
@@ -202,7 +195,7 @@ export function BuilderClient({ models, hardwareOptions, runtimesByHw }: Props) 
                 <>
                   <label style={{ ...styles.label, marginTop: 12 }}>Runtime</label>
                   <select
-                    value={runtime}
+                    value={selectedRuntime}
                     onChange={e => setRuntime(e.target.value)}
                     style={styles.select}
                   >

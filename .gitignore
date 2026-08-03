@@ -7,3 +7,7 @@ __pycache__/
 article-pipeline/output/*
 !article-pipeline/output/.gitkeep
 .vercel
+
+# build/SDK logs and agent worktrees
+*.log
+.claude/worktrees/

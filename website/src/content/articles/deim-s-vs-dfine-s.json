@@ -1,0 +1,102 @@
+{
+  "slug": "deim-s-vs-dfine-s",
+  "type": "vs",
+  "title": "DEIM-S vs D-FINE-S: measured on the same protocol",
+  "dek": "DEIM-S and D-FINE-S share 10.32M parameters; on the same COCO protocol D-FINE-S measures 1.3 mAP points higher on desktop GPU.",
+  "date": "2026-07-03",
+  "author": "Vision Analysis",
+  "readingMinutes": 4,
+  "tags": [
+    "comparison",
+    "deim",
+    "dfine"
+  ],
+  "status": "draft",
+  "claimsFile": "article-pipeline/v2/output/deim-s-vs-dfine-s.claims.json",
+  "blocks": [
+    {
+      "kind": "verdict",
+      "text": "D-FINE-S and DEIM-S are the same size: 10.32M parameters, 141.6 MB peak VRAM, both at 640 px. On an RTX 5070 Ti in PyTorch, D-FINE-S measures 1.3 mAP points higher, 53.4 vs 52.1 mAP@50-95, and the two run within one FPS of each other. The newer DEIM-S does not overtake D-FINE-S on this protocol."
+    },
+    {
+      "kind": "prose",
+      "text": "DEIM-S (released 2024-12-05) is the later model; D-FINE-S (2024-10-18) is the earlier one. Both are Apache-2.0 and share the same parameter count, so this is a like-for-like accuracy and speed comparison."
+    },
+    {
+      "kind": "comparison-table",
+      "models": [
+        "deim-s",
+        "dfine-s"
+      ],
+      "hardware": "nvidia_geforce_rtx_5070_ti",
+      "runtime": "pytorch_fp32"
+    },
+    {
+      "kind": "chart",
+      "src": "/embed/scatter?highlight=deim-s,dfine-s",
+      "caption": "Accuracy vs parameters on COCO val2017. DEIM-S and D-FINE-S highlighted against the full field."
+    },
+    {
+      "kind": "heading",
+      "text": "Accuracy"
+    },
+    {
+      "kind": "prose",
+      "text": "mAP is shown in percent form. D-FINE-S measures 53.4 mAP@50-95 to DEIM-S's 52.1, a 1.3 point difference. D-FINE-S also edges ahead on small objects: 37.9 vs 36.0 mAP_small. The gap is small enough that either model covers the same accuracy tier."
+    },
+    {
+      "kind": "heading",
+      "text": "Speed"
+    },
+    {
+      "kind": "prose",
+      "text": "In PyTorch on the RTX 5070 Ti, the two are close: D-FINE-S at 34.2 FPS, DEIM-S at 33.4. The order stays tight under conversion, 98.7 vs 97.6 FPS on TensorRT FP32 and 86.5 vs 82.4 FPS on TensorRT FP16. On Jetson Orin both land near 10 FPS."
+    },
+    {
+      "kind": "callout",
+      "text": "The ranking is stable. D-FINE-S stays ahead on accuracy across 4 runtimes and 3 hardware platforms with verified data, down to the Raspberry Pi 5, where both run 1.1 FPS."
+    },
+    {
+      "kind": "kv",
+      "title": "License and provenance",
+      "items": [
+        {
+          "k": "DEIM-S license",
+          "v": "Apache-2.0"
+        },
+        {
+          "k": "D-FINE-S license",
+          "v": "Apache-2.0"
+        },
+        {
+          "k": "DEIM-S release",
+          "v": "2024-12-05"
+        },
+        {
+          "k": "D-FINE-S release",
+          "v": "2024-10-18"
+        },
+        {
+          "k": "Evaluated weights",
+          "v": "LibreYOLO retrained checkpoints"
+        }
+      ]
+    },
+    {
+      "kind": "heading",
+      "text": "When to pick which"
+    },
+    {
+      "kind": "prose",
+      "text": "Pick D-FINE-S for a small margin more accuracy at the same memory and speed cost. Pick DEIM-S if it is already in the pipeline: it matches D-FINE-S closely enough that switching for accuracy alone is not worth it. Both are Apache-2.0, so licensing does not decide it."
+    },
+    {
+      "kind": "code",
+      "language": "python",
+      "text": "# pip install libreyolo\nfrom libreyolo import LibreYOLO\n\ndeim = LibreYOLO(\"LibreDEIMs.pt\")    # 10.32M params, 52.1 mAP@50-95\ndfine = LibreYOLO(\"LibreDFINEs.pt\")  # 10.32M params, 53.4 mAP@50-95\n\nresults = dfine(\"image.jpg\")\n"
+    },
+    {
+      "kind": "methodology"
+    }
+  ]
+}

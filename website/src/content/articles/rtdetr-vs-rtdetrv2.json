@@ -1,0 +1,78 @@
+{
+  "slug": "rtdetr-vs-rtdetrv2",
+  "type": "family-vs",
+  "title": "RT-DETR vs RT-DETRv2: full benchmark comparison",
+  "dek": "RT-DETR and RT-DETRv2 tie on accuracy within 0.1 mAP points, but RT-DETRv2 runs 11.7% faster on an RTX 5070 Ti.",
+  "date": "2026-07-03",
+  "author": "Vision Analysis",
+  "readingMinutes": 4,
+  "tags": ["comparison", "family-vs", "rtdetr", "rtdetrv2"],
+  "status": "published",
+  "claimsFile": "article-pipeline/v2/output/rtdetr-vs-rtdetrv2.claims.json",
+  "blocks": [
+    {
+      "kind": "verdict",
+      "text": "At matched compute on an RTX 5070 Ti, the two families are even on accuracy: the mean gap across 7 pairs is 0.1 mAP points, split 3 to 3. RT-DETRv2 runs 11.7% faster on average in PyTorch and leads at the small end; RT-DETR leads at the large end. There is no single winner."
+    },
+    {
+      "kind": "prose",
+      "text": "RT-DETR fields 7 measured variants; RT-DETRv2 fields 5. Both run the same COCO val2017 protocol at 640 px on an RTX 5070 Ti, and most variants share exact parameter counts, so the pairs line up cleanly."
+    },
+    {
+      "kind": "family-frontier",
+      "familyA": "rtdetr",
+      "familyB": "rtdetrv2",
+      "hardware": "nvidia_geforce_rtx_5070_ti",
+      "runtime": "pytorch_fp32"
+    },
+    {
+      "kind": "chart",
+      "src": "/embed/scatter?highlight=rtdetr-r18,rtdetr-r34,rtdetr-l,rtdetr-r50m,rtdetr-r50,rtdetr-x,rtdetr-r101,rtdetrv2-r18,rtdetrv2-r34,rtdetrv2-r50m,rtdetrv2-r50,rtdetrv2-r101",
+      "caption": "Accuracy vs parameters on COCO val2017. Every RT-DETR and RT-DETRv2 variant highlighted against the full set."
+    },
+    {
+      "kind": "heading",
+      "text": "Accuracy at matched compute"
+    },
+    {
+      "kind": "prose",
+      "text": "mAP is shown in percent. Across 7 nearest-parameter pairs the families split 3 and 3, with a mean gap of 0.1 mAP points. At matched R18 size RT-DETRv2 reaches 50.7 mAP against RT-DETR at 49.8; the order reverses in other pairs, which is why the aggregate is a tie."
+    },
+    {
+      "kind": "heading",
+      "text": "Speed"
+    },
+    {
+      "kind": "prose",
+      "text": "RT-DETRv2 is faster at matched compute: 11.7% faster on average in PyTorch FP32. At matched R18 size it runs 51.1 FPS against RT-DETR at 47.2."
+    },
+    {
+      "kind": "heading",
+      "text": "Where the frontier crosses"
+    },
+    {
+      "kind": "prose",
+      "text": "The accuracy lead depends on model size. RT-DETRv2 leads at the small-model end, RT-DETR leads at the large-model end. With the accuracy aggregate even, the speed edge and your target size decide the pick, not an overall ranking."
+    },
+    {
+      "kind": "kv",
+      "title": "Licensing",
+      "items": [
+        { "k": "RT-DETR", "v": "Apache-2.0 (permissive)" },
+        { "k": "RT-DETRv2", "v": "Apache-2.0 (permissive)" },
+        { "k": "Commercial use", "v": "Both families ship under Apache-2.0" }
+      ]
+    },
+    {
+      "kind": "heading",
+      "text": "Which family to pick"
+    },
+    {
+      "kind": "prose",
+      "text": "Pick RT-DETRv2 for small and mid-size deployments: it is faster at matched compute and leads on accuracy at the small end. Pick RT-DETR when you need a larger variant or a size RT-DETRv2 does not field, since it offers 7 variants to 5. Both ship under Apache-2.0. See the per-variant specs on the RT-DETR and RT-DETRv2 model pages."
+    },
+    {
+      "kind": "methodology"
+    }
+  ]
+}

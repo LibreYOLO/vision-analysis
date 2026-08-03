@@ -1,0 +1,70 @@
+{
+  "slug": "deim-vs-dfine",
+  "type": "family-vs",
+  "title": "DEIM vs D-FINE: which detector family wins",
+  "dek": "D-FINE wins 4 of 5 matched pairs and reaches 61.4 mAP, edging DEIM on accuracy at nearly equal speed on an RTX 5070 Ti.",
+  "date": "2026-07-03",
+  "author": "Vision Analysis",
+  "readingMinutes": 4,
+  "tags": ["comparison", "family-vs", "deim", "dfine"],
+  "status": "published",
+  "claimsFile": "article-pipeline/v2/output/deim-vs-dfine.claims.json",
+  "blocks": [
+    {
+      "kind": "verdict",
+      "text": "At matched compute on an RTX 5070 Ti, D-FINE is the more accurate family: it averages 1.3 mAP points higher and wins 4 of 5 nearest-parameter pairs. The two run at nearly the same speed in PyTorch, so D-FINE's accuracy edge is the deciding factor. At the top end D-FINE-X reaches 61.4 mAP against DEIM-X at 59.6."
+    },
+    {
+      "kind": "prose",
+      "text": "DEIM fields 5 measured variants; D-FINE fields 5. Both run the same COCO val2017 protocol at 640 px on an RTX 5070 Ti, and the two families share parameter counts variant for variant, so the pairs line up exactly."
+    },
+    {
+      "kind": "family-frontier",
+      "familyA": "deim",
+      "familyB": "dfine",
+      "hardware": "nvidia_geforce_rtx_5070_ti",
+      "runtime": "pytorch_fp32"
+    },
+    {
+      "kind": "chart",
+      "src": "/embed/scatter?highlight=deim-n,deim-s,deim-m,deim-l,deim-x,dfine-n,dfine-s,dfine-m,dfine-l,dfine-x",
+      "caption": "Accuracy vs parameters on COCO val2017. Every DEIM and D-FINE variant highlighted against the full set."
+    },
+    {
+      "kind": "heading",
+      "text": "Accuracy at matched compute"
+    },
+    {
+      "kind": "prose",
+      "text": "mAP is shown in percent. The two families share parameter counts variant for variant. Across 5 pairs D-FINE wins 4 and averages 1.3 mAP points higher. At the top D-FINE-X reaches 61.4 mAP against DEIM-X at 59.6; DEIM takes only the smallest pair."
+    },
+    {
+      "kind": "heading",
+      "text": "Speed"
+    },
+    {
+      "kind": "prose",
+      "text": "The two families are close on speed. D-FINE runs about 4% faster on average across the matched pairs in PyTorch FP32, a small edge next to its accuracy lead. The one exception is the smallest pair, where DEIM-N runs 37.0 FPS to D-FINE-N's 32.5."
+    },
+    {
+      "kind": "kv",
+      "title": "Licensing",
+      "items": [
+        { "k": "DEIM", "v": "Apache-2.0 (permissive)" },
+        { "k": "D-FINE", "v": "Apache-2.0 (permissive)" },
+        { "k": "Commercial use", "v": "Both families ship under Apache-2.0" }
+      ]
+    },
+    {
+      "kind": "heading",
+      "text": "Which family to pick"
+    },
+    {
+      "kind": "prose",
+      "text": "Pick D-FINE across the range: it is more accurate at all but the smallest pair and runs at least as fast on average. Pick DEIM only for the smallest models, where DEIM-N edges ahead at 46.8 mAP and 37.0 FPS. Both ship under Apache-2.0. See the per-variant specs on the DEIM and D-FINE model pages."
+    },
+    {
+      "kind": "methodology"
+    }
+  ]
+}

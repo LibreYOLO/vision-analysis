@@ -1,0 +1,110 @@
+{
+  "slug": "dfine-l-vs-rfdetr-l",
+  "type": "vs",
+  "title": "D-FINE-L vs RF-DETR-L: benchmark on the same protocol",
+  "dek": "Measured on the same COCO protocol: D-FINE-L leads by 1.4 mAP points and is faster on every converted runtime, though the two run at different input sizes.",
+  "date": "2026-07-03",
+  "author": "Vision Analysis",
+  "readingMinutes": 4,
+  "tags": [
+    "comparison",
+    "dfine",
+    "rfdetr"
+  ],
+  "status": "draft",
+  "claimsFile": "article-pipeline/v2/output/dfine-l-vs-rfdetr-l.claims.json",
+  "blocks": [
+    {
+      "kind": "verdict",
+      "text": "D-FINE-L is the more accurate model: 60.0 vs 58.6 mAP@50-95 against RF-DETR-L on an RTX 5070 Ti in PyTorch. The input sizes differ: D-FINE-L runs at 640 px, RF-DETR-L at 704 px, each at its author default. RF-DETR-L is faster in PyTorch (25.1 vs 21.9 FPS) and uses less VRAM (223 vs 245 MB), but D-FINE-L is faster on every converted runtime. Pick by runtime."
+    },
+    {
+      "kind": "prose",
+      "text": "D-FINE-L (31.24M parameters, Apache-2.0) and RF-DETR-L (33.93M, Apache-2.0) are close in size but run at different input resolutions: D-FINE-L at 640 px, RF-DETR-L at 704 px, each at its author default. Keep that mismatch in mind when reading the speed rows. Both have verified rows on desktop GPU, Jetson Orin, and Raspberry Pi 5, so this comparison covers the deploy targets where the answer changes."
+    },
+    {
+      "kind": "comparison-table",
+      "models": [
+        "dfine-l",
+        "rfdetr-l"
+      ],
+      "hardware": "nvidia_geforce_rtx_5070_ti",
+      "runtime": "pytorch_fp32"
+    },
+    {
+      "kind": "chart",
+      "src": "/embed/scatter?highlight=dfine-l,rfdetr-l",
+      "caption": "Accuracy vs parameters on COCO val2017. D-FINE-L and RF-DETR-L highlighted against the full set."
+    },
+    {
+      "kind": "heading",
+      "text": "Accuracy"
+    },
+    {
+      "kind": "prose",
+      "text": "mAP is shown in percent form. D-FINE-L measures 60.0 mAP@50-95 to RF-DETR-L's 58.6, a 1.4 point lead. The gap is wider on small objects: 45.9 vs 40.9 mAP_small, a 12.42% relative difference. D-FINE-L leads at every object size."
+    },
+    {
+      "kind": "heading",
+      "text": "Speed"
+    },
+    {
+      "kind": "prose",
+      "text": "RF-DETR-L leads in PyTorch on the RTX 5070 Ti: 25.1 vs 21.9 FPS, a 12.88% edge. That edge does not survive conversion. On ONNX Runtime D-FINE-L runs 50.9 to RF-DETR-L's 43.8 FPS; on TensorRT FP32, 72.3 to 45.1."
+    },
+    {
+      "kind": "callout",
+      "text": "The PyTorch speed result is the exception. D-FINE-L is faster on ONNX Runtime, TensorRT FP16, TensorRT FP32, and Jetson Orin (4.7 vs 4.0 FPS). If you deploy on a converted runtime, D-FINE-L is both more accurate and faster."
+    },
+    {
+      "kind": "kv",
+      "title": "License and provenance",
+      "items": [
+        {
+          "k": "D-FINE-L license",
+          "v": "Apache-2.0"
+        },
+        {
+          "k": "RF-DETR-L license",
+          "v": "Apache-2.0"
+        },
+        {
+          "k": "D-FINE-L release",
+          "v": "2024-10-18"
+        },
+        {
+          "k": "RF-DETR-L release",
+          "v": "2026-02-23"
+        },
+        {
+          "k": "Input sizes",
+          "v": "D-FINE-L 640 px, RF-DETR-L 704 px"
+        },
+        {
+          "k": "Evaluated weights",
+          "v": "LibreYOLO retrained checkpoints"
+        }
+      ]
+    },
+    {
+      "kind": "heading",
+      "text": "When to pick which"
+    },
+    {
+      "kind": "prose",
+      "text": "Pick D-FINE-L for any converted runtime or Jetson deployment: it is more accurate at every object size and faster once exported to ONNX or TensorRT. Pick RF-DETR-L when you run PyTorch directly, where it is faster and uses less VRAM, keeping in mind it evaluates at 704 px against D-FINE-L's 640. Both ship under Apache-2.0, so licensing does not force the choice."
+    },
+    {
+      "kind": "heading",
+      "text": "Try both with LibreYOLO"
+    },
+    {
+      "kind": "code",
+      "language": "python",
+      "text": "# pip install libreyolo\nfrom libreyolo import LibreYOLO\n\ndfine = LibreYOLO(\"LibreDFINEl.pt\")   # 31.24M params, 60.0 mAP@50-95, 640 px\nrfdetr = LibreYOLO(\"LibreRFDETRl.pt\") # 33.93M params, 58.6 mAP@50-95, 704 px\n\nresults = dfine(\"image.jpg\")\n"
+    },
+    {
+      "kind": "methodology"
+    }
+  ]
+}

@@ -31,14 +31,17 @@ ${siteConfig.name} benchmarks ${modelCount} ${LIBREYOLO.name} object-detection m
 
 ## Key pages
 - [Leaderboard](${url}/): accuracy, speed and efficiency for every benchmarked model
+- [Models](${url}/models): index of every benchmarked model with specs and links to per-model pages
 - [Compare models](${url}/compare): side-by-side model comparison
 - [Hardware](${url}/hardware): per-device latency and throughput
+- [Articles](${url}/articles): benchmark-backed comparisons, hardware guides and license guides
 - [Methodology](${url}/methodology): how results are produced and verified
 - [Port fidelity (parity)](${url}/parity): accuracy parity between original and LibreYOLO weights
 - [About](${url}/about): project background
 
 ## LibreYOLO library
 - [${LIBREYOLO.name} on GitHub](${LIBREYOLO.github}): ${LIBREYOLO.libraryLicense}-licensed, free for commercial use. Unifies ${LIBREYOLO.families.join(", ")} under one API.
+- [libreyolo.com](https://www.libreyolo.com/): official LibreYOLO site with docs, model zoo and articles (its own index: https://www.libreyolo.com/llms.txt)
 
 ## Models
 ${modelLines}

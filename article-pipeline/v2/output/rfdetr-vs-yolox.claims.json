@@ -1,0 +1,400 @@
+{
+  "engine": "article-pipeline-v2",
+  "generated_at": "2026-07-03T22:28:19.811488+00:00",
+  "slug": "rfdetr-vs-yolox",
+  "meta": {
+    "type": "family-vs",
+    "a": "rfdetr",
+    "b": "yolox",
+    "hardware": "nvidia_geforce_rtx_5070_ti",
+    "runtime": "pytorch_fp32"
+  },
+  "facts": {
+    "families": {
+      "a": "rfdetr",
+      "b": "yolox",
+      "a_display": "RF-DETR",
+      "b_display": "YOLOX"
+    },
+    "primary": {
+      "hardware": "nvidia_geforce_rtx_5070_ti",
+      "hardware_display": "NVIDIA RTX 5070 Ti",
+      "runtime": "pytorch_fp32",
+      "runtime_display": "PyTorch FP32"
+    },
+    "a_frontier": [
+      {
+        "id": "rfdetr-n",
+        "displayName": "RF-DETR-N",
+        "params": 30.47,
+        "mAP": 51.4,
+        "fps": 39.5,
+        "license": "Apache-2.0"
+      },
+      {
+        "id": "rfdetr-s",
+        "displayName": "RF-DETR-S",
+        "params": 32.11,
+        "mAP": 55.1,
+        "fps": 35.8,
+        "license": "Apache-2.0"
+      },
+      {
+        "id": "rfdetr-m",
+        "displayName": "RF-DETR-M",
+        "params": 33.69,
+        "mAP": 57.3,
+        "fps": 30.3,
+        "license": "Apache-2.0"
+      },
+      {
+        "id": "rfdetr-l",
+        "displayName": "RF-DETR-L",
+        "params": 33.93,
+        "mAP": 58.6,
+        "fps": 25.1,
+        "license": "Apache-2.0"
+      }
+    ],
+    "b_frontier": [
+      {
+        "id": "yolox-nano",
+        "displayName": "YOLOX-Nano",
+        "params": 0.91,
+        "mAP": 28.8,
+        "fps": 53.6,
+        "license": "Apache-2.0"
+      },
+      {
+        "id": "yolox-tiny",
+        "displayName": "YOLOX-Tiny",
+        "params": 5.06,
+        "mAP": 35.5,
+        "fps": 61.6,
+        "license": "Apache-2.0"
+      },
+      {
+        "id": "yolox-s",
+        "displayName": "YOLOX-S",
+        "params": 8.97,
+        "mAP": 44.3,
+        "fps": 50.0,
+        "license": "Apache-2.0"
+      },
+      {
+        "id": "yolox-m",
+        "displayName": "YOLOX-M",
+        "params": 25.33,
+        "mAP": 51.7,
+        "fps": 48.2,
+        "license": "Apache-2.0"
+      },
+      {
+        "id": "yolox-l",
+        "displayName": "YOLOX-L",
+        "params": 54.21,
+        "mAP": 55.4,
+        "fps": 42.8,
+        "license": "Apache-2.0"
+      },
+      {
+        "id": "yolox-x",
+        "displayName": "YOLOX-X",
+        "params": 99.07,
+        "mAP": 56.3,
+        "fps": 39.6,
+        "license": "Apache-2.0"
+      }
+    ],
+    "matched_pairs": [
+      {
+        "a": {
+          "id": "rfdetr-n",
+          "displayName": "RF-DETR-N",
+          "params": 30.47,
+          "mAP": 51.4,
+          "fps": 39.5,
+          "license": "Apache-2.0"
+        },
+        "b": {
+          "id": "yolox-m",
+          "displayName": "YOLOX-M",
+          "params": 25.33,
+          "mAP": 51.7,
+          "fps": 48.2,
+          "license": "Apache-2.0"
+        },
+        "mAP_delta_pts": -0.3,
+        "fps_delta_pct": -18.05
+      },
+      {
+        "a": {
+          "id": "rfdetr-s",
+          "displayName": "RF-DETR-S",
+          "params": 32.11,
+          "mAP": 55.1,
+          "fps": 35.8,
+          "license": "Apache-2.0"
+        },
+        "b": {
+          "id": "yolox-m",
+          "displayName": "YOLOX-M",
+          "params": 25.33,
+          "mAP": 51.7,
+          "fps": 48.2,
+          "license": "Apache-2.0"
+        },
+        "mAP_delta_pts": 3.4,
+        "fps_delta_pct": -25.73
+      },
+      {
+        "a": {
+          "id": "rfdetr-m",
+          "displayName": "RF-DETR-M",
+          "params": 33.69,
+          "mAP": 57.3,
+          "fps": 30.3,
+          "license": "Apache-2.0"
+        },
+        "b": {
+          "id": "yolox-m",
+          "displayName": "YOLOX-M",
+          "params": 25.33,
+          "mAP": 51.7,
+          "fps": 48.2,
+          "license": "Apache-2.0"
+        },
+        "mAP_delta_pts": 5.6,
+        "fps_delta_pct": -37.14
+      },
+      {
+        "a": {
+          "id": "rfdetr-l",
+          "displayName": "RF-DETR-L",
+          "params": 33.93,
+          "mAP": 58.6,
+          "fps": 25.1,
+          "license": "Apache-2.0"
+        },
+        "b": {
+          "id": "yolox-m",
+          "displayName": "YOLOX-M",
+          "params": 25.33,
+          "mAP": 51.7,
+          "fps": 48.2,
+          "license": "Apache-2.0"
+        },
+        "mAP_delta_pts": 6.9,
+        "fps_delta_pct": -47.93
+      }
+    ],
+    "aggregate": {
+      "n_pairs": 4,
+      "mean_mAP_delta_pts": 3.9,
+      "a_wins": 3,
+      "b_wins": 1,
+      "mean_fps_delta_pct": -32.2
+    },
+    "flagship": {
+      "a": {
+        "id": "rfdetr-l",
+        "displayName": "RF-DETR-L",
+        "params": 33.93,
+        "mAP": 58.6,
+        "fps": 25.1,
+        "license": "Apache-2.0"
+      },
+      "b": {
+        "id": "yolox-x",
+        "displayName": "YOLOX-X",
+        "params": 99.07,
+        "mAP": 56.3,
+        "fps": 39.6,
+        "license": "Apache-2.0"
+      }
+    },
+    "smallest": {
+      "a": {
+        "id": "rfdetr-n",
+        "displayName": "RF-DETR-N",
+        "params": 30.47,
+        "mAP": 51.4,
+        "fps": 39.5,
+        "license": "Apache-2.0"
+      },
+      "b": {
+        "id": "yolox-nano",
+        "displayName": "YOLOX-Nano",
+        "params": 0.91,
+        "mAP": 28.8,
+        "fps": 53.6,
+        "license": "Apache-2.0"
+      }
+    },
+    "crossover": {
+      "low_param_leader": "rfdetr",
+      "high_param_leader": "rfdetr"
+    },
+    "license": {
+      "a_all_permissive": true,
+      "b_all_permissive": true
+    },
+    "chart_highlight": "rfdetr-n,rfdetr-s,rfdetr-m,rfdetr-l,yolox-nano,yolox-tiny,yolox-s,yolox-m,yolox-l,yolox-x"
+  },
+  "claims": [
+    {
+      "id": "family_accuracy_edge",
+      "kind": "accuracy",
+      "statement": "At matched compute, RF-DETR averages 3.9 mAP points higher across 4 paired variants on NVIDIA RTX 5070 Ti. RF-DETR wins 3, YOLOX wins 1.",
+      "values": {
+        "mean_delta_pts": 3.9,
+        "a_wins": 3,
+        "b_wins": 1
+      },
+      "passed": true,
+      "strength": "strong"
+    },
+    {
+      "id": "family_speed_edge",
+      "kind": "speed",
+      "statement": "At matched compute, YOLOX is 32.2% faster on average on NVIDIA RTX 5070 Ti (PyTorch FP32).",
+      "values": {
+        "mean_delta_pct": 32.2
+      },
+      "passed": true,
+      "strength": "strong"
+    },
+    {
+      "id": "flagship",
+      "kind": "accuracy",
+      "statement": "At the top end, RF-DETR's largest measured variant (RF-DETR-L) reaches 58.6 mAP; YOLOX's (YOLOX-X) reaches 56.3 mAP.",
+      "values": {
+        "a": {
+          "id": "rfdetr-l",
+          "displayName": "RF-DETR-L",
+          "params": 33.93,
+          "mAP": 58.6,
+          "fps": 25.1,
+          "license": "Apache-2.0"
+        },
+        "b": {
+          "id": "yolox-x",
+          "displayName": "YOLOX-X",
+          "params": 99.07,
+          "mAP": 56.3,
+          "fps": 39.6,
+          "license": "Apache-2.0"
+        }
+      },
+      "passed": true,
+      "strength": "normal"
+    },
+    {
+      "id": "efficient_end",
+      "kind": "efficiency",
+      "statement": "At the small end, RF-DETR's RF-DETR-N (30.47M, 51.4 mAP, 39.5 FPS) faces YOLOX's YOLOX-Nano (0.91M, 28.8 mAP, 53.6 FPS).",
+      "values": {
+        "a": {
+          "id": "rfdetr-n",
+          "displayName": "RF-DETR-N",
+          "params": 30.47,
+          "mAP": 51.4,
+          "fps": 39.5,
+          "license": "Apache-2.0"
+        },
+        "b": {
+          "id": "yolox-nano",
+          "displayName": "YOLOX-Nano",
+          "params": 0.91,
+          "mAP": 28.8,
+          "fps": 53.6,
+          "license": "Apache-2.0"
+        }
+      },
+      "passed": true,
+      "strength": "normal"
+    },
+    {
+      "id": "coverage",
+      "kind": "ranking",
+      "statement": "RF-DETR fields 4 measured variants, YOLOX fields 6, all on the same protocol on NVIDIA RTX 5070 Ti.",
+      "values": {
+        "a_n": 4,
+        "b_n": 6
+      },
+      "passed": true,
+      "strength": "normal"
+    }
+  ],
+  "gate": {
+    "passed": true,
+    "passed_claims": 5,
+    "required": 2,
+    "reason": null
+  },
+  "allowed_numbers": [
+    -47.93,
+    -37.14,
+    -32.2,
+    -25.73,
+    -18.05,
+    -0.3,
+    0.001,
+    0.6,
+    0.91,
+    1.0,
+    2,
+    3.0,
+    3.4,
+    3.9,
+    4.0,
+    5,
+    5.06,
+    5.6,
+    6.0,
+    6.9,
+    7,
+    8,
+    8.97,
+    9,
+    10,
+    11,
+    12,
+    25.1,
+    25.33,
+    28.8,
+    30.3,
+    30.47,
+    32.11,
+    32.2,
+    33.69,
+    33.93,
+    35.5,
+    35.8,
+    39.5,
+    39.6,
+    42.8,
+    44.3,
+    48.2,
+    50.0,
+    51.4,
+    51.7,
+    53.6,
+    54.21,
+    55.1,
+    55.4,
+    56.3,
+    57.3,
+    58.6,
+    61.6,
+    75,
+    91.0,
+    95,
+    99.07,
+    100.0,
+    300,
+    500,
+    640,
+    5000
+  ]
+}

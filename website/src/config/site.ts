@@ -11,8 +11,10 @@ export const siteConfig = {
 
 export const navLinks = [
   { href: "/", label: "Leaderboard" },
+  { href: "/models", label: "Models" },
   { href: "/segmentation", label: "Segmentation" },
   { href: "/compare", label: "Compare" },
+  { href: "/articles", label: "Articles" },
   { href: "/about", label: "About" },
 ];
 

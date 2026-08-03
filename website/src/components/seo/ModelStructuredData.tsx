@@ -85,6 +85,15 @@ export function ModelStructuredData({ model, family, benchmarks }: ModelStructur
           value: p.value,
         })),
       },
+      {
+        "@type": "BreadcrumbList",
+        "@id": `${pageUrl}#breadcrumbs`,
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: siteConfig.name, item: `${url}/` },
+          { "@type": "ListItem", position: 2, name: "Models", item: `${url}/models` },
+          { "@type": "ListItem", position: 3, name: model.displayName, item: pageUrl },
+        ],
+      },
     ],
   };
 
