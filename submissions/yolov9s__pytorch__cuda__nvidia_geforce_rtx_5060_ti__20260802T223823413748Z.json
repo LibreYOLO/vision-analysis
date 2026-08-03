@@ -1,0 +1,3512 @@
+{
+  "schema_version": "va.submission.v1",
+  "submission_id": "yolov9s-rf100_vl-pytorch-cuda-nvidia_geforce_rtx_5060_ti-20260802T223823Z",
+  "created_at": "2026-08-02T22:38:23.413748Z",
+  "benchmark": {
+    "harness": "vision-analysis-benchmark",
+    "harness_version": "2.1.0",
+    "libreyolo_version": "1.4.0",
+    "libreyolo_commit": "40c02a02e595ba9d2249e030df34a0785506545f",
+    "libreyolo_dirty": null
+  },
+  "model": {
+    "id": "yolov9s",
+    "name": "yolov9-s",
+    "family": "yolov9",
+    "variant": "s",
+    "source": "libreyolo",
+    "weights": "LibreYOLO9s.pt",
+    "input_size": 640
+  },
+  "dataset": {
+    "id": "rf100_vl",
+    "split": "test",
+    "num_images": 14237,
+    "num_datasets": 100,
+    "num_datasets_discovered": 100,
+    "num_datasets_selected": 100
+  },
+  "config": {
+    "batch_size": 1,
+    "input_size": 640,
+    "conf": 0.001,
+    "iou": 0.65,
+    "max_det": 500
+  },
+  "hardware": {
+    "gpu": "NVIDIA GeForce RTX 5060 Ti",
+    "gpu_memory_gb": 15.9,
+    "driver_version": "595.58.03\nNVIDIA GeForce RTX 5060 Ti",
+    "cuda_version": "12.8",
+    "cpu": "AMD EPYC 7B13 64-Core Processor",
+    "cpu_cores": 128,
+    "ram_gb": 251,
+    "id": "nvidia_geforce_rtx_5060_ti"
+  },
+  "software": {
+    "python": "3.12.13",
+    "torch": "2.11.0+cu128",
+    "libreyolo": "1.4.0",
+    "libreyolo_commit": "40c02a02e595ba9d2249e030df34a0785506545f",
+    "libreyolo_dirty": null,
+    "onnxruntime": "not-installed",
+    "onnx": "not-installed",
+    "tensorrt": "not-installed"
+  },
+  "accuracy": {
+    "mAP_50_95": 0.5590598302325607,
+    "mAP_50": 0.8140288207511926,
+    "mAP_75": 0.6049601709508011,
+    "mAP_small": 0.05113745114010411,
+    "mAP_medium": 0.44777615186595454,
+    "mAP_large": 0.5011520832520888,
+    "AR1": 0.37624205492853635,
+    "AR10": 0.6224494977475323,
+    "AR100": 0.671748186862578,
+    "AR_small": 0.12733563383504276,
+    "AR_medium": 0.5574098895710233,
+    "AR_large": 0.5870460068657292,
+    "AR_max_det": 0.6730651054959591
+  },
+  "timing": {
+    "batch_size": 1,
+    "num_images": 14237,
+    "total_ms": {
+      "mean": 36.236,
+      "std": 25.537,
+      "p50": 25.997,
+      "p95": 92.398,
+      "p99": 133.668,
+      "preprocess_ms": null,
+      "inference_ms": null,
+      "postprocess_ms": null
+    }
+  },
+  "throughput": {
+    "fps_mean": 27.6,
+    "fps_p50": 38.47
+  },
+  "model_stats": {
+    "params_millions": 7.2,
+    "gflops": 13.52
+  },
+  "memory": {
+    "peak_vram_mb": null,
+    "peak_ram_mb": 0.0
+  },
+  "metadata": {
+    "benchmark_date": "2026-08-02T22:38:23.413748Z",
+    "benchmark_version": "2.1.0"
+  },
+  "eval": {
+    "dataset": "rf100_vl",
+    "split": "test",
+    "numImages": 14237,
+    "maxDets": [
+      1,
+      10,
+      100,
+      500
+    ]
+  },
+  "implementation": {
+    "provider": "libreyolo",
+    "version": "1.4.0"
+  },
+  "runtime": {
+    "format": "pytorch",
+    "precision": "fp32",
+    "provider": "cuda",
+    "device": "gpu"
+  },
+  "repro": {
+    "harness_version": "2.1.0",
+    "dataset": {
+      "id": "rf100_vl",
+      "split": "test",
+      "image_id_sha256": "003c2b4c0737cd3482a8a6e6a3588a6edede6d608c0f1165608c3fccf6f3ec38",
+      "identity_scheme": "sha256(canonical JSON of dataset name, image count, per-dataset image-id SHA-256, and locked version id)",
+      "datasets": [
+        {
+          "dataset": "-grccs",
+          "num_images": 119,
+          "image_id_sha256": "770d20eba30a260832345f248ae8afedc9f5658e50132ea60589cf832ffb889c",
+          "version_id": 2
+        },
+        {
+          "dataset": "13-lkc01",
+          "num_images": 34,
+          "image_id_sha256": "bccd0dc1f1bf2fc7b90c8ca8106fd684bb4f00d946633bcd7c2a008861a25e5c",
+          "version_id": 1
+        },
+        {
+          "dataset": "2024-frc",
+          "num_images": 141,
+          "image_id_sha256": "b1c755c6d514f568fb00272e9f3e76f4a5b50446460c07f2384b3136a3a189be",
+          "version_id": 2
+        },
+        {
+          "dataset": "actions",
+          "num_images": 409,
+          "image_id_sha256": "1a13d10b10ba0a9bea1067a96c52efd3f4ec7f2c516bcdac13db2e1295d54eba",
+          "version_id": 1
+        },
+        {
+          "dataset": "activity-diagrams",
+          "num_images": 39,
+          "image_id_sha256": "0c2ff65e2aca97bee9e3b9282d36222c399f19d6bfe4b2a4230f7084de3af93c",
+          "version_id": 2
+        },
+        {
+          "dataset": "aerial-airport",
+          "num_images": 34,
+          "image_id_sha256": "bccd0dc1f1bf2fc7b90c8ca8106fd684bb4f00d946633bcd7c2a008861a25e5c",
+          "version_id": 1
+        },
+        {
+          "dataset": "aerial-cows",
+          "num_images": 112,
+          "image_id_sha256": "7663c78e1256a2dc68b635ced1657df4fd396c026546522e95b623e98c6e38cf",
+          "version_id": 1
+        },
+        {
+          "dataset": "aerial-pool",
+          "num_images": 95,
+          "image_id_sha256": "cb043f4b86cc33c0cfbaf524233cdecba583a7de0db895e471de4bdce90c5a0c",
+          "version_id": 2
+        },
+        {
+          "dataset": "aerial-sheep",
+          "num_images": 173,
+          "image_id_sha256": "7e82ba424e80e59f931690491954fde76fc07e44afdac3dcfb8a18174f703f6f",
+          "version_id": 1
+        },
+        {
+          "dataset": "aircraft-turnaround-dataset",
+          "num_images": 101,
+          "image_id_sha256": "3ccaf876a446492b8c40a555ec7db54a503e49b86b1801ce7a944d002606b736",
+          "version_id": 2
+        },
+        {
+          "dataset": "all-elements",
+          "num_images": 70,
+          "image_id_sha256": "05ee87d1bc29246a76ce74f184be969b8648b20f7763a4786f22ea4332737db2",
+          "version_id": 1
+        },
+        {
+          "dataset": "apoce-aerial-photographs-for-object-detection-of-construction-equipment",
+          "num_images": 94,
+          "image_id_sha256": "152a7cc3cd701ca981c4bc9c12f5517947fb3613500c99c72565947a37ec8231",
+          "version_id": 1
+        },
+        {
+          "dataset": "aquarium-combined",
+          "num_images": 65,
+          "image_id_sha256": "4e34d7f63c81397d345061b877ba2f8c259cb722bc841694e529743afd2e7b9c",
+          "version_id": 1
+        },
+        {
+          "dataset": "asphaltdistressdetection",
+          "num_images": 316,
+          "image_id_sha256": "a3e801a62d95a3fc322376ff2f867a25e69dc8055bc04b6c430b647728eccd56",
+          "version_id": 1
+        },
+        {
+          "dataset": "ball",
+          "num_images": 45,
+          "image_id_sha256": "3439524410cf8a03c0e111791c880e3ffef376b3630a522d89d05356ba0ae56c",
+          "version_id": 2
+        },
+        {
+          "dataset": "bees",
+          "num_images": 500,
+          "image_id_sha256": "eeb568cad42bf5ff7c98e5afd57080b9af0c2933e1284c7f632b9071024d8b63",
+          "version_id": 1
+        },
+        {
+          "dataset": "bibdetection",
+          "num_images": 125,
+          "image_id_sha256": "98d777837ba1db893936920dc7a22b98437a15f795dbe235f460dad8824fb52f",
+          "version_id": 1
+        },
+        {
+          "dataset": "buoy-onboarding",
+          "num_images": 58,
+          "image_id_sha256": "c2481d4c84dcbb8b96b9dbd0c1b868899d6d10a1a1e61c2e5b2f114b7c906d19",
+          "version_id": 1
+        },
+        {
+          "dataset": "cable-damage",
+          "num_images": 133,
+          "image_id_sha256": "3a5b99d8b296cacded32fcadf1188136d16d81b554a743789f362b3b189446e1",
+          "version_id": 1
+        },
+        {
+          "dataset": "canalstenosis",
+          "num_images": 50,
+          "image_id_sha256": "9be607546c08e5b94a339456ccd87347a234493b1aecb70cb9ddb79764a436a3",
+          "version_id": 1
+        },
+        {
+          "dataset": "car-logo-detection",
+          "num_images": 17,
+          "image_id_sha256": "1c52a0d6313842f90afd45619ef477c9fc5acb4831f7080f4dc707125f33ab71",
+          "version_id": 1
+        },
+        {
+          "dataset": "circuit-voltages",
+          "num_images": 14,
+          "image_id_sha256": "4aa9c3f2f23f70566c434364415275cb676d2336cc11bafe56d3c2b343e395d9",
+          "version_id": 1
+        },
+        {
+          "dataset": "clashroyalechardetector",
+          "num_images": 148,
+          "image_id_sha256": "b451196a1b3cea1dc3d6039e86a1bbdfd88f63c60c157778838ac08f39c1cf00",
+          "version_id": 4
+        },
+        {
+          "dataset": "cod-mw-warzone",
+          "num_images": 316,
+          "image_id_sha256": "a3e801a62d95a3fc322376ff2f867a25e69dc8055bc04b6c430b647728eccd56",
+          "version_id": 1
+        },
+        {
+          "dataset": "conveyor-t-shirts",
+          "num_images": 45,
+          "image_id_sha256": "3439524410cf8a03c0e111791c880e3ffef376b3630a522d89d05356ba0ae56c",
+          "version_id": 2
+        },
+        {
+          "dataset": "countingpills",
+          "num_images": 200,
+          "image_id_sha256": "44e8e2c2181c7153726eb7e0da3c9356b23e3782cd3eeebe549e249e5e80fac0",
+          "version_id": 2
+        },
+        {
+          "dataset": "crystal-clean-brain-tumors-mri-dataset",
+          "num_images": 24,
+          "image_id_sha256": "96971d98b2640f28721082f7576605f0b5b9501f22229cef4c72cf7d59ab14ef",
+          "version_id": 2
+        },
+        {
+          "dataset": "dataconvert",
+          "num_images": 19,
+          "image_id_sha256": "ffe5ff2de51421612ebdcc878db99e0bdd639de7f923ab115d3c9aeabcce6c3a",
+          "version_id": 2
+        },
+        {
+          "dataset": "deepfruits",
+          "num_images": 18,
+          "image_id_sha256": "eeb08d073194099199386513bbefd2dc56a987813c013999075859c6a67c5171",
+          "version_id": 3
+        },
+        {
+          "dataset": "deeppcb",
+          "num_images": 150,
+          "image_id_sha256": "974f138c876c93ac42ed8a230132aacbfa280bb5af425f3a3473fe3fe18118b0",
+          "version_id": 2
+        },
+        {
+          "dataset": "defect-detection",
+          "num_images": 188,
+          "image_id_sha256": "cddd82d06b0857106352b0ac280ee84d1afbd5fdfd79ccbae53037f89d37d950",
+          "version_id": 1
+        },
+        {
+          "dataset": "dentalai",
+          "num_images": 128,
+          "image_id_sha256": "9f3452a47063e5f126e3ef35938f76422bcbc79f266b5ff264b67000479ba9b0",
+          "version_id": 1
+        },
+        {
+          "dataset": "electric-pylon-detection-in-rsi",
+          "num_images": 151,
+          "image_id_sha256": "f002d25f26a6dc842a75604344d83666f3e1dac011b761818657ea6762f1c953",
+          "version_id": 2
+        },
+        {
+          "dataset": "everdaynew",
+          "num_images": 37,
+          "image_id_sha256": "92976d20c6de8c4f6e8e08bc52284bf76342cddab1a2acddc24aedd92caf4c59",
+          "version_id": 2
+        },
+        {
+          "dataset": "exploratorium-daphnia",
+          "num_images": 34,
+          "image_id_sha256": "bccd0dc1f1bf2fc7b90c8ca8106fd684bb4f00d946633bcd7c2a008861a25e5c",
+          "version_id": 2
+        },
+        {
+          "dataset": "flir-camera-objects",
+          "num_images": 500,
+          "image_id_sha256": "eeb568cad42bf5ff7c98e5afd57080b9af0c2933e1284c7f632b9071024d8b63",
+          "version_id": 1
+        },
+        {
+          "dataset": "floating-waste",
+          "num_images": 277,
+          "image_id_sha256": "0ebbae92534b9d02ebaa437ed9fab8e7a42d703fc1ad76484c8f689d4fe292b9",
+          "version_id": 2
+        },
+        {
+          "dataset": "football-player-detection",
+          "num_images": 124,
+          "image_id_sha256": "2ac9f47da8359e2c17e9fbee92cf176a728ccef558ef99342b5791da33381a37",
+          "version_id": 2
+        },
+        {
+          "dataset": "fruitjes",
+          "num_images": 341,
+          "image_id_sha256": "546fcf33b4d9c345c636c86fcbec9bc5fabd34caa24897f1434761e085fffc5b",
+          "version_id": 2
+        },
+        {
+          "dataset": "grapes-5",
+          "num_images": 32,
+          "image_id_sha256": "25a09c0e32dacd10d7ff9c20a605112c38ea0ecaecc0c3bca23f94cce13703b5",
+          "version_id": 2
+        },
+        {
+          "dataset": "grass-weeds",
+          "num_images": 249,
+          "image_id_sha256": "f0f93c84f35382558d1cf1b05e5087b1846d7689d9e9e408be8f66ecbcfb15e3",
+          "version_id": 2
+        },
+        {
+          "dataset": "gwhd2021",
+          "num_images": 500,
+          "image_id_sha256": "eeb568cad42bf5ff7c98e5afd57080b9af0c2933e1284c7f632b9071024d8b63",
+          "version_id": 1
+        },
+        {
+          "dataset": "halo-infinite-angel-videogame",
+          "num_images": 54,
+          "image_id_sha256": "a8e3ff4abd81077c3cabf7c6480fc184daf21d0e1f59eb78d0237805c59d98ce",
+          "version_id": 1
+        },
+        {
+          "dataset": "human-detection-in-floods",
+          "num_images": 45,
+          "image_id_sha256": "3439524410cf8a03c0e111791c880e3ffef376b3630a522d89d05356ba0ae56c",
+          "version_id": 2
+        },
+        {
+          "dataset": "inbreast",
+          "num_images": 65,
+          "image_id_sha256": "4e34d7f63c81397d345061b877ba2f8c259cb722bc841694e529743afd2e7b9c",
+          "version_id": 2
+        },
+        {
+          "dataset": "infraredimageofpowerequipment",
+          "num_images": 75,
+          "image_id_sha256": "7be7637c4ac649b591eb4af9385f79f6462db6b258348fd495aca154a195aea7",
+          "version_id": 2
+        },
+        {
+          "dataset": "into-the-vale",
+          "num_images": 127,
+          "image_id_sha256": "e2c9bf8ca8b3aa345a7716f125396d60cebcaa625fe577fabfeb7954c7dea287",
+          "version_id": 2
+        },
+        {
+          "dataset": "invoice-processing",
+          "num_images": 12,
+          "image_id_sha256": "76a74eb8cd49435a639933842e9ebd25f34abb1bd672d63de02a52ecb9ec5fac",
+          "version_id": 1
+        },
+        {
+          "dataset": "ism-band-packet-detection",
+          "num_images": 38,
+          "image_id_sha256": "90609f3963696959d5d9c8d4065df954611ffd76884bb33de58ee21387ce796c",
+          "version_id": 1
+        },
+        {
+          "dataset": "jellyfish",
+          "num_images": 64,
+          "image_id_sha256": "b21a85e099b34b6973584305ec84fe9087b9b3b33795acc37c68229a2c39e266",
+          "version_id": 2
+        },
+        {
+          "dataset": "l10ul502",
+          "num_images": 150,
+          "image_id_sha256": "974f138c876c93ac42ed8a230132aacbfa280bb5af425f3a3473fe3fe18118b0",
+          "version_id": 3
+        },
+        {
+          "dataset": "label-printing-defect-version-2",
+          "num_images": 80,
+          "image_id_sha256": "f147b582c08ffedeb1e181862609a085a4c754e70ef2a794892922f8fa0659c8",
+          "version_id": 2
+        },
+        {
+          "dataset": "lacrosse-object-detection",
+          "num_images": 50,
+          "image_id_sha256": "9be607546c08e5b94a339456ccd87347a234493b1aecb70cb9ddb79764a436a3",
+          "version_id": 1
+        },
+        {
+          "dataset": "liver-disease",
+          "num_images": 398,
+          "image_id_sha256": "681a35be5e7df6ec5fe5ee9c9bc209de51bb33aa16ca27196c8f155302d3d79d",
+          "version_id": 2
+        },
+        {
+          "dataset": "macro-segmentation",
+          "num_images": 120,
+          "image_id_sha256": "9766dc070c1ee12a42fa4c9f9db33d092707b1b9f00da041bdc7e6bc33fad08b",
+          "version_id": 2
+        },
+        {
+          "dataset": "mahjong",
+          "num_images": 214,
+          "image_id_sha256": "95a6e2ca6d95a2853847d0d7d9ace8c1c98397da6c164d02ddabc77afa78b06a",
+          "version_id": 2
+        },
+        {
+          "dataset": "marine-sharks",
+          "num_images": 337,
+          "image_id_sha256": "861553b373955484e9c97e2f35e4cb210e4f8f66bbac85f660557f8d9079077d",
+          "version_id": 1
+        },
+        {
+          "dataset": "needle-base-tip-min-max",
+          "num_images": 151,
+          "image_id_sha256": "f002d25f26a6dc842a75604344d83666f3e1dac011b761818657ea6762f1c953",
+          "version_id": 2
+        },
+        {
+          "dataset": "new-defects-in-wood",
+          "num_images": 128,
+          "image_id_sha256": "9f3452a47063e5f126e3ef35938f76422bcbc79f266b5ff264b67000479ba9b0",
+          "version_id": 1
+        },
+        {
+          "dataset": "nih-xray",
+          "num_images": 88,
+          "image_id_sha256": "e32a4adba78ef8abf7012893aa70c102d1348179a073308a14727348aaabf84d",
+          "version_id": 1
+        },
+        {
+          "dataset": "orgharvest",
+          "num_images": 26,
+          "image_id_sha256": "2472e2662db0f7bf7786d971e368a399c50d81f7f3c5458ce6aa0785413247d4",
+          "version_id": 1
+        },
+        {
+          "dataset": "orionproducts",
+          "num_images": 59,
+          "image_id_sha256": "00ebe79c7dc0d9fc7fe57c4ea99abf3cc9d429b027f3b5f6db6f9f4f00d08cd9",
+          "version_id": 1
+        },
+        {
+          "dataset": "paper-parts",
+          "num_images": 499,
+          "image_id_sha256": "5638c8c962642574ef6305e379c433ea9eab3ab4bb54f0b7c6cfe7c17549ae0c",
+          "version_id": 1
+        },
+        {
+          "dataset": "peixos-fish",
+          "num_images": 119,
+          "image_id_sha256": "770d20eba30a260832345f248ae8afedc9f5658e50132ea60589cf832ffb889c",
+          "version_id": 1
+        },
+        {
+          "dataset": "penguin-finder-seg",
+          "num_images": 57,
+          "image_id_sha256": "f3fd44fc49eb9155ef317f4b822cd17569ea1da17dab0aadeeda36eb13d44f69",
+          "version_id": 1
+        },
+        {
+          "dataset": "pig-detection",
+          "num_images": 500,
+          "image_id_sha256": "eeb568cad42bf5ff7c98e5afd57080b9af0c2933e1284c7f632b9071024d8b63",
+          "version_id": 1
+        },
+        {
+          "dataset": "pill",
+          "num_images": 140,
+          "image_id_sha256": "79fed9b743ef8f74a1bfb02ebd9478800ca2e97aa7b5fa75619da542e710a115",
+          "version_id": 2
+        },
+        {
+          "dataset": "recode-waste",
+          "num_images": 251,
+          "image_id_sha256": "09b94332b3f095d41aba1bf348e4d11f14f9c91b87f0cbcd8829e60f26629678",
+          "version_id": 1
+        },
+        {
+          "dataset": "roboflow-trained-dataset",
+          "num_images": 196,
+          "image_id_sha256": "c6b33e59826fa2901b5b1c7c39dd2b5cf4f5f10fd25700667662846ed87e5423",
+          "version_id": 1
+        },
+        {
+          "dataset": "screwdetectclassification",
+          "num_images": 37,
+          "image_id_sha256": "92976d20c6de8c4f6e8e08bc52284bf76342cddab1a2acddc24aedd92caf4c59",
+          "version_id": 1
+        },
+        {
+          "dataset": "sea-cucumbers-new-tiles",
+          "num_images": 203,
+          "image_id_sha256": "9cbc6f73f7aa1d85c2d377f71d693df341a395c8b70ec74b333de86b276f7d36",
+          "version_id": 2
+        },
+        {
+          "dataset": "signatures",
+          "num_images": 35,
+          "image_id_sha256": "8be265f9bdb974f718f6c8e4a6df2e0a1dec006acc4aaf142fe1ddef073e64cb",
+          "version_id": 1
+        },
+        {
+          "dataset": "smd-components",
+          "num_images": 205,
+          "image_id_sha256": "e349bf70c6a06457d67f8cffe3412637d0150d6b8ef6025149ab53d885aee65f",
+          "version_id": 2
+        },
+        {
+          "dataset": "soda-bottles",
+          "num_images": 226,
+          "image_id_sha256": "570f37c164b7c2c687d3373183b4177213fce96c081a1b153f3de6ece6edf32e",
+          "version_id": 1
+        },
+        {
+          "dataset": "speech-bubbles-detection",
+          "num_images": 181,
+          "image_id_sha256": "ea8a9da95cad8e78ac5560a4515864dce8764e5f64dff005624722957113f67f",
+          "version_id": 1
+        },
+        {
+          "dataset": "spinefrxnormalvindr",
+          "num_images": 22,
+          "image_id_sha256": "e4465a591907ecbe63850c661dd34d80c946b0af5f720261fa702d2afac445bf",
+          "version_id": 1
+        },
+        {
+          "dataset": "sssod",
+          "num_images": 45,
+          "image_id_sha256": "3439524410cf8a03c0e111791c880e3ffef376b3630a522d89d05356ba0ae56c",
+          "version_id": 2
+        },
+        {
+          "dataset": "stomata-cells",
+          "num_images": 211,
+          "image_id_sha256": "9e70d88fdfcb275d248a9b561dbd93132d3e8fc900032f6d0db4f3c2cbbe00fe",
+          "version_id": 1
+        },
+        {
+          "dataset": "taco-trash-annotations-in-context",
+          "num_images": 139,
+          "image_id_sha256": "183da87b9d4b8028ec06002f6f301511077398970f1e6a414ef077dcaac98c84",
+          "version_id": 2
+        },
+        {
+          "dataset": "the-dreidel-project",
+          "num_images": 54,
+          "image_id_sha256": "a8e3ff4abd81077c3cabf7c6480fc184daf21d0e1f59eb78d0237805c59d98ce",
+          "version_id": 1
+        },
+        {
+          "dataset": "thermal-cheetah",
+          "num_images": 13,
+          "image_id_sha256": "33d2b9cd4ccfefb90196b6aaffcc6c1118888a27bc581dfeeb26b0d6f9d8c144",
+          "version_id": 2
+        },
+        {
+          "dataset": "tomatoes-2",
+          "num_images": 103,
+          "image_id_sha256": "32c0a7c58c77c798afc0ca8007fe9061e5692945c06b814d6bddacc475c520bd",
+          "version_id": 1
+        },
+        {
+          "dataset": "trail-camera",
+          "num_images": 132,
+          "image_id_sha256": "a210d855c4b83a6216057ac0171a756f2fd1c4b8d4550dc6e2fc086fd4af07ef",
+          "version_id": 1
+        },
+        {
+          "dataset": "train",
+          "num_images": 63,
+          "image_id_sha256": "4c2ecf6da870a082159af5fbcb1780784e062a4aaea4db3e6d3ceae25e743378",
+          "version_id": 2
+        },
+        {
+          "dataset": "truck-movement",
+          "num_images": 104,
+          "image_id_sha256": "69cbfbda75fadc3c58ca3a61e0564d9962c4166978724243130be8cbd94244bd",
+          "version_id": 4
+        },
+        {
+          "dataset": "tube",
+          "num_images": 38,
+          "image_id_sha256": "90609f3963696959d5d9c8d4065df954611ffd76884bb33de58ee21387ce796c",
+          "version_id": 1
+        },
+        {
+          "dataset": "uavdet-small",
+          "num_images": 100,
+          "image_id_sha256": "50703a5fac96bb84bad689fc57cd1d392423127fcd324ac5cb711f338bf12485",
+          "version_id": 1
+        },
+        {
+          "dataset": "ufba-425",
+          "num_images": 58,
+          "image_id_sha256": "c2481d4c84dcbb8b96b9dbd0c1b868899d6d10a1a1e61c2e5b2f114b7c906d19",
+          "version_id": 1
+        },
+        {
+          "dataset": "underwater-objects",
+          "num_images": 500,
+          "image_id_sha256": "eeb568cad42bf5ff7c98e5afd57080b9af0c2933e1284c7f632b9071024d8b63",
+          "version_id": 1
+        },
+        {
+          "dataset": "urine-analysis1",
+          "num_images": 51,
+          "image_id_sha256": "eeab13db0435ae36361d92add9415b042e1de2fa41d53e8ab3b69708eda1c919",
+          "version_id": 1
+        },
+        {
+          "dataset": "varroa-mites-detection--test-set",
+          "num_images": 95,
+          "image_id_sha256": "cb043f4b86cc33c0cfbaf524233cdecba583a7de0db895e471de4bdce90c5a0c",
+          "version_id": 2
+        },
+        {
+          "dataset": "water-meter",
+          "num_images": 70,
+          "image_id_sha256": "05ee87d1bc29246a76ce74f184be969b8648b20f7763a4786f22ea4332737db2",
+          "version_id": 1
+        },
+        {
+          "dataset": "wb-prova",
+          "num_images": 146,
+          "image_id_sha256": "3c15b8e5830d304fae12574a67d0950cf58bcd12a09a37c124e063d65187c225",
+          "version_id": 1
+        },
+        {
+          "dataset": "weeds4",
+          "num_images": 38,
+          "image_id_sha256": "90609f3963696959d5d9c8d4065df954611ffd76884bb33de58ee21387ce796c",
+          "version_id": 1
+        },
+        {
+          "dataset": "wheel-defect-detection",
+          "num_images": 32,
+          "image_id_sha256": "25a09c0e32dacd10d7ff9c20a605112c38ea0ecaecc0c3bca23f94cce13703b5",
+          "version_id": 1
+        },
+        {
+          "dataset": "wildfire-smoke",
+          "num_images": 75,
+          "image_id_sha256": "7be7637c4ac649b591eb4af9385f79f6462db6b258348fd495aca154a195aea7",
+          "version_id": 1
+        },
+        {
+          "dataset": "wine-labels",
+          "num_images": 465,
+          "image_id_sha256": "94f56b8bc403537723df0fe52238f21ea7f8c1d5d8a0c3c8af9bb3f82a54b051",
+          "version_id": 1
+        },
+        {
+          "dataset": "x-ray-id",
+          "num_images": 385,
+          "image_id_sha256": "3c8f4f268c9315ed625bf88a3f9e50e263cc21e4b9d526bca52eb0392bbfca7c",
+          "version_id": 1
+        },
+        {
+          "dataset": "xray",
+          "num_images": 104,
+          "image_id_sha256": "69cbfbda75fadc3c58ca3a61e0564d9962c4166978724243130be8cbd94244bd",
+          "version_id": 1
+        },
+        {
+          "dataset": "zebrasatasturias",
+          "num_images": 39,
+          "image_id_sha256": "0c2ff65e2aca97bee9e3b9282d36222c399f19d6bfe4b2a4230f7084de3af93c",
+          "version_id": 1
+        }
+      ],
+      "versions": {
+        "file": "/root/rf100-vl/versions.json",
+        "sha256": "4fadab539fd765690d69cbaee7e348e1ce247e414de66e74fb7377b3befd6691",
+        "schema_version": "rf100vl.versions.v1",
+        "subset": "rf100vl",
+        "datasets": {
+          "-grccs": {
+            "project_name": "-grccs-yi3bi-sge1z-anexl-hayl",
+            "version_id": 2
+          },
+          "13-lkc01": {
+            "project_name": "13-lkc01-axmll-qtoq",
+            "version_id": 1
+          },
+          "2024-frc": {
+            "project_name": "2024-frc-aanyl-eqitq-7bqgi-hcvu",
+            "version_id": 2
+          },
+          "actions": {
+            "project_name": "actions-zzid2-zb1hq-amih",
+            "version_id": 1
+          },
+          "activity-diagrams": {
+            "project_name": "activity-diagrams-qdobr-dtraz-lhxdc-cbow",
+            "version_id": 2
+          },
+          "aerial-airport": {
+            "project_name": "aerial-airport-7ap9o-ddgc",
+            "version_id": 1
+          },
+          "aerial-cows": {
+            "project_name": "aerial-cows-kt2wd-3jxcj-uvfx",
+            "version_id": 1
+          },
+          "aerial-pool": {
+            "project_name": "aerial-pool-vlhhw-rzhef-qlaz",
+            "version_id": 2
+          },
+          "aerial-sheep": {
+            "project_name": "aerial-sheep-y13yz-hs4wl-wzyo",
+            "version_id": 1
+          },
+          "aircraft-turnaround-dataset": {
+            "project_name": "aircraft-turnaround-dataset-5dnjf-orrm3-hffk",
+            "version_id": 2
+          },
+          "all-elements": {
+            "project_name": "all-elements-mebv",
+            "version_id": 1
+          },
+          "apoce-aerial-photographs-for-object-detection-of-construction-equipment": {
+            "project_name": "apoce-aerial-photographs-for-object-detection-of-construction-equipment-6raie-ur6qc-absn",
+            "version_id": 1
+          },
+          "aquarium-combined": {
+            "project_name": "aquarium-combined-gjvb",
+            "version_id": 1
+          },
+          "asphaltdistressdetection": {
+            "project_name": "asphaltdistressdetection-taf76-jcxx",
+            "version_id": 1
+          },
+          "ball": {
+            "project_name": "ball-qgqhv-2mtfk-ch2i9-ejgb",
+            "version_id": 2
+          },
+          "bees": {
+            "project_name": "bees-jt5in-6pbpl-aplx",
+            "version_id": 1
+          },
+          "bibdetection": {
+            "project_name": "bibdetection-swtfw-z85dg-mzqx",
+            "version_id": 1
+          },
+          "buoy-onboarding": {
+            "project_name": "buoy-onboarding-uys2h-lbtek-ttiu",
+            "version_id": 1
+          },
+          "cable-damage": {
+            "project_name": "cable-damage-z5nlo-9eslb-itoh",
+            "version_id": 1
+          },
+          "canalstenosis": {
+            "project_name": "canalstenosis-azjxm-cpkp",
+            "version_id": 1
+          },
+          "car-logo-detection": {
+            "project_name": "car-logo-detection-cxyfl-snnqi-wfqa",
+            "version_id": 1
+          },
+          "circuit-voltages": {
+            "project_name": "circuit-voltages-ysajo-tbpd",
+            "version_id": 1
+          },
+          "clashroyalechardetector": {
+            "project_name": "clashroyalechardetector-xus94-giyri-voeq",
+            "version_id": 4
+          },
+          "cod-mw-warzone": {
+            "project_name": "cod-mw-warzone-pkski-akqif-ojfh",
+            "version_id": 1
+          },
+          "conveyor-t-shirts": {
+            "project_name": "conveyor-t-shirts-htpwe-koqei-gs0tv-qymy",
+            "version_id": 2
+          },
+          "countingpills": {
+            "project_name": "countingpills-exf0r-gfkt",
+            "version_id": 2
+          },
+          "crystal-clean-brain-tumors-mri-dataset": {
+            "project_name": "crystal-clean-brain-tumors-mri-dataset-hzb2f-plsq",
+            "version_id": 2
+          },
+          "dataconvert": {
+            "project_name": "dataconvert-9e6zr-lstqv-hiro",
+            "version_id": 2
+          },
+          "deepfruits": {
+            "project_name": "deepfruits-mango-xs1as-tkygw-uxnm",
+            "version_id": 3
+          },
+          "deeppcb": {
+            "project_name": "deeppcb-4dhir-cudbt-zlst",
+            "version_id": 2
+          },
+          "defect-detection": {
+            "project_name": "defect-detection-yjplx-fxobh-amdi",
+            "version_id": 1
+          },
+          "dentalai": {
+            "project_name": "dentalai-i4clz-fsuo",
+            "version_id": 1
+          },
+          "electric-pylon-detection-in-rsi": {
+            "project_name": "electric-pylon-detection-in-rsi-q6qra-psut",
+            "version_id": 2
+          },
+          "everdaynew": {
+            "project_name": "everdaynew-6ej0k-lyqxk-zzbi",
+            "version_id": 2
+          },
+          "exploratorium-daphnia": {
+            "project_name": "exploratorium-daphnia-iacgs-5s9ur-qibo",
+            "version_id": 2
+          },
+          "flir-camera-objects": {
+            "project_name": "flir-camera-objects-tdqp",
+            "version_id": 1
+          },
+          "floating-waste": {
+            "project_name": "floating-waste-8deje-lrbq",
+            "version_id": 2
+          },
+          "football-player-detection": {
+            "project_name": "football-player-detection-kucab-fbcl7-uj1oi-gxtg",
+            "version_id": 2
+          },
+          "fruitjes": {
+            "project_name": "fruitjes-r9tou-fjfb8-gcke",
+            "version_id": 2
+          },
+          "grapes-5": {
+            "project_name": "grapes-5-fzajg-zfi5c-uzov",
+            "version_id": 2
+          },
+          "grass-weeds": {
+            "project_name": "grass-weeds-ru5xu-mutb1-jvwl",
+            "version_id": 2
+          },
+          "gwhd2021": {
+            "project_name": "gwhd2021-atsv",
+            "version_id": 1
+          },
+          "halo-infinite-angel-videogame": {
+            "project_name": "halo-infinite-angel-videogame-cqrgf-fbcm",
+            "version_id": 1
+          },
+          "human-detection-in-floods": {
+            "project_name": "human-detection-in-floods-a6aun-5xvpd-2hvjd-sbyy",
+            "version_id": 2
+          },
+          "inbreast": {
+            "project_name": "inbreast-zzlbj-e5zj8-bzvi",
+            "version_id": 2
+          },
+          "infraredimageofpowerequipment": {
+            "project_name": "infraredimageofpowerequipment-kt4us-zqnd",
+            "version_id": 2
+          },
+          "into-the-vale": {
+            "project_name": "into-the-vale-sg5al-fiqob-xh9rj-ixym",
+            "version_id": 2
+          },
+          "invoice-processing": {
+            "project_name": "invoice-processing-nl2cz-d87if-be5rs-wkgh",
+            "version_id": 1
+          },
+          "ism-band-packet-detection": {
+            "project_name": "ism-band-packet-detection-e7s7w-mpkt",
+            "version_id": 1
+          },
+          "jellyfish": {
+            "project_name": "jellyfish-pqc6u-ftpov-gjvb",
+            "version_id": 2
+          },
+          "l10ul502": {
+            "project_name": "l10ul502-6ann9-yumi",
+            "version_id": 3
+          },
+          "label-printing-defect-version-2": {
+            "project_name": "label-printing-defect-version-2-xhwap-vrcc",
+            "version_id": 2
+          },
+          "lacrosse-object-detection": {
+            "project_name": "lacrosse-object-detection-uxkt",
+            "version_id": 1
+          },
+          "liver-disease": {
+            "project_name": "liver-disease-jyvvu-fash",
+            "version_id": 2
+          },
+          "macro-segmentation": {
+            "project_name": "macro-segmentation-kaer8-yajkb-blok",
+            "version_id": 2
+          },
+          "mahjong": {
+            "project_name": "mahjong-vtacs-mexax-m4vyu-sjtd",
+            "version_id": 2
+          },
+          "marine-sharks": {
+            "project_name": "marine-sharks-jqnfk-skffz-iflt",
+            "version_id": 1
+          },
+          "needle-base-tip-min-max": {
+            "project_name": "needle-base-tip-min-max-u87vi-wzsrt-kjyu",
+            "version_id": 2
+          },
+          "new-defects-in-wood": {
+            "project_name": "new-defects-in-wood-uewd1-tffp",
+            "version_id": 1
+          },
+          "nih-xray": {
+            "project_name": "nih-xray-itazg-xeoi",
+            "version_id": 1
+          },
+          "orgharvest": {
+            "project_name": "orgharvest-vgfsu-ocxq",
+            "version_id": 1
+          },
+          "orionproducts": {
+            "project_name": "orionproducts-vtl2z-puhv",
+            "version_id": 1
+          },
+          "paper-parts": {
+            "project_name": "paper-parts-rmrg",
+            "version_id": 1
+          },
+          "peixos-fish": {
+            "project_name": "peixos-fish-eyltk-rpno",
+            "version_id": 1
+          },
+          "penguin-finder-seg": {
+            "project_name": "penguin-finder-seg-va0wf-ygkoq-oznn",
+            "version_id": 1
+          },
+          "pig-detection": {
+            "project_name": "pig-detection-kaimq-a8ret-abpd",
+            "version_id": 1
+          },
+          "pill": {
+            "project_name": "pill-j8vgy-o5udx-7xdez-ehbb",
+            "version_id": 2
+          },
+          "recode-waste": {
+            "project_name": "recode-waste-czvmg-yxsw",
+            "version_id": 1
+          },
+          "roboflow-trained-dataset": {
+            "project_name": "roboflow-trained-dataset-j7nxb-lxob",
+            "version_id": 1
+          },
+          "screwdetectclassification": {
+            "project_name": "screwdetectclassification-xrrbi-hkwlh-lybq",
+            "version_id": 1
+          },
+          "sea-cucumbers-new-tiles": {
+            "project_name": "sea-cucumbers-new-tiles-kbu7c-cegb",
+            "version_id": 2
+          },
+          "signatures": {
+            "project_name": "signatures-xc8up-ytnch-qzw1d-pmbl",
+            "version_id": 1
+          },
+          "smd-components": {
+            "project_name": "smd-components-dnljh-poxfb-trqdw-7n9xb-ryth",
+            "version_id": 2
+          },
+          "soda-bottles": {
+            "project_name": "soda-bottles-haga",
+            "version_id": 1
+          },
+          "speech-bubbles-detection": {
+            "project_name": "speech-bubbles-detection-r22zt-ou0u6-jols",
+            "version_id": 1
+          },
+          "spinefrxnormalvindr": {
+            "project_name": "spinefrxnormalvindr-lt1cn-ryhy",
+            "version_id": 1
+          },
+          "sssod": {
+            "project_name": "sssod-uaagn-txmx",
+            "version_id": 2
+          },
+          "stomata-cells": {
+            "project_name": "stomata-cells-upfae-ngum",
+            "version_id": 1
+          },
+          "taco-trash-annotations-in-context": {
+            "project_name": "taco-trash-annotations-in-context-dtyly-awiq",
+            "version_id": 2
+          },
+          "the-dreidel-project": {
+            "project_name": "the-dreidel-project-anzyr-zejm",
+            "version_id": 1
+          },
+          "thermal-cheetah": {
+            "project_name": "thermal-cheetah-my4dp-zvgwh-ooto",
+            "version_id": 2
+          },
+          "tomatoes-2": {
+            "project_name": "tomatoes-2-2wvhj-aml8q-mpzp",
+            "version_id": 1
+          },
+          "trail-camera": {
+            "project_name": "trail-camera-egos",
+            "version_id": 1
+          },
+          "train": {
+            "project_name": "train-i4unu-qkluh-mdec",
+            "version_id": 2
+          },
+          "truck-movement": {
+            "project_name": "truck-movement-qv1up-elxpj-ytsp",
+            "version_id": 4
+          },
+          "tube": {
+            "project_name": "tube-4rv8o-tyakk-ds4px-vtal",
+            "version_id": 1
+          },
+          "uavdet-small": {
+            "project_name": "uavdet-small-txtvh-ysli",
+            "version_id": 1
+          },
+          "ufba-425": {
+            "project_name": "ufba-425-asgxh-djrs",
+            "version_id": 1
+          },
+          "underwater-objects": {
+            "project_name": "underwater-objects-5v7p8-j8co7-hhpwk-fyou",
+            "version_id": 1
+          },
+          "urine-analysis1": {
+            "project_name": "urine-analysis1-2lol7-onpk",
+            "version_id": 1
+          },
+          "varroa-mites-detection--test-set": {
+            "project_name": "varroa-mites-detection--test-set-1irzb-gsig",
+            "version_id": 2
+          },
+          "water-meter": {
+            "project_name": "water-meter-jbktv-7vz5k-ftoz",
+            "version_id": 1
+          },
+          "wb-prova": {
+            "project_name": "wb-prova-stqnm-rbvg",
+            "version_id": 1
+          },
+          "weeds4": {
+            "project_name": "weeds4-evltl-grf8n-zfn7s-ecuv",
+            "version_id": 1
+          },
+          "wheel-defect-detection": {
+            "project_name": "wheel-defect-detection-e53jb-38chk-ytwg",
+            "version_id": 1
+          },
+          "wildfire-smoke": {
+            "project_name": "wildfire-smoke-myxt",
+            "version_id": 1
+          },
+          "wine-labels": {
+            "project_name": "wine-labels-3pmp5-lrsge-zbuo",
+            "version_id": 1
+          },
+          "x-ray-id": {
+            "project_name": "x-ray-id-zfisb-dyjv",
+            "version_id": 1
+          },
+          "xray": {
+            "project_name": "xray-2vqog-u6ggy-gqwl",
+            "version_id": 1
+          },
+          "zebrasatasturias": {
+            "project_name": "zebrasatasturias-nzsnv-cqvl",
+            "version_id": 1
+          }
+        }
+      },
+      "domain_manifest": {
+        "file": "/venv/main/lib/python3.12/site-packages/va_bench/data/rf100vl_domains.json",
+        "sha256": "8f8353ef3cbc65bc25d1470a6a2e252b09ca1242e1419e6048007ae2ca97e833",
+        "source": {
+          "repository": "https://github.com/roboflow/rf100-vl",
+          "commit": "1c1ecd84cf2865270702121311e1d9e5f2a861aa",
+          "path": "rf100vl/assets/dataset_name_to_category.json",
+          "license": "Apache-2.0",
+          "canonicalization": {
+            "Lab Imaging": "Medical",
+            "Misc": "Other",
+            "Sport": "Sports",
+            "Flora/Fauna": "Flora and Fauna"
+          }
+        }
+      }
+    },
+    "weights": {
+      "file": "per-dataset checkpoints",
+      "sha256": "4926d4939c5b1b766a3f80f81323337b64df8b40adb0e0b707d9db02e56fc094",
+      "source": "fine-tuned",
+      "identity_scheme": "sha256(canonical JSON of dataset name and checkpoint file SHA-256)",
+      "datasets": [
+        {
+          "dataset": "-grccs",
+          "file": "/root/w-s/-grccs/LibreYOLO9s.pt",
+          "sha256": "d15ca59b120d6d148bb909b4b39b9e110e23fd7625fbe4fd1b4ddf022324c93b",
+          "source": "per-dataset-finetuned"
+        },
+        {
+          "dataset": "13-lkc01",
+          "file": "/root/w-s/13-lkc01/LibreYOLO9s.pt",
+          "sha256": "e3e442683ca8de0e71a4af4e45b7b11fc0205e84e83f147cb6a081da66c94e34",
+          "source": "per-dataset-finetuned"
+        },
+        {
+          "dataset": "2024-frc",
+          "file": "/root/w-s/2024-frc/LibreYOLO9s.pt",
+          "sha256": "856cf331bd0888d95762f64f4d232d123283a53e9693db83dfddc2f82d565b22",
+          "source": "per-dataset-finetuned"
+        },
+        {
+          "dataset": "actions",
+          "file": "/root/w-s/actions/LibreYOLO9s.pt",
+          "sha256": "2823b7b05f19ab040ac7334b69331c64c4e35aecff16bab401e6d02cf3568959",
+          "source": "per-dataset-finetuned"
+        },
+        {
+          "dataset": "activity-diagrams",
+          "file": "/root/w-s/activity-diagrams/LibreYOLO9s.pt",
+          "sha256": "a1f5b5fa23f66c462ca5523c8b7599ec69610a1d0b7c7f27933e8644d22300ec",
+          "source": "per-dataset-finetuned"
+        },
+        {
+          "dataset": "aerial-airport",
+          "file": "/root/w-s/aerial-airport/LibreYOLO9s.pt",
+          "sha256": "e54e0ed68c2fe4890e7d069d406eb2dcc75090c8724a214f41201e57e6536dc5",
+          "source": "per-dataset-finetuned"
+        },
+        {
+          "dataset": "aerial-cows",
+          "file": "/root/w-s/aerial-cows/LibreYOLO9s.pt",
+          "sha256": "2971a7a04a9f0a50ea3d3cbca29f9dab82ab221bc3c63bf95c69d77e69a1003f",
+          "source": "per-dataset-finetuned"
+        },
+        {
+          "dataset": "aerial-pool",
+          "file": "/root/w-s/aerial-pool/LibreYOLO9s.pt",
+          "sha256": "6563b382b6ce7d0beade11abbbe32fe7d31da38ef2104001027ceb005e7ecdaa",
+          "source": "per-dataset-finetuned"
+        },
+        {
+          "dataset": "aerial-sheep",
+          "file": "/root/w-s/aerial-sheep/LibreYOLO9s.pt",
+          "sha256": "dbacf73d98d65e4412e074141d3e5cfaf8909677ec4d72fe8a307417d435a6d2",
+          "source": "per-dataset-finetuned"
+        },
+        {
+          "dataset": "aircraft-turnaround-dataset",
+          "file": "/root/w-s/aircraft-turnaround-dataset/LibreYOLO9s.pt",
+          "sha256": "8b49b57c7f6ab8a167c419d18b88fd332af2b123090829b84948e4f84cfcb368",
+          "source": "per-dataset-finetuned"
+        },
+        {
+          "dataset": "all-elements",
+          "file": "/root/w-s/all-elements/LibreYOLO9s.pt",
+          "sha256": "71c35c5b239e683e4ec7248b0f60041b714e9aee9ee21aaa57acfa017f4ad011",
+          "source": "per-dataset-finetuned"
+        },
+        {
+          "dataset": "apoce-aerial-photographs-for-object-detection-of-construction-equipment",
+          "file": "/root/w-s/apoce-aerial-photographs-for-object-detection-of-construction-equipment/LibreYOLO9s.pt",
+          "sha256": "5c3790befe0ee239b88973ec8c3687a8e09999754b6d2c11016127517cccb8f7",
+          "source": "per-dataset-finetuned"
+        },
+        {
+          "dataset": "aquarium-combined",
+          "file": "/root/w-s/aquarium-combined/LibreYOLO9s.pt",
+          "sha256": "aedf295de300b3a22296b1577170c3f697666c5601ae62e762e3fd42227dcc31",
+          "source": "per-dataset-finetuned"
+        },
+        {
+          "dataset": "asphaltdistressdetection",
+          "file": "/root/w-s/asphaltdistressdetection/LibreYOLO9s.pt",
+          "sha256": "5d740e89f856e328b91da55f1693dc70acf3343f8b9003ed2e7b0f3c574723b3",
+          "source": "per-dataset-finetuned"
+        },
+        {
+          "dataset": "ball",
+          "file": "/root/w-s/ball/LibreYOLO9s.pt",
+          "sha256": "20f750a44f2510c44f7fe5e6f381223e3d4f8b8e7d7a9d84141e93d0285be641",
+          "source": "per-dataset-finetuned"
+        },
+        {
+          "dataset": "bees",
+          "file": "/root/w-s/bees/LibreYOLO9s.pt",
+          "sha256": "de1c57e80911e99bc02f5dd0c003e53866b5323bff7152adefed616471fad363",
+          "source": "per-dataset-finetuned"
+        },
+        {
+          "dataset": "bibdetection",
+          "file": "/root/w-s/bibdetection/LibreYOLO9s.pt",
+          "sha256": "caa1f2a8af6d33597ee41e0d49eb3344902b88f75c002a015dede4205b2af4de",
+          "source": "per-dataset-finetuned"
+        },
+        {
+          "dataset": "buoy-onboarding",
+          "file": "/root/w-s/buoy-onboarding/LibreYOLO9s.pt",
+          "sha256": "dc39a7ca4999a0b4dd8c2f68ed5c59393a022f4dd8a7130f1b767865116a769a",
+          "source": "per-dataset-finetuned"
+        },
+        {
+          "dataset": "cable-damage",
+          "file": "/root/w-s/cable-damage/LibreYOLO9s.pt",
+          "sha256": "41f86abd39c5cc2dae093a8190e06631daf97bd449abb093d8fe319c95e80ed0",
+          "source": "per-dataset-finetuned"
+        },
+        {
+          "dataset": "canalstenosis",
+          "file": "/root/w-s/canalstenosis/LibreYOLO9s.pt",
+          "sha256": "ae1b262856ff667aed571bed0744e8b0afb7cbb88e205c82283d63703a655a93",
+          "source": "per-dataset-finetuned"
+        },
+        {
+          "dataset": "car-logo-detection",
+          "file": "/root/w-s/car-logo-detection/LibreYOLO9s.pt",
+          "sha256": "ec21c55907b45caf6c13aac1a37f6ebe8bdee85d5b081a21c5d5ba079ac35d40",
+          "source": "per-dataset-finetuned"
+        },
+        {
+          "dataset": "circuit-voltages",
+          "file": "/root/w-s/circuit-voltages/LibreYOLO9s.pt",
+          "sha256": "045174fb99ba3973d05a9b5915ff79a157bbcc8c3e00acc23c2afe8693212f7a",
+          "source": "per-dataset-finetuned"
+        },
+        {
+          "dataset": "clashroyalechardetector",
+          "file": "/root/w-s/clashroyalechardetector/LibreYOLO9s.pt",
+          "sha256": "8715d9d3413927ded2367c323408d2690609e561ed565a5f944fabe046034e6b",
+          "source": "per-dataset-finetuned"
+        },
+        {
+          "dataset": "cod-mw-warzone",
+          "file": "/root/w-s/cod-mw-warzone/LibreYOLO9s.pt",
+          "sha256": "f9597988679fce907ce9c37d4b8c8ca8fd3681f0f335e5cd986ed25dcf04aae0",
+          "source": "per-dataset-finetuned"
+        },
+        {
+          "dataset": "conveyor-t-shirts",
+          "file": "/root/w-s/conveyor-t-shirts/LibreYOLO9s.pt",
+          "sha256": "c6957b5388e9dd580fa69a240edf1e95b33ded45c070365803483d9074dafd99",
+          "source": "per-dataset-finetuned"
+        },
+        {
+          "dataset": "countingpills",
+          "file": "/root/w-s/countingpills/LibreYOLO9s.pt",
+          "sha256": "36b1010787baaff0b5ac02a135250a43aaac09bab51ee49b4956aac8f347559e",
+          "source": "per-dataset-finetuned"
+        },
+        {
+          "dataset": "crystal-clean-brain-tumors-mri-dataset",
+          "file": "/root/w-s/crystal-clean-brain-tumors-mri-dataset/LibreYOLO9s.pt",
+          "sha256": "108cdd0fc803ed06e85ff7286c9242844ae8657fd318a171de69474ba0e10ed0",
+          "source": "per-dataset-finetuned"
+        },
+        {
+          "dataset": "dataconvert",
+          "file": "/root/w-s/dataconvert/LibreYOLO9s.pt",
+          "sha256": "dd67f574a92c0c7d6a95bd23e623b617be9e8d699b908f3a03b4320de04b4767",
+          "source": "per-dataset-finetuned"
+        },
+        {
+          "dataset": "deepfruits",
+          "file": "/root/w-s/deepfruits/LibreYOLO9s.pt",
+          "sha256": "619cfbe6006282a8f72f35d6c136585ec5621c3335e287fc5bedc92c1a2e1463",
+          "source": "per-dataset-finetuned"
+        },
+        {
+          "dataset": "deeppcb",
+          "file": "/root/w-s/deeppcb/LibreYOLO9s.pt",
+          "sha256": "ac64e158e95122e2906aa3bd1c039969f2e887d0d70a88b55b95b73c02e75a89",
+          "source": "per-dataset-finetuned"
+        },
+        {
+          "dataset": "defect-detection",
+          "file": "/root/w-s/defect-detection/LibreYOLO9s.pt",
+          "sha256": "bffec6ce0dc226e6e0a89b4fe1210bfebc247dc1a895c5fcbdf68cca3f2fc44a",
+          "source": "per-dataset-finetuned"
+        },
+        {
+          "dataset": "dentalai",
+          "file": "/root/w-s/dentalai/LibreYOLO9s.pt",
+          "sha256": "128bb8c97911d049f16060c62c1e565a200541bab73a1aaa703bd67c96675e03",
+          "source": "per-dataset-finetuned"
+        },
+        {
+          "dataset": "electric-pylon-detection-in-rsi",
+          "file": "/root/w-s/electric-pylon-detection-in-rsi/LibreYOLO9s.pt",
+          "sha256": "d7a44f6a1fab279e6cb2dd5457fc55c03f353fcd3bd65d47bfbd26d09fbf367d",
+          "source": "per-dataset-finetuned"
+        },
+        {
+          "dataset": "everdaynew",
+          "file": "/root/w-s/everdaynew/LibreYOLO9s.pt",
+          "sha256": "28d83ddf17128790a5b5772f968740e5958bc30776b45096568e36e257d8a603",
+          "source": "per-dataset-finetuned"
+        },
+        {
+          "dataset": "exploratorium-daphnia",
+          "file": "/root/w-s/exploratorium-daphnia/LibreYOLO9s.pt",
+          "sha256": "8fc61a30523639d2753a04e07ae88ee6d864e4dccf0fe328a0ae7791ec9a1cc9",
+          "source": "per-dataset-finetuned"
+        },
+        {
+          "dataset": "flir-camera-objects",
+          "file": "/root/w-s/flir-camera-objects/LibreYOLO9s.pt",
+          "sha256": "8ad7aefbf304923ca0504ed46b6e4cb8229e97ad9fb18e9f1030abdc8ed878c8",
+          "source": "per-dataset-finetuned"
+        },
+        {
+          "dataset": "floating-waste",
+          "file": "/root/w-s/floating-waste/LibreYOLO9s.pt",
+          "sha256": "c76abe01bd171013738f31bf92a69fe05274ce4048ffb78e8dd749d925f8752c",
+          "source": "per-dataset-finetuned"
+        },
+        {
+          "dataset": "football-player-detection",
+          "file": "/root/w-s/football-player-detection/LibreYOLO9s.pt",
+          "sha256": "4f567704402d8a45e7bbbc4b49b0198203f7cca7928af11804072995eb096988",
+          "source": "per-dataset-finetuned"
+        },
+        {
+          "dataset": "fruitjes",
+          "file": "/root/w-s/fruitjes/LibreYOLO9s.pt",
+          "sha256": "1008391ffbf66ab8cc1f56fd1b19db2bb125d282097ee7706f87cd92176f8a69",
+          "source": "per-dataset-finetuned"
+        },
+        {
+          "dataset": "grapes-5",
+          "file": "/root/w-s/grapes-5/LibreYOLO9s.pt",
+          "sha256": "0c42f26e125c909b2a2f7acd49ad3b83cd87bddd8e698968f66e608e444bd552",
+          "source": "per-dataset-finetuned"
+        },
+        {
+          "dataset": "grass-weeds",
+          "file": "/root/w-s/grass-weeds/LibreYOLO9s.pt",
+          "sha256": "b5a35618eb83c0e9812c2e5936e5e7b416e04ac2cb2b91550e62fbff02717a0d",
+          "source": "per-dataset-finetuned"
+        },
+        {
+          "dataset": "gwhd2021",
+          "file": "/root/w-s/gwhd2021/LibreYOLO9s.pt",
+          "sha256": "2f0b2a448816746d5ed296f4bccfd2b29ed3846dfe7f505d3992d6d97806f333",
+          "source": "per-dataset-finetuned"
+        },
+        {
+          "dataset": "halo-infinite-angel-videogame",
+          "file": "/root/w-s/halo-infinite-angel-videogame/LibreYOLO9s.pt",
+          "sha256": "b8b837d5d4b64173ef51cdcadb3e00f3ddde886fc88c1a7079397d2ddeee92bc",
+          "source": "per-dataset-finetuned"
+        },
+        {
+          "dataset": "human-detection-in-floods",
+          "file": "/root/w-s/human-detection-in-floods/LibreYOLO9s.pt",
+          "sha256": "e45874667d1864fabce6891f4623d5bfcdfcaaa3af93f8d1d9904e826b0cf90c",
+          "source": "per-dataset-finetuned"
+        },
+        {
+          "dataset": "inbreast",
+          "file": "/root/w-s/inbreast/LibreYOLO9s.pt",
+          "sha256": "da9203606c66f84ef2a525fe93cee54c1b5b64af8e02a2aaf3ca4a67eb05aeb8",
+          "source": "per-dataset-finetuned"
+        },
+        {
+          "dataset": "infraredimageofpowerequipment",
+          "file": "/root/w-s/infraredimageofpowerequipment/LibreYOLO9s.pt",
+          "sha256": "fd20ad5877bdef30c9ac46f5a7ce2a86cab1d38f9189fb71b1f02adb91ca503f",
+          "source": "per-dataset-finetuned"
+        },
+        {
+          "dataset": "into-the-vale",
+          "file": "/root/w-s/into-the-vale/LibreYOLO9s.pt",
+          "sha256": "3b22f2f106a3be539d657648901e40d664a01a013305116c16944d362a55c0d8",
+          "source": "per-dataset-finetuned"
+        },
+        {
+          "dataset": "invoice-processing",
+          "file": "/root/w-s/invoice-processing/LibreYOLO9s.pt",
+          "sha256": "03a268fc9f133d40730c52cbe709f5238550ad362eee9dc7d53d2c6273c40da8",
+          "source": "per-dataset-finetuned"
+        },
+        {
+          "dataset": "ism-band-packet-detection",
+          "file": "/root/w-s/ism-band-packet-detection/LibreYOLO9s.pt",
+          "sha256": "64714fbeee2ab450fa779cb8b494550a321c29452cb883dcffe08d875bc74b6e",
+          "source": "per-dataset-finetuned"
+        },
+        {
+          "dataset": "jellyfish",
+          "file": "/root/w-s/jellyfish/LibreYOLO9s.pt",
+          "sha256": "e4192c63c5f9cd4c678de90cd770e1c50efea53ad0efff79d2ab133dc05e4815",
+          "source": "per-dataset-finetuned"
+        },
+        {
+          "dataset": "l10ul502",
+          "file": "/root/w-s/l10ul502/LibreYOLO9s.pt",
+          "sha256": "769d9f2562bb845afdeec746d77301c258f133de13001c160daf7f9ff99b8575",
+          "source": "per-dataset-finetuned"
+        },
+        {
+          "dataset": "label-printing-defect-version-2",
+          "file": "/root/w-s/label-printing-defect-version-2/LibreYOLO9s.pt",
+          "sha256": "9616213a588414da310d0633041348c00773793f99e9007b905db06d79114f73",
+          "source": "per-dataset-finetuned"
+        },
+        {
+          "dataset": "lacrosse-object-detection",
+          "file": "/root/w-s/lacrosse-object-detection/LibreYOLO9s.pt",
+          "sha256": "52cf998313f99befdce87e725759830e4bb252a66ca08b2330f4ca977f572fda",
+          "source": "per-dataset-finetuned"
+        },
+        {
+          "dataset": "liver-disease",
+          "file": "/root/w-s/liver-disease/LibreYOLO9s.pt",
+          "sha256": "34b7d28e009d8128b2489ece210bd9ba4341e9d1cddf8f78c4790360a95a9272",
+          "source": "per-dataset-finetuned"
+        },
+        {
+          "dataset": "macro-segmentation",
+          "file": "/root/w-s/macro-segmentation/LibreYOLO9s.pt",
+          "sha256": "b8faaed396b9298167d33afcbb99e41300434e149391d39adbcfbd2bc7d3309a",
+          "source": "per-dataset-finetuned"
+        },
+        {
+          "dataset": "mahjong",
+          "file": "/root/w-s/mahjong/LibreYOLO9s.pt",
+          "sha256": "aa1a8971e1fb98667510f43db24c3c46da0a9f334b048736f098d39eb621227d",
+          "source": "per-dataset-finetuned"
+        },
+        {
+          "dataset": "marine-sharks",
+          "file": "/root/w-s/marine-sharks/LibreYOLO9s.pt",
+          "sha256": "cd9c3b2bd583c2e1d25200f670dafb6c19c4123a09960ca0be5963eda2e8cc3f",
+          "source": "per-dataset-finetuned"
+        },
+        {
+          "dataset": "needle-base-tip-min-max",
+          "file": "/root/w-s/needle-base-tip-min-max/LibreYOLO9s.pt",
+          "sha256": "8137a180d69c199bf6dad53722b69eff10a37c5968eef1b9d579f9b90ffa4681",
+          "source": "per-dataset-finetuned"
+        },
+        {
+          "dataset": "new-defects-in-wood",
+          "file": "/root/w-s/new-defects-in-wood/LibreYOLO9s.pt",
+          "sha256": "a4887ef5bbb9391f67bfaa41fa194be3abf79bad04265fb6ef057415b8230708",
+          "source": "per-dataset-finetuned"
+        },
+        {
+          "dataset": "nih-xray",
+          "file": "/root/w-s/nih-xray/LibreYOLO9s.pt",
+          "sha256": "65e1d59fe01e29dd399838c4c79e55f443739e9c01a467b75f5c0ee181e79ed4",
+          "source": "per-dataset-finetuned"
+        },
+        {
+          "dataset": "orgharvest",
+          "file": "/root/w-s/orgharvest/LibreYOLO9s.pt",
+          "sha256": "3583b3b80293dec196acdb4372283b81de68ed2bb2ed392f3ea110b4d8fd91f7",
+          "source": "per-dataset-finetuned"
+        },
+        {
+          "dataset": "orionproducts",
+          "file": "/root/w-s/orionproducts/LibreYOLO9s.pt",
+          "sha256": "f5f7ef8c18c452a35f81340280a2c19459bc9419708a56ce403b3860eb7afccb",
+          "source": "per-dataset-finetuned"
+        },
+        {
+          "dataset": "paper-parts",
+          "file": "/root/w-s/paper-parts/LibreYOLO9s.pt",
+          "sha256": "156893e6418f0fd6a27f8881021e9e89c6f2a1b3d845186e9cec08e4a6a3ff44",
+          "source": "per-dataset-finetuned"
+        },
+        {
+          "dataset": "peixos-fish",
+          "file": "/root/w-s/peixos-fish/LibreYOLO9s.pt",
+          "sha256": "3459bb68a4d50a44fb4cff8d8a219d7a1307ba6cd656f616862601aa751e35fc",
+          "source": "per-dataset-finetuned"
+        },
+        {
+          "dataset": "penguin-finder-seg",
+          "file": "/root/w-s/penguin-finder-seg/LibreYOLO9s.pt",
+          "sha256": "e626fcc76c36b960a9d9f530b2ac93d51dff21fdbf582b13c94ec572f66f516f",
+          "source": "per-dataset-finetuned"
+        },
+        {
+          "dataset": "pig-detection",
+          "file": "/root/w-s/pig-detection/LibreYOLO9s.pt",
+          "sha256": "898c4091ab8a7920389599493204edc8c34ea3b53e08954094edaa6664a3e2d2",
+          "source": "per-dataset-finetuned"
+        },
+        {
+          "dataset": "pill",
+          "file": "/root/w-s/pill/LibreYOLO9s.pt",
+          "sha256": "eb817165b5d3e5ee02d852794728abb975e362d1e9477883fe8c8e144b0dbf30",
+          "source": "per-dataset-finetuned"
+        },
+        {
+          "dataset": "recode-waste",
+          "file": "/root/w-s/recode-waste/LibreYOLO9s.pt",
+          "sha256": "cb3217ce711ae2e5e85e88304327937596b68cadcf83c675a0cf5a963773614f",
+          "source": "per-dataset-finetuned"
+        },
+        {
+          "dataset": "roboflow-trained-dataset",
+          "file": "/root/w-s/roboflow-trained-dataset/LibreYOLO9s.pt",
+          "sha256": "7b00a15b42ce8fc49b041b8ad1cbab8031ce1f8a85ec8649cd1540af6f6e1428",
+          "source": "per-dataset-finetuned"
+        },
+        {
+          "dataset": "screwdetectclassification",
+          "file": "/root/w-s/screwdetectclassification/LibreYOLO9s.pt",
+          "sha256": "3007f065dbeb743c01df5e9294efd9510b2202c7911b52289358e22f0c440575",
+          "source": "per-dataset-finetuned"
+        },
+        {
+          "dataset": "sea-cucumbers-new-tiles",
+          "file": "/root/w-s/sea-cucumbers-new-tiles/LibreYOLO9s.pt",
+          "sha256": "b04ed7001ce3862362016923cb6ed9d31889e35c40723075ed7adafa5d771f52",
+          "source": "per-dataset-finetuned"
+        },
+        {
+          "dataset": "signatures",
+          "file": "/root/w-s/signatures/LibreYOLO9s.pt",
+          "sha256": "1d85533fa3667db101c980e477c85ad53cea7911a741451741ff1a87ded4e60d",
+          "source": "per-dataset-finetuned"
+        },
+        {
+          "dataset": "smd-components",
+          "file": "/root/w-s/smd-components/LibreYOLO9s.pt",
+          "sha256": "bbe3793c8e461a058c4b18894f377dc24e7c3167692350858762a6ada8da1eb4",
+          "source": "per-dataset-finetuned"
+        },
+        {
+          "dataset": "soda-bottles",
+          "file": "/root/w-s/soda-bottles/LibreYOLO9s.pt",
+          "sha256": "17de72f94e00f4dce00607a341895889fcdd9e7cf3e841e9ff5d50aaad98bfeb",
+          "source": "per-dataset-finetuned"
+        },
+        {
+          "dataset": "speech-bubbles-detection",
+          "file": "/root/w-s/speech-bubbles-detection/LibreYOLO9s.pt",
+          "sha256": "f2a4dafa230a1b9049485f18c734eccfc6f668f842ebf66b848e8c169784390b",
+          "source": "per-dataset-finetuned"
+        },
+        {
+          "dataset": "spinefrxnormalvindr",
+          "file": "/root/w-s/spinefrxnormalvindr/LibreYOLO9s.pt",
+          "sha256": "5331211ec9226b4dff5d15c89a4bdbd638d90be6a615898668f7666f91d4e7b3",
+          "source": "per-dataset-finetuned"
+        },
+        {
+          "dataset": "sssod",
+          "file": "/root/w-s/sssod/LibreYOLO9s.pt",
+          "sha256": "f979361ca45f11cc78b7d54e56f45a62fbca4a83e70affec163a965ba88889ac",
+          "source": "per-dataset-finetuned"
+        },
+        {
+          "dataset": "stomata-cells",
+          "file": "/root/w-s/stomata-cells/LibreYOLO9s.pt",
+          "sha256": "7092b2edc052acf356e7124650d90eadfbda226634bb30e14bc71dcb7ba9dff5",
+          "source": "per-dataset-finetuned"
+        },
+        {
+          "dataset": "taco-trash-annotations-in-context",
+          "file": "/root/w-s/taco-trash-annotations-in-context/LibreYOLO9s.pt",
+          "sha256": "d1308ba85cacf19a3ccce1598b5b01e14d83d91f0d2b1288fcfa38af2a5bba00",
+          "source": "per-dataset-finetuned"
+        },
+        {
+          "dataset": "the-dreidel-project",
+          "file": "/root/w-s/the-dreidel-project/LibreYOLO9s.pt",
+          "sha256": "eb300146e4d22d42dd1bc7ebfff504044eb02c50e24196a589c037a4af432111",
+          "source": "per-dataset-finetuned"
+        },
+        {
+          "dataset": "thermal-cheetah",
+          "file": "/root/w-s/thermal-cheetah/LibreYOLO9s.pt",
+          "sha256": "c2837c19d04e84a16a14be4fd92c0a6df109d701d74c6fdabb326b38fdded37a",
+          "source": "per-dataset-finetuned"
+        },
+        {
+          "dataset": "tomatoes-2",
+          "file": "/root/w-s/tomatoes-2/LibreYOLO9s.pt",
+          "sha256": "de34e00adee084b912c0cc66a38cc9fd5ab49bd4e5ed68a51d557bb6a2562b56",
+          "source": "per-dataset-finetuned"
+        },
+        {
+          "dataset": "trail-camera",
+          "file": "/root/w-s/trail-camera/LibreYOLO9s.pt",
+          "sha256": "b054e67850480f0c08195cf658f7266ef33feace7276426caf5d266ab1c63e91",
+          "source": "per-dataset-finetuned"
+        },
+        {
+          "dataset": "train",
+          "file": "/root/w-s/train/LibreYOLO9s.pt",
+          "sha256": "d7e85f108f787ed830341e9b88d4f87e47857033b52bf305541c5af7af6ad376",
+          "source": "per-dataset-finetuned"
+        },
+        {
+          "dataset": "truck-movement",
+          "file": "/root/w-s/truck-movement/LibreYOLO9s.pt",
+          "sha256": "6ce4dfce9821caa7a809a9dfa912735da10586d5e5949461d41b9886a620ccb4",
+          "source": "per-dataset-finetuned"
+        },
+        {
+          "dataset": "tube",
+          "file": "/root/w-s/tube/LibreYOLO9s.pt",
+          "sha256": "aeac8ea67a73fd40bd5108efcc31193c9d5d404df38e263e2479c7580768b03e",
+          "source": "per-dataset-finetuned"
+        },
+        {
+          "dataset": "uavdet-small",
+          "file": "/root/w-s/uavdet-small/LibreYOLO9s.pt",
+          "sha256": "f6fb5d1c2f031d3112a35e08c5b7e1b55ba635d843925e562496668e1f47761e",
+          "source": "per-dataset-finetuned"
+        },
+        {
+          "dataset": "ufba-425",
+          "file": "/root/w-s/ufba-425/LibreYOLO9s.pt",
+          "sha256": "ec640f8376842be6438d18ad87ff5ff45bf8d1b42f4bb597148fa1f8b68f5f75",
+          "source": "per-dataset-finetuned"
+        },
+        {
+          "dataset": "underwater-objects",
+          "file": "/root/w-s/underwater-objects/LibreYOLO9s.pt",
+          "sha256": "f9abfde0e86ca01b07c2abfed8671212ab6605b455c18ccc9254f8476dc883fe",
+          "source": "per-dataset-finetuned"
+        },
+        {
+          "dataset": "urine-analysis1",
+          "file": "/root/w-s/urine-analysis1/LibreYOLO9s.pt",
+          "sha256": "df0ca201063d7c30192d2309c096dd029f1cab27e9e540ebee58b849dd041197",
+          "source": "per-dataset-finetuned"
+        },
+        {
+          "dataset": "varroa-mites-detection--test-set",
+          "file": "/root/w-s/varroa-mites-detection--test-set/LibreYOLO9s.pt",
+          "sha256": "ae326257ab5be1be86272d04345c2aeda516d68c250285fa2b3619940cf6ed7a",
+          "source": "per-dataset-finetuned"
+        },
+        {
+          "dataset": "water-meter",
+          "file": "/root/w-s/water-meter/LibreYOLO9s.pt",
+          "sha256": "de884366bc97f5b7fef5137ced6416bf38dd5a2953be5ed673f2bb30c700079f",
+          "source": "per-dataset-finetuned"
+        },
+        {
+          "dataset": "wb-prova",
+          "file": "/root/w-s/wb-prova/LibreYOLO9s.pt",
+          "sha256": "420983ef716dc928bc639cb72d351b67b7e905ad70d0b7eb5f1564d53e4f0791",
+          "source": "per-dataset-finetuned"
+        },
+        {
+          "dataset": "weeds4",
+          "file": "/root/w-s/weeds4/LibreYOLO9s.pt",
+          "sha256": "c4dc96777a756182ee24982034a65e62988e2468486adaa2f0064bade77f8e58",
+          "source": "per-dataset-finetuned"
+        },
+        {
+          "dataset": "wheel-defect-detection",
+          "file": "/root/w-s/wheel-defect-detection/LibreYOLO9s.pt",
+          "sha256": "597ccc1be5fd4f57a86cac195bc8a70cf666f9feb5ea693375e916efa6f5d7f1",
+          "source": "per-dataset-finetuned"
+        },
+        {
+          "dataset": "wildfire-smoke",
+          "file": "/root/w-s/wildfire-smoke/LibreYOLO9s.pt",
+          "sha256": "8565b21cc7a014f26f921b015129f7c49f71e77dfef08c6ecf9255bfa750eba6",
+          "source": "per-dataset-finetuned"
+        },
+        {
+          "dataset": "wine-labels",
+          "file": "/root/w-s/wine-labels/LibreYOLO9s.pt",
+          "sha256": "9fb9c27b002f5479a9ee8ac51298e1b53cfc01f31b1943ca9e1fa7a94559f784",
+          "source": "per-dataset-finetuned"
+        },
+        {
+          "dataset": "x-ray-id",
+          "file": "/root/w-s/x-ray-id/LibreYOLO9s.pt",
+          "sha256": "6dd9b4e2da9abb06e24c67b9ac05d81b5a42f0fb98b78bae6fb3044da007fd2a",
+          "source": "per-dataset-finetuned"
+        },
+        {
+          "dataset": "xray",
+          "file": "/root/w-s/xray/LibreYOLO9s.pt",
+          "sha256": "8c567d202a727abc746a16fcb51e162dee20da1bc8d230543f7ad49e946aea60",
+          "source": "per-dataset-finetuned"
+        },
+        {
+          "dataset": "zebrasatasturias",
+          "file": "/root/w-s/zebrasatasturias/LibreYOLO9s.pt",
+          "sha256": "86a7b1f4c1ed27211f0355e66ab1a459562741cd29ac50af7725932828df2c01",
+          "source": "per-dataset-finetuned"
+        }
+      ]
+    },
+    "protocol_version": "rf100vl.libreyolo.v1",
+    "recipe": {
+      "file": "/venv/main/lib/python3.12/site-packages/va_bench/recipes/rf100vl/yolov9.json",
+      "sha256": "07535d4ffe08631532452600bcf9bb42d5c370963a4d07c4ea742ea1e90d2b2a",
+      "source": "per-dataset stats.json",
+      "dataset_count": 100
+    },
+    "harness_commit": "unknown",
+    "harness_dirty": null,
+    "argv": [
+      "rf100vl-campaign",
+      "--model",
+      "yolov9s",
+      "--data-dir",
+      "/root/rf100-vl",
+      "--weights-root",
+      "/root/w-s",
+      "--gpus",
+      "0,1,2,3,4,5,6,7",
+      "--jobs-per-gpu",
+      "1",
+      "--timeout-hours",
+      "20",
+      "--sync-repo",
+      "LibreYOLO/rf100-vl-results",
+      "--sync-tier",
+      "results"
+    ],
+    "command": "va-bench rf100vl-campaign --model yolov9s --data-dir /root/rf100-vl --weights-root /root/w-s --gpus 0,1,2,3,4,5,6,7 --jobs-per-gpu 1 --timeout-hours 20 --sync-repo LibreYOLO/rf100-vl-results --sync-tier results"
+  },
+  "rf100vl": {
+    "regime": "fine-tuned",
+    "aggregation": "unweighted mean across datasets",
+    "protocol": {
+      "version": "rf100vl.libreyolo.v1",
+      "nms_iou": 0.65,
+      "max_det": 500,
+      "expected_datasets": 100
+    },
+    "dataset_versions_sha256": "4fadab539fd765690d69cbaee7e348e1ce247e414de66e74fb7377b3befd6691",
+    "recipe_sha256": "07535d4ffe08631532452600bcf9bb42d5c370963a4d07c4ea742ea1e90d2b2a",
+    "per_dataset_results_dir": "/root/w-s/.eval/yolov9s/pytorch/test",
+    "valid_submission": true,
+    "invalid_reasons": [],
+    "datasets": [
+      {
+        "dataset": "-grccs",
+        "num_images": 119,
+        "num_classes": 7,
+        "dataset_version": 2,
+        "weights": "/root/w-s/-grccs/LibreYOLO9s.pt",
+        "weights_sha256": "d15ca59b120d6d148bb909b4b39b9e110e23fd7625fbe4fd1b4ddf022324c93b",
+        "result_file": "/root/w-s/.eval/yolov9s/pytorch/test/-grccs/2db01d69cfc95b2c578ea15e6b764b031b2c6c8df931c6389e1ea2e2d6b63e66.json",
+        "predictions_file": "/root/w-s/.eval/yolov9s/pytorch/test/-grccs/2db01d69cfc95b2c578ea15e6b764b031b2c6c8df931c6389e1ea2e2d6b63e66.predictions.json.gz",
+        "resumed_from_cache": false,
+        "wall_seconds": 6.297,
+        "mAP_50": 0.8675590583366646,
+        "mAP_50_95": 0.5715132906825302,
+        "mAP_75": 0.6461634723809919,
+        "AR100": 0.6906049279902913,
+        "AR_max_det": 0.6906049279902913
+      },
+      {
+        "dataset": "13-lkc01",
+        "num_images": 34,
+        "num_classes": 1,
+        "dataset_version": 1,
+        "weights": "/root/w-s/13-lkc01/LibreYOLO9s.pt",
+        "weights_sha256": "e3e442683ca8de0e71a4af4e45b7b11fc0205e84e83f147cb6a081da66c94e34",
+        "result_file": "/root/w-s/.eval/yolov9s/pytorch/test/13-lkc01/3642af82af9748ca5ba4091a41cbba35041280322bcca5d1ab3ea67223f5914c.json",
+        "predictions_file": "/root/w-s/.eval/yolov9s/pytorch/test/13-lkc01/3642af82af9748ca5ba4091a41cbba35041280322bcca5d1ab3ea67223f5914c.predictions.json.gz",
+        "resumed_from_cache": false,
+        "wall_seconds": 5.925,
+        "mAP_50": 0.7954299817897005,
+        "mAP_50_95": 0.4155955598053575,
+        "mAP_75": 0.38383355497010907,
+        "AR100": 0.5558823529411765,
+        "AR_max_det": 0.5558823529411765
+      },
+      {
+        "dataset": "2024-frc",
+        "num_images": 141,
+        "num_classes": 11,
+        "dataset_version": 2,
+        "weights": "/root/w-s/2024-frc/LibreYOLO9s.pt",
+        "weights_sha256": "856cf331bd0888d95762f64f4d232d123283a53e9693db83dfddc2f82d565b22",
+        "result_file": "/root/w-s/.eval/yolov9s/pytorch/test/2024-frc/9f0aaa60f9e1de84938af9a52e5b168093eddb2f052061d4b072ba1ce71ee7d6.json",
+        "predictions_file": "/root/w-s/.eval/yolov9s/pytorch/test/2024-frc/9f0aaa60f9e1de84938af9a52e5b168093eddb2f052061d4b072ba1ce71ee7d6.predictions.json.gz",
+        "resumed_from_cache": false,
+        "wall_seconds": 7.128,
+        "mAP_50": 0.9201109919623265,
+        "mAP_50_95": 0.720490717209683,
+        "mAP_75": 0.7698424722145065,
+        "AR100": 0.7870216804252539,
+        "AR_max_det": 0.7870216804252539
+      },
+      {
+        "dataset": "actions",
+        "num_images": 409,
+        "num_classes": 6,
+        "dataset_version": 1,
+        "weights": "/root/w-s/actions/LibreYOLO9s.pt",
+        "weights_sha256": "2823b7b05f19ab040ac7334b69331c64c4e35aecff16bab401e6d02cf3568959",
+        "result_file": "/root/w-s/.eval/yolov9s/pytorch/test/actions/fa09fced0c6a8141b4ba65a2786d8c8f2e7b3ec1005c27fd772d131be3fecee8.json",
+        "predictions_file": "/root/w-s/.eval/yolov9s/pytorch/test/actions/fa09fced0c6a8141b4ba65a2786d8c8f2e7b3ec1005c27fd772d131be3fecee8.predictions.json.gz",
+        "resumed_from_cache": false,
+        "wall_seconds": 14.649,
+        "mAP_50": 0.8511465368012133,
+        "mAP_50_95": 0.5067377663329029,
+        "mAP_75": 0.5331645598541065,
+        "AR100": 0.6247925443551069,
+        "AR_max_det": 0.6247925443551069
+      },
+      {
+        "dataset": "activity-diagrams",
+        "num_images": 39,
+        "num_classes": 12,
+        "dataset_version": 2,
+        "weights": "/root/w-s/activity-diagrams/LibreYOLO9s.pt",
+        "weights_sha256": "a1f5b5fa23f66c462ca5523c8b7599ec69610a1d0b7c7f27933e8644d22300ec",
+        "result_file": "/root/w-s/.eval/yolov9s/pytorch/test/activity-diagrams/4cfa50345f11a4b9edbece23f121ed74e81a0e1c18e12658c5c7b752f3b735ed.json",
+        "predictions_file": "/root/w-s/.eval/yolov9s/pytorch/test/activity-diagrams/4cfa50345f11a4b9edbece23f121ed74e81a0e1c18e12658c5c7b752f3b735ed.predictions.json.gz",
+        "resumed_from_cache": false,
+        "wall_seconds": 3.214,
+        "mAP_50": 0.702228571363649,
+        "mAP_50_95": 0.4593215788916211,
+        "mAP_75": 0.49813637399256855,
+        "AR100": 0.6641989407384428,
+        "AR_max_det": 0.6654220148530832
+      },
+      {
+        "dataset": "aerial-airport",
+        "num_images": 34,
+        "num_classes": 1,
+        "dataset_version": 1,
+        "weights": "/root/w-s/aerial-airport/LibreYOLO9s.pt",
+        "weights_sha256": "e54e0ed68c2fe4890e7d069d406eb2dcc75090c8724a214f41201e57e6536dc5",
+        "result_file": "/root/w-s/.eval/yolov9s/pytorch/test/aerial-airport/50fa13b0c8fc01317d56abb6602030700dac5c6a18564532953075e5a258c754.json",
+        "predictions_file": "/root/w-s/.eval/yolov9s/pytorch/test/aerial-airport/50fa13b0c8fc01317d56abb6602030700dac5c6a18564532953075e5a258c754.predictions.json.gz",
+        "resumed_from_cache": false,
+        "wall_seconds": 2.347,
+        "mAP_50": 0.9419502900948573,
+        "mAP_50_95": 0.5937016860471668,
+        "mAP_75": 0.654554763664187,
+        "AR100": 0.6416666666666668,
+        "AR_max_det": 0.6435483870967742
+      },
+      {
+        "dataset": "aerial-cows",
+        "num_images": 112,
+        "num_classes": 1,
+        "dataset_version": 1,
+        "weights": "/root/w-s/aerial-cows/LibreYOLO9s.pt",
+        "weights_sha256": "2971a7a04a9f0a50ea3d3cbca29f9dab82ab221bc3c63bf95c69d77e69a1003f",
+        "result_file": "/root/w-s/.eval/yolov9s/pytorch/test/aerial-cows/47da023b4b3a2dce76b04d315d113ddc86eb66891d102f9bac2344f0b65b0786.json",
+        "predictions_file": "/root/w-s/.eval/yolov9s/pytorch/test/aerial-cows/47da023b4b3a2dce76b04d315d113ddc86eb66891d102f9bac2344f0b65b0786.predictions.json.gz",
+        "resumed_from_cache": false,
+        "wall_seconds": 7.855,
+        "mAP_50": 0.6476009295921259,
+        "mAP_50_95": 0.30337178461809844,
+        "mAP_75": 0.25502775915101944,
+        "AR100": 0.37143719806763287,
+        "AR_max_det": 0.37143719806763287
+      },
+      {
+        "dataset": "aerial-pool",
+        "num_images": 95,
+        "num_classes": 5,
+        "dataset_version": 2,
+        "weights": "/root/w-s/aerial-pool/LibreYOLO9s.pt",
+        "weights_sha256": "6563b382b6ce7d0beade11abbbe32fe7d31da38ef2104001027ceb005e7ecdaa",
+        "result_file": "/root/w-s/.eval/yolov9s/pytorch/test/aerial-pool/2a68f51eda1b40838edda4fa575f667437cec11db475d826fa6d525838466c6b.json",
+        "predictions_file": "/root/w-s/.eval/yolov9s/pytorch/test/aerial-pool/2a68f51eda1b40838edda4fa575f667437cec11db475d826fa6d525838466c6b.predictions.json.gz",
+        "resumed_from_cache": false,
+        "wall_seconds": 5.243,
+        "mAP_50": 0.6511333682477296,
+        "mAP_50_95": 0.39234197600088444,
+        "mAP_75": 0.3916804163340051,
+        "AR100": 0.5145598874752693,
+        "AR_max_det": 0.5145598874752693
+      },
+      {
+        "dataset": "aerial-sheep",
+        "num_images": 173,
+        "num_classes": 1,
+        "dataset_version": 1,
+        "weights": "/root/w-s/aerial-sheep/LibreYOLO9s.pt",
+        "weights_sha256": "dbacf73d98d65e4412e074141d3e5cfaf8909677ec4d72fe8a307417d435a6d2",
+        "result_file": "/root/w-s/.eval/yolov9s/pytorch/test/aerial-sheep/1efb7ae974a1264f0e30a0a88309508adad330123a034c8aea0f567ade652c5e.json",
+        "predictions_file": "/root/w-s/.eval/yolov9s/pytorch/test/aerial-sheep/1efb7ae974a1264f0e30a0a88309508adad330123a034c8aea0f567ade652c5e.predictions.json.gz",
+        "resumed_from_cache": false,
+        "wall_seconds": 28.162,
+        "mAP_50": 0.9406499161343248,
+        "mAP_50_95": 0.5552012733754966,
+        "mAP_75": 0.6037507776048902,
+        "AR100": 0.6156638827339355,
+        "AR_max_det": 0.6199079597750127
+      },
+      {
+        "dataset": "aircraft-turnaround-dataset",
+        "num_images": 101,
+        "num_classes": 5,
+        "dataset_version": 2,
+        "weights": "/root/w-s/aircraft-turnaround-dataset/LibreYOLO9s.pt",
+        "weights_sha256": "8b49b57c7f6ab8a167c419d18b88fd332af2b123090829b84948e4f84cfcb368",
+        "result_file": "/root/w-s/.eval/yolov9s/pytorch/test/aircraft-turnaround-dataset/bfabaf9cd98ea08f1baa59d3f838a948eb2ba3e7ea4d6707f778f07dd370b9b5.json",
+        "predictions_file": "/root/w-s/.eval/yolov9s/pytorch/test/aircraft-turnaround-dataset/bfabaf9cd98ea08f1baa59d3f838a948eb2ba3e7ea4d6707f778f07dd370b9b5.predictions.json.gz",
+        "resumed_from_cache": false,
+        "wall_seconds": 4.273,
+        "mAP_50": 0.878047195070352,
+        "mAP_50_95": 0.5877401494220597,
+        "mAP_75": 0.6563503856637697,
+        "AR100": 0.6664205270029929,
+        "AR_max_det": 0.6664205270029929
+      },
+      {
+        "dataset": "all-elements",
+        "num_images": 70,
+        "num_classes": 10,
+        "dataset_version": 1,
+        "weights": "/root/w-s/all-elements/LibreYOLO9s.pt",
+        "weights_sha256": "71c35c5b239e683e4ec7248b0f60041b714e9aee9ee21aaa57acfa017f4ad011",
+        "result_file": "/root/w-s/.eval/yolov9s/pytorch/test/all-elements/59957a086d960405babbaa9ae991b9c2654fff40d64bb881e7bb7e4ceed2bf01.json",
+        "predictions_file": "/root/w-s/.eval/yolov9s/pytorch/test/all-elements/59957a086d960405babbaa9ae991b9c2654fff40d64bb881e7bb7e4ceed2bf01.predictions.json.gz",
+        "resumed_from_cache": false,
+        "wall_seconds": 4.502,
+        "mAP_50": 0.7751776424826269,
+        "mAP_50_95": 0.580370832380405,
+        "mAP_75": 0.6260450410926811,
+        "AR100": 0.7364891702392447,
+        "AR_max_det": 0.7368199095388556
+      },
+      {
+        "dataset": "apoce-aerial-photographs-for-object-detection-of-construction-equipment",
+        "num_images": 94,
+        "num_classes": 7,
+        "dataset_version": 1,
+        "weights": "/root/w-s/apoce-aerial-photographs-for-object-detection-of-construction-equipment/LibreYOLO9s.pt",
+        "weights_sha256": "5c3790befe0ee239b88973ec8c3687a8e09999754b6d2c11016127517cccb8f7",
+        "result_file": "/root/w-s/.eval/yolov9s/pytorch/test/apoce-aerial-photographs-for-object-detection-of-construction-equipment/83979661c1de5c6fba7246f82def78e9fbd2bbabbef4e0bc02fd8b520b9dc2b5.json",
+        "predictions_file": "/root/w-s/.eval/yolov9s/pytorch/test/apoce-aerial-photographs-for-object-detection-of-construction-equipment/83979661c1de5c6fba7246f82def78e9fbd2bbabbef4e0bc02fd8b520b9dc2b5.predictions.json.gz",
+        "resumed_from_cache": false,
+        "wall_seconds": 13.443,
+        "mAP_50": 0.779318264233534,
+        "mAP_50_95": 0.6031292927467196,
+        "mAP_75": 0.7106435481660357,
+        "AR100": 0.6798199737517316,
+        "AR_max_det": 0.6805563507767685
+      },
+      {
+        "dataset": "aquarium-combined",
+        "num_images": 65,
+        "num_classes": 7,
+        "dataset_version": 1,
+        "weights": "/root/w-s/aquarium-combined/LibreYOLO9s.pt",
+        "weights_sha256": "aedf295de300b3a22296b1577170c3f697666c5601ae62e762e3fd42227dcc31",
+        "result_file": "/root/w-s/.eval/yolov9s/pytorch/test/aquarium-combined/f2f59b2dbee838b3ae3af174b7b46023631d420c235d7eb867699992b3ddc5ef.json",
+        "predictions_file": "/root/w-s/.eval/yolov9s/pytorch/test/aquarium-combined/f2f59b2dbee838b3ae3af174b7b46023631d420c235d7eb867699992b3ddc5ef.predictions.json.gz",
+        "resumed_from_cache": false,
+        "wall_seconds": 6.362,
+        "mAP_50": 0.7802561413989535,
+        "mAP_50_95": 0.4865497936213252,
+        "mAP_75": 0.480963232057554,
+        "AR100": 0.6428316903713381,
+        "AR_max_det": 0.6472274185519157
+      },
+      {
+        "dataset": "asphaltdistressdetection",
+        "num_images": 316,
+        "num_classes": 6,
+        "dataset_version": 1,
+        "weights": "/root/w-s/asphaltdistressdetection/LibreYOLO9s.pt",
+        "weights_sha256": "5d740e89f856e328b91da55f1693dc70acf3343f8b9003ed2e7b0f3c574723b3",
+        "result_file": "/root/w-s/.eval/yolov9s/pytorch/test/asphaltdistressdetection/b954f3b619b797db4e2f069716709b4a150df107a4bbc602a0d30a1722907065.json",
+        "predictions_file": "/root/w-s/.eval/yolov9s/pytorch/test/asphaltdistressdetection/b954f3b619b797db4e2f069716709b4a150df107a4bbc602a0d30a1722907065.predictions.json.gz",
+        "resumed_from_cache": false,
+        "wall_seconds": 9.173,
+        "mAP_50": 0.6026436081947887,
+        "mAP_50_95": 0.4040739985933794,
+        "mAP_75": 0.4346315349695954,
+        "AR100": 0.638046067000497,
+        "AR_max_det": 0.638046067000497
+      },
+      {
+        "dataset": "ball",
+        "num_images": 45,
+        "num_classes": 18,
+        "dataset_version": 2,
+        "weights": "/root/w-s/ball/LibreYOLO9s.pt",
+        "weights_sha256": "20f750a44f2510c44f7fe5e6f381223e3d4f8b8e7d7a9d84141e93d0285be641",
+        "result_file": "/root/w-s/.eval/yolov9s/pytorch/test/ball/675ae10dbdf2183bb64cfd2fc44e170b4c787ae12f5ae96649cbf54e0d7964f9.json",
+        "predictions_file": "/root/w-s/.eval/yolov9s/pytorch/test/ball/675ae10dbdf2183bb64cfd2fc44e170b4c787ae12f5ae96649cbf54e0d7964f9.predictions.json.gz",
+        "resumed_from_cache": false,
+        "wall_seconds": 3.601,
+        "mAP_50": 0.8758508197803093,
+        "mAP_50_95": 0.6415817513633353,
+        "mAP_75": 0.794063453531826,
+        "AR100": 0.7579182246347302,
+        "AR_max_det": 0.7579182246347302
+      },
+      {
+        "dataset": "bees",
+        "num_images": 500,
+        "num_classes": 1,
+        "dataset_version": 1,
+        "weights": "/root/w-s/bees/LibreYOLO9s.pt",
+        "weights_sha256": "de1c57e80911e99bc02f5dd0c003e53866b5323bff7152adefed616471fad363",
+        "result_file": "/root/w-s/.eval/yolov9s/pytorch/test/bees/2e9f71ca635809c03ee6180307a45f693149d2056cd13325b728506bdd5b5788.json",
+        "predictions_file": "/root/w-s/.eval/yolov9s/pytorch/test/bees/2e9f71ca635809c03ee6180307a45f693149d2056cd13325b728506bdd5b5788.predictions.json.gz",
+        "resumed_from_cache": false,
+        "wall_seconds": 16.748,
+        "mAP_50": 0.9217766538603742,
+        "mAP_50_95": 0.4489411555997746,
+        "mAP_75": 0.3651616732471775,
+        "AR100": 0.5418571428571429,
+        "AR_max_det": 0.5418571428571429
+      },
+      {
+        "dataset": "bibdetection",
+        "num_images": 125,
+        "num_classes": 1,
+        "dataset_version": 1,
+        "weights": "/root/w-s/bibdetection/LibreYOLO9s.pt",
+        "weights_sha256": "caa1f2a8af6d33597ee41e0d49eb3344902b88f75c002a015dede4205b2af4de",
+        "result_file": "/root/w-s/.eval/yolov9s/pytorch/test/bibdetection/cf67439875b3d211d0c893697f94fd08047b017531c903bc13b9b45cb536ecba.json",
+        "predictions_file": "/root/w-s/.eval/yolov9s/pytorch/test/bibdetection/cf67439875b3d211d0c893697f94fd08047b017531c903bc13b9b45cb536ecba.predictions.json.gz",
+        "resumed_from_cache": false,
+        "wall_seconds": 6.318,
+        "mAP_50": 0.9173085162101848,
+        "mAP_50_95": 0.5414267784612803,
+        "mAP_75": 0.5448485565130844,
+        "AR100": 0.6540880503144655,
+        "AR_max_det": 0.6540880503144655
+      },
+      {
+        "dataset": "buoy-onboarding",
+        "num_images": 58,
+        "num_classes": 7,
+        "dataset_version": 1,
+        "weights": "/root/w-s/buoy-onboarding/LibreYOLO9s.pt",
+        "weights_sha256": "dc39a7ca4999a0b4dd8c2f68ed5c59393a022f4dd8a7130f1b767865116a769a",
+        "result_file": "/root/w-s/.eval/yolov9s/pytorch/test/buoy-onboarding/7371e5392f4299f562892137000d7ed0cd4ccdf327115ef546fb5527298bc685.json",
+        "predictions_file": "/root/w-s/.eval/yolov9s/pytorch/test/buoy-onboarding/7371e5392f4299f562892137000d7ed0cd4ccdf327115ef546fb5527298bc685.predictions.json.gz",
+        "resumed_from_cache": false,
+        "wall_seconds": 2.786,
+        "mAP_50": 0.5898026378565849,
+        "mAP_50_95": 0.30708894860638275,
+        "mAP_75": 0.26914580924372555,
+        "AR100": 0.4107674629283486,
+        "AR_max_det": 0.4107674629283486
+      },
+      {
+        "dataset": "cable-damage",
+        "num_images": 133,
+        "num_classes": 2,
+        "dataset_version": 1,
+        "weights": "/root/w-s/cable-damage/LibreYOLO9s.pt",
+        "weights_sha256": "41f86abd39c5cc2dae093a8190e06631daf97bd449abb093d8fe319c95e80ed0",
+        "result_file": "/root/w-s/.eval/yolov9s/pytorch/test/cable-damage/654dfb78b0972e7572761d24d08794e48ef32d78972511883729cd5bdbdf59c1.json",
+        "predictions_file": "/root/w-s/.eval/yolov9s/pytorch/test/cable-damage/654dfb78b0972e7572761d24d08794e48ef32d78972511883729cd5bdbdf59c1.predictions.json.gz",
+        "resumed_from_cache": false,
+        "wall_seconds": 5.189,
+        "mAP_50": 0.9144226076638076,
+        "mAP_50_95": 0.44099318258368,
+        "mAP_75": 0.33596036192301554,
+        "AR100": 0.5347222222222222,
+        "AR_max_det": 0.5347222222222222
+      },
+      {
+        "dataset": "canalstenosis",
+        "num_images": 50,
+        "num_classes": 5,
+        "dataset_version": 1,
+        "weights": "/root/w-s/canalstenosis/LibreYOLO9s.pt",
+        "weights_sha256": "ae1b262856ff667aed571bed0744e8b0afb7cbb88e205c82283d63703a655a93",
+        "result_file": "/root/w-s/.eval/yolov9s/pytorch/test/canalstenosis/10792a5dbf8ed6cb30a3939c2db680110b57f528a241a97975ee0298c5961b14.json",
+        "predictions_file": "/root/w-s/.eval/yolov9s/pytorch/test/canalstenosis/10792a5dbf8ed6cb30a3939c2db680110b57f528a241a97975ee0298c5961b14.predictions.json.gz",
+        "resumed_from_cache": false,
+        "wall_seconds": 2.23,
+        "mAP_50": 0.9493388820748526,
+        "mAP_50_95": 0.6192797265753059,
+        "mAP_75": 0.7431682375211787,
+        "AR100": 0.7006996818970503,
+        "AR_max_det": 0.7006996818970503
+      },
+      {
+        "dataset": "car-logo-detection",
+        "num_images": 17,
+        "num_classes": 2,
+        "dataset_version": 1,
+        "weights": "/root/w-s/car-logo-detection/LibreYOLO9s.pt",
+        "weights_sha256": "ec21c55907b45caf6c13aac1a37f6ebe8bdee85d5b081a21c5d5ba079ac35d40",
+        "result_file": "/root/w-s/.eval/yolov9s/pytorch/test/car-logo-detection/6f9e0cdd7e2e4055197e53e50a65f2f1b8cca8810f3086bf7be7d13c447d3900.json",
+        "predictions_file": "/root/w-s/.eval/yolov9s/pytorch/test/car-logo-detection/6f9e0cdd7e2e4055197e53e50a65f2f1b8cca8810f3086bf7be7d13c447d3900.predictions.json.gz",
+        "resumed_from_cache": false,
+        "wall_seconds": 3.152,
+        "mAP_50": 0.5306252543062526,
+        "mAP_50_95": 0.3680081765515103,
+        "mAP_75": 0.3624314584100288,
+        "AR100": 0.48181818181818176,
+        "AR_max_det": 0.48181818181818176
+      },
+      {
+        "dataset": "circuit-voltages",
+        "num_images": 14,
+        "num_classes": 3,
+        "dataset_version": 1,
+        "weights": "/root/w-s/circuit-voltages/LibreYOLO9s.pt",
+        "weights_sha256": "045174fb99ba3973d05a9b5915ff79a157bbcc8c3e00acc23c2afe8693212f7a",
+        "result_file": "/root/w-s/.eval/yolov9s/pytorch/test/circuit-voltages/1282fe361c1bc3d2c81c30d03224667cb1de436b390434766774052216454467.json",
+        "predictions_file": "/root/w-s/.eval/yolov9s/pytorch/test/circuit-voltages/1282fe361c1bc3d2c81c30d03224667cb1de436b390434766774052216454467.predictions.json.gz",
+        "resumed_from_cache": false,
+        "wall_seconds": 1.357,
+        "mAP_50": 0.9547486946837098,
+        "mAP_50_95": 0.4267229553816472,
+        "mAP_75": 0.29020715981372575,
+        "AR100": 0.5045175438596492,
+        "AR_max_det": 0.5045175438596492
+      },
+      {
+        "dataset": "clashroyalechardetector",
+        "num_images": 148,
+        "num_classes": 34,
+        "dataset_version": 4,
+        "weights": "/root/w-s/clashroyalechardetector/LibreYOLO9s.pt",
+        "weights_sha256": "8715d9d3413927ded2367c323408d2690609e561ed565a5f944fabe046034e6b",
+        "result_file": "/root/w-s/.eval/yolov9s/pytorch/test/clashroyalechardetector/9f164c58830e71deb402bfb12d83b4a8b3c55f5a6a655e0e2e4f4c02bb31000e.json",
+        "predictions_file": "/root/w-s/.eval/yolov9s/pytorch/test/clashroyalechardetector/9f164c58830e71deb402bfb12d83b4a8b3c55f5a6a655e0e2e4f4c02bb31000e.predictions.json.gz",
+        "resumed_from_cache": false,
+        "wall_seconds": 5.208,
+        "mAP_50": 0.8967043330156071,
+        "mAP_50_95": 0.5090599131918928,
+        "mAP_75": 0.5223731292991222,
+        "AR100": 0.590051889651703,
+        "AR_max_det": 0.590051889651703
+      },
+      {
+        "dataset": "cod-mw-warzone",
+        "num_images": 316,
+        "num_classes": 2,
+        "dataset_version": 1,
+        "weights": "/root/w-s/cod-mw-warzone/LibreYOLO9s.pt",
+        "weights_sha256": "f9597988679fce907ce9c37d4b8c8ca8fd3681f0f335e5cd986ed25dcf04aae0",
+        "result_file": "/root/w-s/.eval/yolov9s/pytorch/test/cod-mw-warzone/2007f61367db879aad4f6d2603d4dafc89ce2a634e99cf21957ccfce914c0266.json",
+        "predictions_file": "/root/w-s/.eval/yolov9s/pytorch/test/cod-mw-warzone/2007f61367db879aad4f6d2603d4dafc89ce2a634e99cf21957ccfce914c0266.predictions.json.gz",
+        "resumed_from_cache": false,
+        "wall_seconds": 9.316,
+        "mAP_50": 0.8825318022793769,
+        "mAP_50_95": 0.5768684374602431,
+        "mAP_75": 0.6061907619927109,
+        "AR100": 0.6376328488808772,
+        "AR_max_det": 0.6376328488808772
+      },
+      {
+        "dataset": "conveyor-t-shirts",
+        "num_images": 45,
+        "num_classes": 1,
+        "dataset_version": 2,
+        "weights": "/root/w-s/conveyor-t-shirts/LibreYOLO9s.pt",
+        "weights_sha256": "c6957b5388e9dd580fa69a240edf1e95b33ded45c070365803483d9074dafd99",
+        "result_file": "/root/w-s/.eval/yolov9s/pytorch/test/conveyor-t-shirts/b896d86962a99f4ebceb825f3e6f24f7e93078446c1d63a37a220615598a54fe.json",
+        "predictions_file": "/root/w-s/.eval/yolov9s/pytorch/test/conveyor-t-shirts/b896d86962a99f4ebceb825f3e6f24f7e93078446c1d63a37a220615598a54fe.predictions.json.gz",
+        "resumed_from_cache": false,
+        "wall_seconds": 2.194,
+        "mAP_50": 0.9801406069242201,
+        "mAP_50_95": 0.6636024385717796,
+        "mAP_75": 0.8019445724623947,
+        "AR100": 0.7357615894039735,
+        "AR_max_det": 0.7357615894039735
+      },
+      {
+        "dataset": "countingpills",
+        "num_images": 200,
+        "num_classes": 1,
+        "dataset_version": 2,
+        "weights": "/root/w-s/countingpills/LibreYOLO9s.pt",
+        "weights_sha256": "36b1010787baaff0b5ac02a135250a43aaac09bab51ee49b4956aac8f347559e",
+        "result_file": "/root/w-s/.eval/yolov9s/pytorch/test/countingpills/24b9799a2dccd32b2798026e0ce418dbe8f9279488734ee93039a86125816834.json",
+        "predictions_file": "/root/w-s/.eval/yolov9s/pytorch/test/countingpills/24b9799a2dccd32b2798026e0ce418dbe8f9279488734ee93039a86125816834.predictions.json.gz",
+        "resumed_from_cache": false,
+        "wall_seconds": 11.921,
+        "mAP_50": 0.998623665794494,
+        "mAP_50_95": 0.9248855386376514,
+        "mAP_75": 0.9897044841018141,
+        "AR100": 0.9476190476190476,
+        "AR_max_det": 0.9476190476190476
+      },
+      {
+        "dataset": "crystal-clean-brain-tumors-mri-dataset",
+        "num_images": 24,
+        "num_classes": 4,
+        "dataset_version": 2,
+        "weights": "/root/w-s/crystal-clean-brain-tumors-mri-dataset/LibreYOLO9s.pt",
+        "weights_sha256": "108cdd0fc803ed06e85ff7286c9242844ae8657fd318a171de69474ba0e10ed0",
+        "result_file": "/root/w-s/.eval/yolov9s/pytorch/test/crystal-clean-brain-tumors-mri-dataset/95dcc678e7f6531f45af51c45bc4f9eaed065233530a7918a4dfab0070378752.json",
+        "predictions_file": "/root/w-s/.eval/yolov9s/pytorch/test/crystal-clean-brain-tumors-mri-dataset/95dcc678e7f6531f45af51c45bc4f9eaed065233530a7918a4dfab0070378752.predictions.json.gz",
+        "resumed_from_cache": false,
+        "wall_seconds": 1.406,
+        "mAP_50": 0.7936682356132224,
+        "mAP_50_95": 0.6152184506825161,
+        "mAP_75": 0.719460613643782,
+        "AR100": 0.7501463210702342,
+        "AR_max_det": 0.7501463210702342
+      },
+      {
+        "dataset": "dataconvert",
+        "num_images": 19,
+        "num_classes": 1,
+        "dataset_version": 2,
+        "weights": "/root/w-s/dataconvert/LibreYOLO9s.pt",
+        "weights_sha256": "dd67f574a92c0c7d6a95bd23e623b617be9e8d699b908f3a03b4320de04b4767",
+        "result_file": "/root/w-s/.eval/yolov9s/pytorch/test/dataconvert/4a7d6c3a41ad35c27242fe06fbb92a0964115f49a8a25d85bce3f7d5ccfb3556.json",
+        "predictions_file": "/root/w-s/.eval/yolov9s/pytorch/test/dataconvert/4a7d6c3a41ad35c27242fe06fbb92a0964115f49a8a25d85bce3f7d5ccfb3556.predictions.json.gz",
+        "resumed_from_cache": false,
+        "wall_seconds": 1.443,
+        "mAP_50": 0.9642347699951919,
+        "mAP_50_95": 0.859436564887798,
+        "mAP_75": 0.9375100715903861,
+        "AR100": 0.9018691588785046,
+        "AR_max_det": 0.9018691588785046
+      },
+      {
+        "dataset": "deepfruits",
+        "num_images": 18,
+        "num_classes": 1,
+        "dataset_version": 3,
+        "weights": "/root/w-s/deepfruits/LibreYOLO9s.pt",
+        "weights_sha256": "619cfbe6006282a8f72f35d6c136585ec5621c3335e287fc5bedc92c1a2e1463",
+        "result_file": "/root/w-s/.eval/yolov9s/pytorch/test/deepfruits/784582fcc7ad3c681fc3b0f85dd12cd23cfae689d347fbe9af3b14b02f15b9c5.json",
+        "predictions_file": "/root/w-s/.eval/yolov9s/pytorch/test/deepfruits/784582fcc7ad3c681fc3b0f85dd12cd23cfae689d347fbe9af3b14b02f15b9c5.predictions.json.gz",
+        "resumed_from_cache": false,
+        "wall_seconds": 1.758,
+        "mAP_50": 0.8235519212792214,
+        "mAP_50_95": 0.5854085879944257,
+        "mAP_75": 0.6651046372542673,
+        "AR100": 0.6691919191919191,
+        "AR_max_det": 0.6813131313131313
+      },
+      {
+        "dataset": "deeppcb",
+        "num_images": 150,
+        "num_classes": 6,
+        "dataset_version": 2,
+        "weights": "/root/w-s/deeppcb/LibreYOLO9s.pt",
+        "weights_sha256": "ac64e158e95122e2906aa3bd1c039969f2e887d0d70a88b55b95b73c02e75a89",
+        "result_file": "/root/w-s/.eval/yolov9s/pytorch/test/deeppcb/7a0c7a7d5c0b1c0f06208c83e10cad347e0e8f3d5900507e20d7b4de16d9daa9.json",
+        "predictions_file": "/root/w-s/.eval/yolov9s/pytorch/test/deeppcb/7a0c7a7d5c0b1c0f06208c83e10cad347e0e8f3d5900507e20d7b4de16d9daa9.predictions.json.gz",
+        "resumed_from_cache": false,
+        "wall_seconds": 4.96,
+        "mAP_50": 0.9827193400401552,
+        "mAP_50_95": 0.8101036158680069,
+        "mAP_75": 0.9156843001208055,
+        "AR100": 0.8601534949949206,
+        "AR_max_det": 0.8601534949949206
+      },
+      {
+        "dataset": "defect-detection",
+        "num_images": 188,
+        "num_classes": 4,
+        "dataset_version": 1,
+        "weights": "/root/w-s/defect-detection/LibreYOLO9s.pt",
+        "weights_sha256": "bffec6ce0dc226e6e0a89b4fe1210bfebc247dc1a895c5fcbdf68cca3f2fc44a",
+        "result_file": "/root/w-s/.eval/yolov9s/pytorch/test/defect-detection/e3239b5c125fb011dea42e160c5e9adef44bc5efdad61912b81a00899b30f510.json",
+        "predictions_file": "/root/w-s/.eval/yolov9s/pytorch/test/defect-detection/e3239b5c125fb011dea42e160c5e9adef44bc5efdad61912b81a00899b30f510.predictions.json.gz",
+        "resumed_from_cache": false,
+        "wall_seconds": 31.225,
+        "mAP_50": 0.9744006053123248,
+        "mAP_50_95": 0.6950264068665777,
+        "mAP_75": 0.8524852476399195,
+        "AR100": 0.7514973966296854,
+        "AR_max_det": 0.7514973966296854
+      },
+      {
+        "dataset": "dentalai",
+        "num_images": 128,
+        "num_classes": 4,
+        "dataset_version": 1,
+        "weights": "/root/w-s/dentalai/LibreYOLO9s.pt",
+        "weights_sha256": "128bb8c97911d049f16060c62c1e565a200541bab73a1aaa703bd67c96675e03",
+        "result_file": "/root/w-s/.eval/yolov9s/pytorch/test/dentalai/e0e94694b435c58099e4c0dbe782ccb76636220ba65aa179253207629f698aed.json",
+        "predictions_file": "/root/w-s/.eval/yolov9s/pytorch/test/dentalai/e0e94694b435c58099e4c0dbe782ccb76636220ba65aa179253207629f698aed.predictions.json.gz",
+        "resumed_from_cache": false,
+        "wall_seconds": 4.353,
+        "mAP_50": 0.8173846281690975,
+        "mAP_50_95": 0.5587735397002418,
+        "mAP_75": 0.6885883898254687,
+        "AR100": 0.720861473479565,
+        "AR_max_det": 0.720861473479565
+      },
+      {
+        "dataset": "electric-pylon-detection-in-rsi",
+        "num_images": 151,
+        "num_classes": 1,
+        "dataset_version": 2,
+        "weights": "/root/w-s/electric-pylon-detection-in-rsi/LibreYOLO9s.pt",
+        "weights_sha256": "d7a44f6a1fab279e6cb2dd5457fc55c03f353fcd3bd65d47bfbd26d09fbf367d",
+        "result_file": "/root/w-s/.eval/yolov9s/pytorch/test/electric-pylon-detection-in-rsi/6edbaa1069e563d4bbe90b29520c4059c55b242cc399594ec59601f607efd7ee.json",
+        "predictions_file": "/root/w-s/.eval/yolov9s/pytorch/test/electric-pylon-detection-in-rsi/6edbaa1069e563d4bbe90b29520c4059c55b242cc399594ec59601f607efd7ee.predictions.json.gz",
+        "resumed_from_cache": false,
+        "wall_seconds": 5.222,
+        "mAP_50": 0.9082560677995285,
+        "mAP_50_95": 0.580597021379393,
+        "mAP_75": 0.6785398433926433,
+        "AR100": 0.6588235294117648,
+        "AR_max_det": 0.6588235294117648
+      },
+      {
+        "dataset": "everdaynew",
+        "num_images": 37,
+        "num_classes": 5,
+        "dataset_version": 2,
+        "weights": "/root/w-s/everdaynew/LibreYOLO9s.pt",
+        "weights_sha256": "28d83ddf17128790a5b5772f968740e5958bc30776b45096568e36e257d8a603",
+        "result_file": "/root/w-s/.eval/yolov9s/pytorch/test/everdaynew/8b86a807ccf759478cafcbc53acdf7565b9931e9ea678a930ed4a18431205e41.json",
+        "predictions_file": "/root/w-s/.eval/yolov9s/pytorch/test/everdaynew/8b86a807ccf759478cafcbc53acdf7565b9931e9ea678a930ed4a18431205e41.predictions.json.gz",
+        "resumed_from_cache": false,
+        "wall_seconds": 2.868,
+        "mAP_50": 0.8989513568093755,
+        "mAP_50_95": 0.6882520327598379,
+        "mAP_75": 0.8169053973811895,
+        "AR100": 0.7666292062607424,
+        "AR_max_det": 0.7666292062607424
+      },
+      {
+        "dataset": "exploratorium-daphnia",
+        "num_images": 34,
+        "num_classes": 13,
+        "dataset_version": 2,
+        "weights": "/root/w-s/exploratorium-daphnia/LibreYOLO9s.pt",
+        "weights_sha256": "8fc61a30523639d2753a04e07ae88ee6d864e4dccf0fe328a0ae7791ec9a1cc9",
+        "result_file": "/root/w-s/.eval/yolov9s/pytorch/test/exploratorium-daphnia/eb0a0ef5343e5d64fc32995cd0f3e192515776c15a0fe8600de0baf9d6a8bdd0.json",
+        "predictions_file": "/root/w-s/.eval/yolov9s/pytorch/test/exploratorium-daphnia/eb0a0ef5343e5d64fc32995cd0f3e192515776c15a0fe8600de0baf9d6a8bdd0.predictions.json.gz",
+        "resumed_from_cache": false,
+        "wall_seconds": 2.69,
+        "mAP_50": 0.42526603496729687,
+        "mAP_50_95": 0.24665696877000315,
+        "mAP_75": 0.24624159386236433,
+        "AR100": 0.3824842345154845,
+        "AR_max_det": 0.38280474733599734
+      },
+      {
+        "dataset": "flir-camera-objects",
+        "num_images": 500,
+        "num_classes": 4,
+        "dataset_version": 1,
+        "weights": "/root/w-s/flir-camera-objects/LibreYOLO9s.pt",
+        "weights_sha256": "8ad7aefbf304923ca0504ed46b6e4cb8229e97ad9fb18e9f1030abdc8ed878c8",
+        "result_file": "/root/w-s/.eval/yolov9s/pytorch/test/flir-camera-objects/05160b51ed3440bbb1db9005190ddb27f42ec13311042a2e058a32958427f4c1.json",
+        "predictions_file": "/root/w-s/.eval/yolov9s/pytorch/test/flir-camera-objects/05160b51ed3440bbb1db9005190ddb27f42ec13311042a2e058a32958427f4c1.predictions.json.gz",
+        "resumed_from_cache": false,
+        "wall_seconds": 14.583,
+        "mAP_50": 0.8962447044039656,
+        "mAP_50_95": 0.535018942963391,
+        "mAP_75": 0.5562564906904451,
+        "AR100": 0.6178169878676828,
+        "AR_max_det": 0.6178711394922315
+      },
+      {
+        "dataset": "floating-waste",
+        "num_images": 277,
+        "num_classes": 5,
+        "dataset_version": 2,
+        "weights": "/root/w-s/floating-waste/LibreYOLO9s.pt",
+        "weights_sha256": "c76abe01bd171013738f31bf92a69fe05274ce4048ffb78e8dd749d925f8752c",
+        "result_file": "/root/w-s/.eval/yolov9s/pytorch/test/floating-waste/a08f9c5170ecd923da86cf5c055bf2970e62d7436caf42524126dacf38833cae.json",
+        "predictions_file": "/root/w-s/.eval/yolov9s/pytorch/test/floating-waste/a08f9c5170ecd923da86cf5c055bf2970e62d7436caf42524126dacf38833cae.predictions.json.gz",
+        "resumed_from_cache": false,
+        "wall_seconds": 11.879,
+        "mAP_50": 0.7697455601493337,
+        "mAP_50_95": 0.47693706841773836,
+        "mAP_75": 0.48284420588182847,
+        "AR100": 0.5469431059136941,
+        "AR_max_det": 0.5469431059136941
+      },
+      {
+        "dataset": "football-player-detection",
+        "num_images": 124,
+        "num_classes": 2,
+        "dataset_version": 2,
+        "weights": "/root/w-s/football-player-detection/LibreYOLO9s.pt",
+        "weights_sha256": "4f567704402d8a45e7bbbc4b49b0198203f7cca7928af11804072995eb096988",
+        "result_file": "/root/w-s/.eval/yolov9s/pytorch/test/football-player-detection/3de9a1eb5b86da84e67946a43680a85b88af2a05075bd7f55daec951c7469948.json",
+        "predictions_file": "/root/w-s/.eval/yolov9s/pytorch/test/football-player-detection/3de9a1eb5b86da84e67946a43680a85b88af2a05075bd7f55daec951c7469948.predictions.json.gz",
+        "resumed_from_cache": false,
+        "wall_seconds": 5.352,
+        "mAP_50": 0.710743282137222,
+        "mAP_50_95": 0.44314911757925346,
+        "mAP_75": 0.45203430624781915,
+        "AR100": 0.485468547464735,
+        "AR_max_det": 0.485468547464735
+      },
+      {
+        "dataset": "fruitjes",
+        "num_images": 341,
+        "num_classes": 7,
+        "dataset_version": 2,
+        "weights": "/root/w-s/fruitjes/LibreYOLO9s.pt",
+        "weights_sha256": "1008391ffbf66ab8cc1f56fd1b19db2bb125d282097ee7706f87cd92176f8a69",
+        "result_file": "/root/w-s/.eval/yolov9s/pytorch/test/fruitjes/8bde59dea3d2248fe54382a9a29c94bb9061ac1c592742babcf58c16fd311b8c.json",
+        "predictions_file": "/root/w-s/.eval/yolov9s/pytorch/test/fruitjes/8bde59dea3d2248fe54382a9a29c94bb9061ac1c592742babcf58c16fd311b8c.predictions.json.gz",
+        "resumed_from_cache": false,
+        "wall_seconds": 26.857,
+        "mAP_50": 0.7386598563622547,
+        "mAP_50_95": 0.690486176629518,
+        "mAP_75": 0.7083119692976024,
+        "AR100": 0.9335425341874626,
+        "AR_max_det": 0.9335425341874626
+      },
+      {
+        "dataset": "grapes-5",
+        "num_images": 32,
+        "num_classes": 2,
+        "dataset_version": 2,
+        "weights": "/root/w-s/grapes-5/LibreYOLO9s.pt",
+        "weights_sha256": "0c42f26e125c909b2a2f7acd49ad3b83cd87bddd8e698968f66e608e444bd552",
+        "result_file": "/root/w-s/.eval/yolov9s/pytorch/test/grapes-5/d261ca2b8f0a568d1a09176b99b0c2e76002a4263928e503add0b49cc5980b4c.json",
+        "predictions_file": "/root/w-s/.eval/yolov9s/pytorch/test/grapes-5/d261ca2b8f0a568d1a09176b99b0c2e76002a4263928e503add0b49cc5980b4c.predictions.json.gz",
+        "resumed_from_cache": false,
+        "wall_seconds": 2.403,
+        "mAP_50": 0.6569697705608512,
+        "mAP_50_95": 0.4997942217377508,
+        "mAP_75": 0.5353477473092082,
+        "AR100": 0.5841053748231965,
+        "AR_max_det": 0.6003064592173503
+      },
+      {
+        "dataset": "grass-weeds",
+        "num_images": 249,
+        "num_classes": 1,
+        "dataset_version": 2,
+        "weights": "/root/w-s/grass-weeds/LibreYOLO9s.pt",
+        "weights_sha256": "b5a35618eb83c0e9812c2e5936e5e7b416e04ac2cb2b91550e62fbff02717a0d",
+        "result_file": "/root/w-s/.eval/yolov9s/pytorch/test/grass-weeds/aeab131d16b4686ec06061ebdb4ecfc36f09038b21b06b8e7f715e7a3585fa14.json",
+        "predictions_file": "/root/w-s/.eval/yolov9s/pytorch/test/grass-weeds/aeab131d16b4686ec06061ebdb4ecfc36f09038b21b06b8e7f715e7a3585fa14.predictions.json.gz",
+        "resumed_from_cache": false,
+        "wall_seconds": 7.896,
+        "mAP_50": 0.9117581641208576,
+        "mAP_50_95": 0.5289643672804674,
+        "mAP_75": 0.564011767703389,
+        "AR100": 0.6463078848560702,
+        "AR_max_det": 0.6469336670838548
+      },
+      {
+        "dataset": "gwhd2021",
+        "num_images": 500,
+        "num_classes": 1,
+        "dataset_version": 1,
+        "weights": "/root/w-s/gwhd2021/LibreYOLO9s.pt",
+        "weights_sha256": "2f0b2a448816746d5ed296f4bccfd2b29ed3846dfe7f505d3992d6d97806f333",
+        "result_file": "/root/w-s/.eval/yolov9s/pytorch/test/gwhd2021/7e62b8faeb03cd78e94b157ae83f032a29c5c740fa7c22a0c8cad4d7d9a0488a.json",
+        "predictions_file": "/root/w-s/.eval/yolov9s/pytorch/test/gwhd2021/7e62b8faeb03cd78e94b157ae83f032a29c5c740fa7c22a0c8cad4d7d9a0488a.predictions.json.gz",
+        "resumed_from_cache": false,
+        "wall_seconds": 79.786,
+        "mAP_50": 0.9230401678699508,
+        "mAP_50_95": 0.5400681373571301,
+        "mAP_75": 0.5554443397960075,
+        "AR100": 0.599746847095646,
+        "AR_max_det": 0.6240771425941269
+      },
+      {
+        "dataset": "halo-infinite-angel-videogame",
+        "num_images": 54,
+        "num_classes": 4,
+        "dataset_version": 1,
+        "weights": "/root/w-s/halo-infinite-angel-videogame/LibreYOLO9s.pt",
+        "weights_sha256": "b8b837d5d4b64173ef51cdcadb3e00f3ddde886fc88c1a7079397d2ddeee92bc",
+        "result_file": "/root/w-s/.eval/yolov9s/pytorch/test/halo-infinite-angel-videogame/8beb377c0787812169cb788da8c4620f87114129c20340c4b9b3a3329f1480e2.json",
+        "predictions_file": "/root/w-s/.eval/yolov9s/pytorch/test/halo-infinite-angel-videogame/8beb377c0787812169cb788da8c4620f87114129c20340c4b9b3a3329f1480e2.predictions.json.gz",
+        "resumed_from_cache": false,
+        "wall_seconds": 2.237,
+        "mAP_50": 0.8985274363171032,
+        "mAP_50_95": 0.6641648688393609,
+        "mAP_75": 0.7636806548130133,
+        "AR100": 0.7539136904761905,
+        "AR_max_det": 0.7539136904761905
+      },
+      {
+        "dataset": "human-detection-in-floods",
+        "num_images": 45,
+        "num_classes": 2,
+        "dataset_version": 2,
+        "weights": "/root/w-s/human-detection-in-floods/LibreYOLO9s.pt",
+        "weights_sha256": "e45874667d1864fabce6891f4623d5bfcdfcaaa3af93f8d1d9904e826b0cf90c",
+        "result_file": "/root/w-s/.eval/yolov9s/pytorch/test/human-detection-in-floods/dc747877eb05ef5f704b6e741488f12eb9af44c14104a6e189954585a6069006.json",
+        "predictions_file": "/root/w-s/.eval/yolov9s/pytorch/test/human-detection-in-floods/dc747877eb05ef5f704b6e741488f12eb9af44c14104a6e189954585a6069006.predictions.json.gz",
+        "resumed_from_cache": false,
+        "wall_seconds": 7.725,
+        "mAP_50": 0.9066037828248876,
+        "mAP_50_95": 0.5812707215687261,
+        "mAP_75": 0.6259842916117552,
+        "AR100": 0.6500757575757576,
+        "AR_max_det": 0.6535606060606061
+      },
+      {
+        "dataset": "inbreast",
+        "num_images": 65,
+        "num_classes": 1,
+        "dataset_version": 2,
+        "weights": "/root/w-s/inbreast/LibreYOLO9s.pt",
+        "weights_sha256": "da9203606c66f84ef2a525fe93cee54c1b5b64af8e02a2aaf3ca4a67eb05aeb8",
+        "result_file": "/root/w-s/.eval/yolov9s/pytorch/test/inbreast/ff46c2183b6ffa29cb0966a716e3bf2bd2fe417512986a397dd64028cdec8bea.json",
+        "predictions_file": "/root/w-s/.eval/yolov9s/pytorch/test/inbreast/ff46c2183b6ffa29cb0966a716e3bf2bd2fe417512986a397dd64028cdec8bea.predictions.json.gz",
+        "resumed_from_cache": false,
+        "wall_seconds": 2.753,
+        "mAP_50": 0.9322859932498931,
+        "mAP_50_95": 0.6047767255764428,
+        "mAP_75": 0.7338245930017803,
+        "AR100": 0.7028571428571428,
+        "AR_max_det": 0.7028571428571428
+      },
+      {
+        "dataset": "infraredimageofpowerequipment",
+        "num_images": 75,
+        "num_classes": 9,
+        "dataset_version": 2,
+        "weights": "/root/w-s/infraredimageofpowerequipment/LibreYOLO9s.pt",
+        "weights_sha256": "fd20ad5877bdef30c9ac46f5a7ce2a86cab1d38f9189fb71b1f02adb91ca503f",
+        "result_file": "/root/w-s/.eval/yolov9s/pytorch/test/infraredimageofpowerequipment/14546fcf3265664cf5df0f3fce71c7bc47c8556ce8427a31edec8e859a67c620.json",
+        "predictions_file": "/root/w-s/.eval/yolov9s/pytorch/test/infraredimageofpowerequipment/14546fcf3265664cf5df0f3fce71c7bc47c8556ce8427a31edec8e859a67c620.predictions.json.gz",
+        "resumed_from_cache": false,
+        "wall_seconds": 2.888,
+        "mAP_50": 0.8609654851306159,
+        "mAP_50_95": 0.5614115737011097,
+        "mAP_75": 0.6240950754915722,
+        "AR100": 0.716936026936027,
+        "AR_max_det": 0.716936026936027
+      },
+      {
+        "dataset": "into-the-vale",
+        "num_images": 127,
+        "num_classes": 6,
+        "dataset_version": 2,
+        "weights": "/root/w-s/into-the-vale/LibreYOLO9s.pt",
+        "weights_sha256": "3b22f2f106a3be539d657648901e40d664a01a013305116c16944d362a55c0d8",
+        "result_file": "/root/w-s/.eval/yolov9s/pytorch/test/into-the-vale/1cfee3efa11bda06eeea68d70cb63a185fc9d820bc2537a606d834f68eea328d.json",
+        "predictions_file": "/root/w-s/.eval/yolov9s/pytorch/test/into-the-vale/1cfee3efa11bda06eeea68d70cb63a185fc9d820bc2537a606d834f68eea328d.predictions.json.gz",
+        "resumed_from_cache": false,
+        "wall_seconds": 11.234,
+        "mAP_50": 0.7978440590140525,
+        "mAP_50_95": 0.6252633159225804,
+        "mAP_75": 0.7374356377589004,
+        "AR100": 0.7450231481481482,
+        "AR_max_det": 0.7450231481481482
+      },
+      {
+        "dataset": "invoice-processing",
+        "num_images": 12,
+        "num_classes": 8,
+        "dataset_version": 1,
+        "weights": "/root/w-s/invoice-processing/LibreYOLO9s.pt",
+        "weights_sha256": "03a268fc9f133d40730c52cbe709f5238550ad362eee9dc7d53d2c6273c40da8",
+        "result_file": "/root/w-s/.eval/yolov9s/pytorch/test/invoice-processing/75203bc13cb9fea4307b7c6e2c9f35192b400bbef594341b292797ea92495ad9.json",
+        "predictions_file": "/root/w-s/.eval/yolov9s/pytorch/test/invoice-processing/75203bc13cb9fea4307b7c6e2c9f35192b400bbef594341b292797ea92495ad9.predictions.json.gz",
+        "resumed_from_cache": false,
+        "wall_seconds": 1.42,
+        "mAP_50": 0.46587302887413745,
+        "mAP_50_95": 0.3013610663751342,
+        "mAP_75": 0.3373713285150359,
+        "AR100": 0.589205377955378,
+        "AR_max_det": 0.589205377955378
+      },
+      {
+        "dataset": "ism-band-packet-detection",
+        "num_images": 38,
+        "num_classes": 3,
+        "dataset_version": 1,
+        "weights": "/root/w-s/ism-band-packet-detection/LibreYOLO9s.pt",
+        "weights_sha256": "64714fbeee2ab450fa779cb8b494550a321c29452cb883dcffe08d875bc74b6e",
+        "result_file": "/root/w-s/.eval/yolov9s/pytorch/test/ism-band-packet-detection/5c38ff42de5470011aad013cb474919be114f7ff8dd717030a54f31169230428.json",
+        "predictions_file": "/root/w-s/.eval/yolov9s/pytorch/test/ism-band-packet-detection/5c38ff42de5470011aad013cb474919be114f7ff8dd717030a54f31169230428.predictions.json.gz",
+        "resumed_from_cache": false,
+        "wall_seconds": 1.898,
+        "mAP_50": 0.9208765794191922,
+        "mAP_50_95": 0.6502728087593208,
+        "mAP_75": 0.760500448481992,
+        "AR100": 0.738512077294686,
+        "AR_max_det": 0.738512077294686
+      },
+      {
+        "dataset": "jellyfish",
+        "num_images": 64,
+        "num_classes": 1,
+        "dataset_version": 2,
+        "weights": "/root/w-s/jellyfish/LibreYOLO9s.pt",
+        "weights_sha256": "e4192c63c5f9cd4c678de90cd770e1c50efea53ad0efff79d2ab133dc05e4815",
+        "result_file": "/root/w-s/.eval/yolov9s/pytorch/test/jellyfish/71721ebb15667c6dd6a517d4726b40b85f13f67438a1269607b447c2588bc5e9.json",
+        "predictions_file": "/root/w-s/.eval/yolov9s/pytorch/test/jellyfish/71721ebb15667c6dd6a517d4726b40b85f13f67438a1269607b447c2588bc5e9.predictions.json.gz",
+        "resumed_from_cache": false,
+        "wall_seconds": 3.741,
+        "mAP_50": 0.9059732355041331,
+        "mAP_50_95": 0.4500115203499694,
+        "mAP_75": 0.3886854188194025,
+        "AR100": 0.5385232744783306,
+        "AR_max_det": 0.5385232744783306
+      },
+      {
+        "dataset": "l10ul502",
+        "num_images": 150,
+        "num_classes": 8,
+        "dataset_version": 3,
+        "weights": "/root/w-s/l10ul502/LibreYOLO9s.pt",
+        "weights_sha256": "769d9f2562bb845afdeec746d77301c258f133de13001c160daf7f9ff99b8575",
+        "result_file": "/root/w-s/.eval/yolov9s/pytorch/test/l10ul502/69ce0392b896f870a5bd93f9e7caf452672c74c5918431cb9002c8ebcba98c2a.json",
+        "predictions_file": "/root/w-s/.eval/yolov9s/pytorch/test/l10ul502/69ce0392b896f870a5bd93f9e7caf452672c74c5918431cb9002c8ebcba98c2a.predictions.json.gz",
+        "resumed_from_cache": false,
+        "wall_seconds": 10.868,
+        "mAP_50": 0.9543140889756739,
+        "mAP_50_95": 0.6574803457611426,
+        "mAP_75": 0.7354141254294071,
+        "AR100": 0.712037460059563,
+        "AR_max_det": 0.712037460059563
+      },
+      {
+        "dataset": "label-printing-defect-version-2",
+        "num_images": 80,
+        "num_classes": 2,
+        "dataset_version": 2,
+        "weights": "/root/w-s/label-printing-defect-version-2/LibreYOLO9s.pt",
+        "weights_sha256": "9616213a588414da310d0633041348c00773793f99e9007b905db06d79114f73",
+        "result_file": "/root/w-s/.eval/yolov9s/pytorch/test/label-printing-defect-version-2/2fbf5c2f4b71d25c17c2111e02c87b26f825a9cb56991c310d452eecb50c93ef.json",
+        "predictions_file": "/root/w-s/.eval/yolov9s/pytorch/test/label-printing-defect-version-2/2fbf5c2f4b71d25c17c2111e02c87b26f825a9cb56991c310d452eecb50c93ef.predictions.json.gz",
+        "resumed_from_cache": false,
+        "wall_seconds": 2.981,
+        "mAP_50": 0.774754524659775,
+        "mAP_50_95": 0.6708539447962777,
+        "mAP_75": 0.6996081792313863,
+        "AR100": 0.7559523809523809,
+        "AR_max_det": 0.7559523809523809
+      },
+      {
+        "dataset": "lacrosse-object-detection",
+        "num_images": 50,
+        "num_classes": 4,
+        "dataset_version": 1,
+        "weights": "/root/w-s/lacrosse-object-detection/LibreYOLO9s.pt",
+        "weights_sha256": "52cf998313f99befdce87e725759830e4bb252a66ca08b2330f4ca977f572fda",
+        "result_file": "/root/w-s/.eval/yolov9s/pytorch/test/lacrosse-object-detection/acbfac3c919d815da692f3a1c3dc52ad36b8b7ddef35d6b4c504c77cb80beb03.json",
+        "predictions_file": "/root/w-s/.eval/yolov9s/pytorch/test/lacrosse-object-detection/acbfac3c919d815da692f3a1c3dc52ad36b8b7ddef35d6b4c504c77cb80beb03.predictions.json.gz",
+        "resumed_from_cache": false,
+        "wall_seconds": 2.89,
+        "mAP_50": 0.7962833341747351,
+        "mAP_50_95": 0.5835058168688884,
+        "mAP_75": 0.6544035043651353,
+        "AR100": 0.7885862714651078,
+        "AR_max_det": 0.7885862714651078
+      },
+      {
+        "dataset": "liver-disease",
+        "num_images": 398,
+        "num_classes": 4,
+        "dataset_version": 2,
+        "weights": "/root/w-s/liver-disease/LibreYOLO9s.pt",
+        "weights_sha256": "34b7d28e009d8128b2489ece210bd9ba4341e9d1cddf8f78c4790360a95a9272",
+        "result_file": "/root/w-s/.eval/yolov9s/pytorch/test/liver-disease/347b77327adb9613703c03587c7f034a020744d70631c5ea5c89351dd300ee76.json",
+        "predictions_file": "/root/w-s/.eval/yolov9s/pytorch/test/liver-disease/347b77327adb9613703c03587c7f034a020744d70631c5ea5c89351dd300ee76.predictions.json.gz",
+        "resumed_from_cache": false,
+        "wall_seconds": 11.277,
+        "mAP_50": 0.5879809814517851,
+        "mAP_50_95": 0.3844714266403906,
+        "mAP_75": 0.4166555253613203,
+        "AR100": 0.6442272095524058,
+        "AR_max_det": 0.6442272095524058
+      },
+      {
+        "dataset": "macro-segmentation",
+        "num_images": 120,
+        "num_classes": 16,
+        "dataset_version": 2,
+        "weights": "/root/w-s/macro-segmentation/LibreYOLO9s.pt",
+        "weights_sha256": "b8faaed396b9298167d33afcbb99e41300434e149391d39adbcfbd2bc7d3309a",
+        "result_file": "/root/w-s/.eval/yolov9s/pytorch/test/macro-segmentation/d852d6fd5b9bc579648e239055b0c83a3396cacd49197284d2583507c060fc8b.json",
+        "predictions_file": "/root/w-s/.eval/yolov9s/pytorch/test/macro-segmentation/d852d6fd5b9bc579648e239055b0c83a3396cacd49197284d2583507c060fc8b.predictions.json.gz",
+        "resumed_from_cache": false,
+        "wall_seconds": 19.23,
+        "mAP_50": 0.7363042973342202,
+        "mAP_50_95": 0.49723314607016217,
+        "mAP_75": 0.563571110125938,
+        "AR100": 0.7048988660257736,
+        "AR_max_det": 0.7056292012601512
+      },
+      {
+        "dataset": "mahjong",
+        "num_images": 214,
+        "num_classes": 34,
+        "dataset_version": 2,
+        "weights": "/root/w-s/mahjong/LibreYOLO9s.pt",
+        "weights_sha256": "aa1a8971e1fb98667510f43db24c3c46da0a9f334b048736f098d39eb621227d",
+        "result_file": "/root/w-s/.eval/yolov9s/pytorch/test/mahjong/55c129ab9dce0a5b53a4faf7f3655fe2cd7e5358d1b58d52931a5ac574f1bbf8.json",
+        "predictions_file": "/root/w-s/.eval/yolov9s/pytorch/test/mahjong/55c129ab9dce0a5b53a4faf7f3655fe2cd7e5358d1b58d52931a5ac574f1bbf8.predictions.json.gz",
+        "resumed_from_cache": false,
+        "wall_seconds": 35.845,
+        "mAP_50": 0.9631426267949846,
+        "mAP_50_95": 0.7144761389993077,
+        "mAP_75": 0.8397864288124113,
+        "AR100": 0.787702206417635,
+        "AR_max_det": 0.787702206417635
+      },
+      {
+        "dataset": "marine-sharks",
+        "num_images": 337,
+        "num_classes": 4,
+        "dataset_version": 1,
+        "weights": "/root/w-s/marine-sharks/LibreYOLO9s.pt",
+        "weights_sha256": "cd9c3b2bd583c2e1d25200f670dafb6c19c4123a09960ca0be5963eda2e8cc3f",
+        "result_file": "/root/w-s/.eval/yolov9s/pytorch/test/marine-sharks/c7a2c56f0c760b11c793223e3cac60ef48d98fdb7c5ac9c464692aa6996dbbb8.json",
+        "predictions_file": "/root/w-s/.eval/yolov9s/pytorch/test/marine-sharks/c7a2c56f0c760b11c793223e3cac60ef48d98fdb7c5ac9c464692aa6996dbbb8.predictions.json.gz",
+        "resumed_from_cache": false,
+        "wall_seconds": 38.72,
+        "mAP_50": 0.6887155977591335,
+        "mAP_50_95": 0.441434958096946,
+        "mAP_75": 0.4282916306118503,
+        "AR100": 0.5799658069688725,
+        "AR_max_det": 0.5799658069688725
+      },
+      {
+        "dataset": "needle-base-tip-min-max",
+        "num_images": 151,
+        "num_classes": 5,
+        "dataset_version": 2,
+        "weights": "/root/w-s/needle-base-tip-min-max/LibreYOLO9s.pt",
+        "weights_sha256": "8137a180d69c199bf6dad53722b69eff10a37c5968eef1b9d579f9b90ffa4681",
+        "result_file": "/root/w-s/.eval/yolov9s/pytorch/test/needle-base-tip-min-max/082c111e848553b5ca2d3ba957c4f4228b9f174b555caf2a09d07d6ef3a9138c.json",
+        "predictions_file": "/root/w-s/.eval/yolov9s/pytorch/test/needle-base-tip-min-max/082c111e848553b5ca2d3ba957c4f4228b9f174b555caf2a09d07d6ef3a9138c.predictions.json.gz",
+        "resumed_from_cache": false,
+        "wall_seconds": 9.162,
+        "mAP_50": 0.7901807957610896,
+        "mAP_50_95": 0.4890153552948591,
+        "mAP_75": 0.4574725709678604,
+        "AR100": 0.5741721854304636,
+        "AR_max_det": 0.5741721854304636
+      },
+      {
+        "dataset": "new-defects-in-wood",
+        "num_images": 128,
+        "num_classes": 5,
+        "dataset_version": 1,
+        "weights": "/root/w-s/new-defects-in-wood/LibreYOLO9s.pt",
+        "weights_sha256": "a4887ef5bbb9391f67bfaa41fa194be3abf79bad04265fb6ef057415b8230708",
+        "result_file": "/root/w-s/.eval/yolov9s/pytorch/test/new-defects-in-wood/dc94a4ddc822d0c0c912d25073d72b968811956931e370fe04d398af04e54da1.json",
+        "predictions_file": "/root/w-s/.eval/yolov9s/pytorch/test/new-defects-in-wood/dc94a4ddc822d0c0c912d25073d72b968811956931e370fe04d398af04e54da1.predictions.json.gz",
+        "resumed_from_cache": false,
+        "wall_seconds": 7.41,
+        "mAP_50": 0.7342812838877749,
+        "mAP_50_95": 0.4544655045875828,
+        "mAP_75": 0.46791187448990634,
+        "AR100": 0.6080879652506144,
+        "AR_max_det": 0.6080879652506144
+      },
+      {
+        "dataset": "nih-xray",
+        "num_images": 88,
+        "num_classes": 8,
+        "dataset_version": 1,
+        "weights": "/root/w-s/nih-xray/LibreYOLO9s.pt",
+        "weights_sha256": "65e1d59fe01e29dd399838c4c79e55f443739e9c01a467b75f5c0ee181e79ed4",
+        "result_file": "/root/w-s/.eval/yolov9s/pytorch/test/nih-xray/04673e43ea450e0bb2cb2ba686783323a233ca027076d4bf677a085326fa6602.json",
+        "predictions_file": "/root/w-s/.eval/yolov9s/pytorch/test/nih-xray/04673e43ea450e0bb2cb2ba686783323a233ca027076d4bf677a085326fa6602.predictions.json.gz",
+        "resumed_from_cache": false,
+        "wall_seconds": 3.728,
+        "mAP_50": 0.16497374173988963,
+        "mAP_50_95": 0.08038989751505568,
+        "mAP_75": 0.06430745031496964,
+        "AR100": 0.3174714052287582,
+        "AR_max_det": 0.3174714052287582
+      },
+      {
+        "dataset": "orgharvest",
+        "num_images": 26,
+        "num_classes": 2,
+        "dataset_version": 1,
+        "weights": "/root/w-s/orgharvest/LibreYOLO9s.pt",
+        "weights_sha256": "3583b3b80293dec196acdb4372283b81de68ed2bb2ed392f3ea110b4d8fd91f7",
+        "result_file": "/root/w-s/.eval/yolov9s/pytorch/test/orgharvest/21292bd24bbf8b6ab8d7c047868aad562d0ddb0b78a890483f0dda6b6dc1f74c.json",
+        "predictions_file": "/root/w-s/.eval/yolov9s/pytorch/test/orgharvest/21292bd24bbf8b6ab8d7c047868aad562d0ddb0b78a890483f0dda6b6dc1f74c.predictions.json.gz",
+        "resumed_from_cache": false,
+        "wall_seconds": 2.799,
+        "mAP_50": 0.5335978333719414,
+        "mAP_50_95": 0.27203011867682997,
+        "mAP_75": 0.22409034902249378,
+        "AR100": 0.4398867313915857,
+        "AR_max_det": 0.45724110032362447
+      },
+      {
+        "dataset": "orionproducts",
+        "num_images": 59,
+        "num_classes": 8,
+        "dataset_version": 1,
+        "weights": "/root/w-s/orionproducts/LibreYOLO9s.pt",
+        "weights_sha256": "f5f7ef8c18c452a35f81340280a2c19459bc9419708a56ce403b3860eb7afccb",
+        "result_file": "/root/w-s/.eval/yolov9s/pytorch/test/orionproducts/f8b706699705d03a18c830630586a29549e3c8a552deedab29c5463d1b5244aa.json",
+        "predictions_file": "/root/w-s/.eval/yolov9s/pytorch/test/orionproducts/f8b706699705d03a18c830630586a29549e3c8a552deedab29c5463d1b5244aa.predictions.json.gz",
+        "resumed_from_cache": false,
+        "wall_seconds": 2.903,
+        "mAP_50": 0.895912422281714,
+        "mAP_50_95": 0.6118360620742388,
+        "mAP_75": 0.7067611153086837,
+        "AR100": 0.7071399567503716,
+        "AR_max_det": 0.7077842866472788
+      },
+      {
+        "dataset": "paper-parts",
+        "num_images": 499,
+        "num_classes": 19,
+        "dataset_version": 1,
+        "weights": "/root/w-s/paper-parts/LibreYOLO9s.pt",
+        "weights_sha256": "156893e6418f0fd6a27f8881021e9e89c6f2a1b3d845186e9cec08e4a6a3ff44",
+        "result_file": "/root/w-s/.eval/yolov9s/pytorch/test/paper-parts/d17f5cb43ee2fb4a6da5a8138001d2baa4fda928fd9175c9d35af67ec6918683.json",
+        "predictions_file": "/root/w-s/.eval/yolov9s/pytorch/test/paper-parts/d17f5cb43ee2fb4a6da5a8138001d2baa4fda928fd9175c9d35af67ec6918683.predictions.json.gz",
+        "resumed_from_cache": false,
+        "wall_seconds": 22.951,
+        "mAP_50": 0.9074890308798839,
+        "mAP_50_95": 0.7163501414327915,
+        "mAP_75": 0.7991192974857084,
+        "AR100": 0.7966043626890418,
+        "AR_max_det": 0.7966043626890418
+      },
+      {
+        "dataset": "peixos-fish",
+        "num_images": 119,
+        "num_classes": 2,
+        "dataset_version": 1,
+        "weights": "/root/w-s/peixos-fish/LibreYOLO9s.pt",
+        "weights_sha256": "3459bb68a4d50a44fb4cff8d8a219d7a1307ba6cd656f616862601aa751e35fc",
+        "result_file": "/root/w-s/.eval/yolov9s/pytorch/test/peixos-fish/de7c569f96f332d902306a96c0f70f12ddb3758f4071a80625aac45adfe3c041.json",
+        "predictions_file": "/root/w-s/.eval/yolov9s/pytorch/test/peixos-fish/de7c569f96f332d902306a96c0f70f12ddb3758f4071a80625aac45adfe3c041.predictions.json.gz",
+        "resumed_from_cache": false,
+        "wall_seconds": 8.703,
+        "mAP_50": 0.7568774167470431,
+        "mAP_50_95": 0.46971639370317425,
+        "mAP_75": 0.5352600181945274,
+        "AR100": 0.587921626984127,
+        "AR_max_det": 0.5932415674603175
+      },
+      {
+        "dataset": "penguin-finder-seg",
+        "num_images": 57,
+        "num_classes": 1,
+        "dataset_version": 1,
+        "weights": "/root/w-s/penguin-finder-seg/LibreYOLO9s.pt",
+        "weights_sha256": "e626fcc76c36b960a9d9f530b2ac93d51dff21fdbf582b13c94ec572f66f516f",
+        "result_file": "/root/w-s/.eval/yolov9s/pytorch/test/penguin-finder-seg/ded609e352e34db151e45286204331de948904fb5634f82c7bee7623e131527c.json",
+        "predictions_file": "/root/w-s/.eval/yolov9s/pytorch/test/penguin-finder-seg/ded609e352e34db151e45286204331de948904fb5634f82c7bee7623e131527c.predictions.json.gz",
+        "resumed_from_cache": false,
+        "wall_seconds": 3.35,
+        "mAP_50": 0.867261904195804,
+        "mAP_50_95": 0.724497215404387,
+        "mAP_75": 0.7731438878992879,
+        "AR100": 0.8102459016393443,
+        "AR_max_det": 0.8172131147540982
+      },
+      {
+        "dataset": "pig-detection",
+        "num_images": 500,
+        "num_classes": 4,
+        "dataset_version": 1,
+        "weights": "/root/w-s/pig-detection/LibreYOLO9s.pt",
+        "weights_sha256": "898c4091ab8a7920389599493204edc8c34ea3b53e08954094edaa6664a3e2d2",
+        "result_file": "/root/w-s/.eval/yolov9s/pytorch/test/pig-detection/0b057e141ae8b6e12bad14de3e1c35ae92e58d93dbafa91bad9d083e88bbee0b.json",
+        "predictions_file": "/root/w-s/.eval/yolov9s/pytorch/test/pig-detection/0b057e141ae8b6e12bad14de3e1c35ae92e58d93dbafa91bad9d083e88bbee0b.predictions.json.gz",
+        "resumed_from_cache": false,
+        "wall_seconds": 17.598,
+        "mAP_50": 0.9873365420428774,
+        "mAP_50_95": 0.7105800638538212,
+        "mAP_75": 0.8145033069705606,
+        "AR100": 0.7637103752904605,
+        "AR_max_det": 0.7637103752904605
+      },
+      {
+        "dataset": "pill",
+        "num_images": 140,
+        "num_classes": 5,
+        "dataset_version": 2,
+        "weights": "/root/w-s/pill/LibreYOLO9s.pt",
+        "weights_sha256": "eb817165b5d3e5ee02d852794728abb975e362d1e9477883fe8c8e144b0dbf30",
+        "result_file": "/root/w-s/.eval/yolov9s/pytorch/test/pill/f56e5b9787ad6a688fbabbd5bc2a019b61e1676876c2c5f70eb8852e7dd4e61b.json",
+        "predictions_file": "/root/w-s/.eval/yolov9s/pytorch/test/pill/f56e5b9787ad6a688fbabbd5bc2a019b61e1676876c2c5f70eb8852e7dd4e61b.predictions.json.gz",
+        "resumed_from_cache": false,
+        "wall_seconds": 5.714,
+        "mAP_50": 0.9134661455111377,
+        "mAP_50_95": 0.6811343491022979,
+        "mAP_75": 0.7215337740692815,
+        "AR100": 0.7419462019534834,
+        "AR_max_det": 0.7430795352868165
+      },
+      {
+        "dataset": "recode-waste",
+        "num_images": 251,
+        "num_classes": 6,
+        "dataset_version": 1,
+        "weights": "/root/w-s/recode-waste/LibreYOLO9s.pt",
+        "weights_sha256": "cb3217ce711ae2e5e85e88304327937596b68cadcf83c675a0cf5a963773614f",
+        "result_file": "/root/w-s/.eval/yolov9s/pytorch/test/recode-waste/ec906555e41479a52eeb4d46b2e9a82c6373092dfbd75026d4772d2568b7ea2f.json",
+        "predictions_file": "/root/w-s/.eval/yolov9s/pytorch/test/recode-waste/ec906555e41479a52eeb4d46b2e9a82c6373092dfbd75026d4772d2568b7ea2f.predictions.json.gz",
+        "resumed_from_cache": false,
+        "wall_seconds": 16.258,
+        "mAP_50": 0.9340106777625315,
+        "mAP_50_95": 0.8516490135224984,
+        "mAP_75": 0.8989989355276565,
+        "AR100": 0.9114676947789272,
+        "AR_max_det": 0.9117154795802375
+      },
+      {
+        "dataset": "roboflow-trained-dataset",
+        "num_images": 196,
+        "num_classes": 4,
+        "dataset_version": 1,
+        "weights": "/root/w-s/roboflow-trained-dataset/LibreYOLO9s.pt",
+        "weights_sha256": "7b00a15b42ce8fc49b041b8ad1cbab8031ce1f8a85ec8649cd1540af6f6e1428",
+        "result_file": "/root/w-s/.eval/yolov9s/pytorch/test/roboflow-trained-dataset/13c52d5c54d524506ddf522ea2705894dcafe66e9ce1ae947ed3784e307f1d84.json",
+        "predictions_file": "/root/w-s/.eval/yolov9s/pytorch/test/roboflow-trained-dataset/13c52d5c54d524506ddf522ea2705894dcafe66e9ce1ae947ed3784e307f1d84.predictions.json.gz",
+        "resumed_from_cache": false,
+        "wall_seconds": 11.084,
+        "mAP_50": 0.977188914292185,
+        "mAP_50_95": 0.6824707571657179,
+        "mAP_75": 0.7667816553365284,
+        "AR100": 0.7349262194388982,
+        "AR_max_det": 0.7349262194388982
+      },
+      {
+        "dataset": "screwdetectclassification",
+        "num_images": 37,
+        "num_classes": 5,
+        "dataset_version": 1,
+        "weights": "/root/w-s/screwdetectclassification/LibreYOLO9s.pt",
+        "weights_sha256": "3007f065dbeb743c01df5e9294efd9510b2202c7911b52289358e22f0c440575",
+        "result_file": "/root/w-s/.eval/yolov9s/pytorch/test/screwdetectclassification/21648661876fa63a515c5aa26a9097fb49d1c3d81a4adf9de3f08e30a60895e9.json",
+        "predictions_file": "/root/w-s/.eval/yolov9s/pytorch/test/screwdetectclassification/21648661876fa63a515c5aa26a9097fb49d1c3d81a4adf9de3f08e30a60895e9.predictions.json.gz",
+        "resumed_from_cache": false,
+        "wall_seconds": 1.947,
+        "mAP_50": 0.9998476770753998,
+        "mAP_50_95": 0.8537258984618785,
+        "mAP_75": 0.9998476770753998,
+        "AR100": 0.8738614212298421,
+        "AR_max_det": 0.8738614212298421
+      },
+      {
+        "dataset": "sea-cucumbers-new-tiles",
+        "num_images": 203,
+        "num_classes": 1,
+        "dataset_version": 2,
+        "weights": "/root/w-s/sea-cucumbers-new-tiles/LibreYOLO9s.pt",
+        "weights_sha256": "b04ed7001ce3862362016923cb6ed9d31889e35c40723075ed7adafa5d771f52",
+        "result_file": "/root/w-s/.eval/yolov9s/pytorch/test/sea-cucumbers-new-tiles/4aa7cd1f7ff35d3c412820e8e060bfb08b2772b88bdc2dc4da490152b7615f16.json",
+        "predictions_file": "/root/w-s/.eval/yolov9s/pytorch/test/sea-cucumbers-new-tiles/4aa7cd1f7ff35d3c412820e8e060bfb08b2772b88bdc2dc4da490152b7615f16.predictions.json.gz",
+        "resumed_from_cache": false,
+        "wall_seconds": 6.339,
+        "mAP_50": 0.9136361645640964,
+        "mAP_50_95": 0.7345463726719151,
+        "mAP_75": 0.8484902590745858,
+        "AR100": 0.8161434977578474,
+        "AR_max_det": 0.8161434977578474
+      },
+      {
+        "dataset": "signatures",
+        "num_images": 35,
+        "num_classes": 1,
+        "dataset_version": 1,
+        "weights": "/root/w-s/signatures/LibreYOLO9s.pt",
+        "weights_sha256": "1d85533fa3667db101c980e477c85ad53cea7911a741451741ff1a87ded4e60d",
+        "result_file": "/root/w-s/.eval/yolov9s/pytorch/test/signatures/aebbcbe12d8de6acc42b08c2c395ac36d05eda487ef54d2ebefad0b3e0a39322.json",
+        "predictions_file": "/root/w-s/.eval/yolov9s/pytorch/test/signatures/aebbcbe12d8de6acc42b08c2c395ac36d05eda487ef54d2ebefad0b3e0a39322.predictions.json.gz",
+        "resumed_from_cache": false,
+        "wall_seconds": 2.477,
+        "mAP_50": 0.8359866311333349,
+        "mAP_50_95": 0.5593480867352381,
+        "mAP_75": 0.6453987361724933,
+        "AR100": 0.6595744680851064,
+        "AR_max_det": 0.6595744680851064
+      },
+      {
+        "dataset": "smd-components",
+        "num_images": 205,
+        "num_classes": 11,
+        "dataset_version": 2,
+        "weights": "/root/w-s/smd-components/LibreYOLO9s.pt",
+        "weights_sha256": "bbe3793c8e461a058c4b18894f377dc24e7c3167692350858762a6ada8da1eb4",
+        "result_file": "/root/w-s/.eval/yolov9s/pytorch/test/smd-components/c6b6832d767f6bcc4193241bdc036c9a60fb0dcca6c26648667dc893d51df0f7.json",
+        "predictions_file": "/root/w-s/.eval/yolov9s/pytorch/test/smd-components/c6b6832d767f6bcc4193241bdc036c9a60fb0dcca6c26648667dc893d51df0f7.predictions.json.gz",
+        "resumed_from_cache": false,
+        "wall_seconds": 7.072,
+        "mAP_50": 0.9805969585920055,
+        "mAP_50_95": 0.8579627809494974,
+        "mAP_75": 0.9340398422154974,
+        "AR100": 0.8836628968041859,
+        "AR_max_det": 0.8836628968041859
+      },
+      {
+        "dataset": "soda-bottles",
+        "num_images": 226,
+        "num_classes": 3,
+        "dataset_version": 1,
+        "weights": "/root/w-s/soda-bottles/LibreYOLO9s.pt",
+        "weights_sha256": "17de72f94e00f4dce00607a341895889fcdd9e7cf3e841e9ff5d50aaad98bfeb",
+        "result_file": "/root/w-s/.eval/yolov9s/pytorch/test/soda-bottles/3fe8b316990c0262504eec8712845e410d1ff2598e6e91fbaa3c740eb396019f.json",
+        "predictions_file": "/root/w-s/.eval/yolov9s/pytorch/test/soda-bottles/3fe8b316990c0262504eec8712845e410d1ff2598e6e91fbaa3c740eb396019f.predictions.json.gz",
+        "resumed_from_cache": false,
+        "wall_seconds": 12.902,
+        "mAP_50": 0.9473458130386032,
+        "mAP_50_95": 0.5392579323399277,
+        "mAP_75": 0.5444950073806689,
+        "AR100": 0.6566006554038322,
+        "AR_max_det": 0.656708098555646
+      },
+      {
+        "dataset": "speech-bubbles-detection",
+        "num_images": 181,
+        "num_classes": 6,
+        "dataset_version": 1,
+        "weights": "/root/w-s/speech-bubbles-detection/LibreYOLO9s.pt",
+        "weights_sha256": "f2a4dafa230a1b9049485f18c734eccfc6f668f842ebf66b848e8c169784390b",
+        "result_file": "/root/w-s/.eval/yolov9s/pytorch/test/speech-bubbles-detection/d710f940a12bfedced038de7f335cef3325c75a914f038956a53d659e60c555d.json",
+        "predictions_file": "/root/w-s/.eval/yolov9s/pytorch/test/speech-bubbles-detection/d710f940a12bfedced038de7f335cef3325c75a914f038956a53d659e60c555d.predictions.json.gz",
+        "resumed_from_cache": false,
+        "wall_seconds": 8.24,
+        "mAP_50": 0.8129848050925558,
+        "mAP_50_95": 0.6647608364020127,
+        "mAP_75": 0.7751350875252996,
+        "AR100": 0.8585541563530427,
+        "AR_max_det": 0.8585541563530427
+      },
+      {
+        "dataset": "spinefrxnormalvindr",
+        "num_images": 22,
+        "num_classes": 3,
+        "dataset_version": 1,
+        "weights": "/root/w-s/spinefrxnormalvindr/LibreYOLO9s.pt",
+        "weights_sha256": "5331211ec9226b4dff5d15c89a4bdbd638d90be6a615898668f7666f91d4e7b3",
+        "result_file": "/root/w-s/.eval/yolov9s/pytorch/test/spinefrxnormalvindr/7058d3888b9f0be083238798be0e5431aa39e301132d0263b623ce12fa6eef54.json",
+        "predictions_file": "/root/w-s/.eval/yolov9s/pytorch/test/spinefrxnormalvindr/7058d3888b9f0be083238798be0e5431aa39e301132d0263b623ce12fa6eef54.predictions.json.gz",
+        "resumed_from_cache": false,
+        "wall_seconds": 2.76,
+        "mAP_50": 0.50412851773106,
+        "mAP_50_95": 0.22990324143417792,
+        "mAP_75": 0.18600635410076427,
+        "AR100": 0.398145318733554,
+        "AR_max_det": 0.40128257363551484
+      },
+      {
+        "dataset": "sssod",
+        "num_images": 45,
+        "num_classes": 2,
+        "dataset_version": 2,
+        "weights": "/root/w-s/sssod/LibreYOLO9s.pt",
+        "weights_sha256": "f979361ca45f11cc78b7d54e56f45a62fbca4a83e70affec163a965ba88889ac",
+        "result_file": "/root/w-s/.eval/yolov9s/pytorch/test/sssod/322f50873ce1fc006553f40fa6b820be2aff07e962e89bcd1011fb3d7b57675a.json",
+        "predictions_file": "/root/w-s/.eval/yolov9s/pytorch/test/sssod/322f50873ce1fc006553f40fa6b820be2aff07e962e89bcd1011fb3d7b57675a.predictions.json.gz",
+        "resumed_from_cache": false,
+        "wall_seconds": 1.974,
+        "mAP_50": 0.47164771051227045,
+        "mAP_50_95": 0.34899534474886773,
+        "mAP_75": 0.3988157055057991,
+        "AR100": 0.6642857142857143,
+        "AR_max_det": 0.6642857142857143
+      },
+      {
+        "dataset": "stomata-cells",
+        "num_images": 211,
+        "num_classes": 2,
+        "dataset_version": 1,
+        "weights": "/root/w-s/stomata-cells/LibreYOLO9s.pt",
+        "weights_sha256": "7092b2edc052acf356e7124650d90eadfbda226634bb30e14bc71dcb7ba9dff5",
+        "result_file": "/root/w-s/.eval/yolov9s/pytorch/test/stomata-cells/6ee2fa76756ce102db83340236a288e28152470f5b7588be52578c61a17bacd0.json",
+        "predictions_file": "/root/w-s/.eval/yolov9s/pytorch/test/stomata-cells/6ee2fa76756ce102db83340236a288e28152470f5b7588be52578c61a17bacd0.predictions.json.gz",
+        "resumed_from_cache": false,
+        "wall_seconds": 7.101,
+        "mAP_50": 0.8580301561803612,
+        "mAP_50_95": 0.6324883085581986,
+        "mAP_75": 0.7989613410708774,
+        "AR100": 0.7847445679899505,
+        "AR_max_det": 0.7847445679899505
+      },
+      {
+        "dataset": "taco-trash-annotations-in-context",
+        "num_images": 139,
+        "num_classes": 22,
+        "dataset_version": 2,
+        "weights": "/root/w-s/taco-trash-annotations-in-context/LibreYOLO9s.pt",
+        "weights_sha256": "d1308ba85cacf19a3ccce1598b5b01e14d83d91f0d2b1288fcfa38af2a5bba00",
+        "result_file": "/root/w-s/.eval/yolov9s/pytorch/test/taco-trash-annotations-in-context/3b70735802db72a69f59a353ba07d70cdf3161f9d835f7c5aa0cfefe620b8de8.json",
+        "predictions_file": "/root/w-s/.eval/yolov9s/pytorch/test/taco-trash-annotations-in-context/3b70735802db72a69f59a353ba07d70cdf3161f9d835f7c5aa0cfefe620b8de8.predictions.json.gz",
+        "resumed_from_cache": false,
+        "wall_seconds": 19.909,
+        "mAP_50": 0.2753790295332708,
+        "mAP_50_95": 0.20711118904741013,
+        "mAP_75": 0.20539296383530573,
+        "AR100": 0.5076448007496122,
+        "AR_max_det": 0.5076448007496122
+      },
+      {
+        "dataset": "the-dreidel-project",
+        "num_images": 54,
+        "num_classes": 6,
+        "dataset_version": 1,
+        "weights": "/root/w-s/the-dreidel-project/LibreYOLO9s.pt",
+        "weights_sha256": "eb300146e4d22d42dd1bc7ebfff504044eb02c50e24196a589c037a4af432111",
+        "result_file": "/root/w-s/.eval/yolov9s/pytorch/test/the-dreidel-project/0f68af18d41be73a6b45cc133983008e81274ab3f9ea253dd9e9e3c8c7ec9dc3.json",
+        "predictions_file": "/root/w-s/.eval/yolov9s/pytorch/test/the-dreidel-project/0f68af18d41be73a6b45cc133983008e81274ab3f9ea253dd9e9e3c8c7ec9dc3.predictions.json.gz",
+        "resumed_from_cache": false,
+        "wall_seconds": 5.799,
+        "mAP_50": 0.8268438137263737,
+        "mAP_50_95": 0.6484300977026506,
+        "mAP_75": 0.7462314589905243,
+        "AR100": 0.7660467012805401,
+        "AR_max_det": 0.7660467012805401
+      },
+      {
+        "dataset": "thermal-cheetah",
+        "num_images": 13,
+        "num_classes": 1,
+        "dataset_version": 2,
+        "weights": "/root/w-s/thermal-cheetah/LibreYOLO9s.pt",
+        "weights_sha256": "c2837c19d04e84a16a14be4fd92c0a6df109d701d74c6fdabb326b38fdded37a",
+        "result_file": "/root/w-s/.eval/yolov9s/pytorch/test/thermal-cheetah/64291fdf35c4dd6d5c28cca05202fc1438368a06f879d91dd8d2f35ca3b40959.json",
+        "predictions_file": "/root/w-s/.eval/yolov9s/pytorch/test/thermal-cheetah/64291fdf35c4dd6d5c28cca05202fc1438368a06f879d91dd8d2f35ca3b40959.predictions.json.gz",
+        "resumed_from_cache": false,
+        "wall_seconds": 1.269,
+        "mAP_50": 0.9596154772487425,
+        "mAP_50_95": 0.829036646588144,
+        "mAP_75": 0.9596154772487425,
+        "AR100": 0.8842105263157896,
+        "AR_max_det": 0.8842105263157896
+      },
+      {
+        "dataset": "tomatoes-2",
+        "num_images": 103,
+        "num_classes": 2,
+        "dataset_version": 1,
+        "weights": "/root/w-s/tomatoes-2/LibreYOLO9s.pt",
+        "weights_sha256": "de34e00adee084b912c0cc66a38cc9fd5ab49bd4e5ed68a51d557bb6a2562b56",
+        "result_file": "/root/w-s/.eval/yolov9s/pytorch/test/tomatoes-2/f78ec037f0ace3b5795005d37ea1ee9391c9e678ccc0dcdbe0abc6b7f65e3b9b.json",
+        "predictions_file": "/root/w-s/.eval/yolov9s/pytorch/test/tomatoes-2/f78ec037f0ace3b5795005d37ea1ee9391c9e678ccc0dcdbe0abc6b7f65e3b9b.predictions.json.gz",
+        "resumed_from_cache": false,
+        "wall_seconds": 10.725,
+        "mAP_50": 0.9462981322890922,
+        "mAP_50_95": 0.8377098415418288,
+        "mAP_75": 0.9062864985525235,
+        "AR100": 0.8760498018131155,
+        "AR_max_det": 0.8760498018131155
+      },
+      {
+        "dataset": "trail-camera",
+        "num_images": 132,
+        "num_classes": 2,
+        "dataset_version": 1,
+        "weights": "/root/w-s/trail-camera/LibreYOLO9s.pt",
+        "weights_sha256": "b054e67850480f0c08195cf658f7266ef33feace7276426caf5d266ab1c63e91",
+        "result_file": "/root/w-s/.eval/yolov9s/pytorch/test/trail-camera/78c0bf3061e9b99de207b9066e0d79ce8b06b5ae6245396a4506b7f81f75cdc2.json",
+        "predictions_file": "/root/w-s/.eval/yolov9s/pytorch/test/trail-camera/78c0bf3061e9b99de207b9066e0d79ce8b06b5ae6245396a4506b7f81f75cdc2.predictions.json.gz",
+        "resumed_from_cache": false,
+        "wall_seconds": 12.179,
+        "mAP_50": 0.944240816180468,
+        "mAP_50_95": 0.6947729686560569,
+        "mAP_75": 0.785377893399892,
+        "AR100": 0.7610310077519379,
+        "AR_max_det": 0.7610310077519379
+      },
+      {
+        "dataset": "train",
+        "num_images": 63,
+        "num_classes": 2,
+        "dataset_version": 2,
+        "weights": "/root/w-s/train/LibreYOLO9s.pt",
+        "weights_sha256": "d7e85f108f787ed830341e9b88d4f87e47857033b52bf305541c5af7af6ad376",
+        "result_file": "/root/w-s/.eval/yolov9s/pytorch/test/train/4979fdcf46572d9d8e5763e77acaee6e8a80c0140db05d9512a9edd52610ca2e.json",
+        "predictions_file": "/root/w-s/.eval/yolov9s/pytorch/test/train/4979fdcf46572d9d8e5763e77acaee6e8a80c0140db05d9512a9edd52610ca2e.predictions.json.gz",
+        "resumed_from_cache": false,
+        "wall_seconds": 2.963,
+        "mAP_50": 0.6430135383472954,
+        "mAP_50_95": 0.27357187061166927,
+        "mAP_75": 0.18541439329157416,
+        "AR100": 0.42424492945326275,
+        "AR_max_det": 0.4402943121693121
+      },
+      {
+        "dataset": "truck-movement",
+        "num_images": 104,
+        "num_classes": 5,
+        "dataset_version": 4,
+        "weights": "/root/w-s/truck-movement/LibreYOLO9s.pt",
+        "weights_sha256": "6ce4dfce9821caa7a809a9dfa912735da10586d5e5949461d41b9886a620ccb4",
+        "result_file": "/root/w-s/.eval/yolov9s/pytorch/test/truck-movement/360de1026ddd7acdcbac85a9d8e8c6f50b9fa29f03e205271250b7df599cced3.json",
+        "predictions_file": "/root/w-s/.eval/yolov9s/pytorch/test/truck-movement/360de1026ddd7acdcbac85a9d8e8c6f50b9fa29f03e205271250b7df599cced3.predictions.json.gz",
+        "resumed_from_cache": false,
+        "wall_seconds": 20.935,
+        "mAP_50": 0.808778668719026,
+        "mAP_50_95": 0.6681534715078131,
+        "mAP_75": 0.7035492826424105,
+        "AR100": 0.7722942338093213,
+        "AR_max_det": 0.7722942338093213
+      },
+      {
+        "dataset": "tube",
+        "num_images": 38,
+        "num_classes": 5,
+        "dataset_version": 1,
+        "weights": "/root/w-s/tube/LibreYOLO9s.pt",
+        "weights_sha256": "aeac8ea67a73fd40bd5108efcc31193c9d5d404df38e263e2479c7580768b03e",
+        "result_file": "/root/w-s/.eval/yolov9s/pytorch/test/tube/f939442b7fa3c9a19097322d56f8846fc03a9da52656693d600b224b93a89b94.json",
+        "predictions_file": "/root/w-s/.eval/yolov9s/pytorch/test/tube/f939442b7fa3c9a19097322d56f8846fc03a9da52656693d600b224b93a89b94.predictions.json.gz",
+        "resumed_from_cache": false,
+        "wall_seconds": 2.143,
+        "mAP_50": 0.9662902488423425,
+        "mAP_50_95": 0.8073966899809001,
+        "mAP_75": 0.8855001476999698,
+        "AR100": 0.8758304727089691,
+        "AR_max_det": 0.8758304727089691
+      },
+      {
+        "dataset": "uavdet-small",
+        "num_images": 100,
+        "num_classes": 7,
+        "dataset_version": 1,
+        "weights": "/root/w-s/uavdet-small/LibreYOLO9s.pt",
+        "weights_sha256": "f6fb5d1c2f031d3112a35e08c5b7e1b55ba635d843925e562496668e1f47761e",
+        "result_file": "/root/w-s/.eval/yolov9s/pytorch/test/uavdet-small/4e71e522e4a5d56d4778769920a25809ce01f55fc0801368f789881199cc384b.json",
+        "predictions_file": "/root/w-s/.eval/yolov9s/pytorch/test/uavdet-small/4e71e522e4a5d56d4778769920a25809ce01f55fc0801368f789881199cc384b.predictions.json.gz",
+        "resumed_from_cache": false,
+        "wall_seconds": 12.428,
+        "mAP_50": 0.5134169202367308,
+        "mAP_50_95": 0.4527803584261942,
+        "mAP_75": 0.4977342961567708,
+        "AR100": 0.5147510002106138,
+        "AR_max_det": 0.5148356840053193
+      },
+      {
+        "dataset": "ufba-425",
+        "num_images": 58,
+        "num_classes": 32,
+        "dataset_version": 1,
+        "weights": "/root/w-s/ufba-425/LibreYOLO9s.pt",
+        "weights_sha256": "ec640f8376842be6438d18ad87ff5ff45bf8d1b42f4bb597148fa1f8b68f5f75",
+        "result_file": "/root/w-s/.eval/yolov9s/pytorch/test/ufba-425/4777bf9d69f2baef149f650b9290df5c0aacee8e1f4a534916e1f428027b4a81.json",
+        "predictions_file": "/root/w-s/.eval/yolov9s/pytorch/test/ufba-425/4777bf9d69f2baef149f650b9290df5c0aacee8e1f4a534916e1f428027b4a81.predictions.json.gz",
+        "resumed_from_cache": false,
+        "wall_seconds": 3.231,
+        "mAP_50": 0.7133131830461859,
+        "mAP_50_95": 0.5152675031863417,
+        "mAP_75": 0.5925558152521537,
+        "AR100": 0.7768634137769936,
+        "AR_max_det": 0.7768634137769936
+      },
+      {
+        "dataset": "underwater-objects",
+        "num_images": 500,
+        "num_classes": 5,
+        "dataset_version": 1,
+        "weights": "/root/w-s/underwater-objects/LibreYOLO9s.pt",
+        "weights_sha256": "f9abfde0e86ca01b07c2abfed8671212ab6605b455c18ccc9254f8476dc883fe",
+        "result_file": "/root/w-s/.eval/yolov9s/pytorch/test/underwater-objects/13c6fa0851f73d147c30f5cf6673d6a692c112bbeb86201bd99a4cc06a5a98b4.json",
+        "predictions_file": "/root/w-s/.eval/yolov9s/pytorch/test/underwater-objects/13c6fa0851f73d147c30f5cf6673d6a692c112bbeb86201bd99a4cc06a5a98b4.predictions.json.gz",
+        "resumed_from_cache": false,
+        "wall_seconds": 18.281,
+        "mAP_50": 0.6841925104313998,
+        "mAP_50_95": 0.4127998083875198,
+        "mAP_75": 0.43196903178806906,
+        "AR100": 0.5657738550420819,
+        "AR_max_det": 0.5684788982673666
+      },
+      {
+        "dataset": "urine-analysis1",
+        "num_images": 51,
+        "num_classes": 5,
+        "dataset_version": 1,
+        "weights": "/root/w-s/urine-analysis1/LibreYOLO9s.pt",
+        "weights_sha256": "df0ca201063d7c30192d2309c096dd029f1cab27e9e540ebee58b849dd041197",
+        "result_file": "/root/w-s/.eval/yolov9s/pytorch/test/urine-analysis1/9e8299dc7119d007e021dcaab039bb555aa49afaa051d30a791e9422c0d07968.json",
+        "predictions_file": "/root/w-s/.eval/yolov9s/pytorch/test/urine-analysis1/9e8299dc7119d007e021dcaab039bb555aa49afaa051d30a791e9422c0d07968.predictions.json.gz",
+        "resumed_from_cache": false,
+        "wall_seconds": 2.907,
+        "mAP_50": 0.8374680268338539,
+        "mAP_50_95": 0.507220004814869,
+        "mAP_75": 0.5431916830122918,
+        "AR100": 0.6609590443762419,
+        "AR_max_det": 0.6682201908730572
+      },
+      {
+        "dataset": "varroa-mites-detection--test-set",
+        "num_images": 95,
+        "num_classes": 1,
+        "dataset_version": 2,
+        "weights": "/root/w-s/varroa-mites-detection--test-set/LibreYOLO9s.pt",
+        "weights_sha256": "ae326257ab5be1be86272d04345c2aeda516d68c250285fa2b3619940cf6ed7a",
+        "result_file": "/root/w-s/.eval/yolov9s/pytorch/test/varroa-mites-detection--test-set/4b038b789bfda0099d89a9ed870020246d68a837e5c6382115f2107cbbc57a8b.json",
+        "predictions_file": "/root/w-s/.eval/yolov9s/pytorch/test/varroa-mites-detection--test-set/4b038b789bfda0099d89a9ed870020246d68a837e5c6382115f2107cbbc57a8b.predictions.json.gz",
+        "resumed_from_cache": false,
+        "wall_seconds": 3.102,
+        "mAP_50": 0.92920222801359,
+        "mAP_50_95": 0.3472739511580647,
+        "mAP_75": 0.10019571427393022,
+        "AR100": 0.49914529914529915,
+        "AR_max_det": 0.49914529914529915
+      },
+      {
+        "dataset": "water-meter",
+        "num_images": 70,
+        "num_classes": 10,
+        "dataset_version": 1,
+        "weights": "/root/w-s/water-meter/LibreYOLO9s.pt",
+        "weights_sha256": "de884366bc97f5b7fef5137ced6416bf38dd5a2953be5ed673f2bb30c700079f",
+        "result_file": "/root/w-s/.eval/yolov9s/pytorch/test/water-meter/87ab60ec0206420d68889e1b729d6edc674cd29d1112bae0437637a4d6aead45.json",
+        "predictions_file": "/root/w-s/.eval/yolov9s/pytorch/test/water-meter/87ab60ec0206420d68889e1b729d6edc674cd29d1112bae0437637a4d6aead45.predictions.json.gz",
+        "resumed_from_cache": false,
+        "wall_seconds": 2.838,
+        "mAP_50": 0.995384746021772,
+        "mAP_50_95": 0.6508956937813882,
+        "mAP_75": 0.8280453738205629,
+        "AR100": 0.7051745748443861,
+        "AR_max_det": 0.7051745748443861
+      },
+      {
+        "dataset": "wb-prova",
+        "num_images": 146,
+        "num_classes": 3,
+        "dataset_version": 1,
+        "weights": "/root/w-s/wb-prova/LibreYOLO9s.pt",
+        "weights_sha256": "420983ef716dc928bc639cb72d351b67b7e905ad70d0b7eb5f1564d53e4f0791",
+        "result_file": "/root/w-s/.eval/yolov9s/pytorch/test/wb-prova/5d98b9058e510bf11ae5a18adfcbf9ef9601ec523f056c0d67d2bc5a5356f968.json",
+        "predictions_file": "/root/w-s/.eval/yolov9s/pytorch/test/wb-prova/5d98b9058e510bf11ae5a18adfcbf9ef9601ec523f056c0d67d2bc5a5356f968.predictions.json.gz",
+        "resumed_from_cache": false,
+        "wall_seconds": 8.976,
+        "mAP_50": 0.9643321000028301,
+        "mAP_50_95": 0.7805531300668902,
+        "mAP_75": 0.8767326052316907,
+        "AR100": 0.8342912665164587,
+        "AR_max_det": 0.8342912665164587
+      },
+      {
+        "dataset": "weeds4",
+        "num_images": 38,
+        "num_classes": 5,
+        "dataset_version": 1,
+        "weights": "/root/w-s/weeds4/LibreYOLO9s.pt",
+        "weights_sha256": "c4dc96777a756182ee24982034a65e62988e2468486adaa2f0064bade77f8e58",
+        "result_file": "/root/w-s/.eval/yolov9s/pytorch/test/weeds4/16890e389f0902ad41a1f02c3a757ab451b970c27b43c1693a489fa2c5d1e64a.json",
+        "predictions_file": "/root/w-s/.eval/yolov9s/pytorch/test/weeds4/16890e389f0902ad41a1f02c3a757ab451b970c27b43c1693a489fa2c5d1e64a.predictions.json.gz",
+        "resumed_from_cache": false,
+        "wall_seconds": 2.04,
+        "mAP_50": 0.7063358805468072,
+        "mAP_50_95": 0.5306039560007091,
+        "mAP_75": 0.5814583535130637,
+        "AR100": 0.7121295546558706,
+        "AR_max_det": 0.7121295546558706
+      },
+      {
+        "dataset": "wheel-defect-detection",
+        "num_images": 32,
+        "num_classes": 4,
+        "dataset_version": 1,
+        "weights": "/root/w-s/wheel-defect-detection/LibreYOLO9s.pt",
+        "weights_sha256": "597ccc1be5fd4f57a86cac195bc8a70cf666f9feb5ea693375e916efa6f5d7f1",
+        "result_file": "/root/w-s/.eval/yolov9s/pytorch/test/wheel-defect-detection/51617ff27c22ce2c88870e08e30294df253f067ec9d07210a5ac7840176de761.json",
+        "predictions_file": "/root/w-s/.eval/yolov9s/pytorch/test/wheel-defect-detection/51617ff27c22ce2c88870e08e30294df253f067ec9d07210a5ac7840176de761.predictions.json.gz",
+        "resumed_from_cache": false,
+        "wall_seconds": 1.713,
+        "mAP_50": 0.7193434468023137,
+        "mAP_50_95": 0.486132397432046,
+        "mAP_75": 0.4831814171612918,
+        "AR100": 0.5650545271260997,
+        "AR_max_det": 0.5650545271260997
+      },
+      {
+        "dataset": "wildfire-smoke",
+        "num_images": 75,
+        "num_classes": 1,
+        "dataset_version": 1,
+        "weights": "/root/w-s/wildfire-smoke/LibreYOLO9s.pt",
+        "weights_sha256": "8565b21cc7a014f26f921b015129f7c49f71e77dfef08c6ecf9255bfa750eba6",
+        "result_file": "/root/w-s/.eval/yolov9s/pytorch/test/wildfire-smoke/38400c78a1c6dac42886cbef6d589f11c4743cdb70f4625365364cb5b29cf9a6.json",
+        "predictions_file": "/root/w-s/.eval/yolov9s/pytorch/test/wildfire-smoke/38400c78a1c6dac42886cbef6d589f11c4743cdb70f4625365364cb5b29cf9a6.predictions.json.gz",
+        "resumed_from_cache": false,
+        "wall_seconds": 2.829,
+        "mAP_50": 0.9640307351587314,
+        "mAP_50_95": 0.5757276009698603,
+        "mAP_75": 0.61609785276899,
+        "AR100": 0.6479999999999999,
+        "AR_max_det": 0.6479999999999999
+      },
+      {
+        "dataset": "wine-labels",
+        "num_images": 465,
+        "num_classes": 11,
+        "dataset_version": 1,
+        "weights": "/root/w-s/wine-labels/LibreYOLO9s.pt",
+        "weights_sha256": "9fb9c27b002f5479a9ee8ac51298e1b53cfc01f31b1943ca9e1fa7a94559f784",
+        "result_file": "/root/w-s/.eval/yolov9s/pytorch/test/wine-labels/3cd9f1188b9df7412ebffa9c40ccdd4786e991a8b9ee341699adad648bb5d014.json",
+        "predictions_file": "/root/w-s/.eval/yolov9s/pytorch/test/wine-labels/3cd9f1188b9df7412ebffa9c40ccdd4786e991a8b9ee341699adad648bb5d014.predictions.json.gz",
+        "resumed_from_cache": false,
+        "wall_seconds": 15.516,
+        "mAP_50": 0.6490248317723376,
+        "mAP_50_95": 0.4681922779484524,
+        "mAP_75": 0.5527701788963892,
+        "AR100": 0.7077978373985772,
+        "AR_max_det": 0.7077978373985772
+      },
+      {
+        "dataset": "x-ray-id",
+        "num_images": 385,
+        "num_classes": 6,
+        "dataset_version": 1,
+        "weights": "/root/w-s/x-ray-id/LibreYOLO9s.pt",
+        "weights_sha256": "6dd9b4e2da9abb06e24c67b9ac05d81b5a42f0fb98b78bae6fb3044da007fd2a",
+        "result_file": "/root/w-s/.eval/yolov9s/pytorch/test/x-ray-id/4e1c35d359cdaa15fcf89441d01b03dc8b6f1af2b210dabb68f914abbfd4a7bd.json",
+        "predictions_file": "/root/w-s/.eval/yolov9s/pytorch/test/x-ray-id/4e1c35d359cdaa15fcf89441d01b03dc8b6f1af2b210dabb68f914abbfd4a7bd.predictions.json.gz",
+        "resumed_from_cache": false,
+        "wall_seconds": 11.679,
+        "mAP_50": 0.9885537274203828,
+        "mAP_50_95": 0.7589215292585161,
+        "mAP_75": 0.8484738134064232,
+        "AR100": 0.8179589414415969,
+        "AR_max_det": 0.8179589414415969
+      },
+      {
+        "dataset": "xray",
+        "num_images": 104,
+        "num_classes": 1,
+        "dataset_version": 1,
+        "weights": "/root/w-s/xray/LibreYOLO9s.pt",
+        "weights_sha256": "8c567d202a727abc746a16fcb51e162dee20da1bc8d230543f7ad49e946aea60",
+        "result_file": "/root/w-s/.eval/yolov9s/pytorch/test/xray/3859ea0b6802592ca502d0b8f955c94f656441296b442d7019b7868628c30300.json",
+        "predictions_file": "/root/w-s/.eval/yolov9s/pytorch/test/xray/3859ea0b6802592ca502d0b8f955c94f656441296b442d7019b7868628c30300.predictions.json.gz",
+        "resumed_from_cache": false,
+        "wall_seconds": 3.421,
+        "mAP_50": 0.6885467243119268,
+        "mAP_50_95": 0.33629620954352685,
+        "mAP_75": 0.2539695424751952,
+        "AR100": 0.4608333333333333,
+        "AR_max_det": 0.4608333333333333
+      },
+      {
+        "dataset": "zebrasatasturias",
+        "num_images": 39,
+        "num_classes": 1,
+        "dataset_version": 1,
+        "weights": "/root/w-s/zebrasatasturias/LibreYOLO9s.pt",
+        "weights_sha256": "86a7b1f4c1ed27211f0355e66ab1a459562741cd29ac50af7725932828df2c01",
+        "result_file": "/root/w-s/.eval/yolov9s/pytorch/test/zebrasatasturias/9cf6f670d6e1ec7410c1a513cf914d59453adff39359d1e70a832c703bad71c0.json",
+        "predictions_file": "/root/w-s/.eval/yolov9s/pytorch/test/zebrasatasturias/9cf6f670d6e1ec7410c1a513cf914d59453adff39359d1e70a832c703bad71c0.predictions.json.gz",
+        "resumed_from_cache": false,
+        "wall_seconds": 2.165,
+        "mAP_50": 0.9613296600134302,
+        "mAP_50_95": 0.5615338500983312,
+        "mAP_75": 0.5971326317096517,
+        "AR100": 0.6386861313868614,
+        "AR_max_det": 0.6386861313868614
+      }
+    ],
+    "skipped_datasets": []
+  }
+}

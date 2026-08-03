@@ -22,9 +22,6 @@ interface LeaderboardDashboardProps {
   hardwareOptions: Array<{ value: string; label: string }>;
   /** Headline metric name, "mAP" (detection, default) or "mask mAP" (segmentation). */
   mapLabel?: string;
-  /** Add the two RF100-VL columns to the leaderboard table as "Coming soon"
-   *  placeholders (no scores published yet). */
-  rf100vlComingSoon?: boolean;
 }
 
 function getDefaultSelection(
@@ -228,7 +225,6 @@ export function LeaderboardDashboard({
   benchmarkData,
   hardwareOptions,
   mapLabel = "mAP",
-  rf100vlComingSoon = false,
 }: LeaderboardDashboardProps) {
   const searchParams = useSearchParams();
   // Latency views default to Jetson Orin Nano Super + ONNX Runtime when that
@@ -540,8 +536,7 @@ export function LeaderboardDashboard({
         </div>
         <div className="section-group-content">
           {/* Shared family filter. Families are what this chart plots, so the
-              selector lives with it; it also drives the RF100-VL table and the
-              leaderboard below. */}
+              selector lives with it; it also drives the leaderboard below. */}
           <FamilyFilter
             families={availableFamilies}
             selectedFamilies={visibleSelectedFamilies}
@@ -751,8 +746,6 @@ export function LeaderboardDashboard({
             initialSortOrder={sortOrder}
             onSortChange={handleSortChange}
             mapLabel={mapLabel}
-            showRf100vl={rf100vlComingSoon}
-            rf100vlComingSoon={rf100vlComingSoon}
           />
         </div>
       </div>

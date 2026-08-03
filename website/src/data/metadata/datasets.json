@@ -21,6 +21,17 @@
         "numInstances": 0
       },
       "license": "CC BY 4.0"
+    },
+    {
+      "id": "rf100_vl",
+      "displayName": "RF100-VL",
+      "task": "detection",
+      "stats": {
+        "numImages": 14237,
+        "numClasses": 0,
+        "numInstances": 0
+      },
+      "license": "Mixed (per-dataset, Roboflow Universe)"
     }
   ]
 }

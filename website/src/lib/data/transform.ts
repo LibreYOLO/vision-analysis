@@ -98,6 +98,24 @@ export interface RawBenchmark {
     split?: string;
     numImages?: number;
   };
+  // Present only on RF100-VL campaign submissions. RF100-VL is a fine-tuned
+  // regime: one checkpoint per dataset across 100 datasets, scored separately
+  // and averaged unweighted. Its accuracy block is therefore not comparable to
+  // a COCO row, so these rows live in their own section of the site.
+  rf100vl?: {
+    regime?: string;
+    aggregation?: string;
+    protocol?: {
+      version?: string;
+      nms_iou?: number;
+      max_det?: number;
+      expected_datasets?: number;
+    };
+    valid_submission?: boolean;
+    invalid_reasons?: string[];
+    datasets?: Array<{ dataset?: string }>;
+    skipped_datasets?: unknown[];
+  };
   benchmark?: {
     harness?: string;
     harness_version?: string;
@@ -273,7 +291,22 @@ function round3(v: number): number {
 const COCO_VAL2017_FULL_IMAGES = 5000;
 const FULL_VAL_IMAGE_TOLERANCE = 5;
 
+/** Dataset id every RF100-VL row is keyed by. Also the flag the site uses to
+ *  keep the fine-tuned regime out of the COCO boards. */
+export const RF100VL_DATASET_ID = "rf100_vl";
+
+/** RF100-VL submissions carry an rf100vl block; nothing else does. */
+export function isRf100vlSubmission(raw: RawBenchmark): boolean {
+  return (
+    raw.rf100vl !== undefined ||
+    raw.dataset?.id?.toLowerCase() === "rf100_vl" ||
+    raw.eval?.dataset?.toLowerCase() === "rf100_vl"
+  );
+}
+
 function normalizeDatasetId(raw: RawBenchmark): string {
+  if (isRf100vlSubmission(raw)) return RF100VL_DATASET_ID;
+
   const datasetId = raw.dataset?.id?.toLowerCase();
   const evalDataset = raw.eval?.dataset?.toLowerCase();
   const split = (raw.dataset?.split ?? raw.eval?.split ?? "").toLowerCase();
@@ -301,6 +334,20 @@ function datasetVariantFromCount(numImages: number): string {
   }
   if (numImages === 500) return "mini500";
   return numImages > 0 ? `subset${numImages}` : "unknown";
+}
+
+/** How many of the 100 RF100-VL datasets contributed to the reported mean. */
+function rf100vlDatasetCount(raw: RawBenchmark): number {
+  return raw.rf100vl?.datasets?.length ?? 0;
+}
+
+/** RF100-VL is counted in datasets, not images: "full100" means all 100
+ *  contributed. A short run is labeled by its own count so it can never be
+ *  mistaken for the complete protocol. */
+function rf100vlVariant(raw: RawBenchmark): string {
+  const count = rf100vlDatasetCount(raw);
+  const expected = raw.rf100vl?.protocol?.expected_datasets ?? 100;
+  return count === expected ? `full${expected}` : `partial${count}`;
 }
 
 function precisionFromRuntime(runtimeId: string): string {
@@ -331,6 +378,7 @@ export function transformRawBenchmark(
     const fps = raw.throughput.fps ?? raw.throughput.fps_mean ?? 0;
     const mAP = toPercentage(raw.accuracy.mAP_50_95);
     const dataset = normalizeDatasetId(raw);
+    const isRf100vl = dataset === RF100VL_DATASET_ID;
     const numImages = extractNumImages(raw);
     const batchSize = raw.config?.batch_size ?? raw.timing.batch_size ?? 1;
     const inputSize = raw.config?.input_size ?? raw.model.input_size;
@@ -359,8 +407,9 @@ export function transformRawBenchmark(
       variant: raw.model.variant,
       task,
       dataset,
-      datasetVariant: datasetVariantFromCount(numImages),
+      datasetVariant: isRf100vl ? rf100vlVariant(raw) : datasetVariantFromCount(numImages),
       numImages,
+      ...(isRf100vl ? { rf100vlNumDatasets: rf100vlDatasetCount(raw) } : {}),
       hardware: hardwareId,
       runtime: runtimeId,
       precision,

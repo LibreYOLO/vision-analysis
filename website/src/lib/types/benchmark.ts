@@ -44,10 +44,10 @@ export interface BenchmarkResult {
   mAP_medium: number;
   mAP_large: number;
 
-  // RF100-VL: mean AP across the 100 datasets (percent scale). Optional —
-  // present only when an RF100-VL result is attached to this model's row.
-  rf100vlAp50?: number;
-  rf100vlAp5095?: number;
+  // RF100-VL rows carry their score in mAP_50_95 / mAP_50 like any other row;
+  // what makes them different is the regime, so record how many of the 100
+  // datasets actually contributed to the mean. Absent on non-RF100-VL rows.
+  rf100vlNumDatasets?: number;
 
   // Speed metrics (milliseconds)
   preprocessMs: number;
@@ -178,8 +178,6 @@ export type SortKey = keyof Pick<
   BenchmarkResult,
   | "mAP_50_95"
   | "mAP_50"
-  | "rf100vlAp50"
-  | "rf100vlAp5095"
   | "throughputFps"
   | "totalMs"
   | "paramsM"

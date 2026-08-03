@@ -1,7 +1,12 @@
 import { Suspense } from "react";
-import { LeaderboardDashboard } from "@/components/leaderboard";
+import { LeaderboardDashboard, Rf100vlSection } from "@/components/leaderboard";
 import { AccuracyTimeline, VAScoreChart, ChartDataTable } from "@/components/charts";
-import { getAllBenchmarkResultsByTask, getHardwareOptions, getRuntimeOptions } from "@/lib/data";
+import {
+  getAllBenchmarkResultsByTask,
+  getHardwareOptions,
+  getRuntimeOptions,
+  getRf100vlResults,
+} from "@/lib/data";
 import { libreYoloOnly } from "@/lib/data/provenance";
 import { StructuredData } from "@/components/seo/StructuredData";
 
@@ -80,6 +85,10 @@ export default function HomePage() {
   const distinctModels = new Set(libreRows.map((r) => r.model)).size;
   const distinctFamilies = new Set(libreRows.map((r) => r.family)).size;
 
+  // RF100-VL is a separate protocol (fine-tuned per dataset), so it gets its
+  // own section rather than columns on the COCO board above.
+  const rf100vlResults = getRf100vlResults();
+
   // Labels for the server-rendered (sr-only) data tables below.
   const hwLabel = new Map(hardwareOptions.map((o) => [o.value, o.label]));
   const rtLabel = new Map(getRuntimeOptions().map((o) => [o.value, o.label]));
@@ -117,9 +126,9 @@ export default function HomePage() {
               <LeaderboardDashboard
                 benchmarkData={benchmarkData}
                 hardwareOptions={hardwareOptions}
-                rf100vlComingSoon
               />
             </Suspense>
+            <Rf100vlSection results={rf100vlResults} />
             {/* Machine-readable data tables (sr-only). The interactive dashboard
                 above is client-rendered, so these put the same benchmark numbers
                 into the static HTML for no-JS crawlers and LLMs. */}

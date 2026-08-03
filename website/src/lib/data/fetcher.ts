@@ -1,6 +1,7 @@
 import "server-only";
 import { BenchmarkResult, ModelMetadata, FamilyMetadata, HardwareMetadata, DatasetMetadata, RuntimeMetadata } from "@/lib/types";
 import { loadAllBenchmarks } from "./loader";
+import { RF100VL_DATASET_ID } from "./transform";
 import { benchmarkCoordinateKey, compareBenchmarkCoordinates } from "./utils";
 
 // Import metadata (manually maintained)
@@ -11,8 +12,37 @@ import datasetsData from "@/data/metadata/datasets.json";
 import runtimesData from "@/data/metadata/runtimes.json";
 
 // Benchmark data loaded from the canonical verified-results snapshot.
+//
+// RF100-VL rows are withheld here on purpose. They are a fine-tuned regime
+// (one checkpoint per dataset, unweighted mean over 100 datasets), so their
+// accuracy is not comparable to a COCO row and their latency is measured
+// across 100 different checkpoints. Ranking them in the same table would
+// invite exactly the comparison the numbers do not support. Everything that
+// reads this function therefore sees COCO-style rows only; RF100-VL is served
+// separately by getRf100vlResults().
+let _cocoCache: Record<string, BenchmarkResult[]> | null = null;
+
 function getBenchmarkData(): Record<string, BenchmarkResult[]> {
-  return loadAllBenchmarks();
+  if (_cocoCache) return _cocoCache;
+
+  const filtered: Record<string, BenchmarkResult[]> = {};
+  for (const [key, results] of Object.entries(loadAllBenchmarks())) {
+    const rows = results.filter((r) => r.dataset !== RF100VL_DATASET_ID);
+    if (rows.length > 0) filtered[key] = rows;
+  }
+  _cocoCache = filtered;
+  return _cocoCache;
+}
+
+/**
+ * Every RF100-VL row, flattened and ranked by score. Separate from the COCO
+ * boards by design; see getBenchmarkData above.
+ */
+export function getRf100vlResults(): BenchmarkResult[] {
+  return Object.values(loadAllBenchmarks())
+    .flat()
+    .filter((r) => r.dataset === RF100VL_DATASET_ID)
+    .sort((a, b) => b.mAP_50_95 - a.mAP_50_95);
 }
 
 function compositeKey(hardware: string, runtime: string): string {

@@ -37,6 +37,18 @@
       "providers": []
     },
     {
+      "id": "nvidia_geforce_rtx_5060_ti",
+      "displayName": "NVIDIA RTX 5060 Ti",
+      "category": "cloud_gpu",
+      "specs": {
+        "gpuName": "NVIDIA GeForce RTX 5060 Ti",
+        "vramGb": 16,
+        "fp32Tflops": 23.7,
+        "tdpWatts": 180
+      },
+      "providers": []
+    },
+    {
       "id": "dgx_spark",
       "displayName": "NVIDIA DGX Spark",
       "category": "cloud_gpu",
