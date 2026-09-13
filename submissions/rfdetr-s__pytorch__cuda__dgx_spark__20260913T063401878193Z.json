@@ -1,0 +1,146 @@
+{
+  "schema_version": "va.submission.v1",
+  "submission_id": "rfdetr-s-pytorch-cuda-dgx_spark-20260913T063401Z",
+  "created_at": "2026-09-13T06:34:01.878193Z",
+  "benchmark": {
+    "harness": "vision-analysis-benchmark",
+    "harness_version": "2.1.0",
+    "libreyolo_version": "1.5.0",
+    "libreyolo_commit": "c25f6dffb521ea60bc0f63ae3dffb168a7edc466",
+    "libreyolo_dirty": false
+  },
+  "model": {
+    "id": "rfdetr-s",
+    "name": "rf-detr-s",
+    "family": "rfdetr",
+    "variant": "s",
+    "source": "libreyolo",
+    "weights": "LibreRFDETRs.pt",
+    "input_size": 512
+  },
+  "dataset": {
+    "id": "coco2017",
+    "split": "val2017",
+    "num_images": 500
+  },
+  "config": {
+    "batch_size": 1,
+    "input_size": 512,
+    "conf": 0.001,
+    "iou": 0.6,
+    "max_det": 300
+  },
+  "hardware": {
+    "gpu": "NVIDIA GB10",
+    "gpu_memory_gb": 0.0,
+    "driver_version": "580.173.02",
+    "cuda_version": "13.0",
+    "cpu": "Unknown",
+    "cpu_cores": 20,
+    "ram_gb": 121,
+    "id": "dgx_spark"
+  },
+  "software": {
+    "python": "3.12.3",
+    "torch": "2.14.0+cu130",
+    "libreyolo": "1.5.0",
+    "libreyolo_commit": "c25f6dffb521ea60bc0f63ae3dffb168a7edc466",
+    "libreyolo_dirty": false,
+    "onnxruntime": "not-installed",
+    "onnx": "not-installed",
+    "tensorrt": "not-installed"
+  },
+  "accuracy": {
+    "mAP_50_95": 0.5515325982046372,
+    "mAP_50": 0.7344622907903104,
+    "mAP_75": 0.5939871518198993,
+    "mAP_small": 0.35239300185975225,
+    "mAP_medium": 0.6086672175246832,
+    "mAP_large": 0.7392301732162583,
+    "AR1": 0.41619467649515046,
+    "AR10": 0.6787071206839128,
+    "AR100": 0.7214541335782997,
+    "AR_small": 0.493853091378882,
+    "AR_medium": 0.7886614496443919,
+    "AR_large": 0.8981720982458927
+  },
+  "timing": {
+    "batch_size": 1,
+    "num_images": 500,
+    "total_ms": {
+      "mean": 16.69,
+      "std": 6.322,
+      "p50": 16.232,
+      "p95": 17.159,
+      "p99": 18.146,
+      "preprocess_ms": 3.344,
+      "inference_ms": 12.386,
+      "postprocess_ms": 0.96
+    }
+  },
+  "throughput": {
+    "fps_mean": 59.92,
+    "fps_p50": 61.61
+  },
+  "model_stats": {
+    "params_millions": 32.11,
+    "gflops": 0.0
+  },
+  "memory": {
+    "peak_vram_mb": 199.3,
+    "peak_ram_mb": 200.8
+  },
+  "metadata": {
+    "benchmark_date": "2026-09-13T06:34:01.878193Z",
+    "benchmark_version": "2.1.0"
+  },
+  "eval": {
+    "dataset": "coco",
+    "split": "val2017",
+    "numImages": 500
+  },
+  "implementation": {
+    "provider": "libreyolo",
+    "version": "1.5.0"
+  },
+  "runtime": {
+    "format": "pytorch",
+    "precision": "fp32",
+    "provider": "cuda",
+    "device": "gpu"
+  },
+  "repro": {
+    "harness_version": "2.1.0",
+    "dataset": {
+      "image_id_sha256": "b6c349dad846787f982b31d7c79be771032126d82525195d9714cd1195add544",
+      "hf_dataset": "LibreYOLO/coco-val2017-mini500",
+      "hf_revision": "6c5d8d10dab92cf6f2cd476e1d5509ab5786cb88"
+    },
+    "weights": {
+      "file": "LibreRFDETRs.pt",
+      "sha256": "e12c99ed5c2c677b67b5685b9d79ecf88a5d2c1aa0baefb974b87ed1e516ab67",
+      "source": "libreyolo-managed"
+    },
+    "harness_commit": "f55a528cdd714259405f08b22c44d32be4fc7ab7",
+    "harness_dirty": false,
+    "argv": [
+      "run",
+      "--models",
+      "rfdetr-s",
+      "--coco-dir",
+      "/home/david/projects/libreyolo-lab/datasets/coco-mini500",
+      "--output-dir",
+      "/home/david/projects/libreyolo-lab/results/mini500/rfdetr-s",
+      "--device",
+      "cuda",
+      "--format",
+      "pytorch",
+      "--dataset-id",
+      "LibreYOLO/coco-val2017-mini500",
+      "--dataset-revision",
+      "6c5d8d10dab92cf6f2cd476e1d5509ab5786cb88",
+      "--debug"
+    ],
+    "command": "va-bench run --models rfdetr-s --coco-dir /home/david/projects/libreyolo-lab/datasets/coco-mini500 --output-dir /home/david/projects/libreyolo-lab/results/mini500/rfdetr-s --device cuda --format pytorch --dataset-id LibreYOLO/coco-val2017-mini500 --dataset-revision 6c5d8d10dab92cf6f2cd476e1d5509ab5786cb88 --debug"
+  }
+}
