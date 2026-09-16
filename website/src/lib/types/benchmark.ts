@@ -94,6 +94,8 @@ export interface BenchmarkResult {
 
 // Model metadata for model pages and comparison
 export interface ModelMetadata {
+  coverageGroup?: "g0" | "g1";
+  checkpointNote?: string;
   id: string;
   displayName: string;
   family: string;

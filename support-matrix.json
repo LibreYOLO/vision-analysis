@@ -13,7 +13,8 @@
     "0f1ef8e4d0d275068fadd25009a35c13c2364dc8",
     "61c7f13f44a41aa68cc05b305d01cce40c895c98",
     "40c02a02e595ba9d2249e030df34a0785506545f",
-    "c25f6dffb521ea60bc0f63ae3dffb168a7edc466"
+    "c25f6dffb521ea60bc0f63ae3dffb168a7edc466",
+    "6a0ccc3a0e579948011d5a55200309c4082e61e7"
   ],
   "models": [
     "yolox-nano",
@@ -106,7 +107,18 @@
     "ec-seg-s",
     "ec-seg-m",
     "ec-seg-l",
-    "ec-seg-x"
+    "ec-seg-x",
+    "tinyformer-l",
+    "tinyformer-m",
+    "tinyformer-s",
+    "tinyformer-x",
+    "tinyformer-xl",
+    "yolov9e2e-c",
+    "yolov9e2e-m",
+    "yolov9e2e-s",
+    "yolov9e2e-t",
+    "yolov9p2-s",
+    "yolov9p2-t"
   ],
   "runtimes": [
     {
