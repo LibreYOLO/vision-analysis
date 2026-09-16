@@ -1,3 +1,4 @@
+import { BenchmarkCredit } from "@/components/BenchmarkCredit";
 import { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -247,10 +248,12 @@ export default async function ModelPage({ params }: Props) {
                     <tr className="bg-surface-muted">
                       <th className="text-left px-3 py-2 font-medium text-foreground">Hardware</th>
                       <th className="text-left px-3 py-2 font-medium text-foreground">Runtime</th>
+                      <th className="text-left px-3 py-2 font-medium text-foreground">Dataset</th>
+                      <th className="text-left px-3 py-2 font-medium text-foreground">Credit / source</th>
                       <th className="text-right px-3 py-2 font-medium text-foreground">mAP@50-95</th>
                       <th className="text-right px-3 py-2 font-medium text-foreground">FPS</th>
                       <th className="text-right px-3 py-2 font-medium text-foreground">Latency</th>
-                      <th className="text-right px-3 py-2 font-medium text-foreground">VRAM</th>
+                      <th className="text-right px-3 py-2 font-medium text-foreground">GPU allocation</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -261,6 +264,8 @@ export default async function ModelPage({ params }: Props) {
                         <tr key={coordinateKey} className="border-b border-border hover:bg-muted">
                           <td className="px-3 py-3 font-medium">{hwMeta?.displayName || hardware}</td>
                           <td className="px-3 py-3">{rtMeta?.displayName || runtime}</td>
+                          <td className="px-3 py-3">{result.datasetVariant} ({result.numImages.toLocaleString("en-US")} images)</td>
+                          <td className="px-3 py-3"><BenchmarkCredit result={result} /></td>
                           <td className="px-3 py-3 text-right font-mono">{formatPercent(result.mAP_50_95)}</td>
                           <td className="px-3 py-3 text-right font-mono">{formatNumber(result.throughputFps, 1)}</td>
                           <td className="px-3 py-3 text-right font-mono">{formatMs(result.totalMs)}</td>

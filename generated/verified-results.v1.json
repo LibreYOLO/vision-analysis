@@ -85009,7 +85009,11 @@
         "command": "va-bench run --models yolov9t --coco-dir /home/david/projects/libreyolo-lab/datasets/coco-mini500 --output-dir /home/david/projects/libreyolo-lab/results/mini500/yolov9t --device cuda --format pytorch --dataset-id LibreYOLO/coco-val2017-mini500 --dataset-revision 6c5d8d10dab92cf6f2cd476e1d5509ab5786cb88 --debug"
       },
       "source_file": "yolov9t__pytorch__cuda__dgx_spark__20260913T063325264174Z.json",
-      "verified_at": "2026-09-13T06:34:01.878193Z"
+      "verified_at": "2026-09-13T06:34:01.878193Z",
+      "credit": {
+        "source_pr": "https://github.com/LibreYOLO/vision-analysis/pull/14",
+        "submitted_by": "DavidDiazMerino"
+      }
     },
     {
       "schema_version": "va.submission.v1",
@@ -85157,7 +85161,11 @@
         "command": "va-bench run --models rfdetr-s --coco-dir /home/david/projects/libreyolo-lab/datasets/coco-mini500 --output-dir /home/david/projects/libreyolo-lab/results/mini500/rfdetr-s --device cuda --format pytorch --dataset-id LibreYOLO/coco-val2017-mini500 --dataset-revision 6c5d8d10dab92cf6f2cd476e1d5509ab5786cb88 --debug"
       },
       "source_file": "rfdetr-s__pytorch__cuda__dgx_spark__20260913T063401878193Z.json",
-      "verified_at": "2026-09-13T06:34:01.878193Z"
+      "verified_at": "2026-09-13T06:34:01.878193Z",
+      "credit": {
+        "source_pr": "https://github.com/LibreYOLO/vision-analysis/pull/14",
+        "submitted_by": "DavidDiazMerino"
+      }
     }
   ]
 }

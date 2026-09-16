@@ -72,6 +72,15 @@ export default async function HardwarePage({ params }: Props) {
 
       {/* Specs Grid */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+        {hw.specs.unifiedMemoryGb && (
+          <Card className="col-span-2">
+            <CardHeader className="pb-2"><CardDescription>Unified memory</CardDescription></CardHeader>
+            <CardContent>
+              <p className="text-2xl font-bold">{hw.specs.unifiedMemoryGb} GB</p>
+              <p className="text-sm text-muted-foreground">Shared by CPU and GPU</p>
+            </CardContent>
+          </Card>
+        )}
         {hw.specs.vramGb && (
           <Card>
             <CardHeader className="pb-2">
@@ -135,6 +144,13 @@ export default async function HardwarePage({ params }: Props) {
           </Card>
         )}
       </div>
+
+      {hw.specsSource && (
+        <p className="text-sm text-muted-foreground mb-6">
+          Installed capacity from <a href={hw.specsSource} className="underline" target="_blank" rel="noopener noreferrer">manufacturer specifications</a>.
+          OS-visible usable memory can be lower. Unavailable dedicated VRAM readings do not mean zero memory.
+        </p>
+      )}
 
       {/* Providers */}
       {hw.providers.length > 0 && (

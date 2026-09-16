@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useMemo } from "react";
+import { BenchmarkCredit } from "@/components/BenchmarkCredit";
 import Link from "next/link";
 import { getFamilyColor } from "@/lib/utils/colors";
 import { formatNumber, formatPercent, formatMs } from "@/lib/utils/format";
@@ -129,6 +130,11 @@ export function HardwareResults({
         </Card>
       </div>
 
+      <p className="text-sm text-muted-foreground mb-4">
+        Results are contributor-reported. Validation checks the submission format and supported configuration;
+        it does not independently reproduce a run. Compare accuracy on the same dataset and latency with
+        the software versions recorded in each run JSON.
+      </p>
       {/* Full Leaderboard */}
       <Card>
         <CardHeader>
@@ -145,6 +151,8 @@ export function HardwareResults({
               <TableRow>
                 <TableHead>#</TableHead>
                 <TableHead>Model</TableHead>
+                <TableHead>Dataset</TableHead>
+                <TableHead>Credit / source</TableHead>
                 <TableHead className="text-right">mAP</TableHead>
                 <TableHead className="text-right">FPS</TableHead>
                 <TableHead className="text-right">Latency</TableHead>
@@ -167,6 +175,8 @@ export function HardwareResults({
                       {model.model}
                     </Link>
                   </TableCell>
+                  <TableCell>{model.datasetVariant} ({model.numImages.toLocaleString("en-US")} images)</TableCell>
+                  <TableCell><BenchmarkCredit result={model} /></TableCell>
                   <TableCell className="text-right font-mono">
                     {formatPercent(model.mAP_50_95)}
                   </TableCell>

@@ -14,6 +14,7 @@ export default function HardwarePage() {
   const hardware = getHardware();
 
   const categoryLabels: Record<string, string> = {
+    desktop: "Desktop system",
     cloud_gpu: "Cloud GPU",
     edge: "Edge Device",
     browser: "Browser",
@@ -22,6 +23,7 @@ export default function HardwarePage() {
   };
 
   const categoryColors: Record<string, string> = {
+    desktop: "bg-indigo-500",
     cloud_gpu: "bg-blue-500",
     edge: "bg-green-500",
     browser: "bg-purple-500",
@@ -56,6 +58,12 @@ export default function HardwarePage() {
               </CardHeader>
               <CardContent>
                 <div className="space-y-2 text-sm">
+                  {hw.specs.unifiedMemoryGb && (
+                    <div className="flex justify-between">
+                      <span className="text-muted-foreground">Unified memory</span>
+                      <span className="font-mono">{hw.specs.unifiedMemoryGb} GB</span>
+                    </div>
+                  )}
                   {hw.specs.vramGb && (
                     <div className="flex justify-between">
                       <span className="text-muted-foreground">VRAM</span>

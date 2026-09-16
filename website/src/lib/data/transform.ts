@@ -1,9 +1,10 @@
-import { BenchmarkResult } from "@/lib/types";
+import { BenchmarkResult, SubmissionCredit } from "@/lib/types";
 
 /**
  * Raw benchmark JSON schema - produced by the LibreYOLO benchmark runner.
  */
 export interface RawBenchmark {
+  credit?: SubmissionCredit;
   model: {
     id?: string;
     name: string;
@@ -24,7 +25,9 @@ export interface RawBenchmark {
   hardware: {
     id?: string;
     gpu: string;
-    gpu_memory_gb: number;
+    gpu_memory_gb: number | null;
+    memory_type?: "unified";
+    unified_memory_gb?: number | null;
     driver_version?: string;
     cuda_version?: string;
     cpu?: string;
@@ -431,6 +434,7 @@ export function transformRawBenchmark(
       flopsG,
       timestamp: new Date(raw.metadata.benchmark_date).toISOString(),
       sourceFile: raw.source_file,
+      credit: raw.credit,
       libreyoloCommit: raw.benchmark?.libreyolo_commit,
       harnessCommit: raw.repro?.harness_commit,
       command: raw.repro?.command,
