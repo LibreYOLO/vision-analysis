@@ -76,7 +76,12 @@
     },
     "hardware": {
       "type": "object",
-      "required": ["id", "gpu", "cpu", "ram_gb"]
+      "required": ["id", "gpu", "cpu", "ram_gb"],
+      "properties": {
+        "gpu_memory_gb": { "type": ["number", "null"], "minimum": 0, "description": "Dedicated GPU memory in GiB; null when unavailable or unified." },
+        "memory_type": { "const": "unified" },
+        "unified_memory_gb": { "type": ["number", "null"], "minimum": 0, "description": "OS-visible shared CPU/GPU memory in GiB, not installed capacity." }
+      }
     },
     "runtime": {
       "type": "object",

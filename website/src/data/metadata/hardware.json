@@ -51,14 +51,14 @@
     {
       "id": "dgx_spark",
       "displayName": "NVIDIA DGX Spark",
-      "category": "cloud_gpu",
+      "category": "desktop",
       "specs": {
         "gpuName": "NVIDIA GB10 Grace Blackwell",
-        "vramGb": 128,
-        "fp32Tflops": 45,
-        "tdpWatts": 300
+        "cpuName": "20-core Arm CPU (10 Cortex-X925 + 10 Cortex-A725)",
+        "unifiedMemoryGb": 128
       },
-      "providers": []
+      "providers": [],
+      "specsSource": "https://docs.nvidia.com/dgx/dgx-spark/hardware.html"
     },
     {
       "id": "rpi5",

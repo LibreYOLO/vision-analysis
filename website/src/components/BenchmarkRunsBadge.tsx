@@ -15,8 +15,8 @@ export function BenchmarkRunsBadge({ value }: { value: number }) {
         </span>
       </TooltipTrigger>
       <TooltipContent className="max-w-xs text-center">
-        Verified benchmark runs across different model sizes, hardware, and runtimes. Each run is one
-        model measured on one hardware and runtime.
+        Contributor-reported runs that passed submission validation across models, hardware, and
+        runtimes. Validation does not mean the measurements were independently reproduced.
       </TooltipContent>
     </Tooltip>
   );

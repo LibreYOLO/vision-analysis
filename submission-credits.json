@@ -1,0 +1,10 @@
+{
+  "yolov9t__pytorch__cuda__dgx_spark__20260913T063325264174Z.json": {
+    "source_pr": "https://github.com/LibreYOLO/vision-analysis/pull/14",
+    "submitted_by": "DavidDiazMerino"
+  },
+  "rfdetr-s__pytorch__cuda__dgx_spark__20260913T063401878193Z.json": {
+    "source_pr": "https://github.com/LibreYOLO/vision-analysis/pull/14",
+    "submitted_by": "DavidDiazMerino"
+  }
+}

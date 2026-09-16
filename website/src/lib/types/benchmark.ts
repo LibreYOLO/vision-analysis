@@ -20,6 +20,16 @@ export interface RuntimeMetadata {
 // must never be ranked in one table.
 export type BenchmarkTask = "detection" | "segmentation";
 
+export interface SubmissionCredit {
+  source_pr: string;
+  submitted_by: string;
+  author?: {
+    display_name?: string;
+    anonymous?: boolean;
+    links?: Partial<Record<"github" | "linkedin" | "x" | "website", string>>;
+  };
+}
+
 // Core benchmark result interface
 export interface BenchmarkResult {
   // Identifiers
@@ -75,6 +85,7 @@ export interface BenchmarkResult {
   // vision-analysis-benchmark >= 2.1.0). Lets a viewer trace a number back to
   // the exact run that produced it.
   sourceFile?: string;          // raw submission JSON filename under submissions/
+  credit?: SubmissionCredit;
   libreyoloCommit?: string;     // pins model behavior
   harnessCommit?: string;       // pins the benchmark harness
   command?: string;             // copy-pasteable command that produced the run
@@ -140,13 +151,14 @@ export interface FamilyMetadata {
 export interface HardwareMetadata {
   id: string;
   displayName: string;
-  category: "cloud_gpu" | "edge" | "browser" | "apple_silicon" | "cpu";
+  category: "desktop" | "cloud_gpu" | "edge" | "browser" | "apple_silicon" | "cpu";
 
   specs: {
     gpuName?: string;
     cpuName?: string;
     vramGb?: number;
     ramGb?: number;
+    unifiedMemoryGb?: number;
     fp16Tflops?: number;
     fp32Tflops?: number;
     int8Tops?: number;
@@ -158,6 +170,7 @@ export interface HardwareMetadata {
     costPerHour: number;
     url: string;
   }>;
+  specsSource?: string;
 }
 
 // Dataset metadata
@@ -204,6 +217,7 @@ export type ModelFamily =
 
 // Hardware category type
 export type HardwareCategory =
+  | "desktop"
   | "cloud_gpu"
   | "edge"
   | "browser"

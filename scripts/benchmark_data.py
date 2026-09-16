@@ -8,11 +8,14 @@ from datetime import datetime
 from pathlib import Path
 from typing import Any
 
+from submission_credits import validate_credits
+
 ROOT = Path(__file__).resolve().parents[1]
 SUPPORT_MATRIX_PATH = ROOT / "support-matrix.json"
 SUBMISSIONS_DIR = ROOT / "submissions"
 GENERATED_RESULTS_PATH = ROOT / "generated" / "verified-results.v1.json"
 MODELS_METADATA_PATH = ROOT / "website" / "src" / "data" / "metadata" / "models.json"
+CREDITS_PATH = ROOT / "submission-credits.json"
 
 
 def load_json(path: Path) -> Any:
@@ -205,6 +208,15 @@ def load_and_validate_submissions() -> tuple[list[dict[str, Any]], list[str]]:
 
         results.append({"path": path, "submission": submission})
 
+    try:
+        credits = load_json(CREDITS_PATH) if CREDITS_PATH.exists() else {}
+        credit_errors = validate_credits(credits, {item["path"].name for item in results})
+        errors.extend(credit_errors)
+        if not credit_errors:
+            for item in results:
+                item["credit"] = credits.get(item["path"].name)
+    except (json.JSONDecodeError, OSError) as exc:
+        errors.append(f"submission-credits.json: {exc}")
     return results, errors
 
 
@@ -217,6 +229,10 @@ def verified_payload(items: list[dict[str, Any]]) -> dict[str, Any]:
         submission = dict(item["submission"])
         submission["source_file"] = item["path"].name
         submission["verified_at"] = generated_at
+        # Credit is publication metadata, never inferred from the measurement.
+        submission.pop("credit", None)
+        if item.get("credit"):
+            submission["credit"] = item["credit"]
         results.append(submission)
 
     return {
