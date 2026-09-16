@@ -204,12 +204,22 @@ def row_identity(submission: dict[str, Any], hardware_id: str) -> tuple[str, str
     )
 
 
+def legacy_full_val_cohort(submissions, metadata_by_id):
+    """The original loader supported full-val detection, not segmentation."""
+    return [
+        submission for submission in submissions
+        if num_images(submission) == 5000
+        and metadata_by_id[new_model_id(submission)]["task"] == "detection"
+    ]
+
+
 def main() -> int:
     payload = load_json(GENERATED_RESULTS_PATH)
     submissions = payload["results"]
-    metadata_model_ids = {
-        model["id"] for model in load_json(MODELS_METADATA_PATH)["models"]
+    metadata_by_id = {
+        model["id"]: model for model in load_json(MODELS_METADATA_PATH)["models"]
     }
+    metadata_model_ids = set(metadata_by_id)
 
     assert submissions, "expected at least one verified result"
 
@@ -232,12 +242,11 @@ def main() -> int:
         "canonical results contain duplicate benchmark coordinates"
     )
 
-    # The original loader only represented one full-val row per
+    # The original loader only represented one full-val detection row per
     # model/hardware/runtime. Keep its parity check scoped to that legacy cohort;
-    # subset runs are intentionally distinct in the coordinate-aware loader.
-    legacy_submissions = [
-        submission for submission in submissions if num_images(submission) == 5000
-    ]
+    # subset and segmentation runs are intentionally distinct in the new loader.
+    # All tasks still pass the metadata and no-dropped-coordinate checks above.
+    legacy_submissions = legacy_full_val_cohort(submissions, metadata_by_id)
     assert legacy_submissions, "expected at least one full-val legacy result"
 
     for submission in legacy_submissions:
