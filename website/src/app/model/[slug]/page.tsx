@@ -57,7 +57,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   return {
     title: `${model.displayName} Benchmark Results`,
-    description: `${model.displayName} - ${model.specs.paramsM}M parameters, ${model.specs.flopsG} GFLOPs. See detailed benchmarks across hardware.`,
+    description: `${model.displayName} - ${model.specs.paramsM}M parameters, ${model.specs.flopsG > 0 ? `${model.specs.flopsG} GFLOPs` : "FLOPs not recorded"}. See detailed benchmarks across hardware.`,
     // Advertise the LLM-ingestible markdown twin (invisible to humans).
     alternates: {
       types: {
@@ -157,6 +157,9 @@ export default async function ModelPage({ params }: Props) {
               <p className="text-white/50">
                 {model.architecture.type} detector with {model.architecture.backbone} backbone
               </p>
+              {model.checkpointNote && (
+                <p className="mt-3 max-w-2xl text-sm text-amber-200">{model.checkpointNote}</p>
+              )}
             </div>
 
             <div className="flex gap-2">
@@ -198,7 +201,7 @@ export default async function ModelPage({ params }: Props) {
           />
           <StatCell
             label="GFLOPs"
-            value={formatNumber(model.specs.flopsG, 1)}
+            value={model.specs.flopsG > 0 ? formatNumber(model.specs.flopsG, 1) : "Unknown"}
             borderRight
           />
           <StatCell
@@ -577,7 +580,7 @@ function FamilyPage({
                         {formatNumber(model.specs.paramsM, 1)}M
                       </td>
                       <td className="px-3 py-3 text-right font-mono">
-                        {formatNumber(model.specs.flopsG, 1)}
+                        {model.specs.flopsG > 0 ? formatNumber(model.specs.flopsG, 1) : "Unknown"}
                       </td>
                       <td className="px-3 py-3 text-right font-mono">
                         {model.paperReportedMap != null ? `${model.paperReportedMap}%` : "-"}

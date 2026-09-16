@@ -201,7 +201,8 @@
       "inLibreYOLO": true,
       "detectionApproach": "anchor-free",
       "postprocessing": "nms",
-      "paperReportedMap": 38.3
+      "paperReportedMap": 38.3,
+      "coverageGroup": "g0"
     },
     {
       "id": "yolov9s",
@@ -230,7 +231,8 @@
       "inLibreYOLO": true,
       "detectionApproach": "anchor-free",
       "postprocessing": "nms",
-      "paperReportedMap": 46.8
+      "paperReportedMap": 46.8,
+      "coverageGroup": "g0"
     },
     {
       "id": "yolov9m",
@@ -259,7 +261,8 @@
       "inLibreYOLO": true,
       "detectionApproach": "anchor-free",
       "postprocessing": "nms",
-      "paperReportedMap": 51.4
+      "paperReportedMap": 51.4,
+      "coverageGroup": "g0"
     },
     {
       "id": "yolov9c",
@@ -288,7 +291,8 @@
       "inLibreYOLO": true,
       "detectionApproach": "anchor-free",
       "postprocessing": "nms",
-      "paperReportedMap": 53
+      "paperReportedMap": 53,
+      "coverageGroup": "g0"
     },
     {
       "id": "picodet-s",
@@ -839,7 +843,8 @@
       },
       "license": "Apache-2.0",
       "releaseDate": "2023-04-17",
-      "inLibreYOLO": true
+      "inLibreYOLO": true,
+      "coverageGroup": "g1"
     },
     {
       "id": "rtdetr-r34",
@@ -868,7 +873,8 @@
       },
       "license": "Apache-2.0",
       "releaseDate": "2023-04-17",
-      "inLibreYOLO": true
+      "inLibreYOLO": true,
+      "coverageGroup": "g1"
     },
     {
       "id": "rtdetr-r50",
@@ -897,7 +903,8 @@
       },
       "license": "Apache-2.0",
       "releaseDate": "2023-04-17",
-      "inLibreYOLO": true
+      "inLibreYOLO": true,
+      "coverageGroup": "g1"
     },
     {
       "id": "rtdetr-r50m",
@@ -926,7 +933,8 @@
       "license": "Apache-2.0",
       "releaseDate": "2026-04-22",
       "inLibreYOLO": true,
-      "notes": "LibreYOLO-specific RT-DETR variant: half-width hybrid encoder and early decoder exit (layer 3 of 6) for a faster speed/accuracy tradeoff. Not in the original RT-DETR paper."
+      "notes": "LibreYOLO-specific RT-DETR variant: half-width hybrid encoder and early decoder exit (layer 3 of 6) for a faster speed/accuracy tradeoff. Not in the original RT-DETR paper.",
+      "coverageGroup": "g1"
     },
     {
       "id": "rtdetr-r101",
@@ -955,7 +963,8 @@
       },
       "license": "Apache-2.0",
       "releaseDate": "2023-04-17",
-      "inLibreYOLO": true
+      "inLibreYOLO": true,
+      "coverageGroup": "g1"
     },
     {
       "id": "rfdetr-n",
@@ -984,7 +993,8 @@
       },
       "license": "Apache-2.0",
       "releaseDate": "2026-02-23",
-      "inLibreYOLO": true
+      "inLibreYOLO": true,
+      "coverageGroup": "g0"
     },
     {
       "id": "rfdetr-s",
@@ -1013,7 +1023,8 @@
       },
       "license": "Apache-2.0",
       "releaseDate": "2026-02-23",
-      "inLibreYOLO": true
+      "inLibreYOLO": true,
+      "coverageGroup": "g0"
     },
     {
       "id": "rfdetr-m",
@@ -1042,7 +1053,8 @@
       },
       "license": "Apache-2.0",
       "releaseDate": "2026-02-23",
-      "inLibreYOLO": true
+      "inLibreYOLO": true,
+      "coverageGroup": "g0"
     },
     {
       "id": "rfdetr-l",
@@ -1071,7 +1083,8 @@
       },
       "license": "Apache-2.0",
       "releaseDate": "2026-02-23",
-      "inLibreYOLO": true
+      "inLibreYOLO": true,
+      "coverageGroup": "g0"
     },
     {
       "id": "dfine-n",
@@ -1100,7 +1113,8 @@
       },
       "license": "Apache-2.0",
       "releaseDate": "2024-10-18",
-      "inLibreYOLO": true
+      "inLibreYOLO": true,
+      "coverageGroup": "g1"
     },
     {
       "id": "dfine-s",
@@ -1129,7 +1143,8 @@
       },
       "license": "Apache-2.0",
       "releaseDate": "2024-10-18",
-      "inLibreYOLO": true
+      "inLibreYOLO": true,
+      "coverageGroup": "g1"
     },
     {
       "id": "dfine-m",
@@ -1158,7 +1173,8 @@
       },
       "license": "Apache-2.0",
       "releaseDate": "2024-10-18",
-      "inLibreYOLO": true
+      "inLibreYOLO": true,
+      "coverageGroup": "g1"
     },
     {
       "id": "dfine-l",
@@ -1187,7 +1203,8 @@
       },
       "license": "Apache-2.0",
       "releaseDate": "2024-10-18",
-      "inLibreYOLO": true
+      "inLibreYOLO": true,
+      "coverageGroup": "g1"
     },
     {
       "id": "dfine-x",
@@ -1216,7 +1233,8 @@
       },
       "license": "Apache-2.0",
       "releaseDate": "2024-10-18",
-      "inLibreYOLO": true
+      "inLibreYOLO": true,
+      "coverageGroup": "g1"
     },
     {
       "id": "yolonas-s",
@@ -1246,7 +1264,8 @@
       "license": "non-permissive",
       "releaseDate": "2023-05-08",
       "inLibreYOLO": true,
-      "notes": "Weights are auto-downloaded from Deci's CloudFront CDN (d2gjn4b69gu75n.cloudfront.net) inside LibreYOLO. License is Apache-2.0 with a non-commercial attribution clause for the pretrained weights Ã¢â‚¬â€ see the upstream super_gradients repo."
+      "notes": "Weights are auto-downloaded from Deci's CloudFront CDN (d2gjn4b69gu75n.cloudfront.net) inside LibreYOLO. License is Apache-2.0 with a non-commercial attribution clause for the pretrained weights Ã¢â‚¬â€ see the upstream super_gradients repo.",
+      "coverageGroup": "g1"
     },
     {
       "id": "yolonas-m",
@@ -1276,7 +1295,8 @@
       "license": "non-permissive",
       "releaseDate": "2023-05-08",
       "inLibreYOLO": true,
-      "notes": "Weights are auto-downloaded from Deci's CloudFront CDN (d2gjn4b69gu75n.cloudfront.net) inside LibreYOLO. License is Apache-2.0 with a non-commercial attribution clause for the pretrained weights Ã¢â‚¬â€ see the upstream super_gradients repo."
+      "notes": "Weights are auto-downloaded from Deci's CloudFront CDN (d2gjn4b69gu75n.cloudfront.net) inside LibreYOLO. License is Apache-2.0 with a non-commercial attribution clause for the pretrained weights Ã¢â‚¬â€ see the upstream super_gradients repo.",
+      "coverageGroup": "g1"
     },
     {
       "id": "yolonas-l",
@@ -1306,7 +1326,8 @@
       "license": "non-permissive",
       "releaseDate": "2023-05-08",
       "inLibreYOLO": true,
-      "notes": "Weights are auto-downloaded from Deci's CloudFront CDN (d2gjn4b69gu75n.cloudfront.net) inside LibreYOLO. License is Apache-2.0 with a non-commercial attribution clause for the pretrained weights Ã¢â‚¬â€ see the upstream super_gradients repo."
+      "notes": "Weights are auto-downloaded from Deci's CloudFront CDN (d2gjn4b69gu75n.cloudfront.net) inside LibreYOLO. License is Apache-2.0 with a non-commercial attribution clause for the pretrained weights Ã¢â‚¬â€ see the upstream super_gradients repo.",
+      "coverageGroup": "g1"
     },
     {
       "id": "deim-n",
@@ -1335,7 +1356,8 @@
       },
       "license": "Apache-2.0",
       "releaseDate": "2024-12-05",
-      "inLibreYOLO": true
+      "inLibreYOLO": true,
+      "coverageGroup": "g1"
     },
     {
       "id": "deim-s",
@@ -1364,7 +1386,8 @@
       },
       "license": "Apache-2.0",
       "releaseDate": "2024-12-05",
-      "inLibreYOLO": true
+      "inLibreYOLO": true,
+      "coverageGroup": "g1"
     },
     {
       "id": "deim-m",
@@ -1393,7 +1416,8 @@
       },
       "license": "Apache-2.0",
       "releaseDate": "2024-12-05",
-      "inLibreYOLO": true
+      "inLibreYOLO": true,
+      "coverageGroup": "g1"
     },
     {
       "id": "deim-l",
@@ -1422,7 +1446,8 @@
       },
       "license": "Apache-2.0",
       "releaseDate": "2024-12-05",
-      "inLibreYOLO": true
+      "inLibreYOLO": true,
+      "coverageGroup": "g1"
     },
     {
       "id": "deim-x",
@@ -1451,7 +1476,8 @@
       },
       "license": "Apache-2.0",
       "releaseDate": "2024-12-05",
-      "inLibreYOLO": true
+      "inLibreYOLO": true,
+      "coverageGroup": "g1"
     },
     {
       "id": "deimv2-atto",
@@ -1480,7 +1506,8 @@
       },
       "license": "Apache-2.0",
       "releaseDate": "2025-09-25",
-      "inLibreYOLO": true
+      "inLibreYOLO": true,
+      "coverageGroup": "g1"
     },
     {
       "id": "deimv2-femto",
@@ -1509,7 +1536,8 @@
       },
       "license": "Apache-2.0",
       "releaseDate": "2025-09-25",
-      "inLibreYOLO": true
+      "inLibreYOLO": true,
+      "coverageGroup": "g1"
     },
     {
       "id": "deimv2-pico",
@@ -1538,7 +1566,8 @@
       },
       "license": "Apache-2.0",
       "releaseDate": "2025-09-25",
-      "inLibreYOLO": true
+      "inLibreYOLO": true,
+      "coverageGroup": "g1"
     },
     {
       "id": "deimv2-n",
@@ -1567,7 +1596,8 @@
       },
       "license": "Apache-2.0",
       "releaseDate": "2025-09-25",
-      "inLibreYOLO": true
+      "inLibreYOLO": true,
+      "coverageGroup": "g1"
     },
     {
       "id": "deimv2-s",
@@ -1596,7 +1626,8 @@
       },
       "license": "Apache-2.0",
       "releaseDate": "2025-09-25",
-      "inLibreYOLO": true
+      "inLibreYOLO": true,
+      "coverageGroup": "g1"
     },
     {
       "id": "deimv2-m",
@@ -1625,7 +1656,8 @@
       },
       "license": "Apache-2.0",
       "releaseDate": "2025-09-25",
-      "inLibreYOLO": true
+      "inLibreYOLO": true,
+      "coverageGroup": "g1"
     },
     {
       "id": "deimv2-l",
@@ -1654,7 +1686,8 @@
       },
       "license": "Apache-2.0",
       "releaseDate": "2025-09-25",
-      "inLibreYOLO": true
+      "inLibreYOLO": true,
+      "coverageGroup": "g1"
     },
     {
       "id": "deimv2-x",
@@ -1683,7 +1716,8 @@
       },
       "license": "Apache-2.0",
       "releaseDate": "2025-09-25",
-      "inLibreYOLO": true
+      "inLibreYOLO": true,
+      "coverageGroup": "g1"
     },
     {
       "id": "ec-s",
@@ -1712,7 +1746,8 @@
       },
       "license": "Apache-2.0",
       "releaseDate": "2026-03-19",
-      "inLibreYOLO": true
+      "inLibreYOLO": true,
+      "coverageGroup": "g1"
     },
     {
       "id": "ec-m",
@@ -1741,7 +1776,8 @@
       },
       "license": "Apache-2.0",
       "releaseDate": "2026-03-19",
-      "inLibreYOLO": true
+      "inLibreYOLO": true,
+      "coverageGroup": "g1"
     },
     {
       "id": "ec-l",
@@ -1770,7 +1806,8 @@
       },
       "license": "Apache-2.0",
       "releaseDate": "2026-03-19",
-      "inLibreYOLO": true
+      "inLibreYOLO": true,
+      "coverageGroup": "g1"
     },
     {
       "id": "ec-x",
@@ -1799,7 +1836,8 @@
       },
       "license": "Apache-2.0",
       "releaseDate": "2026-03-19",
-      "inLibreYOLO": true
+      "inLibreYOLO": true,
+      "coverageGroup": "g1"
     },
     {
       "id": "rtdetr-l",
@@ -1828,7 +1866,8 @@
       },
       "license": "Apache-2.0",
       "releaseDate": "2023-04-17",
-      "inLibreYOLO": true
+      "inLibreYOLO": true,
+      "coverageGroup": "g1"
     },
     {
       "id": "rtdetr-x",
@@ -1857,7 +1896,8 @@
       },
       "license": "Apache-2.0",
       "releaseDate": "2023-04-17",
-      "inLibreYOLO": true
+      "inLibreYOLO": true,
+      "coverageGroup": "g1"
     },
     {
       "id": "rtdetrv2-r18",
@@ -1886,7 +1926,8 @@
       },
       "license": "Apache-2.0",
       "releaseDate": "2024-05-01",
-      "inLibreYOLO": true
+      "inLibreYOLO": true,
+      "coverageGroup": "g1"
     },
     {
       "id": "rtdetrv2-r34",
@@ -1915,7 +1956,8 @@
       },
       "license": "Apache-2.0",
       "releaseDate": "2024-05-01",
-      "inLibreYOLO": true
+      "inLibreYOLO": true,
+      "coverageGroup": "g1"
     },
     {
       "id": "rtdetrv2-r50",
@@ -1944,7 +1986,8 @@
       },
       "license": "Apache-2.0",
       "releaseDate": "2024-05-01",
-      "inLibreYOLO": true
+      "inLibreYOLO": true,
+      "coverageGroup": "g1"
     },
     {
       "id": "rtdetrv2-r50m",
@@ -1973,7 +2016,8 @@
       },
       "license": "Apache-2.0",
       "releaseDate": "2024-05-01",
-      "inLibreYOLO": true
+      "inLibreYOLO": true,
+      "coverageGroup": "g1"
     },
     {
       "id": "rtdetrv2-r101",
@@ -2002,7 +2046,8 @@
       },
       "license": "Apache-2.0",
       "releaseDate": "2024-05-01",
-      "inLibreYOLO": true
+      "inLibreYOLO": true,
+      "coverageGroup": "g1"
     },
     {
       "id": "rtdetrv4-s",
@@ -2031,7 +2076,8 @@
       },
       "license": "Apache-2.0",
       "releaseDate": "2025-10-30",
-      "inLibreYOLO": true
+      "inLibreYOLO": true,
+      "coverageGroup": "g1"
     },
     {
       "id": "rtdetrv4-m",
@@ -2060,7 +2106,8 @@
       },
       "license": "Apache-2.0",
       "releaseDate": "2025-10-30",
-      "inLibreYOLO": true
+      "inLibreYOLO": true,
+      "coverageGroup": "g1"
     },
     {
       "id": "rtdetrv4-l",
@@ -2089,7 +2136,8 @@
       },
       "license": "Apache-2.0",
       "releaseDate": "2025-10-30",
-      "inLibreYOLO": true
+      "inLibreYOLO": true,
+      "coverageGroup": "g1"
     },
     {
       "id": "rtdetrv4-x",
@@ -2118,7 +2166,8 @@
       },
       "license": "Apache-2.0",
       "releaseDate": "2025-10-30",
-      "inLibreYOLO": true
+      "inLibreYOLO": true,
+      "coverageGroup": "g1"
     },
     {
       "id": "yolo26n",
@@ -2773,6 +2822,323 @@
       "license": "Apache-2.0",
       "releaseDate": "2026-03-19",
       "inLibreYOLO": true
+    },
+    {
+      "id": "yolov9e2e-t",
+      "displayName": "YOLOv9-E2E-T",
+      "family": "yolov9-e2e",
+      "variant": "t",
+      "task": "detection",
+      "coverageGroup": "g1",
+      "architecture": {
+        "type": "one-stage",
+        "backbone": "GELAN",
+        "neck": "PAN",
+        "head": "One-to-one head"
+      },
+      "specs": {
+        "paramsM": 2.634672,
+        "flopsG": 0,
+        "inputSizeDefault": 640,
+        "numClasses": 80
+      },
+      "source": {
+        "libreyoloWeightsUrl": "https://huggingface.co/LibreYOLO/LibreYOLO9E2Et"
+      },
+      "license": "MIT",
+      "releaseDate": "2026-05-01",
+      "inLibreYOLO": true,
+      "detectionApproach": "anchor-free",
+      "postprocessing": "nms-free",
+      "notes": "FLOPs not yet recorded. Parameters counted from the native LibreYOLO model at 6a0ccc3a0e579948011d5a55200309c4082e61e7."
+    },
+    {
+      "id": "yolov9e2e-s",
+      "displayName": "YOLOv9-E2E-S",
+      "family": "yolov9-e2e",
+      "variant": "s",
+      "task": "detection",
+      "coverageGroup": "g1",
+      "architecture": {
+        "type": "one-stage",
+        "backbone": "GELAN",
+        "neck": "PAN",
+        "head": "One-to-one head"
+      },
+      "specs": {
+        "paramsM": 8.728064,
+        "flopsG": 0,
+        "inputSizeDefault": 640,
+        "numClasses": 80
+      },
+      "source": {
+        "libreyoloWeightsUrl": "https://huggingface.co/LibreYOLO/LibreYOLO9E2Es"
+      },
+      "license": "MIT",
+      "releaseDate": "2026-05-01",
+      "inLibreYOLO": true,
+      "detectionApproach": "anchor-free",
+      "postprocessing": "nms-free",
+      "notes": "FLOPs not yet recorded. Parameters counted from the native LibreYOLO model at 6a0ccc3a0e579948011d5a55200309c4082e61e7."
+    },
+    {
+      "id": "yolov9e2e-m",
+      "displayName": "YOLOv9-E2E-M",
+      "family": "yolov9-e2e",
+      "variant": "m",
+      "task": "detection",
+      "coverageGroup": "g1",
+      "architecture": {
+        "type": "one-stage",
+        "backbone": "GELAN",
+        "neck": "PAN",
+        "head": "One-to-one head"
+      },
+      "specs": {
+        "paramsM": 24.726464,
+        "flopsG": 0,
+        "inputSizeDefault": 640,
+        "numClasses": 80
+      },
+      "source": {
+        "libreyoloWeightsUrl": "https://huggingface.co/LibreYOLO/LibreYOLO9E2Em"
+      },
+      "license": "MIT",
+      "releaseDate": "2026-05-01",
+      "inLibreYOLO": true,
+      "detectionApproach": "anchor-free",
+      "postprocessing": "nms-free",
+      "notes": "FLOPs not yet recorded. Parameters counted from the native LibreYOLO model at 6a0ccc3a0e579948011d5a55200309c4082e61e7."
+    },
+    {
+      "id": "yolov9e2e-c",
+      "displayName": "YOLOv9-E2E-C",
+      "family": "yolov9-e2e",
+      "variant": "c",
+      "task": "detection",
+      "coverageGroup": "g1",
+      "architecture": {
+        "type": "one-stage",
+        "backbone": "GELAN",
+        "neck": "PAN",
+        "head": "One-to-one head"
+      },
+      "specs": {
+        "paramsM": 31.05104,
+        "flopsG": 0,
+        "inputSizeDefault": 640,
+        "numClasses": 80
+      },
+      "source": {
+        "libreyoloWeightsUrl": "https://huggingface.co/LibreYOLO/LibreYOLO9E2Ec"
+      },
+      "license": "MIT",
+      "releaseDate": "2026-05-01",
+      "inLibreYOLO": true,
+      "detectionApproach": "anchor-free",
+      "postprocessing": "nms-free",
+      "notes": "FLOPs not yet recorded. Parameters counted from the native LibreYOLO model at 6a0ccc3a0e579948011d5a55200309c4082e61e7."
+    },
+    {
+      "id": "yolov9p2-t",
+      "displayName": "YOLOv9-P2-T",
+      "family": "yolov9-p2",
+      "variant": "t",
+      "task": "detection",
+      "coverageGroup": "g1",
+      "architecture": {
+        "type": "one-stage",
+        "backbone": "GELAN",
+        "neck": "PAN with stride-4 scale",
+        "head": "Multi-scale detection"
+      },
+      "specs": {
+        "paramsM": 2.248176,
+        "flopsG": 0,
+        "inputSizeDefault": 640,
+        "numClasses": 80
+      },
+      "source": {},
+      "license": "MIT",
+      "releaseDate": "2026-07-02",
+      "inLibreYOLO": true,
+      "detectionApproach": "anchor-free",
+      "postprocessing": "nms",
+      "notes": "FLOPs not yet recorded. Parameters counted from the native LibreYOLO model at 6a0ccc3a0e579948011d5a55200309c4082e61e7. No published COCO checkpoint; local COCO-trained weights required. The VisDrone preview is a different dataset and is not a COCO benchmark.",
+      "checkpointNote": "No public COCO checkpoint. This variant requires locally COCO-trained weights; its VisDrone preview cannot be used for a COCO benchmark."
+    },
+    {
+      "id": "yolov9p2-s",
+      "displayName": "YOLOv9-P2-S",
+      "family": "yolov9-p2",
+      "variant": "s",
+      "task": "detection",
+      "coverageGroup": "g1",
+      "architecture": {
+        "type": "one-stage",
+        "backbone": "GELAN",
+        "neck": "PAN with stride-4 scale",
+        "head": "Multi-scale detection"
+      },
+      "specs": {
+        "paramsM": 7.230624,
+        "flopsG": 0,
+        "inputSizeDefault": 640,
+        "numClasses": 80
+      },
+      "source": {},
+      "license": "MIT",
+      "releaseDate": "2026-07-02",
+      "inLibreYOLO": true,
+      "detectionApproach": "anchor-free",
+      "postprocessing": "nms",
+      "notes": "FLOPs not yet recorded. Parameters counted from the native LibreYOLO model at 6a0ccc3a0e579948011d5a55200309c4082e61e7. No published COCO checkpoint; local COCO-trained weights required. The VisDrone preview is a different dataset and is not a COCO benchmark.",
+      "checkpointNote": "No public COCO checkpoint. This variant requires locally COCO-trained weights; its VisDrone preview cannot be used for a COCO benchmark."
+    },
+    {
+      "id": "tinyformer-s",
+      "displayName": "TinyFormer-S",
+      "family": "tinyformer",
+      "variant": "s",
+      "task": "detection",
+      "coverageGroup": "g1",
+      "architecture": {
+        "type": "transformer",
+        "backbone": "DINOv3-derived ViT",
+        "neck": "PBM",
+        "head": "DEIMv2 decoder"
+      },
+      "specs": {
+        "paramsM": 10.955422,
+        "flopsG": 0,
+        "inputSizeDefault": 640,
+        "numClasses": 80
+      },
+      "source": {
+        "libreyoloWeightsUrl": "https://huggingface.co/LibreYOLO/LibreTinyFormers"
+      },
+      "license": "Apache-2.0 + DINOv3",
+      "releaseDate": "2026-05-24",
+      "inLibreYOLO": true,
+      "detectionApproach": "detr",
+      "postprocessing": "nms-free",
+      "notes": "FLOPs not yet recorded. Parameters counted from the native LibreYOLO model at 6a0ccc3a0e579948011d5a55200309c4082e61e7. Code is Apache-2.0; checkpoint backbone parameters also carry the DINOv3 license."
+    },
+    {
+      "id": "tinyformer-m",
+      "displayName": "TinyFormer-M",
+      "family": "tinyformer",
+      "variant": "m",
+      "task": "detection",
+      "coverageGroup": "g1",
+      "architecture": {
+        "type": "transformer",
+        "backbone": "DINOv3-derived ViT",
+        "neck": "PBM",
+        "head": "DEIMv2 decoder"
+      },
+      "specs": {
+        "paramsM": 20.49999,
+        "flopsG": 0,
+        "inputSizeDefault": 640,
+        "numClasses": 80
+      },
+      "source": {
+        "libreyoloWeightsUrl": "https://huggingface.co/LibreYOLO/LibreTinyFormerm"
+      },
+      "license": "Apache-2.0 + DINOv3",
+      "releaseDate": "2026-05-24",
+      "inLibreYOLO": true,
+      "detectionApproach": "detr",
+      "postprocessing": "nms-free",
+      "notes": "FLOPs not yet recorded. Parameters counted from the native LibreYOLO model at 6a0ccc3a0e579948011d5a55200309c4082e61e7. Code is Apache-2.0; checkpoint backbone parameters also carry the DINOv3 license."
+    },
+    {
+      "id": "tinyformer-l",
+      "displayName": "TinyFormer-L",
+      "family": "tinyformer",
+      "variant": "l",
+      "task": "detection",
+      "coverageGroup": "g1",
+      "architecture": {
+        "type": "transformer",
+        "backbone": "DINOv3-derived ViT",
+        "neck": "PBM",
+        "head": "DEIMv2 decoder"
+      },
+      "specs": {
+        "paramsM": 33.991022,
+        "flopsG": 0,
+        "inputSizeDefault": 640,
+        "numClasses": 80
+      },
+      "source": {
+        "libreyoloWeightsUrl": "https://huggingface.co/LibreYOLO/LibreTinyFormerl"
+      },
+      "license": "Apache-2.0 + DINOv3",
+      "releaseDate": "2026-05-24",
+      "inLibreYOLO": true,
+      "detectionApproach": "detr",
+      "postprocessing": "nms-free",
+      "notes": "FLOPs not yet recorded. Parameters counted from the native LibreYOLO model at 6a0ccc3a0e579948011d5a55200309c4082e61e7. Code is Apache-2.0; checkpoint backbone parameters also carry the DINOv3 license."
+    },
+    {
+      "id": "tinyformer-x",
+      "displayName": "TinyFormer-X",
+      "family": "tinyformer",
+      "variant": "x",
+      "task": "detection",
+      "coverageGroup": "g1",
+      "architecture": {
+        "type": "transformer",
+        "backbone": "DINOv3-derived ViT",
+        "neck": "PBM",
+        "head": "DEIMv2 decoder"
+      },
+      "specs": {
+        "paramsM": 52.472408,
+        "flopsG": 0,
+        "inputSizeDefault": 640,
+        "numClasses": 80
+      },
+      "source": {
+        "libreyoloWeightsUrl": "https://huggingface.co/LibreYOLO/LibreTinyFormerx"
+      },
+      "license": "Apache-2.0 + DINOv3",
+      "releaseDate": "2026-05-24",
+      "inLibreYOLO": true,
+      "detectionApproach": "detr",
+      "postprocessing": "nms-free",
+      "notes": "FLOPs not yet recorded. Parameters counted from the native LibreYOLO model at 6a0ccc3a0e579948011d5a55200309c4082e61e7. Code is Apache-2.0; checkpoint backbone parameters also carry the DINOv3 license."
+    },
+    {
+      "id": "tinyformer-xl",
+      "displayName": "TinyFormer-XL",
+      "family": "tinyformer",
+      "variant": "xl",
+      "task": "detection",
+      "coverageGroup": "g1",
+      "architecture": {
+        "type": "transformer",
+        "backbone": "DINOv3-derived ViT",
+        "neck": "PBM",
+        "head": "DEIMv2 decoder"
+      },
+      "specs": {
+        "paramsM": 127.111448,
+        "flopsG": 0,
+        "inputSizeDefault": 640,
+        "numClasses": 80
+      },
+      "source": {
+        "libreyoloWeightsUrl": "https://huggingface.co/LibreYOLO/LibreTinyFormerxl"
+      },
+      "license": "Apache-2.0 + DINOv3",
+      "releaseDate": "2026-05-24",
+      "inLibreYOLO": true,
+      "detectionApproach": "detr",
+      "postprocessing": "nms-free",
+      "notes": "FLOPs not yet recorded. Parameters counted from the native LibreYOLO model at 6a0ccc3a0e579948011d5a55200309c4082e61e7. Code is Apache-2.0; checkpoint backbone parameters also carry the DINOv3 license."
     }
   ]
 }

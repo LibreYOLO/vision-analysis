@@ -9,6 +9,7 @@ on:
       - "submissions/**"
       - "submission-credits.json"
       - "scripts/**"
+      - "docs/g0-g1-catalog.json"
       - ".github/workflows/website.yml"
   push:
     branches:
@@ -20,6 +21,7 @@ on:
       - "submissions/**"
       - "submission-credits.json"
       - "scripts/**"
+      - "docs/g0-g1-catalog.json"
       - ".github/workflows/website.yml"
 
 jobs:

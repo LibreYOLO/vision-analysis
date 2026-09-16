@@ -1,0 +1,486 @@
+{
+  "libreyolo_commit": "6a0ccc3a0e579948011d5a55200309c4082e61e7",
+  "task": "detect",
+  "models": [
+    {
+      "id": "yolov9t",
+      "family": "yolo9",
+      "size": "t",
+      "group": "g0",
+      "input_size": 640,
+      "public_coco_checkpoint": true
+    },
+    {
+      "id": "yolov9s",
+      "family": "yolo9",
+      "size": "s",
+      "group": "g0",
+      "input_size": 640,
+      "public_coco_checkpoint": true
+    },
+    {
+      "id": "yolov9m",
+      "family": "yolo9",
+      "size": "m",
+      "group": "g0",
+      "input_size": 640,
+      "public_coco_checkpoint": true
+    },
+    {
+      "id": "yolov9c",
+      "family": "yolo9",
+      "size": "c",
+      "group": "g0",
+      "input_size": 640,
+      "public_coco_checkpoint": true
+    },
+    {
+      "id": "rfdetr-n",
+      "family": "rfdetr",
+      "size": "n",
+      "group": "g0",
+      "input_size": 384,
+      "public_coco_checkpoint": true
+    },
+    {
+      "id": "rfdetr-s",
+      "family": "rfdetr",
+      "size": "s",
+      "group": "g0",
+      "input_size": 512,
+      "public_coco_checkpoint": true
+    },
+    {
+      "id": "rfdetr-m",
+      "family": "rfdetr",
+      "size": "m",
+      "group": "g0",
+      "input_size": 576,
+      "public_coco_checkpoint": true
+    },
+    {
+      "id": "rfdetr-l",
+      "family": "rfdetr",
+      "size": "l",
+      "group": "g0",
+      "input_size": 704,
+      "public_coco_checkpoint": true
+    },
+    {
+      "id": "yolov9e2e-t",
+      "family": "yolo9_e2e",
+      "size": "t",
+      "group": "g1",
+      "input_size": 640,
+      "public_coco_checkpoint": true
+    },
+    {
+      "id": "yolov9e2e-s",
+      "family": "yolo9_e2e",
+      "size": "s",
+      "group": "g1",
+      "input_size": 640,
+      "public_coco_checkpoint": true
+    },
+    {
+      "id": "yolov9e2e-m",
+      "family": "yolo9_e2e",
+      "size": "m",
+      "group": "g1",
+      "input_size": 640,
+      "public_coco_checkpoint": true
+    },
+    {
+      "id": "yolov9e2e-c",
+      "family": "yolo9_e2e",
+      "size": "c",
+      "group": "g1",
+      "input_size": 640,
+      "public_coco_checkpoint": true
+    },
+    {
+      "id": "yolov9p2-t",
+      "family": "yolo9_p2",
+      "size": "t",
+      "group": "g1",
+      "input_size": 640,
+      "public_coco_checkpoint": false
+    },
+    {
+      "id": "yolov9p2-s",
+      "family": "yolo9_p2",
+      "size": "s",
+      "group": "g1",
+      "input_size": 640,
+      "public_coco_checkpoint": false
+    },
+    {
+      "id": "ec-s",
+      "family": "ec",
+      "size": "s",
+      "group": "g1",
+      "input_size": 640,
+      "public_coco_checkpoint": true
+    },
+    {
+      "id": "ec-m",
+      "family": "ec",
+      "size": "m",
+      "group": "g1",
+      "input_size": 640,
+      "public_coco_checkpoint": true
+    },
+    {
+      "id": "ec-l",
+      "family": "ec",
+      "size": "l",
+      "group": "g1",
+      "input_size": 640,
+      "public_coco_checkpoint": true
+    },
+    {
+      "id": "ec-x",
+      "family": "ec",
+      "size": "x",
+      "group": "g1",
+      "input_size": 640,
+      "public_coco_checkpoint": true
+    },
+    {
+      "id": "rtdetr-r18",
+      "family": "rtdetr",
+      "size": "r18",
+      "group": "g1",
+      "input_size": 640,
+      "public_coco_checkpoint": true
+    },
+    {
+      "id": "rtdetr-r34",
+      "family": "rtdetr",
+      "size": "r34",
+      "group": "g1",
+      "input_size": 640,
+      "public_coco_checkpoint": true
+    },
+    {
+      "id": "rtdetr-r50",
+      "family": "rtdetr",
+      "size": "r50",
+      "group": "g1",
+      "input_size": 640,
+      "public_coco_checkpoint": true
+    },
+    {
+      "id": "rtdetr-r50m",
+      "family": "rtdetr",
+      "size": "r50m",
+      "group": "g1",
+      "input_size": 640,
+      "public_coco_checkpoint": true
+    },
+    {
+      "id": "rtdetr-r101",
+      "family": "rtdetr",
+      "size": "r101",
+      "group": "g1",
+      "input_size": 640,
+      "public_coco_checkpoint": true
+    },
+    {
+      "id": "rtdetr-l",
+      "family": "rtdetr",
+      "size": "l",
+      "group": "g1",
+      "input_size": 640,
+      "public_coco_checkpoint": true
+    },
+    {
+      "id": "rtdetr-x",
+      "family": "rtdetr",
+      "size": "x",
+      "group": "g1",
+      "input_size": 640,
+      "public_coco_checkpoint": true
+    },
+    {
+      "id": "rtdetrv2-r18",
+      "family": "rtdetrv2",
+      "size": "r18",
+      "group": "g1",
+      "input_size": 640,
+      "public_coco_checkpoint": true
+    },
+    {
+      "id": "rtdetrv2-r34",
+      "family": "rtdetrv2",
+      "size": "r34",
+      "group": "g1",
+      "input_size": 640,
+      "public_coco_checkpoint": true
+    },
+    {
+      "id": "rtdetrv2-r50",
+      "family": "rtdetrv2",
+      "size": "r50",
+      "group": "g1",
+      "input_size": 640,
+      "public_coco_checkpoint": true
+    },
+    {
+      "id": "rtdetrv2-r50m",
+      "family": "rtdetrv2",
+      "size": "r50m",
+      "group": "g1",
+      "input_size": 640,
+      "public_coco_checkpoint": true
+    },
+    {
+      "id": "rtdetrv2-r101",
+      "family": "rtdetrv2",
+      "size": "r101",
+      "group": "g1",
+      "input_size": 640,
+      "public_coco_checkpoint": true
+    },
+    {
+      "id": "rtdetrv4-s",
+      "family": "rtdetrv4",
+      "size": "s",
+      "group": "g1",
+      "input_size": 640,
+      "public_coco_checkpoint": true
+    },
+    {
+      "id": "rtdetrv4-m",
+      "family": "rtdetrv4",
+      "size": "m",
+      "group": "g1",
+      "input_size": 640,
+      "public_coco_checkpoint": true
+    },
+    {
+      "id": "rtdetrv4-l",
+      "family": "rtdetrv4",
+      "size": "l",
+      "group": "g1",
+      "input_size": 640,
+      "public_coco_checkpoint": true
+    },
+    {
+      "id": "rtdetrv4-x",
+      "family": "rtdetrv4",
+      "size": "x",
+      "group": "g1",
+      "input_size": 640,
+      "public_coco_checkpoint": true
+    },
+    {
+      "id": "dfine-n",
+      "family": "dfine",
+      "size": "n",
+      "group": "g1",
+      "input_size": 640,
+      "public_coco_checkpoint": true
+    },
+    {
+      "id": "dfine-s",
+      "family": "dfine",
+      "size": "s",
+      "group": "g1",
+      "input_size": 640,
+      "public_coco_checkpoint": true
+    },
+    {
+      "id": "dfine-m",
+      "family": "dfine",
+      "size": "m",
+      "group": "g1",
+      "input_size": 640,
+      "public_coco_checkpoint": true
+    },
+    {
+      "id": "dfine-l",
+      "family": "dfine",
+      "size": "l",
+      "group": "g1",
+      "input_size": 640,
+      "public_coco_checkpoint": true
+    },
+    {
+      "id": "dfine-x",
+      "family": "dfine",
+      "size": "x",
+      "group": "g1",
+      "input_size": 640,
+      "public_coco_checkpoint": true
+    },
+    {
+      "id": "deim-n",
+      "family": "deim",
+      "size": "n",
+      "group": "g1",
+      "input_size": 640,
+      "public_coco_checkpoint": true
+    },
+    {
+      "id": "deim-s",
+      "family": "deim",
+      "size": "s",
+      "group": "g1",
+      "input_size": 640,
+      "public_coco_checkpoint": true
+    },
+    {
+      "id": "deim-m",
+      "family": "deim",
+      "size": "m",
+      "group": "g1",
+      "input_size": 640,
+      "public_coco_checkpoint": true
+    },
+    {
+      "id": "deim-l",
+      "family": "deim",
+      "size": "l",
+      "group": "g1",
+      "input_size": 640,
+      "public_coco_checkpoint": true
+    },
+    {
+      "id": "deim-x",
+      "family": "deim",
+      "size": "x",
+      "group": "g1",
+      "input_size": 640,
+      "public_coco_checkpoint": true
+    },
+    {
+      "id": "deimv2-atto",
+      "family": "deimv2",
+      "size": "atto",
+      "group": "g1",
+      "input_size": 320,
+      "public_coco_checkpoint": true
+    },
+    {
+      "id": "deimv2-femto",
+      "family": "deimv2",
+      "size": "femto",
+      "group": "g1",
+      "input_size": 416,
+      "public_coco_checkpoint": true
+    },
+    {
+      "id": "deimv2-pico",
+      "family": "deimv2",
+      "size": "pico",
+      "group": "g1",
+      "input_size": 640,
+      "public_coco_checkpoint": true
+    },
+    {
+      "id": "deimv2-n",
+      "family": "deimv2",
+      "size": "n",
+      "group": "g1",
+      "input_size": 640,
+      "public_coco_checkpoint": true
+    },
+    {
+      "id": "deimv2-s",
+      "family": "deimv2",
+      "size": "s",
+      "group": "g1",
+      "input_size": 640,
+      "public_coco_checkpoint": true
+    },
+    {
+      "id": "deimv2-m",
+      "family": "deimv2",
+      "size": "m",
+      "group": "g1",
+      "input_size": 640,
+      "public_coco_checkpoint": true
+    },
+    {
+      "id": "deimv2-l",
+      "family": "deimv2",
+      "size": "l",
+      "group": "g1",
+      "input_size": 640,
+      "public_coco_checkpoint": true
+    },
+    {
+      "id": "deimv2-x",
+      "family": "deimv2",
+      "size": "x",
+      "group": "g1",
+      "input_size": 640,
+      "public_coco_checkpoint": true
+    },
+    {
+      "id": "tinyformer-s",
+      "family": "tinyformer",
+      "size": "s",
+      "group": "g1",
+      "input_size": 640,
+      "public_coco_checkpoint": true
+    },
+    {
+      "id": "tinyformer-m",
+      "family": "tinyformer",
+      "size": "m",
+      "group": "g1",
+      "input_size": 640,
+      "public_coco_checkpoint": true
+    },
+    {
+      "id": "tinyformer-l",
+      "family": "tinyformer",
+      "size": "l",
+      "group": "g1",
+      "input_size": 640,
+      "public_coco_checkpoint": true
+    },
+    {
+      "id": "tinyformer-x",
+      "family": "tinyformer",
+      "size": "x",
+      "group": "g1",
+      "input_size": 640,
+      "public_coco_checkpoint": true
+    },
+    {
+      "id": "tinyformer-xl",
+      "family": "tinyformer",
+      "size": "xl",
+      "group": "g1",
+      "input_size": 640,
+      "public_coco_checkpoint": true
+    },
+    {
+      "id": "yolonas-s",
+      "family": "yolonas",
+      "size": "s",
+      "group": "g1",
+      "input_size": 640,
+      "public_coco_checkpoint": true
+    },
+    {
+      "id": "yolonas-m",
+      "family": "yolonas",
+      "size": "m",
+      "group": "g1",
+      "input_size": 640,
+      "public_coco_checkpoint": true
+    },
+    {
+      "id": "yolonas-l",
+      "family": "yolonas",
+      "size": "l",
+      "group": "g1",
+      "input_size": 640,
+      "public_coco_checkpoint": true
+    }
+  ]
+}

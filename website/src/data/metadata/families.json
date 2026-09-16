@@ -42,8 +42,7 @@
       "organization": "External baseline",
       "paper": {
         "title": "YOLOv8",
-        "authors": [
-        ],
+        "authors": [],
         "venue": "2023",
         "url": ""
       },
@@ -74,8 +73,7 @@
       "organization": "External baseline",
       "paper": {
         "title": "YOLO11",
-        "authors": [
-        ],
+        "authors": [],
         "venue": "2024",
         "url": ""
       },
@@ -256,6 +254,50 @@
         "url": "https://arxiv.org/abs/2603.18739"
       },
       "originalRepo": "https://github.com/Intellindust-AI-Lab/EdgeCrafter",
+      "trainingDataset": "COCO train2017"
+    },
+    {
+      "id": "yolov9-e2e",
+      "displayName": "YOLOv9-E2E",
+      "organization": "LibreYOLO contributors",
+      "paper": {
+        "title": "YOLOv9-E2E architecture variant",
+        "authors": [],
+        "venue": "2026",
+        "url": ""
+      },
+      "originalRepo": "https://github.com/LibreYOLO/libreyolo/tree/dev/libreyolo/models/yolo9_e2e",
+      "trainingDataset": "COCO train2017"
+    },
+    {
+      "id": "yolov9-p2",
+      "displayName": "YOLOv9-P2",
+      "organization": "LibreYOLO contributors",
+      "paper": {
+        "title": "YOLOv9-P2 architecture variant",
+        "authors": [],
+        "venue": "2026",
+        "url": ""
+      },
+      "originalRepo": "https://github.com/LibreYOLO/libreyolo/tree/dev/libreyolo/models/yolo9_p2",
+      "trainingDataset": "Checkpoint-dependent; no public COCO weights"
+    },
+    {
+      "id": "tinyformer",
+      "displayName": "TinyFormer",
+      "organization": "AICVlab, NYCU",
+      "paper": {
+        "title": "TinyFormer: Preserving Tiny Objects in YOLO-DETR Hybrid Real-time Detectors",
+        "authors": [
+          "Jun-Wei Hsieh",
+          "Meng-Yu Kao",
+          "Ghufron Wahyu Kurniawan",
+          "Kuan-Chuan Peng"
+        ],
+        "venue": "arXiv 2026",
+        "url": "https://arxiv.org/abs/2605.25046"
+      },
+      "originalRepo": "https://github.com/mmpmmpmmpjosh/TinyFormer",
       "trainingDataset": "COCO train2017"
     }
   ]
