@@ -1,0 +1,148 @@
+{
+  "schema_version": "va.submission.v1",
+  "submission_id": "tinyformer-l-pytorch-cuda-dgx_spark-20261001T223032Z",
+  "created_at": "2026-10-01T22:30:32.174129Z",
+  "benchmark": {
+    "harness": "vision-analysis-benchmark",
+    "harness_version": "2.1.0",
+    "libreyolo_version": "1.5.0.dev0",
+    "libreyolo_commit": "6a0ccc3a0e579948011d5a55200309c4082e61e7",
+    "libreyolo_dirty": false
+  },
+  "model": {
+    "id": "tinyformer-l",
+    "name": "tinyformer-l",
+    "family": "tinyformer",
+    "variant": "l",
+    "source": "libreyolo",
+    "weights": "LibreTinyFormerl.pt",
+    "input_size": 640
+  },
+  "dataset": {
+    "id": "coco2017",
+    "split": "val2017",
+    "num_images": 500
+  },
+  "config": {
+    "batch_size": 1,
+    "input_size": 640,
+    "conf": 0.001,
+    "iou": 0.6,
+    "max_det": 300
+  },
+  "hardware": {
+    "gpu": "NVIDIA GB10",
+    "gpu_memory_gb": null,
+    "driver_version": "580.173.02",
+    "cuda_version": "13.0",
+    "cpu": "NVIDIA GB10 Arm CPU",
+    "cpu_cores": 20,
+    "ram_gb": 121,
+    "memory_type": "unified",
+    "unified_memory_gb": 121,
+    "id": "dgx_spark"
+  },
+  "software": {
+    "python": "3.12.3",
+    "torch": "2.14.0+cu130",
+    "libreyolo": "1.5.0.dev0",
+    "libreyolo_commit": "6a0ccc3a0e579948011d5a55200309c4082e61e7",
+    "libreyolo_dirty": false,
+    "onnxruntime": "not-installed",
+    "onnx": "not-installed",
+    "tensorrt": "not-installed"
+  },
+  "accuracy": {
+    "mAP_50_95": 0.5927192342389942,
+    "mAP_50": 0.7612521478043935,
+    "mAP_75": 0.6409991863292648,
+    "mAP_small": 0.4316009305541812,
+    "mAP_medium": 0.6452191935752033,
+    "mAP_large": 0.7665578245463841,
+    "AR1": 0.439063676420544,
+    "AR10": 0.7175640209994516,
+    "AR100": 0.7633723699198652,
+    "AR_small": 0.6168802778910539,
+    "AR_medium": 0.7975012039151355,
+    "AR_large": 0.8765186125874134
+  },
+  "timing": {
+    "batch_size": 1,
+    "num_images": 500,
+    "total_ms": {
+      "mean": 31.501,
+      "std": 2.368,
+      "p50": 31.166,
+      "p95": 33.423,
+      "p99": 34.8,
+      "preprocess_ms": 4.43,
+      "inference_ms": 26.55,
+      "postprocess_ms": 0.521
+    }
+  },
+  "throughput": {
+    "fps_mean": 31.75,
+    "fps_p50": 32.09
+  },
+  "model_stats": {
+    "params_millions": 33.99,
+    "gflops": 0.0
+  },
+  "memory": {
+    "peak_vram_mb": 266.8,
+    "peak_ram_mb": 237.7
+  },
+  "metadata": {
+    "benchmark_date": "2026-10-01T22:30:32.174129Z",
+    "benchmark_version": "2.1.0"
+  },
+  "eval": {
+    "dataset": "coco",
+    "split": "val2017",
+    "numImages": 500
+  },
+  "implementation": {
+    "provider": "libreyolo",
+    "version": "1.5.0.dev0"
+  },
+  "runtime": {
+    "format": "pytorch",
+    "precision": "fp32",
+    "provider": "cuda",
+    "device": "gpu"
+  },
+  "repro": {
+    "harness_version": "2.1.0",
+    "dataset": {
+      "image_id_sha256": "b6c349dad846787f982b31d7c79be771032126d82525195d9714cd1195add544",
+      "hf_dataset": "LibreYOLO/coco-val2017-mini500",
+      "hf_revision": "6c5d8d10dab92cf6f2cd476e1d5509ab5786cb88"
+    },
+    "weights": {
+      "file": "LibreTinyFormerl.pt",
+      "sha256": "1335399aac84965c9a15edb75a90210f5ba98a0a256966ceb6076544c4d88b27",
+      "source": "libreyolo-managed"
+    },
+    "harness_commit": "25c39d6e275722b9c598ba43140f25bb13df777b",
+    "harness_dirty": false,
+    "argv": [
+      "run",
+      "--models",
+      "tinyformer-l",
+      "--coco-dir",
+      "/home/david/projects/libreyolo-lab/datasets/coco-mini500",
+      "--output-dir",
+      "/home/david/projects/libreyolo-lab/campaigns/g0-g1-20261001/accelerated/results/tinyformer-l",
+      "--device",
+      "cuda",
+      "--format",
+      "pytorch",
+      "--dataset-id",
+      "LibreYOLO/coco-val2017-mini500",
+      "--dataset-revision",
+      "6c5d8d10dab92cf6f2cd476e1d5509ab5786cb88",
+      "--debug"
+    ],
+    "command": "va-bench run --models tinyformer-l --coco-dir /home/david/projects/libreyolo-lab/datasets/coco-mini500 --output-dir /home/david/projects/libreyolo-lab/campaigns/g0-g1-20261001/accelerated/results/tinyformer-l --device cuda --format pytorch --dataset-id LibreYOLO/coco-val2017-mini500 --dataset-revision 6c5d8d10dab92cf6f2cd476e1d5509ab5786cb88 --debug"
+  }
+}

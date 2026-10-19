@@ -6,5 +6,397 @@
   "rfdetr-s__pytorch__cuda__dgx_spark__20260913T063401878193Z.json": {
     "source_pr": "https://github.com/LibreYOLO/vision-analysis/pull/14",
     "submitted_by": "DavidDiazMerino"
+  },
+  "deim-l__pytorch__cuda__dgx_spark__20261001T221709685816Z.json": {
+    "source_pr": "https://github.com/LibreYOLO/vision-analysis/pull/17",
+    "submitted_by": "DavidDiazMerino",
+    "author": {
+      "display_name": "David Díaz Merino"
+    }
+  },
+  "deim-m__pytorch__cuda__dgx_spark__20261001T221726547957Z.json": {
+    "source_pr": "https://github.com/LibreYOLO/vision-analysis/pull/17",
+    "submitted_by": "DavidDiazMerino",
+    "author": {
+      "display_name": "David Díaz Merino"
+    }
+  },
+  "deim-n__pytorch__cuda__dgx_spark__20261001T221740288589Z.json": {
+    "source_pr": "https://github.com/LibreYOLO/vision-analysis/pull/17",
+    "submitted_by": "DavidDiazMerino",
+    "author": {
+      "display_name": "David Díaz Merino"
+    }
+  },
+  "deim-s__pytorch__cuda__dgx_spark__20261001T221754134444Z.json": {
+    "source_pr": "https://github.com/LibreYOLO/vision-analysis/pull/17",
+    "submitted_by": "DavidDiazMerino",
+    "author": {
+      "display_name": "David Díaz Merino"
+    }
+  },
+  "deim-x__pytorch__cuda__dgx_spark__20261001T221820254185Z.json": {
+    "source_pr": "https://github.com/LibreYOLO/vision-analysis/pull/17",
+    "submitted_by": "DavidDiazMerino",
+    "author": {
+      "display_name": "David Díaz Merino"
+    }
+  },
+  "deimv2-atto__pytorch__cuda__dgx_spark__20261001T221831747425Z.json": {
+    "source_pr": "https://github.com/LibreYOLO/vision-analysis/pull/17",
+    "submitted_by": "DavidDiazMerino",
+    "author": {
+      "display_name": "David Díaz Merino"
+    }
+  },
+  "deimv2-femto__pytorch__cuda__dgx_spark__20261001T221844365312Z.json": {
+    "source_pr": "https://github.com/LibreYOLO/vision-analysis/pull/17",
+    "submitted_by": "DavidDiazMerino",
+    "author": {
+      "display_name": "David Díaz Merino"
+    }
+  },
+  "deimv2-l__pytorch__cuda__dgx_spark__20261001T221908106400Z.json": {
+    "source_pr": "https://github.com/LibreYOLO/vision-analysis/pull/17",
+    "submitted_by": "DavidDiazMerino",
+    "author": {
+      "display_name": "David Díaz Merino"
+    }
+  },
+  "deimv2-m__pytorch__cuda__dgx_spark__20261001T221929003167Z.json": {
+    "source_pr": "https://github.com/LibreYOLO/vision-analysis/pull/17",
+    "submitted_by": "DavidDiazMerino",
+    "author": {
+      "display_name": "David Díaz Merino"
+    }
+  },
+  "deimv2-n__pytorch__cuda__dgx_spark__20261001T221942440315Z.json": {
+    "source_pr": "https://github.com/LibreYOLO/vision-analysis/pull/17",
+    "submitted_by": "DavidDiazMerino",
+    "author": {
+      "display_name": "David Díaz Merino"
+    }
+  },
+  "deimv2-pico__pytorch__cuda__dgx_spark__20261001T221955538734Z.json": {
+    "source_pr": "https://github.com/LibreYOLO/vision-analysis/pull/17",
+    "submitted_by": "DavidDiazMerino",
+    "author": {
+      "display_name": "David Díaz Merino"
+    }
+  },
+  "deimv2-s__pytorch__cuda__dgx_spark__20261001T222012967627Z.json": {
+    "source_pr": "https://github.com/LibreYOLO/vision-analysis/pull/17",
+    "submitted_by": "DavidDiazMerino",
+    "author": {
+      "display_name": "David Díaz Merino"
+    }
+  },
+  "deimv2-x__pytorch__cuda__dgx_spark__20261001T222041214901Z.json": {
+    "source_pr": "https://github.com/LibreYOLO/vision-analysis/pull/17",
+    "submitted_by": "DavidDiazMerino",
+    "author": {
+      "display_name": "David Díaz Merino"
+    }
+  },
+  "dfine-l__pytorch__cuda__dgx_spark__20261001T222102306093Z.json": {
+    "source_pr": "https://github.com/LibreYOLO/vision-analysis/pull/17",
+    "submitted_by": "DavidDiazMerino",
+    "author": {
+      "display_name": "David Díaz Merino"
+    }
+  },
+  "dfine-m__pytorch__cuda__dgx_spark__20261001T222118852506Z.json": {
+    "source_pr": "https://github.com/LibreYOLO/vision-analysis/pull/17",
+    "submitted_by": "DavidDiazMerino",
+    "author": {
+      "display_name": "David Díaz Merino"
+    }
+  },
+  "dfine-n__pytorch__cuda__dgx_spark__20261001T222132117223Z.json": {
+    "source_pr": "https://github.com/LibreYOLO/vision-analysis/pull/17",
+    "submitted_by": "DavidDiazMerino",
+    "author": {
+      "display_name": "David Díaz Merino"
+    }
+  },
+  "dfine-s__pytorch__cuda__dgx_spark__20261001T222146816899Z.json": {
+    "source_pr": "https://github.com/LibreYOLO/vision-analysis/pull/17",
+    "submitted_by": "DavidDiazMerino",
+    "author": {
+      "display_name": "David Díaz Merino"
+    }
+  },
+  "dfine-x__pytorch__cuda__dgx_spark__20261001T222213151428Z.json": {
+    "source_pr": "https://github.com/LibreYOLO/vision-analysis/pull/17",
+    "submitted_by": "DavidDiazMerino",
+    "author": {
+      "display_name": "David Díaz Merino"
+    }
+  },
+  "ec-l__pytorch__cuda__dgx_spark__20261001T222236868446Z.json": {
+    "source_pr": "https://github.com/LibreYOLO/vision-analysis/pull/17",
+    "submitted_by": "DavidDiazMerino",
+    "author": {
+      "display_name": "David Díaz Merino"
+    }
+  },
+  "ec-m__pytorch__cuda__dgx_spark__20261001T222257492954Z.json": {
+    "source_pr": "https://github.com/LibreYOLO/vision-analysis/pull/17",
+    "submitted_by": "DavidDiazMerino",
+    "author": {
+      "display_name": "David Díaz Merino"
+    }
+  },
+  "ec-s__pytorch__cuda__dgx_spark__20261001T222315489139Z.json": {
+    "source_pr": "https://github.com/LibreYOLO/vision-analysis/pull/17",
+    "submitted_by": "DavidDiazMerino",
+    "author": {
+      "display_name": "David Díaz Merino"
+    }
+  },
+  "ec-x__pytorch__cuda__dgx_spark__20261001T222341128526Z.json": {
+    "source_pr": "https://github.com/LibreYOLO/vision-analysis/pull/17",
+    "submitted_by": "DavidDiazMerino",
+    "author": {
+      "display_name": "David Díaz Merino"
+    }
+  },
+  "rfdetr-l__pytorch__cuda__dgx_spark__20261001T222403545421Z.json": {
+    "source_pr": "https://github.com/LibreYOLO/vision-analysis/pull/17",
+    "submitted_by": "DavidDiazMerino",
+    "author": {
+      "display_name": "David Díaz Merino"
+    }
+  },
+  "rfdetr-m__pytorch__cuda__dgx_spark__20261001T222422457039Z.json": {
+    "source_pr": "https://github.com/LibreYOLO/vision-analysis/pull/17",
+    "submitted_by": "DavidDiazMerino",
+    "author": {
+      "display_name": "David Díaz Merino"
+    }
+  },
+  "rfdetr-n__pytorch__cuda__dgx_spark__20261001T222437771343Z.json": {
+    "source_pr": "https://github.com/LibreYOLO/vision-analysis/pull/17",
+    "submitted_by": "DavidDiazMerino",
+    "author": {
+      "display_name": "David Díaz Merino"
+    }
+  },
+  "rtdetr-l__pytorch__cuda__dgx_spark__20261001T222457391455Z.json": {
+    "source_pr": "https://github.com/LibreYOLO/vision-analysis/pull/17",
+    "submitted_by": "DavidDiazMerino",
+    "author": {
+      "display_name": "David Díaz Merino"
+    }
+  },
+  "rtdetr-r101__pytorch__cuda__dgx_spark__20261001T222526058383Z.json": {
+    "source_pr": "https://github.com/LibreYOLO/vision-analysis/pull/17",
+    "submitted_by": "DavidDiazMerino",
+    "author": {
+      "display_name": "David Díaz Merino"
+    }
+  },
+  "rtdetr-r18__pytorch__cuda__dgx_spark__20261001T222540572513Z.json": {
+    "source_pr": "https://github.com/LibreYOLO/vision-analysis/pull/17",
+    "submitted_by": "DavidDiazMerino",
+    "author": {
+      "display_name": "David Díaz Merino"
+    }
+  },
+  "rtdetr-r34__pytorch__cuda__dgx_spark__20261001T222556760369Z.json": {
+    "source_pr": "https://github.com/LibreYOLO/vision-analysis/pull/17",
+    "submitted_by": "DavidDiazMerino",
+    "author": {
+      "display_name": "David Díaz Merino"
+    }
+  },
+  "rtdetr-r50__pytorch__cuda__dgx_spark__20261001T222619627098Z.json": {
+    "source_pr": "https://github.com/LibreYOLO/vision-analysis/pull/17",
+    "submitted_by": "DavidDiazMerino",
+    "author": {
+      "display_name": "David Díaz Merino"
+    }
+  },
+  "rtdetr-r50m__pytorch__cuda__dgx_spark__20261001T222640978949Z.json": {
+    "source_pr": "https://github.com/LibreYOLO/vision-analysis/pull/17",
+    "submitted_by": "DavidDiazMerino",
+    "author": {
+      "display_name": "David Díaz Merino"
+    }
+  },
+  "rtdetr-x__pytorch__cuda__dgx_spark__20261001T222706612635Z.json": {
+    "source_pr": "https://github.com/LibreYOLO/vision-analysis/pull/17",
+    "submitted_by": "DavidDiazMerino",
+    "author": {
+      "display_name": "David Díaz Merino"
+    }
+  },
+  "rtdetrv2-r101__pytorch__cuda__dgx_spark__20261001T222735287929Z.json": {
+    "source_pr": "https://github.com/LibreYOLO/vision-analysis/pull/17",
+    "submitted_by": "DavidDiazMerino",
+    "author": {
+      "display_name": "David Díaz Merino"
+    }
+  },
+  "rtdetrv2-r18__pytorch__cuda__dgx_spark__20261001T222749530808Z.json": {
+    "source_pr": "https://github.com/LibreYOLO/vision-analysis/pull/17",
+    "submitted_by": "DavidDiazMerino",
+    "author": {
+      "display_name": "David Díaz Merino"
+    }
+  },
+  "rtdetrv2-r34__pytorch__cuda__dgx_spark__20261001T222805645355Z.json": {
+    "source_pr": "https://github.com/LibreYOLO/vision-analysis/pull/17",
+    "submitted_by": "DavidDiazMerino",
+    "author": {
+      "display_name": "David Díaz Merino"
+    }
+  },
+  "rtdetrv2-r50__pytorch__cuda__dgx_spark__20261001T222828667394Z.json": {
+    "source_pr": "https://github.com/LibreYOLO/vision-analysis/pull/17",
+    "submitted_by": "DavidDiazMerino",
+    "author": {
+      "display_name": "David Díaz Merino"
+    }
+  },
+  "rtdetrv2-r50m__pytorch__cuda__dgx_spark__20261001T222849623405Z.json": {
+    "source_pr": "https://github.com/LibreYOLO/vision-analysis/pull/17",
+    "submitted_by": "DavidDiazMerino",
+    "author": {
+      "display_name": "David Díaz Merino"
+    }
+  },
+  "rtdetrv4-l__pytorch__cuda__dgx_spark__20261001T222910434436Z.json": {
+    "source_pr": "https://github.com/LibreYOLO/vision-analysis/pull/17",
+    "submitted_by": "DavidDiazMerino",
+    "author": {
+      "display_name": "David Díaz Merino"
+    }
+  },
+  "rtdetrv4-m__pytorch__cuda__dgx_spark__20261001T222927522347Z.json": {
+    "source_pr": "https://github.com/LibreYOLO/vision-analysis/pull/17",
+    "submitted_by": "DavidDiazMerino",
+    "author": {
+      "display_name": "David Díaz Merino"
+    }
+  },
+  "rtdetrv4-s__pytorch__cuda__dgx_spark__20261001T222941424119Z.json": {
+    "source_pr": "https://github.com/LibreYOLO/vision-analysis/pull/17",
+    "submitted_by": "DavidDiazMerino",
+    "author": {
+      "display_name": "David Díaz Merino"
+    }
+  },
+  "rtdetrv4-x__pytorch__cuda__dgx_spark__20261001T223007479723Z.json": {
+    "source_pr": "https://github.com/LibreYOLO/vision-analysis/pull/17",
+    "submitted_by": "DavidDiazMerino",
+    "author": {
+      "display_name": "David Díaz Merino"
+    }
+  },
+  "tinyformer-l__pytorch__cuda__dgx_spark__20261001T223032174129Z.json": {
+    "source_pr": "https://github.com/LibreYOLO/vision-analysis/pull/17",
+    "submitted_by": "DavidDiazMerino",
+    "author": {
+      "display_name": "David Díaz Merino"
+    }
+  },
+  "tinyformer-m__pytorch__cuda__dgx_spark__20261001T223054070846Z.json": {
+    "source_pr": "https://github.com/LibreYOLO/vision-analysis/pull/17",
+    "submitted_by": "DavidDiazMerino",
+    "author": {
+      "display_name": "David Díaz Merino"
+    }
+  },
+  "tinyformer-s__pytorch__cuda__dgx_spark__20261001T223113062461Z.json": {
+    "source_pr": "https://github.com/LibreYOLO/vision-analysis/pull/17",
+    "submitted_by": "DavidDiazMerino",
+    "author": {
+      "display_name": "David Díaz Merino"
+    }
+  },
+  "tinyformer-x__pytorch__cuda__dgx_spark__20261001T223142164639Z.json": {
+    "source_pr": "https://github.com/LibreYOLO/vision-analysis/pull/17",
+    "submitted_by": "DavidDiazMerino",
+    "author": {
+      "display_name": "David Díaz Merino"
+    }
+  },
+  "tinyformer-xl__pytorch__cuda__dgx_spark__20261001T223227223407Z.json": {
+    "source_pr": "https://github.com/LibreYOLO/vision-analysis/pull/17",
+    "submitted_by": "DavidDiazMerino",
+    "author": {
+      "display_name": "David Díaz Merino"
+    }
+  },
+  "yolonas-l__pytorch__cuda__dgx_spark__20261001T223246725778Z.json": {
+    "source_pr": "https://github.com/LibreYOLO/vision-analysis/pull/17",
+    "submitted_by": "DavidDiazMerino",
+    "author": {
+      "display_name": "David Díaz Merino"
+    }
+  },
+  "yolonas-m__pytorch__cuda__dgx_spark__20261001T223303145866Z.json": {
+    "source_pr": "https://github.com/LibreYOLO/vision-analysis/pull/17",
+    "submitted_by": "DavidDiazMerino",
+    "author": {
+      "display_name": "David Díaz Merino"
+    }
+  },
+  "yolonas-s__pytorch__cuda__dgx_spark__20261001T223317123445Z.json": {
+    "source_pr": "https://github.com/LibreYOLO/vision-analysis/pull/17",
+    "submitted_by": "DavidDiazMerino",
+    "author": {
+      "display_name": "David Díaz Merino"
+    }
+  },
+  "yolov9c__pytorch__cuda__dgx_spark__20261001T223332797456Z.json": {
+    "source_pr": "https://github.com/LibreYOLO/vision-analysis/pull/17",
+    "submitted_by": "DavidDiazMerino",
+    "author": {
+      "display_name": "David Díaz Merino"
+    }
+  },
+  "yolov9e2e-c__pytorch__cuda__dgx_spark__20261001T223348231597Z.json": {
+    "source_pr": "https://github.com/LibreYOLO/vision-analysis/pull/17",
+    "submitted_by": "DavidDiazMerino",
+    "author": {
+      "display_name": "David Díaz Merino"
+    }
+  },
+  "yolov9e2e-m__pytorch__cuda__dgx_spark__20261001T223402181647Z.json": {
+    "source_pr": "https://github.com/LibreYOLO/vision-analysis/pull/17",
+    "submitted_by": "DavidDiazMerino",
+    "author": {
+      "display_name": "David Díaz Merino"
+    }
+  },
+  "yolov9e2e-s__pytorch__cuda__dgx_spark__20261001T223414626359Z.json": {
+    "source_pr": "https://github.com/LibreYOLO/vision-analysis/pull/17",
+    "submitted_by": "DavidDiazMerino",
+    "author": {
+      "display_name": "David Díaz Merino"
+    }
+  },
+  "yolov9e2e-t__pytorch__cuda__dgx_spark__20261001T223427023231Z.json": {
+    "source_pr": "https://github.com/LibreYOLO/vision-analysis/pull/17",
+    "submitted_by": "DavidDiazMerino",
+    "author": {
+      "display_name": "David Díaz Merino"
+    }
+  },
+  "yolov9m__pytorch__cuda__dgx_spark__20261001T223441229536Z.json": {
+    "source_pr": "https://github.com/LibreYOLO/vision-analysis/pull/17",
+    "submitted_by": "DavidDiazMerino",
+    "author": {
+      "display_name": "David Díaz Merino"
+    }
+  },
+  "yolov9s__pytorch__cuda__dgx_spark__20261001T223452286713Z.json": {
+    "source_pr": "https://github.com/LibreYOLO/vision-analysis/pull/17",
+    "submitted_by": "DavidDiazMerino",
+    "author": {
+      "display_name": "David Díaz Merino"
+    }
   }
 }

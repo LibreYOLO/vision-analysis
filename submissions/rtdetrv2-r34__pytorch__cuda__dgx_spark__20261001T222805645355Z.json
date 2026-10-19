@@ -1,0 +1,148 @@
+{
+  "schema_version": "va.submission.v1",
+  "submission_id": "rtdetrv2-r34-pytorch-cuda-dgx_spark-20261001T222805Z",
+  "created_at": "2026-10-01T22:28:05.645355Z",
+  "benchmark": {
+    "harness": "vision-analysis-benchmark",
+    "harness_version": "2.1.0",
+    "libreyolo_version": "1.5.0.dev0",
+    "libreyolo_commit": "6a0ccc3a0e579948011d5a55200309c4082e61e7",
+    "libreyolo_dirty": false
+  },
+  "model": {
+    "id": "rtdetrv2-r34",
+    "name": "rt-detrv2-r34",
+    "family": "rtdetrv2",
+    "variant": "r34",
+    "source": "libreyolo",
+    "weights": "LibreRTDETRv2r34.pt",
+    "input_size": 640
+  },
+  "dataset": {
+    "id": "coco2017",
+    "split": "val2017",
+    "num_images": 500
+  },
+  "config": {
+    "batch_size": 1,
+    "input_size": 640,
+    "conf": 0.001,
+    "iou": 0.6,
+    "max_det": 300
+  },
+  "hardware": {
+    "gpu": "NVIDIA GB10",
+    "gpu_memory_gb": null,
+    "driver_version": "580.173.02",
+    "cuda_version": "13.0",
+    "cpu": "NVIDIA GB10 Arm CPU",
+    "cpu_cores": 20,
+    "ram_gb": 121,
+    "memory_type": "unified",
+    "unified_memory_gb": 121,
+    "id": "dgx_spark"
+  },
+  "software": {
+    "python": "3.12.3",
+    "torch": "2.14.0+cu130",
+    "libreyolo": "1.5.0.dev0",
+    "libreyolo_commit": "6a0ccc3a0e579948011d5a55200309c4082e61e7",
+    "libreyolo_dirty": false,
+    "onnxruntime": "not-installed",
+    "onnx": "not-installed",
+    "tensorrt": "not-installed"
+  },
+  "accuracy": {
+    "mAP_50_95": 0.5317356090025803,
+    "mAP_50": 0.7019791551380333,
+    "mAP_75": 0.5779046474560313,
+    "mAP_small": 0.3554752530359822,
+    "mAP_medium": 0.576286813353413,
+    "mAP_large": 0.6737234749787102,
+    "AR1": 0.4058302377458696,
+    "AR10": 0.6646654744359977,
+    "AR100": 0.7202879547280697,
+    "AR_small": 0.5655999721285434,
+    "AR_medium": 0.7545371295076935,
+    "AR_large": 0.8552733964200205
+  },
+  "timing": {
+    "batch_size": 1,
+    "num_images": 500,
+    "total_ms": {
+      "mean": 15.057,
+      "std": 4.191,
+      "p50": 14.591,
+      "p95": 15.541,
+      "p99": 16.78,
+      "preprocess_ms": 1.094,
+      "inference_ms": 13.556,
+      "postprocess_ms": 0.406
+    }
+  },
+  "throughput": {
+    "fps_mean": 66.41,
+    "fps_p50": 68.54
+  },
+  "model_stats": {
+    "params_millions": 31.44,
+    "gflops": 0.0
+  },
+  "memory": {
+    "peak_vram_mb": 234.8,
+    "peak_ram_mb": 147.6
+  },
+  "metadata": {
+    "benchmark_date": "2026-10-01T22:28:05.645355Z",
+    "benchmark_version": "2.1.0"
+  },
+  "eval": {
+    "dataset": "coco",
+    "split": "val2017",
+    "numImages": 500
+  },
+  "implementation": {
+    "provider": "libreyolo",
+    "version": "1.5.0.dev0"
+  },
+  "runtime": {
+    "format": "pytorch",
+    "precision": "fp32",
+    "provider": "cuda",
+    "device": "gpu"
+  },
+  "repro": {
+    "harness_version": "2.1.0",
+    "dataset": {
+      "image_id_sha256": "b6c349dad846787f982b31d7c79be771032126d82525195d9714cd1195add544",
+      "hf_dataset": "LibreYOLO/coco-val2017-mini500",
+      "hf_revision": "6c5d8d10dab92cf6f2cd476e1d5509ab5786cb88"
+    },
+    "weights": {
+      "file": "LibreRTDETRv2r34.pt",
+      "sha256": "ada864a6f9e6e4cc439cab9c46f12bfaade0bea1a3da7bf81fbadc49b4e6c3d2",
+      "source": "libreyolo-managed"
+    },
+    "harness_commit": "25c39d6e275722b9c598ba43140f25bb13df777b",
+    "harness_dirty": false,
+    "argv": [
+      "run",
+      "--models",
+      "rtdetrv2-r34",
+      "--coco-dir",
+      "/home/david/projects/libreyolo-lab/datasets/coco-mini500",
+      "--output-dir",
+      "/home/david/projects/libreyolo-lab/campaigns/g0-g1-20261001/accelerated/results/rtdetrv2-r34",
+      "--device",
+      "cuda",
+      "--format",
+      "pytorch",
+      "--dataset-id",
+      "LibreYOLO/coco-val2017-mini500",
+      "--dataset-revision",
+      "6c5d8d10dab92cf6f2cd476e1d5509ab5786cb88",
+      "--debug"
+    ],
+    "command": "va-bench run --models rtdetrv2-r34 --coco-dir /home/david/projects/libreyolo-lab/datasets/coco-mini500 --output-dir /home/david/projects/libreyolo-lab/campaigns/g0-g1-20261001/accelerated/results/rtdetrv2-r34 --device cuda --format pytorch --dataset-id LibreYOLO/coco-val2017-mini500 --dataset-revision 6c5d8d10dab92cf6f2cd476e1d5509ab5786cb88 --debug"
+  }
+}

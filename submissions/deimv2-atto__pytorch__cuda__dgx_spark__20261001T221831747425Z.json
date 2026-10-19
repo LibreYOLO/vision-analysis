@@ -1,0 +1,148 @@
+{
+  "schema_version": "va.submission.v1",
+  "submission_id": "deimv2-atto-pytorch-cuda-dgx_spark-20261001T221831Z",
+  "created_at": "2026-10-01T22:18:31.747425Z",
+  "benchmark": {
+    "harness": "vision-analysis-benchmark",
+    "harness_version": "2.1.0",
+    "libreyolo_version": "1.5.0.dev0",
+    "libreyolo_commit": "6a0ccc3a0e579948011d5a55200309c4082e61e7",
+    "libreyolo_dirty": false
+  },
+  "model": {
+    "id": "deimv2-atto",
+    "name": "deimv2-atto",
+    "family": "deimv2",
+    "variant": "atto",
+    "source": "libreyolo",
+    "weights": "LibreDEIMv2atto.pt",
+    "input_size": 320
+  },
+  "dataset": {
+    "id": "coco2017",
+    "split": "val2017",
+    "num_images": 500
+  },
+  "config": {
+    "batch_size": 1,
+    "input_size": 320,
+    "conf": 0.001,
+    "iou": 0.6,
+    "max_det": 300
+  },
+  "hardware": {
+    "gpu": "NVIDIA GB10",
+    "gpu_memory_gb": null,
+    "driver_version": "580.173.02",
+    "cuda_version": "13.0",
+    "cpu": "NVIDIA GB10 Arm CPU",
+    "cpu_cores": 20,
+    "ram_gb": 121,
+    "memory_type": "unified",
+    "unified_memory_gb": 121,
+    "id": "dgx_spark"
+  },
+  "software": {
+    "python": "3.12.3",
+    "torch": "2.14.0+cu130",
+    "libreyolo": "1.5.0.dev0",
+    "libreyolo_commit": "6a0ccc3a0e579948011d5a55200309c4082e61e7",
+    "libreyolo_dirty": false,
+    "onnxruntime": "not-installed",
+    "onnx": "not-installed",
+    "tensorrt": "not-installed"
+  },
+  "accuracy": {
+    "mAP_50_95": 0.27454895796322215,
+    "mAP_50": 0.4027947478957384,
+    "mAP_75": 0.29337688075784535,
+    "mAP_small": 0.08053671554724878,
+    "mAP_medium": 0.3039517299909497,
+    "mAP_large": 0.42792196055295956,
+    "AR1": 0.2589513830553529,
+    "AR10": 0.4350679494079112,
+    "AR100": 0.46842528588958143,
+    "AR_small": 0.1338205949501869,
+    "AR_medium": 0.5406036625453783,
+    "AR_large": 0.7062671816263996
+  },
+  "timing": {
+    "batch_size": 1,
+    "num_images": 500,
+    "total_ms": {
+      "mean": 6.815,
+      "std": 4.349,
+      "p50": 6.538,
+      "p95": 7.07,
+      "p99": 7.503,
+      "preprocess_ms": 1.262,
+      "inference_ms": 5.182,
+      "postprocess_ms": 0.372
+    }
+  },
+  "throughput": {
+    "fps_mean": 146.74,
+    "fps_p50": 152.95
+  },
+  "model_stats": {
+    "params_millions": 0.51,
+    "gflops": 0.0
+  },
+  "memory": {
+    "peak_vram_mb": 45.5,
+    "peak_ram_mb": 220.1
+  },
+  "metadata": {
+    "benchmark_date": "2026-10-01T22:18:31.747425Z",
+    "benchmark_version": "2.1.0"
+  },
+  "eval": {
+    "dataset": "coco",
+    "split": "val2017",
+    "numImages": 500
+  },
+  "implementation": {
+    "provider": "libreyolo",
+    "version": "1.5.0.dev0"
+  },
+  "runtime": {
+    "format": "pytorch",
+    "precision": "fp32",
+    "provider": "cuda",
+    "device": "gpu"
+  },
+  "repro": {
+    "harness_version": "2.1.0",
+    "dataset": {
+      "image_id_sha256": "b6c349dad846787f982b31d7c79be771032126d82525195d9714cd1195add544",
+      "hf_dataset": "LibreYOLO/coco-val2017-mini500",
+      "hf_revision": "6c5d8d10dab92cf6f2cd476e1d5509ab5786cb88"
+    },
+    "weights": {
+      "file": "LibreDEIMv2atto.pt",
+      "sha256": "56dffe6ce1c1ceffda98b4b736917746b38aecf7b9992f895ed6a92e2c0122de",
+      "source": "libreyolo-managed"
+    },
+    "harness_commit": "25c39d6e275722b9c598ba43140f25bb13df777b",
+    "harness_dirty": false,
+    "argv": [
+      "run",
+      "--models",
+      "deimv2-atto",
+      "--coco-dir",
+      "/home/david/projects/libreyolo-lab/datasets/coco-mini500",
+      "--output-dir",
+      "/home/david/projects/libreyolo-lab/campaigns/g0-g1-20261001/accelerated/results/deimv2-atto",
+      "--device",
+      "cuda",
+      "--format",
+      "pytorch",
+      "--dataset-id",
+      "LibreYOLO/coco-val2017-mini500",
+      "--dataset-revision",
+      "6c5d8d10dab92cf6f2cd476e1d5509ab5786cb88",
+      "--debug"
+    ],
+    "command": "va-bench run --models deimv2-atto --coco-dir /home/david/projects/libreyolo-lab/datasets/coco-mini500 --output-dir /home/david/projects/libreyolo-lab/campaigns/g0-g1-20261001/accelerated/results/deimv2-atto --device cuda --format pytorch --dataset-id LibreYOLO/coco-val2017-mini500 --dataset-revision 6c5d8d10dab92cf6f2cd476e1d5509ab5786cb88 --debug"
+  }
+}

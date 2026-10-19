@@ -1,0 +1,148 @@
+{
+  "schema_version": "va.submission.v1",
+  "submission_id": "yolonas-l-pytorch-cuda-dgx_spark-20261001T223246Z",
+  "created_at": "2026-10-01T22:32:46.725778Z",
+  "benchmark": {
+    "harness": "vision-analysis-benchmark",
+    "harness_version": "2.1.0",
+    "libreyolo_version": "1.5.0.dev0",
+    "libreyolo_commit": "6a0ccc3a0e579948011d5a55200309c4082e61e7",
+    "libreyolo_dirty": false
+  },
+  "model": {
+    "id": "yolonas-l",
+    "name": "yolo-nas-l",
+    "family": "yolonas",
+    "variant": "l",
+    "source": "libreyolo",
+    "weights": "LibreYOLONASl.pt",
+    "input_size": 640
+  },
+  "dataset": {
+    "id": "coco2017",
+    "split": "val2017",
+    "num_images": 500
+  },
+  "config": {
+    "batch_size": 1,
+    "input_size": 640,
+    "conf": 0.001,
+    "iou": 0.6,
+    "max_det": 300
+  },
+  "hardware": {
+    "gpu": "NVIDIA GB10",
+    "gpu_memory_gb": null,
+    "driver_version": "580.173.02",
+    "cuda_version": "13.0",
+    "cpu": "NVIDIA GB10 Arm CPU",
+    "cpu_cores": 20,
+    "ram_gb": 121,
+    "memory_type": "unified",
+    "unified_memory_gb": 121,
+    "id": "dgx_spark"
+  },
+  "software": {
+    "python": "3.12.3",
+    "torch": "2.14.0+cu130",
+    "libreyolo": "1.5.0.dev0",
+    "libreyolo_commit": "6a0ccc3a0e579948011d5a55200309c4082e61e7",
+    "libreyolo_dirty": false,
+    "onnxruntime": "not-installed",
+    "onnx": "not-installed",
+    "tensorrt": "not-installed"
+  },
+  "accuracy": {
+    "mAP_50_95": 0.563315232113966,
+    "mAP_50": 0.732769145247654,
+    "mAP_75": 0.619809102677574,
+    "mAP_small": 0.3614748934268132,
+    "mAP_medium": 0.6307056000573178,
+    "mAP_large": 0.6962343046965018,
+    "AR1": 0.41841650145639325,
+    "AR10": 0.6600805600757764,
+    "AR100": 0.6917007618038212,
+    "AR_small": 0.4751477453896015,
+    "AR_medium": 0.7430196221552394,
+    "AR_large": 0.8314183101931204
+  },
+  "timing": {
+    "batch_size": 1,
+    "num_images": 500,
+    "total_ms": {
+      "mean": 22.336,
+      "std": 3.617,
+      "p50": 22.115,
+      "p95": 23.141,
+      "p99": 24.391,
+      "preprocess_ms": 2.252,
+      "inference_ms": 19.127,
+      "postprocess_ms": 0.957
+    }
+  },
+  "throughput": {
+    "fps_mean": 44.77,
+    "fps_p50": 45.22
+  },
+  "model_stats": {
+    "params_millions": 66.98,
+    "gflops": 0.0
+  },
+  "memory": {
+    "peak_vram_mb": 467.8,
+    "peak_ram_mb": 0.0
+  },
+  "metadata": {
+    "benchmark_date": "2026-10-01T22:32:46.725778Z",
+    "benchmark_version": "2.1.0"
+  },
+  "eval": {
+    "dataset": "coco",
+    "split": "val2017",
+    "numImages": 500
+  },
+  "implementation": {
+    "provider": "libreyolo",
+    "version": "1.5.0.dev0"
+  },
+  "runtime": {
+    "format": "pytorch",
+    "precision": "fp32",
+    "provider": "cuda",
+    "device": "gpu"
+  },
+  "repro": {
+    "harness_version": "2.1.0",
+    "dataset": {
+      "image_id_sha256": "b6c349dad846787f982b31d7c79be771032126d82525195d9714cd1195add544",
+      "hf_dataset": "LibreYOLO/coco-val2017-mini500",
+      "hf_revision": "6c5d8d10dab92cf6f2cd476e1d5509ab5786cb88"
+    },
+    "weights": {
+      "file": "LibreYOLONASl.pt",
+      "sha256": "4425154d1629568ddbf687eaef07aad9c7e62f399700dee2ea91b99d7d0b9ec4",
+      "source": "libreyolo-managed"
+    },
+    "harness_commit": "25c39d6e275722b9c598ba43140f25bb13df777b",
+    "harness_dirty": false,
+    "argv": [
+      "run",
+      "--models",
+      "yolonas-l",
+      "--coco-dir",
+      "/home/david/projects/libreyolo-lab/datasets/coco-mini500",
+      "--output-dir",
+      "/home/david/projects/libreyolo-lab/campaigns/g0-g1-20261001/accelerated/results/yolonas-l",
+      "--device",
+      "cuda",
+      "--format",
+      "pytorch",
+      "--dataset-id",
+      "LibreYOLO/coco-val2017-mini500",
+      "--dataset-revision",
+      "6c5d8d10dab92cf6f2cd476e1d5509ab5786cb88",
+      "--debug"
+    ],
+    "command": "va-bench run --models yolonas-l --coco-dir /home/david/projects/libreyolo-lab/datasets/coco-mini500 --output-dir /home/david/projects/libreyolo-lab/campaigns/g0-g1-20261001/accelerated/results/yolonas-l --device cuda --format pytorch --dataset-id LibreYOLO/coco-val2017-mini500 --dataset-revision 6c5d8d10dab92cf6f2cd476e1d5509ab5786cb88 --debug"
+  }
+}
