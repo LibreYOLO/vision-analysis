@@ -30,7 +30,7 @@ const PERMISSIVE = new Set(["Apache-2.0", "MIT", "BSD-3-Clause"]);
 
 // ---------------------------------------------------------------- formatting
 
-const fmtMap = (v: number) => (v * 100).toFixed(1);
+const fmtMap = (v: number) => v.toFixed(1); // transform.ts already stores mAP in percent
 const fmtFps = (v: number) => v.toFixed(1);
 const fmtMs = (v: number) => v.toFixed(2);
 
@@ -68,7 +68,7 @@ function renderInline(text: string): React.ReactNode[] {
             key={key++}
             href={href}
             className="text-brand hover:underline"
-            rel="noopener noreferrer"
+            rel="noopener"
             target="_blank"
           >
             {m[1]}
@@ -191,7 +191,7 @@ function Kv({ block }: { block: KvBlock }) {
                 <a
                   href={item.href}
                   className="text-brand hover:underline"
-                  rel="noopener noreferrer"
+                  rel="noopener"
                   target="_blank"
                 >
                   {item.v}
@@ -374,6 +374,7 @@ function RankingTable({ block }: { block: RankingTableBlock }) {
           <th className={th}>mAP@50-95</th>
           <th className={th}>FPS</th>
           <th className={th}>ms/image</th>
+          <th className={th}>Input (px)</th>
           <th className={th}>Params (M)</th>
           <th className={th}>License</th>
         </tr>
@@ -392,6 +393,7 @@ function RankingTable({ block }: { block: RankingTableBlock }) {
               {fmtFps(r.throughputFps)}
             </td>
             <td className={td}>{fmtMs(r.totalMs)}</td>
+            <td className={td}>{r.inputSize ?? "-"}</td>
             <td className={td}>{r.paramsM ? r.paramsM.toFixed(1) : "-"}</td>
             <td className={td}>{getModelById(r.model)?.license ?? "?"}</td>
           </tr>
@@ -413,7 +415,7 @@ function SpeedupTable({ block }: { block: SpeedupTableBlock }) {
         baseFps: b.throughputFps,
         tgtFps: t.throughputFps,
         speedup: t.throughputFps / b.throughputFps,
-        mapDelta: (t.mAP_50_95 - b.mAP_50_95) * 100,
+        mapDelta: t.mAP_50_95 - b.mAP_50_95,
       };
     })
     .filter((r): r is NonNullable<typeof r> => r !== null)

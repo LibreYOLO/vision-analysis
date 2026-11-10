@@ -32,7 +32,7 @@ export default function AboutPage() {
           <div className="section-group-content prose max-w-none">
             <p className="text-base text-foreground leading-relaxed">
               Vision Analysis provides credible benchmarks for object detection models.
-              All benchmarks are run on the same <a href={benchmarkRepoUrl} className="text-brand hover:underline" target="_blank" rel="noopener noreferrer">vision-analysis-benchmark</a> harness; <a href={siteConfig.links.github} className="text-brand hover:underline" target="_blank" rel="noopener noreferrer">LibreYOLO</a> models run through LibreYOLO, and competitor models (e.g. YOLOv8, YOLO11) run through their own libraries for a like-for-like comparison.
+              All benchmarks are run on the same <a href={benchmarkRepoUrl} className="text-brand hover:underline" target="_blank" rel="noopener">vision-analysis-benchmark</a> harness; <a href={siteConfig.links.github} className="text-brand hover:underline" target="_blank" rel="noopener">LibreYOLO</a> models run through LibreYOLO, and competitor models (e.g. YOLOv8, YOLO11) run through their own libraries for a like-for-like comparison.
             </p>
           </div>
         </div>
@@ -45,13 +45,13 @@ export default function AboutPage() {
             <div className="space-y-3 text-base text-foreground leading-relaxed">
               <p>
                 Community contributors run the harness locally, produce a submission JSON, and open a pull request adding that file under{" "}
-                <a href={submissionsUrl} className="text-brand hover:underline" target="_blank" rel="noopener noreferrer">
+                <a href={submissionsUrl} className="text-brand hover:underline" target="_blank" rel="noopener">
                   <code>submissions/</code>
                 </a>.
               </p>
               <p>
                 CI validates each submission against the schema and the current{" "}
-                <a href={supportMatrixUrl} className="text-brand hover:underline" target="_blank" rel="noopener noreferrer">
+                <a href={supportMatrixUrl} className="text-brand hover:underline" target="_blank" rel="noopener">
                   support matrix
                 </a>
                 , then rebuilds the canonical benchmark dataset consumed by the website.
@@ -75,7 +75,7 @@ export default function AboutPage() {
                   href="https://huggingface.co/datasets/LibreYOLO/coco-val2017-mini500"
                   className="text-brand hover:underline"
                   target="_blank"
-                  rel="noopener noreferrer"
+                  rel="noopener"
                 >
                   coco-val2017-mini500
                 </a>

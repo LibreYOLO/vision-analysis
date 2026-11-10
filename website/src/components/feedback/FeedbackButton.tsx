@@ -99,7 +99,7 @@ export function FeedbackButton(props: FeedbackButtonProps) {
             <div style={{ ...styles.status, ...styles.filed }}>
               <span>
                 Filed →{' '}
-                <a href={status.url} target="_blank" rel="noopener noreferrer" style={{ color: 'inherit' }}>
+                <a href={status.url} target="_blank" rel="noopener" style={{ color: 'inherit' }}>
                   view issue
                 </a>
               </span>

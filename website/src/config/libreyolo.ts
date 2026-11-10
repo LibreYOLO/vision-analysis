@@ -13,7 +13,7 @@ export const LIBREYOLO = {
   name: "LibreYOLO",
   /** License of the LibreYOLO *library/code* (distinct from each model's weight license). */
   libraryLicense: "MIT",
-  github: "https://github.com/Libre-YOLO/libreyolo",
+  github: "https://github.com/LibreYOLO/libreyolo",
   /** Families implemented under one API (verified from the benchmarked set). */
   families: [
     "RT-DETR",

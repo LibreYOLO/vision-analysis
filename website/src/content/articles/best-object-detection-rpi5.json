@@ -1,54 +1,89 @@
 {
   "slug": "best-object-detection-rpi5",
   "type": "hardware-guide",
-  "title": "Best object detection models for Raspberry Pi 5 (2026)",
-  "dek": "On Raspberry Pi 5 with ONNX Runtime, D-FINE-X tops accuracy at 61.4 mAP while DEIMv2-Atto runs fastest at 30.3 FPS. Pick by latency budget.",
+  "title": "Raspberry Pi 5 object detection: FPS and mAP for 75 models",
+  "dek": "Measured on the Pi 5 CPU with ONNX Runtime. DEIMv2-Atto runs 30.3 FPS at 27.5 mAP. RF-DETR-N reaches 51.4 mAP at 2.4 FPS.",
   "date": "2026-07-03",
   "author": "Vision Analysis",
   "readingMinutes": 3,
-  "tags": ["hardware-guide", "raspberry-pi", "edge", "onnx"],
+  "tags": [
+    "hardware-guide",
+    "raspberry-pi",
+    "edge",
+    "onnx"
+  ],
   "status": "published",
   "claimsFile": "article-pipeline/v2/output/best-object-detection-rpi5.claims.json",
   "blocks": [
     {
       "kind": "verdict",
-      "text": "D-FINE-X leads accuracy on Raspberry Pi 5 at 61.4 mAP@50-95, but it runs 0.4 FPS on the Pi's CPU under ONNX Runtime FP32. For anything close to real time the ranking inverts: DEIMv2-Atto hits 30.3 FPS at 27.5 mAP. On a bare Pi 5 the right model is set by your latency budget, not by the top of the leaderboard. mAP is shown here in percent form."
-    },
-    {
-      "kind": "prose",
-      "text": "The Raspberry Pi 5 has no GPU for these models, so every row below is CPU inference through ONNX Runtime. That flattens the field: the largest detectors take seconds per image, and the accuracy leaders are unusable for streaming work. Read this table as the accuracy ceiling, then drop down to the speed table for what actually runs."
-    },
-    {
-      "kind": "ranking-table",
-      "hardware": "rpi5",
-      "runtime": "onnx_fp32",
-      "metric": "mAP_50_95",
-      "limit": 15,
-      "caption": "Top detectors by COCO val2017 mAP@50-95 on Raspberry Pi 5 (ONNX Runtime FP32)."
+      "text": "Only one model reaches 30 FPS on a bare Raspberry Pi 5: DEIMv2-Atto, at 30.3 FPS and 27.5 mAP with a 320 px input. At 10 FPS you can run DEIMv2-Femto, which gets 34.5 mAP at 16.7 FPS. Past that, accuracy costs real time: DEIM-N reaches 46.8 mAP but runs at 4.3 FPS. All numbers are ONNX Runtime FP32 on the four CPU cores, mAP@50-95 in percent."
     },
     {
       "kind": "heading",
-      "text": "The accuracy-speed frontier"
-    },
-    {
-      "kind": "prose",
-      "text": "The measured frontier runs from DEIMv2-Atto at 27.5 mAP up to D-FINE-X at 61.4 mAP. Everything on it is a defensible pick at some latency target: DEIMv2-Atto, YOLOX-Nano, DEIMv2-Femto, PicoDet-M, DEIMv2-Pico, DEIMv2-N, DEIM-N, YOLOv9-S, RF-DETR-N, D-FINE-S, RF-DETR-S, D-FINE-M, D-FINE-L, ECDet-L, D-FINE-X. Models off this list are beaten on both accuracy and speed by something on it."
+      "text": "Fastest models on the Pi 5"
     },
     {
       "kind": "ranking-table",
       "hardware": "rpi5",
       "runtime": "onnx_fp32",
       "metric": "throughputFps",
-      "limit": 10,
-      "caption": "Fastest detectors on Raspberry Pi 5 (ONNX Runtime FP32), by throughput."
-    },
-    {
-      "kind": "heading",
-      "text": "Picks by latency budget"
+      "limit": 15,
+      "caption": "Fastest detectors on Raspberry Pi 5, ONNX Runtime FP32, batch 1. Check the input column: the top rows run on smaller images."
     },
     {
       "kind": "prose",
-      "text": "Under 50 ms per image, YOLOX-Nano is the most accurate option at 27.7 mAP (21.3 FPS). Loosen the budget to 100 ms and DEIMv2-Femto reaches 34.5 mAP. With 500 ms to spend, RF-DETR-N reaches 51.4 mAP at 2.4 FPS, which is the accuracy floor worth targeting if you can batch or run offline. The top of the leaderboard sits far outside all three budgets."
+      "text": "Check the input size before you pick from the top of this table. DEIMv2-Atto and PicoDet-S run at 320 px. YOLOX-Nano, YOLOX-Tiny, DEIMv2-Femto and PicoDet-M run at 416 px. RF-DETR runs at its own sizes, from 384 to 704 px. The rest run at 640 px. Smaller inputs are part of why those models are fast, and they lose small objects. If your targets are small in the frame, compare at 640 px: there YOLO26-N is fastest at 7.1 FPS and 40.1 mAP (AGPL-3.0), and DEIMv2-Pico gets 42.2 mAP at 6.2 FPS under Apache-2.0."
+    },
+    {
+      "kind": "kv",
+      "title": "Which model for your frame rate",
+      "items": [
+        {
+          "k": "30 FPS",
+          "v": "DEIMv2-Atto: 27.5 mAP, 320 px",
+          "href": "/model/deimv2-atto"
+        },
+        {
+          "k": "10 FPS",
+          "v": "DEIMv2-Femto: 34.5 mAP, 416 px",
+          "href": "/model/deimv2-femto"
+        },
+        {
+          "k": "5 FPS",
+          "v": "DEIMv2-Pico: 42.2 mAP, 640 px, Apache-2.0",
+          "href": "/model/deimv2-pico"
+        },
+        {
+          "k": "2 FPS",
+          "v": "RF-DETR-N: 51.4 mAP, 384 px",
+          "href": "/model/rfdetr-n"
+        }
+      ]
+    },
+    {
+      "kind": "heading",
+      "text": "Try NCNN before you settle"
+    },
+    {
+      "kind": "prose",
+      "text": "These rows use ONNX Runtime. On the Pi 5, NCNN runs the same models faster, and the gap grows with model size. Compare both in [NCNN vs ONNX Runtime on Raspberry Pi 5](/articles/ncnn-fp32-vs-onnx-fp32-rpi5). If you need more than 30 FPS at useful accuracy, you need an accelerator: see [Raspberry Pi 5 with a Hailo-8](/articles/best-object-detection-rpi5-hailo8)."
+    },
+    {
+      "kind": "heading",
+      "text": "Most accurate models"
+    },
+    {
+      "kind": "ranking-table",
+      "hardware": "rpi5",
+      "runtime": "onnx_fp32",
+      "metric": "mAP_50_95",
+      "limit": 10,
+      "caption": "Most accurate detectors on Raspberry Pi 5, ONNX Runtime FP32, batch 1."
+    },
+    {
+      "kind": "prose",
+      "text": "D-FINE-X tops this table at 61.4 mAP and takes 2639 ms per image (0.4 FPS). The top ten all run below 1 FPS. They fit offline jobs, like labelling a folder of images overnight, not a camera feed."
     },
     {
       "kind": "methodology"

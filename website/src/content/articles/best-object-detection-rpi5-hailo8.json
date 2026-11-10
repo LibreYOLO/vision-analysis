@@ -1,38 +1,28 @@
 {
   "slug": "best-object-detection-rpi5-hailo8",
   "type": "hardware-guide",
-  "title": "Best object detection models for Pi 5 + Hailo-8 (2026)",
-  "dek": "On a Raspberry Pi 5 with the Hailo-8 NPU at INT8, YOLOv9-C leads accuracy at 54.8 mAP and YOLOX-Tiny runs fastest at 195.6 FPS. Pick by latency budget.",
+  "title": "Raspberry Pi 5 + Hailo-8: object detection FPS and mAP",
+  "dek": "INT8 on the Hailo-8 NPU. YOLOv9-M runs 30.1 FPS at 53.3 mAP, YOLOX-S 95.8 FPS at 41.1 mAP. 10 models measured on a Pi 5.",
   "date": "2026-07-03",
   "author": "Vision Analysis",
-  "readingMinutes": 3,
-  "tags": ["hardware-guide", "raspberry-pi", "hailo", "edge", "int8"],
+  "readingMinutes": 2,
+  "tags": [
+    "hardware-guide",
+    "raspberry-pi",
+    "hailo",
+    "edge",
+    "int8"
+  ],
   "status": "published",
   "claimsFile": "article-pipeline/v2/output/best-object-detection-rpi5-hailo8.claims.json",
   "blocks": [
     {
       "kind": "verdict",
-      "text": "On a Raspberry Pi 5 with the Hailo-8 accelerator, YOLOv9-C leads accuracy at 54.8 mAP@50-95 and 21.2 FPS. The fastest measured model is YOLOX-Tiny at 195.6 FPS and 33.5 mAP. Every row here runs quantized to INT8 on the NPU, so these accuracy numbers are the post-quantization result, not the FP32 figures you would see on a GPU. mAP is shown in percent form."
-    },
-    {
-      "kind": "prose",
-      "text": "The Hailo-8 is an INT8 NPU. Weights and activations are quantized to 8-bit before they run on the accelerator, so every mAP below already reflects that conversion. Read the accuracy table as the ceiling for this device, then drop to the speed table for models fast enough to stream. The NPU makes even the accuracy leader usable at real frame rates, which a bare Pi 5 CPU cannot do."
-    },
-    {
-      "kind": "ranking-table",
-      "hardware": "rpi5_hailo8",
-      "runtime": "hailo_int8",
-      "metric": "mAP_50_95",
-      "limit": 15,
-      "caption": "Top detectors by COCO val2017 mAP@50-95 on Raspberry Pi 5 + Hailo-8 (HailoRT INT8)."
+      "text": "For 30 FPS on a Raspberry Pi 5 with a Hailo-8, use YOLOv9-M: 53.3 mAP at 30.1 FPS, MIT license. YOLOv9-C is the most accurate model here at 54.8 mAP but runs at 21.2 FPS. Above 60 FPS, YOLOX-S gives 41.1 mAP at 95.8 FPS. Every row runs INT8 on the NPU, so the mAP already includes the quantization loss."
     },
     {
       "kind": "heading",
-      "text": "The accuracy-speed frontier"
-    },
-    {
-      "kind": "prose",
-      "text": "Five models hold the measured frontier: YOLOX-Tiny, YOLOX-S, YOLO-NAS-S, YOLOv9-M, and YOLOv9-C. It runs from YOLOX-Tiny at 33.5 mAP and 195.6 FPS up to YOLOv9-C at 54.8 mAP and 21.2 FPS. YOLOv9-M sits close behind the leader at 53.3 mAP while running faster at 30.1 FPS. Anything off this list is beaten on both accuracy and speed by a model on it."
+      "text": "Fastest models on the Hailo-8"
     },
     {
       "kind": "ranking-table",
@@ -40,15 +30,52 @@
       "runtime": "hailo_int8",
       "metric": "throughputFps",
       "limit": 10,
-      "caption": "Fastest detectors on Raspberry Pi 5 + Hailo-8 (HailoRT INT8), by throughput."
+      "caption": "All 10 measured detectors on Raspberry Pi 5 + Hailo-8, INT8, batch 1, by throughput."
     },
     {
-      "kind": "heading",
-      "text": "Picks by latency budget"
+      "kind": "callout",
+      "text": "Two rows look broken. YOLOv9-T and YOLOv9-S score far below the same models in FP32 on the Pi CPU, and below YOLOX-Tiny. YOLOv9-M and YOLOv9-C barely lose anything. Treat T and S as a bad INT8 compile, not as what those models can do on a Hailo-8, until they are rerun."
     },
     {
       "kind": "prose",
-      "text": "Under 50 ms per image, YOLOv9-C is the most accurate option at 54.8 mAP, finishing at 47.08 ms. Because that model already clears the tightest budget here, loosening to 100 or 500 ms buys nothing more accurate: YOLOv9-C stays the pick across all three. If you need headroom for other work on the NPU, YOLOv9-M gives up little at 53.3 mAP and 30.1 FPS, and YOLOX-S trades down to 41.1 mAP for 95.8 FPS. All figures are INT8 on the Hailo-8."
+      "text": "YOLOX-Tiny is the fastest row at 195.6 FPS, but it runs at 416 px. Every other model here runs at 640 px."
+    },
+    {
+      "kind": "kv",
+      "title": "Which model for your frame rate",
+      "items": [
+        {
+          "k": "60 FPS",
+          "v": "YOLOX-S: 41.1 mAP, Apache-2.0",
+          "href": "/model/yolox-s"
+        },
+        {
+          "k": "30 FPS",
+          "v": "YOLOv9-M: 53.3 mAP, MIT",
+          "href": "/model/yolov9m"
+        },
+        {
+          "k": "15 FPS",
+          "v": "YOLOv9-C: 54.8 mAP, MIT",
+          "href": "/model/yolov9c"
+        }
+      ]
+    },
+    {
+      "kind": "heading",
+      "text": "Most accurate models"
+    },
+    {
+      "kind": "ranking-table",
+      "hardware": "rpi5_hailo8",
+      "runtime": "hailo_int8",
+      "metric": "mAP_50_95",
+      "limit": 10,
+      "caption": "All 10 measured detectors on Raspberry Pi 5 + Hailo-8, INT8, batch 1, by mAP@50-95."
+    },
+    {
+      "kind": "prose",
+      "text": "YOLO-NAS-L reaches 52.4 mAP at 15.4 FPS. YOLOv9-M beats it on both accuracy and speed, and YOLO-NAS weights come with a license that restricts commercial use. Without the Hailo-8, the same Pi tops out at 30 FPS with a much weaker model: see [the CPU-only Pi 5 guide](/articles/best-object-detection-rpi5)."
     },
     {
       "kind": "methodology"

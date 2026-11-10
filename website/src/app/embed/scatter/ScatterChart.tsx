@@ -130,7 +130,7 @@ export function ScatterChart({
         <a
           href="https://visionanalysis.org"
           target="_blank"
-          rel="noopener noreferrer"
+          rel="noopener"
           onMouseEnter={() => setBrandHover(true)}
           onMouseLeave={() => setBrandHover(false)}
         >

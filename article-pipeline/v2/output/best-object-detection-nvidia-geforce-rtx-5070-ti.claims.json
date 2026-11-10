@@ -1,6 +1,6 @@
 {
   "engine": "article-pipeline-v2",
-  "generated_at": "2026-07-03T21:56:12.485771+00:00",
+  "generated_at": "2026-11-10T17:13:14.429832+00:00",
   "slug": "best-object-detection-nvidia-geforce-rtx-5070-ti",
   "meta": {
     "type": "hardware-guide",
@@ -22,7 +22,8 @@
         "mAP": 61.5,
         "fps": 73.0,
         "ms": 13.7,
-        "params_millions": 0.0
+        "params_millions": 0.0,
+        "input_size": 640
       },
       {
         "model": "ec-x",
@@ -32,7 +33,8 @@
         "mAP": 61.0,
         "fps": 41.3,
         "ms": 24.22,
-        "params_millions": 0.0
+        "params_millions": 0.0,
+        "input_size": 640
       },
       {
         "model": "deimv2-x",
@@ -42,7 +44,8 @@
         "mAP": 60.8,
         "fps": 37.9,
         "ms": 26.4,
-        "params_millions": 0.0
+        "params_millions": 0.0,
+        "input_size": 640
       },
       {
         "model": "dfine-l",
@@ -52,7 +55,8 @@
         "mAP": 60.0,
         "fps": 69.3,
         "ms": 14.42,
-        "params_millions": 0.0
+        "params_millions": 0.0,
+        "input_size": 640
       },
       {
         "model": "ec-l",
@@ -62,7 +66,8 @@
         "mAP": 60.0,
         "fps": 41.7,
         "ms": 24.0,
-        "params_millions": 0.0
+        "params_millions": 0.0,
+        "input_size": 640
       },
       {
         "model": "rtdetrv4-x",
@@ -72,7 +77,8 @@
         "mAP": 59.9,
         "fps": 71.0,
         "ms": 14.07,
-        "params_millions": 0.0
+        "params_millions": 0.0,
+        "input_size": 640
       },
       {
         "model": "deim-x",
@@ -82,7 +88,8 @@
         "mAP": 59.5,
         "fps": 70.7,
         "ms": 14.15,
-        "params_millions": 0.0
+        "params_millions": 0.0,
+        "input_size": 640
       },
       {
         "model": "rfdetr-l",
@@ -92,7 +99,8 @@
         "mAP": 58.6,
         "fps": 47.6,
         "ms": 21.01,
-        "params_millions": 128.0
+        "params_millions": 128.0,
+        "input_size": 704
       },
       {
         "model": "deimv2-l",
@@ -102,7 +110,8 @@
         "mAP": 58.5,
         "fps": 38.7,
         "ms": 25.86,
-        "params_millions": 0.0
+        "params_millions": 0.0,
+        "input_size": 640
       },
       {
         "model": "ec-m",
@@ -112,7 +121,8 @@
         "mAP": 58.2,
         "fps": 48.9,
         "ms": 20.46,
-        "params_millions": 0.0
+        "params_millions": 0.0,
+        "input_size": 640
       },
       {
         "model": "rtdetr-x",
@@ -122,7 +132,8 @@
         "mAP": 57.9,
         "fps": 82.3,
         "ms": 12.15,
-        "params_millions": 0.0
+        "params_millions": 0.0,
+        "input_size": 640
       },
       {
         "model": "rtdetrv4-l",
@@ -132,7 +143,8 @@
         "mAP": 57.7,
         "fps": 78.0,
         "ms": 12.83,
-        "params_millions": 0.0
+        "params_millions": 0.0,
+        "input_size": 640
       },
       {
         "model": "dfine-m",
@@ -142,7 +154,8 @@
         "mAP": 57.6,
         "fps": 74.5,
         "ms": 13.42,
-        "params_millions": 0.0
+        "params_millions": 0.0,
+        "input_size": 640
       },
       {
         "model": "rfdetr-m",
@@ -152,7 +165,8 @@
         "mAP": 57.4,
         "fps": 62.9,
         "ms": 15.91,
-        "params_millions": 0.0
+        "params_millions": 0.0,
+        "input_size": 576
       },
       {
         "model": "yolov9c",
@@ -162,7 +176,8 @@
         "mAP": 57.2,
         "fps": 74.7,
         "ms": 13.39,
-        "params_millions": 25.5
+        "params_millions": 25.5,
+        "input_size": 640
       },
       {
         "model": "rtdetrv2-r101",
@@ -172,7 +187,8 @@
         "mAP": 56.8,
         "fps": 87.4,
         "ms": 11.44,
-        "params_millions": 0.0
+        "params_millions": 0.0,
+        "input_size": 640
       },
       {
         "model": "rtdetr-r101",
@@ -182,7 +198,8 @@
         "mAP": 56.7,
         "fps": 88.0,
         "ms": 11.36,
-        "params_millions": 0.0
+        "params_millions": 0.0,
+        "input_size": 640
       },
       {
         "model": "rtdetrv4-m",
@@ -192,7 +209,8 @@
         "mAP": 56.4,
         "fps": 86.7,
         "ms": 11.54,
-        "params_millions": 0.0
+        "params_millions": 0.0,
+        "input_size": 640
       },
       {
         "model": "yolox-x",
@@ -202,7 +220,8 @@
         "mAP": 56.3,
         "fps": 72.1,
         "ms": 13.88,
-        "params_millions": 99.07
+        "params_millions": 99.07,
+        "input_size": 640
       },
       {
         "model": "yolov9m",
@@ -212,7 +231,8 @@
         "mAP": 56.1,
         "fps": 72.3,
         "ms": 13.84,
-        "params_millions": 20.12
+        "params_millions": 20.12,
+        "input_size": 640
       },
       {
         "model": "rtdetr-r50",
@@ -222,7 +242,8 @@
         "mAP": 55.8,
         "fps": 97.4,
         "ms": 10.27,
-        "params_millions": 0.0
+        "params_millions": 0.0,
+        "input_size": 640
       },
       {
         "model": "rtdetr-l",
@@ -232,7 +253,8 @@
         "mAP": 55.8,
         "fps": 122.0,
         "ms": 8.2,
-        "params_millions": 0.0
+        "params_millions": 0.0,
+        "input_size": 640
       },
       {
         "model": "rtdetrv2-r50",
@@ -242,7 +264,8 @@
         "mAP": 55.7,
         "fps": 103.6,
         "ms": 9.65,
-        "params_millions": 0.0
+        "params_millions": 0.0,
+        "input_size": 640
       },
       {
         "model": "yolox-l",
@@ -252,7 +275,8 @@
         "mAP": 55.4,
         "fps": 79.2,
         "ms": 12.62,
-        "params_millions": 54.21
+        "params_millions": 54.21,
+        "input_size": 640
       },
       {
         "model": "deim-m",
@@ -262,7 +286,8 @@
         "mAP": 55.4,
         "fps": 83.3,
         "ms": 12.0,
-        "params_millions": 0.0
+        "params_millions": 0.0,
+        "input_size": 640
       },
       {
         "model": "rfdetr-s",
@@ -272,7 +297,8 @@
         "mAP": 55.3,
         "fps": 71.6,
         "ms": 13.96,
-        "params_millions": 0.0
+        "params_millions": 0.0,
+        "input_size": 512
       },
       {
         "model": "rtdetrv2-r50m",
@@ -282,7 +308,8 @@
         "mAP": 54.7,
         "fps": 113.0,
         "ms": 8.85,
-        "params_millions": 0.0
+        "params_millions": 0.0,
+        "input_size": 640
       },
       {
         "model": "ec-s",
@@ -292,7 +319,8 @@
         "mAP": 54.4,
         "fps": 43.5,
         "ms": 23.02,
-        "params_millions": 0.0
+        "params_millions": 0.0,
+        "input_size": 640
       },
       {
         "model": "rtdetr-r50m",
@@ -302,7 +330,8 @@
         "mAP": 53.9,
         "fps": 110.1,
         "ms": 9.08,
-        "params_millions": 0.0
+        "params_millions": 0.0,
+        "input_size": 640
       },
       {
         "model": "rtdetrv2-r34",
@@ -312,7 +341,8 @@
         "mAP": 53.2,
         "fps": 132.9,
         "ms": 7.52,
-        "params_millions": 0.0
+        "params_millions": 0.0,
+        "input_size": 640
       },
       {
         "model": "dfine-s",
@@ -322,7 +352,8 @@
         "mAP": 53.2,
         "fps": 86.5,
         "ms": 11.55,
-        "params_millions": 0.0
+        "params_millions": 0.0,
+        "input_size": 640
       },
       {
         "model": "deimv2-s",
@@ -332,7 +363,8 @@
         "mAP": 53.0,
         "fps": 50.4,
         "ms": 19.84,
-        "params_millions": 0.0
+        "params_millions": 0.0,
+        "input_size": 640
       },
       {
         "model": "rtdetrv4-s",
@@ -342,7 +374,8 @@
         "mAP": 52.8,
         "fps": 92.3,
         "ms": 10.84,
-        "params_millions": 0.0
+        "params_millions": 0.0,
+        "input_size": 640
       },
       {
         "model": "rtdetr-r34",
@@ -352,7 +385,8 @@
         "mAP": 52.3,
         "fps": 108.4,
         "ms": 9.22,
-        "params_millions": 0.0
+        "params_millions": 0.0,
+        "input_size": 640
       },
       {
         "model": "deim-s",
@@ -362,7 +396,8 @@
         "mAP": 51.9,
         "fps": 82.4,
         "ms": 12.14,
-        "params_millions": 0.0
+        "params_millions": 0.0,
+        "input_size": 640
       },
       {
         "model": "yolox-m",
@@ -372,7 +407,8 @@
         "mAP": 51.6,
         "fps": 83.0,
         "ms": 12.04,
-        "params_millions": 25.33
+        "params_millions": 25.33,
+        "input_size": 640
       },
       {
         "model": "rfdetr-n",
@@ -382,7 +418,8 @@
         "mAP": 51.4,
         "fps": 58.3,
         "ms": 17.14,
-        "params_millions": 0.0
+        "params_millions": 0.0,
+        "input_size": 384
       },
       {
         "model": "rtdetrv2-r18",
@@ -392,7 +429,8 @@
         "mAP": 50.8,
         "fps": 117.8,
         "ms": 8.49,
-        "params_millions": 0.0
+        "params_millions": 0.0,
+        "input_size": 640
       },
       {
         "model": "yolov9s",
@@ -402,7 +440,8 @@
         "mAP": 50.5,
         "fps": 63.8,
         "ms": 15.66,
-        "params_millions": 7.23
+        "params_millions": 7.23,
+        "input_size": 640
       },
       {
         "model": "rtdetr-r18",
@@ -412,7 +451,8 @@
         "mAP": 49.8,
         "fps": 113.4,
         "ms": 8.82,
-        "params_millions": 0.0
+        "params_millions": 0.0,
+        "input_size": 640
       },
       {
         "model": "deimv2-n",
@@ -422,7 +462,8 @@
         "mAP": 46.7,
         "fps": 78.0,
         "ms": 12.82,
-        "params_millions": 0.0
+        "params_millions": 0.0,
+        "input_size": 640
       },
       {
         "model": "deim-n",
@@ -432,7 +473,8 @@
         "mAP": 46.6,
         "fps": 81.3,
         "ms": 12.3,
-        "params_millions": 0.0
+        "params_millions": 0.0,
+        "input_size": 640
       },
       {
         "model": "dfine-n",
@@ -442,7 +484,8 @@
         "mAP": 45.8,
         "fps": 79.7,
         "ms": 12.54,
-        "params_millions": 0.0
+        "params_millions": 0.0,
+        "input_size": 640
       },
       {
         "model": "picodet-l",
@@ -452,7 +495,8 @@
         "mAP": 44.0,
         "fps": 38.0,
         "ms": 26.32,
-        "params_millions": 0.0
+        "params_millions": 0.0,
+        "input_size": 640
       },
       {
         "model": "yolox-s",
@@ -462,7 +506,8 @@
         "mAP": 43.4,
         "fps": 70.9,
         "ms": 14.11,
-        "params_millions": 8.97
+        "params_millions": 8.97,
+        "input_size": 640
       },
       {
         "model": "yolov9t",
@@ -472,7 +517,8 @@
         "mAP": 41.8,
         "fps": 59.0,
         "ms": 16.96,
-        "params_millions": 2.04
+        "params_millions": 2.04,
+        "input_size": 640
       },
       {
         "model": "picodet-m",
@@ -482,7 +528,8 @@
         "mAP": 37.3,
         "fps": 65.7,
         "ms": 15.21,
-        "params_millions": 0.0
+        "params_millions": 0.0,
+        "input_size": 416
       },
       {
         "model": "yolox-tiny",
@@ -492,7 +539,8 @@
         "mAP": 35.4,
         "fps": 97.7,
         "ms": 10.23,
-        "params_millions": 5.06
+        "params_millions": 5.06,
+        "input_size": 416
       },
       {
         "model": "picodet-s",
@@ -502,7 +550,8 @@
         "mAP": 30.4,
         "fps": 78.6,
         "ms": 12.73,
-        "params_millions": 0.0
+        "params_millions": 0.0,
+        "input_size": 320
       },
       {
         "model": "yolox-nano",
@@ -512,7 +561,8 @@
         "mAP": 28.7,
         "fps": 100.0,
         "ms": 9.99,
-        "params_millions": 0.91
+        "params_millions": 0.91,
+        "input_size": 416
       },
       {
         "model": "deimv2-atto",
@@ -522,7 +572,8 @@
         "mAP": 25.8,
         "fps": 132.1,
         "ms": 7.57,
-        "params_millions": 0.0
+        "params_millions": 0.0,
+        "input_size": 320
       }
     ],
     "pareto_models": [
@@ -542,7 +593,8 @@
         "mAP": 55.8,
         "fps": 122.0,
         "ms": 8.2,
-        "params_millions": 0.0
+        "params_millions": 0.0,
+        "input_size": 640
       },
       "33": {
         "model": "dfine-x",
@@ -552,7 +604,8 @@
         "mAP": 61.5,
         "fps": 73.0,
         "ms": 13.7,
-        "params_millions": 0.0
+        "params_millions": 0.0,
+        "input_size": 640
       },
       "100": {
         "model": "dfine-x",
@@ -562,7 +615,8 @@
         "mAP": 61.5,
         "fps": 73.0,
         "ms": 13.7,
-        "params_millions": 0.0
+        "params_millions": 0.0,
+        "input_size": 640
       }
     },
     "best_overall": {
@@ -573,7 +627,8 @@
       "mAP": 61.5,
       "fps": 73.0,
       "ms": 13.7,
-      "params_millions": 0.0
+      "params_millions": 0.0,
+      "input_size": 640
     },
     "best_permissive": {
       "model": "dfine-x",
@@ -583,7 +638,8 @@
       "mAP": 61.5,
       "fps": 73.0,
       "ms": 13.7,
-      "params_millions": 0.0
+      "params_millions": 0.0,
+      "input_size": 640
     },
     "fastest": {
       "model": "rtdetrv2-r34",
@@ -593,8 +649,97 @@
       "mAP": 53.2,
       "fps": 132.9,
       "ms": 7.52,
-      "params_millions": 0.0
-    }
+      "params_millions": 0.0,
+      "input_size": 640
+    },
+    "fps_targets": [
+      120,
+      60,
+      30
+    ],
+    "fps_picks": {
+      "120": {
+        "any": {
+          "model": "rtdetr-l",
+          "displayName": "RT-DETR-L",
+          "family": "rtdetr",
+          "license": "Apache-2.0",
+          "mAP": 55.8,
+          "fps": 122.0,
+          "ms": 8.2,
+          "params_millions": 0.0,
+          "input_size": 640
+        },
+        "permissive": {
+          "model": "rtdetr-l",
+          "displayName": "RT-DETR-L",
+          "family": "rtdetr",
+          "license": "Apache-2.0",
+          "mAP": 55.8,
+          "fps": 122.0,
+          "ms": 8.2,
+          "params_millions": 0.0,
+          "input_size": 640
+        }
+      },
+      "60": {
+        "any": {
+          "model": "dfine-x",
+          "displayName": "D-FINE-X",
+          "family": "dfine",
+          "license": "Apache-2.0",
+          "mAP": 61.5,
+          "fps": 73.0,
+          "ms": 13.7,
+          "params_millions": 0.0,
+          "input_size": 640
+        },
+        "permissive": {
+          "model": "dfine-x",
+          "displayName": "D-FINE-X",
+          "family": "dfine",
+          "license": "Apache-2.0",
+          "mAP": 61.5,
+          "fps": 73.0,
+          "ms": 13.7,
+          "params_millions": 0.0,
+          "input_size": 640
+        }
+      },
+      "30": {
+        "any": {
+          "model": "dfine-x",
+          "displayName": "D-FINE-X",
+          "family": "dfine",
+          "license": "Apache-2.0",
+          "mAP": 61.5,
+          "fps": 73.0,
+          "ms": 13.7,
+          "params_millions": 0.0,
+          "input_size": 640
+        },
+        "permissive": {
+          "model": "dfine-x",
+          "displayName": "D-FINE-X",
+          "family": "dfine",
+          "license": "Apache-2.0",
+          "mAP": 61.5,
+          "fps": 73.0,
+          "ms": 13.7,
+          "params_millions": 0.0,
+          "input_size": 640
+        }
+      }
+    },
+    "input_sizes": [
+      320,
+      384,
+      416,
+      512,
+      576,
+      640,
+      704
+    ]
   },
   "claims": [
     {
@@ -609,7 +754,8 @@
         "mAP": 61.5,
         "fps": 73.0,
         "ms": 13.7,
-        "params_millions": 0.0
+        "params_millions": 0.0,
+        "input_size": 640
       },
       "passed": true,
       "strength": "strong"
@@ -626,7 +772,8 @@
         "mAP": 53.2,
         "fps": 132.9,
         "ms": 7.52,
-        "params_millions": 0.0
+        "params_millions": 0.0,
+        "input_size": 640
       },
       "passed": true,
       "strength": "strong"
@@ -662,7 +809,8 @@
           "mAP": 55.8,
           "fps": 122.0,
           "ms": 8.2,
-          "params_millions": 0.0
+          "params_millions": 0.0,
+          "input_size": 640
         }
       },
       "passed": true,
@@ -682,7 +830,8 @@
           "mAP": 61.5,
           "fps": 73.0,
           "ms": 13.7,
-          "params_millions": 0.0
+          "params_millions": 0.0,
+          "input_size": 640
         }
       },
       "passed": true,
@@ -702,7 +851,8 @@
           "mAP": 61.5,
           "fps": 73.0,
           "ms": 13.7,
-          "params_millions": 0.0
+          "params_millions": 0.0,
+          "input_size": 640
         }
       },
       "passed": true,
@@ -791,6 +941,7 @@
     26.32,
     26.4,
     28.7,
+    30.0,
     30.4,
     33.0,
     35.4,
@@ -891,13 +1042,20 @@
     113.0,
     113.4,
     117.8,
+    120.0,
     122.0,
     128.0,
     132.1,
     132.9,
     300,
+    320.0,
+    384.0,
+    416.0,
     500,
-    640,
+    512.0,
+    576.0,
+    640.0,
+    704.0,
     5000
   ]
 }

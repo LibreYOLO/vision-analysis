@@ -1,6 +1,6 @@
 {
   "engine": "article-pipeline-v2",
-  "generated_at": "2026-07-03T22:09:28.188785+00:00",
+  "generated_at": "2026-11-10T17:13:14.321433+00:00",
   "slug": "best-object-detection-rpi5-hailo8",
   "meta": {
     "type": "hardware-guide",
@@ -22,7 +22,8 @@
         "mAP": 54.8,
         "fps": 21.2,
         "ms": 47.08,
-        "params_millions": 25.5
+        "params_millions": 25.5,
+        "input_size": 640
       },
       {
         "model": "yolov9m",
@@ -32,7 +33,8 @@
         "mAP": 53.3,
         "fps": 30.1,
         "ms": 33.23,
-        "params_millions": 20.12
+        "params_millions": 20.12,
+        "input_size": 640
       },
       {
         "model": "yolonas-l",
@@ -42,7 +44,8 @@
         "mAP": 52.4,
         "fps": 15.4,
         "ms": 64.89,
-        "params_millions": 66.97
+        "params_millions": 66.97,
+        "input_size": 640
       },
       {
         "model": "yolonas-m",
@@ -52,7 +55,8 @@
         "mAP": 47.4,
         "fps": 21.7,
         "ms": 46.05,
-        "params_millions": 51.1
+        "params_millions": 51.1,
+        "input_size": 640
       },
       {
         "model": "yolonas-s",
@@ -62,7 +66,8 @@
         "mAP": 44.5,
         "fps": 39.7,
         "ms": 25.2,
-        "params_millions": 19.02
+        "params_millions": 19.02,
+        "input_size": 640
       },
       {
         "model": "yolox-m",
@@ -72,7 +77,8 @@
         "mAP": 43.7,
         "fps": 34.8,
         "ms": 28.76,
-        "params_millions": 25.33
+        "params_millions": 25.33,
+        "input_size": 640
       },
       {
         "model": "yolox-s",
@@ -82,7 +88,8 @@
         "mAP": 41.1,
         "fps": 95.8,
         "ms": 10.44,
-        "params_millions": 8.97
+        "params_millions": 8.97,
+        "input_size": 640
       },
       {
         "model": "yolox-tiny",
@@ -92,7 +99,8 @@
         "mAP": 33.5,
         "fps": 195.6,
         "ms": 5.11,
-        "params_millions": 5.06
+        "params_millions": 5.06,
+        "input_size": 416
       },
       {
         "model": "yolov9s",
@@ -102,7 +110,8 @@
         "mAP": 32.0,
         "fps": 36.3,
         "ms": 27.52,
-        "params_millions": 7.23
+        "params_millions": 7.23,
+        "input_size": 640
       },
       {
         "model": "yolov9t",
@@ -112,7 +121,8 @@
         "mAP": 25.7,
         "fps": 76.5,
         "ms": 13.08,
-        "params_millions": 2.04
+        "params_millions": 2.04,
+        "input_size": 640
       }
     ],
     "pareto_models": [
@@ -131,7 +141,8 @@
         "mAP": 54.8,
         "fps": 21.2,
         "ms": 47.08,
-        "params_millions": 25.5
+        "params_millions": 25.5,
+        "input_size": 640
       },
       "100": {
         "model": "yolov9c",
@@ -141,7 +152,8 @@
         "mAP": 54.8,
         "fps": 21.2,
         "ms": 47.08,
-        "params_millions": 25.5
+        "params_millions": 25.5,
+        "input_size": 640
       },
       "500": {
         "model": "yolov9c",
@@ -151,7 +163,8 @@
         "mAP": 54.8,
         "fps": 21.2,
         "ms": 47.08,
-        "params_millions": 25.5
+        "params_millions": 25.5,
+        "input_size": 640
       }
     },
     "best_overall": {
@@ -162,7 +175,8 @@
       "mAP": 54.8,
       "fps": 21.2,
       "ms": 47.08,
-      "params_millions": 25.5
+      "params_millions": 25.5,
+      "input_size": 640
     },
     "best_permissive": {
       "model": "yolov9c",
@@ -172,7 +186,8 @@
       "mAP": 54.8,
       "fps": 21.2,
       "ms": 47.08,
-      "params_millions": 25.5
+      "params_millions": 25.5,
+      "input_size": 640
     },
     "fastest": {
       "model": "yolox-tiny",
@@ -182,8 +197,92 @@
       "mAP": 33.5,
       "fps": 195.6,
       "ms": 5.11,
-      "params_millions": 5.06
-    }
+      "params_millions": 5.06,
+      "input_size": 416
+    },
+    "fps_targets": [
+      60,
+      30,
+      15
+    ],
+    "fps_picks": {
+      "60": {
+        "any": {
+          "model": "yolox-s",
+          "displayName": "YOLOX-S",
+          "family": "yolox",
+          "license": "Apache-2.0",
+          "mAP": 41.1,
+          "fps": 95.8,
+          "ms": 10.44,
+          "params_millions": 8.97,
+          "input_size": 640
+        },
+        "permissive": {
+          "model": "yolox-s",
+          "displayName": "YOLOX-S",
+          "family": "yolox",
+          "license": "Apache-2.0",
+          "mAP": 41.1,
+          "fps": 95.8,
+          "ms": 10.44,
+          "params_millions": 8.97,
+          "input_size": 640
+        }
+      },
+      "30": {
+        "any": {
+          "model": "yolov9m",
+          "displayName": "YOLOv9-M",
+          "family": "yolov9",
+          "license": "MIT",
+          "mAP": 53.3,
+          "fps": 30.1,
+          "ms": 33.23,
+          "params_millions": 20.12,
+          "input_size": 640
+        },
+        "permissive": {
+          "model": "yolov9m",
+          "displayName": "YOLOv9-M",
+          "family": "yolov9",
+          "license": "MIT",
+          "mAP": 53.3,
+          "fps": 30.1,
+          "ms": 33.23,
+          "params_millions": 20.12,
+          "input_size": 640
+        }
+      },
+      "15": {
+        "any": {
+          "model": "yolov9c",
+          "displayName": "YOLOv9-C",
+          "family": "yolov9",
+          "license": "MIT",
+          "mAP": 54.8,
+          "fps": 21.2,
+          "ms": 47.08,
+          "params_millions": 25.5,
+          "input_size": 640
+        },
+        "permissive": {
+          "model": "yolov9c",
+          "displayName": "YOLOv9-C",
+          "family": "yolov9",
+          "license": "MIT",
+          "mAP": 54.8,
+          "fps": 21.2,
+          "ms": 47.08,
+          "params_millions": 25.5,
+          "input_size": 640
+        }
+      }
+    },
+    "input_sizes": [
+      416,
+      640
+    ]
   },
   "claims": [
     {
@@ -198,7 +297,8 @@
         "mAP": 54.8,
         "fps": 21.2,
         "ms": 47.08,
-        "params_millions": 25.5
+        "params_millions": 25.5,
+        "input_size": 640
       },
       "passed": true,
       "strength": "strong"
@@ -215,7 +315,8 @@
         "mAP": 33.5,
         "fps": 195.6,
         "ms": 5.11,
-        "params_millions": 5.06
+        "params_millions": 5.06,
+        "input_size": 416
       },
       "passed": true,
       "strength": "strong"
@@ -250,7 +351,8 @@
           "mAP": 54.8,
           "fps": 21.2,
           "ms": 47.08,
-          "params_millions": 25.5
+          "params_millions": 25.5,
+          "input_size": 640
         }
       },
       "passed": true,
@@ -270,7 +372,8 @@
           "mAP": 54.8,
           "fps": 21.2,
           "ms": 47.08,
-          "params_millions": 25.5
+          "params_millions": 25.5,
+          "input_size": 640
         }
       },
       "passed": true,
@@ -290,7 +393,8 @@
           "mAP": 54.8,
           "fps": 21.2,
           "ms": 47.08,
-          "params_millions": 25.5
+          "params_millions": 25.5,
+          "input_size": 640
         }
       },
       "passed": true,
@@ -325,6 +429,7 @@
     11,
     12,
     13.08,
+    15.0,
     15.4,
     19.02,
     20.12,
@@ -336,6 +441,7 @@
     25.7,
     27.52,
     28.76,
+    30.0,
     30.1,
     32.0,
     33.23,
@@ -354,6 +460,7 @@
     52.4,
     53.3,
     54.8,
+    60.0,
     64.89,
     66.97,
     75,
@@ -363,8 +470,9 @@
     100.0,
     195.6,
     300,
+    416.0,
     500.0,
-    640,
+    640.0,
     5000
   ]
 }

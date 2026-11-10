@@ -403,7 +403,7 @@
         "originalWeightsUrl": null,
         "libreyoloWeightsUrl": null
       },
-      "license": "non-permissive",
+      "license": "AGPL-3.0",
       "releaseDate": "2023-01-10",
       "inLibreYOLO": false,
       "detectionApproach": "anchor-free",
@@ -432,7 +432,7 @@
         "originalWeightsUrl": null,
         "libreyoloWeightsUrl": null
       },
-      "license": "non-permissive",
+      "license": "AGPL-3.0",
       "releaseDate": "2023-01-10",
       "inLibreYOLO": false,
       "detectionApproach": "anchor-free",
@@ -461,7 +461,7 @@
         "originalWeightsUrl": null,
         "libreyoloWeightsUrl": null
       },
-      "license": "non-permissive",
+      "license": "AGPL-3.0",
       "releaseDate": "2023-01-10",
       "inLibreYOLO": false,
       "detectionApproach": "anchor-free",
@@ -490,7 +490,7 @@
         "originalWeightsUrl": null,
         "libreyoloWeightsUrl": null
       },
-      "license": "non-permissive",
+      "license": "AGPL-3.0",
       "releaseDate": "2023-01-10",
       "inLibreYOLO": false,
       "detectionApproach": "anchor-free",
@@ -519,7 +519,7 @@
         "originalWeightsUrl": null,
         "libreyoloWeightsUrl": null
       },
-      "license": "non-permissive",
+      "license": "AGPL-3.0",
       "releaseDate": "2023-01-10",
       "inLibreYOLO": false,
       "detectionApproach": "anchor-free",
@@ -548,7 +548,7 @@
         "originalWeightsUrl": "https://github.com/THU-MIG/yolov10/releases",
         "libreyoloWeightsUrl": null
       },
-      "license": "non-permissive",
+      "license": "AGPL-3.0",
       "releaseDate": "2024-05-23",
       "inLibreYOLO": false,
       "detectionApproach": "anchor-free",
@@ -577,7 +577,7 @@
         "originalWeightsUrl": "https://github.com/THU-MIG/yolov10/releases",
         "libreyoloWeightsUrl": null
       },
-      "license": "non-permissive",
+      "license": "AGPL-3.0",
       "releaseDate": "2024-05-23",
       "inLibreYOLO": false,
       "detectionApproach": "anchor-free",
@@ -606,7 +606,7 @@
         "originalWeightsUrl": "https://github.com/THU-MIG/yolov10/releases",
         "libreyoloWeightsUrl": null
       },
-      "license": "non-permissive",
+      "license": "AGPL-3.0",
       "releaseDate": "2024-05-23",
       "inLibreYOLO": false,
       "detectionApproach": "anchor-free",
@@ -635,7 +635,7 @@
         "originalWeightsUrl": "https://github.com/THU-MIG/yolov10/releases",
         "libreyoloWeightsUrl": null
       },
-      "license": "non-permissive",
+      "license": "AGPL-3.0",
       "releaseDate": "2024-05-23",
       "inLibreYOLO": false,
       "detectionApproach": "anchor-free",
@@ -664,7 +664,7 @@
         "originalWeightsUrl": "https://github.com/THU-MIG/yolov10/releases",
         "libreyoloWeightsUrl": null
       },
-      "license": "non-permissive",
+      "license": "AGPL-3.0",
       "releaseDate": "2024-05-23",
       "inLibreYOLO": false,
       "detectionApproach": "anchor-free",
@@ -693,7 +693,7 @@
         "originalWeightsUrl": null,
         "libreyoloWeightsUrl": null
       },
-      "license": "non-permissive",
+      "license": "AGPL-3.0",
       "releaseDate": "2024-09-30",
       "inLibreYOLO": false,
       "detectionApproach": "anchor-free",
@@ -722,7 +722,7 @@
         "originalWeightsUrl": null,
         "libreyoloWeightsUrl": null
       },
-      "license": "non-permissive",
+      "license": "AGPL-3.0",
       "releaseDate": "2024-09-30",
       "inLibreYOLO": false,
       "detectionApproach": "anchor-free",
@@ -751,7 +751,7 @@
         "originalWeightsUrl": null,
         "libreyoloWeightsUrl": null
       },
-      "license": "non-permissive",
+      "license": "AGPL-3.0",
       "releaseDate": "2024-09-30",
       "inLibreYOLO": false,
       "detectionApproach": "anchor-free",
@@ -780,7 +780,7 @@
         "originalWeightsUrl": null,
         "libreyoloWeightsUrl": null
       },
-      "license": "non-permissive",
+      "license": "AGPL-3.0",
       "releaseDate": "2024-09-30",
       "inLibreYOLO": false,
       "detectionApproach": "anchor-free",
@@ -809,7 +809,7 @@
         "originalWeightsUrl": null,
         "libreyoloWeightsUrl": null
       },
-      "license": "non-permissive",
+      "license": "AGPL-3.0",
       "releaseDate": "2024-09-30",
       "inLibreYOLO": false,
       "detectionApproach": "anchor-free",
@@ -2191,7 +2191,7 @@
         "originalWeightsUrl": null,
         "libreyoloWeightsUrl": null
       },
-      "license": "non-permissive",
+      "license": "AGPL-3.0",
       "releaseDate": "2025-09-25",
       "inLibreYOLO": false,
       "detectionApproach": "anchor-free",
@@ -2220,7 +2220,7 @@
         "originalWeightsUrl": null,
         "libreyoloWeightsUrl": null
       },
-      "license": "non-permissive",
+      "license": "AGPL-3.0",
       "releaseDate": "2025-09-25",
       "inLibreYOLO": false,
       "detectionApproach": "anchor-free",
@@ -2249,7 +2249,7 @@
         "originalWeightsUrl": null,
         "libreyoloWeightsUrl": null
       },
-      "license": "non-permissive",
+      "license": "AGPL-3.0",
       "releaseDate": "2025-09-25",
       "inLibreYOLO": false,
       "detectionApproach": "anchor-free",
@@ -2278,7 +2278,7 @@
         "originalWeightsUrl": null,
         "libreyoloWeightsUrl": null
       },
-      "license": "non-permissive",
+      "license": "AGPL-3.0",
       "releaseDate": "2025-09-25",
       "inLibreYOLO": false,
       "detectionApproach": "anchor-free",
@@ -2307,7 +2307,7 @@
         "originalWeightsUrl": null,
         "libreyoloWeightsUrl": null
       },
-      "license": "non-permissive",
+      "license": "AGPL-3.0",
       "releaseDate": "2025-09-25",
       "inLibreYOLO": false,
       "detectionApproach": "anchor-free",
@@ -2336,7 +2336,7 @@
         "originalWeightsUrl": null,
         "libreyoloWeightsUrl": null
       },
-      "license": "non-permissive",
+      "license": "AGPL-3.0",
       "releaseDate": "2023-01-10",
       "inLibreYOLO": false,
       "detectionApproach": "anchor-free",
@@ -2365,7 +2365,7 @@
         "originalWeightsUrl": null,
         "libreyoloWeightsUrl": null
       },
-      "license": "non-permissive",
+      "license": "AGPL-3.0",
       "releaseDate": "2023-01-10",
       "inLibreYOLO": false,
       "detectionApproach": "anchor-free",
@@ -2394,7 +2394,7 @@
         "originalWeightsUrl": null,
         "libreyoloWeightsUrl": null
       },
-      "license": "non-permissive",
+      "license": "AGPL-3.0",
       "releaseDate": "2023-01-10",
       "inLibreYOLO": false,
       "detectionApproach": "anchor-free",
@@ -2423,7 +2423,7 @@
         "originalWeightsUrl": null,
         "libreyoloWeightsUrl": null
       },
-      "license": "non-permissive",
+      "license": "AGPL-3.0",
       "releaseDate": "2023-01-10",
       "inLibreYOLO": false,
       "detectionApproach": "anchor-free",
@@ -2452,7 +2452,7 @@
         "originalWeightsUrl": null,
         "libreyoloWeightsUrl": null
       },
-      "license": "non-permissive",
+      "license": "AGPL-3.0",
       "releaseDate": "2023-01-10",
       "inLibreYOLO": false,
       "detectionApproach": "anchor-free",

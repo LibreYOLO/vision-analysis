@@ -262,7 +262,7 @@ export function BuilderClient({ models, hardwareOptions, runtimesByHw }: Props) 
             <section style={styles.card}>
               <div style={styles.previewHead}>
                 <div style={styles.cardTitle}>Live preview</div>
-                <a href={embedPath} target="_blank" rel="noopener noreferrer" style={styles.openLink}>
+                <a href={embedPath} target="_blank" rel="noopener" style={styles.openLink}>
                   Open in new tab ↗
                 </a>
               </div>

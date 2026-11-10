@@ -638,6 +638,7 @@ def build_hardware_guide(index, models_meta, hardware_meta, runtimes_meta, hw, r
             "mAP": map_pts(get_map(bench)), "fps": round(get_fps(bench), 1),
             "ms": round(timing(bench, "ms_per_image") or 0, 2),
             "params_millions": (bench.get("model_stats") or {}).get("params_millions"),
+            "input_size": (bench.get("config") or {}).get("input_size") or bench["model"].get("input_size"),
         })
     by_map = sorted(entries, key=lambda e: -e["mAP"])
     by_fps = sorted(entries, key=lambda e: -e["fps"])
@@ -658,6 +659,16 @@ def build_hardware_guide(index, models_meta, hardware_meta, runtimes_meta, hw, r
         if ok:
             budget_picks[str(b)] = max(ok, key=lambda e: e["mAP"])
 
+    # FPS-target picks: readers think in frame rates. Overall and permissive-only.
+    fps_targets = [30, 10, 2] if hw == "rpi5" else ([60, 30, 15] if hw in ("jetson_orin", "rpi5_hailo8") else [120, 60, 30])
+    fps_picks = {}
+    for t in fps_targets:
+        ok = [e for e in entries if e["fps"] >= t]
+        okp = [e for e in ok if e["license"] in PERMISSIVE]
+        fps_picks[str(t)] = {"any": max(ok, key=lambda e: e["mAP"]) if ok else None,
+                             "permissive": max(okp, key=lambda e: e["mAP"]) if okp else None}
+    input_sizes = sorted({e["input_size"] for e in entries if e["input_size"]})
+
     permissive = [e for e in entries if e["license"] in PERMISSIVE]
     best_perm = max(permissive, key=lambda e: e["mAP"]) if permissive else None
     overall = by_map[0]
@@ -672,6 +683,9 @@ def build_hardware_guide(index, models_meta, hardware_meta, runtimes_meta, hw, r
         "best_overall": overall,
         "best_permissive": best_perm,
         "fastest": by_fps[0],
+        "fps_targets": fps_targets,
+        "fps_picks": fps_picks,
+        "input_sizes": input_sizes,
     }
 
     claims = [
