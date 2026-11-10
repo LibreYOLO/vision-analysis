@@ -123,7 +123,7 @@ export default async function FamilyTableEmbed({ params, searchParams }: Props) 
                     <a
                       href={`/model/${m.id}`}
                       target="_blank"
-                      rel="noopener noreferrer"
+                      rel="noopener"
                       style={{ color: familyColor, textDecoration: 'none', fontWeight: 600 }}
                     >
                       {m.displayName}

@@ -147,7 +147,7 @@ export default async function HardwarePage({ params }: Props) {
 
       {hw.specsSource && (
         <p className="text-sm text-muted-foreground mb-6">
-          Installed capacity from <a href={hw.specsSource} className="underline" target="_blank" rel="noopener noreferrer">manufacturer specifications</a>.
+          Installed capacity from <a href={hw.specsSource} className="underline" target="_blank" rel="noopener">manufacturer specifications</a>.
           OS-visible usable memory can be lower. Unavailable dedicated VRAM readings do not mean zero memory.
         </p>
       )}
@@ -165,7 +165,7 @@ export default async function HardwarePage({ params }: Props) {
                   key={provider.name}
                   href={provider.url}
                   target="_blank"
-                  rel="noopener noreferrer"
+                  rel="noopener"
                   className="flex items-center gap-2 px-4 py-2 rounded-lg border hover:bg-accent transition-colors"
                 >
                   <span className="font-medium">{provider.name}</span>

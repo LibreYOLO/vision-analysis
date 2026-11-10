@@ -76,7 +76,7 @@ export function Header({ searchItems = [] }: HeaderProps) {
         <a
           href={siteConfig.links.github}
           target="_blank"
-          rel="noopener noreferrer"
+          rel="noopener"
           className="hidden sm:flex items-center justify-center h-9 w-9 ml-1 rounded text-white/60 hover:text-white transition-colors"
           aria-label="GitHub repository"
         >

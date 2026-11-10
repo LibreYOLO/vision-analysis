@@ -194,7 +194,7 @@ export default function ParityPage() {
                       <td className="px-3 py-2 text-xs text-muted-foreground">{v.dataset}</td>
                       <td className="px-4 py-2">
                         {v.source ? (
-                          <a href={v.source} target="_blank" rel="noopener noreferrer" className="text-brand hover:underline text-xs">
+                          <a href={v.source} target="_blank" rel="noopener" className="text-brand hover:underline text-xs">
                             {v.sourceLabel}
                           </a>
                         ) : (

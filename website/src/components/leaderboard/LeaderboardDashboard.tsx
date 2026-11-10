@@ -499,7 +499,7 @@ export function LeaderboardDashboard({
         <a
           href={LIBREYOLO.github}
           target="_blank"
-          rel="noopener noreferrer"
+          rel="noopener"
           className="font-medium text-brand hover:underline"
         >
           {LIBREYOLO.name}

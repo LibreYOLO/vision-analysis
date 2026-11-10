@@ -180,7 +180,7 @@ export default function HomePage() {
                     href="https://github.com/LibreYOLO/vision-analysis-benchmark"
                     className="text-brand hover:underline"
                     target="_blank"
-                    rel="noopener noreferrer"
+                    rel="noopener"
                   >
                     <code>vision-analysis-benchmark</code>
                   </a>

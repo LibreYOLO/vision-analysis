@@ -134,7 +134,7 @@ export default async function LeaderboardEmbed({ searchParams }: Props) {
                       <a
                         href={`/model/${r.model}`}
                         target="_blank"
-                        rel="noopener noreferrer"
+                        rel="noopener"
                         style={{ color: '#e2e8f0', textDecoration: 'none' }}
                       >
                         {displayName}

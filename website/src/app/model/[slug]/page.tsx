@@ -167,7 +167,7 @@ export default async function ModelPage({ params }: Props) {
                 <a
                   href={family.paper.url}
                   target="_blank"
-                  rel="noopener noreferrer"
+                  rel="noopener"
                   className="flex items-center h-9 px-3 rounded bg-white/10 text-white text-sm hover:bg-white/20 transition-colors"
                 >
                   <FileText className="mr-2 h-4 w-4" />
@@ -178,7 +178,7 @@ export default async function ModelPage({ params }: Props) {
                 <a
                   href={family.originalRepo}
                   target="_blank"
-                  rel="noopener noreferrer"
+                  rel="noopener"
                   className="flex items-center h-9 px-3 rounded bg-white/10 text-white text-sm hover:bg-white/20 transition-colors"
                 >
                   <Github className="mr-2 h-4 w-4" />
@@ -506,7 +506,7 @@ function FamilyPage({
                 <a
                   href={family.paper.url}
                   target="_blank"
-                  rel="noopener noreferrer"
+                  rel="noopener"
                   className="flex items-center h-9 px-3 rounded bg-white/10 text-white text-sm hover:bg-white/20 transition-colors"
                 >
                   <FileText className="mr-2 h-4 w-4" />
@@ -517,7 +517,7 @@ function FamilyPage({
                 <a
                   href={family.originalRepo}
                   target="_blank"
-                  rel="noopener noreferrer"
+                  rel="noopener"
                   className="flex items-center h-9 px-3 rounded bg-white/10 text-white text-sm hover:bg-white/20 transition-colors"
                 >
                   <Github className="mr-2 h-4 w-4" />

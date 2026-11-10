@@ -36,7 +36,7 @@ export default function MethodologyPage() {
             <div className="space-y-3 text-base text-foreground leading-relaxed">
               <p>
                 Benchmarks are produced by the open-source{" "}
-                <a href={benchmarkRepoUrl} className="text-brand hover:underline" target="_blank" rel="noopener noreferrer">
+                <a href={benchmarkRepoUrl} className="text-brand hover:underline" target="_blank" rel="noopener">
                   vision-analysis-benchmark
                 </a>{" "}
                 harness. Each run emits a single JSON file that records the result together with
@@ -44,11 +44,11 @@ export default function MethodologyPage() {
               </p>
               <p>
                 Result files are submitted by pull request to{" "}
-                <a href={submissionsUrl} className="text-brand hover:underline" target="_blank" rel="noopener noreferrer">
+                <a href={submissionsUrl} className="text-brand hover:underline" target="_blank" rel="noopener">
                   <code>submissions/</code>
                 </a>{" "}
                 and validated against a{" "}
-                <a href={schemaUrl} className="text-brand hover:underline" target="_blank" rel="noopener noreferrer">
+                <a href={schemaUrl} className="text-brand hover:underline" target="_blank" rel="noopener">
                   published schema
                 </a>
                 . After review, the canonical verified dataset is rebuilt and the website renders
@@ -79,7 +79,7 @@ export default function MethodologyPage() {
                 </li>
                 <li>
                   <strong>The harness commit.</strong> <code>repro.harness_commit</code> pins the{" "}
-                  <a href={benchmarkRepoUrl} className="text-brand hover:underline" target="_blank" rel="noopener noreferrer">
+                  <a href={benchmarkRepoUrl} className="text-brand hover:underline" target="_blank" rel="noopener">
                     vision-analysis-benchmark
                   </a>{" "}
                   version that defined the timing and eval protocol.{" "}
@@ -100,11 +100,11 @@ export default function MethodologyPage() {
               </ul>
               <p>
                 To reproduce a row: open its raw submission JSON in{" "}
-                <a href={submissionsUrl} className="text-brand hover:underline" target="_blank" rel="noopener noreferrer">
+                <a href={submissionsUrl} className="text-brand hover:underline" target="_blank" rel="noopener">
                   <code>submissions/</code>
                 </a>
                 , install LibreYOLO at the recorded <code>benchmark.libreyolo_commit</code>, fetch{" "}
-                <a href={datasetUrl} className="text-brand hover:underline" target="_blank" rel="noopener noreferrer">
+                <a href={datasetUrl} className="text-brand hover:underline" target="_blank" rel="noopener">
                   coco-val2017-mini500
                 </a>{" "}
                 (or full COCO val2017 for the 5000-image rows), and run the recorded{" "}
@@ -141,7 +141,7 @@ va-bench run --models yolov9t --coco-dir /path/to/coco \\
                   href="https://huggingface.co/datasets/LibreYOLO/coco-val2017-mini500"
                   className="text-brand hover:underline"
                   target="_blank"
-                  rel="noopener noreferrer"
+                  rel="noopener"
                 >
                   coco-val2017-mini500
                 </a>

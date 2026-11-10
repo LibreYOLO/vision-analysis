@@ -22,7 +22,7 @@ export default function ComparePage() {
           <p className="font-medium text-foreground">No verified comparison data yet</p>
           <p className="mt-2">
             Comparison view becomes available after the first reviewed submissions are merged into{" "}
-            <a href={submissionsUrl} className="text-brand hover:underline" target="_blank" rel="noopener noreferrer">
+            <a href={submissionsUrl} className="text-brand hover:underline" target="_blank" rel="noopener">
               <code>submissions/</code>
             </a>
             .
