@@ -374,6 +374,7 @@ function RankingTable({ block }: { block: RankingTableBlock }) {
           <th className={th}>mAP@50-95</th>
           <th className={th}>FPS</th>
           <th className={th}>ms/image</th>
+          <th className={th}>Input (px)</th>
           <th className={th}>Params (M)</th>
           <th className={th}>License</th>
         </tr>
@@ -392,6 +393,7 @@ function RankingTable({ block }: { block: RankingTableBlock }) {
               {fmtFps(r.throughputFps)}
             </td>
             <td className={td}>{fmtMs(r.totalMs)}</td>
+            <td className={td}>{r.inputSize ?? "-"}</td>
             <td className={td}>{r.paramsM ? r.paramsM.toFixed(1) : "-"}</td>
             <td className={td}>{getModelById(r.model)?.license ?? "?"}</td>
           </tr>

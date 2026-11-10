@@ -253,7 +253,9 @@ function normalizeModelName(raw: RawBenchmark): string {
 function toPercentage(value: number): number {
   // If < 1, it's decimal form (0.37 becomes 37.03). If >= 1, already percentage.
   const pct = value < 1 ? value * 100 : value;
-  return Math.round(pct * 100) / 100;
+  // Keep 3 decimals so 1-decimal displays round once from the measured value
+  // (0.42248 must show 42.2, not 42.25 -> 42.3).
+  return Math.round(pct * 1000) / 1000;
 }
 
 // --- Timing extraction ---

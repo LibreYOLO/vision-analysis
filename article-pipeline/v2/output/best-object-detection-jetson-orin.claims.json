@@ -1,6 +1,6 @@
 {
   "engine": "article-pipeline-v2",
-  "generated_at": "2026-07-03T21:56:12.338781+00:00",
+  "generated_at": "2026-11-10T17:13:14.373606+00:00",
   "slug": "best-object-detection-jetson-orin",
   "meta": {
     "type": "hardware-guide",
@@ -12,7 +12,7 @@
     "hardware_display": "NVIDIA Jetson Orin Nano Super 8GB",
     "runtime": "tensorrt_fp16",
     "runtime_display": "TensorRT FP16",
-    "n_models": 55,
+    "n_models": 75,
     "leaderboard": [
       {
         "model": "dfine-x",
@@ -22,7 +22,8 @@
         "mAP": 61.4,
         "fps": 14.2,
         "ms": 70.45,
-        "params_millions": 0.0
+        "params_millions": 0.0,
+        "input_size": 640
       },
       {
         "model": "ec-x",
@@ -32,7 +33,8 @@
         "mAP": 61.0,
         "fps": 5.7,
         "ms": 174.81,
-        "params_millions": 0.0
+        "params_millions": 0.0,
+        "input_size": 640
       },
       {
         "model": "deimv2-x",
@@ -42,7 +44,8 @@
         "mAP": 60.7,
         "fps": 5.4,
         "ms": 184.54,
-        "params_millions": 0.0
+        "params_millions": 0.0,
+        "input_size": 640
       },
       {
         "model": "dfine-l",
@@ -52,7 +55,8 @@
         "mAP": 60.0,
         "fps": 18.6,
         "ms": 53.64,
-        "params_millions": 0.0
+        "params_millions": 0.0,
+        "input_size": 640
       },
       {
         "model": "rtdetrv4-x",
@@ -62,7 +66,8 @@
         "mAP": 60.0,
         "fps": 13.8,
         "ms": 72.69,
-        "params_millions": 0.0
+        "params_millions": 0.0,
+        "input_size": 640
       },
       {
         "model": "ec-l",
@@ -72,7 +77,8 @@
         "mAP": 60.0,
         "fps": 6.2,
         "ms": 161.52,
-        "params_millions": 0.0
+        "params_millions": 0.0,
+        "input_size": 640
       },
       {
         "model": "deim-x",
@@ -82,7 +88,8 @@
         "mAP": 59.6,
         "fps": 14.1,
         "ms": 70.93,
-        "params_millions": 0.0
+        "params_millions": 0.0,
+        "input_size": 640
       },
       {
         "model": "rfdetr-l",
@@ -92,7 +99,8 @@
         "mAP": 58.7,
         "fps": 8.4,
         "ms": 119.33,
-        "params_millions": 128.0
+        "params_millions": 128.0,
+        "input_size": 704
       },
       {
         "model": "deimv2-l",
@@ -102,7 +110,8 @@
         "mAP": 58.5,
         "fps": 6.2,
         "ms": 160.81,
-        "params_millions": 0.0
+        "params_millions": 0.0,
+        "input_size": 640
       },
       {
         "model": "ec-m",
@@ -112,7 +121,8 @@
         "mAP": 58.3,
         "fps": 8.3,
         "ms": 119.7,
-        "params_millions": 0.0
+        "params_millions": 0.0,
+        "input_size": 640
       },
       {
         "model": "deim-l",
@@ -122,7 +132,8 @@
         "mAP": 57.9,
         "fps": 18.5,
         "ms": 53.96,
-        "params_millions": 0.0
+        "params_millions": 0.0,
+        "input_size": 640
       },
       {
         "model": "dfine-m",
@@ -132,7 +143,8 @@
         "mAP": 57.9,
         "fps": 23.7,
         "ms": 42.26,
-        "params_millions": 0.0
+        "params_millions": 0.0,
+        "input_size": 640
       },
       {
         "model": "rtdetr-x",
@@ -142,7 +154,8 @@
         "mAP": 57.9,
         "fps": 17.0,
         "ms": 58.9,
-        "params_millions": 0.0
+        "params_millions": 0.0,
+        "input_size": 640
       },
       {
         "model": "rtdetrv4-l",
@@ -152,7 +165,8 @@
         "mAP": 57.8,
         "fps": 18.1,
         "ms": 55.15,
-        "params_millions": 0.0
+        "params_millions": 0.0,
+        "input_size": 640
       },
       {
         "model": "rfdetr-m",
@@ -162,7 +176,8 @@
         "mAP": 57.4,
         "fps": 12.5,
         "ms": 79.75,
-        "params_millions": 0.0
+        "params_millions": 0.0,
+        "input_size": 576
       },
       {
         "model": "yolov9c",
@@ -172,7 +187,8 @@
         "mAP": 57.1,
         "fps": 24.9,
         "ms": 40.11,
-        "params_millions": 25.5
+        "params_millions": 25.5,
+        "input_size": 640
       },
       {
         "model": "rtdetr-r101",
@@ -182,7 +198,8 @@
         "mAP": 56.8,
         "fps": 17.0,
         "ms": 58.76,
-        "params_millions": 0.0
+        "params_millions": 0.0,
+        "input_size": 640
       },
       {
         "model": "rtdetrv2-r101",
@@ -192,7 +209,8 @@
         "mAP": 56.8,
         "fps": 17.3,
         "ms": 57.69,
-        "params_millions": 0.0
+        "params_millions": 0.0,
+        "input_size": 640
       },
       {
         "model": "rtdetrv4-m",
@@ -202,7 +220,19 @@
         "mAP": 56.6,
         "fps": 23.1,
         "ms": 43.29,
-        "params_millions": 0.0
+        "params_millions": 0.0,
+        "input_size": 640
+      },
+      {
+        "model": "yolo26x",
+        "displayName": "YOLO26-X",
+        "family": "yolo26",
+        "license": "AGPL-3.0",
+        "mAP": 56.5,
+        "fps": 17.0,
+        "ms": 58.95,
+        "params_millions": 55.7,
+        "input_size": 640
       },
       {
         "model": "yolox-x",
@@ -212,7 +242,8 @@
         "mAP": 56.2,
         "fps": 14.6,
         "ms": 68.7,
-        "params_millions": 99.07
+        "params_millions": 99.07,
+        "input_size": 640
       },
       {
         "model": "yolov9m",
@@ -222,7 +253,8 @@
         "mAP": 56.1,
         "fps": 25.8,
         "ms": 38.8,
-        "params_millions": 20.12
+        "params_millions": 20.12,
+        "input_size": 640
       },
       {
         "model": "deimv2-m",
@@ -232,7 +264,8 @@
         "mAP": 56.0,
         "fps": 7.9,
         "ms": 126.52,
-        "params_millions": 0.0
+        "params_millions": 0.0,
+        "input_size": 640
       },
       {
         "model": "rtdetr-l",
@@ -242,7 +275,8 @@
         "mAP": 55.8,
         "fps": 24.1,
         "ms": 41.5,
-        "params_millions": 0.0
+        "params_millions": 0.0,
+        "input_size": 640
       },
       {
         "model": "rtdetr-r50",
@@ -252,7 +286,8 @@
         "mAP": 55.7,
         "fps": 23.6,
         "ms": 42.42,
-        "params_millions": 0.0
+        "params_millions": 0.0,
+        "input_size": 640
       },
       {
         "model": "rtdetrv2-r50",
@@ -262,7 +297,8 @@
         "mAP": 55.7,
         "fps": 24.2,
         "ms": 41.28,
-        "params_millions": 0.0
+        "params_millions": 0.0,
+        "input_size": 640
       },
       {
         "model": "deim-m",
@@ -272,7 +308,8 @@
         "mAP": 55.5,
         "fps": 23.5,
         "ms": 42.55,
-        "params_millions": 0.0
+        "params_millions": 0.0,
+        "input_size": 640
       },
       {
         "model": "yolox-l",
@@ -282,7 +319,8 @@
         "mAP": 55.5,
         "fps": 21.6,
         "ms": 46.34,
-        "params_millions": 54.21
+        "params_millions": 54.21,
+        "input_size": 640
       },
       {
         "model": "rfdetr-s",
@@ -292,7 +330,8 @@
         "mAP": 55.2,
         "fps": 15.5,
         "ms": 64.36,
-        "params_millions": 0.0
+        "params_millions": 0.0,
+        "input_size": 512
       },
       {
         "model": "rtdetrv2-r50m",
@@ -302,7 +341,8 @@
         "mAP": 54.8,
         "fps": 29.7,
         "ms": 33.62,
-        "params_millions": 0.0
+        "params_millions": 0.0,
+        "input_size": 640
       },
       {
         "model": "ec-s",
@@ -312,7 +352,8 @@
         "mAP": 54.3,
         "fps": 10.6,
         "ms": 94.78,
-        "params_millions": 0.0
+        "params_millions": 0.0,
+        "input_size": 640
       },
       {
         "model": "rtdetr-r50m",
@@ -322,7 +363,30 @@
         "mAP": 53.8,
         "fps": 29.1,
         "ms": 34.35,
-        "params_millions": 0.0
+        "params_millions": 0.0,
+        "input_size": 640
+      },
+      {
+        "model": "yolo26l",
+        "displayName": "YOLO26-L",
+        "family": "yolo26",
+        "license": "AGPL-3.0",
+        "mAP": 53.8,
+        "fps": 24.3,
+        "ms": 41.22,
+        "params_millions": 24.8,
+        "input_size": 640
+      },
+      {
+        "model": "yolo11x",
+        "displayName": "YOLO11-X",
+        "family": "yolo11",
+        "license": "AGPL-3.0",
+        "mAP": 53.6,
+        "fps": 15.8,
+        "ms": 63.25,
+        "params_millions": 56.9,
+        "input_size": 640
       },
       {
         "model": "dfine-s",
@@ -332,7 +396,8 @@
         "mAP": 53.4,
         "fps": 30.2,
         "ms": 33.15,
-        "params_millions": 0.0
+        "params_millions": 0.0,
+        "input_size": 640
       },
       {
         "model": "rtdetrv2-r34",
@@ -342,7 +407,8 @@
         "mAP": 53.2,
         "fps": 32.7,
         "ms": 30.59,
-        "params_millions": 0.0
+        "params_millions": 0.0,
+        "input_size": 640
       },
       {
         "model": "deimv2-s",
@@ -352,7 +418,19 @@
         "mAP": 53.0,
         "fps": 10.5,
         "ms": 95.51,
-        "params_millions": 0.0
+        "params_millions": 0.0,
+        "input_size": 640
+      },
+      {
+        "model": "yolov8x",
+        "displayName": "YOLOv8-X",
+        "family": "yolov8",
+        "license": "AGPL-3.0",
+        "mAP": 53.0,
+        "fps": 14.4,
+        "ms": 69.24,
+        "params_millions": 68.2,
+        "input_size": 640
       },
       {
         "model": "rtdetrv4-s",
@@ -362,7 +440,8 @@
         "mAP": 52.9,
         "fps": 29.6,
         "ms": 33.74,
-        "params_millions": 0.0
+        "params_millions": 0.0,
+        "input_size": 640
       },
       {
         "model": "rtdetr-r34",
@@ -372,7 +451,41 @@
         "mAP": 52.3,
         "fps": 31.9,
         "ms": 31.36,
-        "params_millions": 0.0
+        "params_millions": 0.0,
+        "input_size": 640
+      },
+      {
+        "model": "yolo11l",
+        "displayName": "YOLO11-L",
+        "family": "yolo11",
+        "license": "AGPL-3.0",
+        "mAP": 52.3,
+        "fps": 22.6,
+        "ms": 44.31,
+        "params_millions": 25.3,
+        "input_size": 640
+      },
+      {
+        "model": "yolov5xu",
+        "displayName": "YOLOv5xu",
+        "family": "yolov5u",
+        "license": "AGPL-3.0",
+        "mAP": 52.3,
+        "fps": 14.7,
+        "ms": 68.05,
+        "params_millions": 97.2,
+        "input_size": 640
+      },
+      {
+        "model": "yolo26m",
+        "displayName": "YOLO26-M",
+        "family": "yolo26",
+        "license": "AGPL-3.0",
+        "mAP": 52.2,
+        "fps": 27.8,
+        "ms": 36.03,
+        "params_millions": 20.4,
+        "input_size": 640
       },
       {
         "model": "deim-s",
@@ -382,7 +495,19 @@
         "mAP": 52.0,
         "fps": 29.9,
         "ms": 33.44,
-        "params_millions": 0.0
+        "params_millions": 0.0,
+        "input_size": 640
+      },
+      {
+        "model": "yolov8l",
+        "displayName": "YOLOv8-L",
+        "family": "yolov8",
+        "license": "AGPL-3.0",
+        "mAP": 52.0,
+        "fps": 19.3,
+        "ms": 51.9,
+        "params_millions": 43.7,
+        "input_size": 640
       },
       {
         "model": "yolox-m",
@@ -392,7 +517,19 @@
         "mAP": 51.8,
         "fps": 28.0,
         "ms": 35.74,
-        "params_millions": 25.33
+        "params_millions": 25.33,
+        "input_size": 640
+      },
+      {
+        "model": "yolov5lu",
+        "displayName": "YOLOv5lu",
+        "family": "yolov5u",
+        "license": "AGPL-3.0",
+        "mAP": 51.5,
+        "fps": 20.6,
+        "ms": 48.54,
+        "params_millions": 53.2,
+        "input_size": 640
       },
       {
         "model": "rfdetr-n",
@@ -402,7 +539,8 @@
         "mAP": 51.3,
         "fps": 25.4,
         "ms": 39.36,
-        "params_millions": 0.0
+        "params_millions": 0.0,
+        "input_size": 384
       },
       {
         "model": "rtdetrv2-r18",
@@ -412,7 +550,19 @@
         "mAP": 50.8,
         "fps": 39.9,
         "ms": 25.06,
-        "params_millions": 0.0
+        "params_millions": 0.0,
+        "input_size": 640
+      },
+      {
+        "model": "yolo11m",
+        "displayName": "YOLO11-M",
+        "family": "yolo11",
+        "license": "AGPL-3.0",
+        "mAP": 50.6,
+        "fps": 25.8,
+        "ms": 38.76,
+        "params_millions": 20.1,
+        "input_size": 640
       },
       {
         "model": "yolov9s",
@@ -422,7 +572,8 @@
         "mAP": 50.4,
         "fps": 33.2,
         "ms": 30.15,
-        "params_millions": 7.23
+        "params_millions": 7.23,
+        "input_size": 640
       },
       {
         "model": "rtdetr-r18",
@@ -432,7 +583,41 @@
         "mAP": 49.7,
         "fps": 38.8,
         "ms": 25.75,
-        "params_millions": 0.0
+        "params_millions": 0.0,
+        "input_size": 640
+      },
+      {
+        "model": "yolov8m",
+        "displayName": "YOLOv8-M",
+        "family": "yolov8",
+        "license": "AGPL-3.0",
+        "mAP": 49.4,
+        "fps": 24.6,
+        "ms": 40.65,
+        "params_millions": 25.9,
+        "input_size": 640
+      },
+      {
+        "model": "yolov5mu",
+        "displayName": "YOLOv5mu",
+        "family": "yolov5u",
+        "license": "AGPL-3.0",
+        "mAP": 48.2,
+        "fps": 27.4,
+        "ms": 36.54,
+        "params_millions": 25.1,
+        "input_size": 640
+      },
+      {
+        "model": "yolo26s",
+        "displayName": "YOLO26-S",
+        "family": "yolo26",
+        "license": "AGPL-3.0",
+        "mAP": 47.4,
+        "fps": 41.7,
+        "ms": 23.97,
+        "params_millions": 9.5,
+        "input_size": 640
       },
       {
         "model": "deim-n",
@@ -442,7 +627,8 @@
         "mAP": 46.8,
         "fps": 41.8,
         "ms": 23.91,
-        "params_millions": 0.0
+        "params_millions": 0.0,
+        "input_size": 640
       },
       {
         "model": "deimv2-n",
@@ -452,7 +638,8 @@
         "mAP": 46.6,
         "fps": 41.2,
         "ms": 24.25,
-        "params_millions": 0.0
+        "params_millions": 0.0,
+        "input_size": 640
       },
       {
         "model": "dfine-n",
@@ -462,7 +649,19 @@
         "mAP": 45.8,
         "fps": 42.1,
         "ms": 23.77,
-        "params_millions": 0.0
+        "params_millions": 0.0,
+        "input_size": 640
+      },
+      {
+        "model": "yolo11s",
+        "displayName": "YOLO11-S",
+        "family": "yolo11",
+        "license": "AGPL-3.0",
+        "mAP": 45.7,
+        "fps": 41.3,
+        "ms": 24.2,
+        "params_millions": 9.4,
+        "input_size": 640
       },
       {
         "model": "yolox-s",
@@ -472,7 +671,19 @@
         "mAP": 44.2,
         "fps": 34.9,
         "ms": 28.64,
-        "params_millions": 8.97
+        "params_millions": 8.97,
+        "input_size": 640
+      },
+      {
+        "model": "yolov8s",
+        "displayName": "YOLOv8-S",
+        "family": "yolov8",
+        "license": "AGPL-3.0",
+        "mAP": 44.2,
+        "fps": 39.7,
+        "ms": 25.16,
+        "params_millions": 11.2,
+        "input_size": 640
       },
       {
         "model": "picodet-l",
@@ -482,7 +693,19 @@
         "mAP": 44.0,
         "fps": 19.1,
         "ms": 52.34,
-        "params_millions": 0.0
+        "params_millions": 0.0,
+        "input_size": 640
+      },
+      {
+        "model": "yolov5su",
+        "displayName": "YOLOv5su",
+        "family": "yolov5u",
+        "license": "AGPL-3.0",
+        "mAP": 42.4,
+        "fps": 42.8,
+        "ms": 23.39,
+        "params_millions": 9.1,
+        "input_size": 640
       },
       {
         "model": "deimv2-pico",
@@ -492,7 +715,8 @@
         "mAP": 42.3,
         "fps": 44.5,
         "ms": 22.5,
-        "params_millions": 0.0
+        "params_millions": 0.0,
+        "input_size": 640
       },
       {
         "model": "yolov9t",
@@ -502,7 +726,30 @@
         "mAP": 41.8,
         "fps": 34.3,
         "ms": 29.15,
-        "params_millions": 2.04
+        "params_millions": 2.04,
+        "input_size": 640
+      },
+      {
+        "model": "yolo26n",
+        "displayName": "YOLO26-N",
+        "family": "yolo26",
+        "license": "AGPL-3.0",
+        "mAP": 40.1,
+        "fps": 60.2,
+        "ms": 16.61,
+        "params_millions": 2.4,
+        "input_size": 640
+      },
+      {
+        "model": "yolo11n",
+        "displayName": "YOLO11-N",
+        "family": "yolo11",
+        "license": "AGPL-3.0",
+        "mAP": 38.7,
+        "fps": 52.6,
+        "ms": 19.0,
+        "params_millions": 2.6,
+        "input_size": 640
       },
       {
         "model": "picodet-m",
@@ -512,7 +759,19 @@
         "mAP": 37.9,
         "fps": 32.4,
         "ms": 30.84,
-        "params_millions": 0.0
+        "params_millions": 0.0,
+        "input_size": 416
+      },
+      {
+        "model": "yolov8n",
+        "displayName": "YOLOv8-N",
+        "family": "yolov8",
+        "license": "AGPL-3.0",
+        "mAP": 36.7,
+        "fps": 49.5,
+        "ms": 20.21,
+        "params_millions": 3.2,
+        "input_size": 640
       },
       {
         "model": "yolox-tiny",
@@ -522,7 +781,8 @@
         "mAP": 35.5,
         "fps": 51.6,
         "ms": 19.39,
-        "params_millions": 5.06
+        "params_millions": 5.06,
+        "input_size": 416
       },
       {
         "model": "deimv2-femto",
@@ -532,7 +792,19 @@
         "mAP": 34.5,
         "fps": 65.7,
         "ms": 15.23,
-        "params_millions": 0.0
+        "params_millions": 0.0,
+        "input_size": 416
+      },
+      {
+        "model": "yolov5nu",
+        "displayName": "YOLOv5nu",
+        "family": "yolov5u",
+        "license": "AGPL-3.0",
+        "mAP": 33.8,
+        "fps": 56.3,
+        "ms": 17.76,
+        "params_millions": 2.6,
+        "input_size": 640
       },
       {
         "model": "picodet-s",
@@ -542,7 +814,8 @@
         "mAP": 30.4,
         "fps": 39.6,
         "ms": 25.26,
-        "params_millions": 0.0
+        "params_millions": 0.0,
+        "input_size": 320
       },
       {
         "model": "yolox-nano",
@@ -552,7 +825,8 @@
         "mAP": 28.8,
         "fps": 51.0,
         "ms": 19.62,
-        "params_millions": 0.91
+        "params_millions": 0.91,
+        "input_size": 416
       },
       {
         "model": "deimv2-atto",
@@ -562,16 +836,19 @@
         "mAP": 27.5,
         "fps": 89.1,
         "ms": 11.23,
-        "params_millions": 0.0
+        "params_millions": 0.0,
+        "input_size": 320
       }
     ],
     "pareto_models": [
       "deimv2-atto",
       "deimv2-femto",
-      "yolox-tiny",
+      "yolo26n",
       "deimv2-pico",
+      "yolov5su",
       "dfine-n",
       "deim-n",
+      "yolo26s",
       "rtdetrv2-r18",
       "rtdetrv2-r34",
       "dfine-s",
@@ -591,7 +868,8 @@
         "mAP": 53.2,
         "fps": 32.7,
         "ms": 30.59,
-        "params_millions": 0.0
+        "params_millions": 0.0,
+        "input_size": 640
       },
       "100": {
         "model": "dfine-x",
@@ -601,7 +879,8 @@
         "mAP": 61.4,
         "fps": 14.2,
         "ms": 70.45,
-        "params_millions": 0.0
+        "params_millions": 0.0,
+        "input_size": 640
       }
     },
     "best_overall": {
@@ -612,7 +891,8 @@
       "mAP": 61.4,
       "fps": 14.2,
       "ms": 70.45,
-      "params_millions": 0.0
+      "params_millions": 0.0,
+      "input_size": 640
     },
     "best_permissive": {
       "model": "dfine-x",
@@ -622,7 +902,8 @@
       "mAP": 61.4,
       "fps": 14.2,
       "ms": 70.45,
-      "params_millions": 0.0
+      "params_millions": 0.0,
+      "input_size": 640
     },
     "fastest": {
       "model": "deimv2-atto",
@@ -632,8 +913,97 @@
       "mAP": 27.5,
       "fps": 89.1,
       "ms": 11.23,
-      "params_millions": 0.0
-    }
+      "params_millions": 0.0,
+      "input_size": 320
+    },
+    "fps_targets": [
+      60,
+      30,
+      15
+    ],
+    "fps_picks": {
+      "60": {
+        "any": {
+          "model": "yolo26n",
+          "displayName": "YOLO26-N",
+          "family": "yolo26",
+          "license": "AGPL-3.0",
+          "mAP": 40.1,
+          "fps": 60.2,
+          "ms": 16.61,
+          "params_millions": 2.4,
+          "input_size": 640
+        },
+        "permissive": {
+          "model": "deimv2-femto",
+          "displayName": "DEIMv2-Femto",
+          "family": "deimv2",
+          "license": "Apache-2.0",
+          "mAP": 34.5,
+          "fps": 65.7,
+          "ms": 15.23,
+          "params_millions": 0.0,
+          "input_size": 416
+        }
+      },
+      "30": {
+        "any": {
+          "model": "dfine-s",
+          "displayName": "D-FINE-S",
+          "family": "dfine",
+          "license": "Apache-2.0",
+          "mAP": 53.4,
+          "fps": 30.2,
+          "ms": 33.15,
+          "params_millions": 0.0,
+          "input_size": 640
+        },
+        "permissive": {
+          "model": "dfine-s",
+          "displayName": "D-FINE-S",
+          "family": "dfine",
+          "license": "Apache-2.0",
+          "mAP": 53.4,
+          "fps": 30.2,
+          "ms": 33.15,
+          "params_millions": 0.0,
+          "input_size": 640
+        }
+      },
+      "15": {
+        "any": {
+          "model": "dfine-l",
+          "displayName": "D-FINE-L",
+          "family": "dfine",
+          "license": "Apache-2.0",
+          "mAP": 60.0,
+          "fps": 18.6,
+          "ms": 53.64,
+          "params_millions": 0.0,
+          "input_size": 640
+        },
+        "permissive": {
+          "model": "dfine-l",
+          "displayName": "D-FINE-L",
+          "family": "dfine",
+          "license": "Apache-2.0",
+          "mAP": 60.0,
+          "fps": 18.6,
+          "ms": 53.64,
+          "params_millions": 0.0,
+          "input_size": 640
+        }
+      }
+    },
+    "input_sizes": [
+      320,
+      384,
+      416,
+      512,
+      576,
+      640,
+      704
+    ]
   },
   "claims": [
     {
@@ -648,7 +1018,8 @@
         "mAP": 61.4,
         "fps": 14.2,
         "ms": 70.45,
-        "params_millions": 0.0
+        "params_millions": 0.0,
+        "input_size": 640
       },
       "passed": true,
       "strength": "strong"
@@ -665,7 +1036,8 @@
         "mAP": 27.5,
         "fps": 89.1,
         "ms": 11.23,
-        "params_millions": 0.0
+        "params_millions": 0.0,
+        "input_size": 320
       },
       "passed": true,
       "strength": "strong"
@@ -673,15 +1045,17 @@
     {
       "id": "pareto",
       "kind": "ranking",
-      "statement": "The measured accuracy-speed frontier on NVIDIA Jetson Orin Nano Super 8GB is: DEIMv2-Atto, DEIMv2-Femto, YOLOX-Tiny, DEIMv2-Pico, D-FINE-N, DEIM-N, RT-DETRv2-R18, RT-DETRv2-R34, D-FINE-S, RT-DETRv2-R50m, YOLOv9-M, YOLOv9-C, D-FINE-M, D-FINE-L, D-FINE-X.",
+      "statement": "The measured accuracy-speed frontier on NVIDIA Jetson Orin Nano Super 8GB is: DEIMv2-Atto, DEIMv2-Femto, YOLO26-N, DEIMv2-Pico, YOLOv5su, D-FINE-N, DEIM-N, YOLO26-S, RT-DETRv2-R18, RT-DETRv2-R34, D-FINE-S, RT-DETRv2-R50m, YOLOv9-M, YOLOv9-C, D-FINE-M, D-FINE-L, D-FINE-X.",
       "values": {
         "pareto": [
           "deimv2-atto",
           "deimv2-femto",
-          "yolox-tiny",
+          "yolo26n",
           "deimv2-pico",
+          "yolov5su",
           "dfine-n",
           "deim-n",
+          "yolo26s",
           "rtdetrv2-r18",
           "rtdetrv2-r34",
           "dfine-s",
@@ -710,7 +1084,8 @@
           "mAP": 53.2,
           "fps": 32.7,
           "ms": 30.59,
-          "params_millions": 0.0
+          "params_millions": 0.0,
+          "input_size": 640
         }
       },
       "passed": true,
@@ -730,7 +1105,8 @@
           "mAP": 61.4,
           "fps": 14.2,
           "ms": 70.45,
-          "params_millions": 0.0
+          "params_millions": 0.0,
+          "input_size": 640
         }
       },
       "passed": true,
@@ -751,7 +1127,10 @@
     1,
     2,
     2.04,
+    2.4,
+    2.6,
     3,
+    3.2,
     4,
     5,
     5.06,
@@ -767,48 +1146,76 @@
     8.4,
     8.97,
     9,
+    9.1,
+    9.4,
+    9.5,
     10,
     10.5,
     10.6,
     11,
+    11.2,
     11.23,
     12,
     12.5,
     13.8,
     14.1,
     14.2,
+    14.4,
     14.6,
+    14.7,
+    15.0,
     15.23,
     15.5,
+    15.8,
+    16.61,
     17.0,
     17.3,
+    17.76,
     18.1,
     18.5,
     18.6,
+    19.0,
     19.1,
+    19.3,
     19.39,
     19.62,
+    20.1,
     20.12,
+    20.21,
+    20.4,
+    20.6,
     21.6,
     22.5,
+    22.6,
     23.1,
+    23.39,
     23.5,
     23.6,
     23.7,
     23.77,
     23.91,
+    23.97,
     24.1,
     24.2,
     24.25,
+    24.3,
+    24.6,
+    24.8,
     24.9,
     25.06,
+    25.1,
+    25.16,
     25.26,
+    25.3,
     25.33,
     25.4,
     25.5,
     25.75,
     25.8,
+    25.9,
+    27.4,
     27.5,
+    27.8,
     28.0,
     28.64,
     28.8,
@@ -817,6 +1224,7 @@
     29.6,
     29.7,
     29.9,
+    30.0,
     30.15,
     30.2,
     30.4,
@@ -832,57 +1240,84 @@
     33.44,
     33.62,
     33.74,
+    33.8,
     34.3,
     34.35,
     34.5,
     34.9,
     35.5,
     35.74,
+    36.03,
+    36.54,
+    36.7,
     37.9,
+    38.7,
+    38.76,
     38.8,
     39.36,
     39.6,
+    39.7,
     39.9,
+    40.1,
     40.11,
+    40.65,
     41.2,
+    41.22,
     41.28,
+    41.3,
     41.5,
+    41.7,
     41.8,
     42.1,
     42.26,
     42.3,
+    42.4,
     42.42,
     42.55,
+    42.8,
     43.29,
+    43.7,
     44.0,
     44.2,
+    44.31,
     44.5,
+    45.7,
     45.8,
     46.34,
     46.6,
     46.8,
+    47.4,
+    48.2,
+    48.54,
+    49.4,
+    49.5,
     49.7,
     50,
     50.4,
+    50.6,
     50.8,
     51.0,
     51.3,
+    51.5,
     51.6,
     51.8,
+    51.9,
     52.0,
+    52.2,
     52.3,
     52.34,
+    52.6,
     52.9,
     53.0,
     53.2,
     53.4,
+    53.6,
     53.64,
     53.8,
     53.96,
     54.21,
     54.3,
     54.8,
-    55.0,
     55.15,
     55.2,
     55.5,
@@ -891,8 +1326,11 @@
     56.0,
     56.1,
     56.2,
+    56.3,
+    56.5,
     56.6,
     56.8,
+    56.9,
     57.1,
     57.4,
     57.69,
@@ -903,24 +1341,31 @@
     58.7,
     58.76,
     58.9,
+    58.95,
     59.6,
     60.0,
+    60.2,
     60.7,
     61.0,
     61.4,
+    63.25,
     64.36,
     65.7,
+    68.05,
+    68.2,
     68.7,
+    69.24,
     70.45,
     70.93,
     72.69,
-    75,
+    75.0,
     79.75,
     89.1,
     91.0,
     94.78,
     95,
     95.51,
+    97.2,
     99.07,
     100.0,
     119.33,
@@ -932,8 +1377,14 @@
     174.81,
     184.54,
     300,
+    320.0,
+    384.0,
+    416.0,
     500,
-    640,
+    512.0,
+    576.0,
+    640.0,
+    704.0,
     5000
   ]
 }
