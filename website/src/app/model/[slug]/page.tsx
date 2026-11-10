@@ -34,6 +34,52 @@ export async function generateStaticParams() {
   ];
 }
 
+
+// Search titles and descriptions built from the model's own measurements, so
+// a result for "deimv2" or "rt-detrv4" shows FPS on real boards instead of a
+// generic "Benchmark Results" line.
+const SEO_BOARDS: Array<[string, string]> = [
+  ["jetson_orin", "Jetson Orin Nano Super"],
+  ["rpi5", "Raspberry Pi 5"],
+  ["rpi5_hailo8", "Pi 5 + Hailo-8"],
+  ["nvidia_geforce_rtx_5070_ti", "RTX 5070 Ti"],
+  ["dgx_spark", "DGX Spark"],
+  ["a100", "A100"],
+];
+
+function fpsLabel(fps: number): string {
+  return fps >= 10 ? fps.toFixed(0) : fps.toFixed(1);
+}
+
+function modelSeo(slug: string, name: string, license: string | undefined) {
+  const entries = getModelBenchmarks(slug).map((e) => e.result);
+  if (entries.length === 0) return null;
+  const seg = entries.every((r) => r.task === "segmentation");
+  const fastest = (hw: string) =>
+    entries.filter((r) => r.hardware === hw).sort((a, b) => b.throughputFps - a.throughputFps)[0];
+  const boards = SEO_BOARDS.map(([hw, label]) => ({ label, r: fastest(hw) })).filter((b) => b.r);
+  const metric = seg ? "mask mAP" : "mAP";
+  const head = boards[0];
+  // mAP comes from the same run as the headline FPS, so the pair is one measurement.
+  const ref = head?.r ?? entries.slice().sort((a, b) => b.mAP_50_95 - a.mAP_50_95)[0];
+  const title = head
+    ? `${name}: ${fpsLabel(head.r.throughputFps)} FPS on ${head.label}, ${ref.mAP_50_95.toFixed(1)} ${metric}`
+    : `${name}: ${ref.mAP_50_95.toFixed(1)} ${metric} on COCO`;
+  const speeds = boards
+    .slice(0, 4)
+    .map((b) => {
+      const rt = getRuntimeById(b.r.runtime)?.displayName ?? b.r.runtime;
+      return `${fpsLabel(b.r.throughputFps)} FPS on ${b.label} (${rt})`;
+    })
+    .join(", ");
+  const description =
+    `${name} measured on real hardware: ${ref.mAP_50_95.toFixed(1)} ${metric}@50-95 on COCO val2017` +
+    (head ? ` (${head.label}). ` : ". ") +
+    (speeds ? `${speeds}. ` : "") +
+    (license ? `${license}.` : "");
+  return { title, description: description.trim() };
+}
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const model = getModelById(slug);
@@ -55,9 +101,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     return { title: "Model Not Found" };
   }
 
+  const seo = modelSeo(slug, model.displayName, model.license);
   return {
-    title: `${model.displayName} Benchmark Results`,
-    description: `${model.displayName} - ${model.specs.paramsM}M parameters, ${model.specs.flopsG > 0 ? `${model.specs.flopsG} GFLOPs` : "FLOPs not recorded"}. See detailed benchmarks across hardware.`,
+    title: seo?.title ?? `${model.displayName} Benchmark Results`,
+    description:
+      seo?.description ??
+      `${model.displayName} - ${model.specs.paramsM}M parameters, ${model.specs.flopsG > 0 ? `${model.specs.flopsG} GFLOPs` : "FLOPs not recorded"}. See detailed benchmarks across hardware.`,
     // Advertise the LLM-ingestible markdown twin (invisible to humans).
     alternates: {
       types: {
