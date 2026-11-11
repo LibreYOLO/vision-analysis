@@ -69,6 +69,12 @@ def load_dataset():
         rt_id = f"{runtime.get('format')}_{runtime.get('precision')}"
         if not model_id or not hw_id:
             continue
+        # Every article type is a detection comparison. Skip models whose task
+        # is set to something else (e.g. rfdetr-seg-n, "segmentation"): their
+        # scores would distort family, runtime, hardware and license aggregates.
+        task = (models_meta.get(model_id) or {}).get("task")
+        if task and task not in ("detection", "detect"):
+            continue
         key = (model_id, hw_id, rt_id)
         created = bench.get("created_at") or ""
         prev = index.get(key)
