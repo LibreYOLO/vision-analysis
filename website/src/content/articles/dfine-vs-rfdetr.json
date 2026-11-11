@@ -21,7 +21,7 @@
     },
     {
       "kind": "prose",
-      "text": "D-FINE fields 5 measured variants and RF-DETR fields 5, all on the same COCO val2017 protocol on an RTX 5070 Ti. RF-DETR's variants sit between 30.47M and 33.93M parameters, one of them the segmentation variant RF-DETR-Seg-N, so only 2 pairings match closely by parameter count: D-FINE-M and D-FINE-L, both against RF-DETR-N."
+      "text": "D-FINE fields 5 measured variants and RF-DETR fields 4, all on the same COCO val2017 protocol on an RTX 5070 Ti. RF-DETR's variants sit between 30.47M and 33.93M parameters, so only 2 pairings match closely by parameter count: D-FINE-M and D-FINE-L, both against RF-DETR-N."
     },
     {
       "kind": "family-frontier",
@@ -32,7 +32,7 @@
     },
     {
       "kind": "chart",
-      "src": "/embed/scatter?highlight=dfine-n,dfine-s,dfine-m,dfine-l,dfine-x,rfdetr-n,rfdetr-s,rfdetr-seg-n,rfdetr-m,rfdetr-l",
+      "src": "/embed/scatter?highlight=dfine-n,dfine-s,dfine-m,dfine-l,dfine-x,rfdetr-n,rfdetr-s,rfdetr-m,rfdetr-l",
       "caption": "Accuracy vs parameters on COCO val2017, D-FINE and RF-DETR variants highlighted against the full field."
     },
     {

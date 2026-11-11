@@ -1,8 +1,8 @@
 {
   "slug": "rfdetr-vs-yolov9",
   "type": "family-vs",
-  "title": "RF-DETR vs YOLOv9: 58.6 vs 57.1 mAP, YOLOv9 21.6% faster",
-  "dek": "RF-DETR-L tops out at 58.6 mAP, YOLOv9-C at 57.1. At matched size, YOLOv9 runs 21.6% faster on an RTX 5070 Ti and wins 3 of 5 pairs.",
+  "title": "RF-DETR vs YOLOv9: 58.6 vs 57.1 mAP, YOLOv9 22.8% faster",
+  "dek": "YOLOv9 wins the small end and runs 22.8% faster at matched size on an RTX 5070 Ti. RF-DETR-L tops out at 58.6 mAP, YOLOv9-C at 57.1.",
   "date": "2026-11-11",
   "author": "Vision Analysis",
   "readingMinutes": 3,
@@ -17,11 +17,11 @@
   "blocks": [
     {
       "kind": "verdict",
-      "text": "YOLOv9 is the stronger family per parameter on an RTX 5070 Ti: it wins 3 of 5 nearest-parameter pairs, averages 4.5 mAP points higher, and runs 21.6% faster in PyTorch. Read the average with care: every pair faces YOLOv9-C, and the segmentation variant RF-DETR-Seg-N, scores 40.4 mAP against 57.1 and drags the average on its own. RF-DETR-M and RF-DETR-L still beat YOLOv9-C, by 0.2 and 1.5 points, and RF-DETR-L reaches the higher ceiling at 58.6 mAP."
+      "text": "Neither family wins outright on an RTX 5070 Ti. YOLOv9 leads at the small end and runs 22.8% faster on average in PyTorch; RF-DETR leads at the large end, where RF-DETR-L reaches 58.6 mAP against YOLOv9-C at 57.1. Across 4 nearest-parameter pairs the accuracy split is 2 to 2, with YOLOv9 averaging 1.5 mAP points higher."
     },
     {
       "kind": "prose",
-      "text": "RF-DETR fields 5 measured variants; YOLOv9 fields 4. All run the same COCO val2017 protocol on an RTX 5070 Ti. RF-DETR's variants sit between 30.47M and 33.93M parameters, so each pairs with YOLOv9-C (25.5M) by count."
+      "text": "RF-DETR fields 4 measured variants; YOLOv9 fields 4. All run the same COCO val2017 protocol on an RTX 5070 Ti. RF-DETR's variants sit between 30.47M and 33.93M parameters, so each pairs with YOLOv9-C (25.5M) by count."
     },
     {
       "kind": "family-frontier",
@@ -32,7 +32,7 @@
     },
     {
       "kind": "chart",
-      "src": "/embed/scatter?highlight=rfdetr-n,rfdetr-s,rfdetr-seg-n,rfdetr-m,rfdetr-l,yolov9t,yolov9s,yolov9m,yolov9c",
+      "src": "/embed/scatter?highlight=rfdetr-n,rfdetr-s,rfdetr-m,rfdetr-l,yolov9t,yolov9s,yolov9m,yolov9c",
       "caption": "Accuracy vs parameters on COCO val2017. Every RF-DETR and YOLOv9 variant highlighted against the full set."
     },
     {
@@ -41,7 +41,7 @@
     },
     {
       "kind": "prose",
-      "text": "mAP is shown in percent. Against YOLOv9-C at 57.1 mAP, RF-DETR-N trails at 51.4, RF-DETR-S at 55.1 and RF-DETR-Seg-N at 40.4. RF-DETR-M leads by 0.2 points at 57.3 and RF-DETR-L by 1.5 at 58.6. At the small end YOLOv9-T reaches 41.8 mAP at 2.04M parameters, a size class RF-DETR does not field; RF-DETR's smallest, RF-DETR-N, needs 30.47M for 51.4 mAP."
+      "text": "mAP is shown in percent. Against YOLOv9-C at 57.1 mAP, RF-DETR-N trails at 51.4 and RF-DETR-S at 55.1. RF-DETR-M leads by 0.2 points at 57.3 and RF-DETR-L by 1.5 at 58.6. That is a 2 to 2 split, with YOLOv9 ahead by 1.5 points on average. At the small end YOLOv9-T reaches 41.8 mAP at 2.04M parameters, a size class RF-DETR does not field."
     },
     {
       "kind": "heading",
@@ -49,7 +49,15 @@
     },
     {
       "kind": "prose",
-      "text": "YOLOv9 is faster at matched compute: 21.6% faster on average in PyTorch FP32. YOLOv9-C runs 42.3 FPS; RF-DETR runs 39.5 FPS at RF-DETR-N and 25.1 FPS at RF-DETR-L."
+      "text": "YOLOv9 is faster at matched compute: 22.8% faster on average in PyTorch FP32. YOLOv9-C runs 42.3 FPS; RF-DETR runs 39.5 FPS at RF-DETR-N and 25.1 FPS at RF-DETR-L."
+    },
+    {
+      "kind": "heading",
+      "text": "Where the frontier crosses"
+    },
+    {
+      "kind": "prose",
+      "text": "The accuracy lead changes hands with model size. At the small end YOLOv9 leads: its parameter-efficient variants sit above RF-DETR's smallest, RF-DETR-N, which needs 30.47M parameters to reach 51.4 mAP. At the large end RF-DETR leads, with RF-DETR-L at 58.6 mAP. There is no single winner; the choice follows your size class."
     },
     {
       "kind": "kv",

@@ -1,6 +1,6 @@
 {
   "engine": "article-pipeline-v2",
-  "generated_at": "2026-11-11T18:49:00.868564+00:00",
+  "generated_at": "2026-11-11T18:55:32.981102+00:00",
   "slug": "rfdetr-vs-yolox",
   "meta": {
     "type": "family-vs",
@@ -37,14 +37,6 @@
         "params": 32.11,
         "mAP": 55.1,
         "fps": 35.8,
-        "license": "Apache-2.0"
-      },
-      {
-        "id": "rfdetr-seg-n",
-        "displayName": "RF-DETR-Seg-N",
-        "params": 33.58,
-        "mAP": 40.4,
-        "fps": 35.1,
         "license": "Apache-2.0"
       },
       {
@@ -157,26 +149,6 @@
       },
       {
         "a": {
-          "id": "rfdetr-seg-n",
-          "displayName": "RF-DETR-Seg-N",
-          "params": 33.58,
-          "mAP": 40.4,
-          "fps": 35.1,
-          "license": "Apache-2.0"
-        },
-        "b": {
-          "id": "yolox-m",
-          "displayName": "YOLOX-M",
-          "params": 25.33,
-          "mAP": 51.7,
-          "fps": 48.2,
-          "license": "Apache-2.0"
-        },
-        "mAP_delta_pts": -11.3,
-        "fps_delta_pct": -27.18
-      },
-      {
-        "a": {
           "id": "rfdetr-m",
           "displayName": "RF-DETR-M",
           "params": 33.69,
@@ -217,11 +189,11 @@
       }
     ],
     "aggregate": {
-      "n_pairs": 5,
-      "mean_mAP_delta_pts": 0.9,
+      "n_pairs": 4,
+      "mean_mAP_delta_pts": 3.9,
       "a_wins": 3,
-      "b_wins": 2,
-      "mean_fps_delta_pct": -31.2
+      "b_wins": 1,
+      "mean_fps_delta_pct": -32.2
     },
     "flagship": {
       "a": {
@@ -267,17 +239,17 @@
       "a_all_permissive": true,
       "b_all_permissive": true
     },
-    "chart_highlight": "rfdetr-n,rfdetr-s,rfdetr-seg-n,rfdetr-m,rfdetr-l,yolox-nano,yolox-tiny,yolox-s,yolox-m,yolox-l,yolox-x"
+    "chart_highlight": "rfdetr-n,rfdetr-s,rfdetr-m,rfdetr-l,yolox-nano,yolox-tiny,yolox-s,yolox-m,yolox-l,yolox-x"
   },
   "claims": [
     {
       "id": "family_accuracy_edge",
       "kind": "accuracy",
-      "statement": "At matched compute, RF-DETR averages 0.9 mAP points higher across 5 paired variants on NVIDIA RTX 5070 Ti. RF-DETR wins 3, YOLOX wins 2.",
+      "statement": "At matched compute, RF-DETR averages 3.9 mAP points higher across 4 paired variants on NVIDIA RTX 5070 Ti. RF-DETR wins 3, YOLOX wins 1.",
       "values": {
-        "mean_delta_pts": 0.9,
+        "mean_delta_pts": 3.9,
         "a_wins": 3,
-        "b_wins": 2
+        "b_wins": 1
       },
       "passed": true,
       "strength": "strong"
@@ -285,9 +257,9 @@
     {
       "id": "family_speed_edge",
       "kind": "speed",
-      "statement": "At matched compute, YOLOX is 31.2% faster on average on NVIDIA RTX 5070 Ti (PyTorch FP32).",
+      "statement": "At matched compute, YOLOX is 32.2% faster on average on NVIDIA RTX 5070 Ti (PyTorch FP32).",
       "values": {
-        "mean_delta_pct": 31.2
+        "mean_delta_pct": 32.2
       },
       "passed": true,
       "strength": "strong"
@@ -345,9 +317,9 @@
     {
       "id": "coverage",
       "kind": "ranking",
-      "statement": "RF-DETR fields 5 measured variants, YOLOX fields 6, all on the same protocol on NVIDIA RTX 5070 Ti.",
+      "statement": "RF-DETR fields 4 measured variants, YOLOX fields 6, all on the same protocol on NVIDIA RTX 5070 Ti.",
       "values": {
-        "a_n": 5,
+        "a_n": 4,
         "b_n": 6
       },
       "passed": true,
@@ -363,22 +335,20 @@
   "allowed_numbers": [
     -47.93,
     -37.14,
-    -31.2,
-    -27.18,
+    -32.2,
     -25.73,
     -18.05,
-    -11.3,
     -0.3,
     0.001,
     0.6,
-    0.9,
     0.91,
-    1,
-    2.0,
+    1.0,
+    2,
     3.0,
     3.4,
-    4,
-    5.0,
+    3.9,
+    4.0,
+    5,
     5.06,
     5.6,
     6.0,
@@ -395,17 +365,14 @@
     28.8,
     30.3,
     30.47,
-    31.2,
     32.11,
-    33.58,
+    32.2,
     33.69,
     33.93,
-    35.1,
     35.5,
     35.8,
     39.5,
     39.6,
-    40.4,
     42.8,
     44.3,
     48.2,
@@ -421,11 +388,10 @@
     58.6,
     61.6,
     75,
-    90.0,
     91.0,
     95,
     99.07,
-    100,
+    100.0,
     300,
     500,
     640,

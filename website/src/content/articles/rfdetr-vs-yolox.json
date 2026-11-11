@@ -2,7 +2,7 @@
   "slug": "rfdetr-vs-yolox",
   "type": "family-vs",
   "title": "RF-DETR vs YOLOX: mAP and FPS for every variant",
-  "dek": "RF-DETR-L reaches 58.6 mAP at 33.93M params; YOLOX-X reaches 56.3 at 99.07M. At matched size, YOLOX runs 31.2% faster on an RTX 5070 Ti.",
+  "dek": "RF-DETR averages 3.9 mAP points more than YOLOX at matched size, and RF-DETR-L hits 58.6 mAP. YOLOX runs 32.2% faster on an RTX 5070 Ti.",
   "date": "2026-11-11",
   "author": "Vision Analysis",
   "readingMinutes": 3,
@@ -17,11 +17,11 @@
   "blocks": [
     {
       "kind": "verdict",
-      "text": "RF-DETR is more accurate per parameter, with a caveat in the average. From RF-DETR-S up, its models beat their nearest YOLOX match by 3.4 to 6.9 mAP points, and RF-DETR-L tops the range at 58.6. The mean edge across 5 pairs is only 0.9 points, because RF-DETR-N (51.4) trails YOLOX-M (51.7) and the segmentation variant RF-DETR-Seg-N scores 40.4 mAP. YOLOX is 31.2% faster on average on an RTX 5070 Ti and scales to 99.07M parameters."
+      "text": "RF-DETR is more accurate per parameter: at matched size on an RTX 5070 Ti it averages 3.9 mAP points higher than YOLOX and wins 3 of 4 pairs, and RF-DETR-L tops the range at 58.6 mAP. YOLOX is 32.2% faster on average in PyTorch and scales from 0.91M to 99.07M parameters. Pick by accuracy per parameter against throughput and range."
     },
     {
       "kind": "prose",
-      "text": "RF-DETR fields 5 measured variants and YOLOX fields 6, all on the same COCO val2017 protocol on an RTX 5070 Ti. RF-DETR's variants sit between 30.47M and 33.93M parameters, so all 5 pair against YOLOX-M (25.33M) by count. One of the 5, RF-DETR-Seg-N, is the segmentation variant, and it pulls the family average down."
+      "text": "RF-DETR fields 4 measured variants and YOLOX fields 6, all on the same COCO val2017 protocol on an RTX 5070 Ti. RF-DETR's variants sit between 30.47M and 33.93M parameters, so all 4 pair against YOLOX-M (25.33M) by count."
     },
     {
       "kind": "family-frontier",
@@ -32,7 +32,7 @@
     },
     {
       "kind": "chart",
-      "src": "/embed/scatter?highlight=rfdetr-n,rfdetr-s,rfdetr-seg-n,rfdetr-m,rfdetr-l,yolox-nano,yolox-tiny,yolox-s,yolox-m,yolox-l,yolox-x",
+      "src": "/embed/scatter?highlight=rfdetr-n,rfdetr-s,rfdetr-m,rfdetr-l,yolox-nano,yolox-tiny,yolox-s,yolox-m,yolox-l,yolox-x",
       "caption": "Accuracy vs parameters on COCO val2017, RF-DETR and YOLOX variants highlighted against the full field."
     },
     {
@@ -41,7 +41,7 @@
     },
     {
       "kind": "prose",
-      "text": "mAP is shown in percent. Each RF-DETR variant is paired with the nearest YOLOX variant by parameter count, which is YOLOX-M at 51.7 mAP for all 5. RF-DETR-S, RF-DETR-M and RF-DETR-L win by 3.4, 5.6 and 6.9 points. RF-DETR-N trails at 51.4 and RF-DETR-Seg-N at 40.4, so the mean edge is 0.9 points and the win count is 3 to 2. At the top, RF-DETR-L reaches 58.6 mAP; YOLOX-X, far heavier at 99.07M, reaches 56.3. At the small end YOLOX goes down to YOLOX-Nano (0.91M, 28.8 mAP), a size RF-DETR does not field."
+      "text": "mAP is shown in percent. Each RF-DETR variant is paired with the nearest YOLOX variant by parameter count, which is YOLOX-M at 51.7 mAP for all 4. RF-DETR-S, RF-DETR-M and RF-DETR-L win by 3.4, 5.6 and 6.9 points; RF-DETR-N trails at 51.4. The mean edge is 3.9 points. At the top, RF-DETR-L reaches 58.6 mAP; YOLOX-X, far heavier at 99.07M, reaches 56.3. At the small end YOLOX goes down to YOLOX-Nano (0.91M, 28.8 mAP), a size RF-DETR does not field."
     },
     {
       "kind": "heading",
@@ -49,7 +49,7 @@
     },
     {
       "kind": "prose",
-      "text": "Averaged across the 5 pairs, YOLOX is 31.2% faster than RF-DETR in PyTorch. YOLOX-M runs 48.2 FPS; the RF-DETR variants it faces run between 39.5 and 25.1 FPS, slowing as accuracy rises."
+      "text": "Averaged across the 4 pairs, YOLOX is 32.2% faster than RF-DETR in PyTorch. YOLOX-M runs 48.2 FPS; the RF-DETR variants it faces run between 39.5 and 25.1 FPS, slowing as accuracy rises."
     },
     {
       "kind": "kv",
@@ -75,7 +75,7 @@
     },
     {
       "kind": "prose",
-      "text": "Pick RF-DETR for accuracy per parameter: RF-DETR-S and up beat their YOLOX match by 3.4 points or more, and RF-DETR-L reaches 58.6 mAP. Pick YOLOX for throughput, 31.2% faster on average, and for small models down to 0.91M parameters. Both ship under Apache-2.0, so licensing does not force the call."
+      "text": "Pick RF-DETR for accuracy per parameter: RF-DETR-S and up beat their YOLOX match by 3.4 points or more, and RF-DETR-L reaches 58.6 mAP. Pick YOLOX for throughput, 32.2% faster on average, and for small models down to 0.91M parameters. Both ship under Apache-2.0, so licensing does not force the call."
     },
     {
       "kind": "methodology"
