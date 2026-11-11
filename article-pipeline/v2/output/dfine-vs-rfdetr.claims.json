@@ -1,6 +1,6 @@
 {
   "engine": "article-pipeline-v2",
-  "generated_at": "2026-07-03T22:28:18.973810+00:00",
+  "generated_at": "2026-11-11T18:49:01.080305+00:00",
   "slug": "dfine-vs-rfdetr",
   "meta": {
     "type": "family-vs",
@@ -79,6 +79,14 @@
         "params": 32.11,
         "mAP": 55.1,
         "fps": 35.8,
+        "license": "Apache-2.0"
+      },
+      {
+        "id": "rfdetr-seg-n",
+        "displayName": "RF-DETR-Seg-N",
+        "params": 33.58,
+        "mAP": 40.4,
+        "fps": 35.1,
         "license": "Apache-2.0"
       },
       {
@@ -191,7 +199,7 @@
       "a_all_permissive": true,
       "b_all_permissive": true
     },
-    "chart_highlight": "dfine-n,dfine-s,dfine-m,dfine-l,dfine-x,rfdetr-n,rfdetr-s,rfdetr-m,rfdetr-l"
+    "chart_highlight": "dfine-n,dfine-s,dfine-m,dfine-l,dfine-x,rfdetr-n,rfdetr-s,rfdetr-seg-n,rfdetr-m,rfdetr-l"
   },
   "claims": [
     {
@@ -269,10 +277,10 @@
     {
       "id": "coverage",
       "kind": "ranking",
-      "statement": "D-FINE fields 5 measured variants, RF-DETR fields 4, all on the same protocol on NVIDIA RTX 5070 Ti.",
+      "statement": "D-FINE fields 5 measured variants, RF-DETR fields 5, all on the same protocol on NVIDIA RTX 5070 Ti.",
       "values": {
         "a_n": 5,
-        "b_n": 4
+        "b_n": 5
       },
       "passed": true,
       "strength": "normal"
@@ -295,7 +303,7 @@
     2.0,
     3,
     3.78,
-    4.0,
+    4,
     5.0,
     6,
     6.4,
@@ -318,11 +326,14 @@
     31.24,
     32.11,
     32.5,
+    33.58,
     33.69,
     33.93,
     34.2,
+    35.1,
     35.8,
     39.5,
+    40.4,
     45.8,
     50,
     51.4,

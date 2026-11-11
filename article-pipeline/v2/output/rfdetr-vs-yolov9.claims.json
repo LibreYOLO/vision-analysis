@@ -1,6 +1,6 @@
 {
   "engine": "article-pipeline-v2",
-  "generated_at": "2026-07-03T22:28:17.882483+00:00",
+  "generated_at": "2026-11-11T18:49:01.160114+00:00",
   "slug": "rfdetr-vs-yolov9",
   "meta": {
     "type": "family-vs",
@@ -37,6 +37,14 @@
         "params": 32.11,
         "mAP": 55.1,
         "fps": 35.8,
+        "license": "Apache-2.0"
+      },
+      {
+        "id": "rfdetr-seg-n",
+        "displayName": "RF-DETR-Seg-N",
+        "params": 33.58,
+        "mAP": 40.4,
+        "fps": 35.1,
         "license": "Apache-2.0"
       },
       {
@@ -133,6 +141,26 @@
       },
       {
         "a": {
+          "id": "rfdetr-seg-n",
+          "displayName": "RF-DETR-Seg-N",
+          "params": 33.58,
+          "mAP": 40.4,
+          "fps": 35.1,
+          "license": "Apache-2.0"
+        },
+        "b": {
+          "id": "yolov9c",
+          "displayName": "YOLOv9-C",
+          "params": 25.5,
+          "mAP": 57.1,
+          "fps": 42.3,
+          "license": "MIT"
+        },
+        "mAP_delta_pts": -16.7,
+        "fps_delta_pct": -17.02
+      },
+      {
+        "a": {
           "id": "rfdetr-m",
           "displayName": "RF-DETR-M",
           "params": 33.69,
@@ -173,11 +201,11 @@
       }
     ],
     "aggregate": {
-      "n_pairs": 4,
-      "mean_mAP_delta_pts": -1.5,
+      "n_pairs": 5,
+      "mean_mAP_delta_pts": -4.5,
       "a_wins": 2,
-      "b_wins": 2,
-      "mean_fps_delta_pct": -22.8
+      "b_wins": 3,
+      "mean_fps_delta_pct": -21.6
     },
     "flagship": {
       "a": {
@@ -217,23 +245,23 @@
     },
     "crossover": {
       "low_param_leader": "yolov9",
-      "high_param_leader": "rfdetr"
+      "high_param_leader": "yolov9"
     },
     "license": {
       "a_all_permissive": true,
       "b_all_permissive": true
     },
-    "chart_highlight": "rfdetr-n,rfdetr-s,rfdetr-m,rfdetr-l,yolov9t,yolov9s,yolov9m,yolov9c"
+    "chart_highlight": "rfdetr-n,rfdetr-s,rfdetr-seg-n,rfdetr-m,rfdetr-l,yolov9t,yolov9s,yolov9m,yolov9c"
   },
   "claims": [
     {
       "id": "family_accuracy_edge",
       "kind": "accuracy",
-      "statement": "At matched compute, YOLOv9 averages 1.5 mAP points higher across 4 paired variants on NVIDIA RTX 5070 Ti. RF-DETR wins 2, YOLOv9 wins 2.",
+      "statement": "At matched compute, YOLOv9 averages 4.5 mAP points higher across 5 paired variants on NVIDIA RTX 5070 Ti. RF-DETR wins 2, YOLOv9 wins 3.",
       "values": {
-        "mean_delta_pts": 1.5,
+        "mean_delta_pts": 4.5,
         "a_wins": 2,
-        "b_wins": 2
+        "b_wins": 3
       },
       "passed": true,
       "strength": "strong"
@@ -241,20 +269,9 @@
     {
       "id": "family_speed_edge",
       "kind": "speed",
-      "statement": "At matched compute, YOLOv9 is 22.8% faster on average on NVIDIA RTX 5070 Ti (PyTorch FP32).",
+      "statement": "At matched compute, YOLOv9 is 21.6% faster on average on NVIDIA RTX 5070 Ti (PyTorch FP32).",
       "values": {
-        "mean_delta_pct": 22.8
-      },
-      "passed": true,
-      "strength": "strong"
-    },
-    {
-      "id": "family_crossover",
-      "kind": "robustness",
-      "statement": "The frontier crosses: YOLOv9 leads at the small-model end, RF-DETR leads at the large-model end. There is no single winner; the choice depends on your size class.",
-      "values": {
-        "low": "yolov9",
-        "high": "rfdetr"
+        "mean_delta_pct": 21.6
       },
       "passed": true,
       "strength": "strong"
@@ -312,9 +329,9 @@
     {
       "id": "coverage",
       "kind": "ranking",
-      "statement": "RF-DETR fields 4 measured variants, YOLOv9 fields 4, all on the same protocol on NVIDIA RTX 5070 Ti.",
+      "statement": "RF-DETR fields 5 measured variants, YOLOv9 fields 4, all on the same protocol on NVIDIA RTX 5070 Ti.",
       "values": {
-        "a_n": 4,
+        "a_n": 5,
         "b_n": 4
       },
       "passed": true,
@@ -323,19 +340,21 @@
   ],
   "gate": {
     "passed": true,
-    "passed_claims": 6,
+    "passed_claims": 5,
     "required": 2,
     "reason": null
   },
   "allowed_numbers": [
     -40.66,
     -28.37,
-    -22.8,
+    -21.6,
+    -17.02,
+    -16.7,
     -15.37,
     -6.62,
     -5.7,
+    -4.5,
     -2.0,
-    -1.5,
     0.001,
     0.2,
     0.6,
@@ -343,9 +362,10 @@
     1.5,
     2.0,
     2.04,
-    3,
+    3.0,
     4.0,
-    5,
+    4.5,
+    5.0,
     6,
     7,
     7.23,
@@ -356,7 +376,7 @@
     12,
     20.0,
     20.12,
-    22.8,
+    21.6,
     25.1,
     25.5,
     30.3,
@@ -364,11 +384,14 @@
     30.8,
     31.9,
     32.11,
+    33.58,
     33.69,
     33.93,
+    35.1,
     35.8,
     37.1,
     39.5,
+    40.4,
     41.8,
     42.3,
     50,

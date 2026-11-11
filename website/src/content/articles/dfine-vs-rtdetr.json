@@ -1,18 +1,23 @@
 {
   "slug": "dfine-vs-rtdetr",
   "type": "family-vs",
-  "title": "D-FINE vs RT-DETR: which detector family wins",
-  "dek": "D-FINE averages 6.4 mAP points more than RT-DETR at matched compute, while RT-DETR runs 33.8% faster on an RTX 5070 Ti.",
-  "date": "2026-07-03",
+  "title": "D-FINE vs RT-DETR: 6.4 mAP more at matched size",
+  "dek": "D-FINE averages 6.4 mAP points more than RT-DETR at matched size and wins all 3 pairs. RT-DETR runs 33.8% faster on an RTX 5070 Ti.",
+  "date": "2026-11-11",
   "author": "Vision Analysis",
-  "readingMinutes": 4,
-  "tags": ["comparison", "family-vs", "dfine", "rtdetr"],
+  "readingMinutes": 3,
+  "tags": [
+    "comparison",
+    "family-vs",
+    "dfine",
+    "rtdetr"
+  ],
   "status": "published",
   "claimsFile": "article-pipeline/v2/output/dfine-vs-rtdetr.claims.json",
   "blocks": [
     {
       "kind": "verdict",
-      "text": "At matched compute on an RTX 5070 Ti, D-FINE is the more accurate family by a wide margin: it averages 6.4 mAP points higher and wins all 3 nearest-parameter pairs. RT-DETR answers on speed, running 33.8% faster on average in PyTorch. The choice is accuracy against throughput."
+      "text": "D-FINE is the more accurate family: at matched compute on an RTX 5070 Ti it averages 6.4 mAP points higher than RT-DETR and wins all 3 nearest-parameter pairs. RT-DETR answers on speed, running 33.8% faster on average in PyTorch. At the top, D-FINE-X reaches 61.4 mAP against RT-DETR-R101 at 56.8."
     },
     {
       "kind": "prose",
@@ -36,7 +41,7 @@
     },
     {
       "kind": "prose",
-      "text": "mAP is shown in percent. Pairing by nearest parameter count, D-FINE wins all 3 pairs and averages 6.4 mAP points higher. At the top end D-FINE-X reaches 61.4 mAP against RT-DETR-R101 at 56.8. This is the largest accuracy gap in this set of family comparisons."
+      "text": "mAP is shown in percent. Pairing by nearest parameter count, D-FINE wins all 3 pairs and averages 6.4 mAP points higher. At the top end D-FINE-X reaches 61.4 mAP against RT-DETR-R101 at 56.8. At the small end D-FINE-N reaches 45.8 mAP at 3.78M parameters; RT-DETR's smallest, RT-DETR-R18, reaches 49.8 at 20.18M."
     },
     {
       "kind": "heading",
@@ -50,9 +55,18 @@
       "kind": "kv",
       "title": "Licensing",
       "items": [
-        { "k": "D-FINE", "v": "Apache-2.0 (permissive)" },
-        { "k": "RT-DETR", "v": "Apache-2.0 (permissive)" },
-        { "k": "Commercial use", "v": "Both families ship under Apache-2.0" }
+        {
+          "k": "D-FINE",
+          "v": "Apache-2.0 (permissive)"
+        },
+        {
+          "k": "RT-DETR",
+          "v": "Apache-2.0 (permissive)"
+        },
+        {
+          "k": "Commercial use",
+          "v": "Both families ship under Apache-2.0"
+        }
       ]
     },
     {

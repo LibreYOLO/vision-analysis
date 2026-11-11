@@ -1,18 +1,22 @@
 {
   "slug": "deim-l-vs-rtdetrv2-r50",
   "type": "vs",
-  "title": "DEIM-L vs RT-DETRv2-R50: benchmark on same protocol",
-  "dek": "Measured on the same COCO protocol: DEIM-L leads by 2.1 mAP points with less VRAM, but RT-DETRv2-R50 is 42% faster in PyTorch on an RTX 5070 Ti.",
-  "date": "2026-07-03",
+  "title": "DEIM-L vs RT-DETRv2-R50: 57.8 vs 55.7 mAP, FPS by device",
+  "dek": "DEIM-L leads by 2.1 mAP with fewer params. RT-DETRv2-R50 runs 32.1 vs 18.6 FPS on an RTX 5070 Ti, but DEIM-L is faster on Jetson Orin and Pi 5.",
+  "date": "2026-11-11",
   "author": "Vision Analysis",
-  "readingMinutes": 4,
-  "tags": ["comparison", "deim", "rtdetr"],
+  "readingMinutes": 3,
+  "tags": [
+    "comparison",
+    "deim",
+    "rtdetr"
+  ],
   "status": "published",
   "claimsFile": "article-pipeline/v2/output/deim-l-vs-rtdetrv2-r50.claims.json",
   "blocks": [
     {
       "kind": "verdict",
-      "text": "DEIM-L is the more accurate detector: 57.8 vs 55.7 mAP@50-95 against RT-DETRv2-R50 on an RTX 5070 Ti, a 2.1 point lead, with fewer parameters (31.24M vs 42.89M) and less VRAM (245 vs 327 MB). RT-DETRv2-R50 wins desktop-GPU speed, 32.1 vs 18.6 FPS. On the edge that reverses: DEIM-L is faster on both Jetson Orin and Raspberry Pi 5."
+      "text": "DEIM-L is the more accurate detector: 57.8 vs 55.7 mAP@50-95 against RT-DETRv2-R50 on an RTX 5070 Ti, a 2.1 point lead, with fewer parameters (31.24M vs 42.89M) and less VRAM (245 vs 327 MB). RT-DETRv2-R50 wins desktop-GPU speed, 32.1 vs 18.6 FPS in PyTorch. On the edge that reverses: DEIM-L is faster on both Jetson Orin and Raspberry Pi 5."
     },
     {
       "kind": "prose",
@@ -20,7 +24,10 @@
     },
     {
       "kind": "comparison-table",
-      "models": ["deim-l", "rtdetrv2-r50"],
+      "models": [
+        "deim-l",
+        "rtdetrv2-r50"
+      ],
       "hardware": "nvidia_geforce_rtx_5070_ti",
       "runtime": "pytorch_fp32"
     },
@@ -53,11 +60,26 @@
       "kind": "kv",
       "title": "License and provenance",
       "items": [
-        { "k": "DEIM-L license", "v": "Apache-2.0" },
-        { "k": "RT-DETRv2-R50 license", "v": "Apache-2.0" },
-        { "k": "DEIM-L release", "v": "2024-12-05" },
-        { "k": "RT-DETRv2-R50 release", "v": "2024-05-01" },
-        { "k": "Evaluated weights", "v": "LibreYOLO retrained checkpoints" }
+        {
+          "k": "DEIM-L license",
+          "v": "Apache-2.0"
+        },
+        {
+          "k": "RT-DETRv2-R50 license",
+          "v": "Apache-2.0"
+        },
+        {
+          "k": "DEIM-L release",
+          "v": "2024-12-05"
+        },
+        {
+          "k": "RT-DETRv2-R50 release",
+          "v": "2024-05-01"
+        },
+        {
+          "k": "Evaluated weights",
+          "v": "LibreYOLO retrained checkpoints"
+        }
       ]
     },
     {
