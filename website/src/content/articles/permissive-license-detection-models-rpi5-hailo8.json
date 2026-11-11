@@ -3,7 +3,7 @@
   "type": "license-guide",
   "title": "Commercially safe detection models for Pi 5 + Hailo-8",
   "dek": "YOLO-NAS ships under a non-permissive license. On a Pi 5 with Hailo-8, YOLOv9-M (MIT) beats YOLO-NAS-L by 0.9 mAP at INT8.",
-  "date": "2026-11-11",
+  "date": "2026-07-03",
   "author": "Vision Analysis",
   "readingMinutes": 4,
   "tags": ["license-guide", "hailo8", "permissive", "deployment"],

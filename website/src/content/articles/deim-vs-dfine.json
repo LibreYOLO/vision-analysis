@@ -3,7 +3,7 @@
   "type": "family-vs",
   "title": "DEIM vs D-FINE: which detector family wins",
   "dek": "D-FINE wins 4 of 5 matched pairs and reaches 61.4 mAP, edging DEIM on accuracy at nearly equal speed on an RTX 5070 Ti.",
-  "date": "2026-11-11",
+  "date": "2026-07-03",
   "author": "Vision Analysis",
   "readingMinutes": 4,
   "tags": ["comparison", "family-vs", "deim", "dfine"],

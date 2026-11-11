@@ -3,7 +3,7 @@
   "type": "vs",
   "title": "RT-DETR-R34 vs YOLOv9-C: benchmark on one protocol",
   "dek": "On the same COCO protocol YOLOv9-C leads RT-DETR-R34 by 4.9 mAP points, yet RT-DETR-R34 is faster on every runtime except PyTorch.",
-  "date": "2026-11-11",
+  "date": "2026-07-03",
   "author": "Vision Analysis",
   "readingMinutes": 4,
   "tags": [

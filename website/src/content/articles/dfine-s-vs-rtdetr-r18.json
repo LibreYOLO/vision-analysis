@@ -3,7 +3,7 @@
   "type": "vs",
   "title": "D-FINE-S vs RT-DETR-R18: benchmark on one protocol",
   "dek": "Measured on the same COCO protocol: D-FINE-S leads by 3.6 mAP points, but RT-DETR-R18 is 27% faster on desktop GPU and the order flips on a Raspberry Pi 5.",
-  "date": "2026-11-11",
+  "date": "2026-07-03",
   "author": "Vision Analysis",
   "readingMinutes": 3,
   "tags": [

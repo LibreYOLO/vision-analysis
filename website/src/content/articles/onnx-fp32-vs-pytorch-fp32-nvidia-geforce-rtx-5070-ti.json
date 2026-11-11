@@ -3,7 +3,7 @@
   "type": "runtime-guide",
   "title": "ONNX FP32 vs PyTorch FP32 on RTX 5070 Ti: 55 models",
   "dek": "ONNX Runtime FP32 gives a median 1.92x speedup over PyTorch FP32 across 55 models on the RTX 5070 Ti, with no accuracy loss and only one model slower.",
-  "date": "2026-11-11",
+  "date": "2026-07-03",
   "author": "Vision Analysis",
   "readingMinutes": 3,
   "tags": ["runtime-guide", "onnx", "rtx-5070-ti", "desktop-gpu"],

@@ -3,7 +3,7 @@
   "type": "vs",
   "title": "D-FINE-M vs RT-DETR-R50m: same-protocol benchmark",
   "dek": "Measured on the same COCO protocol: D-FINE-M leads by 4.0 mAP points on half the VRAM, but RT-DETR-R50m is faster on desktop GPU and the order flips on edge.",
-  "date": "2026-11-11",
+  "date": "2026-07-03",
   "author": "Vision Analysis",
   "readingMinutes": 4,
   "tags": [

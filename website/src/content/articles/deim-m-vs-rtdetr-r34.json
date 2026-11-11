@@ -3,7 +3,7 @@
   "type": "vs",
   "title": "DEIM-M vs RT-DETR-R34: benchmark on the same protocol",
   "dek": "Measured on the same COCO protocol: DEIM-M leads by 3.3 mAP points with fewer parameters, but RT-DETR-R34 is 29.41% faster on desktop GPU.",
-  "date": "2026-11-11",
+  "date": "2026-07-03",
   "author": "Vision Analysis",
   "readingMinutes": 4,
   "tags": [

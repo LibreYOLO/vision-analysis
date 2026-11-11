@@ -3,7 +3,7 @@
   "type": "vs",
   "title": "RF-DETR-N vs YOLOX-L: benchmark on COCO",
   "dek": "YOLOX-L leads by 4.0 mAP points at 640 px, but RF-DETR-N at 384 px is faster on edge hardware and most converted runtimes.",
-  "date": "2026-11-11",
+  "date": "2026-07-03",
   "author": "Vision Analysis",
   "readingMinutes": 4,
   "tags": [

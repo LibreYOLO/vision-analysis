@@ -3,7 +3,7 @@
   "type": "vs",
   "title": "RF-DETR-S vs YOLOX-L: benchmark on one protocol",
   "dek": "Measured on the same COCO protocol at each model's default input: accuracy ties at 55.1 vs 55.4 mAP, and RF-DETR-S uses less than a third the peak VRAM.",
-  "date": "2026-11-11",
+  "date": "2026-07-03",
   "author": "Vision Analysis",
   "readingMinutes": 3,
   "tags": [

@@ -3,7 +3,7 @@
   "type": "license-guide",
   "title": "Commercially safe object detection models for A100",
   "dek": "YOLO-NAS ships under a non-permissive license. On the A100, RT-DETR-R50m (Apache-2.0) matches YOLO-NAS-L at 50.8 vs 51.2 mAP.",
-  "date": "2026-11-11",
+  "date": "2026-07-03",
   "author": "Vision Analysis",
   "readingMinutes": 4,
   "tags": ["license-guide", "a100", "permissive", "deployment"],

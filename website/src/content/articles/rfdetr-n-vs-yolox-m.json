@@ -3,7 +3,7 @@
   "type": "vs",
   "title": "RF-DETR-N vs YOLOX-M: benchmark on one protocol",
   "dek": "Measured on the same COCO protocol at each model's default input: accuracy ties at 51.4 vs 51.7 mAP, and which one is faster depends entirely on the runtime.",
-  "date": "2026-11-11",
+  "date": "2026-07-03",
   "author": "Vision Analysis",
   "readingMinutes": 3,
   "tags": [

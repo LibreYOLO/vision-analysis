@@ -3,7 +3,7 @@
   "type": "vs",
   "title": "DEIM-S vs D-FINE-S: measured on the same protocol",
   "dek": "DEIM-S and D-FINE-S share 10.32M parameters; on the same COCO protocol D-FINE-S measures 1.3 mAP points higher on desktop GPU.",
-  "date": "2026-11-11",
+  "date": "2026-07-03",
   "author": "Vision Analysis",
   "readingMinutes": 4,
   "tags": [

@@ -3,7 +3,7 @@
   "type": "vs",
   "title": "DEIM-L vs YOLOX-L: benchmark on one protocol",
   "dek": "Measured on the same COCO protocol: DEIM-L leads by 2.4 mAP points, but YOLOX-L is 56% faster in desktop PyTorch and the order flips on TensorRT.",
-  "date": "2026-11-11",
+  "date": "2026-07-03",
   "author": "Vision Analysis",
   "readingMinutes": 3,
   "tags": ["comparison", "deim", "yolox"],

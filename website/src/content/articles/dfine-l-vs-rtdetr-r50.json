@@ -3,7 +3,7 @@
   "type": "vs",
   "title": "D-FINE-L vs RT-DETR-R50: benchmark on the same protocol",
   "dek": "Measured on the same COCO protocol: D-FINE-L leads by 4.1 mAP points with fewer parameters, but RT-DETR-R50 is 26.58% faster on desktop GPU.",
-  "date": "2026-11-11",
+  "date": "2026-07-03",
   "author": "Vision Analysis",
   "readingMinutes": 4,
   "tags": [

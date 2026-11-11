@@ -3,7 +3,7 @@
   "type": "family-vs",
   "title": "RF-DETR vs RT-DETR: which detector family wins",
   "dek": "Measured on one COCO protocol on an RTX 5070 Ti: RF-DETR averages 1.6 mAP points higher at matched compute, while RT-DETR runs about 3% faster.",
-  "date": "2026-11-11",
+  "date": "2026-07-03",
   "author": "Vision Analysis",
   "readingMinutes": 4,
   "tags": ["comparison", "family-vs", "rfdetr", "rtdetr"],

@@ -3,7 +3,7 @@
   "type": "runtime-guide",
   "title": "TensorRT FP16 vs PyTorch FP32 on RTX 5070 Ti: 51 models",
   "dek": "TensorRT FP16 gives a median 2.22x speedup over PyTorch FP32 across 51 models on the RTX 5070 Ti, but four models lose accuracy and one runs slower.",
-  "date": "2026-11-11",
+  "date": "2026-07-03",
   "author": "Vision Analysis",
   "readingMinutes": 3,
   "tags": ["runtime-guide", "tensorrt", "rtx-5070-ti", "desktop-gpu"],

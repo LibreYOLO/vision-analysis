@@ -3,7 +3,7 @@
   "type": "family-vs",
   "title": "DEIM vs DEIMv2: full benchmark comparison",
   "dek": "DEIMv2 wins 4 of 5 matched pairs on accuracy, but DEIM runs 10.4% faster on average on an RTX 5070 Ti.",
-  "date": "2026-11-11",
+  "date": "2026-07-03",
   "author": "Vision Analysis",
   "readingMinutes": 4,
   "tags": ["comparison", "family-vs", "deim", "deimv2"],

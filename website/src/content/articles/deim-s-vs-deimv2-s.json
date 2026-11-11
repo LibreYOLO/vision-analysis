@@ -3,7 +3,7 @@
   "type": "vs",
   "title": "DEIM-S vs DEIMv2-S: measured on the same protocol",
   "dek": "DEIMv2-S measures 0.9 mAP points higher than DEIM-S and uses less VRAM, but DEIM-S runs 37% faster on the same COCO protocol.",
-  "date": "2026-11-11",
+  "date": "2026-07-03",
   "author": "Vision Analysis",
   "readingMinutes": 4,
   "tags": [

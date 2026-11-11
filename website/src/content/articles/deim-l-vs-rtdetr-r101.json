@@ -3,7 +3,7 @@
   "type": "vs",
   "title": "DEIM-L vs RT-DETR-R101: benchmark on COCO",
   "dek": "DEIM-L leads by 1.0 mAP on under half the parameters, and turns RT-DETR-R101's PyTorch speed lead around once you convert the model.",
-  "date": "2026-11-11",
+  "date": "2026-07-03",
   "author": "Vision Analysis",
   "readingMinutes": 4,
   "tags": [

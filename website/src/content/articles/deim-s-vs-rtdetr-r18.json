@@ -3,7 +3,7 @@
   "type": "vs",
   "title": "DEIM-S vs RT-DETR-R18: benchmark on the same protocol",
   "dek": "Measured on the same COCO protocol: DEIM-S leads by 2.3 mAP points with fewer parameters, but RT-DETR-R18 is 29.37% faster on desktop GPU.",
-  "date": "2026-11-11",
+  "date": "2026-07-03",
   "author": "Vision Analysis",
   "readingMinutes": 4,
   "tags": [

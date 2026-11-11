@@ -3,7 +3,7 @@
   "type": "vs",
   "title": "RF-DETR-N vs YOLOv9-C: benchmark on COCO",
   "dek": "YOLOv9-C leads by 5.7 mAP points at 640 px, but RF-DETR-N at 384 px pulls ahead on Jetson Orin and Raspberry Pi 5.",
-  "date": "2026-11-11",
+  "date": "2026-07-03",
   "author": "Vision Analysis",
   "readingMinutes": 4,
   "tags": [

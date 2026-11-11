@@ -3,7 +3,7 @@
   "type": "vs",
   "title": "RT-DETR-R18 vs RT-DETRv2-R18: benchmark",
   "dek": "On the same COCO protocol, RT-DETRv2-R18 measures 0.9 mAP points higher than RT-DETR-R18 and runs 51.1 FPS to 47.2 on desktop GPU.",
-  "date": "2026-11-11",
+  "date": "2026-07-03",
   "author": "Vision Analysis",
   "readingMinutes": 4,
   "tags": [

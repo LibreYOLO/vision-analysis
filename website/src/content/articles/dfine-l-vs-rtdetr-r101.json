@@ -3,7 +3,7 @@
   "type": "vs",
   "title": "D-FINE-L vs RT-DETR-R101: same-protocol benchmark",
   "dek": "Measured on the same COCO protocol: D-FINE-L leads by 3.2 mAP points with fewer than half the parameters, and beats RT-DETR-R101 on most runtimes.",
-  "date": "2026-11-11",
+  "date": "2026-07-03",
   "author": "Vision Analysis",
   "readingMinutes": 4,
   "tags": [
