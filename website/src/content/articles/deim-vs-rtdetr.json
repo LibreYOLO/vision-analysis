@@ -3,7 +3,7 @@
   "type": "family-vs",
   "title": "DEIM vs RT-DETR: which detector family wins",
   "dek": "Measured on one COCO protocol on an RTX 5070 Ti: DEIM averages 4.3 mAP points higher at matched compute, while RT-DETR runs 41.6% faster.",
-  "date": "2026-07-03",
+  "date": "2026-11-11",
   "author": "Vision Analysis",
   "readingMinutes": 4,
   "tags": ["comparison", "family-vs", "deim", "rtdetr"],

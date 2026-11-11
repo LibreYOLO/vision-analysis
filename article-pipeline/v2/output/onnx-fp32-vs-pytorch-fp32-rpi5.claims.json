@@ -1,6 +1,6 @@
 {
   "engine": "article-pipeline-v2",
-  "generated_at": "2026-07-03T21:56:12.822922+00:00",
+  "generated_at": "2026-11-11T18:49:25.620862+00:00",
   "slug": "onnx-fp32-vs-pytorch-fp32-rpi5",
   "meta": {
     "type": "runtime-guide",
@@ -15,7 +15,7 @@
     "baseline_display": "PyTorch FP32",
     "target": "onnx_fp32",
     "target_display": "ONNX Runtime FP32",
-    "n_models": 48,
+    "n_models": 68,
     "rows": [
       {
         "model": "yolox-nano",
@@ -370,6 +370,17 @@
         "target_mAP": 28.1
       },
       {
+        "model": "yolo26n",
+        "displayName": "YOLO26-N",
+        "family": "yolo26",
+        "baseline_fps": 5.0,
+        "target_fps": 7.1,
+        "speedup_x": 1.41,
+        "mAP_delta_pts": 0.0,
+        "baseline_mAP": 40.1,
+        "target_mAP": 40.1
+      },
+      {
         "model": "yolox-l",
         "displayName": "YOLOX-L",
         "family": "yolox",
@@ -403,6 +414,39 @@
         "target_mAP": 36.5
       },
       {
+        "model": "yolo11n",
+        "displayName": "YOLO11-N",
+        "family": "yolo11",
+        "baseline_fps": 4.9,
+        "target_fps": 6.2,
+        "speedup_x": 1.26,
+        "mAP_delta_pts": 0.0,
+        "baseline_mAP": 38.7,
+        "target_mAP": 38.7
+      },
+      {
+        "model": "yolo26s",
+        "displayName": "YOLO26-S",
+        "family": "yolo26",
+        "baseline_fps": 2.3,
+        "target_fps": 2.8,
+        "speedup_x": 1.23,
+        "mAP_delta_pts": 0.0,
+        "baseline_mAP": 47.4,
+        "target_mAP": 47.4
+      },
+      {
+        "model": "yolov5nu",
+        "displayName": "YOLOv5nu",
+        "family": "yolov5u",
+        "baseline_fps": 5.4,
+        "target_fps": 6.4,
+        "speedup_x": 1.18,
+        "mAP_delta_pts": 0.0,
+        "baseline_mAP": 33.8,
+        "target_mAP": 33.8
+      },
+      {
         "model": "rfdetr-n",
         "displayName": "RF-DETR-N",
         "family": "rfdetr",
@@ -412,6 +456,17 @@
         "mAP_delta_pts": 0.0,
         "baseline_mAP": 51.4,
         "target_mAP": 51.4
+      },
+      {
+        "model": "yolo11s",
+        "displayName": "YOLO11-S",
+        "family": "yolo11",
+        "baseline_fps": 2.3,
+        "target_fps": 2.6,
+        "speedup_x": 1.15,
+        "mAP_delta_pts": 0.0,
+        "baseline_mAP": 45.7,
+        "target_mAP": 45.7
       },
       {
         "model": "rfdetr-s",
@@ -447,6 +502,17 @@
         "target_mAP": 56.0
       },
       {
+        "model": "yolo26m",
+        "displayName": "YOLO26-M",
+        "family": "yolo26",
+        "baseline_fps": 0.9,
+        "target_fps": 1.0,
+        "speedup_x": 1.13,
+        "mAP_delta_pts": 0.0,
+        "baseline_mAP": 52.2,
+        "target_mAP": 52.2
+      },
+      {
         "model": "rfdetr-l",
         "displayName": "RF-DETR-L",
         "family": "rfdetr",
@@ -456,6 +522,61 @@
         "mAP_delta_pts": 0.0,
         "baseline_mAP": 58.6,
         "target_mAP": 58.6
+      },
+      {
+        "model": "yolo11m",
+        "displayName": "YOLO11-M",
+        "family": "yolo11",
+        "baseline_fps": 0.9,
+        "target_fps": 1.0,
+        "speedup_x": 1.11,
+        "mAP_delta_pts": 0.0,
+        "baseline_mAP": 50.6,
+        "target_mAP": 50.6
+      },
+      {
+        "model": "yolo26l",
+        "displayName": "YOLO26-L",
+        "family": "yolo26",
+        "baseline_fps": 0.7,
+        "target_fps": 0.8,
+        "speedup_x": 1.11,
+        "mAP_delta_pts": 0.0,
+        "baseline_mAP": 53.8,
+        "target_mAP": 53.8
+      },
+      {
+        "model": "yolo11l",
+        "displayName": "YOLO11-L",
+        "family": "yolo11",
+        "baseline_fps": 0.7,
+        "target_fps": 0.8,
+        "speedup_x": 1.1,
+        "mAP_delta_pts": 0.0,
+        "baseline_mAP": 52.3,
+        "target_mAP": 52.3
+      },
+      {
+        "model": "yolov5su",
+        "displayName": "YOLOv5su",
+        "family": "yolov5u",
+        "baseline_fps": 2.5,
+        "target_fps": 2.8,
+        "speedup_x": 1.1,
+        "mAP_delta_pts": 0.0,
+        "baseline_mAP": 42.4,
+        "target_mAP": 42.4
+      },
+      {
+        "model": "yolov8n",
+        "displayName": "YOLOv8-N",
+        "family": "yolov8",
+        "baseline_fps": 5.3,
+        "target_fps": 5.9,
+        "speedup_x": 1.1,
+        "mAP_delta_pts": 0.0,
+        "baseline_mAP": 36.7,
+        "target_mAP": 36.7
       },
       {
         "model": "ec-m",
@@ -535,6 +656,72 @@
         "target_mAP": 53.0
       },
       {
+        "model": "yolov8s",
+        "displayName": "YOLOv8-S",
+        "family": "yolov8",
+        "baseline_fps": 2.4,
+        "target_fps": 2.4,
+        "speedup_x": 1.02,
+        "mAP_delta_pts": 0.0,
+        "baseline_mAP": 44.2,
+        "target_mAP": 44.2
+      },
+      {
+        "model": "yolov5mu",
+        "displayName": "YOLOv5mu",
+        "family": "yolov5u",
+        "baseline_fps": 1.2,
+        "target_fps": 1.2,
+        "speedup_x": 1.01,
+        "mAP_delta_pts": 0.0,
+        "baseline_mAP": 48.2,
+        "target_mAP": 48.2
+      },
+      {
+        "model": "yolo11x",
+        "displayName": "YOLO11-X",
+        "family": "yolo11",
+        "baseline_fps": 0.4,
+        "target_fps": 0.4,
+        "speedup_x": 1.0,
+        "mAP_delta_pts": 0.0,
+        "baseline_mAP": 53.6,
+        "target_mAP": 53.6
+      },
+      {
+        "model": "yolo26x",
+        "displayName": "YOLO26-X",
+        "family": "yolo26",
+        "baseline_fps": 0.4,
+        "target_fps": 0.4,
+        "speedup_x": 1.0,
+        "mAP_delta_pts": 0.0,
+        "baseline_mAP": 56.5,
+        "target_mAP": 56.5
+      },
+      {
+        "model": "yolov5lu",
+        "displayName": "YOLOv5lu",
+        "family": "yolov5u",
+        "baseline_fps": 0.6,
+        "target_fps": 0.6,
+        "speedup_x": 0.98,
+        "mAP_delta_pts": 0.0,
+        "baseline_mAP": 51.5,
+        "target_mAP": 51.5
+      },
+      {
+        "model": "yolov8m",
+        "displayName": "YOLOv8-M",
+        "family": "yolov8",
+        "baseline_fps": 1.1,
+        "target_fps": 1.0,
+        "speedup_x": 0.94,
+        "mAP_delta_pts": 0.0,
+        "baseline_mAP": 49.4,
+        "target_mAP": 49.4
+      },
+      {
         "model": "picodet-l",
         "displayName": "PicoDet-L",
         "family": "picodet",
@@ -544,11 +731,44 @@
         "mAP_delta_pts": -1.5,
         "baseline_mAP": 44.2,
         "target_mAP": 42.7
+      },
+      {
+        "model": "yolov8l",
+        "displayName": "YOLOv8-L",
+        "family": "yolov8",
+        "baseline_fps": 0.6,
+        "target_fps": 0.5,
+        "speedup_x": 0.91,
+        "mAP_delta_pts": 0.0,
+        "baseline_mAP": 52.0,
+        "target_mAP": 52.0
+      },
+      {
+        "model": "yolov5xu",
+        "displayName": "YOLOv5xu",
+        "family": "yolov5u",
+        "baseline_fps": 0.4,
+        "target_fps": 0.3,
+        "speedup_x": 0.87,
+        "mAP_delta_pts": 0.0,
+        "baseline_mAP": 52.3,
+        "target_mAP": 52.3
+      },
+      {
+        "model": "yolov8x",
+        "displayName": "YOLOv8-X",
+        "family": "yolov8",
+        "baseline_fps": 0.4,
+        "target_fps": 0.3,
+        "speedup_x": 0.85,
+        "mAP_delta_pts": 0.0,
+        "baseline_mAP": 53.0,
+        "target_mAP": 53.0
       }
     ],
     "speedup": {
-      "median_x": 1.57,
-      "min_x": 0.92,
+      "median_x": 1.39,
+      "min_x": 0.85,
       "max_x": 2.49
     },
     "family_median_speedup": {
@@ -561,7 +781,11 @@
       "dfine": 1.65,
       "rtdetrv4": 1.57,
       "picodet": 1.26,
+      "yolo26": 1.13,
+      "yolo11": 1.11,
+      "yolov5u": 1.01,
       "rfdetr": 1.13,
+      "yolov8": 0.94,
       "ec": 1.07
     },
     "accuracy_losers": [
@@ -667,6 +891,28 @@
     ],
     "speed_regressions": [
       {
+        "model": "yolov5lu",
+        "displayName": "YOLOv5lu",
+        "family": "yolov5u",
+        "baseline_fps": 0.6,
+        "target_fps": 0.6,
+        "speedup_x": 0.98,
+        "mAP_delta_pts": 0.0,
+        "baseline_mAP": 51.5,
+        "target_mAP": 51.5
+      },
+      {
+        "model": "yolov8m",
+        "displayName": "YOLOv8-M",
+        "family": "yolov8",
+        "baseline_fps": 1.1,
+        "target_fps": 1.0,
+        "speedup_x": 0.94,
+        "mAP_delta_pts": 0.0,
+        "baseline_mAP": 49.4,
+        "target_mAP": 49.4
+      },
+      {
         "model": "picodet-l",
         "displayName": "PicoDet-L",
         "family": "picodet",
@@ -676,6 +922,39 @@
         "mAP_delta_pts": -1.5,
         "baseline_mAP": 44.2,
         "target_mAP": 42.7
+      },
+      {
+        "model": "yolov8l",
+        "displayName": "YOLOv8-L",
+        "family": "yolov8",
+        "baseline_fps": 0.6,
+        "target_fps": 0.5,
+        "speedup_x": 0.91,
+        "mAP_delta_pts": 0.0,
+        "baseline_mAP": 52.0,
+        "target_mAP": 52.0
+      },
+      {
+        "model": "yolov5xu",
+        "displayName": "YOLOv5xu",
+        "family": "yolov5u",
+        "baseline_fps": 0.4,
+        "target_fps": 0.3,
+        "speedup_x": 0.87,
+        "mAP_delta_pts": 0.0,
+        "baseline_mAP": 52.3,
+        "target_mAP": 52.3
+      },
+      {
+        "model": "yolov8x",
+        "displayName": "YOLOv8-X",
+        "family": "yolov8",
+        "baseline_fps": 0.4,
+        "target_fps": 0.3,
+        "speedup_x": 0.85,
+        "mAP_delta_pts": 0.0,
+        "baseline_mAP": 53.0,
+        "target_mAP": 53.0
       }
     ]
   },
@@ -683,10 +962,10 @@
     {
       "id": "median_speedup",
       "kind": "speed",
-      "statement": "Across 48 models on Raspberry Pi 5, ONNX Runtime FP32 gives a median 1.57x over PyTorch FP32 (range 0.92x to 2.49x).",
+      "statement": "Across 68 models on Raspberry Pi 5, ONNX Runtime FP32 gives a median 1.39x over PyTorch FP32 (range 0.85x to 2.49x).",
       "values": {
-        "median_x": 1.57,
-        "min_x": 0.92,
+        "median_x": 1.39,
+        "min_x": 0.85,
         "max_x": 2.49
       },
       "passed": true,
@@ -713,15 +992,15 @@
     {
       "id": "family_spread",
       "kind": "speed",
-      "statement": "Family medians differ: deimv2 gains 1.87x, ec only 1.07x. Conversion gain is architecture-dependent.",
+      "statement": "Family medians differ: deimv2 gains 1.87x, yolov8 only 0.94x. Conversion gain is architecture-dependent.",
       "values": {
         "best": [
           "deimv2",
           1.87
         ],
         "worst": [
-          "ec",
-          1.07
+          "yolov8",
+          0.94
         ]
       },
       "passed": true,
@@ -730,7 +1009,7 @@
     {
       "id": "accuracy_cost",
       "kind": "accuracy",
-      "statement": "9 of 48 models lose 0.5+ mAP points under ONNX Runtime FP32: YOLOX-Nano (-1.1), YOLOv9-T (-0.7), YOLOX-Tiny (-0.8), YOLOv9-S (-0.9), YOLOv9-M (-1.7)",
+      "statement": "9 of 68 models lose 0.5+ mAP points under ONNX Runtime FP32: YOLOX-Nano (-1.1), YOLOv9-T (-0.7), YOLOX-Tiny (-0.8), YOLOv9-S (-0.9), YOLOv9-M (-1.7)",
       "values": {
         "losers": [
           {
@@ -796,9 +1075,31 @@
     {
       "id": "speed_regression",
       "kind": "anomaly",
-      "statement": "1 models get SLOWER under ONNX Runtime FP32: PicoDet-L (0.92x)",
+      "statement": "6 models get SLOWER under ONNX Runtime FP32: YOLOv5lu (0.98x), YOLOv8-M (0.94x), PicoDet-L (0.92x), YOLOv8-L (0.91x), YOLOv5xu (0.87x)",
       "values": {
         "regressions": [
+          {
+            "model": "yolov5lu",
+            "displayName": "YOLOv5lu",
+            "family": "yolov5u",
+            "baseline_fps": 0.6,
+            "target_fps": 0.6,
+            "speedup_x": 0.98,
+            "mAP_delta_pts": 0.0,
+            "baseline_mAP": 51.5,
+            "target_mAP": 51.5
+          },
+          {
+            "model": "yolov8m",
+            "displayName": "YOLOv8-M",
+            "family": "yolov8",
+            "baseline_fps": 1.1,
+            "target_fps": 1.0,
+            "speedup_x": 0.94,
+            "mAP_delta_pts": 0.0,
+            "baseline_mAP": 49.4,
+            "target_mAP": 49.4
+          },
           {
             "model": "picodet-l",
             "displayName": "PicoDet-L",
@@ -809,6 +1110,28 @@
             "mAP_delta_pts": -1.5,
             "baseline_mAP": 44.2,
             "target_mAP": 42.7
+          },
+          {
+            "model": "yolov8l",
+            "displayName": "YOLOv8-L",
+            "family": "yolov8",
+            "baseline_fps": 0.6,
+            "target_fps": 0.5,
+            "speedup_x": 0.91,
+            "mAP_delta_pts": 0.0,
+            "baseline_mAP": 52.0,
+            "target_mAP": 52.0
+          },
+          {
+            "model": "yolov5xu",
+            "displayName": "YOLOv5xu",
+            "family": "yolov5u",
+            "baseline_fps": 0.4,
+            "target_fps": 0.3,
+            "speedup_x": 0.87,
+            "mAP_delta_pts": 0.0,
+            "baseline_mAP": 52.3,
+            "target_mAP": 52.3
           }
         ]
       },
@@ -840,9 +1163,15 @@
     0.6,
     0.7,
     0.8,
+    0.85,
+    0.87,
     0.9,
+    0.91,
     0.92,
+    0.94,
+    0.98,
     1.0,
+    1.01,
     1.02,
     1.03,
     1.05,
@@ -852,13 +1181,17 @@
     1.1,
     1.11,
     1.13,
+    1.15,
     1.17,
+    1.18,
     1.2,
+    1.23,
     1.26,
     1.3,
     1.38,
     1.39,
     1.4,
+    1.41,
     1.42,
     1.48,
     1.56,
@@ -887,17 +1220,24 @@
     2.4,
     2.49,
     2.5,
+    2.6,
+    2.8,
     2.9,
     3,
     4,
     4.3,
     4.4,
+    4.9,
     5.0,
+    5.3,
+    5.4,
     5.5,
     5.9,
     6,
     6.2,
+    6.4,
     7,
+    7.1,
     7.4,
     8,
     8.6,
@@ -918,33 +1258,44 @@
     29.5,
     30.0,
     30.3,
+    33.8,
     34.3,
     34.5,
     35.1,
     36.5,
+    36.7,
     37.6,
+    38.7,
     40.0,
+    40.1,
     40.7,
     41.4,
     42.2,
+    42.4,
     42.7,
     43.0,
     43.1,
     44.2,
+    45.7,
     45.8,
     46.7,
     46.8,
-    48.0,
+    47.4,
+    48.2,
     48.5,
     49.4,
     49.7,
     49.8,
     50.0,
+    50.6,
     50.8,
     50.9,
     51.4,
+    51.5,
+    52.0,
     52.1,
     52.2,
+    52.3,
     52.8,
     53.0,
     53.2,
@@ -971,12 +1322,18 @@
     60.1,
     61.1,
     61.3,
+    68.0,
     70.0,
     75,
     80.0,
+    85.0,
+    87.0,
     90.0,
+    91.0,
     92.0,
+    94.0,
     95,
+    98.0,
     100.0,
     300,
     500,

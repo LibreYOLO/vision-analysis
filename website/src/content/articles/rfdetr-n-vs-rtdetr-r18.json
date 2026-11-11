@@ -3,7 +3,7 @@
   "type": "vs",
   "title": "RF-DETR-N vs RT-DETR-R18: benchmark on COCO",
   "dek": "RF-DETR-N leads by 1.6 mAP points at 384 px, but RT-DETR-R18 at 640 px is faster on desktop and every GPU runtime measured.",
-  "date": "2026-07-03",
+  "date": "2026-11-11",
   "author": "Vision Analysis",
   "readingMinutes": 4,
   "tags": [
