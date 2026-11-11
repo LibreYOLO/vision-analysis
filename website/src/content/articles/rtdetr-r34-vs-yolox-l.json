@@ -3,7 +3,7 @@
   "type": "vs",
   "title": "RT-DETR-R34 vs YOLOX-L: benchmark on one protocol",
   "dek": "On the same COCO protocol YOLOX-L leads RT-DETR-R34 by 3.2 mAP points, yet RT-DETR-R34 is faster on every runtime except PyTorch.",
-  "date": "2026-07-03",
+  "date": "2026-11-11",
   "author": "Vision Analysis",
   "readingMinutes": 4,
   "tags": [

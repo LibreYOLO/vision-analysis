@@ -3,7 +3,7 @@
   "type": "family-vs",
   "title": "D-FINE vs YOLOv9: which detector family wins",
   "dek": "Measured on one COCO protocol on an RTX 5070 Ti: D-FINE averages 2.5 mAP points higher at matched compute, while YOLOv9 runs 19.9% faster.",
-  "date": "2026-07-03",
+  "date": "2026-11-11",
   "author": "Vision Analysis",
   "readingMinutes": 4,
   "tags": ["comparison", "family-vs", "dfine", "yolov9"],

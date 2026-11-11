@@ -3,7 +3,7 @@
   "type": "vs",
   "title": "D-FINE-M vs RT-DETR-R34: benchmark on one protocol",
   "dek": "Measured on the same COCO protocol: D-FINE-M leads by 5.6 mAP points, but RT-DETR-R34 is 28% faster on desktop GPU and that lead vanishes on a Raspberry Pi 5.",
-  "date": "2026-07-03",
+  "date": "2026-11-11",
   "author": "Vision Analysis",
   "readingMinutes": 3,
   "tags": [
