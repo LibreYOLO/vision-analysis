@@ -1,6 +1,6 @@
 {
   "engine": "article-pipeline-v2",
-  "generated_at": "2026-07-03T21:56:13.010715+00:00",
+  "generated_at": "2026-11-11T18:49:25.767255+00:00",
   "slug": "permissive-license-detection-models-jetson-orin",
   "meta": {
     "type": "license-guide",
@@ -13,8 +13,23 @@
     "runtime": "pytorch_fp32",
     "runtime_display": "PyTorch FP32",
     "n_permissive": 55,
-    "n_nonpermissive": 3,
+    "n_nonpermissive": 23,
     "matchups": [
+      {
+        "model": "yolo26x",
+        "displayName": "YOLO26-X",
+        "license": "AGPL-3.0",
+        "mAP": 56.5,
+        "fps": 5.2,
+        "alternative": {
+          "model": "yolov9m",
+          "displayName": "YOLOv9-M",
+          "license": "MIT",
+          "mAP": 56.1,
+          "fps": 8.0,
+          "mAP_gap_pts": -0.4
+        }
+      },
       {
         "model": "yolonas-l",
         "displayName": "YOLO-NAS-L",
@@ -46,6 +61,111 @@
         }
       },
       {
+        "model": "yolo26l",
+        "displayName": "YOLO26-L",
+        "license": "AGPL-3.0",
+        "mAP": 53.8,
+        "fps": 9.3,
+        "alternative": {
+          "model": "dfine-s",
+          "displayName": "D-FINE-S",
+          "license": "Apache-2.0",
+          "mAP": 53.4,
+          "fps": 10.3,
+          "mAP_gap_pts": -0.4
+        }
+      },
+      {
+        "model": "yolo11x",
+        "displayName": "YOLO11-X",
+        "license": "AGPL-3.0",
+        "mAP": 53.6,
+        "fps": 5.1,
+        "alternative": {
+          "model": "dfine-s",
+          "displayName": "D-FINE-S",
+          "license": "Apache-2.0",
+          "mAP": 53.4,
+          "fps": 10.3,
+          "mAP_gap_pts": -0.2
+        }
+      },
+      {
+        "model": "yolov8x",
+        "displayName": "YOLOv8-X",
+        "license": "AGPL-3.0",
+        "mAP": 53.0,
+        "fps": 5.4,
+        "alternative": {
+          "model": "dfine-s",
+          "displayName": "D-FINE-S",
+          "license": "Apache-2.0",
+          "mAP": 53.4,
+          "fps": 10.3,
+          "mAP_gap_pts": 0.4
+        }
+      },
+      {
+        "model": "yolov5xu",
+        "displayName": "YOLOv5xu",
+        "license": "AGPL-3.0",
+        "mAP": 52.3,
+        "fps": 5.0,
+        "alternative": {
+          "model": "dfine-s",
+          "displayName": "D-FINE-S",
+          "license": "Apache-2.0",
+          "mAP": 53.4,
+          "fps": 10.3,
+          "mAP_gap_pts": 1.1
+        }
+      },
+      {
+        "model": "yolo11l",
+        "displayName": "YOLO11-L",
+        "license": "AGPL-3.0",
+        "mAP": 52.3,
+        "fps": 9.1,
+        "alternative": {
+          "model": "dfine-s",
+          "displayName": "D-FINE-S",
+          "license": "Apache-2.0",
+          "mAP": 53.4,
+          "fps": 10.3,
+          "mAP_gap_pts": 1.1
+        }
+      },
+      {
+        "model": "yolo26m",
+        "displayName": "YOLO26-M",
+        "license": "AGPL-3.0",
+        "mAP": 52.2,
+        "fps": 11.3,
+        "alternative": {
+          "model": "dfine-s",
+          "displayName": "D-FINE-S",
+          "license": "Apache-2.0",
+          "mAP": 53.4,
+          "fps": 10.3,
+          "mAP_gap_pts": 1.2
+        }
+      },
+      {
+        "model": "yolov8l",
+        "displayName": "YOLOv8-L",
+        "license": "AGPL-3.0",
+        "mAP": 52.0,
+        "fps": 8.3,
+        "alternative": {
+          "model": "dfine-s",
+          "displayName": "D-FINE-S",
+          "license": "Apache-2.0",
+          "mAP": 53.4,
+          "fps": 10.3,
+          "mAP_gap_pts": 1.4
+        }
+      },
+      {
         "model": "yolonas-s",
         "displayName": "YOLO-NAS-S",
         "license": "non-permissive",
@@ -58,6 +178,186 @@
           "mAP": 53.4,
           "fps": 10.3,
           "mAP_gap_pts": 1.6
+        }
+      },
+      {
+        "model": "yolov5lu",
+        "displayName": "YOLOv5lu",
+        "license": "AGPL-3.0",
+        "mAP": 51.5,
+        "fps": 8.6,
+        "alternative": {
+          "model": "dfine-s",
+          "displayName": "D-FINE-S",
+          "license": "Apache-2.0",
+          "mAP": 53.4,
+          "fps": 10.3,
+          "mAP_gap_pts": 1.9
+        }
+      },
+      {
+        "model": "yolo11m",
+        "displayName": "YOLO11-M",
+        "license": "AGPL-3.0",
+        "mAP": 50.6,
+        "fps": 11.1,
+        "alternative": {
+          "model": "dfine-s",
+          "displayName": "D-FINE-S",
+          "license": "Apache-2.0",
+          "mAP": 53.4,
+          "fps": 10.3,
+          "mAP_gap_pts": 2.8
+        }
+      },
+      {
+        "model": "yolov8m",
+        "displayName": "YOLOv8-M",
+        "license": "AGPL-3.0",
+        "mAP": 49.4,
+        "fps": 12.2,
+        "alternative": {
+          "model": "dfine-s",
+          "displayName": "D-FINE-S",
+          "license": "Apache-2.0",
+          "mAP": 53.4,
+          "fps": 10.3,
+          "mAP_gap_pts": 4.0
+        }
+      },
+      {
+        "model": "yolov5mu",
+        "displayName": "YOLOv5mu",
+        "license": "AGPL-3.0",
+        "mAP": 48.2,
+        "fps": 12.8,
+        "alternative": {
+          "model": "dfine-s",
+          "displayName": "D-FINE-S",
+          "license": "Apache-2.0",
+          "mAP": 53.4,
+          "fps": 10.3,
+          "mAP_gap_pts": 5.2
+        }
+      },
+      {
+        "model": "yolo26s",
+        "displayName": "YOLO26-S",
+        "license": "AGPL-3.0",
+        "mAP": 47.4,
+        "fps": 20.1,
+        "alternative": {
+          "model": "deim-n",
+          "displayName": "DEIM-N",
+          "license": "Apache-2.0",
+          "mAP": 46.8,
+          "fps": 11.3,
+          "mAP_gap_pts": -0.6
+        }
+      },
+      {
+        "model": "yolo11s",
+        "displayName": "YOLO11-S",
+        "license": "AGPL-3.0",
+        "mAP": 45.7,
+        "fps": 20.7,
+        "alternative": {
+          "model": "dfine-n",
+          "displayName": "D-FINE-N",
+          "license": "Apache-2.0",
+          "mAP": 45.8,
+          "fps": 11.7,
+          "mAP_gap_pts": 0.1
+        }
+      },
+      {
+        "model": "yolov8s",
+        "displayName": "YOLOv8-S",
+        "license": "AGPL-3.0",
+        "mAP": 44.2,
+        "fps": 22.1,
+        "alternative": {
+          "model": "yolox-s",
+          "displayName": "YOLOX-S",
+          "license": "Apache-2.0",
+          "mAP": 44.3,
+          "fps": 16.9,
+          "mAP_gap_pts": 0.1
+        }
+      },
+      {
+        "model": "yolov5su",
+        "displayName": "YOLOv5su",
+        "license": "AGPL-3.0",
+        "mAP": 42.4,
+        "fps": 22.8,
+        "alternative": {
+          "model": "yolox-s",
+          "displayName": "YOLOX-S",
+          "license": "Apache-2.0",
+          "mAP": 44.3,
+          "fps": 16.9,
+          "mAP_gap_pts": 1.9
+        }
+      },
+      {
+        "model": "yolo26n",
+        "displayName": "YOLO26-N",
+        "license": "AGPL-3.0",
+        "mAP": 40.1,
+        "fps": 21.6,
+        "alternative": {
+          "model": "yolox-s",
+          "displayName": "YOLOX-S",
+          "license": "Apache-2.0",
+          "mAP": 44.3,
+          "fps": 16.9,
+          "mAP_gap_pts": 4.2
+        }
+      },
+      {
+        "model": "yolo11n",
+        "displayName": "YOLO11-N",
+        "license": "AGPL-3.0",
+        "mAP": 38.7,
+        "fps": 22.9,
+        "alternative": {
+          "model": "yolox-s",
+          "displayName": "YOLOX-S",
+          "license": "Apache-2.0",
+          "mAP": 44.3,
+          "fps": 16.9,
+          "mAP_gap_pts": 5.6
+        }
+      },
+      {
+        "model": "yolov8n",
+        "displayName": "YOLOv8-N",
+        "license": "AGPL-3.0",
+        "mAP": 36.7,
+        "fps": 26.4,
+        "alternative": {
+          "model": "yolox-s",
+          "displayName": "YOLOX-S",
+          "license": "Apache-2.0",
+          "mAP": 44.3,
+          "fps": 16.9,
+          "mAP_gap_pts": 7.6
+        }
+      },
+      {
+        "model": "yolov5nu",
+        "displayName": "YOLOv5nu",
+        "license": "AGPL-3.0",
+        "mAP": 33.8,
+        "fps": 26.1,
+        "alternative": {
+          "model": "yolox-tiny",
+          "displayName": "YOLOX-Tiny",
+          "license": "Apache-2.0",
+          "mAP": 35.5,
+          "fps": 20.3,
+          "mAP_gap_pts": 1.7
         }
       }
     ],
@@ -451,6 +751,28 @@
   },
   "claims": [
     {
+      "id": "alt_yolo26x",
+      "kind": "license",
+      "statement": "YOLOv9-M (MIT) matches YOLO26-X (AGPL-3.0) within 0.4 mAP points on NVIDIA Jetson Orin Nano Super 8GB: 56.1 vs 56.5 mAP, 8.0 vs 5.2 FPS.",
+      "values": {
+        "model": "yolo26x",
+        "displayName": "YOLO26-X",
+        "license": "AGPL-3.0",
+        "mAP": 56.5,
+        "fps": 5.2,
+        "alternative": {
+          "model": "yolov9m",
+          "displayName": "YOLOv9-M",
+          "license": "MIT",
+          "mAP": 56.1,
+          "fps": 8.0,
+          "mAP_gap_pts": -0.4
+        }
+      },
+      "passed": true,
+      "strength": "strong"
+    },
+    {
       "id": "alt_yolonas-l",
       "kind": "license",
       "statement": "YOLOv9-M (MIT) matches YOLO-NAS-L (non-permissive) within 0.2 mAP points on NVIDIA Jetson Orin Nano Super 8GB: 56.1 vs 56.3 mAP, 8.0 vs 5.0 FPS.",
@@ -495,6 +817,160 @@
       "strength": "strong"
     },
     {
+      "id": "alt_yolo26l",
+      "kind": "license",
+      "statement": "D-FINE-S (Apache-2.0) matches YOLO26-L (AGPL-3.0) within 0.4 mAP points on NVIDIA Jetson Orin Nano Super 8GB: 53.4 vs 53.8 mAP, 10.3 vs 9.3 FPS.",
+      "values": {
+        "model": "yolo26l",
+        "displayName": "YOLO26-L",
+        "license": "AGPL-3.0",
+        "mAP": 53.8,
+        "fps": 9.3,
+        "alternative": {
+          "model": "dfine-s",
+          "displayName": "D-FINE-S",
+          "license": "Apache-2.0",
+          "mAP": 53.4,
+          "fps": 10.3,
+          "mAP_gap_pts": -0.4
+        }
+      },
+      "passed": true,
+      "strength": "strong"
+    },
+    {
+      "id": "alt_yolo11x",
+      "kind": "license",
+      "statement": "D-FINE-S (Apache-2.0) matches YOLO11-X (AGPL-3.0) within 0.2 mAP points on NVIDIA Jetson Orin Nano Super 8GB: 53.4 vs 53.6 mAP, 10.3 vs 5.1 FPS.",
+      "values": {
+        "model": "yolo11x",
+        "displayName": "YOLO11-X",
+        "license": "AGPL-3.0",
+        "mAP": 53.6,
+        "fps": 5.1,
+        "alternative": {
+          "model": "dfine-s",
+          "displayName": "D-FINE-S",
+          "license": "Apache-2.0",
+          "mAP": 53.4,
+          "fps": 10.3,
+          "mAP_gap_pts": -0.2
+        }
+      },
+      "passed": true,
+      "strength": "strong"
+    },
+    {
+      "id": "alt_yolov8x",
+      "kind": "license",
+      "statement": "D-FINE-S (Apache-2.0) matches YOLOv8-X (AGPL-3.0) within 0.4 mAP points on NVIDIA Jetson Orin Nano Super 8GB: 53.4 vs 53.0 mAP, 10.3 vs 5.4 FPS.",
+      "values": {
+        "model": "yolov8x",
+        "displayName": "YOLOv8-X",
+        "license": "AGPL-3.0",
+        "mAP": 53.0,
+        "fps": 5.4,
+        "alternative": {
+          "model": "dfine-s",
+          "displayName": "D-FINE-S",
+          "license": "Apache-2.0",
+          "mAP": 53.4,
+          "fps": 10.3,
+          "mAP_gap_pts": 0.4
+        }
+      },
+      "passed": true,
+      "strength": "strong"
+    },
+    {
+      "id": "alt_yolov5xu",
+      "kind": "license",
+      "statement": "D-FINE-S (Apache-2.0) matches YOLOv5xu (AGPL-3.0) within 1.1 mAP points on NVIDIA Jetson Orin Nano Super 8GB: 53.4 vs 52.3 mAP, 10.3 vs 5.0 FPS.",
+      "values": {
+        "model": "yolov5xu",
+        "displayName": "YOLOv5xu",
+        "license": "AGPL-3.0",
+        "mAP": 52.3,
+        "fps": 5.0,
+        "alternative": {
+          "model": "dfine-s",
+          "displayName": "D-FINE-S",
+          "license": "Apache-2.0",
+          "mAP": 53.4,
+          "fps": 10.3,
+          "mAP_gap_pts": 1.1
+        }
+      },
+      "passed": true,
+      "strength": "strong"
+    },
+    {
+      "id": "alt_yolo11l",
+      "kind": "license",
+      "statement": "D-FINE-S (Apache-2.0) matches YOLO11-L (AGPL-3.0) within 1.1 mAP points on NVIDIA Jetson Orin Nano Super 8GB: 53.4 vs 52.3 mAP, 10.3 vs 9.1 FPS.",
+      "values": {
+        "model": "yolo11l",
+        "displayName": "YOLO11-L",
+        "license": "AGPL-3.0",
+        "mAP": 52.3,
+        "fps": 9.1,
+        "alternative": {
+          "model": "dfine-s",
+          "displayName": "D-FINE-S",
+          "license": "Apache-2.0",
+          "mAP": 53.4,
+          "fps": 10.3,
+          "mAP_gap_pts": 1.1
+        }
+      },
+      "passed": true,
+      "strength": "strong"
+    },
+    {
+      "id": "alt_yolo26m",
+      "kind": "license",
+      "statement": "D-FINE-S (Apache-2.0) matches YOLO26-M (AGPL-3.0) within 1.2 mAP points on NVIDIA Jetson Orin Nano Super 8GB: 53.4 vs 52.2 mAP, 10.3 vs 11.3 FPS.",
+      "values": {
+        "model": "yolo26m",
+        "displayName": "YOLO26-M",
+        "license": "AGPL-3.0",
+        "mAP": 52.2,
+        "fps": 11.3,
+        "alternative": {
+          "model": "dfine-s",
+          "displayName": "D-FINE-S",
+          "license": "Apache-2.0",
+          "mAP": 53.4,
+          "fps": 10.3,
+          "mAP_gap_pts": 1.2
+        }
+      },
+      "passed": true,
+      "strength": "strong"
+    },
+    {
+      "id": "alt_yolov8l",
+      "kind": "license",
+      "statement": "D-FINE-S (Apache-2.0) matches YOLOv8-L (AGPL-3.0) within 1.4 mAP points on NVIDIA Jetson Orin Nano Super 8GB: 53.4 vs 52.0 mAP, 10.3 vs 8.3 FPS.",
+      "values": {
+        "model": "yolov8l",
+        "displayName": "YOLOv8-L",
+        "license": "AGPL-3.0",
+        "mAP": 52.0,
+        "fps": 8.3,
+        "alternative": {
+          "model": "dfine-s",
+          "displayName": "D-FINE-S",
+          "license": "Apache-2.0",
+          "mAP": 53.4,
+          "fps": 10.3,
+          "mAP_gap_pts": 1.4
+        }
+      },
+      "passed": true,
+      "strength": "strong"
+    },
+    {
       "id": "alt_yolonas-s",
       "kind": "license",
       "statement": "D-FINE-S (Apache-2.0) matches YOLO-NAS-S (non-permissive) within 1.6 mAP points on NVIDIA Jetson Orin Nano Super 8GB: 53.4 vs 51.8 mAP, 10.3 vs 10.2 FPS.",
@@ -515,20 +991,293 @@
       },
       "passed": true,
       "strength": "strong"
+    },
+    {
+      "id": "alt_yolov5lu",
+      "kind": "license",
+      "statement": "D-FINE-S (Apache-2.0) matches YOLOv5lu (AGPL-3.0) within 1.9 mAP points on NVIDIA Jetson Orin Nano Super 8GB: 53.4 vs 51.5 mAP, 10.3 vs 8.6 FPS.",
+      "values": {
+        "model": "yolov5lu",
+        "displayName": "YOLOv5lu",
+        "license": "AGPL-3.0",
+        "mAP": 51.5,
+        "fps": 8.6,
+        "alternative": {
+          "model": "dfine-s",
+          "displayName": "D-FINE-S",
+          "license": "Apache-2.0",
+          "mAP": 53.4,
+          "fps": 10.3,
+          "mAP_gap_pts": 1.9
+        }
+      },
+      "passed": true,
+      "strength": "strong"
+    },
+    {
+      "id": "alt_yolo11m",
+      "kind": "license",
+      "statement": "D-FINE-S (Apache-2.0) matches YOLO11-M (AGPL-3.0) within 2.8 mAP points on NVIDIA Jetson Orin Nano Super 8GB: 53.4 vs 50.6 mAP, 10.3 vs 11.1 FPS.",
+      "values": {
+        "model": "yolo11m",
+        "displayName": "YOLO11-M",
+        "license": "AGPL-3.0",
+        "mAP": 50.6,
+        "fps": 11.1,
+        "alternative": {
+          "model": "dfine-s",
+          "displayName": "D-FINE-S",
+          "license": "Apache-2.0",
+          "mAP": 53.4,
+          "fps": 10.3,
+          "mAP_gap_pts": 2.8
+        }
+      },
+      "passed": true,
+      "strength": "strong"
+    },
+    {
+      "id": "alt_yolov8m",
+      "kind": "license",
+      "statement": "D-FINE-S (Apache-2.0) matches YOLOv8-M (AGPL-3.0) within 4.0 mAP points on NVIDIA Jetson Orin Nano Super 8GB: 53.4 vs 49.4 mAP, 10.3 vs 12.2 FPS.",
+      "values": {
+        "model": "yolov8m",
+        "displayName": "YOLOv8-M",
+        "license": "AGPL-3.0",
+        "mAP": 49.4,
+        "fps": 12.2,
+        "alternative": {
+          "model": "dfine-s",
+          "displayName": "D-FINE-S",
+          "license": "Apache-2.0",
+          "mAP": 53.4,
+          "fps": 10.3,
+          "mAP_gap_pts": 4.0
+        }
+      },
+      "passed": true,
+      "strength": "strong"
+    },
+    {
+      "id": "alt_yolov5mu",
+      "kind": "license",
+      "statement": "D-FINE-S (Apache-2.0) matches YOLOv5mu (AGPL-3.0) within 5.2 mAP points on NVIDIA Jetson Orin Nano Super 8GB: 53.4 vs 48.2 mAP, 10.3 vs 12.8 FPS.",
+      "values": {
+        "model": "yolov5mu",
+        "displayName": "YOLOv5mu",
+        "license": "AGPL-3.0",
+        "mAP": 48.2,
+        "fps": 12.8,
+        "alternative": {
+          "model": "dfine-s",
+          "displayName": "D-FINE-S",
+          "license": "Apache-2.0",
+          "mAP": 53.4,
+          "fps": 10.3,
+          "mAP_gap_pts": 5.2
+        }
+      },
+      "passed": true,
+      "strength": "strong"
+    },
+    {
+      "id": "alt_yolo26s",
+      "kind": "license",
+      "statement": "DEIM-N (Apache-2.0) matches YOLO26-S (AGPL-3.0) within 0.6 mAP points on NVIDIA Jetson Orin Nano Super 8GB: 46.8 vs 47.4 mAP, 11.3 vs 20.1 FPS.",
+      "values": {
+        "model": "yolo26s",
+        "displayName": "YOLO26-S",
+        "license": "AGPL-3.0",
+        "mAP": 47.4,
+        "fps": 20.1,
+        "alternative": {
+          "model": "deim-n",
+          "displayName": "DEIM-N",
+          "license": "Apache-2.0",
+          "mAP": 46.8,
+          "fps": 11.3,
+          "mAP_gap_pts": -0.6
+        }
+      },
+      "passed": true,
+      "strength": "strong"
+    },
+    {
+      "id": "alt_yolo11s",
+      "kind": "license",
+      "statement": "D-FINE-N (Apache-2.0) matches YOLO11-S (AGPL-3.0) within 0.1 mAP points on NVIDIA Jetson Orin Nano Super 8GB: 45.8 vs 45.7 mAP, 11.7 vs 20.7 FPS.",
+      "values": {
+        "model": "yolo11s",
+        "displayName": "YOLO11-S",
+        "license": "AGPL-3.0",
+        "mAP": 45.7,
+        "fps": 20.7,
+        "alternative": {
+          "model": "dfine-n",
+          "displayName": "D-FINE-N",
+          "license": "Apache-2.0",
+          "mAP": 45.8,
+          "fps": 11.7,
+          "mAP_gap_pts": 0.1
+        }
+      },
+      "passed": true,
+      "strength": "strong"
+    },
+    {
+      "id": "alt_yolov8s",
+      "kind": "license",
+      "statement": "YOLOX-S (Apache-2.0) matches YOLOv8-S (AGPL-3.0) within 0.1 mAP points on NVIDIA Jetson Orin Nano Super 8GB: 44.3 vs 44.2 mAP, 16.9 vs 22.1 FPS.",
+      "values": {
+        "model": "yolov8s",
+        "displayName": "YOLOv8-S",
+        "license": "AGPL-3.0",
+        "mAP": 44.2,
+        "fps": 22.1,
+        "alternative": {
+          "model": "yolox-s",
+          "displayName": "YOLOX-S",
+          "license": "Apache-2.0",
+          "mAP": 44.3,
+          "fps": 16.9,
+          "mAP_gap_pts": 0.1
+        }
+      },
+      "passed": true,
+      "strength": "strong"
+    },
+    {
+      "id": "alt_yolov5su",
+      "kind": "license",
+      "statement": "YOLOX-S (Apache-2.0) matches YOLOv5su (AGPL-3.0) within 1.9 mAP points on NVIDIA Jetson Orin Nano Super 8GB: 44.3 vs 42.4 mAP, 16.9 vs 22.8 FPS.",
+      "values": {
+        "model": "yolov5su",
+        "displayName": "YOLOv5su",
+        "license": "AGPL-3.0",
+        "mAP": 42.4,
+        "fps": 22.8,
+        "alternative": {
+          "model": "yolox-s",
+          "displayName": "YOLOX-S",
+          "license": "Apache-2.0",
+          "mAP": 44.3,
+          "fps": 16.9,
+          "mAP_gap_pts": 1.9
+        }
+      },
+      "passed": true,
+      "strength": "strong"
+    },
+    {
+      "id": "alt_yolo26n",
+      "kind": "license",
+      "statement": "YOLOX-S (Apache-2.0) matches YOLO26-N (AGPL-3.0) within 4.2 mAP points on NVIDIA Jetson Orin Nano Super 8GB: 44.3 vs 40.1 mAP, 16.9 vs 21.6 FPS.",
+      "values": {
+        "model": "yolo26n",
+        "displayName": "YOLO26-N",
+        "license": "AGPL-3.0",
+        "mAP": 40.1,
+        "fps": 21.6,
+        "alternative": {
+          "model": "yolox-s",
+          "displayName": "YOLOX-S",
+          "license": "Apache-2.0",
+          "mAP": 44.3,
+          "fps": 16.9,
+          "mAP_gap_pts": 4.2
+        }
+      },
+      "passed": true,
+      "strength": "strong"
+    },
+    {
+      "id": "alt_yolo11n",
+      "kind": "license",
+      "statement": "YOLOX-S (Apache-2.0) matches YOLO11-N (AGPL-3.0) within 5.6 mAP points on NVIDIA Jetson Orin Nano Super 8GB: 44.3 vs 38.7 mAP, 16.9 vs 22.9 FPS.",
+      "values": {
+        "model": "yolo11n",
+        "displayName": "YOLO11-N",
+        "license": "AGPL-3.0",
+        "mAP": 38.7,
+        "fps": 22.9,
+        "alternative": {
+          "model": "yolox-s",
+          "displayName": "YOLOX-S",
+          "license": "Apache-2.0",
+          "mAP": 44.3,
+          "fps": 16.9,
+          "mAP_gap_pts": 5.6
+        }
+      },
+      "passed": true,
+      "strength": "strong"
+    },
+    {
+      "id": "alt_yolov8n",
+      "kind": "license",
+      "statement": "YOLOX-S (Apache-2.0) matches YOLOv8-N (AGPL-3.0) within 7.6 mAP points on NVIDIA Jetson Orin Nano Super 8GB: 44.3 vs 36.7 mAP, 16.9 vs 26.4 FPS.",
+      "values": {
+        "model": "yolov8n",
+        "displayName": "YOLOv8-N",
+        "license": "AGPL-3.0",
+        "mAP": 36.7,
+        "fps": 26.4,
+        "alternative": {
+          "model": "yolox-s",
+          "displayName": "YOLOX-S",
+          "license": "Apache-2.0",
+          "mAP": 44.3,
+          "fps": 16.9,
+          "mAP_gap_pts": 7.6
+        }
+      },
+      "passed": true,
+      "strength": "strong"
+    },
+    {
+      "id": "alt_yolov5nu",
+      "kind": "license",
+      "statement": "YOLOX-Tiny (Apache-2.0) matches YOLOv5nu (AGPL-3.0) within 1.7 mAP points on NVIDIA Jetson Orin Nano Super 8GB: 35.5 vs 33.8 mAP, 20.3 vs 26.1 FPS.",
+      "values": {
+        "model": "yolov5nu",
+        "displayName": "YOLOv5nu",
+        "license": "AGPL-3.0",
+        "mAP": 33.8,
+        "fps": 26.1,
+        "alternative": {
+          "model": "yolox-tiny",
+          "displayName": "YOLOX-Tiny",
+          "license": "Apache-2.0",
+          "mAP": 35.5,
+          "fps": 20.3,
+          "mAP_gap_pts": 1.7
+        }
+      },
+      "passed": true,
+      "strength": "strong"
     }
   ],
   "gate": {
     "passed": true,
-    "passed_claims": 3,
+    "passed_claims": 23,
     "required": 2,
     "reason": null
   },
   "allowed_numbers": [
+    -0.6,
+    -0.4,
     -0.2,
     0.001,
+    0.1,
+    0.4,
     0.6,
     1,
+    1.1,
+    1.2,
+    1.4,
     1.6,
+    1.7,
+    1.9,
     2,
     2.7,
     2.8,
@@ -538,12 +1287,16 @@
     3.4,
     3.5,
     4.0,
+    4.2,
     4.3,
     4.7,
     4.8,
     4.9,
     5.0,
     5.1,
+    5.2,
+    5.4,
+    5.6,
     5.7,
     5.8,
     6.0,
@@ -551,12 +1304,16 @@
     6.6,
     6.9,
     7.0,
+    7.6,
     8.0,
     8.1,
+    8.3,
+    8.6,
     9,
     9.1,
+    9.3,
     9.9,
-    10,
+    10.0,
     10.1,
     10.2,
     10.3,
@@ -565,40 +1322,67 @@
     11.3,
     11.7,
     12,
+    12.2,
     12.5,
+    12.8,
     13.8,
     14.1,
     14.8,
     15.4,
     16.9,
     18.4,
+    20.1,
     20.3,
+    20.7,
+    21.6,
+    22.1,
+    22.8,
+    22.9,
+    23.0,
+    26.1,
+    26.4,
     27.5,
     28.8,
     30.4,
+    33.8,
     34.5,
     35.5,
+    36.7,
     37.9,
+    38.7,
+    40.0,
+    40.1,
     41.8,
     42.2,
+    42.4,
     44.1,
+    44.2,
     44.3,
+    45.7,
     45.8,
     46.7,
     46.8,
+    47.4,
+    48.2,
+    49.4,
     49.8,
     50,
     50.4,
+    50.6,
     50.8,
     51.4,
+    51.5,
     51.7,
     51.8,
+    52.0,
     52.1,
     52.2,
+    52.3,
     52.8,
     53.0,
     53.2,
     53.4,
+    53.6,
     53.8,
     54.3,
     54.8,

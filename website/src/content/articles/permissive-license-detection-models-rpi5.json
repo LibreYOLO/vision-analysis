@@ -2,21 +2,21 @@
   "slug": "permissive-license-detection-models-rpi5",
   "type": "license-guide",
   "title": "Commercially safe object detection models for Raspberry Pi 5",
-  "dek": "YOLO-NAS ships under a non-permissive license. On the Raspberry Pi 5, RF-DETR-S (Apache-2.0) matches YOLO-NAS-M at 55.1 vs 55.4 mAP and runs faster.",
-  "date": "2026-07-03",
+  "dek": "On a Raspberry Pi 5, RF-DETR-M (Apache-2.0) reaches 57.4 mAP at 0.8 FPS, ahead of the AGPL-3.0 YOLO26-X at 56.5 mAP and 0.4 FPS.",
+  "date": "2026-11-11",
   "author": "Vision Analysis",
-  "readingMinutes": 4,
-  "tags": ["license-guide", "rpi5", "permissive", "deployment"],
+  "readingMinutes": 3,
+  "tags": ["license-guide", "rpi5", "permissive", "agpl", "deployment"],
   "status": "published",
   "claimsFile": "article-pipeline/v2/output/permissive-license-detection-models-rpi5.claims.json",
   "blocks": [
     {
       "kind": "verdict",
-      "text": "YOLO-NAS ships under a non-permissive license that restricts commercial use. On the Raspberry Pi 5, permissive models match it and run faster. RF-DETR-S (Apache-2.0) lands within 0.3 mAP of YOLO-NAS-M: 55.1 vs 55.4 mAP, at 1.0 vs 0.5 FPS. RF-DETR-N stays within 0.4 of YOLO-NAS-S: 51.4 vs 51.8 mAP, at 2.1 vs 0.9 FPS. The license is not a reason to accept YOLO-NAS here."
+      "text": "On the Raspberry Pi 5, permissive models match the restricted ones on accuracy and, from the small class up, run at least as fast. RF-DETR-M (Apache-2.0) reaches 57.4 mAP at 0.8 FPS against YOLO26-X (AGPL-3.0) at 56.5 mAP and 0.4 FPS. RF-DETR-N lands within 0.9 points of YOLO11-L, YOLOv8-L and YOLO-NAS-S at 2.1 FPS, against 0.9 FPS or less. Only at the nano end do YOLO26-N and YOLO11-N keep a speed lead."
     },
     {
       "kind": "prose",
-      "text": "License terms decide whether a model can ship in a commercial product. YOLO-NAS carries a non-permissive license from its authors. MIT and Apache-2.0 models carry no such restriction on use, modification, or redistribution. On the Raspberry Pi 5, the permissive field is deep enough that you do not trade accuracy to stay in it. mAP is shown in percent form throughout."
+      "text": "License terms decide whether a model can ship in a closed commercial product. YOLO-NAS carries a non-permissive license from its authors. The Ultralytics models (YOLOv5u, YOLOv8, YOLO11, YOLO26) ship under AGPL-3.0, a copyleft license with source-release obligations. MIT and Apache-2.0 carry no such obligation. This guide covers 22 restricted models and 48 permissive ones on the same Raspberry Pi 5 protocol in PyTorch FP32. mAP is shown in percent form throughout."
     },
     {
       "kind": "callout",
@@ -24,29 +24,43 @@
     },
     {
       "kind": "heading",
-      "text": "Medium: RF-DETR-S matches YOLO-NAS-M"
+      "text": "Large: RF-DETR-M and D-FINE-S"
     },
     {
       "kind": "prose",
-      "text": "RF-DETR-S reaches 55.1 mAP at 1.0 FPS on the Raspberry Pi 5. YOLO-NAS-M reaches 55.4 mAP at 0.5 FPS. The permissive model lands within 0.3 mAP and runs at twice the frame rate. The Apache-2.0 option costs nothing in accuracy here."
+      "text": "RF-DETR-M is 0.9 points ahead of YOLO26-X and runs at twice its frame rate, 0.8 vs 0.4 FPS. RF-DETR-S reaches 55.1 mAP at 1.0 FPS against YOLO-NAS-M at 55.4 and 0.5 FPS. D-FINE-S reaches 53.4 mAP at 1.1 FPS. YOLO26-L sits 0.4 points higher at 0.7 FPS, and YOLO11-X reaches 53.6 at 0.4 FPS."
     },
     {
       "kind": "comparison-table",
-      "models": ["yolonas-m", "rfdetr-s"],
+      "models": ["yolo26x", "yolonas-m", "rfdetr-m", "rfdetr-s"],
       "hardware": "rpi5",
       "runtime": "pytorch_fp32"
     },
     {
       "kind": "heading",
-      "text": "Small: RF-DETR-N matches YOLO-NAS-S"
+      "text": "Medium: RF-DETR-N covers six restricted models"
     },
     {
       "kind": "prose",
-      "text": "RF-DETR-N reaches 51.4 mAP at 2.1 FPS on the Raspberry Pi 5. YOLO-NAS-S reaches 51.8 mAP at 0.9 FPS. The permissive model stays within 0.4 mAP and more than doubles throughput. In the small class the Apache-2.0 pick is the faster one."
+      "text": "RF-DETR-N reaches 51.4 mAP at 2.1 FPS. YOLO11-L reaches 52.3 at 0.7 FPS, YOLOv8-L 52.0 at 0.6, YOLOv5lu 51.5 at 0.6, and YOLO-NAS-S 51.8 at 0.9. It is also 0.8 points ahead of YOLO11-M and 2.0 ahead of YOLOv8-M, which run 0.9 and 1.1 FPS. On this board the Apache-2.0 pick is the faster one by a wide margin."
     },
     {
       "kind": "comparison-table",
-      "models": ["yolonas-s", "rfdetr-n"],
+      "models": ["yolo11l", "yolov8l", "yolonas-s", "rfdetr-n"],
+      "hardware": "rpi5",
+      "runtime": "pytorch_fp32"
+    },
+    {
+      "kind": "heading",
+      "text": "Small and nano: close, with one speed gap"
+    },
+    {
+      "kind": "prose",
+      "text": "DEIMv2-N reaches 46.7 mAP at 2.4 FPS, against YOLO26-S at 47.4 and YOLO11-S at 45.7, both at 2.3 FPS. At the nano end YOLOv9-T (MIT) is 1.3 points ahead of YOLO26-N but runs 2.9 vs 5.0 FPS. PicoDet-M matches YOLOv8-N at 37.6 vs 36.7 mAP and 5.0 vs 5.3 FPS. DEIMv2-Femto beats YOLOv5nu on both axes: 34.5 vs 33.8 mAP at 7.4 vs 5.4 FPS."
+    },
+    {
+      "kind": "comparison-table",
+      "models": ["yolo26s", "yolo26n", "deimv2-n", "yolov9t"],
       "hardware": "rpi5",
       "runtime": "pytorch_fp32"
     },
@@ -56,7 +70,7 @@
     },
     {
       "kind": "prose",
-      "text": "Permissive alternatives extend well past the YOLO-NAS range. DEIMv2-X tops the permissive field on the Raspberry Pi 5 at 61.3 mAP, above every YOLO-NAS variant measured. The table lists the permissive models with verified rows on this device, sorted by accuracy."
+      "text": "The permissive field runs past every restricted model at the top. DEIMv2-X leads at 61.3 mAP, then ECDet-X at 61.1, both at 0.3 FPS on this board. The table lists the permissive models with verified rows, sorted by accuracy."
     },
     {
       "kind": "ranking-table",
