@@ -1,22 +1,27 @@
 {
   "slug": "yolov9-vs-yolox",
   "type": "family-vs",
-  "title": "YOLOv9 vs YOLOX: which detector family wins",
-  "dek": "At matched compute YOLOv9 averages 5.3 mAP points more than YOLOX, while YOLOX runs 24.6% faster on an RTX 5070 Ti.",
-  "date": "2026-07-03",
+  "title": "YOLOv9 vs YOLOX: mAP and FPS for YOLOv9-T, S, M and C",
+  "dek": "YOLOv9-T 41.8, YOLOv9-S 50.4, YOLOv9-M 56.1, YOLOv9-C 57.1 mAP. At matched size YOLOv9 averages 5.3 points over YOLOX; YOLOX runs 24.6% faster.",
+  "date": "2026-11-11",
   "author": "Vision Analysis",
-  "readingMinutes": 4,
-  "tags": ["comparison", "family-vs", "yolov9", "yolox"],
+  "readingMinutes": 3,
+  "tags": [
+    "comparison",
+    "family-vs",
+    "yolov9",
+    "yolox"
+  ],
   "status": "published",
   "claimsFile": "article-pipeline/v2/output/yolov9-vs-yolox.claims.json",
   "blocks": [
     {
       "kind": "verdict",
-      "text": "At matched compute on an RTX 5070 Ti, YOLOv9 is the more accurate family: it averages 5.3 mAP points higher and wins all 3 nearest-parameter pairs. YOLOX answers on speed, running 24.6% faster on average in PyTorch. Neither family wins on both axes, so pick YOLOv9 for accuracy per parameter and YOLOX when raw throughput leads."
+      "text": "YOLOv9 is the more accurate family: at matched compute on an RTX 5070 Ti it averages 5.3 mAP points higher than YOLOX and wins all 3 nearest-parameter pairs. YOLOX is the faster family, 24.6% faster on average in PyTorch. Pick YOLOv9 for accuracy per parameter and YOLOX when raw throughput leads."
     },
     {
       "kind": "prose",
-      "text": "YOLOv9 fields 4 measured variants; YOLOX fields 6. Both run the same COCO val2017 protocol at 640 px on an RTX 5070 Ti, so the two ladders line up by parameter count."
+      "text": "YOLOv9 fields 4 measured variants; YOLOX fields 6. Both run the same COCO val2017 protocol at 640 px on an RTX 5070 Ti, so the two ladders line up by parameter count. Within YOLOv9, mAP climbs from 41.8 for YOLOv9-T (2.04M) to 50.4 for YOLOv9-S (7.23M), 56.1 for YOLOv9-M (20.12M) and 57.1 for YOLOv9-C (25.5M)."
     },
     {
       "kind": "family-frontier",
@@ -36,7 +41,7 @@
     },
     {
       "kind": "prose",
-      "text": "mAP is shown in percent. Pairing each YOLOv9 model with the nearest YOLOX model by parameter count, YOLOv9 wins all 3 pairs and averages 5.3 mAP points higher. At the top end YOLOv9-C reaches 57.1 mAP against YOLOX-X at 56.3. The gap is widest in the small class, where YOLOv9-S posts 50.4 mAP to YOLOX-S at 44.3."
+      "text": "mAP is shown in percent. Pairing each YOLOv9 model with the nearest YOLOX model by parameter count, YOLOv9 wins all 3 pairs and averages 5.3 mAP points higher. The gap is widest in the small class, where YOLOv9-S posts 50.4 mAP to YOLOX-S at 44.3. At the top end YOLOv9-C reaches 57.1 mAP against YOLOX-X at 56.3."
     },
     {
       "kind": "heading",
@@ -44,15 +49,24 @@
     },
     {
       "kind": "prose",
-      "text": "YOLOX is the faster family at matched compute: 24.6% faster on average in PyTorch FP32. Its smallest variant, YOLOX-Nano, runs 53.6 FPS at 0.91M parameters; YOLOv9-T runs 31.9 FPS at 2.04M. YOLOX trades accuracy for that throughput."
+      "text": "YOLOX is the faster family at matched compute: 24.6% faster on average in PyTorch FP32. Its smallest variant, YOLOX-Nano, runs 53.6 FPS at 0.91M parameters; YOLOv9-T runs 31.9 FPS at 2.04M. Within YOLOv9, YOLOv9-C runs 42.3 FPS and YOLOv9-M 37.1."
     },
     {
       "kind": "kv",
       "title": "Licensing",
       "items": [
-        { "k": "YOLOv9", "v": "MIT (permissive)" },
-        { "k": "YOLOX", "v": "Apache-2.0 (permissive)" },
-        { "k": "Commercial use", "v": "Both families ship under permissive licenses" }
+        {
+          "k": "YOLOv9",
+          "v": "MIT (permissive)"
+        },
+        {
+          "k": "YOLOX",
+          "v": "Apache-2.0 (permissive)"
+        },
+        {
+          "k": "Commercial use",
+          "v": "Both families ship under permissive licenses"
+        }
       ]
     },
     {

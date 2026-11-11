@@ -448,8 +448,17 @@ def _family_display(fam_id):
     return f["displayName"] if f else fam_id
 
 
+def _is_detect(model_id, models_meta):
+    """Detection articles must only aggregate detection models. A model whose
+    metadata sets `task` to anything other than detection (e.g. RF-DETR-Seg-N,
+    task "segmentation") is skipped; models with no `task` count as detection."""
+    task = (models_meta.get(model_id) or {}).get("task")
+    return not task or task in ("detect", "detection")
+
+
 def _family_all_permissive(fam_id, models_meta):
-    variants = [m for m in models_meta.values() if m.get("family") == fam_id]
+    variants = [m for m in models_meta.values()
+                if m.get("family") == fam_id and _is_detect(m["id"], models_meta)]
     lics = [m.get("license") for m in variants]
     return bool(lics) and all(l in PERMISSIVE for l in lics)
 
@@ -458,8 +467,8 @@ def _family_frontier(fam_id, hw, rt, index, models_meta):
     """Every variant of a family with data on hw/rt, sorted by params ascending."""
     rows = []
     for m in models_meta.values():
-        if m.get("family") != fam_id:
-            continue
+        if m.get("family") != fam_id or not _is_detect(m["id"], models_meta):
+            continue  # skip other families and non-detection variants
         bench = index.get((m["id"], hw, rt))
         if not bench:
             continue
@@ -627,7 +636,7 @@ def build_family_vs(index, models_meta, hardware_meta, runtimes_meta,
 def build_hardware_guide(index, models_meta, hardware_meta, runtimes_meta, hw, rt):
     rows = []
     for (m, h, r), bench in index.items():
-        if h == hw and r == rt:
+        if h == hw and r == rt and _is_detect(m, models_meta):  # detection models only
             rows.append((m, bench))
     if len(rows) < 8:
         sys.exit(f"ERROR: only {len(rows)} models on {hw}/{rt}; need at least 8 for a guide.")
@@ -732,7 +741,7 @@ def build_hardware_guide(index, models_meta, hardware_meta, runtimes_meta, hw, r
 def build_runtime_guide(index, models_meta, hardware_meta, runtimes_meta, hw, base_rt, tgt_rt):
     pairs = []
     for (m, h, r), bench in index.items():
-        if h == hw and r == base_rt:
+        if h == hw and r == base_rt and _is_detect(m, models_meta):  # detection models only
             tgt = index.get((m, hw, tgt_rt))
             if tgt:
                 pairs.append((m, bench, tgt))
@@ -815,7 +824,7 @@ def build_runtime_guide(index, models_meta, hardware_meta, runtimes_meta, hw, ba
 def build_license_guide(index, models_meta, hardware_meta, runtimes_meta, hw, rt):
     entries = {}
     for (m, h, r), bench in index.items():
-        if h == hw and r == rt:
+        if h == hw and r == rt and _is_detect(m, models_meta):  # detection models only
             entries[m] = bench
     perm = {m: b for m, b in entries.items() if is_permissive(m, models_meta)}
     nonperm = {m: b for m, b in entries.items() if not is_permissive(m, models_meta)

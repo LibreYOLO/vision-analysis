@@ -1,18 +1,22 @@
 {
   "slug": "deim-l-vs-rfdetr-l",
   "type": "vs",
-  "title": "DEIM-L vs RF-DETR-L: benchmark on COCO",
-  "dek": "RF-DETR-L leads by 0.8 mAP and is 25.84% faster in PyTorch, but DEIM-L wins on ONNX, TensorRT, Jetson, and mAP per GFLOP.",
-  "date": "2026-07-03",
+  "title": "DEIM-L vs RF-DETR-L: PyTorch, TensorRT and Jetson benchmark",
+  "dek": "RF-DETR-L leads DEIM-L by 0.8 mAP and runs 25.1 vs 18.6 FPS in PyTorch. On TensorRT FP32, DEIM-L runs 75.7 vs 45.1 FPS. Inputs: 640 vs 704 px.",
+  "date": "2026-11-11",
   "author": "Vision Analysis",
-  "readingMinutes": 4,
-  "tags": ["comparison", "deim", "rfdetr"],
+  "readingMinutes": 3,
+  "tags": [
+    "comparison",
+    "deim",
+    "rfdetr"
+  ],
   "status": "published",
   "claimsFile": "article-pipeline/v2/output/deim-l-vs-rfdetr-l.claims.json",
   "blocks": [
     {
       "kind": "verdict",
-      "text": "RF-DETR-L is the more accurate model, 58.6 vs 57.8 mAP@50-95 against DEIM-L on an RTX 5070 Ti in PyTorch, and 25.84% faster there, 25.1 vs 18.6 FPS. The resolutions differ: DEIM-L runs at 640 px and RF-DETR-L at 704 px, each at its author default, so read this as a deployment comparison. The PyTorch speed result does not hold: DEIM-L is faster on ONNX Runtime, TensorRT FP32, and Jetson Orin, and it leads on small objects."
+      "text": "The answer depends on your runtime. In PyTorch on an RTX 5070 Ti, RF-DETR-L is 0.8 mAP points more accurate, 58.6 vs 57.8 mAP@50-95, and 25.84% faster, 25.1 vs 18.6 FPS. Convert the models and DEIM-L takes the speed lead: it is faster on ONNX Runtime, TensorRT FP32, and Jetson Orin, and it leads on small objects. The resolutions differ: DEIM-L runs at 640 px and RF-DETR-L at 704 px, each at its author default."
     },
     {
       "kind": "prose",
@@ -20,7 +24,10 @@
     },
     {
       "kind": "comparison-table",
-      "models": ["deim-l", "rfdetr-l"],
+      "models": [
+        "deim-l",
+        "rfdetr-l"
+      ],
       "hardware": "nvidia_geforce_rtx_5070_ti",
       "runtime": "pytorch_fp32"
     },
@@ -53,11 +60,26 @@
       "kind": "kv",
       "title": "License and provenance",
       "items": [
-        { "k": "DEIM-L license", "v": "Apache-2.0" },
-        { "k": "RF-DETR-L license", "v": "Apache-2.0" },
-        { "k": "DEIM-L release", "v": "2024-12-05" },
-        { "k": "RF-DETR-L release", "v": "2026-02-23" },
-        { "k": "Evaluated weights", "v": "LibreYOLO retrained checkpoints" }
+        {
+          "k": "DEIM-L license",
+          "v": "Apache-2.0"
+        },
+        {
+          "k": "RF-DETR-L license",
+          "v": "Apache-2.0"
+        },
+        {
+          "k": "DEIM-L release",
+          "v": "2024-12-05"
+        },
+        {
+          "k": "RF-DETR-L release",
+          "v": "2026-02-23"
+        },
+        {
+          "k": "Evaluated weights",
+          "v": "LibreYOLO retrained checkpoints"
+        }
       ]
     },
     {

@@ -1,18 +1,22 @@
 {
   "slug": "dfine-l-vs-yolox-l",
   "type": "vs",
-  "title": "D-FINE-L vs YOLOX-L: benchmark on the same protocol",
-  "dek": "Measured on the same COCO protocol: D-FINE-L leads by 4.6 mAP points with less VRAM, but YOLOX-L runs 49% faster in PyTorch on an RTX 5070 Ti.",
-  "date": "2026-07-03",
+  "title": "D-FINE-L vs YOLOX-L: 60.0 vs 55.4 mAP, FPS by runtime",
+  "dek": "D-FINE-L scores 60.0 mAP to YOLOX-L's 55.4 with fewer params. YOLOX-L runs 42.8 vs 21.9 FPS in PyTorch; on TensorRT FP32 D-FINE-L leads 72.3 vs 61.8.",
+  "date": "2026-11-11",
   "author": "Vision Analysis",
-  "readingMinutes": 4,
-  "tags": ["comparison", "dfine", "yolox"],
+  "readingMinutes": 3,
+  "tags": [
+    "comparison",
+    "dfine",
+    "yolox"
+  ],
   "status": "published",
   "claimsFile": "article-pipeline/v2/output/dfine-l-vs-yolox-l.claims.json",
   "blocks": [
     {
       "kind": "verdict",
-      "text": "D-FINE-L is the more accurate detector: 60.0 vs 55.4 mAP@50-95 against YOLOX-L on an RTX 5070 Ti, a 4.6 point lead, and it does it with fewer parameters (31.24M vs 54.21M) and less VRAM (245 vs 307 MB). YOLOX-L wins raw PyTorch speed, 42.8 vs 21.9 FPS. That speed edge does not hold everywhere: on TensorRT FP32 the order flips and D-FINE-L pulls ahead at 72.3 vs 61.8 FPS."
+      "text": "D-FINE-L is the more accurate detector: 60.0 vs 55.4 mAP@50-95 against YOLOX-L on an RTX 5070 Ti, a 4.6 point lead, with fewer parameters (31.24M vs 54.21M) and less VRAM (245 vs 307 MB). YOLOX-L wins raw PyTorch speed, 42.8 vs 21.9 FPS. That edge does not hold everywhere: on TensorRT FP32 D-FINE-L pulls ahead at 72.3 vs 61.8 FPS, and on Raspberry Pi 5 the two tie."
     },
     {
       "kind": "prose",
@@ -20,7 +24,10 @@
     },
     {
       "kind": "comparison-table",
-      "models": ["dfine-l", "yolox-l"],
+      "models": [
+        "dfine-l",
+        "yolox-l"
+      ],
       "hardware": "nvidia_geforce_rtx_5070_ti",
       "runtime": "pytorch_fp32"
     },
@@ -47,17 +54,32 @@
     },
     {
       "kind": "callout",
-      "text": "The speed verdict does not survive TensorRT FP32. There D-FINE-L runs 72.3 FPS to YOLOX-L's 61.8, reversing the PyTorch result. Pick your speed number from the runtime you will actually deploy."
+      "text": "The speed verdict does not survive TensorRT FP32. There D-FINE-L runs 72.3 FPS to YOLOX-L's 61.8, reversing the PyTorch result. On Raspberry Pi 5 both run 0.4 FPS. Pick your speed number from the runtime you will deploy."
     },
     {
       "kind": "kv",
       "title": "License and provenance",
       "items": [
-        { "k": "D-FINE-L license", "v": "Apache-2.0" },
-        { "k": "YOLOX-L license", "v": "Apache-2.0" },
-        { "k": "D-FINE-L release", "v": "2024-10-18" },
-        { "k": "YOLOX-L release", "v": "2021-07-18" },
-        { "k": "Evaluated weights", "v": "LibreYOLO retrained checkpoints" }
+        {
+          "k": "D-FINE-L license",
+          "v": "Apache-2.0"
+        },
+        {
+          "k": "YOLOX-L license",
+          "v": "Apache-2.0"
+        },
+        {
+          "k": "D-FINE-L release",
+          "v": "2024-10-18"
+        },
+        {
+          "k": "YOLOX-L release",
+          "v": "2021-07-18"
+        },
+        {
+          "k": "Evaluated weights",
+          "v": "LibreYOLO retrained checkpoints"
+        }
       ]
     },
     {

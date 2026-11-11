@@ -1,18 +1,23 @@
 {
   "slug": "rtdetr-vs-yolox",
   "type": "family-vs",
-  "title": "RT-DETR vs YOLOX: which detector family wins",
-  "dek": "RT-DETR wins 6 of 7 matched pairs on accuracy, but YOLOX runs 30.3% faster on average on an RTX 5070 Ti.",
-  "date": "2026-07-03",
+  "title": "RT-DETR vs YOLOX: accuracy wins 6 of 7, speed goes to YOLOX",
+  "dek": "RT-DETR averages 1.3 mAP points more than YOLOX at matched size and wins 6 of 7 pairs. YOLOX runs 30.3% faster on an RTX 5070 Ti.",
+  "date": "2026-11-11",
   "author": "Vision Analysis",
-  "readingMinutes": 4,
-  "tags": ["comparison", "family-vs", "rtdetr", "yolox"],
+  "readingMinutes": 3,
+  "tags": [
+    "comparison",
+    "family-vs",
+    "rtdetr",
+    "yolox"
+  ],
   "status": "published",
   "claimsFile": "article-pipeline/v2/output/rtdetr-vs-yolox.claims.json",
   "blocks": [
     {
       "kind": "verdict",
-      "text": "At matched compute on an RTX 5070 Ti, RT-DETR is the more accurate family: it averages 1.3 mAP points higher and wins 6 of 7 nearest-parameter pairs. YOLOX answers on speed, running 30.3% faster on average in PyTorch. Pick by which axis you optimize for."
+      "text": "RT-DETR is the more accurate family: at matched compute on an RTX 5070 Ti it averages 1.3 mAP points higher than YOLOX and wins 6 of 7 nearest-parameter pairs. YOLOX is the faster family, running 30.3% faster on average in PyTorch. Pick by which axis you optimize for."
     },
     {
       "kind": "prose",
@@ -36,7 +41,7 @@
     },
     {
       "kind": "prose",
-      "text": "mAP is shown in percent. Pairing by nearest parameter count, RT-DETR wins 6 of 7 pairs and averages 1.3 mAP points higher. At the top end RT-DETR-R101 reaches 56.8 mAP against YOLOX-X at 56.3. The single pair YOLOX takes is narrow."
+      "text": "mAP is shown in percent. Pairing by nearest parameter count, RT-DETR wins 6 of 7 pairs and averages 1.3 mAP points higher. At the top end RT-DETR-R101 reaches 56.8 mAP against YOLOX-X at 56.3. YOLOX takes one pair: YOLOX-M reaches 51.7 mAP against RT-DETR-R18 at 49.8."
     },
     {
       "kind": "heading",
@@ -50,9 +55,18 @@
       "kind": "kv",
       "title": "Licensing",
       "items": [
-        { "k": "RT-DETR", "v": "Apache-2.0 (permissive)" },
-        { "k": "YOLOX", "v": "Apache-2.0 (permissive)" },
-        { "k": "Commercial use", "v": "Both families ship under Apache-2.0" }
+        {
+          "k": "RT-DETR",
+          "v": "Apache-2.0 (permissive)"
+        },
+        {
+          "k": "YOLOX",
+          "v": "Apache-2.0 (permissive)"
+        },
+        {
+          "k": "Commercial use",
+          "v": "Both families ship under Apache-2.0"
+        }
       ]
     },
     {

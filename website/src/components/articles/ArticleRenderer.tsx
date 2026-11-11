@@ -472,6 +472,9 @@ function FamilyFrontier({ block }: { block: FamilyFrontierBlock }) {
   const all = getBenchmarkResults(block.hardware, block.runtime);
   const rows = all
     .filter((r) => r.family === block.familyA || r.family === block.familyB)
+    // Detection family comparisons: drop segmentation variants (e.g. RF-DETR-Seg-N),
+    // matching the detection-only filter in article-pipeline/v2/claims.py.
+    .filter((r) => r.task === "detection")
     .filter((r) => r.paramsM)
     .sort((a, b) => a.paramsM - b.paramsM);
   if (rows.length < 4) {

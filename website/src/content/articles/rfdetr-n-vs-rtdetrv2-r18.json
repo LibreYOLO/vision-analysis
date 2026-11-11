@@ -1,26 +1,33 @@
 {
   "slug": "rfdetr-n-vs-rtdetrv2-r18",
   "type": "vs",
-  "title": "RF-DETR-N vs RT-DETRv2-R18: same-protocol benchmark",
-  "dek": "Measured on the same COCO protocol: RF-DETR-N edges RT-DETRv2-R18 by 0.7 mAP at 384 px, but RT-DETRv2-R18 runs at 640 px and is faster on GPU.",
-  "date": "2026-07-03",
+  "title": "RF-DETR vs RT-DETR: RF-DETR-N vs RT-DETRv2-R18 benchmark",
+  "dek": "RF-DETR-N scores 51.4 mAP at 384 px, RT-DETRv2-R18 50.7 at 640 px. RT-DETRv2-R18 runs 51.1 vs 39.5 FPS on GPU; RF-DETR-N wins on Raspberry Pi 5.",
+  "date": "2026-11-11",
   "author": "Vision Analysis",
-  "readingMinutes": 4,
-  "tags": ["comparison", "rfdetr", "rtdetr"],
+  "readingMinutes": 3,
+  "tags": [
+    "comparison",
+    "rfdetr",
+    "rtdetr"
+  ],
   "status": "published",
   "claimsFile": "article-pipeline/v2/output/rfdetr-n-vs-rtdetrv2-r18.claims.json",
   "blocks": [
     {
       "kind": "verdict",
-      "text": "RF-DETR-N and RT-DETRv2-R18 land within 0.7 mAP of each other on COCO val2017: 51.4 vs 50.7 mAP@50-95 on an RTX 5070 Ti. Read that gap with the input sizes in mind: RF-DETR-N runs at 384 px and RT-DETRv2-R18 at 640 px, each at its author default. RT-DETRv2-R18 wins GPU speed, 51.1 vs 39.5 FPS, and leads on small objects. RF-DETR-N uses less VRAM and turns the speed result around on Raspberry Pi 5."
+      "text": "RF-DETR-N is 0.7 mAP points more accurate, 51.4 vs 50.7 mAP@50-95 on COCO val2017. RT-DETRv2-R18 is faster on desktop GPU, 51.1 vs 39.5 FPS on an RTX 5070 Ti, and leads on small objects. The input sizes differ: RF-DETR-N runs at 384 px and RT-DETRv2-R18 at 640 px, each at its author default. On Raspberry Pi 5 the speed order flips and RF-DETR-N is faster."
     },
     {
       "kind": "prose",
-      "text": "This is not a like-for-like resolution test. RF-DETR-N (30.47M parameters, Apache-2.0) is evaluated at 384 px; RT-DETRv2-R18 (20.18M, Apache-2.0) at 640 px, each at its default input size. Both run on COCO val2017 with verified rows on desktop GPU, Jetson Orin, and Raspberry Pi 5. Treat the accuracy numbers as each model at its own recommended setting, not as a controlled resolution sweep."
+      "text": "This is not a like-for-like resolution test. RF-DETR-N (30.47M parameters, Apache-2.0) is evaluated at 384 px; RT-DETRv2-R18 (20.18M, Apache-2.0) at 640 px, each at its default input size. Both run on COCO val2017 with verified rows on desktop GPU, Jetson Orin, and Raspberry Pi 5. Treat the numbers as each model at its own recommended setting. For every variant of both families, see the [RF-DETR vs RT-DETR family comparison](/articles/rfdetr-vs-rtdetr)."
     },
     {
       "kind": "comparison-table",
-      "models": ["rfdetr-n", "rtdetrv2-r18"],
+      "models": [
+        "rfdetr-n",
+        "rtdetrv2-r18"
+      ],
       "hardware": "nvidia_geforce_rtx_5070_ti",
       "runtime": "pytorch_fp32"
     },
@@ -35,7 +42,7 @@
     },
     {
       "kind": "prose",
-      "text": "mAP is shown in percent form. RF-DETR-N measures 51.4 mAP@50-95 to RT-DETRv2-R18's 50.7, a 0.7 point edge, but RT-DETRv2-R18 leads on small objects: 33.5 vs 27.7 mAP_small, a 17.32% relative gap. Its larger 640 px input is one plausible reason that row goes the other way. If small instances dominate your scenes, RT-DETRv2-R18 is the safer pick."
+      "text": "mAP is shown in percent form. RF-DETR-N measures 51.4 mAP@50-95 to RT-DETRv2-R18's 50.7, a 0.7 point edge. RT-DETRv2-R18 leads on small objects: 33.5 vs 27.7 mAP_small, a 17.32% relative gap. If small instances dominate your scenes, RT-DETRv2-R18 is the safer pick."
     },
     {
       "kind": "heading",
@@ -47,19 +54,40 @@
     },
     {
       "kind": "callout",
-      "text": "The speed verdict flips on Raspberry Pi 5, where RF-DETR-N runs 2.1 FPS to RT-DETRv2-R18's 0.8. Its 384 px input helps most where compute is scarcest. If your target is a bare Pi, the desktop numbers point the wrong way."
+      "text": "The speed verdict flips on Raspberry Pi 5, where RF-DETR-N runs 2.1 FPS to RT-DETRv2-R18's 0.8. If your target is a bare Pi, the desktop numbers point the wrong way."
     },
     {
       "kind": "kv",
       "title": "License and provenance",
       "items": [
-        { "k": "RF-DETR-N license", "v": "Apache-2.0" },
-        { "k": "RT-DETRv2-R18 license", "v": "Apache-2.0" },
-        { "k": "RF-DETR-N release", "v": "2026-02-23" },
-        { "k": "RT-DETRv2-R18 release", "v": "2024-05-01" },
-        { "k": "RF-DETR-N input", "v": "384 px" },
-        { "k": "RT-DETRv2-R18 input", "v": "640 px" },
-        { "k": "Evaluated weights", "v": "LibreYOLO retrained checkpoints" }
+        {
+          "k": "RF-DETR-N license",
+          "v": "Apache-2.0"
+        },
+        {
+          "k": "RT-DETRv2-R18 license",
+          "v": "Apache-2.0"
+        },
+        {
+          "k": "RF-DETR-N release",
+          "v": "2026-02-23"
+        },
+        {
+          "k": "RT-DETRv2-R18 release",
+          "v": "2024-05-01"
+        },
+        {
+          "k": "RF-DETR-N input",
+          "v": "384 px"
+        },
+        {
+          "k": "RT-DETRv2-R18 input",
+          "v": "640 px"
+        },
+        {
+          "k": "Evaluated weights",
+          "v": "LibreYOLO retrained checkpoints"
+        }
       ]
     },
     {
@@ -68,7 +96,7 @@
     },
     {
       "kind": "prose",
-      "text": "Pick RF-DETR-N for CPU-bound edge targets like the Raspberry Pi 5, where its 384 px input makes it the faster detector, and where lower VRAM helps. Pick RT-DETRv2-R18 for GPU throughput and for small-object accuracy, where its 640 px input pays off. Both are Apache-2.0, so licensing does not force the choice."
+      "text": "Pick RF-DETR-N for CPU-bound edge targets like the Raspberry Pi 5, where it is the faster detector, and where its lower VRAM helps. Pick RT-DETRv2-R18 for GPU throughput and for small-object accuracy. Both are Apache-2.0, so licensing does not force the choice."
     },
     {
       "kind": "methodology"

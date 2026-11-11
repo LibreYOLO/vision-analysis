@@ -1,18 +1,23 @@
 {
   "slug": "dfine-vs-rtdetrv2",
   "type": "family-vs",
-  "title": "D-FINE vs RT-DETRv2: full benchmark comparison",
-  "dek": "Measured on one COCO protocol on an RTX 5070 Ti: D-FINE averages 6.2 mAP points higher at matched compute, while RT-DETRv2 runs 39.7% faster.",
-  "date": "2026-07-03",
+  "title": "D-FINE vs RT-DETRv2: accuracy and speed at matched size",
+  "dek": "D-FINE averages 6.2 mAP points more than RT-DETRv2 at matched size and wins all 3 pairs. RT-DETRv2 runs 39.7% faster on an RTX 5070 Ti.",
+  "date": "2026-11-11",
   "author": "Vision Analysis",
-  "readingMinutes": 4,
-  "tags": ["comparison", "family-vs", "dfine", "rtdetrv2"],
+  "readingMinutes": 3,
+  "tags": [
+    "comparison",
+    "family-vs",
+    "dfine",
+    "rtdetrv2"
+  ],
   "status": "published",
   "claimsFile": "article-pipeline/v2/output/dfine-vs-rtdetrv2.claims.json",
   "blocks": [
     {
       "kind": "verdict",
-      "text": "On an RTX 5070 Ti in PyTorch, D-FINE averages 6.2 mAP points higher than RT-DETRv2 at matched parameter counts, winning all 3 nearest-params pairings. RT-DETRv2 is 39.7% faster on average. D-FINE leads accuracy from smallest to largest; RT-DETRv2 wins on throughput."
+      "text": "D-FINE is the more accurate family: on an RTX 5070 Ti in PyTorch it averages 6.2 mAP points higher than RT-DETRv2 at matched parameter counts and wins all 3 nearest-params pairings. RT-DETRv2 is the faster family, 39.7% faster on average. At the top, D-FINE-X reaches 61.4 mAP against RT-DETRv2-R101 at 56.8."
     },
     {
       "kind": "prose",
@@ -50,9 +55,18 @@
       "kind": "kv",
       "title": "Licensing",
       "items": [
-        { "k": "D-FINE license", "v": "Apache-2.0" },
-        { "k": "RT-DETRv2 license", "v": "Apache-2.0" },
-        { "k": "Both families", "v": "permissive, cleared for commercial use" }
+        {
+          "k": "D-FINE license",
+          "v": "Apache-2.0"
+        },
+        {
+          "k": "RT-DETRv2 license",
+          "v": "Apache-2.0"
+        },
+        {
+          "k": "Both families",
+          "v": "permissive, cleared for commercial use"
+        }
       ]
     },
     {

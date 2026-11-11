@@ -1,22 +1,27 @@
 {
   "slug": "dfine-vs-rfdetr",
   "type": "family-vs",
-  "title": "D-FINE vs RF-DETR: full benchmark comparison",
-  "dek": "Measured on one COCO protocol on an RTX 5070 Ti: D-FINE averages 7.5 mAP points higher at matched compute, while RF-DETR runs 35.8% faster.",
-  "date": "2026-07-03",
+  "title": "D-FINE vs RF-DETR: 61.4 vs 58.6 mAP at the top end",
+  "dek": "D-FINE averages 7.5 mAP points more than RF-DETR at matched size and wins both pairs. RF-DETR runs 35.8% faster on an RTX 5070 Ti.",
+  "date": "2026-11-11",
   "author": "Vision Analysis",
-  "readingMinutes": 4,
-  "tags": ["comparison", "family-vs", "dfine", "rfdetr"],
+  "readingMinutes": 3,
+  "tags": [
+    "comparison",
+    "family-vs",
+    "dfine",
+    "rfdetr"
+  ],
   "status": "published",
   "claimsFile": "article-pipeline/v2/output/dfine-vs-rfdetr.claims.json",
   "blocks": [
     {
       "kind": "verdict",
-      "text": "On an RTX 5070 Ti in PyTorch, D-FINE averages 7.5 mAP points higher than RF-DETR at matched parameter counts, winning both nearest-params pairings. The trade is speed: RF-DETR runs 35.8% faster on average. D-FINE leads on accuracy from the smallest variant to the largest, so pick it for accuracy and RF-DETR for throughput."
+      "text": "D-FINE is the more accurate family: at matched parameter counts on an RTX 5070 Ti it averages 7.5 mAP points higher than RF-DETR and wins both nearest-params pairings. It also holds the top: D-FINE-X reaches 61.4 mAP against RF-DETR-L at 58.6. The trade is speed: RF-DETR runs 35.8% faster on average in PyTorch. Pick D-FINE for accuracy and RF-DETR for throughput."
     },
     {
       "kind": "prose",
-      "text": "D-FINE fields 5 measured variants and RF-DETR fields 4, all on the same COCO val2017 protocol on an RTX 5070 Ti. RF-DETR's variants cluster between 30 and 34M parameters, so only 2 pairings match closely by parameter count."
+      "text": "D-FINE fields 5 measured variants and RF-DETR fields 4, all on the same COCO val2017 protocol on an RTX 5070 Ti. RF-DETR's variants sit between 30.47M and 33.93M parameters, so only 2 pairings match closely by parameter count: D-FINE-M and D-FINE-L, both against RF-DETR-N."
     },
     {
       "kind": "family-frontier",
@@ -36,7 +41,7 @@
     },
     {
       "kind": "prose",
-      "text": "mAP is shown in percent. The comparison pairs each D-FINE variant with the nearest RF-DETR variant by parameter count. Across those 2 pairings D-FINE averages 7.5 mAP points higher and wins both. At the top end D-FINE-X reaches 61.4 mAP against RF-DETR-L at 58.6. At the small end D-FINE-N is a 3.78M model at 45.8 mAP, far lighter than RF-DETR's smallest at 30.47M and 51.4 mAP."
+      "text": "mAP is shown in percent. The comparison pairs each D-FINE variant with the nearest RF-DETR variant by parameter count. D-FINE-M (19.59M) beats RF-DETR-N by 6.4 points and D-FINE-L (31.24M) by 8.6, for a mean of 7.5. At the top end D-FINE-X reaches 61.4 mAP against RF-DETR-L at 58.6. At the small end D-FINE-N is a 3.78M model at 45.8 mAP, far lighter than RF-DETR's smallest at 30.47M and 51.4 mAP."
     },
     {
       "kind": "heading",
@@ -44,15 +49,24 @@
     },
     {
       "kind": "prose",
-      "text": "Averaged across the matched pairs, RF-DETR is 35.8% faster than D-FINE in PyTorch, and its lead grows with model size."
+      "text": "Averaged across the matched pairs, RF-DETR is 35.8% faster than D-FINE in PyTorch. RF-DETR-N runs 39.5 FPS against 28.8 for D-FINE-M and 21.9 for D-FINE-L."
     },
     {
       "kind": "kv",
       "title": "Licensing",
       "items": [
-        { "k": "D-FINE license", "v": "Apache-2.0" },
-        { "k": "RF-DETR license", "v": "Apache-2.0" },
-        { "k": "Both families", "v": "permissive, cleared for commercial use" }
+        {
+          "k": "D-FINE license",
+          "v": "Apache-2.0"
+        },
+        {
+          "k": "RF-DETR license",
+          "v": "Apache-2.0"
+        },
+        {
+          "k": "Both families",
+          "v": "permissive, cleared for commercial use"
+        }
       ]
     },
     {

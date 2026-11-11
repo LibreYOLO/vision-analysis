@@ -1,18 +1,23 @@
 {
   "slug": "deim-s-vs-yolov9s",
   "type": "vs",
-  "title": "DEIM-S vs YOLOv9-S: benchmark on the same protocol",
-  "dek": "Measured on the same COCO protocol: DEIM-S leads YOLOv9-S by 1.7 mAP points and is 8.42% faster on desktop GPU, but YOLOv9-S wins on Pi 5.",
-  "date": "2026-07-03",
+  "title": "DEIM-S vs YOLOv9-S: 52.1 vs 50.4 mAP, GPU and Pi 5 FPS",
+  "dek": "DEIM-S leads YOLOv9-S by 1.7 mAP and runs 33.4 vs 30.8 FPS on an RTX 5070 Ti. On Raspberry Pi 5, YOLOv9-S is faster: 1.4 vs 1.1 FPS.",
+  "date": "2026-11-11",
   "author": "Vision Analysis",
-  "readingMinutes": 4,
-  "tags": ["comparison", "deim", "yolov9", "edge"],
+  "readingMinutes": 3,
+  "tags": [
+    "comparison",
+    "deim",
+    "yolov9",
+    "edge"
+  ],
   "status": "published",
   "claimsFile": "article-pipeline/v2/output/deim-s-vs-yolov9s.claims.json",
   "blocks": [
     {
       "kind": "verdict",
-      "text": "DEIM-S wins on desktop GPU: 52.1 vs 50.4 mAP@50-95 and 33.4 vs 30.8 FPS against YOLOv9-S on an RTX 5070 Ti in PyTorch. YOLOv9-S is the lighter model: 7.23M parameters and 92 vs 142 MB peak VRAM. The speed order flips on Raspberry Pi 5, where YOLOv9-S runs 1.4 FPS to DEIM-S's 1.1. Pick by deployment target."
+      "text": "DEIM-S wins on desktop GPU: 52.1 vs 50.4 mAP@50-95 and 33.4 vs 30.8 FPS against YOLOv9-S on an RTX 5070 Ti in PyTorch. YOLOv9-S is the lighter model, at 7.23M parameters and 92 vs 142 MB peak VRAM. The speed order flips on Raspberry Pi 5, where YOLOv9-S runs 1.4 FPS to DEIM-S's 1.1. Pick by deployment target."
     },
     {
       "kind": "prose",
@@ -20,7 +25,10 @@
     },
     {
       "kind": "comparison-table",
-      "models": ["deim-s", "yolov9s"],
+      "models": [
+        "deim-s",
+        "yolov9s"
+      ],
       "hardware": "nvidia_geforce_rtx_5070_ti",
       "runtime": "pytorch_fp32"
     },
@@ -53,11 +61,26 @@
       "kind": "kv",
       "title": "License and provenance",
       "items": [
-        { "k": "DEIM-S license", "v": "Apache-2.0" },
-        { "k": "YOLOv9-S license", "v": "MIT" },
-        { "k": "DEIM-S release", "v": "2024-12-05" },
-        { "k": "YOLOv9-S release", "v": "2024-02-21" },
-        { "k": "Evaluated weights", "v": "LibreYOLO retrained checkpoints" }
+        {
+          "k": "DEIM-S license",
+          "v": "Apache-2.0"
+        },
+        {
+          "k": "YOLOv9-S license",
+          "v": "MIT"
+        },
+        {
+          "k": "DEIM-S release",
+          "v": "2024-12-05"
+        },
+        {
+          "k": "YOLOv9-S release",
+          "v": "2024-02-21"
+        },
+        {
+          "k": "Evaluated weights",
+          "v": "LibreYOLO retrained checkpoints"
+        }
       ]
     },
     {
